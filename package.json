@@ -8,8 +8,24 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "npm run test:main && npm run test:fp"
+    "test": "jest --no-cache"
   },
+  "dependencies": {},
   "devDependencies": {
-   }
+    "@babel/preset-env": "^7.9.5",
+    "babel-jest": "^25.3.0",
+    "jest": "^25.2.7"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "watchman": false,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "collectCoverage": false,
+    "testURL": "http://localhost/"
+  }
 }
