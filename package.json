@@ -1,0 +1,15 @@
+{
+  "name": "quran-meta",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "npm run test:main && npm run test:fp"
+  },
+  "devDependencies": {
+   }
+}
