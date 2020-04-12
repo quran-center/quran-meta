@@ -6763,9 +6763,25 @@ function ayaStringSplitter(str) {
   return [+surah, ayahs];
 }
 
+/**
+ *
+ * @param {*} suraNumber
+ * @param {*} ayaNumber
+ */
+function findJuz(suraNumber) {
+  var ayaNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var l = 1;
+
+  while (Juz[l + 1][0] < suraNumber || Juz[l + 1][0] == suraNumber && Juz[l + 1][1] <= ayaNumber) {
+    l++;
+  }
+
+  return l;
+}
+
 // [sura, aya]
 
-var Juz = [[], [1, 1], [2, 142], [2, 253], [3, 93], [4, 24], [4, 148], [5, 82], [6, 111], [7, 88], [8, 41], [9, 93], [11, 6], [12, 53], [15, 1], [17, 1], [18, 75], [21, 1], [23, 1], [25, 21], [27, 56], [29, 46], [33, 31], [36, 28], [39, 32], [41, 47], [46, 1], [51, 31], [58, 1], [67, 1], [78, 1], [115, 1]]; //------------------ Hizb Data ---------------------
+var Juz$1 = [[], [1, 1], [2, 142], [2, 253], [3, 93], [4, 24], [4, 148], [5, 82], [6, 111], [7, 88], [8, 41], [9, 93], [11, 6], [12, 53], [15, 1], [17, 1], [18, 75], [21, 1], [23, 1], [25, 21], [27, 56], [29, 46], [33, 31], [36, 28], [39, 32], [41, 47], [46, 1], [51, 31], [58, 1], [67, 1], [78, 1], [115, 1]]; //------------------ Hizb Data ---------------------
 
 var Manzil = [// [sura, aya]
 [], [1, 1], [5, 1], [10, 1], [17, 1], [26, 1], [37, 1], [50, 1]]; //------------------ Ruku Data ---------------------
@@ -6782,19 +6798,9 @@ var Rabbana = [[2, 127], [2, 128], [2, 201], [2, 250], [2, 286], [2, 286], [2, 2
  */
 
 function isAyahJuzFirst(suraNumber, ayaNumber) {
-  return Juz.findIndex(function (x) {
+  return Juz$1.findIndex(function (x) {
     return x[0] == suraNumber && x[1] == ayaNumber;
   });
-}
-function findJuz(suraNumber) {
-  var ayaNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-  var l = 1;
-
-  while (Juz[l + 1][0] < suraNumber || Juz[l + 1][0] == suraNumber && Juz[l + 1][1] <= ayaNumber) {
-    l++;
-  }
-
-  return l;
 } //todo explain function
 
 /**
@@ -6808,7 +6814,7 @@ function findJuzMetaBySurah(suraNumber) {
   var l = findJuz(suraNumber, ayaNumber);
   var r = l;
 
-  while (Juz[r + 1][0] == suraNumber) {
+  while (Juz$1[r + 1][0] == suraNumber) {
     r++;
   } // console.log(l,r,
   //   "sura at start of file ",Juz[l][0],
@@ -6818,21 +6824,37 @@ function findJuzMetaBySurah(suraNumber) {
   // )
 
 
-  var al = Sura[suraNumber][0] - Sura[Juz[l][0]][0] - Juz[l][1]; // console.log(Sura[suraNumber + 1][0], Sura[Juz[l][0]][0])
+  var al = Sura[suraNumber][0] - Sura[Juz$1[l][0]][0] - Juz$1[l][1]; // console.log(Sura[suraNumber + 1][0], Sura[Juz[l][0]][0])
 
   return [l, al + 1, r, getAyaCountinSura(suraNumber)];
 }
+/**
+ * 
+ * @param {*} suraNumber 
+ * @param {*} ayaNumber 
+ */
+
 function findPage(suraNumber, ayaNumber) {
   return Page.findIndex(function (x) {
     return x[0] == suraNumber && x[1] > ayaNumber && x[1] > 1 || x[0] > suraNumber;
   }) - 1;
 }
+/**
+ * 
+ * @param {*} ayaId 
+ */
+
 function findSurahByAyaid(ayaId) {
   var suraNum = Sura.slice(1).findIndex(function (x) {
     return x[0] >= ayaId;
   });
   return suraNum < 0 ? [114, ayaId - Sura[114][0]] : [suraNum, ayaId - Sura[suraNum][0]];
 }
+/**
+ * 
+ * @param {*} ayaId 
+ */
+
 function findJuzByAyaid(ayaId) {
   var _findSurahByAyaid = findSurahByAyaid(ayaId),
       _findSurahByAyaid2 = _slicedToArray(_findSurahByAyaid, 2),
@@ -6841,17 +6863,40 @@ function findJuzByAyaid(ayaId) {
 
   return findJuz(s, a);
 }
+/**
+ * 
+ * @param {*} surah 
+ * @param {*} ayah 
+ */
+
 function findAyaidBySurah(surah, ayah) {
   var curSurahMeta = Sura[surah];
   return curSurahMeta[0] + ayah;
 }
+/**
+ * 
+ * @param {*} surah 
+ */
+
 function getAyaCountinSura(surah) {
   return Sura[surah][1];
 }
+/**
+ * 
+ * @param {*} surah 
+ * @param {*} ayah 
+ */
+
 function nextAyah(surah, ayah) {
   var ayaid = findAyaidBySurah(surah, ayah);
   return findSurahByAyaid(ayaid == meta.numAyas ? 1 : ayaid + 1);
 }
+/**
+ * 
+ * @param {*} surah 
+ * @param {*} ayah 
+ */
+
 function prevAyah(surah, ayah) {
   var ayaid = findAyaidBySurah(surah, ayah);
   return findSurahByAyaid(ayaid == 1 ? meta.numAyas : ayaid - 1);
@@ -6903,7 +6948,7 @@ function findRangeAroundAyah(surah, ayah, mode) {
     case "juz":
       {
         var juz = findJuz(surah, ayah);
-        return [findAyaidBySurah.apply(void 0, _toConsumableArray(Juz[juz])), findAyaidBySurah.apply(void 0, _toConsumableArray(Juz[juz + 1])) - 1];
+        return [findAyaidBySurah.apply(void 0, _toConsumableArray(Juz$1[juz])), findAyaidBySurah.apply(void 0, _toConsumableArray(Juz$1[juz + 1])) - 1];
       }
 
     case "surah":
@@ -6929,4 +6974,4 @@ function findRangeAroundAyah(surah, ayah, mode) {
   }
 }
 
-export { qdataHizb as HizbQuarter, Juz, Manzil, Page, Rabbana, qdataRuku as Ruku, Sajda, Sura, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, pageMetaOld, prevAyah };
+export { qdataHizb as HizbQuarter, Juz$1 as Juz, Manzil, Page, Rabbana, qdataRuku as Ruku, Sajda, Sura, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, pageMetaOld, prevAyah };

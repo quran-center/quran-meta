@@ -142,9 +142,21 @@ const Rabbana = [
 ]
 
 //export default QuranMeta;
-import ayaStringSplitter from './ayaStringSplitter';
-export { meta, Sura, Juz, HizbQuarter, Manzil, Ruku, Page, Sajda, Rabbana, ayaStringSplitter }
-
+import ayaStringSplitter from "./ayaStringSplitter"
+import findJuz from "./findJuz"
+export {
+  meta,
+  Sura,
+  Juz,
+  HizbQuarter,
+  Manzil,
+  Ruku,
+  Page,
+  Sajda,
+  Rabbana,
+  ayaStringSplitter,
+  findJuz,
+}
 
 /**
  * Returns Positive number if aya is first ayah of juz, number is juz number
@@ -153,17 +165,6 @@ export { meta, Sura, Juz, HizbQuarter, Manzil, Ruku, Page, Sajda, Rabbana, ayaSt
  */
 export function isAyahJuzFirst(suraNumber, ayaNumber) {
   return Juz.findIndex(x => x[0] == suraNumber && x[1] == ayaNumber)
-}
-
-export function findJuz(suraNumber, ayaNumber = 1) {
-  let l = 1
-  while (
-    Juz[l + 1][0] < suraNumber ||
-    (Juz[l + 1][0] == suraNumber && Juz[l + 1][1] <= ayaNumber)
-  ) {
-    l++
-  }
-  return l
 }
 
 //todo explain function
@@ -188,6 +189,11 @@ export function findJuzMetaBySurah(suraNumber, ayaNumber = 1) {
   return [l, al + 1, r, getAyaCountinSura(suraNumber)]
 }
 
+/**
+ * 
+ * @param {*} suraNumber 
+ * @param {*} ayaNumber 
+ */
 export function findPage(suraNumber, ayaNumber) {
   return (
     Page.findIndex(
@@ -198,6 +204,10 @@ export function findPage(suraNumber, ayaNumber) {
   )
 }
 
+/**
+ * 
+ * @param {*} ayaId 
+ */
 export function findSurahByAyaid(ayaId) {
   const suraNum = Sura.slice(1).findIndex(x => x[0] >= ayaId)
   return suraNum < 0
@@ -205,25 +215,48 @@ export function findSurahByAyaid(ayaId) {
     : [suraNum, ayaId - Sura[suraNum][0]]
 }
 
+/**
+ * 
+ * @param {*} ayaId 
+ */
 export function findJuzByAyaid(ayaId) {
   const [s, a] = findSurahByAyaid(ayaId)
   return findJuz(s, a)
 }
 
+/**
+ * 
+ * @param {*} surah 
+ * @param {*} ayah 
+ */
 export function findAyaidBySurah(surah, ayah) {
   const curSurahMeta = Sura[surah]
   return curSurahMeta[0] + ayah
 }
 
+/**
+ * 
+ * @param {*} surah 
+ */
 export function getAyaCountinSura(surah) {
   return Sura[surah][1]
 }
 
+/**
+ * 
+ * @param {*} surah 
+ * @param {*} ayah 
+ */
 export function nextAyah(surah, ayah) {
   const ayaid = findAyaidBySurah(surah, ayah)
   return findSurahByAyaid(ayaid == meta.numAyas ? 1 : ayaid + 1)
 }
 
+/**
+ * 
+ * @param {*} surah 
+ * @param {*} ayah 
+ */
 export function prevAyah(surah, ayah) {
   const ayaid = findAyaidBySurah(surah, ayah)
   return findSurahByAyaid(ayaid == 1 ? meta.numAyas : ayaid - 1)
@@ -299,4 +332,3 @@ export function findRangeAroundAyah(surah, ayah, mode) {
       return [1, meta.numAyas]
   }
 }
-
