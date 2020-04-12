@@ -6789,8 +6789,7 @@ var Manzil = [// [sura, aya]
 //------------------ Sajda Data ---------------------
 
 var Sajda = [// [sura, aya, type]
-[7, 206, "recommended"], [13, 15, "recommended"], [16, 50, "recommended"], [17, 109, "recommended"], [19, 58, "recommended"], [22, 18, "recommended"], [22, 77, "recommended"], [25, 60, "recommended"], [27, 26, "recommended"], [32, 15, "obligatory"], [38, 24, "recommended"], [41, 38, "obligatory"], [53, 62, "obligatory"], [84, 21, "recommended"], [96, 19, "obligatory"]];
-var Rabbana = [[2, 127], [2, 128], [2, 201], [2, 250], [2, 286], [2, 286], [2, 286], [3, 8], [3, 9], [3, 16], [3, 53], [3, 147], [3, 191], [3, 192], [3, 193], [3, 193], [3, 194], [5, 83], [5, 114], [7, 23], [7, 47], [7, 89], [7, 126], [10, 85, 86], [14, 38], [14, 40], [14, 41], [18, 10], [20, 45], [23, 109], [25, 65, 66], [25, 74], [35, 34], [40, 7], [40, 89], [59, 10], [59, 10], [60, 4], [60, 5], [66, 8]]; //export default QuranMeta;
+[7, 206, "recommended"], [13, 15, "recommended"], [16, 50, "recommended"], [17, 109, "recommended"], [19, 58, "recommended"], [22, 18, "recommended"], [22, 77, "recommended"], [25, 60, "recommended"], [27, 26, "recommended"], [32, 15, "obligatory"], [38, 24, "recommended"], [41, 38, "obligatory"], [53, 62, "obligatory"], [84, 21, "recommended"], [96, 19, "obligatory"]]; //export default QuranMeta;
 /**
  * Returns Positive number if aya is first ayah of juz, number is juz number
  * @param {*} ayaNumber
@@ -6829,9 +6828,9 @@ function findJuzMetaBySurah(suraNumber) {
   return [l, al + 1, r, getAyaCountinSura(suraNumber)];
 }
 /**
- * 
- * @param {*} suraNumber 
- * @param {*} ayaNumber 
+ *
+ * @param {*} suraNumber
+ * @param {*} ayaNumber
  */
 
 function findPage(suraNumber, ayaNumber) {
@@ -6840,8 +6839,8 @@ function findPage(suraNumber, ayaNumber) {
   }) - 1;
 }
 /**
- * 
- * @param {*} ayaId 
+ *
+ * @param {*} ayaId
  */
 
 function findSurahByAyaid(ayaId) {
@@ -6851,8 +6850,8 @@ function findSurahByAyaid(ayaId) {
   return suraNum < 0 ? [114, ayaId - Sura[114][0]] : [suraNum, ayaId - Sura[suraNum][0]];
 }
 /**
- * 
- * @param {*} ayaId 
+ *
+ * @param {*} ayaId
  */
 
 function findJuzByAyaid(ayaId) {
@@ -6864,9 +6863,9 @@ function findJuzByAyaid(ayaId) {
   return findJuz(s, a);
 }
 /**
- * 
- * @param {*} surah 
- * @param {*} ayah 
+ *
+ * @param {*} surah
+ * @param {*} ayah
  */
 
 function findAyaidBySurah(surah, ayah) {
@@ -6874,17 +6873,17 @@ function findAyaidBySurah(surah, ayah) {
   return curSurahMeta[0] + ayah;
 }
 /**
- * 
- * @param {*} surah 
+ *
+ * @param {*} surah
  */
 
 function getAyaCountinSura(surah) {
   return Sura[surah][1];
 }
 /**
- * 
- * @param {*} surah 
- * @param {*} ayah 
+ *
+ * @param {*} surah
+ * @param {*} ayah
  */
 
 function nextAyah(surah, ayah) {
@@ -6892,9 +6891,9 @@ function nextAyah(surah, ayah) {
   return findSurahByAyaid(ayaid == meta.numAyas ? 1 : ayaid + 1);
 }
 /**
- * 
- * @param {*} surah 
- * @param {*} ayah 
+ *
+ * @param {*} surah
+ * @param {*} ayah
  */
 
 function prevAyah(surah, ayah) {
@@ -6974,4 +6973,4 @@ function findRangeAroundAyah(surah, ayah, mode) {
   }
 }
 
-export { qdataHizb as HizbQuarter, Juz$1 as Juz, Manzil, Page, Rabbana, qdataRuku as Ruku, Sajda, Sura, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, pageMetaOld, prevAyah };
+export { qdataHizb as HizbQuarter, Juz$1 as Juz, Manzil, Page, qdataRuku as Ruku, Sajda, Sura, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, pageMetaOld, prevAyah };

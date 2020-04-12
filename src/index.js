@@ -98,49 +98,6 @@ const Sajda = [
   [96, 19, "obligatory"],
 ]
 
-const Rabbana = [
-  [2, 127],
-  [2, 128],
-  [2, 201],
-  [2, 250],
-  [2, 286],
-  [2, 286],
-  [2, 286],
-  [3, 8],
-  [3, 9],
-  [3, 16],
-  [3, 53],
-  [3, 147],
-  [3, 191],
-  [3, 192],
-  [3, 193],
-  [3, 193],
-  [3, 194],
-  [5, 83],
-  [5, 114],
-  [7, 23],
-  [7, 47],
-  [7, 89],
-  [7, 126],
-  [10, 85, 86],
-  [14, 38],
-  [14, 40],
-  [14, 41],
-  [18, 10],
-  [20, 45],
-  [23, 109],
-  [25, 65, 66],
-  [25, 74],
-  [35, 34],
-  [40, 7],
-  [40, 89],
-  [59, 10],
-  [59, 10],
-  [60, 4],
-  [60, 5],
-  [66, 8],
-]
-
 //export default QuranMeta;
 import ayaStringSplitter from "./ayaStringSplitter"
 import findJuz from "./findJuz"
@@ -153,7 +110,6 @@ export {
   Ruku,
   Page,
   Sajda,
-  Rabbana,
   ayaStringSplitter,
   findJuz,
 }
@@ -190,9 +146,9 @@ export function findJuzMetaBySurah(suraNumber, ayaNumber = 1) {
 }
 
 /**
- * 
- * @param {*} suraNumber 
- * @param {*} ayaNumber 
+ *
+ * @param {*} suraNumber
+ * @param {*} ayaNumber
  */
 export function findPage(suraNumber, ayaNumber) {
   return (
@@ -205,8 +161,8 @@ export function findPage(suraNumber, ayaNumber) {
 }
 
 /**
- * 
- * @param {*} ayaId 
+ *
+ * @param {*} ayaId
  */
 export function findSurahByAyaid(ayaId) {
   const suraNum = Sura.slice(1).findIndex(x => x[0] >= ayaId)
@@ -216,8 +172,8 @@ export function findSurahByAyaid(ayaId) {
 }
 
 /**
- * 
- * @param {*} ayaId 
+ *
+ * @param {*} ayaId
  */
 export function findJuzByAyaid(ayaId) {
   const [s, a] = findSurahByAyaid(ayaId)
@@ -225,9 +181,9 @@ export function findJuzByAyaid(ayaId) {
 }
 
 /**
- * 
- * @param {*} surah 
- * @param {*} ayah 
+ *
+ * @param {*} surah
+ * @param {*} ayah
  */
 export function findAyaidBySurah(surah, ayah) {
   const curSurahMeta = Sura[surah]
@@ -235,17 +191,17 @@ export function findAyaidBySurah(surah, ayah) {
 }
 
 /**
- * 
- * @param {*} surah 
+ *
+ * @param {*} surah
  */
 export function getAyaCountinSura(surah) {
   return Sura[surah][1]
 }
 
 /**
- * 
- * @param {*} surah 
- * @param {*} ayah 
+ *
+ * @param {*} surah
+ * @param {*} ayah
  */
 export function nextAyah(surah, ayah) {
   const ayaid = findAyaidBySurah(surah, ayah)
@@ -253,9 +209,9 @@ export function nextAyah(surah, ayah) {
 }
 
 /**
- * 
- * @param {*} surah 
- * @param {*} ayah 
+ *
+ * @param {*} surah
+ * @param {*} ayah
  */
 export function prevAyah(surah, ayah) {
   const ayaid = findAyaidBySurah(surah, ayah)
