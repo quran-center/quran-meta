@@ -1,4 +1,4 @@
-import QuranMeta, {
+import  {
   findAyaidBySurah,
   findSurahByAyaid,
   isAyahJuzFirst,
@@ -9,7 +9,7 @@ import QuranMeta, {
   prevAyah,
   pageMetaOld,
   pageMeta
-} from "../"
+} from "../src/"
 
 console.log(1, findSurahByAyaid(1))
 console.log(6216, findSurahByAyaid(6216))

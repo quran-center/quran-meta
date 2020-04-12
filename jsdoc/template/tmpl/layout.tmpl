@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png"/>
+  <link rel="icon" type="image/png" href="images/favicons/favicon-196x196.png" sizes="196x196"/>
+  <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96"/>
+  <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32"/>
+  <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16"/>
+  <link rel="icon" type="image/png" href="images/favicons/favicon-128.png" sizes="128x128"/>
+  <meta name="application-name" content="Voca"/>
+  <meta name="msapplication-TileColor" content="#FFFFFF"/>
+  <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png"/>
+  <meta name="msapplication-square70x70logo" content="images/favicons/mstile-70x70.png"/>
+  <meta name="msapplication-square150x150logo" content="images/favicons/mstile-150x150.png"/>
+  <meta name="msapplication-wide310x150logo" content="images/favicons/mstile-310x150.png"/>
+  <meta name="msapplication-square310x310logo" content="images/favicons/mstile-310x310.png"/>
+
+  <meta name="description"
+        content="Voca provides functions to manipulate strings in JavaScript: change case, trim, pad, slugifly, latinise, sprintf, truncate, escape and more"/>
+  <meta name="HandheldFriendly" content="True"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta property="og:site_name" content="Voca"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Voca: The ultimate JavaScript string library"/>
+  <meta property="og:description"
+        content="Voca provides functions to manipulate strings in JavaScript: change case, trim, pad, slugifly, latinise, sprintf, truncate, escape and more"/>
+  <meta property="og:url" content="https://vocajs.com"/>
+  <meta property="og:image" content="https://vocajs.com/images/voca-for-twitter.png"/>
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Voca: The ultimate JavaScript string library"/>
+  <meta name="twitter:description"
+        content="Voca provides functions to manipulate strings in JavaScript: change case, trim, pad, slugifly, latinise, sprintf, truncate, escape and more"/>
+  <meta name="twitter:url" content="https://vocajs.com"/>
+  <meta name="twitter:image:src" content="https://vocajs.com/images/voca-for-twitter.png"/>
+
+  <title>Voca: The JavaScript string library</title>
+
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link type="text/css" rel="stylesheet" href="styles/prism.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body id="top">
+<input type="checkbox" id="nav-trigger" class="nav-trigger"/>
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+  <table class="header-name-table">
+    <tr>
+      <td class="voca-name">
+        <h2 class="main-name">
+          <a href="#">Voca</a>
+        </h2>
+      </td>
+      <td class="voca-version">
+        <a href="#">v<?js= this.version ?></a>
+      </td>
+    </tr>
+  </table>
+  <div class="clearable-input">
+    <input autofocus autocomplete="off" type="text" placeholder="Search" value=""/>
+    <span data-clear-input>&#x274C;</span>
+  </div>
+  <?js= this.nav ?>
+</nav>
+
+<div id="main">
+  <?js= this.partial('introduction.tmpl') ?>
+  <?js= content ?>
+</div>
+
+<br class="clear" />
+
+<script src="scripts/prism.js"></script>
+<script src="scripts/voca.js"></script>
+<script src="scripts/search.js"></script>
+<script src="scripts/services.js"></script>
+
+</body>
+</html>

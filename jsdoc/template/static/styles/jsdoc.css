@@ -1,0 +1,886 @@
+* {
+  box-sizing: border-box
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  color: #333;
+  background: #f6fafd;
+  margin: 0 auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 160%;
+}
+
+a {
+  color: #408BAA;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+
+a.no-decoration:hover, a.no-decoration:active {
+  text-decoration: none;
+}
+
+p, ul, ol, blockquote {
+  margin-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0;
+}
+
+h4.name {
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 3em;
+  margin: 1em 0 .5em;
+}
+
+h1.page-title {
+  font-size: 3em;
+  margin: 1em 30px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 1.5em 0 .3em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 1.2em 0 .3em;
+}
+
+h4 {
+  font-size: 1.1em;
+  margin: 1em 0 .2em;
+  color: #333;
+}
+
+h4.name {
+  color: #fff;
+  background: #2d5f73;
+  box-shadow: 0 .25em .5em #d3d3d3;
+  border-radius: 0.2em;
+  margin: 0.5em 0 0.5em;
+  padding: .75em 0 .6em 10px;
+  word-wrap: break-word;
+}
+
+h5, .container-overview .subsection-title {
+  font-size: 110%;
+  letter-spacing: -0.01em;
+  margin: 8px 0 3px 0;
+}
+
+h6 {
+  font-size: 100%;
+  letter-spacing: -0.01em;
+  margin: 6px 0 3px 0;
+  font-style: italic;
+}
+
+tt, code, kbd, samp {
+  font-family: Consolas, "Courier New", monospace;
+  background: #f4f4f4;
+  padding: 1px 5px;
+}
+
+pre code {
+  padding: 0;
+}
+
+.class-description {
+  font-size: 130%;
+  line-height: 140%;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.class-description:empty {
+  margin: 0
+}
+
+.badges a {
+  margin-right: 4px;
+}
+
+.introduction-message {
+  max-width: 55em;
+}
+
+#main {
+  float: right;
+  min-width: 360px;
+  width: calc(100% - 270px);
+}
+
+header {
+  display: block
+}
+
+header h2 {
+  margin-bottom: 20px;
+}
+
+section {
+  display: block;
+  padding: 0;
+}
+
+.method, .member {
+  background-color: white;
+  padding: 0.5em 1em 0.5em 1em;
+  margin-bottom: 1em;
+  border-radius: 0.3em;
+  box-shadow: 0 0 0.5em #d5d7d8;
+}
+
+.introduction {
+  padding: 0;
+  margin-top: 10px;
+  position: relative;
+}
+
+.github-corner-container {
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+  border-radius: 0 0.3em 0 0;
+  overflow: hidden;
+}
+
+.github-corner svg {
+  fill:#408BAA;
+  color:#fff;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0)
+  }
+  20%, 60% {
+    transform: rotate(-25deg)
+  }
+  40%, 80% {
+    transform: rotate(10deg)
+  }
+}
+
+.badges iframe {
+  width: 100px;
+  height: 20px;
+}
+
+.commonjs-logo img {
+  width: 200px;
+}
+
+.browsers-logo img {
+  width: 200px;
+}
+
+.logo {
+  margin: 1em;
+  width: 300px;
+  text-align: center;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.logo .logo-message {
+  color: #408BAA;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.warning {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.variation {
+  display: none
+}
+
+.signature-attributes {
+  font-size: 60%;
+  color: #4bcaea;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+nav {
+  float: left;
+  display: block;
+  width: 260px;
+  overflow: auto;
+  position: fixed;
+  height: 100%;
+  padding-left: 10px;
+}
+
+nav h3 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 15px 12px 10px 0;
+  padding: 0;
+  color: #000;
+}
+
+nav ul {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  line-height: 17px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+nav .header-name-table {
+  width: 235px;
+  margin-top: 18px;
+  margin-bottom: 16px;
+}
+
+nav .header-name-table td {
+  width: 50%;
+  vertical-align: baseline;
+}
+
+nav .header-name-table .voca-name {
+  text-align: left;
+}
+
+nav .header-name-table .voca-version {
+  text-align: right;
+}
+
+nav .main-name {
+  font-size: 1.8em;
+  font-weight: normal;
+}
+
+nav .voca-version a {
+  text-decoration: none;
+  font-size: 1em;
+  color: #717171 !important;
+  padding-right: 25px;
+}
+
+nav li a {
+  color: #406887;
+}
+
+nav li h2 {
+  font-weight: normal;
+}
+
+nav ul ul {
+  margin-bottom: 28px;
+}
+
+nav ul ul a {
+  font-size: 1em;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+nav ul ul a,
+nav ul ul a:active {
+}
+
+nav ul ul li {
+  margin-bottom: 8px;
+  margin-left: 10px;
+}
+
+nav h2 {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul h2 {
+  margin-bottom: 15px;
+  color: #717171;
+}
+
+nav > h2 > a {
+  display: block;
+  color: #408BAA !important;
+  margin: 10px 0 20px;
+}
+
+footer {
+  color: hsl(0, 0%, 28%);
+  margin-left: 250px;
+  display: block;
+  padding: 15px;
+  font-style: italic;
+  font-size: 90%;
+}
+
+.ancestors {
+  color: #999
+}
+
+.ancestors a {
+  color: #999 !important;
+}
+
+.clear {
+  clear: both
+}
+
+.important {
+  font-weight: bold;
+  color: #950B02;
+}
+
+.yes-def {
+  text-indent: -1000px
+}
+
+.type-signature {
+  color: white;
+}
+
+.type-signature:last-child {
+  color: #eee;
+}
+
+.name, .signature {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.signature {
+  color: white;
+}
+
+.signature code {
+  font-style: normal;
+  background-color: transparent;
+}
+
+.details {
+  margin-top: 6px;
+  border-left: 2px solid #DDD;
+  line-height: 20px;
+  font-size: 1em;
+}
+
+.details dt {
+  width: 120px;
+  float: left;
+  padding-left: 10px;
+}
+
+.details dd {
+  margin-left: 70px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.details ul {
+  margin: 0
+}
+
+.details ul {
+  list-style-type: none
+}
+
+.details pre.prettyprint {
+  margin: 0;
+}
+
+.details .object-value {
+  padding-top: 0
+}
+
+.description {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  word-break: break-word;
+}
+
+.code-caption {
+  font-style: italic;
+  font-size: 107%;
+  margin: 0;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 1em;
+  overflow: auto;
+  border-radius: 0.2em;
+  border: 1px solid #ebebeb;
+  background-color: #f4f4f4;
+}
+
+.token.function {
+  color: #883f44;
+}
+
+pre[class*="language-"] {
+  padding: 0.8em;
+}
+
+.params, .props {
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  font-size: 1em;
+  margin: 1em 0;
+}
+
+.author-details, .author-details td, .author-details th {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+
+}
+
+.author-details td, .author-details th {
+  padding: 0.3em;
+}
+
+.light-params {
+  margin: 1em 0;
+  font-size: 1em;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.light-params .light-params {
+  margin: 0;
+}
+
+.light-params .properties {
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+.light-params tr > td:first-child {
+  border-left: 0;
+}
+
+.light-params tr:first-child > td {
+  border-top: 0;
+}
+
+.light-params tr > td:last-child {
+  border-right: 0;
+}
+
+.light-params tr:last-child > td {
+  border-bottom: 0;
+}
+
+.light-params tr td {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+.light-params .name {
+  width: 80px;
+  text-align: right;
+}
+
+.light-params p {
+  margin: 0;
+  display: inline;
+}
+
+.light-params .optional {
+  margin-left: 10px;
+  font-size: 0.85em;
+}
+
+.smaller {
+  font-size: 0.85em;
+  line-height: 140%;
+}
+
+.smaller .light-params td:first-child {
+  width: 50px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.code-separator {
+  color: #3e607f;
+}
+
+.params td, .params .name, .props .name, .name code {
+  color: #333;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 100%;
+}
+
+.params td, .params th, .props td, .props th {
+  margin: 0;
+  text-align: left;
+  vertical-align: top;
+  padding: 10px;
+  display: table-cell;
+}
+
+.params td {
+  border-top: 1px solid #eee
+}
+
+.params thead tr, .props thead tr {
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.params .params thead tr, .props .props thead tr {
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.params td.description > p:first-child, .props td.description > p:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.params td.description > p:last-child, .props td.description > p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+span.param-type, .params td .param-type, .param-type dd {
+  color: #408BAA;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.param-type dt, .param-type dd {
+  display: inline-block;
+}
+
+.param-type {
+  margin: 14px 0;
+}
+
+.disabled {
+  color: #454545
+}
+
+.param-desc p {
+  display: inline;
+  margin-left: 10px;
+}
+
+.navicon-button {
+  display: none;
+  position: relative;
+  padding: 2.0625rem 1.5rem;
+  transition: 0.25s;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: .8;
+}
+
+.navicon-button .navicon:before, .navicon-button .navicon:after {
+  transition: 0.25s;
+}
+
+.navicon-button:hover {
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.navicon-button:hover .navicon:before, .navicon-button:hover .navicon:after {
+  transition: 0.25s;
+}
+
+.navicon-button:hover .navicon:before {
+  top: .825rem;
+}
+
+.navicon-button:hover .navicon:after {
+  top: -.825rem;
+}
+
+.navicon {
+  position: relative;
+  width: 2.5em;
+  height: .3125rem;
+  background: #2f4863;
+  transition: 0.3s;
+  border-radius: 2.5rem;
+}
+
+.navicon:before, .navicon:after {
+  display: block;
+  content: "";
+  height: .3125rem;
+  width: 2.5rem;
+  background: #2f4863;
+  position: absolute;
+  z-index: -1;
+  transition: 0.3s 0.25s;
+  border-radius: 1rem;
+}
+
+.navicon:before {
+  top: .625rem;
+}
+
+.navicon:after {
+  top: -.625rem;
+}
+
+.nav-trigger:checked + label:not(.steps) .navicon:before,
+.nav-trigger:checked + label:not(.steps) .navicon:after {
+  top: 0 !important;
+}
+
+.nav-trigger:checked + label .navicon:before,
+.nav-trigger:checked + label .navicon:after {
+  transition: 0.5s;
+}
+
+.nav-trigger:checked + label {
+  -webkit-transform: scale(0.75);
+  transform: scale(0.75);
+}
+
+.nav-trigger:checked + label.plus .navicon,
+.nav-trigger:checked + label.x .navicon {
+  background: transparent;
+}
+
+.nav-trigger:checked + label.plus .navicon:before,
+.nav-trigger:checked + label.x .navicon:before {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  background: #FFF;
+}
+
+.nav-trigger:checked + label.plus .navicon:after,
+.nav-trigger:checked + label.x .navicon:after {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background: #FFF;
+}
+
+.nav-trigger:checked + label.plus {
+  -webkit-transform: scale(0.75) rotate(45deg);
+  transform: scale(0.75) rotate(45deg);
+}
+
+.nav-trigger:checked ~ nav {
+  left: 0 !important;
+}
+
+.nav-trigger:checked ~ .overlay {
+  display: block;
+}
+
+.nav-trigger {
+  position: fixed;
+  top: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0.5);
+  z-index: 1;
+}
+
+.right-side-links {
+  float: right;
+}
+
+.container-links {
+  float: right;
+  margin-right: 1em;
+}
+
+.container-links a {
+  color: #aaaaaa;
+  text-decoration: underline;
+  font-size: 0.9em;
+  margin-left: 0.2em;
+}
+
+.container-links a:hover {
+  color: #386685;
+}
+
+.clearable-input {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.2em;
+  width: 210px;
+  border-radius: 0.2em;
+  box-shadow: 0 0 0.3em #cacccd;
+  background-color: white;
+}
+
+.clearable-input > input {
+  padding-left: 0.5em;
+  padding-right: 1.4em;
+  height: 2.2em;
+  font-size: 0.8em;
+  font-family: Consolas, "Courier New", monospace;
+  width: 100%;
+  border: none;
+  background-color: white;
+  border-radius: 0.2em;
+}
+
+::-webkit-input-placeholder {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1em;
+}
+
+::-moz-placeholder {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1em;
+}
+
+:-ms-input-placeholder {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1em;
+}
+
+:-moz-placeholder {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1em;
+}
+
+.clearable-input > input:focus {
+  outline: none;
+  box-shadow: 0 0 0.3em #408BAA;
+}
+
+.clearable-input > [data-clear-input] {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0.4em;
+  top: 0;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 2em;
+  cursor: pointer;
+}
+
+.clearable-input > input::-ms-clear {
+  display: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 680px) {
+  body {
+    overflow-x: hidden;
+    padding-left: 10px;
+  }
+
+  .github-corner-container {
+    display: none;
+  }
+
+  .logo {
+    margin: 0 auto;
+    max-width: 260px;
+  }
+
+  nav {
+    background: #FFF;
+    width: 260px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -260px;
+    z-index: 3;
+    padding: 0 10px;
+    transition: left 0.2s;
+  }
+
+  .navicon-button {
+    display: inline-block;
+    position: fixed;
+    top: 1.5em;
+    right: 0;
+    z-index: 2;
+  }
+
+  #main {
+    width: 100%;
+    min-width: 285px;
+  }
+
+  #main h1.page-title {
+    margin: 1em 0;
+  }
+
+  #main section, .introduction {
+    padding: 0;
+  }
+
+  footer {
+    margin-left: 0;
+  }
+
+  .container-links {
+    float: none;
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: 0.8em;
+  }
+
+  ::-moz-placeholder {
+    font-size: 0.8em;
+  }
+
+  :-ms-input-placeholder {
+    font-size: 0.8em;
+  }
+
+  :-moz-placeholder {
+    font-size: 0.8em;
+  }
+}

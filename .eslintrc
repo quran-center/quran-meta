@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "jest": true,
+    "browser": true
+  },
+  "plugins": [],
+  "rules": {
+    "valid-jsdoc": "error",
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "brace-style": ["error", "1tbs"],
+    "camelcase": ["error", { "properties": "never" }],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "comma-style": ["error", "last"],
+    "space-before-blocks": [
+      "error",
+      { "functions": "always", "keywords": "always", "classes": "always" }
+    ],
+    // "semi": ["error", "always"],
+    "no-undef": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-const-assign": "error",
+    "one-var": ["error", "never"],
+    "sort-imports": "off",
+    "no-control-regex": "off",
+    "no-misleading-character-class": "off"
+  },
+  "ignorePatterns": ["node_modules/", "dist/", "lib/","lib_es5/"],
+}
