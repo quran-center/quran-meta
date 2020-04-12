@@ -10,7 +10,6 @@
   ],
   "version": "1.0.1",
   "license": "MIT",
-  "private": true,
   "browser": "dist/quran-meta.js",
   "jsdelivr": "dist/quran-meta.js",
   "unpkg": "dist/quran-meta.js",
