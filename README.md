@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
+## Welcome to Quran Meta Project
 
-You can use the [editor on GitHub](https://github.com/quran-center/quran-meta/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This project is to help with Quran related meta queries. Answering Questions like:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* How many ayahs in given sura (`getAyaCountinSura`)
+* Is given aya 
+  * a sajdah ayah?
+  * beginnning of a juz (`isAyahJuzFirst`)?
+  * beginnning of a page? 
+* `findJuz` and `findJuzByAyaid`
+* `findPage` by surah/aya
+* Find next or previous ayah (`nextAyah`/`prevAyah`)
+* converts `[surah,aya]` to `ayaId` and vice-verse ( `findSurahByAyaid` and  `findAyaidBySurah`) 
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/quran-center/quran-meta/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
