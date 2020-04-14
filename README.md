@@ -14,6 +14,10 @@ Answering Questions like:
 * Find next or previous ayah (`nextAyah`/`prevAyah`)
 * converts `[surah,aya]` to `ayaId` and vice-verse ( `findSurahByAyaid` and  `findAyaidBySurah`) 
 
+### APi Reference Documentation
+
+See [here](https://quran-center.github.io/quran-meta/docs/globals.html) for API documentation
+
 ### Examples
 You can find some examples [here](https://quran-center.github.io/quran-meta/examples/) and souce code for them [here](https://github.com/quran-center/quran-meta/tree/master/examples)
 
