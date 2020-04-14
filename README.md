@@ -26,5 +26,5 @@ Here you can find the following
 * [distributions](https://github.com/quran-center/quran-meta/tree/master/dist) of library as 
    *   [UMD](https://quran-center.github.io/quran-meta/dist/quran-meta.js) / [UMD minified](https://quran-center.github.io/quran-meta/dist/quran-meta.min.js) builds can be used directly in the browser via a <script>
    * [CommonJS](https://quran-center.github.io/quran-meta/dist/quran-meta.common.js)  for use with older bundlers like browserify or webpack
-   * [ESM](https://quran-center.github.io/quran-meta/ist/quran-meta.esm.js)  for use with modern bundlers like webpack 2 or Rollup
-   * [ESM Browser](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.js)/[ESM Browser minified](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.min/js)   for direct imports in modern browsers via <script type="module">
+   * [ESM](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.js)  for use with modern bundlers like webpack 2 or Rollup
+   * [ESM Browser](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.js)/[ESM Browser minified](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.min.js)   for direct imports in modern browsers via <script type="module">
