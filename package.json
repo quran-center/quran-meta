@@ -40,7 +40,7 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "verify": "npm run eslint && npm run coverage",
-    "jsdoc": "jsdoc --configure .jsdoc.json",
+    "tsdoc": "typedoc --out docs/ src/",
     "deploy": "rollup -c config/rollup_dist.js && copyfiles dist/quran-meta.js docs/scripts",
     "precommit": "lint-staged && jest --onlyChanged",
     "release": "standard-version && git push --follow-tags && npm publish"
@@ -53,7 +53,6 @@
     "copyfiles": "latest",
     "eslint": "6.8.0",
     "jest": "^25.2.7",
-    "jsdoc": "3.6.4",
     "prettier": "2.0.4",
     "rimraf": "latest",
     "rollup": "^2.6.1",
@@ -63,6 +62,7 @@
     "ts-jest": "^25.2.0",
     "ts-node": "^8.4.1",
     "tslib": "^1.11.1",
+    "typedoc": "^0.17.4",
     "typescript": "^3.6.4"
   }
 }
