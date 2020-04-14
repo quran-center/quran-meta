@@ -13,3 +13,4 @@ This project is to help with Quran related meta queries. Answering Questions lik
 * converts `[surah,aya]` to `ayaId` and vice-verse ( `findSurahByAyaid` and  `findAyaidBySurah`) 
 
 
+You can find some examples [here](https://quran-center.github.io/quran-meta/examples/)
