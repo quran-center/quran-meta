@@ -1,14 +1,24 @@
 module.exports = {
   verbose: true,
   modulePaths: ['<rootDir>/src/'],
-  collectCoverageFrom: ['src/*.js'],
-  testMatch: ['<rootDir>/tests/*.js'],
+  collectCoverageFrom: ['src/*.ts'],
   testURL: 'http://localhost',
   testPathIgnorePatterns: ['node_modules'],
   transformIgnorePatterns: [
     '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$'
   ],
-  moduleFileExtensions: ['js', 'json'],
+  "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+    },
+    "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
   coverageThreshold: {
     global: {
       statements: 80,

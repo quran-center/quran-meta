@@ -1,21 +1,20 @@
-import babel from "rollup-plugin-babel"
-import json from "@rollup/plugin-json"
+import typescript from "@rollup/plugin-typescript"
 import glob from "glob"
 
-import { DIST_MODULE_CJS, SRC } from "../../const"
+import { DIST_MODULE_CJS as outDir, SRC } from "../../const"
 
 function modulesPaths() {
   const paths = glob.sync(SRC + "/*.js*", {
-    ignore: [SRC + "/index.js"],
+    ignore: [SRC + "index.ts"],
   })
   return [...paths, ...glob.sync(SRC + "/*/*.js*")]
 }
 
 export default {
   input: modulesPaths(),
-  plugins: [babel(), json()],
+  plugins: [typescript({ outDir: outDir })],
   output: {
-    dir: DIST_MODULE_CJS,
+    dir: outDir,
     format: "cjs",
     chunkFileNames: "internal/[name].js",
   },

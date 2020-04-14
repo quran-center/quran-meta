@@ -2,10 +2,10 @@
 Once library is included local variable `quranMeta` is exposed inside module script:
 
 <script  type="module">
-import quranMeta,{  } from "../lib_es5/index.js"
+import {meta  } from "../dist/quran-meta.esm.js"
 console.log("hello")
-console.log(quranMeta)
-   alert(`There are ${quranMeta.numSuras} suras in the Holy Quran`)
+console.log(meta)
+   alert(`There are ${meta.numSuras} suras in the Holy Quran`)
 </script>
 
 </html>
