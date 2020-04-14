@@ -1,6 +1,8 @@
 ## Welcome to Quran Meta Project
 
-This project is to help with Quran related meta queries. Answering Questions like:
+This project is to help with Quran related meta queries. 
+
+Answering Questions like:
 
 * How many ayahs in given sura (`getAyaCountinSura`)
 * Is given aya 
@@ -12,7 +14,7 @@ This project is to help with Quran related meta queries. Answering Questions lik
 * Find next or previous ayah (`nextAyah`/`prevAyah`)
 * converts `[surah,aya]` to `ayaId` and vice-verse ( `findSurahByAyaid` and  `findAyaidBySurah`) 
 
-###Examples
+### Examples
 You can find some examples [here](https://quran-center.github.io/quran-meta/examples/) and souce code for them [here](https://github.com/quran-center/quran-meta/examples)
 
 ### Distributions and Downloads
