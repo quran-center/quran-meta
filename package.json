@@ -40,10 +40,10 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "verify": "npm run eslint && npm run coverage",
-    "tsdoc": "typedoc --mode module --out docs/ src/",
-    "deploy": "rollup -c config/rollup_dist.js && copyfiles dist/quran-meta.js docs/scripts",
+    "tsdoc": "typedoc --mode modules --out docs/ src/",
+    "deploy": "###rollup -c config/rollup_dist.js && copyfiles dist/quran-meta.js docs/scripts",
     "precommit": "lint-staged && jest --onlyChanged",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "npm run buld && npm run tsdoc && standard-version && git push --follow-tags && npm publish"
   },
   "dependencies": {},
   "devDependencies": {
