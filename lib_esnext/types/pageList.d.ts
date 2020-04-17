@@ -1,3 +1,3 @@
-declare const qdataPage: number[];
-export default qdataPage;
+declare const PageList: number[];
+export default PageList;
 //# sourceMappingURL=pageList.d.ts.map

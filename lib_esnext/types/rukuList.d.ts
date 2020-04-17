@@ -1,3 +1,2 @@
-declare const qdataRuku: number[];
-export default qdataRuku;
+export default RukuList;
 //# sourceMappingURL=rukuList.d.ts.map

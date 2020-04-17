@@ -1,3 +1,3 @@
-declare const qdataHizb: number[];
-export default qdataHizb;
+declare const HizbList: number[];
+export default HizbList;
 //# sourceMappingURL=hizbList.d.ts.map

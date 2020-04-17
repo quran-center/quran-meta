@@ -1,4 +1,4 @@
-const qdataPage = [
+const PageList = [
     0,
     1,
     8,
@@ -607,4 +607,4 @@ const qdataPage = [
     6237,
 ];
 
-export default qdataPage;
+export default PageList;
