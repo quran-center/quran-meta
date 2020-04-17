@@ -8,14 +8,14 @@
     "surah",
     "juz"
   ],
-  "version": "1.0.8",
+  "version": "1.0.9",
   "license": "MIT",
   "browser": "dist/quran-meta.js",
   "jsdelivr": "dist/quran-meta.js",
   "unpkg": "dist/quran-meta.js",
   "main": "dist/quran-meta.js",
-  "module": "lib_es5/index.js",
-  "typings": "lib_es5/types/index.d.ts",
+  "module": "lib_esnext/index.js",
+  "typings": "lib_esnext/types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https@github.com:quran-center/quran-meta.git",
@@ -25,7 +25,7 @@
     "src/",
     "dist/",
     "lib/",
-    "lib_es5/"
+    "lib_esnext/"
   ],
   "engines": {
     "node": ">=4.0.0"
@@ -43,7 +43,7 @@
     "tsdoc": "typedoc --mode file --out docs/ src/",
     "deploy": "###rollup -c config/rollup_dist.js && copyfiles dist/quran-meta.js docs/scripts",
     "precommit": "lint-staged && jest --onlyChanged",
-    "release": "npm run build && npm run tsdoc && standard-version && git push --follow-tags && npm publish"
+    "release": "npm run test && standard-version && npm run build && npm run tsdoc && git push --follow-tags && npm publish"
   },
   "dependencies": {},
   "devDependencies": {
