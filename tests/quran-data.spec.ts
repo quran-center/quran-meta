@@ -7,16 +7,19 @@ import  {
   findPage,
   nextAyah,
   prevAyah,
-  pageMetaOld,
+  // pageMetaOld,
+  JuzList,
   pageMeta
 } from "../src/"
 
+console.log("STARING")
 console.log(1, findSurahByAyaid(1))
+console.log(2, findSurahByAyaid(8))
 console.log(6216, findSurahByAyaid(6216))
 console.log(6217, findSurahByAyaid(6217))
 console.log(6226, findSurahByAyaid(6226))
 console.log(6236, findSurahByAyaid(6236))
-console.log(6237, findSurahByAyaid(6237))
+// console.log(6237, findSurahByAyaid(6237))
 console.log(1, findSurahByAyaid(1))
 console.log(147, findSurahByAyaid(149))
 console.log("1", isAyahJuzFirst(1, 1))
@@ -26,15 +29,18 @@ console.log("2", isAyahJuzFirst(2, 142))
 console.log("-1", isAyahJuzFirst(2, 143))
 console.log("110.3", findAyaidBySurah(110, 3))
 console.log("114.6", findAyaidBySurah(114, 6))
+console.log("2,1", findJuz(2, 1))
+console.log("114,1", findJuz(114, 1))
+console.log("JuzList 6237", JuzList[31])
 console.log("1,1", findJuzMetaBySurah(1, 1))
 console.log("2,1", findJuzMetaBySurah(2, 1))
-console.log("2,1", findJuz(2, 1))
 console.log("114,1", findJuzMetaBySurah(114, 1))
+console.log("114,5", findJuzMetaBySurah(114, 5))
 console.log("604", findPage(114, 1))
 console.log("pmeta", pageMeta(604))
-console.log("pmeta", pageMetaOld(604))
+// console.log("pmeta", pageMetaOld(604))
 console.log("pmeta", pageMeta(1))
-console.log("pmeta", pageMetaOld(1))
+// console.log("pmeta", pageMetaOld(1))
 
 describe("nextAyah", () => {
   it("true", () => {

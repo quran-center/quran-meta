@@ -4,68 +4,56 @@ import meta from "./const"
 //------------------ Sura Data ---------------------
 
 // [start, ayas, order, rukus, name,  type, page ]
-import SuraList from "./qdata-surah"
+import SuraList from "./surahList"
 
 //------------------ Juz Data ---------------------
 
-// [sura, aya]
-const JuzList: [number,number][] = [
-
-  [0,0],
-  [1, 1],
-  [2, 142],
-  [2, 253],
-  [3, 93],
-  [4, 24],
-  [4, 148],
-  [5, 82],
-  [6, 111],
-  [7, 88],
-  [8, 41],
-  [9, 93],
-  [11, 6],
-  [12, 53],
-  [15, 1],
-  [17, 1],
-  [18, 75],
-  [21, 1],
-  [23, 1],
-  [25, 21],
-  [27, 56],
-  [29, 46],
-  [33, 31],
-  [36, 28],
-  [39, 32],
-  [41, 47],
-  [46, 1],
-  [51, 31],
-  [58, 1],
-  [67, 1],
-  [78, 1],
-  [115, 1],
+const JuzList: number[] = [
+  0,
+  1,
+  149,
+  260,
+  386,
+  517,
+  641,
+  751,
+  900,
+  1042,
+  1201,
+  1328,
+  1479,
+  1649,
+  1803,
+  2030,
+  2215,
+  2484,
+  2674,
+  2876,
+  3215,
+  3386,
+  3564,
+  3733,
+  4090,
+  4265,
+  4511,
+  4706,
+  5105,
+  5242,
+  5673,
+  6237,
 ]
 
 //------------------ Hizb Data ---------------------
-import HizbQuarterList from "./qdata-hizb"
+import HizbQuarterList from "./hizbList"
 
 //------------------ Manzil Data ---------------------
 
-const ManzilList = [
-  // [sura, aya]
-  [],
-  [1, 1],
-  [5, 1],
-  [10, 1],
-  [17, 1],
-  [26, 1],
-  [37, 1],
-  [50, 1],
-]
+const ManzilList: number[] = [0, 1, 670, 1365, 2030, 2933, 3789, 4631, 6237]
 
 //------------------ Ruku Data ---------------------
 // export Ruku  from "~/js/qdata-ruku.json"
-import RukuList from "./qdata-ruku"
-// [sura, aya]
+import RukuList from "./rukuList"
+
 //------------------ Page Data ---------------------
 // code to get starting pages for surahs
 // let res=[];
@@ -74,32 +62,30 @@ import RukuList from "./qdata-ruku"
 // 		{res.push([s,c[0],s==c[0]?p:p-1]);s+=1;}
 // 	return s
 // },0)
-import PageList from "./qdata-page"
+import PageList from "./pageList"
 
-// [sura, aya]
 // export Page from "~/js/qdata-page.json"
 
 //------------------ Sajda Data ---------------------
 
-const SajdaList = [
-  // [sura, aya, type]
-  [7, 206, "recommended"],
-  [13, 15, "recommended"],
-  [16, 50, "recommended"],
-  [17, 109, "recommended"],
-  [19, 58, "recommended"],
-  [22, 18, "recommended"],
-  [22, 77, "recommended"],
-  [25, 60, "recommended"],
-  [27, 26, "recommended"],
-  [32, 15, "obligatory"],
-  [38, 24, "recommended"],
-  [41, 38, "obligatory"],
-  [53, 62, "obligatory"],
-  [84, 21, "recommended"],
-  [96, 19, "obligatory"],
+const SajdaList: [number, string][] = [
+  // [ayaId, type]
+  [1160, "recommended"],
+  [1722, "recommended"],
+  [1951, "recommended"],
+  [2138, "recommended"],
+  [2308, "recommended"],
+  [2613, "recommended"],
+  [2672, "recommended"],
+  [2915, "recommended"],
+  [3185, "recommended"],
+  [3518, "obligatory"],
+  [3994, "recommended"],
+  [4256, "obligatory"],
+  [4846, "obligatory"],
+  [5905, "recommended"],
+  [6125, "obligatory"],
 ]
-
 //export default QuranMeta;
 import ayaStringSplitter from "./ayaStringSplitter"
 export {
@@ -116,52 +102,68 @@ export {
 
 /**
  *
- * @param {*} suraNumber
- * @param {*} ayaNumber
+ * @param {*} ayaId
  */
-export function findJuz(suraNumber: number, ayaNumber: number = 1): number {
+export function findJuzByAyaid(ayaId: number): number {
+  if (ayaId < 1 || ayaId > meta.numAyas)
+    throw new RangeError("ayaid must be between 1 and " + meta.numAyas)
+
   let l = 1
-  while (
-    JuzList[l + 1][0] < suraNumber ||
-    (JuzList[l + 1][0] == suraNumber && JuzList[l + 1][1] <= ayaNumber)
-  ) {
+  while (JuzList[l + 1] <= ayaId) {
     l++
   }
   return l
 }
+/**
+ *
+ * @param {*} surah
+ * @param {*} ayah
+ */
+export function findJuz(surah: number, ayah: number = 1): number {
+  const a = findAyaidBySurah(surah, ayah)
+
+  return findJuzByAyaid(a)
+}
 
 /**
  * Returns Positive number if aya is first ayah of juz, number is juz number
- * @param {*} ayaNumber
- * @param {*} suraNumber
+ * @param {*} surah
+ * @param {*} ayah
  */
-export function isAyahJuzFirst(suraNumber: number, ayaNumber: number): number {
-  return JuzList.findIndex((x: number[]) => x[0] == suraNumber && x[1] == ayaNumber)
+export function isAyahJuzFirst(surah: number, ayah: number): number {
+  if (surah < 1 || surah > meta.numSuras)
+    throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+
+  const a = findAyaidBySurah(surah, ayah)
+
+  return JuzList.findIndex((x: number) => x == a)
 }
 
 //todo explain function
 /**
- * juz number
+ * for given ayah return [starting juz, number of ayahsFrom beginning of that juz, right juz, number of ayahs in surah
  * @param {*} suraNumber
  * @param {*} ayaNumber
+ * @returns [leftjuz,ayahsFromStartOfJuz,rightJuz, ayahsinSurah]
  */
-export function findJuzMetaBySurah(
-  suraNumber: number,
-  ayaNumber: number = 1
-): any[] {
-  const l = findJuz(suraNumber, ayaNumber)
+export function findJuzMetaBySurah(surah: number, ayah: number = 1): any[] {
+  if (surah < 1 || surah > meta.numSuras)
+    throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+
+  const l = findJuz(surah, ayah)
 
   let r = l
-  while (JuzList[r + 1][0] == suraNumber) r++
+  while (r < meta.numJuzs && findSurahByAyaid(JuzList[r + 1])[0] == surah) r++
   // console.log(l,r,
   //   "sura at start of file ",Juz[l][0],
   //   Sura[Juz[l][0]][0],
   //   Sura[suraNumber][0],
   //   Juz[l][1]
   // )
-  const al = SuraList[suraNumber][0] - SuraList[JuzList[l][0]][0] - JuzList[l][1]
+  let sl = findSurahByAyaid(JuzList[l])
+  const ayahsFromStartOfJuz = SuraList[surah][0] - JuzList[l]
   // console.log(Sura[suraNumber + 1][0], Sura[Juz[l][0]][0])
-  return [l, al + 1, r, getAyaCountinSura(suraNumber)]
+  return [l, ayahsFromStartOfJuz + 1, r, getAyaCountinSura(surah)]
 }
 
 /**
@@ -169,21 +171,23 @@ export function findJuzMetaBySurah(
  * @param {*} suraNumber
  * @param {*} ayaNumber
  */
-export function findPage(suraNumber: number, ayaNumber: number): number {
-  return (
-    PageList.findIndex(
-      x =>
-        (x[0] == suraNumber && x[1] > ayaNumber && x[1] > 1) ||
-        x[0] > suraNumber
-    ) - 1
-  )
+export function findPage(surah: number, ayah: number): number {
+  if (surah < 1 || surah > meta.numSuras)
+    throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+
+  const a = findAyaidBySurah(surah, ayah)
+
+  return PageList.findIndex(x => x > a) - 1
 }
 
 /**
  *
  * @param {*} ayaId
  */
-export function findSurahByAyaid(ayaId: number): [number,number] {
+export function findSurahByAyaid(ayaId: number): [number, number] {
+  if (ayaId < 1 || ayaId > meta.numAyas)
+    throw new RangeError("ayaid must be between 1 and " + meta.numAyas)
+
   const suraNum = SuraList.slice(1).findIndex(x => x[0] >= ayaId)
   return suraNum < 0
     ? [114, ayaId - SuraList[114][0]]
@@ -192,19 +196,13 @@ export function findSurahByAyaid(ayaId: number): [number,number] {
 
 /**
  *
- * @param {*} ayaId
- */
-export function findJuzByAyaid(ayaId: number): number {
-  const [s, a] = findSurahByAyaid(ayaId)
-  return findJuz(s, a)
-}
-
-/**
- *
  * @param {*} surah
  * @param {*} ayah
  */
 export function findAyaidBySurah(surah: number, ayah: number): number {
+  if (surah < 1 || surah > meta.numSuras)
+    throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+
   const curSurahMeta = SuraList[surah]
   return curSurahMeta[0] + ayah
 }
@@ -214,6 +212,9 @@ export function findAyaidBySurah(surah: number, ayah: number): number {
  * @param {*} surah
  */
 export function getAyaCountinSura(surah: number): number {
+  if (surah < 1 || surah > meta.numSuras)
+    throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+
   return SuraList[surah][1]
 }
 
@@ -223,6 +224,9 @@ export function getAyaCountinSura(surah: number): number {
  * @param {*} ayah
  */
 export function nextAyah(surah: number, ayah: number): number[] {
+  if (surah < 1 || surah > meta.numSuras)
+    throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+
   const ayaid = findAyaidBySurah(surah, ayah)
   return findSurahByAyaid(ayaid == meta.numAyas ? 1 : ayaid + 1)
 }
@@ -233,6 +237,9 @@ export function nextAyah(surah: number, ayah: number): number[] {
  * @param {*} ayah
  */
 export function prevAyah(surah: number, ayah: number): number[] {
+  if (surah < 1 || surah > meta.numSuras)
+    throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+
   const ayaid = findAyaidBySurah(surah, ayah)
   return findSurahByAyaid(ayaid == 1 ? meta.numAyas : ayaid - 1)
 }
@@ -242,12 +249,15 @@ export function prevAyah(surah: number, ayah: number): number[] {
  * @param {*} pageNum
  */
 export function pageMeta(pageNum: number): any {
+  if (pageNum < 1 || pageNum > meta.numPages)
+    throw new RangeError("pagenum must be between 1 and " + meta.numPages)
+
   const [curPage, nextPage] = [PageList[pageNum], PageList[pageNum + 1]]
 
   return {
     pageNum,
-    first: curPage,
-    last: [...findSurahByAyaid(findAyaidBySurah(...nextPage) - 1)],
+    first: findSurahByAyaid(curPage),
+    last: [...findSurahByAyaid(nextPage - 1)],
   }
 }
 
@@ -255,21 +265,27 @@ export function pageMeta(pageNum: number): any {
  * ALternative deprecated method
  * @param {*} pageNum
  */
-export function pageMetaOld(pageNum: number): any {
-  const [curPage, nextPage] = [PageList[pageNum], PageList[pageNum + 1]]
-  const [firstSurah, firstAyah, lastSurah, lastAyah] = [
-    curPage[0],
-    curPage[1],
-    nextPage[1] === 1 ? nextPage[0] - 1 : nextPage[0],
-    nextPage[1] === 1 ? SuraList[nextPage[0] - 1][1] : nextPage[1] - 1,
-  ]
+// export function pageMetaOld(pageNum: number): any {
+//   if (pageNum < 1 || pageNum > meta.numPages)
+//   throw new RangeError("pagenum must be between 1 and " + meta.numPages)
 
-  return {
-    pageNum,
-    first: [firstSurah, firstAyah],
-    last: [lastSurah, lastAyah],
-  }
-}
+//   const [curPage, nextPage] = [
+//     findSurahByAyaid(PageList[pageNum]),
+//     findSurahByAyaid(PageList[pageNum + 1]),
+//   ]
+//   const [firstSurah, firstAyah, lastSurah, lastAyah] = [
+//     curPage[0],
+//     curPage[1],
+//     nextPage[1] === 1 ? nextPage[0] - 1 : nextPage[0],
+//     nextPage[1] === 1 ? SuraList[nextPage[0] - 1][1] : nextPage[1] - 1,
+//   ]
+
+//   return {
+//     pageNum,
+//     first: [firstSurah, firstAyah],
+//     last: [lastSurah, lastAyah],
+//   }
+// }
 /**
  * Find range containing ayah according to the mode
  * @param {*} ayahId
@@ -277,13 +293,13 @@ export function pageMetaOld(pageNum: number): any {
  * default is all
  */
 export function findRangeAroundAyah(surah: number, ayah: number, mode: string) {
+  if (surah < 1 || surah > meta.numSuras)
+    throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+
   switch (mode) {
     case "juz": {
       const juz = findJuz(surah, ayah)
-      return [
-        findAyaidBySurah(...JuzList[juz]),
-        findAyaidBySurah(...JuzList[juz + 1]) - 1,
-      ]
+      return [JuzList[juz], JuzList[juz + 1] - 1]
     }
 
     case "surah": {
@@ -296,10 +312,7 @@ export function findRangeAroundAyah(surah: number, ayah: number, mode: string) {
     }
     case "page": {
       const page = findPage(surah, ayah)
-      return [
-        findAyaidBySurah(...PageList[page]),
-        findAyaidBySurah(...PageList[page + 1]) - 1,
-      ]
+      return [PageList[page], PageList[page + 1] - 1]
     }
 
     case "all":
