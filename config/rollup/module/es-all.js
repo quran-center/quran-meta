@@ -4,7 +4,7 @@ import glob from "glob"
 import { DIST_MODULE_ES as outDir, SRC } from "../../const"
 
 function modulesPaths() {
-  const paths = glob.sync(SRC + "/*.[jt]s*", {
+  const paths = glob.sync(SRC + "/*.[jt]s", {
     // ignore: [SRC + "/index.ts"],
   })
   return [...paths, ...glob.sync(SRC + "/*/*.[jt]s")]

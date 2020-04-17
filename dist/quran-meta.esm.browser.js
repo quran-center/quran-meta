@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 1.0.6
+ * Quran Meta library 1.0.9
  *
  * Released under the MIT license
  */
@@ -12,6 +12,7 @@ const metaConst = Object.freeze({
     manzilCount: 7,
 });
 
+// [start, ayas, order, rukus, name,  isMeccan, page ]
 const SuraList = [
     [-1, -1, -1, -1, "", false, -1],
     [0, 7, 5, 1, "الفاتحة", true, 1],

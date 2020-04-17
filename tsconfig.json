@@ -21,6 +21,6 @@
     "src/**/*.json",
     "src/*.ts",    
   ],
-  "exclude": ["node_modules", "dist","lib", "lib_es5", "examples"],
+  "exclude": ["node_modules", "dist","lib", "lib_esnext", "examples"],
   "compileOnSave": false
 }

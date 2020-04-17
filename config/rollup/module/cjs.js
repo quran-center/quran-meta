@@ -15,7 +15,7 @@ export default {
   output: {
     // file: `${outDir}/index.js`,
     dir: outDir,
-    format: "umd",
+    format: "cjs",
     name: "quranMeta",
     sourcemap: false,
     banner: banner,

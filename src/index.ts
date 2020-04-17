@@ -3,7 +3,6 @@ import meta from "./const"
 //export default QuranMeta;
 //------------------ Sura Data ---------------------
 
-// [start, ayas, order, rukus, name,  type, page ]
 import SuraList from "./surahList"
 
 //------------------ Juz Data ---------------------
