@@ -82,4 +82,3 @@ export declare function pageMeta(pageNum: number): any;
  * default is all
  */
 export declare function findRangeAroundAyah(surah: number, ayah: number, mode: string): number[];
-//# sourceMappingURL=index.d.ts.map

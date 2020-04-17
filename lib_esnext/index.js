@@ -1,3 +1,9 @@
+/*! 
+ * Quran Meta library 1.0.11
+ *
+ * Released under the MIT license
+ */
+
 const metaConst = Object.freeze({
     numAyas: 6236,
     numSuras: 114,

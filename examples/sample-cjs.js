@@ -3,7 +3,8 @@
  */
 // node sample-cjs.js
 
-const quranMeta = require("../dist/quran-meta.common.js")
+// const quranMeta = require("../dist/quran-meta.common.js")
+const quranMeta = require("../lib/index.js")
 console.log(`There are ${quranMeta.meta.numSuras} suras in the Holy Quran`) 
 let res=[]
 for (let surah = 1; surah <= quranMeta.meta.numSuras; surah++) {

@@ -1,18 +1,22 @@
 import typescript from "@rollup/plugin-typescript"
 import glob from "glob"
+import json from "@rollup/plugin-json"
 
 import { DIST_MODULE_CJS as outDir, SRC } from "../../const"
 
 function modulesPaths() {
   const paths = glob.sync(SRC + "/*.[jt]s", {
-    ignore: [SRC + "index.ts"],
+    // ignore: [SRC + "/index.ts"],
   })
-  return [...paths, ...glob.sync(SRC + "/*/*.[jt]s")]
+  return [...paths, ...glob.sync(SRC + "/i18n/*.[jt]s*")]
 }
 
 export default {
   input: modulesPaths(),
   plugins: [
+    json({
+      namedExports: false
+    }),
     typescript({
       outDir: `./${outDir}`,
       module: "ES2015", //"None", "CommonJS", "AMD", "System", "UMD", "ES6", "ES2015" or "ESNext"

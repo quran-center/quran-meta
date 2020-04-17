@@ -6,4 +6,3 @@ declare const metaConst: Readonly<{
     manzilCount: number;
 }>;
 export default metaConst;
-//# sourceMappingURL=const.d.ts.map

@@ -4,4 +4,3 @@
  * @returns {array} array [x,y] or [x,[y1,y2]] respectively
  */
 export default function ayaStringSplitter(str: string): any[];
-//# sourceMappingURL=ayaStringSplitter.d.ts.map

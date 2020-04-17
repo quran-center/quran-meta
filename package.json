@@ -48,6 +48,9 @@
   "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-typescript": "4.1.1",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "@types/jest": "^25.1.2",
     "@types/node": "12.11.1",
     "copyfiles": "latest",

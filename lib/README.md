@@ -24,7 +24,7 @@ You can find some examples [here](https://quran-center.github.io/quran-meta/exam
 ### Demo
 * [Quran Meta Visualiser](https://codesandbox.io/s/quran-visualiser-p3zjd) - demo app showcasing number of methods from Quran-meta to build interactive visualisations of Quran structure
 
-![demo image](https://github.com/quran-center/quran-meta/blob/master/examples/demo-quran-visualiser.jpg)
+![demo image](https://quran-center.github.io/quran-meta/examples/demo-quran-visualiser.jpg)
 
 ### Distributions and Downloads
 
@@ -37,3 +37,12 @@ Here you can find the following
    * [CommonJS](https://quran-center.github.io/quran-meta/dist/quran-meta.common.js)  for use with older bundlers like browserify or webpack
    * [ESM](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.js)  for use with modern bundlers like webpack 2 or Rollup
    * [ESM Browser](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.js)/[ESM Browser minified](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.min.js)   for direct imports in modern browsers via <script type="module">
+
+
+### Similar projects & Acknowledgements
+
+
+* During initial development some metadata was used from [Tanzil](http://tanzil.net/) project
+* [Al Quran Cloud](https://alquran.cloud/)
+* [Quran Metadata](https://github.com/alquran-foundation/DataExchangeProject/wiki/Quran-meta-data)
+* [Koran Center](https://www.koran.center) this JS package was developed while developing Koran.center and then was exported as a separate library for common use and benefit
