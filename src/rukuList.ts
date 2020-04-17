@@ -1,4 +1,4 @@
-const qdataRuku: number[] = [
+const RukuList: number[] = [
   0,
   1,
   8,
