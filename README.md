@@ -21,6 +21,9 @@ See [here](https://quran-center.github.io/quran-meta/docs/globals.html) for API 
 ### Examples
 You can find some examples [here](https://quran-center.github.io/quran-meta/examples/) and souce code for them [here](https://github.com/quran-center/quran-meta/tree/master/examples)
 
+### Demo
+* [Quran Meta Visualiser](https://codesandbox.io/s/quran-visualiser-p3zjd) - demo app showcasing number of methods from Quran-meta to build interactive visualisations of Quran structure
+
 ### Distributions and Downloads
 
 Here you can find the following
