@@ -559,4 +559,4 @@ const qdataRuku: number[] = [
   6237,
 ]
 
-export default qdataRuku
+export default RukuList

@@ -1,4 +1,4 @@
-const qdataHizb: number[] = [
+const HizbList: number[] = [
   0,
   1,
   33,
@@ -243,4 +243,4 @@ const qdataHizb: number[] = [
   6237,
 ]
 
-export default qdataHizb
+export default HizbList

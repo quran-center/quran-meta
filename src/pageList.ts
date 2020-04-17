@@ -1,4 +1,4 @@
-const qdataPage: number[] = [
+const PageList: number[] = [
   0,
   1,
   8,
@@ -607,4 +607,4 @@ const qdataPage: number[] = [
   6237,
 ]
 
-export default qdataPage
+export default PageList
