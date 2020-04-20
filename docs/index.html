@@ -82,6 +82,23 @@
 					<li>Find next or previous ayah (<code>nextAyah</code>/<code>prevAyah</code>)</li>
 					<li>converts <code>[surah,aya]</code> to <code>ayaId</code> and vice-verse ( <code>findSurahByAyaid</code> and  <code>findAyaidBySurah</code>) </li>
 				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h3>Installation</h3>
+				</a>
+				<p>In a browser:</p>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"quran-meta.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+				<p>Also modern browsers allow </p>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> quranMeta <span class="hljs-keyword">from</span> <span class="hljs-string">"quran-meta.esm.js"</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+				<p>The library is available from various CDNs</p>
+				<ul>
+					<li><a href="https://cdn.jsdelivr.net/npm/quran-meta/dist/">JSDelivr</a> </li>
+					<li><a href="https://unpkg.com/browse/quran-meta/dist/">UnPKG</a></li>
+				</ul>
+				<p>Using npm:</p>
+				<pre><code>$ npm i --<span class="hljs-built_in">save</span> quran-<span class="hljs-built_in">meta</span></code></pre><p>In Node.js:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">var</span> quranMeta = <span class="hljs-built_in">require</span>(<span class="hljs-string">'quran-meta'</span>);</code></pre>
 				<a href="#api-reference-documentation" id="api-reference-documentation" style="color: inherit; text-decoration: none;">
 					<h3>APi Reference Documentation</h3>
 				</a>
@@ -101,116 +118,142 @@
 					<h3>Distributions and Downloads</h3>
 				</a>
 				<p>Here you can find the following</p>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="https://github.com/quran-center/quran-meta/tree/master/src">Source code</a> in typescript</td>
+							<td>TS</td>
+						</tr>
+						<tr>
+							<td><a href="https://github.com/quran-center/quran-meta/tree/master/lib_esnext">Javascript code</a> autotranspiled from TS as ES Next</td>
+							<td>ESNext</td>
+						</tr>
+						<tr>
+							<td><a href="https://github.com/quran-center/quran-meta/tree/master/lib">Javascript code</a> autotranspiled from TS as CJS</td>
+							<td>ES5+CommonJS</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><strong><a href="https://github.com/quran-center/quran-meta/tree/master/dist">distributions</a> of library as</strong></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><a href="https://quran-center.github.io/quran-meta/dist/quran-meta.js">UMD</a>/ <a href="https://quran-center.github.io/quran-meta/dist/quran-meta.min.js">UMD minified</a> builds can be used directly in the browser via a <code>&lt;script&gt;</code> (see  <a href="https://www.syntaxsuccess.com/viewarticle/iife-vs-umd">here</a> about UMD format)</td>
+							<td>ES5+UMD</td>
+						</tr>
+						<tr>
+							<td><a href="https://quran-center.github.io/quran-meta/dist/quran-meta.common.js">CommonJS</a> for use with older bundlers like browserify or webpack</td>
+							<td>ES5+CommonJS</td>
+						</tr>
+						<tr>
+							<td><a href="https://quran-center.github.io/quran-meta/dist/quran-meta.esm.js">ESM</a> for use with modern bundlers like webpack 2 or Rollup</td>
+							<td>ES5+ESM</td>
+						</tr>
+						<tr>
+							<td><a href="https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.js">ESM Browser</a>/<a href="https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.min.js">ESM Browser minified</a> for direct imports in modern browsers via <code>&lt;script type=&quot;module&quot;&gt;</code></td>
+							<td>ESNext+ESM</td>
+						</tr>
+				</tbody></table>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
 				<ul>
-					<li><a href="https://github.com/quran-center/quran-meta/tree/master/src">Source code</a> in typescript</li>
-					<li><a href="https://github.com/quran-center/quran-meta/tree/master/lib_esnext">Javascript code</a> autotranspiled from TS as ES Next</li>
-					<li><a href="https://github.com/quran-center/quran-meta/tree/master/lib">Javascript code</a> autotranspiled from TS as CJS</li>
-					<li><a href="https://github.com/quran-center/quran-meta/tree/master/dist">distributions</a> of library as <ul>
-							<li><a href="https://quran-center.github.io/quran-meta/dist/quran-meta.js">UMD</a> / <a href="https://quran-center.github.io/quran-meta/dist/quran-meta.min.js">UMD minified</a> builds can be used directly in the browser via a <script></li>
-<li><a href="https://quran-center.github.io/quran-meta/dist/quran-meta.common.js">CommonJS</a>  for use with older bundlers like browserify or webpack</li>
-<li><a href="https://quran-center.github.io/quran-meta/dist/quran-meta.esm.js">ESM</a>  for use with modern bundlers like webpack 2 or Rollup</li>
-<li><a href="https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.js">ESM Browser</a>/<a href="https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.min.js">ESM Browser minified</a>   for direct imports in modern browsers via <script type="module"></li>
-</ul>
-</li>
-</ul>
-
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hizblist" class="tsd-kind-icon">Hizb<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#juzlist" class="tsd-kind-icon">Juz<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#manzillist" class="tsd-kind-icon">Manzil<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#pagelist" class="tsd-kind-icon">Page<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#rukulist" class="tsd-kind-icon">Ruku<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#sajdalist" class="tsd-kind-icon">Sajda<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#suralist" class="tsd-kind-icon">Sura<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#metaconst" class="tsd-kind-icon">meta<wbr>Const</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#ayastringsplitter" class="tsd-kind-icon">aya<wbr>String<wbr>Splitter</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#findayaidbysurah" class="tsd-kind-icon">find<wbr>Ayaid<wbr>BySurah</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#findjuz" class="tsd-kind-icon">find<wbr>Juz</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#findjuzbyayaid" class="tsd-kind-icon">find<wbr>Juz<wbr>ByAyaid</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#findjuzmetabysurah" class="tsd-kind-icon">find<wbr>Juz<wbr>Meta<wbr>BySurah</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#findpage" class="tsd-kind-icon">find<wbr>Page</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#findrangearoundayah" class="tsd-kind-icon">find<wbr>Range<wbr>Around<wbr>Ayah</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#findsurahbyayaid" class="tsd-kind-icon">find<wbr>Surah<wbr>ByAyaid</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getayacountinsura" class="tsd-kind-icon">get<wbr>Aya<wbr>Countin<wbr>Sura</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isayahjuzfirst" class="tsd-kind-icon">is<wbr>Ayah<wbr>Juz<wbr>First</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#nextayah" class="tsd-kind-icon">next<wbr>Ayah</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#pagemeta" class="tsd-kind-icon">page<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#prevayah" class="tsd-kind-icon">prev<wbr>Ayah</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>
-        </div>
-        <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-            <nav class="tsd-navigation primary">
-                <ul>
-                                    <li class="globals  ">
-                <a href="globals.html"><em>Globals</em></a>
-            </li>
-                </ul>
-            </nav>
-
-            <nav class="tsd-navigation secondary menu-sticky">
-                <ul class="before-current">
-                        <li class=" tsd-kind-variable">
-    <a href="globals.html#hizblist" class="tsd-kind-icon">Hizb<wbr>List</a>
-</li>
-                        <li class=" tsd-kind-variable">
-    <a href="globals.html#juzlist" class="tsd-kind-icon">Juz<wbr>List</a>
-</li>
-                        <li class=" tsd-kind-variable">
-    <a href="globals.html#manzillist" class="tsd-kind-icon">Manzil<wbr>List</a>
-</li>
-                        <li class=" tsd-kind-variable">
-    <a href="globals.html#pagelist" class="tsd-kind-icon">Page<wbr>List</a>
-</li>
-                        <li class=" tsd-kind-variable">
-    <a href="globals.html#rukulist" class="tsd-kind-icon">Ruku<wbr>List</a>
-</li>
-                        <li class=" tsd-kind-variable">
-    <a href="globals.html#sajdalist" class="tsd-kind-icon">Sajda<wbr>List</a>
-</li>
-                        <li class=" tsd-kind-variable">
-    <a href="globals.html#suralist" class="tsd-kind-icon">Sura<wbr>List</a>
-</li>
-                        <li class=" tsd-kind-variable">
-    <a href="globals.html#metaconst" class="tsd-kind-icon">meta<wbr>Const</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#ayastringsplitter" class="tsd-kind-icon">aya<wbr>String<wbr>Splitter</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#findayaidbysurah" class="tsd-kind-icon">find<wbr>Ayaid<wbr>BySurah</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#findjuz" class="tsd-kind-icon">find<wbr>Juz</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#findjuzbyayaid" class="tsd-kind-icon">find<wbr>Juz<wbr>ByAyaid</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#findjuzmetabysurah" class="tsd-kind-icon">find<wbr>Juz<wbr>Meta<wbr>BySurah</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#findpage" class="tsd-kind-icon">find<wbr>Page</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#findrangearoundayah" class="tsd-kind-icon">find<wbr>Range<wbr>Around<wbr>Ayah</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#findsurahbyayaid" class="tsd-kind-icon">find<wbr>Surah<wbr>ByAyaid</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#getayacountinsura" class="tsd-kind-icon">get<wbr>Aya<wbr>Countin<wbr>Sura</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#isayahjuzfirst" class="tsd-kind-icon">is<wbr>Ayah<wbr>Juz<wbr>First</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#nextayah" class="tsd-kind-icon">next<wbr>Ayah</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#pagemeta" class="tsd-kind-icon">page<wbr>Meta</a>
-</li>
-                        <li class=" tsd-kind-function">
-    <a href="globals.html#prevayah" class="tsd-kind-icon">prev<wbr>Ayah</a>
-</li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-
 <footer class="with-border-bottom">
-    <div class="container">
-        <h2>Legend</h2>
-        <div class="tsd-legend-group">
-        </div>
-    </div>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
 </footer>
-
-    <div class="container tsd-generator">
-        <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-    </div>
-
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-								<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
