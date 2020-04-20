@@ -8,7 +8,7 @@
     "surah",
     "juz"
   ],
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MIT",
   "browser": "dist/quran-meta.js",
   "jsdelivr": "dist/quran-meta.js",
@@ -36,7 +36,7 @@
     "build-universal": "rollup -c config/rollup/dist/umd.js && rollup -c config/rollup/dist/es.js && copyfiles -f  ./src/i18n/* ./dist/json",
     "build-es": "rollup -c config/rollup/module/es.js && rollup -c config/rollup/module/es-all.js",
     "build-cjs": "rollup -c config/rollup/module/cjs.js && rollup -c config/rollup/module/cjs-all.js",
-    "build-ts":"tsc -d -p tsconfig.json --sourceMap --outDir lib_esnext --declarationDir types",
+    "build-ts": "tsc -d -p tsconfig.json --sourceMap --outDir lib_esnext --declarationDir types",
     "prepare-npm-package": "rimraf dist && rimraf lib && rimraf lib_esnext && rimraf dist && mkdir lib && copyfiles package.json README.md LICENSE ./lib && npm run build",
     "test": "jest",
     "coverage": "jest --coverage",
