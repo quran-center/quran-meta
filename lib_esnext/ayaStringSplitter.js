@@ -3,12 +3,11 @@
  * @param {*} str String of type "x:y" or "x:y1-y2"
  * @returns {array} array [x,y] or [x,[y1,y2]] respectively
  */
-function ayaStringSplitter(str) {
+export default function ayaStringSplitter(str) {
     let [surah, ayahs] = str.trim().split(":");
     if (!ayahs) {
         throw "Error in data " + str;
     }
     return [+surah, ayahs.includes("-") ? ayahs.split("-").map(Number) : +ayahs];
 }
-
-export default ayaStringSplitter;
+//# sourceMappingURL=ayaStringSplitter.js.map

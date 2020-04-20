@@ -14,6 +14,36 @@ Answering Questions like:
 * Find next or previous ayah (`nextAyah`/`prevAyah`)
 * converts `[surah,aya]` to `ayaId` and vice-verse ( `findSurahByAyaid` and  `findAyaidBySurah`) 
 
+### Installation
+
+In a browser:
+
+```html
+<script src="quran-meta.js"></script>
+```
+Also modern browsers allow 
+```html
+<script type="module">
+import quranMeta from "quran-meta.esm.js"
+</script>
+```
+
+The library is available from various CDNs
+* [JSDelivr](https://cdn.jsdelivr.net/npm/quran-meta/dist/) 
+* [UnPKG](https://unpkg.com/browse/quran-meta/dist/)
+
+Using npm:
+```
+$ npm i --save quran-meta
+```
+
+In Node.js:
+
+```js
+var quranMeta = require('quran-meta');
+```
+
+
 ### APi Reference Documentation
 
 See [here](https://quran-center.github.io/quran-meta/docs/globals.html) for API documentation
@@ -29,20 +59,18 @@ You can find some examples [here](https://quran-center.github.io/quran-meta/exam
 ### Distributions and Downloads
 
 Here you can find the following
-* [Source code](https://github.com/quran-center/quran-meta/tree/master/src) in typescript
-* [Javascript code](https://github.com/quran-center/quran-meta/tree/master/lib_esnext) autotranspiled from TS as ES Next
-* [Javascript code](https://github.com/quran-center/quran-meta/tree/master/lib) autotranspiled from TS as CJS
-* [distributions](https://github.com/quran-center/quran-meta/tree/master/dist) of library as 
-   *   [UMD](https://quran-center.github.io/quran-meta/dist/quran-meta.js) / [UMD minified](https://quran-center.github.io/quran-meta/dist/quran-meta.min.js) builds can be used directly in the browser via a <script>
-   * [CommonJS](https://quran-center.github.io/quran-meta/dist/quran-meta.common.js)  for use with older bundlers like browserify or webpack
-   * [ESM](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.js)  for use with modern bundlers like webpack 2 or Rollup
-   * [ESM Browser](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.js)/[ESM Browser minified](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.min.js)   for direct imports in modern browsers via <script type="module">
+
+|||
+|--|--|
+|[Source code](https://github.com/quran-center/quran-meta/tree/master/src) in typescript  | TS |
+| [Javascript code](https://github.com/quran-center/quran-meta/tree/master/lib_esnext) autotranspiled from TS as ES Next  | ESNext |
+|[Javascript code](https://github.com/quran-center/quran-meta/tree/master/lib) autotranspiled from TS as CJS|ES5+CommonJS|
+|||
+ **[distributions](https://github.com/quran-center/quran-meta/tree/master/dist) of library as**| | 
+|[UMD](https://quran-center.github.io/quran-meta/dist/quran-meta.js)/ [UMD minified](https://quran-center.github.io/quran-meta/dist/quran-meta.min.js) builds can be used directly in the browser via a `<script>` (see  [here](https://www.syntaxsuccess.com/viewarticle/iife-vs-umd) about UMD format)  | ES5+UMD |
+| [CommonJS](https://quran-center.github.io/quran-meta/dist/quran-meta.common.js) for use with older bundlers like browserify or webpack | ES5+CommonJS |
+| [ESM](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.js) for use with modern bundlers like webpack 2 or Rollup  | ES5+ESM |
+| [ESM Browser](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.js)/[ESM Browser minified](https://quran-center.github.io/quran-meta/dist/quran-meta.esm.browser.min.js) for direct imports in modern browsers via `<script type="module">`  | ESNext+ESM |
 
 
-### Similar projects & Acknowledgements
 
-
-* During initial development some metadata was used from [Tanzil](http://tanzil.net/) project
-* [Al Quran Cloud](https://alquran.cloud/)
-* [Quran Metadata](https://github.com/alquran-foundation/DataExchangeProject/wiki/Quran-meta-data)
-* [Koran Center](https://www.koran.center) this JS package was developed while developing Koran.center and then was exported as a separate library for common use and benefit

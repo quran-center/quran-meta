@@ -242,5 +242,5 @@ const HizbList = [
     6155,
     6237,
 ];
-
 export default HizbList;
+//# sourceMappingURL=hizbList.js.map

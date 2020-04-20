@@ -13,7 +13,7 @@
   "browser": "dist/quran-meta.js",
   "jsdelivr": "dist/quran-meta.js",
   "unpkg": "dist/quran-meta.js",
-  "main": "dist/quran-meta.js",
+  "main": "dist/quran-meta.common.js",
   "module": "lib_esnext/index.js",
   "typings": "lib_esnext/types/index.d.ts",
   "repository": {
@@ -32,10 +32,11 @@
   },
   "scripts": {
     "eslint": "eslint ./src --ext .js --fix",
-    "build": "npm run build-universal && npm run build-module && npm run build-submodule",
+    "build": "npm run build-universal && npm run build-ts && npm run build-cjs",
     "build-universal": "rollup -c config/rollup/dist/umd.js && rollup -c config/rollup/dist/es.js && copyfiles -f  ./src/i18n/* ./dist/json",
-    "build-module": "rollup -c config/rollup/module/cjs.js && rollup -c config/rollup/module/es.js",
-    "build-submodule": "rollup -c config/rollup/module/cjs-all.js && rollup -c config/rollup/module/es-all.js",
+    "build-es": "rollup -c config/rollup/module/es.js && rollup -c config/rollup/module/es-all.js",
+    "build-cjs": "rollup -c config/rollup/module/cjs.js && rollup -c config/rollup/module/cjs-all.js",
+    "build-ts":"tsc -d -p tsconfig.json --sourceMap --outDir lib_esnext --declarationDir types",
     "prepare-npm-package": "rimraf dist && rimraf lib && rimraf lib_esnext && rimraf dist && mkdir lib && copyfiles package.json README.md LICENSE ./lib && npm run build",
     "test": "jest",
     "coverage": "jest --coverage",

@@ -5,5 +5,5 @@ const metaConst = Object.freeze({
     numJuzs: 30,
     manzilCount: 7,
 });
-
 export default metaConst;
+//# sourceMappingURL=const.js.map
