@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 1.1.1
+ * Quran Meta library 1.1.2
  *
  * Released under the MIT license
  */
