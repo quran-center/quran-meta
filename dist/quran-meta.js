@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 1.1.0
+ * Quran Meta library 1.1.1
  *
  * Released under the MIT license
  */
@@ -1580,7 +1580,12 @@
         if (!ayahs) {
             throw "Error in data " + str;
         }
-        return [+surah, ayahs.includes("-") ? ayahs.split("-").map(Number) : +ayahs];
+        return [
+            +surah,
+            ayahs.includes("-")
+                ? ayahs.split("-").map(Number)
+                : +ayahs,
+        ];
     }
 
     var JuzList = [
@@ -1663,7 +1668,6 @@
         var r = l;
         while (r < metaConst.numJuzs && findSurahByAyaid(JuzList[r + 1])[0] == surah)
             r++;
-        var sl = findSurahByAyaid(JuzList[l]);
         var ayahsFromStartOfJuz = SuraList[surah][0] - JuzList[l];
         return [l, ayahsFromStartOfJuz + 1, r, getAyaCountinSura(surah)];
     }
@@ -1707,7 +1711,10 @@
     function pageMeta(pageNum) {
         if (pageNum < 1 || pageNum > metaConst.numPages)
             throw new RangeError("pagenum must be between 1 and " + metaConst.numPages);
-        var _a = [PageList[pageNum], PageList[pageNum + 1]], curPage = _a[0], nextPage = _a[1];
+        var _a = [
+            PageList[pageNum],
+            PageList[pageNum + 1],
+        ], curPage = _a[0], nextPage = _a[1];
         return {
             pageNum: pageNum,
             first: findSurahByAyaid(curPage),

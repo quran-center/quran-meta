@@ -1,4 +1,12 @@
-const metaConst = Object.freeze({
+type QuranMeta = {
+  numAyas: number
+  numSuras: number
+  numPages: number
+  numJuzs: number
+  manzilCount: number
+}
+
+const metaConst: QuranMeta = Object.freeze({
   numAyas: 6236,
   numSuras: 114,
   numPages: 604,

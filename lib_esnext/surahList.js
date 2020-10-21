@@ -1,4 +1,3 @@
-// [start, ayas, order, rukus, name,  isMeccan, page ]
 const SuraList = [
     [-1, -1, -1, -1, "", false, -1],
     [0, 7, 5, 1, "الفاتحة", true, 1],

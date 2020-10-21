@@ -1,2 +1,3 @@
-declare const PageList: number[];
+import { AyahId } from "./types";
+declare const PageList: AyahId[];
 export default PageList;

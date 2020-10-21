@@ -1,4 +1,6 @@
-const RukuList: number[] = [
+import { AyahId } from "./types"
+
+const RukuList: AyahId[] = [
   0,
   1,
   8,

@@ -115,7 +115,7 @@ export function isAyahJuzFirst(surah, ayah) {
  * for given ayah return [starting juz, number of ayahsFrom beginning of that juz, right juz, number of ayahs in surah
  * @param {*} suraNumber
  * @param {*} ayaNumber
- * @returns [leftjuz,ayahsFromStartOfJuz,rightJuz, ayahsinSurah]
+ * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah]
  */
 export function findJuzMetaBySurah(surah, ayah = 1) {
     if (surah < 1 || surah > meta.numSuras)
@@ -130,7 +130,7 @@ export function findJuzMetaBySurah(surah, ayah = 1) {
     //   Sura[suraNumber][0],
     //   Juz[l][1]
     // )
-    let sl = findSurahByAyaid(JuzList[l]);
+    // let sl: SurahAyah = findSurahByAyaid(JuzList[l])
     const ayahsFromStartOfJuz = SuraList[surah][0] - JuzList[l];
     // console.log(Sura[suraNumber + 1][0], Sura[Juz[l][0]][0])
     return [l, ayahsFromStartOfJuz + 1, r, getAyaCountinSura(surah)];
@@ -207,7 +207,10 @@ export function prevAyah(surah, ayah) {
 export function pageMeta(pageNum) {
     if (pageNum < 1 || pageNum > meta.numPages)
         throw new RangeError("pagenum must be between 1 and " + meta.numPages);
-    const [curPage, nextPage] = [PageList[pageNum], PageList[pageNum + 1]];
+    const [curPage, nextPage] = [
+        PageList[pageNum],
+        PageList[pageNum + 1],
+    ];
     return {
         pageNum,
         first: findSurahByAyaid(curPage),
@@ -239,7 +242,8 @@ export function pageMeta(pageNum) {
 // }
 /**
  * Find range containing ayah according to the mode
- * @param {*} ayahId
+ * @param surah
+ * @param ayah
  * @param {*} mode can be either 'all', 'juz', 'surah', 'ayah', 'page'
  * default is all
  */

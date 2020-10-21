@@ -1,4 +1,6 @@
-const PageList: number[] = [
+import { AyahId } from "./types"
+
+const PageList: AyahId[] = [
   0,
   1,
   8,

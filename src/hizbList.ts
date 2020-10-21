@@ -1,4 +1,6 @@
-const HizbList: number[] = [
+import { AyahId } from "./types"
+
+const HizbList: AyahId[] = [
   0,
   1,
   33,

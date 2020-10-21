@@ -8,6 +8,11 @@ export default function ayaStringSplitter(str) {
     if (!ayahs) {
         throw "Error in data " + str;
     }
-    return [+surah, ayahs.includes("-") ? ayahs.split("-").map(Number) : +ayahs];
+    return [
+        +surah,
+        ayahs.includes("-")
+            ? ayahs.split("-").map(Number)
+            : +ayahs,
+    ];
 }
 //# sourceMappingURL=ayaStringSplitter.js.map
