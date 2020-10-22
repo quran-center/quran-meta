@@ -1,3 +1,2 @@
 import { SurahMeta } from "./types";
-declare const SuraList: SurahMeta[];
-export default SuraList;
+export declare const SuraList: SurahMeta[];

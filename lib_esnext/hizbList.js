@@ -1,4 +1,4 @@
-const HizbList = [
+export const HizbQuarterList = [
     0,
     1,
     33,
@@ -242,5 +242,4 @@ const HizbList = [
     6155,
     6237,
 ];
-export default HizbList;
 //# sourceMappingURL=hizbList.js.map

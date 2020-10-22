@@ -1,6 +1,6 @@
 import { AyahId } from "./types"
 
-const PageList: AyahId[] = [
+export const PageList: AyahId[] = [
   0,
   1,
   8,
@@ -608,5 +608,3 @@ const PageList: AyahId[] = [
   6222,
   6237,
 ]
-
-export default PageList

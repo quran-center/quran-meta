@@ -1,3 +1,2 @@
 import { AyahId } from "./types";
-declare const RukuList: AyahId[];
-export default RukuList;
+export declare const RukuList: AyahId[];

@@ -1,6 +1,6 @@
 import { AyahId } from "./types"
 
-const RukuList: AyahId[] = [
+export const RukuList: AyahId[] = [
   0,
   1,
   8,
@@ -560,5 +560,3 @@ const RukuList: AyahId[] = [
   6231,
   6237,
 ]
-
-export default RukuList

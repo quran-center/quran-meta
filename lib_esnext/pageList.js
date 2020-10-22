@@ -1,4 +1,4 @@
-const PageList = [
+export const PageList = [
     0,
     1,
     8,
@@ -606,5 +606,4 @@ const PageList = [
     6222,
     6237,
 ];
-export default PageList;
 //# sourceMappingURL=pageList.js.map

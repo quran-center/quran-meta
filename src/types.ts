@@ -17,3 +17,4 @@ export type SajdaType = "recommended" | "obligatory"
 export type Sajda = [AyahId, SajdaType]
 // [start, ayas, order, rukus, name,  isMeccan, page ]
 export type SurahMeta = [AyahId, number, number, number, string, boolean, Page]
+export type SuraName = [string, string]

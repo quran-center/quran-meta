@@ -1,14 +1,16 @@
-import meta from "./const";
+import { meta } from "./const";
 import { AyahId, AyahNo, Page, Juz, SurahAyah, PageMeta, JuzMeta, Sajda, Surah } from "./types";
-import SuraList from "./surahList";
+export { suraNames as suraNamesEn } from "./i18n/sura.en";
+export { suraNames as suraNamesRu } from "./i18n/sura.ru";
+import { SuraList } from "./surahList";
 declare const JuzList: AyahId[];
-import HizbQuarterList from "./hizbList";
+import { HizbQuarterList } from "./hizbList";
 declare const ManzilList: AyahId[];
-import RukuList from "./rukuList";
-import PageList from "./pageList";
+import { RukuList } from "./rukuList";
+import { PageList } from "./pageList";
 declare const SajdaList: Sajda[];
-import ayaStringSplitter from "./ayaStringSplitter";
-export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter, };
+import { ayaStringSplitter } from "./ayaStringSplitter";
+export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter };
 /**
  *
  * @param {*} ayaId
@@ -47,7 +49,7 @@ export declare function findSurahByAyaid(ayaId: AyahId): SurahAyah;
 /**
  *
  * @param {*} surah
- * @param {*} ayah
+ * @param {*} ayah```
  */
 export declare function findAyaidBySurah(surah: Surah, ayah: AyahNo): AyahId;
 /**

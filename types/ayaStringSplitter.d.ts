@@ -4,4 +4,4 @@ import { SurahAyahSegment } from "./types";
  * @param {*} str String of type "x:y" or "x:y1-y2"
  * @returns {array} array [x,y] or [x,[y1,y2]] respectively
  */
-export default function ayaStringSplitter(str: string): SurahAyahSegment;
+export declare function ayaStringSplitter(str: string): SurahAyahSegment;

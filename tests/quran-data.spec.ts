@@ -1,4 +1,4 @@
-import  {
+import {
   findAyaidBySurah,
   findSurahByAyaid,
   isAyahJuzFirst,
@@ -7,10 +7,18 @@ import  {
   findPage,
   nextAyah,
   prevAyah,
+  ayaStringSplitter,
   // pageMetaOld,
   JuzList,
-  pageMeta
+  pageMeta,
+  SuraList,
+  SajdaList,
+  HizbQuarterList,
+  ManzilList,
+  PageList,
+  RukuList,
 } from "../src/"
+import { AyahNo, AyahId, Surah } from "../src/types"
 
 console.log("STARING")
 console.log(1, findSurahByAyaid(1))
@@ -51,12 +59,22 @@ describe("nextAyah", () => {
   })
 })
 
-describe("nextAyah", () => {
+describe("prevAyah", () => {
   it("true", () => {
     expect(prevAyah(1, 2)).toEqual(expect.arrayContaining([1, 1]))
     expect(prevAyah(1, 6)).toEqual(expect.arrayContaining([1, 5]))
+    expect(prevAyah(2, 1)).toEqual(expect.arrayContaining([1, 7]))
     expect(prevAyah(113, 1)).toEqual(expect.arrayContaining([112, 4]))
     expect(prevAyah(1, 1)).toEqual(expect.arrayContaining([114, 6]))
+  })
+})
+
+describe("ayaStringSplitter", () => {
+  it("true", () => {
+    expect(ayaStringSplitter("1:1")).toEqual([1, 1])
+    expect(ayaStringSplitter("1:1-5")).toEqual([1, [1, 5]])
+    expect(ayaStringSplitter("114:1")).toEqual([114, 1])
+    // expect(ayaStringSplitter("115:1")).toEqual([115,1])
   })
 })
 
@@ -64,6 +82,7 @@ describe("findPage", () => {
   it("true", () => {
     expect(findPage(1, 1)).toEqual(1)
     expect(findPage(1, 2)).toEqual(1)
+    expect(findPage(2, 1)).toEqual(2)
     expect(findPage(114, 1)).toEqual(604)
   })
 })
@@ -72,6 +91,8 @@ describe("findJuz", () => {
   it("true", () => {
     expect(findJuz(1, 1)).toEqual(1)
     expect(findJuz(1, 2)).toEqual(1)
+    expect(findJuz(2, 1)).toEqual(1)
+    expect(findJuz(3, 1)).toEqual(3)
     expect(findJuz(114, 1)).toEqual(30)
   })
 })
@@ -92,6 +113,7 @@ describe("findSurahByAyaid", () => {
   it("surah of ayaid 1", () => {
     expect(findSurahByAyaid(1)).toEqual(expect.arrayContaining([1, 1]))
     expect(findSurahByAyaid(2)).toEqual(expect.arrayContaining([1, 2]))
+    expect(findSurahByAyaid(8)).toEqual(expect.arrayContaining([2, 1]))
     expect(findSurahByAyaid(6236)).toEqual(expect.arrayContaining([114, 6]))
   })
 })
@@ -100,11 +122,14 @@ describe("findAyaidBySurah", () => {
   it("ayaid of surah 1", () => {
     expect(findAyaidBySurah(1, 1)).toEqual(1)
     expect(findAyaidBySurah(1, 2)).toEqual(2)
+    expect(findAyaidBySurah(2, 1)).toEqual(8)
+    expect(findAyaidBySurah(114, 6)).toEqual(6236)
   })
 })
 
-let f = (i:number) => expect(findAyaidBySurah(...findSurahByAyaid(i))).toEqual(i)
-let xf = (i:number, j:number) =>
+let f = (i: AyahId) =>
+  expect(findAyaidBySurah(...findSurahByAyaid(i))).toEqual(i)
+let xf = (i: Surah, j: AyahNo) =>
   expect(findSurahByAyaid(findAyaidBySurah(i, j))).toEqual([i, j])
 
 describe("crossTest", () => {
@@ -116,6 +141,8 @@ describe("crossTest", () => {
     f(6230)
     f(6226)
     xf(1, 2)
+    xf(2, 1)
+    xf(3, 1)
     xf(110, 1)
     xf(110, 3)
     xf(111, 1)

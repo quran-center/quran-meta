@@ -1,5 +1,5 @@
 // Quran Meta
-import meta from "./const"
+import { meta } from "./const"
 import {
   AyahId,
   AyahNo,
@@ -10,12 +10,15 @@ import {
   JuzMeta,
   SurahMeta,
   Sajda,
-  Surah,
+  Surah
 } from "./types"
 //export default QuranMeta;
 //------------------ Sura Data ---------------------
 
-import SuraList from "./surahList"
+export  { suraNames as suraNamesEn } from "./i18n/sura.en"
+export { suraNames as suraNamesRu } from "./i18n/sura.ru"
+
+import { SuraList } from "./surahList"
 
 //------------------ Juz Data ---------------------
 const JuzList: AyahId[] = [
@@ -54,7 +57,7 @@ const JuzList: AyahId[] = [
 ]
 
 //------------------ Hizb Data ---------------------
-import HizbQuarterList from "./hizbList"
+import { HizbQuarterList } from "./hizbList"
 
 //------------------ Manzil Data ---------------------
 
@@ -62,7 +65,7 @@ const ManzilList: AyahId[] = [0, 1, 670, 1365, 2030, 2933, 3789, 4631, 6237]
 
 //------------------ Ruku Data ---------------------
 // export Ruku  from "~/js/qdata-ruku.json"
-import RukuList from "./rukuList"
+import { RukuList } from "./rukuList"
 
 //------------------ Page Data ---------------------
 // code to get starting pages for surahs
@@ -72,7 +75,7 @@ import RukuList from "./rukuList"
 // 		{res.push([s,c[0],s==c[0]?p:p-1]);s+=1;}
 // 	return s
 // },0)
-import PageList from "./pageList"
+import { PageList } from "./pageList"
 
 // export Page from "~/js/qdata-page.json"
 
@@ -97,7 +100,7 @@ const SajdaList: Sajda[] = [
   [6125, "obligatory"],
 ]
 //export default QuranMeta;
-import ayaStringSplitter from "./ayaStringSplitter"
+import { ayaStringSplitter } from "./ayaStringSplitter"
 export {
   meta,
   SuraList,
@@ -107,7 +110,7 @@ export {
   RukuList,
   PageList,
   SajdaList,
-  ayaStringSplitter,
+  ayaStringSplitter
 }
 
 /**
@@ -207,7 +210,7 @@ export function findSurahByAyaid(ayaId: AyahId): SurahAyah {
 /**
  *
  * @param {*} surah
- * @param {*} ayah
+ * @param {*} ayah```
  */
 export function findAyaidBySurah(surah: Surah, ayah: AyahNo): AyahId {
   if (surah < 1 || surah > meta.numSuras)

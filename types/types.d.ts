@@ -14,3 +14,4 @@ export declare type JuzMeta = [Juz, number, Juz, number];
 export declare type SajdaType = "recommended" | "obligatory";
 export declare type Sajda = [AyahId, SajdaType];
 export declare type SurahMeta = [AyahId, number, number, number, string, boolean, Page];
+export declare type SuraName = [string, string];

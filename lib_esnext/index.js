@@ -1,8 +1,10 @@
 // Quran Meta
-import meta from "./const";
+import { meta } from "./const";
 //export default QuranMeta;
 //------------------ Sura Data ---------------------
-import SuraList from "./surahList";
+export { suraNames as suraNamesEn } from "./i18n/sura.en";
+export { suraNames as suraNamesRu } from "./i18n/sura.ru";
+import { SuraList } from "./surahList";
 //------------------ Juz Data ---------------------
 const JuzList = [
     0,
@@ -39,12 +41,12 @@ const JuzList = [
     6237,
 ];
 //------------------ Hizb Data ---------------------
-import HizbQuarterList from "./hizbList";
+import { HizbQuarterList } from "./hizbList";
 //------------------ Manzil Data ---------------------
 const ManzilList = [0, 1, 670, 1365, 2030, 2933, 3789, 4631, 6237];
 //------------------ Ruku Data ---------------------
 // export Ruku  from "~/js/qdata-ruku.json"
-import RukuList from "./rukuList";
+import { RukuList } from "./rukuList";
 //------------------ Page Data ---------------------
 // code to get starting pages for surahs
 // let res=[];
@@ -53,7 +55,7 @@ import RukuList from "./rukuList";
 // 		{res.push([s,c[0],s==c[0]?p:p-1]);s+=1;}
 // 	return s
 // },0)
-import PageList from "./pageList";
+import { PageList } from "./pageList";
 // export Page from "~/js/qdata-page.json"
 //------------------ Sajda Data ---------------------
 const SajdaList = [
@@ -75,8 +77,8 @@ const SajdaList = [
     [6125, "obligatory"],
 ];
 //export default QuranMeta;
-import ayaStringSplitter from "./ayaStringSplitter";
-export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter, };
+import { ayaStringSplitter } from "./ayaStringSplitter";
+export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter };
 /**
  *
  * @param {*} ayaId
@@ -161,7 +163,7 @@ export function findSurahByAyaid(ayaId) {
 /**
  *
  * @param {*} surah
- * @param {*} ayah
+ * @param {*} ayah```
  */
 export function findAyaidBySurah(surah, ayah) {
     if (surah < 1 || surah > meta.numSuras)

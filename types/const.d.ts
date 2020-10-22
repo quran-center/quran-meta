@@ -5,5 +5,5 @@ declare type QuranMeta = {
     numJuzs: number;
     manzilCount: number;
 };
-declare const metaConst: QuranMeta;
-export default metaConst;
+export declare const meta: Readonly<QuranMeta>;
+export {};

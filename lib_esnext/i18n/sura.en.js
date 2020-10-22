@@ -1,4 +1,4 @@
-[
+export const suraNames = [
     [],
     ["Al-Faatiha", "The Opening"],
     ["Al-Baqara", "The Cow"],
@@ -113,5 +113,6 @@
     ["Al-Masad", "The Palm Fibre"],
     ["Al-Ikhlaas", "Sincerity"],
     ["Al-Falaq", "The Dawn"],
-    ["An-Naas", "Mankind"]
-]
+    ["An-Naas", "Mankind"],
+];
+//# sourceMappingURL=sura.en.js.map

@@ -1,4 +1,4 @@
-const RukuList = [
+export const RukuList = [
     0,
     1,
     8,
@@ -558,5 +558,4 @@ const RukuList = [
     6231,
     6237,
 ];
-export default RukuList;
 //# sourceMappingURL=rukuList.js.map

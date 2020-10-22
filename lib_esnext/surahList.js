@@ -1,4 +1,4 @@
-const SuraList = [
+export const SuraList = [
     [-1, -1, -1, -1, "", false, -1],
     [0, 7, 5, 1, "الفاتحة", true, 1],
     [7, 286, 87, 40, "البقرة", false, 2],
@@ -116,5 +116,4 @@ const SuraList = [
     [6230, 6, 21, 1, "الناس", true, 604],
     [6236, 0, -1, -1, "", false, -1],
 ];
-export default SuraList;
 //# sourceMappingURL=surahList.js.map

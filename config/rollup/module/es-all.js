@@ -2,22 +2,18 @@ import typescript from "@rollup/plugin-typescript"
 import glob from "glob"
 import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
-import json from "@rollup/plugin-json"
 import { DIST_MODULE_ES as outDir, SRC } from "../../const"
 
 function modulesPaths() {
-  const paths = glob.sync(SRC + "/*.[jt]s", {
-    // ignore: [SRC + "/index.ts"],
+  const paths = glob.sync(SRC + "/**/*.[jt]s", {
+    ignore: [SRC + "/types.ts", SRC + "/index.ts"],
   })
-  return [...paths, ...glob.sync(SRC + "/i18n/*.[jt]s*")]
+  return paths
 }
 
 export default {
   input: modulesPaths(),
   plugins: [
-    json({
-      namedExports: false
-    }),
     typescript({
       outDir: `./${outDir}`,
       declaration: true,
@@ -35,6 +31,7 @@ export default {
 
   output: {
     dir: outDir,
+    sourceMap: true,
     format: "es", // amd,cjs,es,iife,umd,system
     // chunkFileNames: "internal/[name].js",
   },

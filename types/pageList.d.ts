@@ -1,3 +1,2 @@
 import { AyahId } from "./types";
-declare const PageList: AyahId[];
-export default PageList;
+export declare const PageList: AyahId[];

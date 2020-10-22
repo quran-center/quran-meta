@@ -3,7 +3,7 @@
  * @param {*} str String of type "x:y" or "x:y1-y2"
  * @returns {array} array [x,y] or [x,[y1,y2]] respectively
  */
-export default function ayaStringSplitter(str) {
+export function ayaStringSplitter(str) {
     let [surah, ayahs] = str.trim().split(":");
     if (!ayahs) {
         throw "Error in data " + str;

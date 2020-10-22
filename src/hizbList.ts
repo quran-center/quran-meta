@@ -1,6 +1,6 @@
 import { AyahId } from "./types"
 
-const HizbList: AyahId[] = [
+export const HizbQuarterList: AyahId[] = [
   0,
   1,
   33,
@@ -244,5 +244,3 @@ const HizbList: AyahId[] = [
   6155,
   6237,
 ]
-
-export default HizbList

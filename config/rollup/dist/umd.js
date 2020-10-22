@@ -10,6 +10,7 @@ export default {
     typescript({
       // declaration: true,
       // declarationDir: `${outDir}`,
+      sourceMap: true,
       removeComments:true,
       module: "ES2015",//"None", "CommonJS", "AMD", "System", "UMD", "ES6", "ES2015" or "ESNext"
       target: "ES5",//"ES3"  "ES5" "ES6"/"ES2015" "ES2016" "ES2017" "ES2018" "ES2019" "ES2020" "ESNext"
