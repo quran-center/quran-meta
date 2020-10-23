@@ -1,8 +1,7 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var RukuList = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RukuList = void 0;
+exports.RukuList = [
     0,
     1,
     8,
@@ -562,5 +561,4 @@ var RukuList = [
     6231,
     6237,
 ];
-
-exports.RukuList = RukuList;
+//# sourceMappingURL=rukuList.js.map

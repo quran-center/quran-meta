@@ -14,8 +14,8 @@
   "jsdelivr": "dist/quran-meta.js",
   "unpkg": "dist/quran-meta.js",
   "main": "dist/quran-meta.common.js",
-  "module": "lib_esnext/index.js",
-  "typings": "lib_esnext/types/index.d.ts",
+  "module": "lib_es/index.js",
+  "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https@github.com:quran-center/quran-meta.git",
@@ -24,8 +24,8 @@
   "files": [
     "src/",
     "dist/",
-    "lib/",
-    "lib_esnext/",
+    "lib_cjs/",
+    "lib_es/",
     "types/"
   ],
   "engines": {
@@ -33,12 +33,11 @@
   },
   "scripts": {
     "eslint": "eslint ./src --ext .js --fix",
-    "build": "npm run build-universal && npm run build-ts && npm run build-cjs",
+    "build": "npm run build-universal && npm run build-ts-es && npm run build-ts-cjs",
     "build-universal": "rollup -c config/rollup/dist/umd.js && rollup -c config/rollup/dist/es.js && copyfiles -f  ./src/i18n/* ./dist/json",
-    "build-es": "rollup -c config/rollup/module/es.js && rollup -c config/rollup/module/es-all.js",
-    "build-cjs": "rollup -c config/rollup/module/cjs.js && rollup -c config/rollup/module/cjs-all.js",
-    "build-ts": "tsc -d -p tsconfig.json --sourceMap --outDir lib_esnext --declarationDir types",
-    "prepare-npm-package": "rimraf dist && rimraf lib && rimraf lib_esnext && rimraf dist && mkdir lib && copyfiles package.json README.md LICENSE ./lib && npm run build",
+    "build-ts-es": "tsc -d -p tsconfig.json --sourceMap --outDir lib_es --declarationDir types",
+    "build-ts-cjs": "tsc -d -p tsconfig.json --sourceMap --outDir lib_cjs -m CommonJS -t ES5 -d false",
+    "prepare-npm-package": "rimraf dist && rimraf lib_cjs && rimraf lib_es && rimraf dist && npm run build",
     "test": "jest",
     "coverage": "jest --coverage",
     "verify": "npm run eslint && npm run coverage",

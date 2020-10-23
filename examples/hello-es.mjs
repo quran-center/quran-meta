@@ -1,4 +1,5 @@
-// start with node es2015.mjs
+// start with 
+// node hello-es.mjs
 
 //import  {meta}  from "../dist/quran-meta.esm.browser.js"
 import  quranMeta  from "../dist/quran-meta.common.js"

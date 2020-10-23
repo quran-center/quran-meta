@@ -1,8 +1,7 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var suraNames = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.suraNames = void 0;
+exports.suraNames = [
     [],
     ["Аль-Фатиха", "Открывающая Коран"],
     ["Аль-Бакара", "Корова"],
@@ -119,5 +118,4 @@ var suraNames = [
     ["Аль-Фаляк", "Рассвет"],
     ["Ан-Нас", "Люди"],
 ];
-
-exports.suraNames = suraNames;
+//# sourceMappingURL=sura.ru.js.map

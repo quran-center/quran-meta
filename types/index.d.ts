@@ -1,5 +1,6 @@
 import { meta } from "./const";
-import { AyahId, AyahNo, Page, Juz, SurahAyah, PageMeta, JuzMeta, Sajda, Surah } from "./types";
+import { AyahId, AyahNo, Page, Juz, SurahAyah, PageMeta, JuzMeta, SurahMeta, Sajda, Surah } from "./types";
+export { AyahId, AyahNo, Page, Juz, SurahAyah, PageMeta, JuzMeta, SurahMeta, Sajda, Surah, };
 export { suraNames as suraNamesEn } from "./i18n/sura.en";
 export { suraNames as suraNamesRu } from "./i18n/sura.ru";
 import { SuraList } from "./surahList";
@@ -10,7 +11,7 @@ import { RukuList } from "./rukuList";
 import { PageList } from "./pageList";
 declare const SajdaList: Sajda[];
 import { ayaStringSplitter } from "./ayaStringSplitter";
-export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter };
+export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter, };
 /**
  *
  * @param {*} ayaId

@@ -28,5 +28,11 @@
     "no-control-regex": "off",
     "no-misleading-character-class": "off"
   },
-  "ignorePatterns": ["node_modules/", "dist/", "lib/","lib_esnext/"],
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "lib_cjs/",
+    "lib_es/",
+    "exampless/"
+  ]
 }

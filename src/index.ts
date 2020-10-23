@@ -10,12 +10,25 @@ import {
   JuzMeta,
   SurahMeta,
   Sajda,
-  Surah
+  Surah,
 } from "./types"
+
+export {
+  AyahId,
+  AyahNo,
+  Page,
+  Juz,
+  SurahAyah,
+  PageMeta,
+  JuzMeta,
+  SurahMeta,
+  Sajda,
+  Surah,
+}
 //export default QuranMeta;
 //------------------ Sura Data ---------------------
 
-export  { suraNames as suraNamesEn } from "./i18n/sura.en"
+export { suraNames as suraNamesEn } from "./i18n/sura.en"
 export { suraNames as suraNamesRu } from "./i18n/sura.ru"
 
 import { SuraList } from "./surahList"
@@ -110,7 +123,7 @@ export {
   RukuList,
   PageList,
   SajdaList,
-  ayaStringSplitter
+  ayaStringSplitter,
 }
 
 /**

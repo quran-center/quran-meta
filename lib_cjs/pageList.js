@@ -1,8 +1,7 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var PageList = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PageList = void 0;
+exports.PageList = [
     0,
     1,
     8,
@@ -610,5 +609,4 @@ var PageList = [
     6222,
     6237,
 ];
-
-exports.PageList = PageList;
+//# sourceMappingURL=pageList.js.map

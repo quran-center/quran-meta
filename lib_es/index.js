@@ -78,7 +78,7 @@ const SajdaList = [
 ];
 //export default QuranMeta;
 import { ayaStringSplitter } from "./ayaStringSplitter";
-export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter };
+export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter, };
 /**
  *
  * @param {*} ayaId

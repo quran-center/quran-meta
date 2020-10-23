@@ -1,10 +1,10 @@
 /**
  * This example creates  list of [surah,ayah] number pairs in Holy Quran
  */
-// node sample-cjs.js
+// node sample-es.mjs 
 
-// const quranMeta = require("../dist/quran-meta.common.js")
-const quranMeta = require("../lib_cjs/index.js")
+
+import  quranMeta  from "../dist/quran-meta.js"
 console.log(`There are ${quranMeta.meta.numSuras} suras in the Holy Quran`) 
 let res=[]
 for (let surah = 1; surah <= quranMeta.meta.numSuras; surah++) {

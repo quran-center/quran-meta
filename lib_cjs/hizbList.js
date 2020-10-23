@@ -1,8 +1,7 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var HizbQuarterList = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.HizbQuarterList = void 0;
+exports.HizbQuarterList = [
     0,
     1,
     33,
@@ -246,5 +245,4 @@ var HizbQuarterList = [
     6155,
     6237,
 ];
-
-exports.HizbQuarterList = HizbQuarterList;
+//# sourceMappingURL=hizbList.js.map

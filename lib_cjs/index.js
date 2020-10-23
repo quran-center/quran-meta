@@ -1,14 +1,13 @@
-/*! 
- * Quran Meta library 2.0.0
- *
- * Released under the MIT license
- */
-
-'use strict';
-
+"use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findRangeAroundAyah = exports.pageMeta = exports.prevAyah = exports.nextAyah = exports.getAyaCountinSura = exports.findAyaidBySurah = exports.findSurahByAyaid = exports.findPage = exports.findJuzMetaBySurah = exports.isAyahJuzFirst = exports.findJuz = exports.findJuzByAyaid = exports.ayaStringSplitter = exports.SajdaList = exports.PageList = exports.RukuList = exports.ManzilList = exports.HizbQuarterList = exports.JuzList = exports.SuraList = exports.meta = exports.suraNamesRu = exports.suraNamesEn = void 0;
-var tslib_1 = require("tslib");
 // Quran Meta
 var const_1 = require("./const");
 Object.defineProperty(exports, "meta", { enumerable: true, get: function () { return const_1.meta; } });
@@ -249,7 +248,7 @@ function pageMeta(pageNum) {
     return {
         pageNum: pageNum,
         first: findSurahByAyaid(curPage),
-        last: tslib_1.__spreadArrays(findSurahByAyaid(nextPage - 1)),
+        last: __spreadArrays(findSurahByAyaid(nextPage - 1)),
     };
 }
 exports.pageMeta = pageMeta;
@@ -308,3 +307,4 @@ function findRangeAroundAyah(surah, ayah, mode) {
     }
 }
 exports.findRangeAroundAyah = findRangeAroundAyah;
+//# sourceMappingURL=index.js.map

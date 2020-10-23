@@ -1,8 +1,7 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var SuraList = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SuraList = void 0;
+exports.SuraList = [
     [-1, -1, -1, -1, "", false, -1],
     [0, 7, 5, 1, "الفاتحة", true, 1],
     [7, 286, 87, 40, "البقرة", false, 2],
@@ -120,5 +119,4 @@ var SuraList = [
     [6230, 6, 21, 1, "الناس", true, 604],
     [6236, 0, -1, -1, "", false, -1],
 ];
-
-exports.SuraList = SuraList;
+//# sourceMappingURL=surahList.js.map

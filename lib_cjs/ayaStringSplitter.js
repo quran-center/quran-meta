@@ -1,7 +1,6 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ayaStringSplitter = void 0;
 /**
  *  Turns String of type "x:y" or "x:y1-y2" to array [x,y] or [x,[y1,y2]] respectively
  * @param {*} str String of type "x:y" or "x:y1-y2"
@@ -19,5 +18,5 @@ function ayaStringSplitter(str) {
             : +ayahs,
     ];
 }
-
 exports.ayaStringSplitter = ayaStringSplitter;
+//# sourceMappingURL=ayaStringSplitter.js.map

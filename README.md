@@ -63,8 +63,8 @@ Here you can find the following
 |||
 |--|--|
 |[Source code](https://github.com/quran-center/quran-meta/tree/master/src) in typescript  | TS |
-| [Javascript code](https://github.com/quran-center/quran-meta/tree/master/lib_esnext) autotranspiled from TS as ES Next  | ESNext |
-|[Javascript code](https://github.com/quran-center/quran-meta/tree/master/lib) autotranspiled from TS as CJS|ES5+CommonJS|
+| [Javascript code](https://github.com/quran-center/quran-meta/tree/master/lib_es) autotranspiled from TS as ES Next  | ESNext |
+|[Javascript code](https://github.com/quran-center/quran-meta/tree/master/lib_cjs) autotranspiled from TS as CJS|ES5+CommonJS|
 |||
  **[distributions](https://github.com/quran-center/quran-meta/tree/master/dist) of library as**| | 
 |[UMD](https://quran-center.github.io/quran-meta/dist/quran-meta.js)/ [UMD minified](https://quran-center.github.io/quran-meta/dist/quran-meta.min.js) builds can be used directly in the browser via a `<script>` (see  [here](https://www.syntaxsuccess.com/viewarticle/iife-vs-umd) about UMD format)  | ES5+UMD |
