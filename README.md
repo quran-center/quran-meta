@@ -54,6 +54,8 @@ You can find some examples [here](https://quran-center.github.io/quran-meta/exam
 ### Demo
 * [Quran Meta Visualiser](https://codesandbox.io/s/quran-visualiser-p3zjd) - demo app showcasing number of methods from Quran-meta to build interactive visualisations of Quran structure
 
+* [Quran Meta Visualiser ES module version](https://codesandbox.io/s/quran-visualiser-es-module-f0sq0) - ES Module version of the previous demo
+
 ![demo image](https://quran-center.github.io/quran-meta/examples/demo-quran-visualiser.jpg)
 
 ### Distributions and Downloads
