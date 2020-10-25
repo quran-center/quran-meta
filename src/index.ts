@@ -229,8 +229,8 @@ export function findAyaidBySurah(surah: Surah, ayah: AyahNo): AyahId {
   if (surah < 1 || surah > meta.numSuras)
     throw new RangeError("Surah must be between 1 and " + meta.numSuras)
 
-  const curSurahMeta: SurahMeta = SuraList[surah]
-  return curSurahMeta[0] + ayah
+  const [startAyahId] = SuraList[surah]
+  return startAyahId + ayah
 }
 
 /**

@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.1.1
+ * Quran Meta library 2.1.2
  *
  * Released under the MIT license
  */
@@ -1918,8 +1918,8 @@ function findSurahByAyaid(ayaId) {
 function findAyaidBySurah(surah, ayah) {
     if (surah < 1 || surah > meta.numSuras)
         throw new RangeError("Surah must be between 1 and " + meta.numSuras);
-    var curSurahMeta = SuraList[surah];
-    return curSurahMeta[0] + ayah;
+    var startAyahId = SuraList[surah][0];
+    return startAyahId + ayah;
 }
 function getAyaCountinSura(surah) {
     if (surah < 1 || surah > meta.numSuras)

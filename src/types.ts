@@ -11,10 +11,23 @@ export type PageMeta = {
   first: SurahAyah
   last: SurahAyah
 }
-//[leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah]
-export type JuzMeta = [Juz, number, Juz, number]
+//[leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
+export type JuzMeta = [
+  leftjuz: Juz,
+  ayahsFromStartOfJuz: number,
+  rightJuz: Juz,
+  ayahCount: number
+]
 export type SajdaType = "recommended" | "obligatory"
 export type Sajda = [AyahId, SajdaType]
 // [start, ayas, order, rukus, name,  isMeccan, page ]
-export type SurahMeta = [AyahId, number, number, number, string, boolean, Page]
-export type SuraName = [string, string]
+export type SurahMeta = [
+  startAyahId: AyahId,
+  ayahCount: number,
+  surahOrder: number,
+  rukuCount: number,
+  name: string,
+  isMeccan: boolean,
+  page: Page
+]
+export type SuraName = [name: string, translitName: string]

@@ -10,8 +10,21 @@ export declare type PageMeta = {
     first: SurahAyah;
     last: SurahAyah;
 };
-export declare type JuzMeta = [Juz, number, Juz, number];
+export declare type JuzMeta = [
+    leftjuz: Juz,
+    ayahsFromStartOfJuz: number,
+    rightJuz: Juz,
+    ayahCount: number
+];
 export declare type SajdaType = "recommended" | "obligatory";
 export declare type Sajda = [AyahId, SajdaType];
-export declare type SurahMeta = [AyahId, number, number, number, string, boolean, Page];
-export declare type SuraName = [string, string];
+export declare type SurahMeta = [
+    startAyahId: AyahId,
+    ayahCount: number,
+    surahOrder: number,
+    rukuCount: number,
+    name: string,
+    isMeccan: boolean,
+    page: Page
+];
+export declare type SuraName = [name: string, translitName: string];

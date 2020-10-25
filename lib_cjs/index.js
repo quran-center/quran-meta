@@ -196,8 +196,8 @@ exports.findSurahByAyaid = findSurahByAyaid;
 function findAyaidBySurah(surah, ayah) {
     if (surah < 1 || surah > const_1.meta.numSuras)
         throw new RangeError("Surah must be between 1 and " + const_1.meta.numSuras);
-    var curSurahMeta = surahList_1.SuraList[surah];
-    return curSurahMeta[0] + ayah;
+    var startAyahId = surahList_1.SuraList[surah][0];
+    return startAyahId + ayah;
 }
 exports.findAyaidBySurah = findAyaidBySurah;
 /**
