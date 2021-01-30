@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.1.2
+ * Quran Meta library 2.1.3
  *
  * Released under the MIT license
  */
@@ -19,6 +19,7 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
+/** @deprecated */
 function __spreadArrays() {
     for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
     for (var r = Array(s), k = 0, i = 0; i < il; i++)
