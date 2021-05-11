@@ -3,6 +3,7 @@ import {
   findSurahByAyaid,
   isAyahJuzFirst,
   findJuz,
+  findJuzHizbByAyaid,
   findJuzMetaBySurah,
   findPage,
   nextAyah,
@@ -17,6 +18,7 @@ import {
   ManzilList,
   PageList,
   RukuList,
+  meta,
 } from "../src/"
 import { AyahNo, AyahId, Surah } from "../src/types"
 
@@ -26,7 +28,7 @@ console.log(2, findSurahByAyaid(8))
 console.log(6216, findSurahByAyaid(6216))
 console.log(6217, findSurahByAyaid(6217))
 console.log(6226, findSurahByAyaid(6226))
-console.log(6236, findSurahByAyaid(6236))
+console.log(meta.numAyas, findSurahByAyaid(meta.numAyas))
 // console.log(6237, findSurahByAyaid(6237))
 console.log(1, findSurahByAyaid(1))
 console.log(147, findSurahByAyaid(149))
@@ -97,6 +99,17 @@ describe("findJuz", () => {
   })
 })
 
+describe("findJuzHizbByAyaid", () => {
+  it("true", () => {
+    expect(findJuzHizbByAyaid(1)).toEqual({ hizb: 1, id: 1, juz: 1 })
+    expect(findJuzHizbByAyaid(32)).toEqual({ hizb: 1, id: 1, juz: 1 })
+    expect(findJuzHizbByAyaid(33)).toEqual({ hizb: 2, id: 2, juz: 1 })
+    expect(findJuzHizbByAyaid(148)).toEqual({ hizb: 8, id: 8, juz: 1 })
+    expect(findJuzHizbByAyaid(149)).toEqual({ hizb: 1, id: 9, juz: 2 })
+    expect(findJuzHizbByAyaid(meta.numAyas)).toEqual({ hizb: 8, id: 240, juz: 30 })
+  })
+})
+
 describe("isAyahJuzFirst", () => {
   it("true", () => {
     expect(isAyahJuzFirst(1, 1)).toEqual(1)
@@ -114,7 +127,9 @@ describe("findSurahByAyaid", () => {
     expect(findSurahByAyaid(1)).toEqual(expect.arrayContaining([1, 1]))
     expect(findSurahByAyaid(2)).toEqual(expect.arrayContaining([1, 2]))
     expect(findSurahByAyaid(8)).toEqual(expect.arrayContaining([2, 1]))
-    expect(findSurahByAyaid(6236)).toEqual(expect.arrayContaining([114, 6]))
+    expect(findSurahByAyaid(meta.numAyas)).toEqual(
+      expect.arrayContaining([114, 6])
+    )
   })
 })
 
@@ -123,7 +138,7 @@ describe("findAyaidBySurah", () => {
     expect(findAyaidBySurah(1, 1)).toEqual(1)
     expect(findAyaidBySurah(1, 2)).toEqual(2)
     expect(findAyaidBySurah(2, 1)).toEqual(8)
-    expect(findAyaidBySurah(114, 6)).toEqual(6236)
+    expect(findAyaidBySurah(114, 6)).toEqual(meta.numAyas)
   })
 })
 
@@ -134,10 +149,10 @@ let xf = (i: Surah, j: AyahNo) =>
 
 describe("crossTest", () => {
   it("ayaid of surah of Ayah", () => {
-    for (let i = 1; i <= 6236; i++) {
+    for (let i = 1; i <= meta.numAyas; i++) {
       f(i)
     }
-    f(6236)
+    f(meta.numAyas)
     f(6230)
     f(6226)
     xf(1, 2)

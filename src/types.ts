@@ -4,6 +4,11 @@ export type AyahNo = number
 export type AyahId = number
 export type Page = number
 export type Juz = number
+export type JuzHizb = {
+  juz: Juz
+  hizb: number // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+  id: number
+}
 export type SurahAyah = [Surah, AyahNo]
 export type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]]
 export type PageMeta = {
