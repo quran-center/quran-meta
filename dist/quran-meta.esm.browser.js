@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.1.3
+ * Quran Meta library 2.2.1
  *
  * Released under the MIT license
  */
@@ -12,7 +12,7 @@ const meta = Object.freeze({
     manzilCount: 7,
 });
 
-const suraNames = [
+const suraNames$1 = [
     [],
     ["Al-Faatiha", "The Opening"],
     ["Al-Baqara", "The Cow"],
@@ -130,7 +130,7 @@ const suraNames = [
     ["An-Naas", "Mankind"],
 ];
 
-const suraNames$1 = [
+const suraNames = [
     [],
     ["Аль-Фатиха", "Открывающая Коран"],
     ["Аль-Бакара", "Корова"],
@@ -1951,4 +1951,4 @@ function findRangeAroundAyah(surah, ayah, mode) {
     }
 }
 
-export { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SuraList, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, prevAyah, suraNames as suraNamesEn, suraNames$1 as suraNamesRu };
+export { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SuraList, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, prevAyah, suraNames$1 as suraNamesEn, suraNames as suraNamesRu };

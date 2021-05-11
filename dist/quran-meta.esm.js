@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.1.3
+ * Quran Meta library 2.2.1
  *
  * Released under the MIT license
  */
@@ -19,13 +19,10 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-/** @deprecated */
-function __spreadArrays() {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
+function __spreadArray(to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 }
 
 var meta = Object.freeze({
@@ -36,7 +33,7 @@ var meta = Object.freeze({
     manzilCount: 7,
 });
 
-var suraNames = [
+var suraNames$1 = [
     [],
     ["Al-Faatiha", "The Opening"],
     ["Al-Baqara", "The Cow"],
@@ -154,7 +151,7 @@ var suraNames = [
     ["An-Naas", "Mankind"],
 ];
 
-var suraNames$1 = [
+var suraNames = [
     [],
     ["Аль-Фатиха", "Открывающая Коран"],
     ["Аль-Бакара", "Корова"],
@@ -1949,7 +1946,7 @@ function pageMeta(pageNum) {
     return {
         pageNum: pageNum,
         first: findSurahByAyaid(curPage),
-        last: __spreadArrays(findSurahByAyaid(nextPage - 1)),
+        last: __spreadArray([], findSurahByAyaid(nextPage - 1)),
     };
 }
 function findRangeAroundAyah(surah, ayah, mode) {
@@ -1977,5 +1974,5 @@ function findRangeAroundAyah(surah, ayah, mode) {
     }
 }
 
-export { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SuraList, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, prevAyah, suraNames as suraNamesEn, suraNames$1 as suraNamesRu };
+export { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SuraList, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, prevAyah, suraNames$1 as suraNamesEn, suraNames as suraNamesRu };
 //# sourceMappingURL=quran-meta.esm.js.map
