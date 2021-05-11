@@ -1,5 +1,5 @@
 import { meta } from "./const";
-import { AyahId, AyahNo, Page, Juz, SurahAyah, PageMeta, JuzMeta, SurahMeta, Sajda, Surah } from "./types";
+import { AyahId, AyahNo, Page, Juz, SurahAyah, PageMeta, JuzMeta, JuzHizb, SurahMeta, Sajda, Surah } from "./types";
 export { AyahId, AyahNo, Page, Juz, SurahAyah, PageMeta, JuzMeta, SurahMeta, Sajda, Surah, };
 export { suraNames as suraNamesEn } from "./i18n/sura.en";
 export { suraNames as suraNamesRu } from "./i18n/sura.ru";
@@ -19,10 +19,21 @@ export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageLis
 export declare function findJuzByAyaid(ayaId: AyahId): Juz;
 /**
  *
+ * @param {*} ayaId
+ */
+export declare function findJuzHizbByAyaid(ayaId: AyahId): JuzHizb;
+/**
+ *
  * @param {*} surah
  * @param {*} ayah
  */
 export declare function findJuz(surah: Surah, ayah?: AyahNo): Juz;
+/**
+ *
+ * @param {*} surah
+ * @param {*} ayah
+ */
+export declare function findJuzHizb(surah: Surah, ayah?: AyahNo): JuzHizb;
 /**
  * Returns Positive number if aya is first ayah of juz, number is juz number
  * @param {*} surah

@@ -1872,30 +1872,42 @@ var SajdaList = [
     [5905, "recommended"],
     [6125, "obligatory"],
 ];
-function findJuzByAyaid(ayaId) {
+function checkValidAyahId(ayaId) {
     if (ayaId < 1 || ayaId > meta.numAyas)
         throw new RangeError("ayaid must be between 1 and " + meta.numAyas);
-    var l = 1;
-    while (JuzList[l + 1] <= ayaId) {
-        l++;
-    }
-    return l;
+}
+function checkValidSurah(surah) {
+    if (surah < 1 || surah > meta.numSuras)
+        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+}
+function findJuzByAyaid(ayaId) {
+    checkValidAyahId(ayaId);
+    return JuzList.findIndex(function (x) { return x > ayaId; }) - 1;
+}
+function findJuzHizbByAyaid(ayaId) {
+    checkValidAyahId(ayaId);
+    var juz = findJuzByAyaid(ayaId);
+    var id = HizbQuarterList.findIndex(function (x) { return x > ayaId; }) - 1;
+    return { juz: juz, hizb: id % 8 || 8, id: id };
 }
 function findJuz(surah, ayah) {
     if (ayah === void 0) { ayah = 1; }
     var a = findAyaidBySurah(surah, ayah);
     return findJuzByAyaid(a);
 }
+function findJuzHizb(surah, ayah) {
+    if (ayah === void 0) { ayah = 1; }
+    var a = findAyaidBySurah(surah, ayah);
+    return findJuzHizbByAyaid(a);
+}
 function isAyahJuzFirst(surah, ayah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     var a = findAyaidBySurah(surah, ayah);
     return JuzList.findIndex(function (x) { return x == a; });
 }
 function findJuzMetaBySurah(surah, ayah) {
     if (ayah === void 0) { ayah = 1; }
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     var l = findJuz(surah, ayah);
     var r = l;
     while (r < meta.numJuzs && findSurahByAyaid(JuzList[r + 1])[0] == surah)
@@ -1904,28 +1916,24 @@ function findJuzMetaBySurah(surah, ayah) {
     return [l, ayahsFromStartOfJuz + 1, r, getAyaCountinSura(surah)];
 }
 function findPage(surah, ayah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     var a = findAyaidBySurah(surah, ayah);
     return PageList.findIndex(function (x) { return x > a; }) - 1;
 }
 function findSurahByAyaid(ayaId) {
-    if (ayaId < 1 || ayaId > meta.numAyas)
-        throw new RangeError("ayaid must be between 1 and " + meta.numAyas);
+    checkValidAyahId(ayaId);
     var suraNum = SuraList.slice(1).findIndex(function (x) { return x[0] >= ayaId; });
     return suraNum < 0
         ? [114, ayaId - SuraList[114][0]]
         : [suraNum, ayaId - SuraList[suraNum][0]];
 }
 function findAyaidBySurah(surah, ayah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     var startAyahId = SuraList[surah][0];
     return startAyahId + ayah;
 }
 function getAyaCountinSura(surah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     return SuraList[surah][1];
 }
 function nextAyah(surah, ayah) {
@@ -1935,8 +1943,7 @@ function nextAyah(surah, ayah) {
     return findSurahByAyaid(ayaid == meta.numAyas ? 1 : ayaid + 1);
 }
 function prevAyah(surah, ayah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     var ayaid = findAyaidBySurah(surah, ayah);
     return findSurahByAyaid(ayaid == 1 ? meta.numAyas : ayaid - 1);
 }
@@ -1954,8 +1961,7 @@ function pageMeta(pageNum) {
     };
 }
 function findRangeAroundAyah(surah, ayah, mode) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     switch (mode) {
         case "juz": {
             var juz = findJuz(surah, ayah);
@@ -1989,6 +1995,8 @@ exports.ayaStringSplitter = ayaStringSplitter;
 exports.findAyaidBySurah = findAyaidBySurah;
 exports.findJuz = findJuz;
 exports.findJuzByAyaid = findJuzByAyaid;
+exports.findJuzHizb = findJuzHizb;
+exports.findJuzHizbByAyaid = findJuzHizbByAyaid;
 exports.findJuzMetaBySurah = findJuzMetaBySurah;
 exports.findPage = findPage;
 exports.findRangeAroundAyah = findRangeAroundAyah;

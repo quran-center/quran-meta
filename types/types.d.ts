@@ -3,6 +3,11 @@ export declare type AyahNo = number;
 export declare type AyahId = number;
 export declare type Page = number;
 export declare type Juz = number;
+export declare type JuzHizb = {
+    juz: Juz;
+    hizb: number;
+    id: number;
+};
 export declare type SurahAyah = [Surah, AyahNo];
 export declare type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]];
 export declare type PageMeta = {

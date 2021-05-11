@@ -79,18 +79,31 @@ const SajdaList = [
 //export default QuranMeta;
 import { ayaStringSplitter } from "./ayaStringSplitter";
 export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter, };
+function checkValidAyahId(ayaId) {
+    if (ayaId < 1 || ayaId > meta.numAyas)
+        throw new RangeError("ayaid must be between 1 and " + meta.numAyas);
+}
+function checkValidSurah(surah) {
+    if (surah < 1 || surah > meta.numSuras)
+        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+}
 /**
  *
  * @param {*} ayaId
  */
 export function findJuzByAyaid(ayaId) {
-    if (ayaId < 1 || ayaId > meta.numAyas)
-        throw new RangeError("ayaid must be between 1 and " + meta.numAyas);
-    let l = 1;
-    while (JuzList[l + 1] <= ayaId) {
-        l++;
-    }
-    return l;
+    checkValidAyahId(ayaId);
+    return JuzList.findIndex(x => x > ayaId) - 1;
+}
+/**
+ *
+ * @param {*} ayaId
+ */
+export function findJuzHizbByAyaid(ayaId) {
+    checkValidAyahId(ayaId);
+    let juz = findJuzByAyaid(ayaId);
+    const id = HizbQuarterList.findIndex(x => x > ayaId) - 1;
+    return { juz, hizb: id % 8 || 8, id };
 }
 /**
  *
@@ -102,13 +115,21 @@ export function findJuz(surah, ayah = 1) {
     return findJuzByAyaid(a);
 }
 /**
+ *
+ * @param {*} surah
+ * @param {*} ayah
+ */
+export function findJuzHizb(surah, ayah = 1) {
+    const a = findAyaidBySurah(surah, ayah);
+    return findJuzHizbByAyaid(a);
+}
+/**
  * Returns Positive number if aya is first ayah of juz, number is juz number
  * @param {*} surah
  * @param {*} ayah
  */
 export function isAyahJuzFirst(surah, ayah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     const a = findAyaidBySurah(surah, ayah);
     return JuzList.findIndex((x) => x == a);
 }
@@ -120,8 +141,7 @@ export function isAyahJuzFirst(surah, ayah) {
  * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah]
  */
 export function findJuzMetaBySurah(surah, ayah = 1) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     const l = findJuz(surah, ayah);
     let r = l;
     while (r < meta.numJuzs && findSurahByAyaid(JuzList[r + 1])[0] == surah)
@@ -143,8 +163,7 @@ export function findJuzMetaBySurah(surah, ayah = 1) {
  * @param {*} ayaNumber
  */
 export function findPage(surah, ayah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     const a = findAyaidBySurah(surah, ayah);
     return PageList.findIndex(x => x > a) - 1;
 }
@@ -153,8 +172,7 @@ export function findPage(surah, ayah) {
  * @param {*} ayaId
  */
 export function findSurahByAyaid(ayaId) {
-    if (ayaId < 1 || ayaId > meta.numAyas)
-        throw new RangeError("ayaid must be between 1 and " + meta.numAyas);
+    checkValidAyahId(ayaId);
     const suraNum = SuraList.slice(1).findIndex(x => x[0] >= ayaId);
     return suraNum < 0
         ? [114, ayaId - SuraList[114][0]]
@@ -166,8 +184,7 @@ export function findSurahByAyaid(ayaId) {
  * @param {*} ayah```
  */
 export function findAyaidBySurah(surah, ayah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     const [startAyahId] = SuraList[surah];
     return startAyahId + ayah;
 }
@@ -176,8 +193,7 @@ export function findAyaidBySurah(surah, ayah) {
  * @param {*} surah
  */
 export function getAyaCountinSura(surah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     return SuraList[surah][1];
 }
 /**
@@ -197,8 +213,7 @@ export function nextAyah(surah, ayah) {
  * @param {*} ayah
  */
 export function prevAyah(surah, ayah) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     const ayaid = findAyaidBySurah(surah, ayah);
     return findSurahByAyaid(ayaid == 1 ? meta.numAyas : ayaid - 1);
 }
@@ -250,8 +265,7 @@ export function pageMeta(pageNum) {
  * default is all
  */
 export function findRangeAroundAyah(surah, ayah, mode) {
-    if (surah < 1 || surah > meta.numSuras)
-        throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    checkValidSurah(surah);
     switch (mode) {
         case "juz": {
             const juz = findJuz(surah, ayah);
