@@ -7,38 +7,9 @@ export { suraNames as suraNamesRu } from "./i18n/sura.ru";
 import { SuraList } from "./surahList";
 //------------------ Juz Data ---------------------
 const JuzList = [
-    0,
-    1,
-    149,
-    260,
-    386,
-    517,
-    641,
-    751,
-    900,
-    1042,
-    1201,
-    1328,
-    1479,
-    1649,
-    1803,
-    2030,
-    2215,
-    2484,
-    2674,
-    2876,
-    3215,
-    3386,
-    3564,
-    3733,
-    4090,
-    4265,
-    4511,
-    4706,
-    5105,
-    5242,
-    5673,
-    6237,
+    0, 1, 149, 260, 386, 517, 641, 751, 900, 1042, 1201, 1328, 1479, 1649, 1803,
+    2030, 2215, 2484, 2674, 2876, 3215, 3386, 3564, 3733, 4090, 4265, 4511, 4706,
+    5105, 5242, 5673, 6237,
 ];
 //------------------ Hizb Data ---------------------
 import { HizbQuarterList } from "./hizbList";
@@ -153,9 +124,17 @@ export function findJuzMetaBySurah(surah, ayah = 1) {
     //   Juz[l][1]
     // )
     // let sl: SurahAyah = findSurahByAyaid(JuzList[l])
-    const ayahsFromStartOfJuz = SuraList[surah][0] - JuzList[l];
+    const leftAyahId = JuzList[l];
+    const ayahsFromStartOfJuz = SuraList[surah][0] - leftAyahId;
     // console.log(Sura[suraNumber + 1][0], Sura[Juz[l][0]][0])
-    return [l, ayahsFromStartOfJuz + 1, r, getAyaCountinSura(surah)];
+    return [
+        l,
+        ayahsFromStartOfJuz + 1,
+        r,
+        getAyaCountinSura(surah),
+        leftAyahId,
+        JuzList[r + 1],
+    ];
 }
 /**
  *

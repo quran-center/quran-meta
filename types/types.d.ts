@@ -19,7 +19,9 @@ export declare type JuzMeta = [
     leftjuz: Juz,
     ayahsFromStartOfJuz: number,
     rightJuz: Juz,
-    ayahCount: number
+    ayahCount: number,
+    leftAyahId: AyahId,
+    rightAyahId: AyahId
 ];
 export declare type SajdaType = "recommended" | "obligatory";
 export declare type Sajda = [AyahId, SajdaType];

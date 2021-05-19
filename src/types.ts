@@ -21,7 +21,9 @@ export type JuzMeta = [
   leftjuz: Juz,
   ayahsFromStartOfJuz: number,
   rightJuz: Juz,
-  ayahCount: number
+  ayahCount: number,
+  leftAyahId:AyahId,
+  rightAyahId:AyahId
 ]
 export type SajdaType = "recommended" | "obligatory"
 export type Sajda = [AyahId, SajdaType]

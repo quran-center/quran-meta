@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.2.1
+ * Quran Meta library 2.2.2
  *
  * Released under the MIT license
  */
@@ -1796,38 +1796,9 @@ function ayaStringSplitter(str) {
 }
 
 const JuzList = [
-    0,
-    1,
-    149,
-    260,
-    386,
-    517,
-    641,
-    751,
-    900,
-    1042,
-    1201,
-    1328,
-    1479,
-    1649,
-    1803,
-    2030,
-    2215,
-    2484,
-    2674,
-    2876,
-    3215,
-    3386,
-    3564,
-    3733,
-    4090,
-    4265,
-    4511,
-    4706,
-    5105,
-    5242,
-    5673,
-    6237,
+    0, 1, 149, 260, 386, 517, 641, 751, 900, 1042, 1201, 1328, 1479, 1649, 1803,
+    2030, 2215, 2484, 2674, 2876, 3215, 3386, 3564, 3733, 4090, 4265, 4511, 4706,
+    5105, 5242, 5673, 6237,
 ];
 const ManzilList = [0, 1, 670, 1365, 2030, 2933, 3789, 4631, 6237];
 const SajdaList = [
@@ -1884,8 +1855,16 @@ function findJuzMetaBySurah(surah, ayah = 1) {
     let r = l;
     while (r < meta.numJuzs && findSurahByAyaid(JuzList[r + 1])[0] == surah)
         r++;
-    const ayahsFromStartOfJuz = SuraList[surah][0] - JuzList[l];
-    return [l, ayahsFromStartOfJuz + 1, r, getAyaCountinSura(surah)];
+    const leftAyahId = JuzList[l];
+    const ayahsFromStartOfJuz = SuraList[surah][0] - leftAyahId;
+    return [
+        l,
+        ayahsFromStartOfJuz + 1,
+        r,
+        getAyaCountinSura(surah),
+        leftAyahId,
+        JuzList[r + 1],
+    ];
 }
 function findPage(surah, ayah) {
     checkValidSurah(surah);
