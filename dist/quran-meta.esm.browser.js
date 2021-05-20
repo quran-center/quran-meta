@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.2.2
+ * Quran Meta library 2.2.3
  *
  * Released under the MIT license
  */
@@ -1866,6 +1866,10 @@ function findJuzMetaBySurah(surah, ayah = 1) {
         JuzList[r + 1],
     ];
 }
+function getSurahMeta(surah) {
+    checkValidSurah(surah);
+    return SuraList[surah];
+}
 function findPage(surah, ayah) {
     checkValidSurah(surah);
     const a = findAyaidBySurah(surah, ayah);
@@ -1935,4 +1939,4 @@ function findRangeAroundAyah(surah, ayah, mode) {
     }
 }
 
-export { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SuraList, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzHizb, findJuzHizbByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, isAyahJuzFirst, meta, nextAyah, pageMeta, prevAyah, suraNames$1 as suraNamesEn, suraNames as suraNamesRu };
+export { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SuraList, ayaStringSplitter, findAyaidBySurah, findJuz, findJuzByAyaid, findJuzHizb, findJuzHizbByAyaid, findJuzMetaBySurah, findPage, findRangeAroundAyah, findSurahByAyaid, getAyaCountinSura, getSurahMeta, isAyahJuzFirst, meta, nextAyah, pageMeta, prevAyah, suraNames$1 as suraNamesEn, suraNames as suraNamesRu };

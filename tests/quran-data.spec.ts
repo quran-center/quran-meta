@@ -18,6 +18,7 @@ import {
   ManzilList,
   PageList,
   RukuList,
+  getSurahMeta,
   meta,
 } from "../src/"
 import { AyahNo, AyahId, Surah } from "../src/types"
@@ -47,7 +48,9 @@ console.log("findJuzMetaBySurah 2,1", findJuzMetaBySurah(2, 1))
 console.log("findJuzMetaBySurah 114,1", findJuzMetaBySurah(114, 1))
 console.log("findJuzMetaBySurah 114,5", findJuzMetaBySurah(114, 5))
 console.log("findPage 604", findPage(114, 1))
-console.log("pageMeta pmeta", pageMeta(604))
+console.log("surahMeta 1", getSurahMeta(1))
+console.log("surahMeta 114", getSurahMeta(114))
+console.log("pageMeta 604", pageMeta(604))
 // console.log("pmeta", pageMetaOld(604))
 console.log("pmeta", pageMeta(1))
 // console.log("pmeta", pageMetaOld(1))

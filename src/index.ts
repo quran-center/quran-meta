@@ -191,8 +191,17 @@ export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1): JuzMeta {
     r,
     getAyaCountinSura(surah),
     leftAyahId,
-    JuzList[r+1],
+    JuzList[r + 1],
   ]
+}
+
+/**
+ * Get Surah meta
+ * @param surah
+ */
+export function getSurahMeta(surah: Surah): SurahMeta {
+  checkValidSurah(surah)
+  return SuraList[surah]
 }
 
 /**
@@ -273,6 +282,7 @@ export function prevAyah(surah: Surah, ayah: AyahNo): SurahAyah {
  * @param {*} pageNum
  */
 export function pageMeta(pageNum: Page): PageMeta {
+  // todo rename to getPageMeta in next major version
   if (pageNum < 1 || pageNum > meta.numPages)
     throw new RangeError("pagenum must be between 1 and " + meta.numPages)
 

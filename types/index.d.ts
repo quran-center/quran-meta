@@ -48,6 +48,11 @@ export declare function isAyahJuzFirst(surah: Surah, ayah: AyahNo): Juz;
  */
 export declare function findJuzMetaBySurah(surah: Surah, ayah?: AyahNo): JuzMeta;
 /**
+ * Get Surah meta
+ * @param surah
+ */
+export declare function getSurahMeta(surah: Surah): SurahMeta;
+/**
  *
  * @param {*} suraNumber
  * @param {*} ayaNumber

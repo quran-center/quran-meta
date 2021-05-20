@@ -5,7 +5,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from) {
     return to;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findRangeAroundAyah = exports.pageMeta = exports.prevAyah = exports.nextAyah = exports.getAyaCountinSura = exports.findAyaidBySurah = exports.findSurahByAyaid = exports.findPage = exports.findJuzMetaBySurah = exports.isAyahJuzFirst = exports.findJuzHizb = exports.findJuz = exports.findJuzHizbByAyaid = exports.findJuzByAyaid = exports.ayaStringSplitter = exports.SajdaList = exports.PageList = exports.RukuList = exports.ManzilList = exports.HizbQuarterList = exports.JuzList = exports.SuraList = exports.meta = exports.suraNamesRu = exports.suraNamesEn = void 0;
+exports.findRangeAroundAyah = exports.pageMeta = exports.prevAyah = exports.nextAyah = exports.getAyaCountinSura = exports.findAyaidBySurah = exports.findSurahByAyaid = exports.findPage = exports.getSurahMeta = exports.findJuzMetaBySurah = exports.isAyahJuzFirst = exports.findJuzHizb = exports.findJuz = exports.findJuzHizbByAyaid = exports.findJuzByAyaid = exports.ayaStringSplitter = exports.SajdaList = exports.PageList = exports.RukuList = exports.ManzilList = exports.HizbQuarterList = exports.JuzList = exports.SuraList = exports.meta = exports.suraNamesRu = exports.suraNamesEn = void 0;
 // Quran Meta
 var const_1 = require("./const");
 Object.defineProperty(exports, "meta", { enumerable: true, get: function () { return const_1.meta; } });
@@ -164,6 +164,15 @@ function findJuzMetaBySurah(surah, ayah) {
 }
 exports.findJuzMetaBySurah = findJuzMetaBySurah;
 /**
+ * Get Surah meta
+ * @param surah
+ */
+function getSurahMeta(surah) {
+    checkValidSurah(surah);
+    return surahList_1.SuraList[surah];
+}
+exports.getSurahMeta = getSurahMeta;
+/**
  *
  * @param {*} suraNumber
  * @param {*} ayaNumber
@@ -234,6 +243,7 @@ exports.prevAyah = prevAyah;
  * @param {*} pageNum
  */
 function pageMeta(pageNum) {
+    // todo rename to getPageMeta in next major version
     if (pageNum < 1 || pageNum > const_1.meta.numPages)
         throw new RangeError("pagenum must be between 1 and " + const_1.meta.numPages);
     var _a = [

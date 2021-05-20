@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.2.2
+ * Quran Meta library 2.2.3
  *
  * Released under the MIT license
  */
@@ -1894,6 +1894,10 @@ function findJuzMetaBySurah(surah, ayah) {
         JuzList[r + 1],
     ];
 }
+function getSurahMeta(surah) {
+    checkValidSurah(surah);
+    return SuraList[surah];
+}
 function findPage(surah, ayah) {
     checkValidSurah(surah);
     var a = findAyaidBySurah(surah, ayah);
@@ -1981,6 +1985,7 @@ exports.findPage = findPage;
 exports.findRangeAroundAyah = findRangeAroundAyah;
 exports.findSurahByAyaid = findSurahByAyaid;
 exports.getAyaCountinSura = getAyaCountinSura;
+exports.getSurahMeta = getSurahMeta;
 exports.isAyahJuzFirst = isAyahJuzFirst;
 exports.meta = meta;
 exports.nextAyah = nextAyah;

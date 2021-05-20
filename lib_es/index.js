@@ -137,6 +137,14 @@ export function findJuzMetaBySurah(surah, ayah = 1) {
     ];
 }
 /**
+ * Get Surah meta
+ * @param surah
+ */
+export function getSurahMeta(surah) {
+    checkValidSurah(surah);
+    return SuraList[surah];
+}
+/**
  *
  * @param {*} suraNumber
  * @param {*} ayaNumber
@@ -201,6 +209,7 @@ export function prevAyah(surah, ayah) {
  * @param {*} pageNum
  */
 export function pageMeta(pageNum) {
+    // todo rename to getPageMeta in next major version
     if (pageNum < 1 || pageNum > meta.numPages)
         throw new RangeError("pagenum must be between 1 and " + meta.numPages);
     const [curPage, nextPage] = [
