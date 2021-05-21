@@ -240,7 +240,7 @@ export function isAyahPageFirst(
  * for given ayah return [starting juz, number of ayahsFrom beginning of that juz, right juz, number of ayahs in surah
  * @param {*} suraNumber
  * @param {*} ayaNumber
- * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah]
+ * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah,leftAyahId,rightAyahId]
  */
 export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1): JuzMeta {
   checkValidSurah(surah)
@@ -257,13 +257,14 @@ export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1): JuzMeta {
   // )
   // let sl: SurahAyah = findSurahByAyaid(JuzList[l])
   const leftAyahId = JuzList[l]
-  const ayahsFromStartOfJuz = SuraList[surah][0] - leftAyahId
+  const [startAyahId, ayahCount] = SuraList[surah]
+  const ayahsFromStartOfJuz = startAyahId - leftAyahId
   // console.log(Sura[suraNumber + 1][0], Sura[Juz[l][0]][0])
   return [
     l,
     ayahsFromStartOfJuz + 1,
     r,
-    getAyaCountinSura(surah),
+    ayahCount,
     leftAyahId,
     JuzList[r + 1],
   ]
@@ -301,9 +302,7 @@ export function findPage(
  * @param {*} ayah```
  */
 export function findAyaidBySurah(surah: Surah, ayah: AyahNo): AyahId {
-  checkValidSurah(surah)
-
-  const [startAyahId] = SuraList[surah]
+  const [startAyahId] = getSurahMeta(surah)
   return startAyahId + ayah
 }
 
@@ -312,9 +311,7 @@ export function findAyaidBySurah(surah: Surah, ayah: AyahNo): AyahId {
  * @param {*} surah
  */
 export function getAyaCountinSura(surah: Surah): number {
-  checkValidSurah(surah)
-
-  return SuraList[surah][1]
+  return getSurahMeta(surah)[1]
 }
 
 /**
