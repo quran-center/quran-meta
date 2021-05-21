@@ -19,6 +19,7 @@ import {
   PageList,
   RukuList,
   getSurahMeta,
+  findJuzAndShift,
   meta,
   findJuzByAyaid,
   isAyahPageFirst,
@@ -116,6 +117,50 @@ describe("findJuz", () => {
   })
 })
 
+describe("findJuzAndShift", () => {
+  it("true", () => {
+    expect(findJuzAndShift(1, 1)).toEqual({
+      juz: 1,
+      leftAyahId: 1,
+      ayahsBetweenJuzSurah: 0,
+    })
+    expect(findJuzAndShift(1, 1, true)).toEqual({
+      juz: 1,
+      leftAyahId: 1,
+      ayahsBetweenJuzSurah: 0,
+    })
+
+    expect(findJuzAndShift(1, 2)).toEqual({
+      juz: 1,
+      leftAyahId: 1,
+      ayahsBetweenJuzSurah: 0,
+    })
+
+    expect(findJuzAndShift(2, 1)).toEqual({
+      juz: 1,
+      leftAyahId: 1,
+      ayahsBetweenJuzSurah: 7,
+    })
+
+    expect(findJuzAndShift(2, 141)).toEqual({
+      juz: 1,
+      leftAyahId: 1,
+      ayahsBetweenJuzSurah: 7,
+    })
+
+    expect(findJuzAndShift(2, 142)).toEqual({
+      juz: 2,
+      leftAyahId: 149,
+      ayahsBetweenJuzSurah: -141,
+    })
+    expect(findJuzAndShift(2, 143)).toEqual({
+      juz: 2,
+      leftAyahId: 149,
+      ayahsBetweenJuzSurah: -141,
+    })
+  })
+})
+
 describe("findJuzHizbByAyaid", () => {
   it("true", () => {
     expect(findJuzHizbByAyaid(1)).toEqual({ hizb: 1, id: 1, juz: 1 })
@@ -145,7 +190,6 @@ describe("isAyahJuzFirst", () => {
     expect(isAyahJuzFirst(1, 114)).toEqual(-3)
   })
 })
-
 
 describe("isAyahPageFirst", () => {
   it("true", () => {

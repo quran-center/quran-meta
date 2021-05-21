@@ -15,14 +15,13 @@ export declare type PageMeta = {
     first: SurahAyah;
     last: SurahAyah;
 };
-export declare type JuzMeta = [
-    leftjuz: Juz,
-    ayahsFromStartOfJuz: number,
-    rightJuz: Juz,
-    ayahCount: number,
-    leftAyahId: AyahId,
-    rightAyahId: AyahId
-];
+export declare type JuzMeta = {
+    leftjuz: Juz;
+    ayahsBetweenJuzSurah: number;
+    rightJuz: Juz;
+    leftAyahId: AyahId;
+    rightAyahId: AyahId;
+};
 export declare type SajdaType = "recommended" | "obligatory";
 export declare type Sajda = [AyahId, SajdaType];
 export declare type SurahMeta = [

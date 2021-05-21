@@ -52,10 +52,22 @@ export declare function isAyahJuzFirst(surah: Surah, ayah: AyahNo, ayahMode?: bo
  */
 export declare function isAyahPageFirst(surah: Surah, ayah: AyahNo, ayahMode?: boolean): Juz;
 /**
+ *  Find juz containing ayah
+ * @param surah
+ * @param ayah
+ * @param ayahMode
+ * @returns
+ */
+export declare function findJuzAndShift(surah: Surah, ayah: AyahNo, ayahMode?: boolean): {
+    juz: Juz;
+    leftAyahId: AyahId;
+    ayahsBetweenJuzSurah: number;
+};
+/**
  * for given ayah return [starting juz, number of ayahsFrom beginning of that juz, right juz, number of ayahs in surah
  * @param {*} suraNumber
  * @param {*} ayaNumber
- * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah]
+ * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah,leftAyahId,rightAyahId]
  */
 export declare function findJuzMetaBySurah(surah: Surah, ayah?: AyahNo): JuzMeta;
 /**

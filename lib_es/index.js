@@ -156,37 +156,48 @@ export function isAyahPageFirst(surah, ayah, ayahMode = false) {
     return binarySearch(PageList, ayahId);
     // return PageList.findIndex((x: AyahId) => x == ayahId)
 }
+/**
+ *  Find juz containing ayah
+ * @param surah
+ * @param ayah
+ * @param ayahMode
+ * @returns
+ */
+export function findJuzAndShift(surah, ayah, ayahMode = false) {
+    const ayahId = ayahMode
+        ? (checkValidAyahId(ayah) && ayah)
+        : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+    const juz = findJuzByAyaid(ayahId);
+    const leftAyahId = JuzList[juz];
+    if (surah < 0)
+        [surah] = findSurahByAyaid(leftAyahId);
+    const [surahStartAyahId] = SuraList[surah];
+    return {
+        juz,
+        ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId + 1,
+        leftAyahId,
+    };
+}
 //todo explain function
 /**
  * for given ayah return [starting juz, number of ayahsFrom beginning of that juz, right juz, number of ayahs in surah
  * @param {*} suraNumber
  * @param {*} ayaNumber
- * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah]
+ * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah,leftAyahId,rightAyahId]
  */
 export function findJuzMetaBySurah(surah, ayah = 1) {
-    checkValidSurah(surah);
-    const l = findJuz(surah, ayah);
-    let r = l;
-    while (r < meta.numJuzs && findSurahByAyaid(JuzList[r + 1])[0] == surah)
-        r++;
-    // console.log(l,r,
-    //   "sura at start of file ",Juz[l][0],
-    //   Sura[Juz[l][0]][0],
-    //   Sura[suraNumber][0],
-    //   Juz[l][1]
-    // )
-    // let sl: SurahAyah = findSurahByAyaid(JuzList[l])
-    const leftAyahId = JuzList[l];
-    const ayahsFromStartOfJuz = SuraList[surah][0] - leftAyahId;
-    // console.log(Sura[suraNumber + 1][0], Sura[Juz[l][0]][0])
-    return [
-        l,
-        ayahsFromStartOfJuz + 1,
-        r,
-        getAyaCountinSura(surah),
+    const { juz: leftjuz, ayahsBetweenJuzSurah, leftAyahId, } = findJuzAndShift(surah, ayah);
+    let rightJuz = leftjuz;
+    while (rightJuz < meta.numJuzs &&
+        findSurahByAyaid(JuzList[rightJuz + 1])[0] == surah)
+        rightJuz++;
+    return {
+        leftjuz,
+        ayahsBetweenJuzSurah,
+        rightJuz,
         leftAyahId,
-        JuzList[r + 1],
-    ];
+        rightAyahId: JuzList[rightJuz + 1],
+    };
 }
 /**
  * Get Surah meta
@@ -213,8 +224,7 @@ export function findPage(surah, ayah, ayahMode = false) {
  * @param {*} ayah```
  */
 export function findAyaidBySurah(surah, ayah) {
-    checkValidSurah(surah);
-    const [startAyahId] = SuraList[surah];
+    const [startAyahId] = getSurahMeta(surah);
     return startAyahId + ayah;
 }
 /**
@@ -222,8 +232,7 @@ export function findAyaidBySurah(surah, ayah) {
  * @param {*} surah
  */
 export function getAyaCountinSura(surah) {
-    checkValidSurah(surah);
-    return SuraList[surah][1];
+    return getSurahMeta(surah)[1];
 }
 /**
  *

@@ -235,6 +235,37 @@ export function isAyahPageFirst(
   // return PageList.findIndex((x: AyahId) => x == ayahId)
 }
 
+/**
+ *  Find juz containing ayah
+ * @param surah
+ * @param ayah
+ * @param ayahMode
+ * @returns
+ */
+export function findJuzAndShift(
+  surah: Surah,
+  ayah: AyahNo,
+  ayahMode: boolean = false
+): {
+  juz: Juz
+  leftAyahId: AyahId
+  ayahsBetweenJuzSurah: number
+} {
+  const ayahId: AyahId = ayahMode
+    ? ((checkValidAyahId(ayah) && ayah) as AyahId)
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
+
+  const juz = findJuzByAyaid(ayahId)
+  const leftAyahId = JuzList[juz]
+  if (surah < 0) [surah] = findSurahByAyaid(leftAyahId)
+  const [surahStartAyahId] = SuraList[surah]
+  return {
+    juz,
+    ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId + 1,
+    leftAyahId,
+  }
+}
+
 //todo explain function
 /**
  * for given ayah return [starting juz, number of ayahsFrom beginning of that juz, right juz, number of ayahs in surah
@@ -243,31 +274,26 @@ export function isAyahPageFirst(
  * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah,leftAyahId,rightAyahId]
  */
 export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1): JuzMeta {
-  checkValidSurah(surah)
-
-  const l: Juz = findJuz(surah, ayah)
-
-  let r: Juz = l
-  while (r < meta.numJuzs && findSurahByAyaid(JuzList[r + 1])[0] == surah) r++
-  // console.log(l,r,
-  //   "sura at start of file ",Juz[l][0],
-  //   Sura[Juz[l][0]][0],
-  //   Sura[suraNumber][0],
-  //   Juz[l][1]
-  // )
-  // let sl: SurahAyah = findSurahByAyaid(JuzList[l])
-  const leftAyahId = JuzList[l]
-  const [startAyahId, ayahCount] = SuraList[surah]
-  const ayahsFromStartOfJuz = startAyahId - leftAyahId
-  // console.log(Sura[suraNumber + 1][0], Sura[Juz[l][0]][0])
-  return [
-    l,
-    ayahsFromStartOfJuz + 1,
-    r,
-    ayahCount,
+  const {
+    juz: leftjuz,
+    ayahsBetweenJuzSurah,
     leftAyahId,
-    JuzList[r + 1],
-  ]
+  } = findJuzAndShift(surah, ayah)
+
+  let rightJuz: Juz = leftjuz
+  while (
+    rightJuz < meta.numJuzs &&
+    findSurahByAyaid(JuzList[rightJuz + 1])[0] == surah
+  )
+    rightJuz++
+
+  return {
+    leftjuz,
+    ayahsBetweenJuzSurah,
+    rightJuz,
+    leftAyahId,
+    rightAyahId: JuzList[rightJuz + 1],
+  }
 }
 
 /**

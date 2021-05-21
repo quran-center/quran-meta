@@ -17,14 +17,14 @@ export type PageMeta = {
   last: SurahAyah
 }
 //[leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
-export type JuzMeta = [
-  leftjuz: Juz,
-  ayahsFromStartOfJuz: number,
-  rightJuz: Juz,
-  ayahCount: number,
-  leftAyahId:AyahId,
-  rightAyahId:AyahId
-]
+export type JuzMeta = {
+  leftjuz: Juz
+  ayahsBetweenJuzSurah: number
+  rightJuz: Juz
+  // ayahCount: number,
+  leftAyahId: AyahId
+  rightAyahId: AyahId
+}
 export type SajdaType = "recommended" | "obligatory"
 export type Sajda = [AyahId, SajdaType]
 // [start, ayas, order, rukus, name,  isMeccan, page ]
