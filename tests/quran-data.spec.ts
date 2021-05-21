@@ -20,6 +20,8 @@ import {
   RukuList,
   getSurahMeta,
   meta,
+  findJuzByAyaid,
+  isAyahPageFirst,
 } from "../src/"
 import { AyahNo, AyahId, Surah } from "../src/types"
 
@@ -92,6 +94,18 @@ describe("findPage", () => {
   })
 })
 
+describe("findJuzByAyaid", () => {
+  it("true", () => {
+    expect(findJuzByAyaid(1)).toEqual(1)
+    expect(findJuzByAyaid(2)).toEqual(1)
+    expect(findJuzByAyaid(100)).toEqual(1)
+    expect(findJuzByAyaid(148)).toEqual(1)
+    expect(findJuzByAyaid(149)).toEqual(2)
+    expect(findJuzByAyaid(200)).toEqual(2)
+    expect(findJuzByAyaid(6236)).toEqual(30)
+  })
+})
+
 describe("findJuz", () => {
   it("true", () => {
     expect(findJuz(1, 1)).toEqual(1)
@@ -109,19 +123,43 @@ describe("findJuzHizbByAyaid", () => {
     expect(findJuzHizbByAyaid(33)).toEqual({ hizb: 2, id: 2, juz: 1 })
     expect(findJuzHizbByAyaid(148)).toEqual({ hizb: 8, id: 8, juz: 1 })
     expect(findJuzHizbByAyaid(149)).toEqual({ hizb: 1, id: 9, juz: 2 })
-    expect(findJuzHizbByAyaid(meta.numAyas)).toEqual({ hizb: 8, id: 240, juz: 30 })
+    expect(findJuzHizbByAyaid(meta.numAyas)).toEqual({
+      hizb: 8,
+      id: 240,
+      juz: 30,
+    })
   })
 })
 
 describe("isAyahJuzFirst", () => {
   it("true", () => {
     expect(isAyahJuzFirst(1, 1)).toEqual(1)
+    expect(isAyahJuzFirst(-1, 1, true)).toEqual(1)
+    expect(isAyahJuzFirst(2, 142)).toEqual(2)
+    expect(isAyahJuzFirst(-1, 149, true)).toEqual(2)
   })
 
   it("false", () => {
-    expect(isAyahJuzFirst(2, 1)).toEqual(-1)
-    expect(isAyahJuzFirst(114, 1)).toEqual(-1)
-    expect(isAyahJuzFirst(1, 114)).toEqual(-1)
+    expect(isAyahJuzFirst(2, 1)).toEqual(-3)
+    expect(isAyahJuzFirst(114, 1)).toEqual(-32)
+    expect(isAyahJuzFirst(1, 114)).toEqual(-3)
+  })
+})
+
+
+describe("isAyahPageFirst", () => {
+  it("true", () => {
+    expect(isAyahPageFirst(1, 1)).toEqual(1)
+    expect(isAyahPageFirst(-1, 1, true)).toEqual(1)
+    expect(isAyahPageFirst(2, 1)).toEqual(2)
+    expect(isAyahPageFirst(2, 142)).toEqual(22)
+    expect(isAyahPageFirst(-1, 149, true)).toEqual(22)
+  })
+
+  it("false", () => {
+    expect(isAyahPageFirst(2, 2)).toEqual(-4)
+    // expect(isAyahPageFirst(114, 1)).toEqual(-32)
+    // expect(isAyahPageFirst(1, 114)).toEqual(-3)
   })
 })
 
@@ -129,6 +167,7 @@ describe("findSurahByAyaid", () => {
   it("surah of ayaid 1", () => {
     expect(findSurahByAyaid(1)).toEqual(expect.arrayContaining([1, 1]))
     expect(findSurahByAyaid(2)).toEqual(expect.arrayContaining([1, 2]))
+    expect(findSurahByAyaid(7)).toEqual(expect.arrayContaining([1, 7]))
     expect(findSurahByAyaid(8)).toEqual(expect.arrayContaining([2, 1]))
     expect(findSurahByAyaid(meta.numAyas)).toEqual(
       expect.arrayContaining([114, 6])

@@ -16,6 +16,11 @@ export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageLis
  *
  * @param {*} ayaId
  */
+export declare function findSurahByAyaid(ayaId: AyahId): SurahAyah;
+/**
+ *
+ * @param {*} ayaId
+ */
 export declare function findJuzByAyaid(ayaId: AyahId): Juz;
 /**
  *
@@ -27,19 +32,25 @@ export declare function findJuzHizbByAyaid(ayaId: AyahId): JuzHizb;
  * @param {*} surah
  * @param {*} ayah
  */
-export declare function findJuz(surah: Surah, ayah?: AyahNo): Juz;
+export declare function findJuz(surah: Surah, ayah?: AyahNo, ayahMode?: boolean): Juz;
 /**
  *
  * @param {*} surah
  * @param {*} ayah
  */
-export declare function findJuzHizb(surah: Surah, ayah?: AyahNo): JuzHizb;
+export declare function findJuzHizb(surah: Surah, ayah?: AyahNo, ayahMode?: boolean): JuzHizb;
 /**
  * Returns Positive number if aya is first ayah of juz, number is juz number
  * @param {*} surah
  * @param {*} ayah
  */
-export declare function isAyahJuzFirst(surah: Surah, ayah: AyahNo): Juz;
+export declare function isAyahJuzFirst(surah: Surah, ayah: AyahNo, ayahMode?: boolean): Juz;
+/**
+ * Returns Positive number if aya is first ayah of juz, number is juz number
+ * @param {*} surah
+ * @param {*} ayah
+ */
+export declare function isAyahPageFirst(surah: Surah, ayah: AyahNo, ayahMode?: boolean): Juz;
 /**
  * for given ayah return [starting juz, number of ayahsFrom beginning of that juz, right juz, number of ayahs in surah
  * @param {*} suraNumber
@@ -57,12 +68,7 @@ export declare function getSurahMeta(surah: Surah): SurahMeta;
  * @param {*} suraNumber
  * @param {*} ayaNumber
  */
-export declare function findPage(surah: Surah, ayah: AyahNo): Page;
-/**
- *
- * @param {*} ayaId
- */
-export declare function findSurahByAyaid(ayaId: AyahId): SurahAyah;
+export declare function findPage(surah: Surah, ayah: AyahNo, ayahMode?: boolean): Page;
 /**
  *
  * @param {*} surah
@@ -102,4 +108,4 @@ export declare function pageMeta(pageNum: Page): PageMeta;
  * @param {*} mode can be either 'all', 'juz', 'surah', 'ayah', 'page'
  * default is all
  */
-export declare function findRangeAroundAyah(surah: Surah, ayah: AyahNo, mode: "juz" | "surah" | "ayah" | "page" | "all"): SurahAyah;
+export declare function findRangeAroundAyah(surah: Surah, ayah: AyahNo, mode: "juz" | "surah" | "ayah" | "page" | "all", ayahMode?: boolean): SurahAyah;

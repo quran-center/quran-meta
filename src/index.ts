@@ -98,15 +98,54 @@ export {
   ayaStringSplitter,
 }
 
+function binarySearch(
+  ar: Array<number>,
+  el: number,
+  compare_fn: (a: number, b: number) => number = (a, b) => a - b
+): number {
+  var m = 0
+  var n = ar.length - 1
+  while (m <= n) {
+    var k = (n + m) >> 1
+    var cmp = compare_fn(el, ar[k])
+    if (cmp > 0) {
+      m = k + 1
+    } else if (cmp < 0) {
+      n = k - 1
+    } else {
+      return k
+    }
+  }
+  return -m - 1
+}
+
 function checkValidAyahId(ayaId: AyahId) {
   if (ayaId < 1 || ayaId > meta.numAyas)
     throw new RangeError("ayaid must be between 1 and " + meta.numAyas)
+  return true
 }
 
-function checkValidSurah(surah: Surah) {
-  if (surah < 1 || surah > meta.numSuras)
+function checkValidSurah(surah: Surah, checkOnly: Boolean = false) {
+  if (surah < 1 || surah > meta.numSuras) {
+    if (checkOnly) return false
     throw new RangeError("Surah must be between 1 and " + meta.numSuras)
+  }
+  return true
 }
+
+/**
+ *
+ * @param {*} ayaId
+ */
+export function findSurahByAyaid(ayaId: AyahId): SurahAyah {
+  checkValidAyahId(ayaId)
+
+  const suraNum: Surah = SuraList.findIndex(x => x[0] >= ayaId) - 1
+  return suraNum < 0
+    ? [114, ayaId - SuraList[114][0]]
+    : [suraNum, ayaId - SuraList[suraNum][0]]
+}
+
 /**
  *
  * @param {*} ayaId
@@ -133,32 +172,67 @@ export function findJuzHizbByAyaid(ayaId: AyahId): JuzHizb {
  * @param {*} surah
  * @param {*} ayah
  */
-export function findJuz(surah: Surah, ayah: AyahNo = 1): Juz {
-  const a: AyahId = findAyaidBySurah(surah, ayah)
+export function findJuz(
+  surah: Surah,
+  ayah: AyahNo = 1,
+  ayahMode: boolean = false
+): Juz {
+  const ayahId: AyahId = ayahMode
+    ? ayah
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  return findJuzByAyaid(a)
+  return findJuzByAyaid(ayahId)
 }
 /**
  *
  * @param {*} surah
  * @param {*} ayah
  */
-export function findJuzHizb(surah: Surah, ayah: AyahNo = 1): JuzHizb {
-  const a: AyahId = findAyaidBySurah(surah, ayah)
+export function findJuzHizb(
+  surah: Surah,
+  ayah: AyahNo = 1,
+  ayahMode: boolean = false
+): JuzHizb {
+  const ayahId: AyahId = ayahMode
+    ? ayah
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  return findJuzHizbByAyaid(a)
+  return findJuzHizbByAyaid(ayahId)
 }
 /**
  * Returns Positive number if aya is first ayah of juz, number is juz number
  * @param {*} surah
  * @param {*} ayah
  */
-export function isAyahJuzFirst(surah: Surah, ayah: AyahNo): Juz {
-  checkValidSurah(surah)
+export function isAyahJuzFirst(
+  surah: Surah,
+  ayah: AyahNo,
+  ayahMode: boolean = false
+): Juz {
+  const ayahId: AyahId = ayahMode
+    ? ((checkValidAyahId(ayah) && ayah) as AyahId)
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  const a: AyahId = findAyaidBySurah(surah, ayah)
+  return binarySearch(JuzList, ayahId)
+  // return JuzList.findIndex((x: AyahId) => x == ayahId)
+}
 
-  return JuzList.findIndex((x: AyahId) => x == a)
+/**
+ * Returns Positive number if aya is first ayah of juz, number is juz number
+ * @param {*} surah
+ * @param {*} ayah
+ */
+export function isAyahPageFirst(
+  surah: Surah,
+  ayah: AyahNo,
+  ayahMode: boolean = false
+): Juz {
+  const ayahId: AyahId = ayahMode
+    ? ((checkValidAyahId(ayah) && ayah) as AyahId)
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
+
+  return binarySearch(PageList, ayahId)
+  // return PageList.findIndex((x: AyahId) => x == ayahId)
 }
 
 //todo explain function
@@ -209,25 +283,16 @@ export function getSurahMeta(surah: Surah): SurahMeta {
  * @param {*} suraNumber
  * @param {*} ayaNumber
  */
-export function findPage(surah: Surah, ayah: AyahNo): Page {
-  checkValidSurah(surah)
+export function findPage(
+  surah: Surah,
+  ayah: AyahNo,
+  ayahMode: boolean = false
+): Page {
+  const ayahId: AyahId = ayahMode
+    ? ((checkValidAyahId(ayah) && ayah) as AyahId)
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  const a: AyahId = findAyaidBySurah(surah, ayah)
-
-  return PageList.findIndex(x => x > a) - 1
-}
-
-/**
- *
- * @param {*} ayaId
- */
-export function findSurahByAyaid(ayaId: AyahId): SurahAyah {
-  checkValidAyahId(ayaId)
-
-  const suraNum: Surah = SuraList.slice(1).findIndex(x => x[0] >= ayaId)
-  return suraNum < 0
-    ? [114, ayaId - SuraList[114][0]]
-    : [suraNum, ayaId - SuraList[suraNum][0]]
+  return PageList.findIndex(x => x > ayahId) - 1
 }
 
 /**
@@ -333,13 +398,16 @@ export function pageMeta(pageNum: Page): PageMeta {
 export function findRangeAroundAyah(
   surah: Surah,
   ayah: AyahNo,
-  mode: "juz" | "surah" | "ayah" | "page" | "all"
+  mode: "juz" | "surah" | "ayah" | "page" | "all",
+  ayahMode: boolean = false
 ): SurahAyah {
-  checkValidSurah(surah)
+  const ayahId: AyahId = ayahMode
+    ? ayah
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
   switch (mode) {
     case "juz": {
-      const juz: Juz = findJuz(surah, ayah)
+      const juz: Juz = findJuzByAyaid(ayahId)
       return [JuzList[juz], JuzList[juz + 1] - 1]
     }
 
@@ -348,11 +416,10 @@ export function findRangeAroundAyah(
     }
 
     case "ayah": {
-      const ayahId: AyahId = findAyaidBySurah(surah, ayah)
       return [ayahId, ayahId]
     }
     case "page": {
-      const page: Page = findPage(surah, ayah)
+      const page: Page = findPage(-1, ayahId, true)
       return [PageList[page], PageList[page + 1] - 1]
     }
 

@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.2.3
+ * Quran Meta library 2.3.1
  *
  * Released under the MIT license
  */
@@ -1843,13 +1843,45 @@ var SajdaList = [
     [5905, "recommended"],
     [6125, "obligatory"],
 ];
+function binarySearch(ar, el, compare_fn) {
+    if (compare_fn === void 0) { compare_fn = function (a, b) { return a - b; }; }
+    var m = 0;
+    var n = ar.length - 1;
+    while (m <= n) {
+        var k = (n + m) >> 1;
+        var cmp = compare_fn(el, ar[k]);
+        if (cmp > 0) {
+            m = k + 1;
+        }
+        else if (cmp < 0) {
+            n = k - 1;
+        }
+        else {
+            return k;
+        }
+    }
+    return -m - 1;
+}
 function checkValidAyahId(ayaId) {
     if (ayaId < 1 || ayaId > meta.numAyas)
         throw new RangeError("ayaid must be between 1 and " + meta.numAyas);
+    return true;
 }
-function checkValidSurah(surah) {
-    if (surah < 1 || surah > meta.numSuras)
+function checkValidSurah(surah, checkOnly) {
+    if (checkOnly === void 0) { checkOnly = false; }
+    if (surah < 1 || surah > meta.numSuras) {
+        if (checkOnly)
+            return false;
         throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+    }
+    return true;
+}
+function findSurahByAyaid(ayaId) {
+    checkValidAyahId(ayaId);
+    var suraNum = SuraList.findIndex(function (x) { return x[0] >= ayaId; }) - 1;
+    return suraNum < 0
+        ? [114, ayaId - SuraList[114][0]]
+        : [suraNum, ayaId - SuraList[suraNum][0]];
 }
 function findJuzByAyaid(ayaId) {
     checkValidAyahId(ayaId);
@@ -1861,20 +1893,35 @@ function findJuzHizbByAyaid(ayaId) {
     var id = HizbQuarterList.findIndex(function (x) { return x > ayaId; }) - 1;
     return { juz: juz, hizb: id % 8 || 8, id: id };
 }
-function findJuz(surah, ayah) {
+function findJuz(surah, ayah, ayahMode) {
     if (ayah === void 0) { ayah = 1; }
-    var a = findAyaidBySurah(surah, ayah);
-    return findJuzByAyaid(a);
+    if (ayahMode === void 0) { ayahMode = false; }
+    var ayahId = ayahMode
+        ? ayah
+        : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+    return findJuzByAyaid(ayahId);
 }
-function findJuzHizb(surah, ayah) {
+function findJuzHizb(surah, ayah, ayahMode) {
     if (ayah === void 0) { ayah = 1; }
-    var a = findAyaidBySurah(surah, ayah);
-    return findJuzHizbByAyaid(a);
+    if (ayahMode === void 0) { ayahMode = false; }
+    var ayahId = ayahMode
+        ? ayah
+        : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+    return findJuzHizbByAyaid(ayahId);
 }
-function isAyahJuzFirst(surah, ayah) {
-    checkValidSurah(surah);
-    var a = findAyaidBySurah(surah, ayah);
-    return JuzList.findIndex(function (x) { return x == a; });
+function isAyahJuzFirst(surah, ayah, ayahMode) {
+    if (ayahMode === void 0) { ayahMode = false; }
+    var ayahId = ayahMode
+        ? (checkValidAyahId(ayah) && ayah)
+        : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+    return binarySearch(JuzList, ayahId);
+}
+function isAyahPageFirst(surah, ayah, ayahMode) {
+    if (ayahMode === void 0) { ayahMode = false; }
+    var ayahId = ayahMode
+        ? (checkValidAyahId(ayah) && ayah)
+        : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+    return binarySearch(PageList, ayahId);
 }
 function findJuzMetaBySurah(surah, ayah) {
     if (ayah === void 0) { ayah = 1; }
@@ -1898,17 +1945,12 @@ function getSurahMeta(surah) {
     checkValidSurah(surah);
     return SuraList[surah];
 }
-function findPage(surah, ayah) {
-    checkValidSurah(surah);
-    var a = findAyaidBySurah(surah, ayah);
-    return PageList.findIndex(function (x) { return x > a; }) - 1;
-}
-function findSurahByAyaid(ayaId) {
-    checkValidAyahId(ayaId);
-    var suraNum = SuraList.slice(1).findIndex(function (x) { return x[0] >= ayaId; });
-    return suraNum < 0
-        ? [114, ayaId - SuraList[114][0]]
-        : [suraNum, ayaId - SuraList[suraNum][0]];
+function findPage(surah, ayah, ayahMode) {
+    if (ayahMode === void 0) { ayahMode = false; }
+    var ayahId = ayahMode
+        ? (checkValidAyahId(ayah) && ayah)
+        : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+    return PageList.findIndex(function (x) { return x > ayahId; }) - 1;
 }
 function findAyaidBySurah(surah, ayah) {
     checkValidSurah(surah);
@@ -1943,22 +1985,24 @@ function pageMeta(pageNum) {
         last: __spreadArray([], findSurahByAyaid(nextPage - 1)),
     };
 }
-function findRangeAroundAyah(surah, ayah, mode) {
-    checkValidSurah(surah);
+function findRangeAroundAyah(surah, ayah, mode, ayahMode) {
+    if (ayahMode === void 0) { ayahMode = false; }
+    var ayahId = ayahMode
+        ? ayah
+        : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
     switch (mode) {
         case "juz": {
-            var juz = findJuz(surah, ayah);
+            var juz = findJuzByAyaid(ayahId);
             return [JuzList[juz], JuzList[juz + 1] - 1];
         }
         case "surah": {
             return [findAyaidBySurah(surah, 1), findAyaidBySurah(surah + 1, 1) - 1];
         }
         case "ayah": {
-            var ayahId = findAyaidBySurah(surah, ayah);
             return [ayahId, ayahId];
         }
         case "page": {
-            var page = findPage(surah, ayah);
+            var page = findPage(-1, ayahId, true);
             return [PageList[page], PageList[page + 1] - 1];
         }
         case "all":
@@ -1987,6 +2031,7 @@ exports.findSurahByAyaid = findSurahByAyaid;
 exports.getAyaCountinSura = getAyaCountinSura;
 exports.getSurahMeta = getSurahMeta;
 exports.isAyahJuzFirst = isAyahJuzFirst;
+exports.isAyahPageFirst = isAyahPageFirst;
 exports.meta = meta;
 exports.nextAyah = nextAyah;
 exports.pageMeta = pageMeta;
