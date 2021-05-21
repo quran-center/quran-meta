@@ -8,7 +8,7 @@
     "surah",
     "juz"
   ],
-  "version": "2.2.4",
+  "version": "2.3.2",
   "license": "MIT",
   "jsdelivr": "dist/quran-meta.js",
   "unpkg": "dist/quran-meta.js",
