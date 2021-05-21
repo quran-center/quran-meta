@@ -105,6 +105,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="index.html#findayaidbysurah" class="tsd-kind-icon">find<wbr>Ayaid<wbr>BySurah</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="index.html#findjuz" class="tsd-kind-icon">find<wbr>Juz</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="index.html#findjuzandshift" class="tsd-kind-icon">find<wbr>Juz<wbr>And<wbr>Shift</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="index.html#findjuzbyayaid" class="tsd-kind-icon">find<wbr>Juz<wbr>ByAyaid</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="index.html#findjuzhizb" class="tsd-kind-icon">find<wbr>Juz<wbr>Hizb</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="index.html#findjuzhizbbyayaid" class="tsd-kind-icon">find<wbr>Juz<wbr>Hizb<wbr>ByAyaid</a></li>
@@ -225,7 +226,7 @@
 					<div class="tsd-signature tsd-kind-icon">Juz<wbr>List<span class="tsd-signature-symbol">:</span> <a href="types.html#ayahid" class="tsd-signature-type" data-tsd-kind="Type alias">AyahId</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L38">index.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L38">index.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -235,7 +236,7 @@
 					<div class="tsd-signature tsd-kind-icon">Manzil<wbr>List<span class="tsd-signature-symbol">:</span> <a href="types.html#ayahid" class="tsd-signature-type" data-tsd-kind="Type alias">AyahId</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L49">index.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L49">index.ts:49</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -245,7 +246,7 @@
 					<div class="tsd-signature tsd-kind-icon">Sajda<wbr>List<span class="tsd-signature-symbol">:</span> <a href="types.html#sajda" class="tsd-signature-type" data-tsd-kind="Type alias">Sajda</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L69">index.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L69">index.ts:69</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -262,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L303">index.ts:303</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L330">index.ts:330</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -288,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L175">index.ts:175</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L175">index.ts:175</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -310,6 +311,51 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="findjuzandshift" class="tsd-anchor"></a>
+					<h3>find<wbr>Juz<wbr>And<wbr>Shift</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Juz<wbr>And<wbr>Shift<span class="tsd-signature-symbol">(</span>surah<span class="tsd-signature-symbol">: </span><a href="types.html#surah" class="tsd-signature-type" data-tsd-kind="Type alias">Surah</a>, ayah<span class="tsd-signature-symbol">: </span><a href="types.html#ayahno" class="tsd-signature-type" data-tsd-kind="Type alias">AyahNo</a>, ayahMode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>ayahsBetweenJuzSurah<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>juz<span class="tsd-signature-symbol">: </span><a href="types.html#juz" class="tsd-signature-type" data-tsd-kind="Type alias">Juz</a><span class="tsd-signature-symbol">; </span>leftAyahId<span class="tsd-signature-symbol">: </span><a href="types.html#ayahid" class="tsd-signature-type" data-tsd-kind="Type alias">AyahId</a><span class="tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L245">index.ts:245</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p> Find juz containing ayah</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>surah: <a href="types.html#surah" class="tsd-signature-type" data-tsd-kind="Type alias">Surah</a></h5>
+								</li>
+								<li>
+									<h5>ayah: <a href="types.html#ayahno" class="tsd-signature-type" data-tsd-kind="Type alias">AyahNo</a></h5>
+								</li>
+								<li>
+									<h5>ayahMode: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>ayahsBetweenJuzSurah<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>juz<span class="tsd-signature-symbol">: </span><a href="types.html#juz" class="tsd-signature-type" data-tsd-kind="Type alias">Juz</a><span class="tsd-signature-symbol">; </span>leftAyahId<span class="tsd-signature-symbol">: </span><a href="types.html#ayahid" class="tsd-signature-type" data-tsd-kind="Type alias">AyahId</a><span class="tsd-signature-symbol"> }</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>ayahs<wbr>Between<wbr>Juz<wbr>Surah<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>juz<span class="tsd-signature-symbol">: </span><a href="types.html#juz" class="tsd-signature-type" data-tsd-kind="Type alias">Juz</a></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>left<wbr>Ayah<wbr>Id<span class="tsd-signature-symbol">: </span><a href="types.html#ayahid" class="tsd-signature-type" data-tsd-kind="Type alias">AyahId</a></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="findjuzbyayaid" class="tsd-anchor"></a>
 					<h3>find<wbr>Juz<wbr>ByAyaid</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -319,7 +365,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L153">index.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L153">index.ts:153</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -344,7 +390,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L191">index.ts:191</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L191">index.ts:191</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -375,7 +421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L162">index.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L162">index.ts:162</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -400,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L245">index.ts:245</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L276">index.ts:276</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -431,7 +477,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L286">index.ts:286</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L313">index.ts:313</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -460,7 +506,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L398">index.ts:398</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L421">index.ts:421</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -501,7 +547,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L140">index.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L140">index.ts:140</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -526,7 +572,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L314">index.ts:314</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L339">index.ts:339</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -551,7 +597,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L276">index.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L303">index.ts:303</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -581,7 +627,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L207">index.ts:207</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L207">index.ts:207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -617,7 +663,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L225">index.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L225">index.ts:225</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -653,7 +699,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L325">index.ts:325</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L348">index.ts:348</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -681,7 +727,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L349">index.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L372">index.ts:372</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -711,7 +757,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f0e5443/src/index.ts#L338">index.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/quran-center/quran-meta/blob/f5fddc2/src/index.ts#L361">index.ts:361</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -839,6 +885,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="index.html#findjuz" class="tsd-kind-icon">find<wbr>Juz</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="index.html#findjuzandshift" class="tsd-kind-icon">find<wbr>Juz<wbr>And<wbr>Shift</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="index.html#findjuzbyayaid" class="tsd-kind-icon">find<wbr>Juz<wbr>ByAyaid</a>
