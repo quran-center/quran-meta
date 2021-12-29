@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.4.2
+ * Quran Meta library 2.4.3
  *
  * Released under the MIT license
  */
@@ -19,10 +19,14 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-function __spreadArray(to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+function __spreadArray(to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 }
 
 var meta = Object.freeze({
@@ -1989,7 +1993,7 @@ function pageMeta(pageNum) {
     return {
         pageNum: pageNum,
         first: findSurahByAyaid(curPage),
-        last: __spreadArray([], findSurahByAyaid(nextPage - 1)),
+        last: __spreadArray([], findSurahByAyaid(nextPage - 1), true),
     };
 }
 function findRangeAroundAyah(surah, ayah, mode, ayahMode) {

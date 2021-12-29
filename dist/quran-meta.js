@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.4.2
+ * Quran Meta library 2.4.3
  *
  * Released under the MIT license
  */
@@ -8,7 +8,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.quranMeta = {}));
-}(this, (function (exports) { 'use strict';
+})(this, (function (exports) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -25,10 +25,14 @@
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    function __spreadArray(to, from) {
-        for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-            to[j] = from[i];
-        return to;
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
+        }
+        return to.concat(ar || Array.prototype.slice.call(from));
     }
 
     var meta = Object.freeze({
@@ -1995,7 +1999,7 @@
         return {
             pageNum: pageNum,
             first: findSurahByAyaid(curPage),
-            last: __spreadArray([], findSurahByAyaid(nextPage - 1)),
+            last: __spreadArray([], findSurahByAyaid(nextPage - 1), true),
         };
     }
     function findRangeAroundAyah(surah, ayah, mode, ayahMode) {
@@ -2055,5 +2059,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=quran-meta.js.map

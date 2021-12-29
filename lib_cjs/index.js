@@ -1,8 +1,12 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findRangeAroundAyah = exports.pageMeta = exports.prevAyah = exports.nextAyah = exports.getAyaCountinSura = exports.findAyaidBySurah = exports.findPage = exports.getSurahMeta = exports.findJuzMetaBySurah = exports.findJuzAndShift = exports.isAyahPageFirst = exports.isAyahJuzFirst = exports.findJuzHizb = exports.findJuz = exports.findJuzHizbByAyaid = exports.findJuzByAyaid = exports.findSurahByAyaid = exports.ayaStringSplitter = exports.SajdaList = exports.PageList = exports.RukuList = exports.ManzilList = exports.HizbQuarterList = exports.JuzList = exports.SuraList = exports.meta = exports.suraNamesRu = exports.suraNamesEn = void 0;
@@ -314,7 +318,7 @@ function pageMeta(pageNum) {
     return {
         pageNum: pageNum,
         first: findSurahByAyaid(curPage),
-        last: __spreadArray([], findSurahByAyaid(nextPage - 1)),
+        last: __spreadArray([], findSurahByAyaid(nextPage - 1), true),
     };
 }
 exports.pageMeta = pageMeta;
