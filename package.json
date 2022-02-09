@@ -8,7 +8,7 @@
     "surah",
     "juz"
   ],
-  "version": "2.4.4",
+  "version": "2.4.5",
   "license": "MIT",
   "jsdelivr": "dist/quran-meta.js",
   "unpkg": "dist/quran-meta.js",
@@ -45,8 +45,7 @@
     "precommit": "lint-staged && jest --onlyChanged",
     "release": "npm run prepare-npm-package && npm test && npm run tsdoc && git push --follow-tags && npm publish&&standard-version"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.1",
