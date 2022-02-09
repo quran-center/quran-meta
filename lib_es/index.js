@@ -51,11 +51,11 @@ const SajdaList = [
 import { ayaStringSplitter } from "./ayaStringSplitter";
 export { meta, SuraList, JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList, ayaStringSplitter, };
 function binarySearch(ar, el, compare_fn = (a, b) => a - b) {
-    var m = 0;
-    var n = ar.length - 1;
+    let m = 0;
+    let n = ar.length - 1;
     while (m <= n) {
-        var k = (n + m) >> 1;
-        var cmp = compare_fn(el, ar[k]);
+        const k = (n + m) >> 1;
+        const cmp = compare_fn(el, ar[k]);
         if (cmp > 0) {
             m = k + 1;
         }
@@ -106,7 +106,7 @@ export function findJuzByAyaid(ayaId) {
  */
 export function findJuzHizbByAyaid(ayaId) {
     checkValidAyahId(ayaId);
-    let juz = findJuzByAyaid(ayaId);
+    const juz = findJuzByAyaid(ayaId);
     const id = HizbQuarterList.findIndex(x => x > ayaId) - 1;
     return { juz, hizb: id % 8 || 8, id };
 }

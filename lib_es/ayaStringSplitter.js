@@ -4,7 +4,7 @@
  * @returns {array} array [x,y] or [x,[y1,y2]] respectively
  */
 export function ayaStringSplitter(str) {
-    let [surah, ayahs] = str.trim().split(":");
+    const [surah, ayahs] = str.trim().split(":");
     if (!ayahs) {
         throw "Error in data " + str;
     }
