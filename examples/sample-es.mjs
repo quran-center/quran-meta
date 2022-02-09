@@ -3,11 +3,11 @@
  */
 // node sample-es.mjs
 
-import quranMeta, { meta } from "../lib_es/index.mjs"
+import { meta, SuraList } from "../dist/quran-meta.js"
 console.log(`There are ${meta.numSuras} suras in the Holy Quran`)
-let res = []
-for (let surah = 1; surah <= quranMeta.meta.numSuras; surah++) {
-  const ayaCount = quranMeta.SuraList[surah][1]
+const res = []
+for (let surah = 1; surah <= meta.numSuras; surah++) {
+  const ayaCount = SuraList[surah][1]
   for (let ayah = 1; ayah <= ayaCount; ayah++) {
     //console.log(surah, ayah)
     // res.push([surah, ayah])
