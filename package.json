@@ -43,8 +43,8 @@
     "tsdoc": "typedoc --out docs/ src/",
     "deploy": "###rollup -c config/rollup_dist.js && copyfiles dist/quran-meta.js docs/scripts",
     "precommit": "lint-staged && jest --onlyChanged",
-    "release": "npm run prepare-npm-package && npm test && npm run tsdoc &&standard-version",
-    "publish": " git push --follow-tags && npm publish"
+    "release": "standard-version&&npm run prepare-npm-package && npm test && npm run tsdoc",
+    "publish": "git push --follow-tags && npm publish"
   },
   "dependencies": {},
   "devDependencies": {
