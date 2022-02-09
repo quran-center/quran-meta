@@ -31,7 +31,7 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "eslint": "eslint ./src --ext .js --fix",
+    "eslint": "eslint src/ --ext .ts --fix",
     "build": "npm run build-universal && npm run build-ts-es && npm run build-ts-cjs",
     "build-universal": "rollup -c config/rollup/dist/umd.js && rollup -c config/rollup/dist/es.js && copyfiles -f  ./src/i18n/* ./dist/json",
     "build-ts-es": "tsc -d -p tsconfig.json --sourceMap --outDir lib_es --declarationDir types",
@@ -45,15 +45,20 @@
     "precommit": "lint-staged && jest --onlyChanged",
     "release": "npm run prepare-npm-package && npm test && npm run tsdoc && git push --follow-tags && npm publish&&standard-version"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.1",
     "@rollup/plugin-typescript": "^8.3.0",
     "@types/jest": "^27.0.3",
     "@types/node": "16.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
     "copyfiles": "^2.4.1",
-    "eslint": "8.5.0",
+    "eslint": "8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.4.5",
     "prettier": "2.5.1",
     "rimraf": "^3.0.2",

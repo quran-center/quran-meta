@@ -103,11 +103,11 @@ function binarySearch(
   el: number,
   compare_fn: (a: number, b: number) => number = (a, b) => a - b
 ): number {
-  var m = 0
-  var n = ar.length - 1
+  let m = 0
+  let n = ar.length - 1
   while (m <= n) {
-    var k = (n + m) >> 1
-    var cmp = compare_fn(el, ar[k])
+    const k = (n + m) >> 1
+    const cmp = compare_fn(el, ar[k])
     if (cmp > 0) {
       m = k + 1
     } else if (cmp < 0) {
@@ -125,7 +125,7 @@ function checkValidAyahId(ayaId: AyahId) {
   return true
 }
 
-function checkValidSurah(surah: Surah, checkOnly: Boolean = false) {
+function checkValidSurah(surah: Surah, checkOnly = false) {
   if (surah < 1 || surah > meta.numSuras) {
     if (checkOnly) return false
     throw new RangeError("Surah must be between 1 and " + meta.numSuras)
@@ -162,7 +162,7 @@ export function findJuzByAyaid(ayaId: AyahId): Juz {
 export function findJuzHizbByAyaid(ayaId: AyahId): JuzHizb {
   checkValidAyahId(ayaId)
 
-  let juz = findJuzByAyaid(ayaId)
+  const juz = findJuzByAyaid(ayaId)
 
   const id = HizbQuarterList.findIndex(x => x > ayaId) - 1
   return { juz, hizb: id % 8 || 8, id }
@@ -172,11 +172,7 @@ export function findJuzHizbByAyaid(ayaId: AyahId): JuzHizb {
  * @param {*} surah
  * @param {*} ayah
  */
-export function findJuz(
-  surah: Surah,
-  ayah: AyahNo = 1,
-  ayahMode: boolean = false
-): Juz {
+export function findJuz(surah: Surah, ayah: AyahNo = 1, ayahMode = false): Juz {
   const ayahId: AyahId = ayahMode
     ? ayah
     : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
@@ -191,7 +187,7 @@ export function findJuz(
 export function findJuzHizb(
   surah: Surah,
   ayah: AyahNo = 1,
-  ayahMode: boolean = false
+  ayahMode = false
 ): JuzHizb {
   const ayahId: AyahId = ayahMode
     ? ayah
@@ -207,7 +203,7 @@ export function findJuzHizb(
 export function isAyahJuzFirst(
   surah: Surah,
   ayah: AyahNo,
-  ayahMode: boolean = false
+  ayahMode = false
 ): Juz {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
@@ -225,7 +221,7 @@ export function isAyahJuzFirst(
 export function isAyahPageFirst(
   surah: Surah,
   ayah: AyahNo,
-  ayahMode: boolean = false
+  ayahMode = false
 ): Juz {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
@@ -245,7 +241,7 @@ export function isAyahPageFirst(
 export function findJuzAndShift(
   surah: Surah,
   ayah: AyahNo,
-  ayahMode: boolean = false
+  ayahMode = false
 ): {
   juz: Juz
   leftAyahId: AyahId
@@ -310,11 +306,7 @@ export function getSurahMeta(surah: Surah): SurahMeta {
  * @param {*} suraNumber
  * @param {*} ayaNumber
  */
-export function findPage(
-  surah: Surah,
-  ayah: AyahNo,
-  ayahMode: boolean = false
-): Page {
+export function findPage(surah: Surah, ayah: AyahNo, ayahMode = false): Page {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
     : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
@@ -422,7 +414,7 @@ export function findRangeAroundAyah(
   surah: Surah,
   ayah: AyahNo,
   mode: "juz" | "surah" | "ayah" | "page" | "all",
-  ayahMode: boolean = false
+  ayahMode = false
 ): SurahAyah {
   const ayahId: AyahId = ayahMode
     ? ayah
