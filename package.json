@@ -8,7 +8,7 @@
     "surah",
     "juz"
   ],
-  "version": "2.4.13",
+  "version": "2.4.14",
   "license": "MIT",
   "jsdelivr": "dist/quran-meta.js",
   "unpkg": "dist/quran-meta.js",
@@ -33,7 +33,7 @@
   "scripts": {
     "eslint": "eslint src/ --ext .ts --fix",
     "build": "pnpm run build-universal && pnpm build-ts-es && pnpm build-ts-cjs",
-    "build-universal": "rollup -c config/rollup/dist/umd.js && rollup -c config/rollup/dist/es.js && copyfiles -f  ./src/i18n/* ./dist/json",
+    "build-universal": "rollup -c config/rollup/dist/umd.mjs && rollup -c config/rollup/dist/es.mjs && copyfiles -f  ./src/i18n/* ./dist/json",
     "build-ts-es": "tsc -d -p tsconfig.json --sourceMap --outDir lib_es --declarationDir types",
     "build-ts-cjs": "tsc -d -p tsconfig.json --sourceMap --outDir lib_cjs -m CommonJS -t ES5 -d false",
     "prepare-npm-package": "rimraf dist && rimraf lib_cjs && rimraf lib_es && rimraf dist && pnpm build",

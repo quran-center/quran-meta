@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.4.11
+ * Quran Meta library 2.4.13
  *
  * Released under the MIT license
  */
@@ -10,7 +10,7 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.quranMeta = {}));
 })(this, (function (exports) { 'use strict';
 
-    /*! *****************************************************************************
+    /******************************************************************************
     Copyright (c) Microsoft Corporation.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -755,8 +755,6 @@
     exports.prevAyah = prevAyah;
     exports.suraNamesEn = suraNames$1;
     exports.suraNamesRu = suraNames;
-
-    Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
 //# sourceMappingURL=quran-meta.js.map

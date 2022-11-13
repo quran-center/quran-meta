@@ -1,8 +1,8 @@
 import typescript from "@rollup/plugin-typescript"
 import { terser } from "rollup-plugin-terser"
-import banner from "../../banner"
+import banner from "../../banner.cjs"
 
-import { DIST_UNIVERSAL as outDir, SRC } from "../../const"
+import { DIST_UNIVERSAL as outDir, SRC } from "../../const.mjs"
 
 export default {
   input: `${SRC}/index.ts`,

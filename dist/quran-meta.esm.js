@@ -1,10 +1,10 @@
 /*! 
- * Quran Meta library 2.4.11
+ * Quran Meta library 2.4.13
  *
  * Released under the MIT license
  */
 
-/*! *****************************************************************************
+/******************************************************************************
 Copyright (c) Microsoft Corporation.
 
 Permission to use, copy, modify, and/or distribute this software for any

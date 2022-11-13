@@ -1,8 +1,8 @@
-import pack from '../package.json';
+const pack = require("../package.json")
 
-export default `/*! 
+module.exports = `/*! 
  * Quran Meta library ${pack.version}
  *
  * Released under the MIT license
  */
-`;
+`
