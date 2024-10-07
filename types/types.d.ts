@@ -1,30 +1,30 @@
-export declare type Surah = number;
-export declare type AyahNo = number;
-export declare type AyahId = number;
-export declare type Page = number;
-export declare type Juz = number;
-export declare type JuzHizb = {
+export type Surah = number;
+export type AyahNo = number;
+export type AyahId = number;
+export type Page = number;
+export type Juz = number;
+export type JuzHizb = {
     juz: Juz;
     hizb: number;
     id: number;
 };
-export declare type SurahAyah = [Surah, AyahNo];
-export declare type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]];
-export declare type PageMeta = {
+export type SurahAyah = [Surah, AyahNo];
+export type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]];
+export type PageMeta = {
     pageNum: Page;
     first: SurahAyah;
     last: SurahAyah;
 };
-export declare type JuzMeta = {
+export type JuzMeta = {
     leftjuz: Juz;
     ayahsBetweenJuzSurah: number;
     rightJuz: Juz;
     leftAyahId: AyahId;
     rightAyahId: AyahId;
 };
-export declare type SajdaType = "recommended" | "obligatory";
-export declare type Sajda = [AyahId, SajdaType];
-export declare type SurahMeta = [
+export type SajdaType = "recommended" | "obligatory";
+export type Sajda = [AyahId, SajdaType];
+export type SurahMeta = [
     startAyahId: AyahId,
     ayahCount: number,
     surahOrder: number,
@@ -33,4 +33,4 @@ export declare type SurahMeta = [
     isMeccan: boolean,
     page: Page
 ];
-export declare type SuraName = [name: string, translitName: string];
+export type SuraName = [name: string, translitName: string];

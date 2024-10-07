@@ -1,4 +1,4 @@
-declare type QuranMeta = {
+type QuranMeta = {
     numAyas: number;
     numSuras: number;
     numPages: number;

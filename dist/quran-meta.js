@@ -1,5 +1,5 @@
 /*! 
- * Quran Meta library 2.4.15
+ * Quran Meta library 2.5.1
  *
  * Released under the MIT license
  */
@@ -9,39 +9,6 @@
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.quranMeta = {}));
 })(this, (function (exports) { 'use strict';
-
-    /******************************************************************************
-    Copyright (c) Microsoft Corporation.
-
-    Permission to use, copy, modify, and/or distribute this software for any
-    purpose with or without fee is hereby granted.
-
-    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-    PERFORMANCE OF THIS SOFTWARE.
-    ***************************************************************************** */
-
-    function __spreadArray(to, from, pack) {
-        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-            if (ar || !(i in from)) {
-                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-                ar[i] = from[i];
-            }
-        }
-        return to.concat(ar || Array.prototype.slice.call(from));
-    }
-
-    var meta = Object.freeze({
-        numAyas: 6236,
-        numSuras: 114,
-        numPages: 604,
-        numJuzs: 30,
-        manzilCount: 7,
-    });
 
     var suraNames$1 = [
         [],
@@ -279,6 +246,69 @@
         ["Ан-Нас", "Люди"],
     ];
 
+    var RukuList = [
+        0, 1, 8, 15, 28, 37, 47, 54, 67, 69, 79, 90, 94, 104, 111, 120, 129, 137, 149,
+        155, 160, 171, 175, 184, 190, 196, 204, 218, 224, 229, 236, 239, 243, 250,
+        256, 261, 265, 268, 274, 281, 289, 291, 294, 303, 314, 324, 335, 348, 357,
+        365, 374, 385, 395, 403, 414, 423, 437, 442, 449, 465, 474, 483, 494, 504,
+        508, 516, 519, 527, 536, 544, 553, 564, 570, 581, 585, 590, 594, 598, 606,
+        609, 620, 628, 635, 646, 656, 665, 670, 675, 681, 689, 696, 704, 713, 720,
+        726, 736, 747, 756, 763, 770, 778, 785, 790, 800, 810, 820, 831, 840, 845,
+        850, 860, 872, 880, 884, 890, 900, 911, 919, 930, 934, 940, 944, 955, 965,
+        980, 986, 994, 1002, 1008, 1013, 1019, 1027, 1039, 1048, 1054, 1063, 1081,
+        1084, 1096, 1102, 1106, 1112, 1117, 1126, 1136, 1143, 1161, 1171, 1180, 1189,
+        1198, 1205, 1209, 1219, 1225, 1230, 1236, 1242, 1252, 1260, 1265, 1273, 1278,
+        1295, 1302, 1308, 1316, 1325, 1335, 1346, 1354, 1358, 1365, 1375, 1385, 1395,
+        1405, 1418, 1425, 1435, 1447, 1457, 1468, 1474, 1482, 1498, 1509, 1523, 1534,
+        1542, 1557, 1569, 1583, 1597, 1603, 1617, 1626, 1632, 1639, 1646, 1654, 1665,
+        1676, 1690, 1701, 1708, 1715, 1726, 1734, 1739, 1745, 1751, 1757, 1763, 1772,
+        1778, 1785, 1792, 1803, 1818, 1828, 1847, 1863, 1882, 1902, 1911, 1923, 1927,
+        1936, 1942, 1952, 1962, 1967, 1972, 1978, 1985, 1991, 2002, 2012, 2021, 2030,
+        2040, 2052, 2060, 2070, 2082, 2090, 2100, 2107, 2114, 2123, 2130, 2141, 2153,
+        2158, 2163, 2172, 2185, 2190, 2194, 2200, 2211, 2223, 2242, 2251, 2266, 2291,
+        2301, 2316, 2333, 2349, 2373, 2403, 2425, 2438, 2453, 2464, 2477, 2484, 2494,
+        2513, 2525, 2534, 2559, 2577, 2596, 2606, 2618, 2621, 2629, 2634, 2644, 2653,
+        2660, 2668, 2674, 2696, 2706, 2724, 2751, 2766, 2792, 2802, 2812, 2818, 2826,
+        2832, 2842, 2849, 2853, 2856, 2865, 2876, 2890, 2900, 2916, 2933, 2942, 2966,
+        2985, 3002, 3037, 3055, 3073, 3092, 3108, 3124, 3160, 3174, 3191, 3204, 3218,
+        3226, 3242, 3253, 3266, 3274, 3281, 3295, 3303, 3313, 3328, 3341, 3354, 3363,
+        3371, 3385, 3392, 3404, 3410, 3420, 3429, 3437, 3450, 3463, 3470, 3481, 3489,
+        3504, 3515, 3526, 3534, 3542, 3554, 3561, 3568, 3574, 3586, 3592, 3602, 3607,
+        3616, 3628, 3637, 3643, 3652, 3661, 3668, 3675, 3687, 3698, 3706, 3718, 3738,
+        3756, 3773, 3789, 3810, 3863, 3902, 3927, 3971, 3985, 3997, 4011, 4035, 4059,
+        4068, 4080, 4090, 4100, 4111, 4122, 4129, 4134, 4143, 4154, 4161, 4171, 4184,
+        4194, 4202, 4212, 4219, 4227, 4237, 4244, 4251, 4263, 4273, 4282, 4292, 4302,
+        4316, 4326, 4341, 4351, 4361, 4371, 4382, 4393, 4415, 4444, 4457, 4474, 4485,
+        4495, 4500, 4511, 4521, 4531, 4537, 4546, 4557, 4565, 4574, 4584, 4594, 4601,
+        4610, 4613, 4623, 4631, 4646, 4660, 4676, 4699, 4722, 4736, 4764, 4785, 4810,
+        4817, 4847, 4869, 4887, 4902, 4927, 4947, 4980, 5018, 5054, 5076, 5086, 5095,
+        5101, 5105, 5111, 5118, 5127, 5137, 5144, 5151, 5157, 5164, 5173, 5178, 5186,
+        5189, 5197, 5200, 5210, 5218, 5225, 5230, 5237, 5242, 5256, 5272, 5305, 5324,
+        5361, 5376, 5411, 5420, 5440, 5448, 5467, 5476, 5495, 5496, 5527, 5552, 5582,
+        5592, 5614, 5623, 5663, 5673, 5703, 5713, 5739, 5759, 5801, 5830, 5849, 5885,
+        5910, 5932, 5949, 5968, 5994, 6024, 6044, 6059, 6080, 6091, 6099, 6107, 6126,
+        6131, 6139, 6147, 6158, 6169, 6177, 6180, 6189, 6194, 6198, 6205, 6208, 6214,
+        6217, 6222, 6226, 6231, 6237,
+    ];
+
+    var meta = Object.freeze({
+        numAyas: 6236,
+        numSuras: 114,
+        numPages: 604,
+        numJuzs: 30,
+        manzilCount: 7,
+    });
+
+    function checkValidSurah(surah, checkOnly) {
+        if (checkOnly === void 0) { checkOnly = false; }
+        if (surah < 1 || surah > meta.numSuras) {
+            if (checkOnly)
+                return false;
+            throw new RangeError("Surah must be between 1 and " + meta.numSuras);
+        }
+        return true;
+    }
+
     var SuraList = [
         [-1, -1, -1, -1, "", false, -1],
         [0, 7, 5, 1, "الفاتحة", true, 1],
@@ -398,6 +428,110 @@
         [6236, 0, -1, -1, "", false, -1],
     ];
 
+    function getSurahMeta(surah) {
+        checkValidSurah(surah);
+        return SuraList[surah];
+    }
+
+    function checkValidSurahAyah(surah, ayah, checkOnly) {
+        if (checkOnly === void 0) { checkOnly = false; }
+        if (!checkValidSurah(surah, checkOnly))
+            return false;
+        var _a = getSurahMeta(surah); _a[0]; var ayahCount = _a[1];
+        if (ayah < 1 || ayah > ayahCount) {
+            if (checkOnly)
+                return false;
+            throw new RangeError("Ayah must be between 1 and " + ayahCount);
+        }
+        return true;
+    }
+
+    function ayaStringSplitter(str) {
+        var _a = str.trim().split(":"), surahStr = _a[0], ayahsStr = _a[1];
+        var surah = parseInt(surahStr, 10);
+        if (isNaN(surah)) {
+            throw "Error in surah format " + str;
+        }
+        if (!ayahsStr) {
+            throw "Error in data " + str;
+        }
+        var ayahs;
+        if (ayahsStr.includes("-")) {
+            ayahs = ayahsStr.split("-").map(function (a) {
+                var ayah = parseInt(a, 10);
+                if (isNaN(ayah) || ayah === 0) {
+                    throw "Error in ayah " + a;
+                }
+                return ayah;
+            });
+            if (ayahs[0] > ayahs[1])
+                throw "Error in ayah range " + str;
+        }
+        else {
+            ayahs = parseInt(ayahsStr, 10);
+            if (isNaN(ayahs) || ayahs === 0) {
+                throw "Error in data " + str;
+            }
+            checkValidSurahAyah(surah, ayahs);
+        }
+        return [surah, ayahs];
+    }
+
+    function checkValidAyahId(ayaId) {
+        if (ayaId < 1 || ayaId > meta.numAyas)
+            throw new RangeError("ayaid must be between 1 and " + meta.numAyas);
+        return true;
+    }
+
+    function findAyaidBySurah(surah, ayah) {
+        checkValidSurahAyah(surah, ayah);
+        var startAyahId = getSurahMeta(surah)[0];
+        return startAyahId + ayah;
+    }
+
+    var JuzList = [
+        0, 1, 149, 260, 386, 517, 641, 751, 900, 1042, 1201, 1328, 1479, 1649, 1803,
+        2030, 2215, 2484, 2674, 2876, 3215, 3386, 3564, 3733, 4090, 4265, 4511, 4706,
+        5105, 5242, 5673, 6237,
+    ];
+
+    function findJuzByAyaid(ayaId) {
+        checkValidAyahId(ayaId);
+        return JuzList.findIndex(function (x) { return x > ayaId; }) - 1;
+    }
+
+    function findJuz(surah, ayah, ayahMode) {
+        if (ayah === void 0) { ayah = 1; }
+        if (ayahMode === void 0) { ayahMode = false; }
+        var ayahId = ayahMode
+            ? ayah
+            : (checkValidSurahAyah(surah, ayah) && findAyaidBySurah(surah, ayah));
+        return findJuzByAyaid(ayahId);
+    }
+
+    function findSurahByAyaid(ayaId) {
+        checkValidAyahId(ayaId);
+        var suraNum = SuraList.findIndex(function (x) { return x[0] >= ayaId; }) - 1;
+        return [suraNum, ayaId - SuraList[suraNum][0]];
+    }
+
+    function findJuzAndShift(surah, ayah, ayahMode) {
+        if (ayahMode === void 0) { ayahMode = false; }
+        var ayahId = ayahMode
+            ? (checkValidAyahId(ayah) && ayah)
+            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+        var juz = findJuzByAyaid(ayahId);
+        var leftAyahId = JuzList[juz];
+        if (ayahMode)
+            surah = findSurahByAyaid(ayahId)[0];
+        var surahStartAyahId = SuraList[surah][0];
+        return {
+            juz: juz,
+            ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId + 1,
+            leftAyahId: leftAyahId
+        };
+    }
+
     var HizbQuarterList = [
         0, 1, 33, 51, 67, 82, 99, 113, 131, 149, 165, 184, 196, 210, 226, 240, 250,
         260, 270, 279, 290, 308, 326, 345, 368, 386, 406, 426, 446, 464, 479, 494,
@@ -419,50 +553,37 @@
         5552, 5610, 5673, 5759, 5830, 5885, 5949, 6024, 6091, 6155, 6237,
     ];
 
-    var RukuList = [
-        0, 1, 8, 15, 28, 37, 47, 54, 67, 69, 79, 90, 94, 104, 111, 120, 129, 137, 149,
-        155, 160, 171, 175, 184, 190, 196, 204, 218, 224, 229, 236, 239, 243, 250,
-        256, 261, 265, 268, 274, 281, 289, 291, 294, 303, 314, 324, 335, 348, 357,
-        365, 374, 385, 395, 403, 414, 423, 437, 442, 449, 465, 474, 483, 494, 504,
-        508, 516, 519, 527, 536, 544, 553, 564, 570, 581, 585, 590, 594, 598, 606,
-        609, 620, 628, 635, 646, 656, 665, 670, 675, 681, 689, 696, 704, 713, 720,
-        726, 736, 747, 756, 763, 770, 778, 785, 790, 800, 810, 820, 831, 840, 845,
-        850, 860, 872, 880, 884, 890, 900, 911, 919, 930, 934, 940, 944, 955, 965,
-        980, 986, 994, 1002, 1008, 1013, 1019, 1027, 1039, 1048, 1054, 1063, 1081,
-        1084, 1096, 1102, 1106, 1112, 1117, 1126, 1136, 1143, 1161, 1171, 1180, 1189,
-        1198, 1205, 1209, 1219, 1225, 1230, 1236, 1242, 1252, 1260, 1265, 1273, 1278,
-        1295, 1302, 1308, 1316, 1325, 1335, 1346, 1354, 1358, 1365, 1375, 1385, 1395,
-        1405, 1418, 1425, 1435, 1447, 1457, 1468, 1474, 1482, 1498, 1509, 1523, 1534,
-        1542, 1557, 1569, 1583, 1597, 1603, 1617, 1626, 1632, 1639, 1646, 1654, 1665,
-        1676, 1690, 1701, 1708, 1715, 1726, 1734, 1739, 1745, 1751, 1757, 1763, 1772,
-        1778, 1785, 1792, 1803, 1818, 1828, 1847, 1863, 1882, 1902, 1911, 1923, 1927,
-        1936, 1942, 1952, 1962, 1967, 1972, 1978, 1985, 1991, 2002, 2012, 2021, 2030,
-        2040, 2052, 2060, 2070, 2082, 2090, 2100, 2107, 2114, 2123, 2130, 2141, 2153,
-        2158, 2163, 2172, 2185, 2190, 2194, 2200, 2211, 2223, 2242, 2251, 2266, 2291,
-        2301, 2316, 2333, 2349, 2373, 2403, 2425, 2438, 2453, 2464, 2477, 2484, 2494,
-        2513, 2525, 2534, 2559, 2577, 2596, 2606, 2618, 2621, 2629, 2634, 2644, 2653,
-        2660, 2668, 2674, 2696, 2706, 2724, 2751, 2766, 2792, 2802, 2812, 2818, 2826,
-        2832, 2842, 2849, 2853, 2856, 2865, 2876, 2890, 2900, 2916, 2933, 2942, 2966,
-        2985, 3002, 3037, 3055, 3073, 3092, 3108, 3124, 3160, 3174, 3191, 3204, 3218,
-        3226, 3242, 3253, 3266, 3274, 3281, 3295, 3303, 3313, 3328, 3341, 3354, 3363,
-        3371, 3385, 3392, 3404, 3410, 3420, 3429, 3437, 3450, 3463, 3470, 3481, 3489,
-        3504, 3515, 3526, 3534, 3542, 3554, 3561, 3568, 3574, 3586, 3592, 3602, 3607,
-        3616, 3628, 3637, 3643, 3652, 3661, 3668, 3675, 3687, 3698, 3706, 3718, 3738,
-        3756, 3773, 3789, 3810, 3863, 3902, 3927, 3971, 3985, 3997, 4011, 4035, 4059,
-        4068, 4080, 4090, 4100, 4111, 4122, 4129, 4134, 4143, 4154, 4161, 4171, 4184,
-        4194, 4202, 4212, 4219, 4227, 4237, 4244, 4251, 4263, 4273, 4282, 4292, 4302,
-        4316, 4326, 4341, 4351, 4361, 4371, 4382, 4393, 4415, 4444, 4457, 4474, 4485,
-        4495, 4500, 4511, 4521, 4531, 4537, 4546, 4557, 4565, 4574, 4584, 4594, 4601,
-        4610, 4613, 4623, 4631, 4646, 4660, 4676, 4699, 4722, 4736, 4764, 4785, 4810,
-        4817, 4847, 4869, 4887, 4902, 4927, 4947, 4980, 5018, 5054, 5076, 5086, 5095,
-        5101, 5105, 5111, 5118, 5127, 5137, 5144, 5151, 5157, 5164, 5173, 5178, 5186,
-        5189, 5197, 5200, 5210, 5218, 5225, 5230, 5237, 5242, 5256, 5272, 5305, 5324,
-        5361, 5376, 5411, 5420, 5440, 5448, 5467, 5476, 5495, 5496, 5527, 5552, 5582,
-        5592, 5614, 5623, 5663, 5673, 5703, 5713, 5739, 5759, 5801, 5830, 5849, 5885,
-        5910, 5932, 5949, 5968, 5994, 6024, 6044, 6059, 6080, 6091, 6099, 6107, 6126,
-        6131, 6139, 6147, 6158, 6169, 6177, 6180, 6189, 6194, 6198, 6205, 6208, 6214,
-        6217, 6222, 6226, 6231, 6237,
-    ];
+    function findJuzHizbByAyaid(ayaId) {
+        checkValidAyahId(ayaId);
+        var juz = findJuzByAyaid(ayaId);
+        var id = HizbQuarterList.findIndex(function (x) { return x > ayaId; }) - 1;
+        return { juz: juz, hizb: id % 8 || 8, id: id };
+    }
+
+    function findJuzHizb(surah, ayah, ayahMode) {
+        if (ayah === void 0) { ayah = 1; }
+        if (ayahMode === void 0) { ayahMode = false; }
+        var ayahId = ayahMode
+            ? ayah
+            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+        return findJuzHizbByAyaid(ayahId);
+    }
+
+    function findJuzMetaBySurah(surah, ayah) {
+        if (ayah === void 0) { ayah = 1; }
+        var _a = findJuzAndShift(surah, ayah), leftjuz = _a.juz, ayahsBetweenJuzSurah = _a.ayahsBetweenJuzSurah, leftAyahId = _a.leftAyahId;
+        var rightJuz = leftjuz;
+        while (rightJuz < meta.numJuzs &&
+            findSurahByAyaid(JuzList[rightJuz + 1])[0] == surah)
+            rightJuz++;
+        return {
+            leftjuz: leftjuz,
+            ayahsBetweenJuzSurah: ayahsBetweenJuzSurah,
+            rightJuz: rightJuz,
+            leftAyahId: leftAyahId,
+            rightAyahId: JuzList[rightJuz + 1],
+        };
+    }
 
     var PageList = [
         0, 1, 8, 13, 24, 32, 37, 45, 56, 65, 69, 77, 84, 91, 96, 101, 109, 113, 120,
@@ -512,42 +633,44 @@
         6073, 6099, 6126, 6138, 6156, 6177, 6194, 6208, 6222, 6237,
     ];
 
-    function ayaStringSplitter(str) {
-        var _a = str.trim().split(":"), surah = _a[0], ayahs = _a[1];
-        if (!ayahs) {
-            throw "Error in data " + str;
-        }
-        return [
-            +surah,
-            ayahs.includes("-")
-                ? ayahs.split("-").map(Number)
-                : +ayahs,
-        ];
+    function findPage(surah, ayah, ayahMode) {
+        if (ayahMode === void 0) { ayahMode = false; }
+        var ayahId = ayahMode
+            ? (checkValidAyahId(ayah) && ayah)
+            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+        return PageList.findIndex(function (x) { return x > ayahId; }) - 1;
     }
 
-    var JuzList = [
-        0, 1, 149, 260, 386, 517, 641, 751, 900, 1042, 1201, 1328, 1479, 1649, 1803,
-        2030, 2215, 2484, 2674, 2876, 3215, 3386, 3564, 3733, 4090, 4265, 4511, 4706,
-        5105, 5242, 5673, 6237,
-    ];
-    var ManzilList = [0, 1, 670, 1365, 2030, 2933, 3789, 4631, 6237];
-    var SajdaList = [
-        [1160, "recommended"],
-        [1722, "recommended"],
-        [1951, "recommended"],
-        [2138, "recommended"],
-        [2308, "recommended"],
-        [2613, "recommended"],
-        [2672, "recommended"],
-        [2915, "recommended"],
-        [3185, "recommended"],
-        [3518, "obligatory"],
-        [3994, "recommended"],
-        [4256, "obligatory"],
-        [4846, "obligatory"],
-        [5905, "recommended"],
-        [6125, "obligatory"],
-    ];
+    function findRangeAroundAyah(surah, ayah, mode, ayahMode) {
+        if (ayahMode === void 0) { ayahMode = false; }
+        var ayahId = ayahMode
+            ? ayah
+            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
+        switch (mode) {
+            case "juz": {
+                var juz = findJuzByAyaid(ayahId);
+                return [JuzList[juz], JuzList[juz + 1] - 1];
+            }
+            case "surah": {
+                return [SuraList[surah][0] + 1, SuraList[surah + 1][0]];
+            }
+            case "ayah": {
+                return [ayahId, ayahId];
+            }
+            case "page": {
+                var page = findPage(-1, ayahId, true);
+                return [PageList[page], PageList[page + 1] - 1];
+            }
+            case "all":
+            default:
+                return [1, meta.numAyas];
+        }
+    }
+
+    function getAyaCountinSura(surah) {
+        return getSurahMeta(surah)[1];
+    }
+
     function binarySearch(ar, el, compare_fn) {
         if (compare_fn === void 0) { compare_fn = function (a, b) { return a - b; }; }
         var m = 0;
@@ -567,53 +690,7 @@
         }
         return -m - 1;
     }
-    function checkValidAyahId(ayaId) {
-        if (ayaId < 1 || ayaId > meta.numAyas)
-            throw new RangeError("ayaid must be between 1 and " + meta.numAyas);
-        return true;
-    }
-    function checkValidSurah(surah, checkOnly) {
-        if (checkOnly === void 0) { checkOnly = false; }
-        if (surah < 1 || surah > meta.numSuras) {
-            if (checkOnly)
-                return false;
-            throw new RangeError("Surah must be between 1 and " + meta.numSuras);
-        }
-        return true;
-    }
-    function findSurahByAyaid(ayaId) {
-        checkValidAyahId(ayaId);
-        var suraNum = SuraList.findIndex(function (x) { return x[0] >= ayaId; }) - 1;
-        return suraNum < 0
-            ? [114, ayaId - SuraList[114][0]]
-            : [suraNum, ayaId - SuraList[suraNum][0]];
-    }
-    function findJuzByAyaid(ayaId) {
-        checkValidAyahId(ayaId);
-        return JuzList.findIndex(function (x) { return x > ayaId; }) - 1;
-    }
-    function findJuzHizbByAyaid(ayaId) {
-        checkValidAyahId(ayaId);
-        var juz = findJuzByAyaid(ayaId);
-        var id = HizbQuarterList.findIndex(function (x) { return x > ayaId; }) - 1;
-        return { juz: juz, hizb: id % 8 || 8, id: id };
-    }
-    function findJuz(surah, ayah, ayahMode) {
-        if (ayah === void 0) { ayah = 1; }
-        if (ayahMode === void 0) { ayahMode = false; }
-        var ayahId = ayahMode
-            ? ayah
-            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
-        return findJuzByAyaid(ayahId);
-    }
-    function findJuzHizb(surah, ayah, ayahMode) {
-        if (ayah === void 0) { ayah = 1; }
-        if (ayahMode === void 0) { ayahMode = false; }
-        var ayahId = ayahMode
-            ? ayah
-            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
-        return findJuzHizbByAyaid(ayahId);
-    }
+
     function isAyahJuzFirst(surah, ayah, ayahMode) {
         if (ayahMode === void 0) { ayahMode = false; }
         var ayahId = ayahMode
@@ -621,6 +698,7 @@
             : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
         return binarySearch(JuzList, ayahId);
     }
+
     function isAyahPageFirst(surah, ayah, ayahMode) {
         if (ayahMode === void 0) { ayahMode = false; }
         var ayahId = ayahMode
@@ -628,66 +706,66 @@
             : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
         return binarySearch(PageList, ayahId);
     }
-    function findJuzAndShift(surah, ayah, ayahMode) {
-        if (ayahMode === void 0) { ayahMode = false; }
-        var ayahId = ayahMode
-            ? (checkValidAyahId(ayah) && ayah)
-            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
-        var juz = findJuzByAyaid(ayahId);
-        var leftAyahId = JuzList[juz];
-        if (surah < 0)
-            surah = findSurahByAyaid(leftAyahId)[0];
-        var surahStartAyahId = SuraList[surah][0];
-        return {
-            juz: juz,
-            ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId + 1,
-            leftAyahId: leftAyahId,
-        };
-    }
-    function findJuzMetaBySurah(surah, ayah) {
-        if (ayah === void 0) { ayah = 1; }
-        var _a = findJuzAndShift(surah, ayah), leftjuz = _a.juz, ayahsBetweenJuzSurah = _a.ayahsBetweenJuzSurah, leftAyahId = _a.leftAyahId;
-        var rightJuz = leftjuz;
-        while (rightJuz < meta.numJuzs &&
-            findSurahByAyaid(JuzList[rightJuz + 1])[0] == surah)
-            rightJuz++;
-        return {
-            leftjuz: leftjuz,
-            ayahsBetweenJuzSurah: ayahsBetweenJuzSurah,
-            rightJuz: rightJuz,
-            leftAyahId: leftAyahId,
-            rightAyahId: JuzList[rightJuz + 1],
-        };
-    }
-    function getSurahMeta(surah) {
-        checkValidSurah(surah);
-        return SuraList[surah];
-    }
-    function findPage(surah, ayah, ayahMode) {
-        if (ayahMode === void 0) { ayahMode = false; }
-        var ayahId = ayahMode
-            ? (checkValidAyahId(ayah) && ayah)
-            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
-        return PageList.findIndex(function (x) { return x > ayahId; }) - 1;
-    }
-    function findAyaidBySurah(surah, ayah) {
-        var startAyahId = getSurahMeta(surah)[0];
-        return startAyahId + ayah;
-    }
-    function getAyaCountinSura(surah) {
-        return getSurahMeta(surah)[1];
-    }
+
+    var ManzilList = [0, 1, 670, 1365, 2030, 2933, 3789, 4631, 6237];
+
+    var SajdaList = [
+        [1160, "recommended"],
+        [1722, "recommended"],
+        [1951, "recommended"],
+        [2138, "recommended"],
+        [2308, "recommended"],
+        [2613, "recommended"],
+        [2672, "recommended"],
+        [2915, "recommended"],
+        [3185, "recommended"],
+        [3518, "obligatory"],
+        [3994, "recommended"],
+        [4256, "obligatory"],
+        [4846, "obligatory"],
+        [5905, "recommended"],
+        [6125, "obligatory"],
+    ];
+
     function nextAyah(surah, ayah) {
         if (surah < 1 || surah > meta.numSuras)
             throw new RangeError("Surah must be between 1 and " + meta.numSuras);
         var ayaid = findAyaidBySurah(surah, ayah);
         return findSurahByAyaid(ayaid == meta.numAyas ? 1 : ayaid + 1);
     }
-    function prevAyah(surah, ayah) {
-        checkValidSurah(surah);
-        var ayaid = findAyaidBySurah(surah, ayah);
-        return findSurahByAyaid(ayaid == 1 ? meta.numAyas : ayaid - 1);
+
+    /******************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise, SuppressedError, Symbol, Iterator */
+
+
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
+        }
+        return to.concat(ar || Array.prototype.slice.call(from));
     }
+
+    typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+        var e = new Error(message);
+        return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+    };
+
     function pageMeta(pageNum) {
         if (pageNum < 1 || pageNum > meta.numPages)
             throw new RangeError("pagenum must be between 1 and " + meta.numPages);
@@ -701,30 +779,11 @@
             last: __spreadArray([], findSurahByAyaid(nextPage - 1), true),
         };
     }
-    function findRangeAroundAyah(surah, ayah, mode, ayahMode) {
-        if (ayahMode === void 0) { ayahMode = false; }
-        var ayahId = ayahMode
-            ? ayah
-            : (checkValidSurah(surah) && findAyaidBySurah(surah, ayah));
-        switch (mode) {
-            case "juz": {
-                var juz = findJuzByAyaid(ayahId);
-                return [JuzList[juz], JuzList[juz + 1] - 1];
-            }
-            case "surah": {
-                return [findAyaidBySurah(surah, 1), findAyaidBySurah(surah + 1, 1) - 1];
-            }
-            case "ayah": {
-                return [ayahId, ayahId];
-            }
-            case "page": {
-                var page = findPage(-1, ayahId, true);
-                return [PageList[page], PageList[page + 1] - 1];
-            }
-            case "all":
-            default:
-                return [1, meta.numAyas];
-        }
+
+    function prevAyah(surah, ayah) {
+        checkValidSurah(surah);
+        var ayaid = findAyaidBySurah(surah, ayah);
+        return findSurahByAyaid(ayaid == 1 ? meta.numAyas : ayaid - 1);
     }
 
     exports.HizbQuarterList = HizbQuarterList;
@@ -735,6 +794,9 @@
     exports.SajdaList = SajdaList;
     exports.SuraList = SuraList;
     exports.ayaStringSplitter = ayaStringSplitter;
+    exports.checkValidAyahId = checkValidAyahId;
+    exports.checkValidSurah = checkValidSurah;
+    exports.checkValidSurahAyah = checkValidSurahAyah;
     exports.findAyaidBySurah = findAyaidBySurah;
     exports.findJuz = findJuz;
     exports.findJuzAndShift = findJuzAndShift;

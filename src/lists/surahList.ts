@@ -1,4 +1,4 @@
-import { SurahMeta } from "./types"
+import { SurahMeta } from "../types"
 
 export const SuraList: SurahMeta[] = [
   [-1, -1, -1, -1, "", false, -1],

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://github.com/quran-center/quran-meta/compare/v2.4.13...v2.4.15) (2022-11-13)
+update dependencies 
+switch from jest to vitest
+
 ### [2.4.15](https://github.com/quran-center/quran-meta/compare/v2.4.13...v2.4.15) (2022-11-13)
 
 ### [2.4.13](https://github.com/quran-center/quran-meta/compare/v2.4.12...v2.4.13) (2022-11-13)

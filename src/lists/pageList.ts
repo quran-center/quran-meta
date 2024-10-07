@@ -1,4 +1,4 @@
-import { AyahId } from "./types"
+import { AyahId } from "../types"
 
 export const PageList: AyahId[] = [
   0, 1, 8, 13, 24, 32, 37, 45, 56, 65, 69, 77, 84, 91, 96, 101, 109, 113, 120,

@@ -1,4 +1,4 @@
-import { AyahId } from "./types"
+import { AyahId } from "../types"
 
 export const RukuList: AyahId[] = [
   0, 1, 8, 15, 28, 37, 47, 54, 67, 69, 79, 90, 94, 104, 111, 120, 129, 137, 149,
