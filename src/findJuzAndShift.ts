@@ -1,12 +1,10 @@
-import { checkValidAyahId } from "./checkValidAyahId";
-import { checkValidSurah } from "./checkValidSurah";
-import { findAyaidBySurah } from "./findAyaidBySurah";
-import { findJuzByAyaid } from "./findJuzByAyaid";
-import { findSurahByAyaid } from "./findSurahByAyaid";
-import { JuzList } from "./lists/juzList";
-import { SuraList } from "./lists/surahList";
-import { AyahId, AyahNo, Juz, Surah } from "./types";
-
+import { findAyaidBySurah } from "./findAyaidBySurah"
+import { findJuzByAyaid } from "./findJuzByAyaid"
+import { findSurahByAyaid } from "./findSurahByAyaid"
+import { JuzList } from "./lists/juzList"
+import { SuraList } from "./lists/surahList"
+import { AyahId, AyahNo, Juz, Surah } from "./types"
+import { checkValidAyahId, checkValidSurah } from "./validation"
 
 /**
  * Finds the juz (section) that contains the specified ayah (verse) and calculates the number of ayahs between the start of the juz and the start of the surah (chapter) that contains the ayah.
@@ -24,21 +22,21 @@ export function findJuzAndShift(
   ayah: AyahNo,
   ayahMode = false
 ): {
-  juz: Juz;
-  leftAyahId: AyahId;
-  ayahsBetweenJuzSurah: number;
-} {
+    juz: Juz
+    leftAyahId: AyahId
+    ayahsBetweenJuzSurah: number
+  } {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId);
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  const juz = findJuzByAyaid(ayahId);
-  const leftAyahId = JuzList[juz];
-  if (ayahMode) [surah] = findSurahByAyaid(ayahId);
-  const [surahStartAyahId] = SuraList[surah];
+  const juz = findJuzByAyaid(ayahId)
+  const leftAyahId = JuzList[juz]
+  if (ayahMode) [surah] = findSurahByAyaid(ayahId)
+  const [surahStartAyahId] = SuraList[surah]
   return {
     juz,
     ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId + 1,
     leftAyahId
-  };
+  }
 }

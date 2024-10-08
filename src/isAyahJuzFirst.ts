@@ -1,9 +1,8 @@
-import { checkValidAyahId } from "./checkValidAyahId";
-import { checkValidSurah } from "./checkValidSurah";
-import { findAyaidBySurah } from "./findAyaidBySurah";
-import { JuzList } from "./lists/juzList";
-import { AyahId, AyahNo, Juz, Surah } from "./types";
-import { binarySearch } from "./utils";
+import { findAyaidBySurah } from "./findAyaidBySurah"
+import { JuzList } from "./lists/juzList"
+import { AyahId, AyahNo, Juz, Surah } from "./types"
+import { binarySearch } from "./utils"
+import { checkValidAyahId, checkValidSurah } from "./validation"
 
 /**
  * Returns the Juz (part) number that the given Ayah (verse) belongs to.
@@ -21,8 +20,8 @@ export function isAyahJuzFirst(
 ): Juz {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId);
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  return binarySearch(JuzList, ayahId);
+  return binarySearch(JuzList, ayahId)
   // return JuzList.findIndex((x: AyahId) => x == ayahId)
 }

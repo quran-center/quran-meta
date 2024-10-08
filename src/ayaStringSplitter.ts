@@ -1,5 +1,5 @@
-import { checkValidSurahAyah } from "./checkValidSurahAyah"
 import { AyahNo, SurahAyahSegment } from "./types"
+import { checkValidSurahAyah } from "./validation"
 
 /**
  *  Turns String of type "x:y" or "x:y1-y2" to array [x,y] or [x,[y1,y2]] respectively
@@ -20,7 +20,7 @@ export function ayaStringSplitter(str: string): SurahAyahSegment {
 
   let ayahs: AyahNo | [AyahNo, AyahNo]
   if (ayahsStr.includes("-")) {
-    ayahs = ayahsStr.split("-").map(a => {
+    ayahs = ayahsStr.split("-").map((a) => {
       const ayah = parseInt(a, 10)
       if (isNaN(ayah) || ayah === 0) {
         throw "Error in ayah " + a
@@ -28,14 +28,14 @@ export function ayaStringSplitter(str: string): SurahAyahSegment {
       return ayah
     }) as [AyahNo, AyahNo]
     if (ayahs[0] > ayahs[1]) throw "Error in ayah range " + str
-  } else {
+  }
+  else {
     ayahs = parseInt(ayahsStr, 10)
-    if (isNaN(ayahs)|| ayahs === 0) {
+    if (isNaN(ayahs) || ayahs === 0) {
       throw "Error in data " + str
     }
     checkValidSurahAyah(surah, ayahs)
   }
-
 
   return [surah, ayahs]
 }

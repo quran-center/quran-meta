@@ -1,12 +1,12 @@
-import { checkValidSurah } from "./checkValidSurah";
-import { meta } from "./const";
-import { findAyaidBySurah } from "./findAyaidBySurah";
-import { findJuzByAyaid } from "./findJuzByAyaid";
-import { findPage } from "./findPage";
-import { JuzList } from "./lists/juzList";
-import { PageList } from "./lists/pageList";
-import { SuraList } from "./lists/surahList";
-import { AyahId, AyahNo, Juz, Page, Surah, SurahAyah } from "./types";
+import { meta } from "./const"
+import { findAyaidBySurah } from "./findAyaidBySurah"
+import { findJuzByAyaid } from "./findJuzByAyaid"
+import { findPage } from "./findPage"
+import { JuzList } from "./lists/juzList"
+import { PageList } from "./lists/pageList"
+import { SuraList } from "./lists/surahList"
+import { AyahId, AyahNo, Juz, Page, Surah, SurahAyah } from "./types"
+import { checkValidSurah } from "./validation"
 
 /**
  * ALternative deprecated method
@@ -32,7 +32,6 @@ import { AyahId, AyahNo, Juz, Page, Surah, SurahAyah } from "./types";
 //   }
 // }
 
-
 /**
  * Find range containing ayah according to the mode
  * @param surah
@@ -48,28 +47,28 @@ export function findRangeAroundAyah(
 ): SurahAyah {
   const ayahId: AyahId = ayahMode
     ? ayah
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId);
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
   switch (mode) {
     case "juz": {
-      const juz: Juz = findJuzByAyaid(ayahId);
-      return [JuzList[juz], JuzList[juz + 1] - 1];
+      const juz: Juz = findJuzByAyaid(ayahId)
+      return [JuzList[juz], JuzList[juz + 1] - 1]
     }
 
     case "surah": {
-      return [SuraList[surah][0]+1, SuraList[surah+1][0]];
+      return [SuraList[surah][0] + 1, SuraList[surah + 1][0]]
     }
 
     case "ayah": {
-      return [ayahId, ayahId];
+      return [ayahId, ayahId]
     }
     case "page": {
-      const page: Page = findPage(-1, ayahId, true);
-      return [PageList[page], PageList[page + 1] - 1];
+      const page: Page = findPage(-1, ayahId, true)
+      return [PageList[page], PageList[page + 1] - 1]
     }
 
     case "all":
     default:
-      return [1, meta.numAyas];
+      return [1, meta.numAyas]
   }
 }

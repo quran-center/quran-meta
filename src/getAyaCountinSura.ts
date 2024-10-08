@@ -1,5 +1,5 @@
-import { getSurahMeta } from "./getSurahMeta";
-import { Surah } from "./types";
+import { getSurahMeta } from "./getSurahMeta"
+import { Surah } from "./types"
 
 /**
  * Get the number of ayahs (verses) in the specified surah.
@@ -7,5 +7,5 @@ import { Surah } from "./types";
  * @returns The number of ayahs in the specified surah.
  */
 export function getAyaCountinSura(surah: Surah): number {
-  return getSurahMeta(surah)[1];
+  return getSurahMeta(surah)[1]
 }

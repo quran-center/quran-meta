@@ -1,7 +1,6 @@
-import { checkValidAyahId } from "./checkValidAyahId";
-import { JuzList } from "./lists/juzList";
-import { AyahId, Juz } from "./types";
-
+import { JuzList } from "./lists/juzList"
+import { AyahId, Juz } from "./types"
+import { checkValidAyahId } from "./validation"
 
 /**
  * Finds the Juz (part) of the Quran that contains the given Ayah (verse) ID.
@@ -10,7 +9,7 @@ import { AyahId, Juz } from "./types";
  * @returns The Juz (part) of the Quran that contains the given Ayah ID.
  */
 export function findJuzByAyaid(ayaId: AyahId): Juz {
-  checkValidAyahId(ayaId);
+  checkValidAyahId(ayaId)
 
-  return JuzList.findIndex(x => x > ayaId) - 1;
+  return JuzList.findIndex(x => x > ayaId) - 1
 }

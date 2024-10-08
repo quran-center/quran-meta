@@ -1,7 +1,7 @@
-import { checkValidSurah } from "./checkValidSurah";
-import { findAyaidBySurah } from "./findAyaidBySurah";
-import { findJuzHizbByAyaid } from "./findJuzHizbByAyaid";
-import { AyahId, AyahNo, JuzHizb, Surah } from "./types";
+import { findAyaidBySurah } from "./findAyaidBySurah"
+import { findJuzHizbByAyaid } from "./findJuzHizbByAyaid"
+import { AyahId, AyahNo, JuzHizb, Surah } from "./types"
+import { checkValidSurah } from "./validation"
 
 /**
  * Finds the Juz (part) and Hizb (section) of the Quran that the given Ayah (verse) belongs to.
@@ -18,7 +18,7 @@ export function findJuzHizb(
 ): JuzHizb {
   const ayahId: AyahId = ayahMode
     ? ayah
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId);
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  return findJuzHizbByAyaid(ayahId);
+  return findJuzHizbByAyaid(ayahId)
 }

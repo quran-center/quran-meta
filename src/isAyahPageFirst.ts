@@ -1,10 +1,8 @@
-import { checkValidAyahId } from "./checkValidAyahId";
-import { checkValidSurah } from "./checkValidSurah";
-import { findAyaidBySurah } from "./findAyaidBySurah";
-import { PageList } from "./lists/pageList";
-import { AyahId, AyahNo, Juz, Surah } from "./types";
-import { binarySearch } from "./utils";
-
+import { findAyaidBySurah } from "./findAyaidBySurah"
+import { PageList } from "./lists/pageList"
+import { AyahId, AyahNo, Juz, Surah } from "./types"
+import { binarySearch } from "./utils"
+import { checkValidAyahId, checkValidSurah } from "./validation"
 
 /**
  * Determines if the given ayah is the first ayah of a juz.
@@ -21,8 +19,8 @@ export function isAyahPageFirst(
 ): Juz {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId);
+    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  return binarySearch(PageList, ayahId);
+  return binarySearch(PageList, ayahId)
   // return PageList.findIndex((x: AyahId) => x == ayahId)
 }

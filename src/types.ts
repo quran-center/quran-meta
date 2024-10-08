@@ -16,7 +16,7 @@ export type PageMeta = {
   first: SurahAyah
   last: SurahAyah
 }
-//[leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
+// [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
 export type JuzMeta = {
   leftjuz: Juz
   ayahsBetweenJuzSurah: number

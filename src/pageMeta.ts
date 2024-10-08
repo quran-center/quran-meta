@@ -1,8 +1,7 @@
-import { meta } from "./const";
-import { findSurahByAyaid } from "./findSurahByAyaid";
-import { PageList } from "./lists/pageList";
-import { AyahId, Page, PageMeta } from "./types";
-
+import { meta } from "./const"
+import { findSurahByAyaid } from "./findSurahByAyaid"
+import { PageList } from "./lists/pageList"
+import { AyahId, Page, PageMeta } from "./types"
 
 /**
  * Retrieves the page metadata for the specified page number.
@@ -14,16 +13,16 @@ import { AyahId, Page, PageMeta } from "./types";
 export function pageMeta(pageNum: Page): PageMeta {
   // todo rename to getPageMeta in next major version
   if (pageNum < 1 || pageNum > meta.numPages)
-    throw new RangeError("pagenum must be between 1 and " + meta.numPages);
+    throw new RangeError("pagenum must be between 1 and " + meta.numPages)
 
   const [curPage, nextPage]: [AyahId, AyahId] = [
     PageList[pageNum],
-    PageList[pageNum + 1],
-  ];
+    PageList[pageNum + 1]
+  ]
 
   return {
     pageNum,
     first: findSurahByAyaid(curPage),
-    last: [...findSurahByAyaid(nextPage - 1)],
-  };
+    last: [...findSurahByAyaid(nextPage - 1)]
+  }
 }

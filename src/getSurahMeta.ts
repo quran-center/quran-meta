@@ -1,7 +1,6 @@
-import { checkValidSurah } from "./checkValidSurah";
-import { SuraList } from "./lists/surahList";
-import { Surah, SurahMeta } from "./types";
-
+import { SuraList } from "./lists/surahList"
+import { Surah, SurahMeta } from "./types"
+import { checkValidSurah } from "./validation"
 
 /**
  * Gets the metadata for the specified Surah.
@@ -10,6 +9,6 @@ import { Surah, SurahMeta } from "./types";
  * @returns The metadata for the specified Surah.
  */
 export function getSurahMeta(surah: Surah): SurahMeta {
-  checkValidSurah(surah);
-  return SuraList[surah];
+  checkValidSurah(surah)
+  return SuraList[surah]
 }

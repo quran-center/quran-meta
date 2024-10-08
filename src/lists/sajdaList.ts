@@ -1,15 +1,15 @@
-import { Sajda } from "../types";
+import { Sajda } from "../types"
 
-//------------------ Page Data ---------------------
+// ------------------ Page Data ---------------------
 // code to get starting pages for surahs
 // let res=[];
 // Page.reduce((s,c,p)=>{
-// 	while (c[0]>=s)
-// 		{res.push([s,c[0],s==c[0]?p:p-1]);s+=1;}
-// 	return s
+// while (c[0]>=s)
+// {res.push([s,c[0],s==c[0]?p:p-1]);s+=1;}
+// return s
 // },0)
 // export Page from "~/js/qdata-page.json"
-//------------------ Sajda Data ---------------------
+// ------------------ Sajda Data ---------------------
 export const SajdaList: Sajda[] = [
   // [ayaId, type]
   [1160, "recommended"],
@@ -26,5 +26,5 @@ export const SajdaList: Sajda[] = [
   [4256, "obligatory"],
   [4846, "obligatory"],
   [5905, "recommended"],
-  [6125, "obligatory"],
-];
+  [6125, "obligatory"]
+]

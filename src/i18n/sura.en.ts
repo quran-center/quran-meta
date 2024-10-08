@@ -114,5 +114,5 @@ export const suraNames: (SuraName | [])[] = [
   ["Al-Masad", "The Palm Fibre"],
   ["Al-Ikhlaas", "Sincerity"],
   ["Al-Falaq", "The Dawn"],
-  ["An-Naas", "Mankind"],
+  ["An-Naas", "Mankind"]
 ]
