@@ -1,9 +1,9 @@
 import { Page, PageMeta } from "./types";
 /**
- * Retrieves the page metadata for the specified page number.
+ * Retrieves metadata for a specific page of the Quran.
  *
- * @param pageNum - The page number to retrieve metadata for.
- * @returns The page metadata, including the first and last ayah IDs on the page.
- * @throws {RangeError} If the page number is out of the valid range (1 to `meta.numPages`).
+ * @param pageNum - The page number to retrieve metadata for (1-604)
+ * @returns An object containing the page number, first ayah, and last ayah on the page
+ * @throws RangeError If the page number is not between 1 and 604
  */
 export declare function pageMeta(pageNum: Page): PageMeta;
