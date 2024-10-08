@@ -42,9 +42,9 @@ console.log("pageMeta 604", pageMeta(604))
 console.log("pmeta", pageMeta(1))
 // console.log("pmeta", pageMetaOld(1))
 
-let f = (i: AyahId) =>
+const f = (i: AyahId) =>
   expect(findAyaidBySurah(...findSurahByAyaid(i))).toEqual(i)
-let xf = (i: Surah, j: AyahNo) =>
+const xf = (i: Surah, j: AyahNo) =>
   expect(findSurahByAyaid(findAyaidBySurah(i, j))).toEqual([i, j])
 
 describe("crossTest", () => {
