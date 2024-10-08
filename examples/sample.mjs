@@ -1,9 +1,9 @@
 /**
  * This example creates  list of [surah,ayah] number pairs in Holy Quran
  */
-// node sample-es.mjs
+// node sample.mjs
 
-import { meta, SuraList } from "../dist/quran-meta.js"
+import { meta, SuraList } from "../dist/index.mjs"
 console.log(`There are ${meta.numSuras} suras in the Holy Quran`)
 const res = []
 for (let surah = 1; surah <= meta.numSuras; surah++) {
