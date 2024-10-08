@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v2.5.4-0
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.3...v2.5.4-0)
+
+### 🏡 Chore
+
+- Various fixes (63e51ef)
+
+### ❤️ Contributors
+
+- HG ([@husayt](http://github.com/husayt))
+
 ## v2.5.3
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.3-0...v2.5.3)
