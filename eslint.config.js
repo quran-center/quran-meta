@@ -2,39 +2,18 @@ import jsLint from "@eslint/js"
 import stylistic from "@stylistic/eslint-plugin"
 import globals from "globals"
 import tsLint from "typescript-eslint"
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// const compat = new FlatCompat({
-//     baseDirectory: __dirname,
-//     recommendedConfig: js.configs.recommended,
-//     allConfig: js.configs.all
-// });
 
 export default [
   // config parsers
   {
-    files: ["src/*.{js,mjs,cjs,ts,mts,jsx,tsx}"]
-  },
-
-  {
-    files: ["tests/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.mocha,
-        ...globals.jest
-      }
-    }
-  },
-  // config envs
-  {
+    files: ["src/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     languageOptions: {
       globals: {
         ...globals.browser, ...globals.node
       }
     }
   },
+
   // syntax rules
   jsLint.configs.recommended,
   ...tsLint.configs.recommended,
@@ -47,32 +26,36 @@ export default [
     quotes: "double",
     semi: false,
     commaDangle: "never"
-  })
-  //     {
-  //     ignores: [
-  //         "**/node_modules/",
-  //         "**/dist/",
-  //         "**/lib_cjs/",
-  //         "**/lib_es/",
-  //         "**/exampless/",
-  //     ],
-  // },
-  // ...compat.extends(
-  //     "eslint:recommended",
-  //     "plugin:@typescript-eslint/recommended",
-  // ), {
-  //     plugins: {
-  //         "@typescript-eslint": typescriptEslint,
-  //     },
+  }),
+  {
+    ignores: [
+      "**/node_modules/",
+      "**/coverage/",
+      "**/dist/",
+      "**/docs/",
+      "**/examples/",
+      "**/lib_cjs/",
+      "**/lib_es/"
+    ]
+  },
+  {
+    rules: {
+      // "@typescript-eslint/no-explicit-any": "off"
+    }
+  },
+  {
+    files: ["tests/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.mocha,
+        ...globals.jest
+      }
+    },
 
-  // rules: {
-  //     "no-undef": "error",
-  //     "no-var": "error",
-  //     "prefer-const": "error",
-  //     "no-const-assign": "error",
-  //     "one-var": ["error", "never"],
-  //     "sort-imports": "off",
-  //     "no-control-regex": "off",
-  // },
-  // }
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  }
 ]
