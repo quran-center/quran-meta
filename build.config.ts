@@ -45,14 +45,12 @@ export default defineBuildConfig({
           sourcemap: true
         },
         {
-          // input: "./src/index.ts",
           entryFileNames: "quran-meta.min.js",
           name: "quranMeta",
           inlineDynamicImports: true,
           dir: "dist",
           format: "umd",
           banner: banner,
-          minify: true,
           compact: true
         }
       )
