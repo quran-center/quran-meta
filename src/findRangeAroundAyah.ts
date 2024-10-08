@@ -9,35 +9,13 @@ import { AyahId, AyahNo, Juz, Page, Surah, SurahAyah } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**
- * ALternative deprecated method
- * @param {*} pageNum
- */
-// export function pageMetaOld(pageNum: number): any {
-//   if (pageNum < 1 || pageNum > meta.numPages)
-//   throw new RangeError("pagenum must be between 1 and " + meta.numPages)
-//   const [curPage, nextPage] = [
-//     findSurahByAyaid(PageList[pageNum]),
-//     findSurahByAyaid(PageList[pageNum + 1]),
-//   ]
-//   const [firstSurah, firstAyah, lastSurah, lastAyah] = [
-//     curPage[0],
-//     curPage[1],
-//     nextPage[1] === 1 ? nextPage[0] - 1 : nextPage[0],
-//     nextPage[1] === 1 ? SuraList[nextPage[0] - 1][1] : nextPage[1] - 1,
-//   ]
-//   return {
-//     pageNum,
-//     first: [firstSurah, firstAyah],
-//     last: [lastSurah, lastAyah],
-//   }
-// }
-
-/**
- * Find range containing ayah according to the mode
- * @param surah
- * @param ayah
- * @param {*} mode can be either 'all', 'juz', 'surah', 'ayah', 'page'
- * default is all
+ * Finds a range of ayahs around a given ayah based on the specified mode.
+ *
+ * @param surah - The surah number (1-114)
+ * @param ayah - The ayah number within the surah, or the absolute ayah ID if ayahMode is true
+ * @param mode - The range mode: "juz", "surah", "ayah", "page", or "all"
+ * @param ayahMode - If true, treats the ayah parameter as an absolute ayah ID
+ * @returns A tuple containing the start and end ayah IDs of the range
  */
 export function findRangeAroundAyah(
   surah: Surah,

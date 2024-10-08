@@ -1,5 +1,6 @@
 import jsLint from "@eslint/js"
 import stylistic from "@stylistic/eslint-plugin"
+import tsDocLint from "eslint-plugin-tsdoc"
 import globals from "globals"
 import tsLint from "typescript-eslint"
 
@@ -13,7 +14,6 @@ export default [
       }
     }
   },
-
   // syntax rules
   jsLint.configs.recommended,
   ...tsLint.configs.recommended,
@@ -56,6 +56,13 @@ export default [
 
     rules: {
       "@typescript-eslint/no-explicit-any": "off"
+    }
+  }, {
+    plugins: {
+      tsdoc: tsDocLint
+    },
+    rules: {
+      "tsdoc/syntax": "warn"
     }
   }
 ]

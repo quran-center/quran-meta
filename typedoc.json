@@ -1,5 +1,11 @@
 {
     // Comments are supported, like tsconfig.json
     "entryPoints": ["./src/index.ts"],
-    "out": "docs"
+    "out": "docs",
+    "navigationLinks": {
+        "GitHub": "https://github.com/quran-center/quran-meta"
+    },
+    "sidebarLinks": {
+        "Koran.center": "https://koran.center"
+    }
 }
