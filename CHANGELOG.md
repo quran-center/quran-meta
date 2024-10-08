@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.5.2-0
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.4.15...v2.5.2-0)
+
+### 🚀 Enhancements
+
+- Switchfrom jest to vitest (1b37cff)
+- Impove tsdoc (7ff9baa)
+- Better eslint (53fa239)
+- Standard buid process using unbuild (2ab032e)
+- Full cleanup and addition of changelogen (457e5c9)
+
+### 🩹 Fixes
+
+- Addl full unittest coverage (42d17c0)
+
+### 🏡 Chore
+
+- Update deps (fc4baee)
+
+### ❤️ Contributors
+
+- HG ([@husayt](http://github.com/husayt))
+
 ### [2.5.1](https://github.com/quran-center/quran-meta/compare/v2.4.13...v2.4.15) (2022-11-13)
 update dependencies 
 switch from jest to vitest
