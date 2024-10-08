@@ -8,7 +8,7 @@
     "surah",
     "juz"
   ],
-  "version": "2.5.2-0",
+  "version": "2.5.2-1",
   "license": "MIT",
   "jsdelivr": "dist/index.mjs",
   "unpkg": "dist/index.mjs",
@@ -61,7 +61,7 @@
     "coverage": "vitest run --coverage",
     "build": "unbuild",
     "precommit": "lint-staged && vitest --onlyChanged",
-    "prepack": "build",
+    "prepack": "pnpm build",
     "prepare-npm-package": "rimraf dist && rimraf lib_cjs && rimraf lib_es && rimraf docs && pnpm build&&pnpm tsdoc",
     "prerelease": "standard-version&&pnpm prepare-npm-package && pnpm test && pnpm tsdoc",
     "release": "changelogen --release --prerelease --publish --publishTag rc &&git push --follow-tags&&npm publish",
