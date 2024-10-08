@@ -14,9 +14,7 @@ export function findJuzHizbByAyaid(ayaId: AyahId): JuzHizb {
 
   const juz = findJuzByAyaid(ayaId)
   const quarterIndex = HizbQuarterList.findIndex(x => x > ayaId) - 1
-  if (quarterIndex < 0) {
-    throw new Error("Invalid Ayah ID: No corresponding Hizb found.")
-  }
+
   const hizb = quarterIndex % 8 || 8
   return { juz, hizb, id: quarterIndex }
 }

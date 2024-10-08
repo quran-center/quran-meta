@@ -42,6 +42,13 @@ describe("findJuzHizbByAyaid", () => {
     expect(spy).toHaveBeenCalledWith(100)
   })
 
+  describe("findJuzHizbByAyaid error handling", () => {
+    it("should throw an error for invalid Ayah ID", () => {
+      expect(() => findJuzHizbByAyaid(6237)).toThrow()
+      expect(() => findJuzHizbByAyaid(0)).toThrow()
+    })
+  })
+
   it("should handle edge case when ayaId is at hizb boundary", () => {
     const result = findJuzHizbByAyaid(148)
     expect(result).toEqual({ juz: 1, hizb: 8, id: 8 })
