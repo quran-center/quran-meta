@@ -1,4 +1,4 @@
-type QuranMeta = {
+export type QuranMeta = {
   numAyas: number
   numSuras: number
   numPages: number

@@ -42,7 +42,8 @@ export function checkValidSurahAyah(surah: number, ayah: number, checkOnly = fal
 /**
  * Checks if the given Ayah (verse) ID is valid.
  *
- * @param ayaId - The Ayah (verse) ID to check.
+ * @param ayahId - The Ayah (verse) ID to check.
+ * @param checkOnly - If true, the function will only check the validity and not throw an error.
  * @returns True if the Ayah ID is valid, otherwise throws a RangeError.
  */
 export function checkValidAyahId(ayahId: number, checkOnly = false): boolean {

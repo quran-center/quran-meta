@@ -5,10 +5,11 @@ import { JuzList } from "./lists/juzList"
 import { AyahNo, Juz, JuzMeta, Surah } from "./types"
 
 /**
- * for given ayah return [starting juz, number of ayahsFrom beginning of that juz, right juz, number of ayahs in surah
- * @param suraNumber
- * @param ayaNumber
- * @returns [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinSurah,leftAyahId,rightAyahId]
+ * Finds the JuzMeta for a given Surah and Ayah.
+ *
+ * @param surah - The Surah (chapter) number.
+ * @param ayah - The Ayah (verse) number.
+ * @returns The JuzMeta object containing the left juz, ayahs between juz and surah, right juz, left ayah ID, and right ayah ID.
  */
 export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1): JuzMeta {
   const {

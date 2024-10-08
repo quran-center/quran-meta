@@ -1,15 +1,10 @@
 // Quran Meta
 
+export type { QuranMeta } from "./const"
 export type {
   AyahId, AyahNo, Juz, JuzHizb, JuzMeta, Page, PageMeta, Sajda, SajdaType, SuraName, Surah, SurahAyah, SurahAyahSegment, SurahMeta
 } from "./types"
 
-// ------------------ Sura Data ---------------------
-
-export { suraNames as suraNamesEn } from "./i18n/sura.en"
-export { suraNames as suraNamesRu } from "./i18n/sura.ru"
-
-// export default QuranMeta;
 export { ayaStringSplitter } from "./ayaStringSplitter"
 export { meta } from "./const"
 export { findAyaidBySurah } from "./findAyaidBySurah"
@@ -37,3 +32,8 @@ export { nextAyah } from "./nextAyah"
 export { pageMeta } from "./pageMeta"
 export { prevAyah } from "./prevAyah"
 export { checkValidAyahId, checkValidSurah, checkValidSurahAyah } from "./validation"
+
+// ------------------ Sura i18 Data ---------------------
+
+export { suraNames as suraNamesEn } from "./i18n/sura.en"
+export { suraNames as suraNamesRu } from "./i18n/sura.ru"

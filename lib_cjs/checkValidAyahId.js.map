@@ -1,1 +1,0 @@
-{"version":3,"file":"checkValidAyahId.js","sourceRoot":"","sources":["../src/checkValidAyahId.ts"],"names":[],"mappings":";;AASA,4CAIC;AAbD,iCAA+B;AAG/B;;;;;GAKG;AACH,SAAgB,gBAAgB,CAAC,KAAa;IAC5C,IAAI,KAAK,GAAG,CAAC,IAAI,KAAK,GAAG,YAAI,CAAC,OAAO;QACnC,MAAM,IAAI,UAAU,CAAC,8BAA8B,GAAG,YAAI,CAAC,OAAO,CAAC,CAAC;IACtE,OAAO,IAAI,CAAC;AACd,CAAC"}
