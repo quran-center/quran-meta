@@ -37,15 +37,23 @@ export default defineBuildConfig({
     "rollup:options": (ctx, option) => {
       option.output?.push(
         {
-        //   file: "dist/index.js",
+          entryFileNames: "quran-meta.js",
           name: "quranMeta",
           dir: "dist",
           format: "umd",
-          //   format: "iife",
-          exports: "auto",
-          preferConst: true,
-          externalLiveBindings: false,
-          freeze: false
+          banner: banner,
+          sourcemap: true
+        },
+        {
+          // input: "./src/index.ts",
+          entryFileNames: "quran-meta.min.js",
+          name: "quranMeta",
+          inlineDynamicImports: true,
+          dir: "dist",
+          format: "umd",
+          banner: banner,
+          minify: true,
+          compact: true
         }
       )
     }
