@@ -2,9 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## v2.5.2-1
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.2-0...v2.5.2-1)
+## v2.5.2-2
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.2-1...v2.5.2-2)
 
 ## v2.5.2-0
 
@@ -12,7 +13,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 🚀 Enhancements
 
-- Switchfrom jest to vitest (1b37cff)
+- Switch from jest to vitest (1b37cff)
+- Full rewrite of the project with latest eslint and typescript
 - Impove tsdoc (7ff9baa)
 - Better eslint (53fa239)
 - Standard buid process using unbuild (2ab032e)
@@ -20,7 +22,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 🩹 Fixes
 
-- Addl full unittest coverage (42d17c0)
+- Add full unit test coverage (42d17c0)
 
 ### 🏡 Chore
 
@@ -30,9 +32,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 - HG ([@husayt](http://github.com/husayt))
 
-### [2.5.1](https://github.com/quran-center/quran-meta/compare/v2.4.13...v2.4.15) (2022-11-13)
-update dependencies 
-switch from jest to vitest
 
 ### [2.4.15](https://github.com/quran-center/quran-meta/compare/v2.4.13...v2.4.15) (2022-11-13)
 
