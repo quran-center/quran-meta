@@ -17,7 +17,7 @@ console.log(2, findSurahByAyaid(8))
 console.log("findSurahByAyaid 6216", findSurahByAyaid(6216))
 console.log("findSurahByAyaid 6217", findSurahByAyaid(6217))
 console.log("findSurahByAyaid 6226", findSurahByAyaid(6226))
-console.log(meta.numAyas, findSurahByAyaid(meta.numAyas))
+console.log(meta.numAyahs, findSurahByAyaid(meta.numAyahs))
 // console.log(6237, findSurahByAyaid(6237))
 console.log("findSurahByAyaid 1", findSurahByAyaid(1))
 console.log("findSurahByAyaid 147", findSurahByAyaid(149))
@@ -49,10 +49,10 @@ const xf = (i: Surah, j: AyahNo) =>
 
 describe("crossTest", () => {
   it("ayaid of surah of Ayah", () => {
-    for (let i = 1; i <= meta.numAyas; i++) {
+    for (let i = 1; i <= meta.numAyahs; i++) {
       f(i)
     }
-    f(meta.numAyas)
+    f(meta.numAyahs)
     f(6230)
     f(6226)
     xf(1, 2)

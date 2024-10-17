@@ -47,6 +47,6 @@ export function findRangeAroundAyah(
 
     case "all":
     default:
-      return [1, meta.numAyas]
+      return [1, meta.numAyahs]
   }
 }

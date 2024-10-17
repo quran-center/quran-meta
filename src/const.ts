@@ -1,5 +1,5 @@
 export type QuranMeta = {
-  numAyas: number
+  numAyahs: number
   numSuras: number
   numPages: number
   numJuzs: number
@@ -10,7 +10,7 @@ export type QuranMeta = {
 }
 
 export const meta: Readonly<QuranMeta> = Object.freeze({
-  numAyas: 6236,
+  numAyahs: 6236,
   numSuras: 114,
   numPages: 604,
   numJuzs: 30,

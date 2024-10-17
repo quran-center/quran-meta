@@ -9,7 +9,7 @@ describe("findSurahByAyaid", () => {
     expect(findSurahByAyaid(8)).toEqual(expect.arrayContaining([2, 1]))
     expect(findSurahByAyaid(6231)).toEqual(expect.arrayContaining([114, 1]))
     expect(findSurahByAyaid(6230)).toEqual(expect.arrayContaining([113, 5]))
-    expect(findSurahByAyaid(meta.numAyas)).toEqual(
+    expect(findSurahByAyaid(meta.numAyahs)).toEqual(
       expect.arrayContaining([114, 6])
     )
   })
@@ -19,11 +19,11 @@ describe("findSurahByAyaid", () => {
   })
 
   it("should return correct surah and ayah for last ayah", () => {
-    expect(findSurahByAyaid(meta.numAyas)).toEqual([114, 6])
+    expect(findSurahByAyaid(meta.numAyahs)).toEqual([114, 6])
   })
 
   it("should return correct surah and ayah for middle ayah", () => {
-    const middleAyah = Math.floor(meta.numAyas / 2)
+    const middleAyah = Math.floor(meta.numAyahs / 2)
     expect(findSurahByAyaid(middleAyah)).toEqual([26, 186])
   })
 
@@ -34,6 +34,6 @@ describe("findSurahByAyaid", () => {
 
   it("should throw RangeError for invalid ayah id", () => {
     expect(() => findSurahByAyaid(0)).toThrow(RangeError)
-    expect(() => findSurahByAyaid(meta.numAyas + 1)).toThrow(RangeError)
+    expect(() => findSurahByAyaid(meta.numAyahs + 1)).toThrow(RangeError)
   })
 })

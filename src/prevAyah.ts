@@ -14,5 +14,5 @@ export function prevAyah(surah: Surah, ayah: AyahNo): SurahAyah {
   checkValidSurah(surah)
 
   const ayaid: AyahId = findAyaidBySurah(surah, ayah)
-  return findSurahByAyaid(ayaid == 1 ? meta.numAyas : ayaid - 1)
+  return findSurahByAyaid(ayaid == 1 ? meta.numAyahs : ayaid - 1)
 }

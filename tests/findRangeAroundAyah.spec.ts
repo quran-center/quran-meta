@@ -20,9 +20,9 @@ describe("findRangeAroundAyah", () => {
   })
 
   it("should return full Quran range for all mode", () => {
-    expect(findRangeAroundAyah(1, 1, "all")).toEqual([1, meta.numAyas])
-    expect(findRangeAroundAyah(2, 21, "all")).toEqual([1, meta.numAyas])
-    expect(findRangeAroundAyah(114, 6, "all")).toEqual([1, meta.numAyas])
+    expect(findRangeAroundAyah(1, 1, "all")).toEqual([1, meta.numAyahs])
+    expect(findRangeAroundAyah(2, 21, "all")).toEqual([1, meta.numAyahs])
+    expect(findRangeAroundAyah(114, 6, "all")).toEqual([1, meta.numAyahs])
   })
 
   it("should handle ayahMode correctly", () => {

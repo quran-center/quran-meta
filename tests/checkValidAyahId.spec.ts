@@ -7,7 +7,7 @@ describe("checkValidAyahId", () => {
   })
 
   it("should throw RangeError for ayah id greater than total number of ayas", () => {
-    expect(() => checkValidAyahId(meta.numAyas + 1)).toThrow(RangeError)
+    expect(() => checkValidAyahId(meta.numAyahs + 1)).toThrow(RangeError)
     expect(() => checkValidAyahId(Number.MAX_SAFE_INTEGER)).toThrow(RangeError)
   })
 
@@ -28,10 +28,10 @@ describe("checkValidAyahId", () => {
 
   it("should handle checkOnly", () => {
     expect(checkValidAyahId(1, true)).toBe(true)
-    expect(checkValidAyahId(meta.numAyas, true)).toBe(true)
-    expect(checkValidAyahId(Math.floor(meta.numAyas / 2), true)).toBe(true)
+    expect(checkValidAyahId(meta.numAyahs, true)).toBe(true)
+    expect(checkValidAyahId(Math.floor(meta.numAyahs / 2), true)).toBe(true)
     expect(checkValidAyahId(0, true)).toBe(false)
-    expect(checkValidAyahId(meta.numAyas + 1, true)).toBe(false)
+    expect(checkValidAyahId(meta.numAyahs + 1, true)).toBe(false)
     expect(checkValidAyahId(1.5, true)).toBe(false)
     expect(checkValidAyahId(NaN, true)).toBe(false)
     expect(checkValidAyahId(Infinity, true)).toBe(false)
@@ -39,9 +39,9 @@ describe("checkValidAyahId", () => {
 
   it("should handle edge cases correctly", () => {
     expect(checkValidAyahId(1)).toBe(true)
-    expect(checkValidAyahId(meta.numAyas)).toBe(true)
-    expect(() => checkValidAyahId(meta.numAyas + 0.5)).toThrow(TypeError)
-    expect(checkValidAyahId(Math.floor(meta.numAyas / 2))).toBe(true)
+    expect(checkValidAyahId(meta.numAyahs)).toBe(true)
+    expect(() => checkValidAyahId(meta.numAyahs + 0.5)).toThrow(TypeError)
+    expect(checkValidAyahId(Math.floor(meta.numAyahs / 2))).toBe(true)
   })
 
   it("should throw TypeError for non-number ayah id", () => {

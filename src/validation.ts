@@ -1,5 +1,5 @@
 import { meta } from "./const"
-import { getAyaCountinSura } from "./getAyaCountinSura"
+import { getAyahCountinSura } from "./getAyahCountinSura"
 
 /**
  * Checks if the given Surah (chapter) number is valid.
@@ -32,9 +32,9 @@ export function checkValidSurah(surah: number, checkOnly = false): boolean {
 export function checkValidSurahAyah(surah: number, ayah: number, checkOnly = false): boolean {
   if (!checkValidSurah(surah, checkOnly)) return false
 
-  if (ayah < 1 || ayah > getAyaCountinSura(surah)) {
+  if (ayah < 1 || ayah > getAyahCountinSura(surah)) {
     if (checkOnly) return false
-    throw new RangeError("Ayah must be between 1 and " + getAyaCountinSura(surah))
+    throw new RangeError("Ayah must be between 1 and " + getAyahCountinSura(surah))
   }
   return true
 }
@@ -51,9 +51,9 @@ export function checkValidAyahId(ayahId: number, checkOnly = false): boolean {
     if (checkOnly) return false
     throw new TypeError("Ayah ID must be an integer")
   }
-  if (ayahId < 1 || ayahId > meta.numAyas) {
+  if (ayahId < 1 || ayahId > meta.numAyahs) {
     if (checkOnly) return false
-    throw new RangeError("Ayah ID must be between 1 and " + meta.numAyas)
+    throw new RangeError("Ayah ID must be between 1 and " + meta.numAyahs)
   }
   return true
 }

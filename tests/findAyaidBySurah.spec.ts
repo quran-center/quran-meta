@@ -27,7 +27,7 @@ describe("findAyaidBySurah", () => {
 
   it("should handle edge cases", () => {
     expect(findAyaidBySurah(1, 2)).toEqual(2)
-    expect(findAyaidBySurah(114, 6)).toEqual(meta.numAyas)
+    expect(findAyaidBySurah(114, 6)).toEqual(meta.numAyahs)
     expect(findAyaidBySurah(9, 51)).toEqual(1286)
     expect(findAyaidBySurah(9, 1)).toEqual(1236)
     expect(findAyaidBySurah(10, 50)).toEqual(1414)

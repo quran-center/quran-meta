@@ -38,7 +38,7 @@ describe("ayahMeta", () => {
   })
 
   it("should return correct metadata for the last ayah", () => {
-    const result = getAyahMeta(meta.numAyas)
+    const result = getAyahMeta(meta.numAyahs)
     expect(result.isStartOfSurah).toBeFalsy()
     expect(result.isStartOfPage).toBeFalsy()
     expect(result.isStartOfJuz).toBeFalsy()
@@ -63,6 +63,6 @@ describe("ayahMeta", () => {
   })
 
   it("should throw RangeError for ayah number above numAyahs", () => {
-    expect(() => getAyahMeta(meta.numAyas + 1)).toThrow(RangeError)
+    expect(() => getAyahMeta(meta.numAyahs + 1)).toThrow(RangeError)
   })
 })

@@ -13,13 +13,13 @@ import { AyahMeta, Page } from "./types"
  * Retrieves metadata for a specific ayah of the Quran.
  *
  * @param ayahId - The ayahId number to retrieve metadata for (1-6236)
- * @returns An object containing the ayah related meta, including information about the surah, juz, and quarter the ayah is in. 
+ * @returns An object containing the ayah related meta, including information about the surah, juz, and quarter the ayah is in.
  * @throws RangeError If the ayahId number is not between 1 and 6236
  */
 
 export function getAyahMeta(ayahId: Page): AyahMeta {
-  if (ayahId < 1 || ayahId > meta.numAyas)
-    throw new RangeError("ayahId must be between 1 and " + meta.numAyas)
+  if (ayahId < 1 || ayahId > meta.numAyahs)
+    throw new RangeError("ayahId must be between 1 and " + meta.numAyahs)
 
   const quarterData = findJuzHizbByAyaid(ayahId)
   const [surah, ayah] = findSurahByAyaid(ayahId)

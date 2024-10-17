@@ -16,6 +16,7 @@ Quran Meta
 
 ![NPM Type Definitions](https://img.shields.io/npm/types/quran-meta)
 ![GitHub top language](https://img.shields.io/github/languages/top/quran-center/quran-meta)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=quran-center_quran-meta&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=quran-center_quran-meta)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)
@@ -30,17 +31,22 @@ This project is to help with Quran related meta queries.
 
 Answering Questions like:
 
-* How many ayahs in given sura (`getAyaCountinSura`)
+* How many ayahs in given sura (`getAyahCountinSura`)
 * Is given aya 
-  * a sajdah ayah?
-  * beginnning of a juz (`isAyahJuzFirst`)?
+  * a sajdah ayah (`getAyahMeta`)?
   * beginnning of a page? 
+  * beginnning of a juz (`isAyahJuzFirst`)?
 * Find 
   * next or previous ayah (`nextAyah`/`prevAyah`)
   * juz `findJuz` and `findJuzByAyaid`
   * hizb `findJuzHizb`
   * page `findPage` by surah/aya
   * Ayaid of a given surah/aya (`findAyaidBySurah`)
+* Get meta data for
+  * ayah  (`getAyahMeta`)
+  * surah  (`getSurahMeta`)
+  * page  (`getPageMeta`)
+  * maqra/rub-el-hizb  (`getMaqraMeta`)
 * Validates ayah/surah id (`checkValidAyahId`,`checkValidSurah`, `checkValidSurahAyah`) 
 * converts `[surah,aya]` to `ayaId` and vice-verse ( `findSurahByAyaid` and  `findAyaidBySurah`) 
 * Checks and turns strings of type "x:y" or "x:y1-y2" to surah/aya range `ayaStringSplitter`.
@@ -90,12 +96,12 @@ console.log(`There are ${meta.numSuras} suras in the Holy Quran`) // => 'There a
 In TypeScript:
 
 ```ts
-import { meta, getAyaCountinSura, AyahNo, Surah } from "quran-meta"
+import { meta, getAyahCountinSura, AyahNo, Surah } from "quran-meta"
 
 console.log(`There are ${meta.numSuras} suras in the Holy Quran`)
 
 for (let surah: Surah = 1; surah <= meta.numSuras; surah++) {
-  const ayaCount = getAyaCountinSura(surah)
+  const ayaCount = getAyahCountinSura(surah)
   console.log(surah, ': ',ayaCount)
 }
 ```

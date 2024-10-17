@@ -14,5 +14,5 @@ export function nextAyah(surah: Surah, ayah: AyahNo): SurahAyah {
     throw new RangeError("Surah must be between 1 and " + meta.numSuras)
 
   const ayaid: AyahId = findAyaidBySurah(surah, ayah)
-  return findSurahByAyaid(ayaid == meta.numAyas ? 1 : ayaid + 1)
+  return findSurahByAyaid(ayaid == meta.numAyahs ? 1 : ayaid + 1)
 }

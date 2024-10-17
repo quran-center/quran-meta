@@ -29,7 +29,7 @@ describe("findJuzHizbByAyaid", () => {
       juz: 2,
       juzPart: 1,
       maqraId: 9 })
-    expect(findJuzHizbByAyaid(meta.numAyas)).toEqual({
+    expect(findJuzHizbByAyaid(meta.numAyahs)).toEqual({
       hizbId: 60,
       juzPart: 8,
       maqraId: 240,

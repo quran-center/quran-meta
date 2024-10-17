@@ -99,7 +99,7 @@ describe("findJuzAndShift", () => {
   })
 
   it("should throw RangeError for invalid ayah in ayah mode", () => {
-    expect(() => findJuzAndShift(0, meta.numAyas + 1, true)).toThrow(RangeError)
+    expect(() => findJuzAndShift(0, meta.numAyahs + 1, true)).toThrow(RangeError)
   })
 
   it("should ignore surah number if yahmmode is true", () => {
