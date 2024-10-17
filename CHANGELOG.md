@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v3.0.1-2
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-1...v3.0.1-2)
+
+### 🚀 Enhancements
+
+- Added getAyahMeta feat: rename pageMeta to getPageMeta (2cd63ae)
+
+### 🏡 Chore
+
+- Update dependencies (679a362)
+- Update documentation (07829bb)
+
+### ❤️ Contributors
+
+- HG ([@husayt](http://github.com/husayt))
+
 ## v3.0.1-1
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-0...v3.0.1-1)
