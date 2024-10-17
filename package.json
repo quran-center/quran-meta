@@ -8,7 +8,7 @@
     "surah",
     "juz"
   ],
-  "version": "3.0.1-0",
+  "version": "3.0.1-1",
   "license": "MIT",
   "jsdelivr": "./dist/index.mjs",
   "unpkg": "./dist/index.mjs",
@@ -60,7 +60,7 @@
     "lint": "eslint . --fix",
     "coverage": "vitest run --coverage",
     "build": "unbuild",
-    "precommit": "lint-staged && vitest --onlyChanged",
+    "precommit": "pnpm lint&&pnpm build&& vitest --onlyChanged",
     "prepack": "pnpm build && pnpm test:full&&rimraf docs&&pnpm tsdoc",
     "release:rc": "changelogen --release --prerelease --publish --publishTag rc",
     "release": "changelogen --release --push --publish",
