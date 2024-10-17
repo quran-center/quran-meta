@@ -1,3 +1,29 @@
+Quran Meta
+==========
+
+![Static Badge](https://img.shields.io/badge/Quran-Meta-brightgreen) 
+![GitHub License](https://img.shields.io/github/license/quran-center/quran-meta) 
+![GitHub Repo stars](https://img.shields.io/github/stars/quran-center/quran-meta)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/quran-center/quran-meta) 
+
+
+![NPM Version](https://img.shields.io/npm/v/quran-meta) 
+![npms.io](https://img.shields.io/npms-io/final-score/quran-meta)
+![npms.io](https://img.shields.io/npms-io/maintenance-score/quran-meta)
+![npms.io](https://img.shields.io/npms-io/popularity-score/quran-meta)
+![npms.io](https://img.shields.io/npms-io/quality-score/quran-meta)
+![NPM Downloads](https://img.shields.io/npm/dy/quran-meta)
+
+![NPM Type Definitions](https://img.shields.io/npm/types/quran-meta)
+![GitHub top language](https://img.shields.io/github/languages/top/quran-center/quran-meta)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)
+![npm bundle size](https://img.shields.io/bundlephobia/min/quran-meta)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/quran-meta)
+
+
+
 ## Welcome to Quran Meta Project
 
 This project is to help with Quran related meta queries. 
