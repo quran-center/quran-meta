@@ -10,7 +10,7 @@ import { AyahId, Page, PageMeta } from "./types"
  * @returns An object containing the page number, first ayah, and last ayah on the page
  * @throws RangeError If the page number is not between 1 and 604
  */
-export function pageMeta(pageNum: Page): PageMeta {
+export function getPageMeta(pageNum: Page): PageMeta {
   // todo rename to getPageMeta in next major version
   if (pageNum < 1 || pageNum > meta.numPages)
     throw new RangeError("pagenum must be between 1 and " + meta.numPages)

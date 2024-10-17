@@ -3,11 +3,11 @@ import {
   findJuzMetaBySurah,
   findPage,
   findSurahByAyaid,
+  getPageMeta,
   getSurahMeta,
   isAyahJuzFirst,
   JuzList,
-  meta,
-  pageMeta
+  meta
 } from "../src/"
 import { AyahId, AyahNo, Surah } from "../src/types"
 
@@ -37,9 +37,9 @@ console.log("findJuzMetaBySurah 114,5", findJuzMetaBySurah(114, 5))
 console.log("findPage 604", findPage(114, 1))
 console.log("surahMeta 1", getSurahMeta(1))
 console.log("surahMeta 114", getSurahMeta(114))
-console.log("pageMeta 604", pageMeta(604))
+console.log("pageMeta 604", getPageMeta(604))
 // console.log("pmeta", pageMetaOld(604))
-console.log("pmeta", pageMeta(1))
+console.log("pmeta", getPageMeta(1))
 // console.log("pmeta", pageMetaOld(1))
 
 const f = (i: AyahId) =>

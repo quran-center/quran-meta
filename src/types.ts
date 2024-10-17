@@ -39,3 +39,22 @@ export type SurahMeta = [
   page: Page
 ]
 export type SuraName = [name: string, translitName: string]
+
+export type AyahMeta = {
+  juz: number
+  juzPart: number // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+  hizbId: number
+  maqraId: number
+  // rub: number
+  surah: number
+  ayah: number
+  isStartOfQuarter: boolean
+  isEndOfQuarter: boolean
+  isSajdahAyah: boolean
+  isStartOfPage: boolean
+  isEndOfPage: boolean
+  isStartOfJuz: boolean
+  isEndOfJuz: boolean
+  isStartOfSurah: boolean
+  isEndOfSurah: boolean
+}
