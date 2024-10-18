@@ -22,7 +22,7 @@
 <li>Is given aya
 <ul>
 <li>a sajdah ayah (<code>getAyahMeta</code>)?</li>
-<li>beginnning of a page?</li>
+<li>beginnning of a page (<code>isAyahPageFirst</code>)?</li>
 <li>beginnning of a juz (<code>isAyahJuzFirst</code>)?</li>
 </ul>
 </li>
@@ -30,9 +30,10 @@
 <ul>
 <li>next or previous ayah (<code>nextAyah</code>/<code>prevAyah</code>)</li>
 <li>juz <code>findJuz</code> and <code>findJuzByAyaid</code></li>
-<li>hizb <code>findJuzHizb</code></li>
+<li>hizb <code>findRubAlHizb</code>, <code>getRubAlHizbMetaByAyaid</code></li>
 <li>page <code>findPage</code> by surah/aya</li>
 <li>Ayaid of a given surah/aya (<code>findAyaidBySurah</code>)</li>
+<li>find range around ayah (<code>findRangeAroundAyah</code>)</li>
 </ul>
 </li>
 <li>Get meta data for
@@ -40,7 +41,8 @@
 <li>ayah  (<code>getAyahMeta</code>)</li>
 <li>surah  (<code>getSurahMeta</code>)</li>
 <li>page  (<code>getPageMeta</code>)</li>
-<li>maqra/rub-el-hizb  (<code>getMaqraMeta</code>)</li>
+<li>juz  (<code>findJuzMetaBySurah</code>)</li>
+<li>maqra/rub-el-hizb  (<code>getRubAlHizbMeta</code>, <code>getRubAlHizbMetaByAyaid</code>)</li>
 </ul>
 </li>
 <li>Validates ayah/surah id (<code>checkValidAyahId</code>,<code>checkValidSurah</code>, <code>checkValidSurahAyah</code>)</li>
