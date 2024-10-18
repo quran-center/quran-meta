@@ -1,5 +1,5 @@
 import { findAyaidBySurah } from "./findAyaidBySurah"
-import { findJuzHizbByAyaid } from "./findJuzHizbByAyaid"
+import { getRubAlHizbMetaByAyaid } from "./getRubAlHizbMetaByAyaid"
 import { AyahId, AyahNo, JuzHizb, Surah } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -11,7 +11,7 @@ import { checkValidSurah } from "./validation"
  * @param ayahMode - If true, the `ayah` parameter is treated as an Ayah ID instead of a Surah and Ayah number.
  * @returns An object containing the Juz (part) number, Hizb (section) number, and the index of the Hizb that the given Ayah belongs to.
  */
-export function findJuzHizb(
+export function findRubAlHizb(
   surah: Surah,
   ayah: AyahNo = 1,
   ayahMode = false
@@ -20,5 +20,5 @@ export function findJuzHizb(
     ? ayah
     : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
 
-  return findJuzHizbByAyaid(ayahId)
+  return getRubAlHizbMetaByAyaid(ayahId)
 }

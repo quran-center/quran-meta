@@ -8,7 +8,7 @@ export type JuzHizb = {
   juz: Juz
   juzPart: number // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   hizbId: number
-  maqraId: number
+  rubAlHizbId: number
 }
 export type SurahAyah = [Surah, AyahNo]
 export type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]]
@@ -44,7 +44,7 @@ export type AyahMeta = {
   juz: number
   juzPart: number // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   hizbId: number
-  maqraId: number
+  rubAlHizbId: number
   // rub: number
   surah: number
   ayah: number

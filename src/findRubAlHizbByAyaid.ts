@@ -8,7 +8,7 @@ import { checkValidAyahId } from "./validation"
  * @param ayaId - The ID of the Ayah (verse) to find the Juz for.
  * @returns The Maqra of the Quran that contains the given Ayah ID.
  */
-export function findMaqraByAyaid(ayaId: AyahId): Juz {
+export function findRubAlHizbByAyaid(ayaId: AyahId): Juz {
   checkValidAyahId(ayaId)
 
   return HizbQuarterList.findIndex(x => x > ayaId) - 1

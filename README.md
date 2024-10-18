@@ -34,19 +34,21 @@ Answering Questions like:
 * How many ayahs in given sura (`getAyahCountinSura`)
 * Is given aya 
   * a sajdah ayah (`getAyahMeta`)?
-  * beginnning of a page? 
+  * beginnning of a page (`isAyahPageFirst`)? 
   * beginnning of a juz (`isAyahJuzFirst`)?
 * Find 
   * next or previous ayah (`nextAyah`/`prevAyah`)
   * juz `findJuz` and `findJuzByAyaid`
-  * hizb `findJuzHizb`
+  * hizb `findRubAlHizb`, `getRubAlHizbMetaByAyaid`
   * page `findPage` by surah/aya
   * Ayaid of a given surah/aya (`findAyaidBySurah`)
+  * find range around ayah (`findRangeAroundAyah`)
 * Get meta data for
   * ayah  (`getAyahMeta`)
   * surah  (`getSurahMeta`)
   * page  (`getPageMeta`)
-  * maqra/rub-el-hizb  (`getMaqraMeta`)
+  * juz  (`findJuzMetaBySurah`)
+  * maqra/rub-el-hizb  (`getRubAlHizbMeta`, `getRubAlHizbMetaByAyaid`)
 * Validates ayah/surah id (`checkValidAyahId`,`checkValidSurah`, `checkValidSurahAyah`) 
 * converts `[surah,aya]` to `ayaId` and vice-verse ( `findSurahByAyaid` and  `findAyaidBySurah`) 
 * Checks and turns strings of type "x:y" or "x:y1-y2" to surah/aya range `ayaStringSplitter`.

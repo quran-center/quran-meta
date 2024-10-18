@@ -1,5 +1,5 @@
-import { findMaqraByAyaid } from "./findMaqraByAyaid"
-import { getMaqraMeta } from "./getMaqraMeta"
+import { findRubAlHizbByAyaid } from "./findRubAlHizbByAyaid"
+import { getRubAlHizbMeta } from "./getRubAlHizbMeta"
 import { AyahId, JuzHizb } from "./types"
 import { checkValidAyahId } from "./validation"
 
@@ -9,9 +9,9 @@ import { checkValidAyahId } from "./validation"
  * @param ayaId - The Ayah ID to find the Juz, Hizb, and Hizb ID for.
  * @returns An object containing the Juz, Hizb, and Hizb ID for the given Ayah ID.
  */
-export function findJuzHizbByAyaid(ayaId: AyahId): JuzHizb {
+export function getRubAlHizbMetaByAyaid(ayaId: AyahId): JuzHizb {
   checkValidAyahId(ayaId)
 
-  const quarterIndex = findMaqraByAyaid(ayaId)
-  return getMaqraMeta(quarterIndex)
+  const quarterIndex = findRubAlHizbByAyaid(ayaId)
+  return getRubAlHizbMeta(quarterIndex)
 }
