@@ -1,4 +1,4 @@
-import { HizbQuarterList, JuzList, ManzilList, meta, PageList, SajdaList, SurahList } from "../src"
+import { HizbQuarterList, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, SurahList } from "../src"
 
 describe("Meta constants", () => {
   it("should return correct numSuras", () => {
@@ -21,18 +21,19 @@ describe("Meta constants", () => {
     expect(meta.numPages).toEqual(PageList.length - 2)
   })
 
-  it("should return correct numSajdas", () => {
+  it("should return correct numJuzs", () => {
     expect(meta.numJuzs).toEqual(JuzList.length - 2)
   })
 
-  it("should return correct numSajdas", () => {
+  it("should return correct numRubAlHizbs", () => {
     expect(meta.numRubAlHizbs).toEqual(HizbQuarterList.length - 2)
   })
 
-  it("should return correct numSajdas", () => {
+  it("should return correct numHizbs", () => {
     expect(meta.numHizbs).toEqual(meta.numRubAlHizbs / 4)
   })
 
-
-
+  it("should return correct numRukus", () => {
+    expect(meta.numRukus).toEqual(RukuList.length - 2)
+  })
 })

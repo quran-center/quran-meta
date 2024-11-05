@@ -18,6 +18,8 @@ describe("findJuzByAyaid", () => {
   it("should return correct Juz for ayah at Juz boundary", () => {
     expect(findJuzByAyaid(148)).toBe(1)
     expect(findJuzByAyaid(149)).toBe(2)
+    expect(findJuzByAyaid(1327)).toBe(10)
+    expect(findJuzByAyaid(1328)).toBe(11)
   })
 
   it("should return correct Juz for middle ayah", () => {
