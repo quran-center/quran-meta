@@ -116,9 +116,9 @@ for (let surah: Surah = 1; surah <= meta.numSuras; surah++) {
 
 * *Juz*: A section of the Quran. There are 30 Juz in Quran of roughly equal length.
 * *Hizb*: Each Juz' is divided into two Hizb. Therefore, there are 60 Hizbs in the Quran.
-* *Rub-el-Hizb/Maqra*: Each Hizb is subdivided into four quarters called Maqraʼ, making eight quarters per Juz'. In Arabic, `rub` means 'one-fourth' or 'quarter', while `ḥizb` (plural aḥzāb) translates to 'a group'. There are 240 Maqraʼs in the Quran.
+* *Rub-el-Hizb/Maqra*: Each Hizb is subdivided into four quarters called Maqra, making eight quarters per Juz. In Arabic, `rub` means 'one-fourth' or 'quarter', while `ḥizb` (plural aḥzāb) translates to 'a group'. There are 240 Maqras in the Quran.
 * *Manzil*: For the convenience of those who read the Quran in a week the text may be divided into seven portions. Each portion is called a Manzil. There are 7 Manzil in Quran.
-* *Page*: A section of the Quran that contains 15 lines (depends on the mushaf).
+* *Page*: A section of the Quran that contains 15 lines (Madina mushaf)(depends on the mushaf).
 * *Saajdah*: Special ayahs that require reader to prostrate. There are 15 of them in Quran.
 
 
@@ -132,6 +132,17 @@ You can find some examples [here](https://quran-center.github.io/quran-meta/exam
 ### Projects using Quran-meta
 
 * [Koran-Center](https://koran.center) - Powerful and feature rich  web application for reading and studying the Holy Quran.
+
+### References:
+
+* [Tanzil.net](https://tanzil.net) 
+* [Quran.com Js Api](https://github.com/quran/api-js), [Quran.com API](https://api-docs.quran.com/), 
+* [AlQuran Cloud](https://alquran.cloud/api)
+* [KFGC Data](https://qurancomplex.gov.sa/en/techquran/dev/)
+
+### Playground
+
+* [Quran Meta Playground](https://play.vuejs.org/#eNrdVk2T0zgQ/StdvpCpGsfDzBZbm8qkFnY5DFWws8vCyRfFbjsaZMnoI0xI+b/TkmwnhhAO3LjMWE/dr1+31K3sk+dtO986TBbJ0hSat3aVS960SlvIk421rVlkWVHK+YMpUfCtnku0mWyb7E8nVWFMpp20vME8GR33oLG6hEI1rbNYQgeVVg08oThPcrnMxkC0iN9g0Lr2EHoPDVp2CRWX5T2rkcg2WHx4zwQv3zrNNs93bBO36YuXL3YBjcgr93mI+JFQmXouCpzLQklDsbwp3HqRs5uLAWXE2IPXBOZSoIWWYhM4ZDKbXcDtalQ1C0zzLROOFHqC+H1B/t7bI3flaf9j2T/ieXCfT5NQpud8ozdqrfRrU39Lsc8lgNW7+AGnavxdeu/RQcFssYEZXgwUms5RS8Cw7f/0AN0Ouh8duU2P32LTCmaRVgDLzdPVv/7E4DWdGNwLtqu1crJcZrQTLa6hEMyY2zyx+GjTNWnJk1XQC/t9f7ZdByl4+R4KB9t1xHEdOQRboxhp1kIVHyCQmSZ7BpWSlm5MyV0T0VqzXfrH1dUQJia65JJKCdu0UdQXxBMi5wnYXYu0lK5Zo/ZJe2uq7SQchLSwTJsS1kqXqNMrOorjcGA2rFSfSBRoLuv0afzHJbVK/AyWN2RZqcKZRcCujxfRdgKUvFbpM8/eLMacSXUWS5OF2vxsmXzlv1Mlfxi/TJHCquRbyo9XJHvoNDKdXFKNJVWFruLYiv46kmPkc4IIUBicetUaUaa/B+ljrYmnr6zgKz+DFv6KhzHlOQk8bIcGuCuDRT+KJjaDHU2RYOPHzJHBMnNjktQ67wxWpPSoP/9mlvVd1ZsFh4H2TThcUBWEtjEhhh/Fczp2D5lvJR98vPipCyFnPXw1ph4BOedCmU89PHCiBsvsaE4ll0l8pdKGtfQsKkmPZxh/eb9h8oRYY8A8ObxBHv7Bo3owpvthbEaXER/nzQNR9iO1o/jW0JtV8fqr6H68c4H6n9ZyetMmKpgQ6tOrgFlNs3zAw8w/gT+Yxyj3XqNBvaUpO+5Zpmu0cfvl2zd0WY82qdOdIOszm/+hUcJ5jdHsBbU5yT6yC2rvQjGpJf83Lx8tSjMk5YWGagT7PKHfFX+dSf0g92b+21jF7gtouQgs) - interactive playground for Quran-Meta
 
 ### Demo
 * [Quran Meta Visualiser](https://codesandbox.io/s/quran-visualiser-p3zjd) - demo app showcasing number of methods from Quran-meta to build interactive visualisations of Quran structure using Alpine.js & chart.js
