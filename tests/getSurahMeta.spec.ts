@@ -1,20 +1,20 @@
 import { getSurahMeta } from "../src/getSurahMeta"
-import { SuraList } from "../src/lists/surahList"
+import { SurahList } from "../src/lists/surahList"
 
 describe("getSurahMeta", () => {
   it("should return correct metadata for first surah", () => {
     const result = getSurahMeta(1)
-    expect(result).toEqual(SuraList[1])
+    expect(result).toEqual(SurahList[1])
   })
 
   it("should return correct metadata for last surah", () => {
     const result = getSurahMeta(114)
-    expect(result).toEqual(SuraList[114])
+    expect(result).toEqual(SurahList[114])
   })
 
   it("should return correct metadata for a middle surah", () => {
     const result = getSurahMeta(57)
-    expect(result).toEqual(SuraList[57])
+    expect(result).toEqual(SurahList[57])
   })
 
   it("should throw an error for surah number 0", () => {

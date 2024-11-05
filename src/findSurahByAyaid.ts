@@ -1,4 +1,4 @@
-import { SuraList } from "./lists/surahList"
+import { SurahList } from "./lists/surahList"
 import { AyahId, Surah, SurahAyah } from "./types"
 import { checkValidAyahId } from "./validation"
 
@@ -11,6 +11,6 @@ import { checkValidAyahId } from "./validation"
 export function findSurahByAyaid(ayaId: AyahId): SurahAyah {
   checkValidAyahId(ayaId)
 
-  const suraNum: Surah = SuraList.findIndex(x => x[0] >= ayaId) - 1
-  return [suraNum, ayaId - SuraList[suraNum][0]]
+  const suraNum: Surah = SurahList.findIndex(x => x[0] >= ayaId) - 1
+  return [suraNum, ayaId - SurahList[suraNum][0]]
 }

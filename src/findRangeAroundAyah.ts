@@ -4,7 +4,7 @@ import { findJuzByAyaid } from "./findJuzByAyaid"
 import { findPage } from "./findPage"
 import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
-import { SuraList } from "./lists/surahList"
+import { SurahList } from "./lists/surahList"
 import { AyahId, AyahNo, Juz, Page, Surah, SurahAyah } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -34,7 +34,7 @@ export function findRangeAroundAyah(
     }
 
     case "surah": {
-      return [SuraList[surah][0] + 1, SuraList[surah + 1][0]]
+      return [SurahList[surah][0] + 1, SurahList[surah + 1][0]]
     }
 
     case "ayah": {

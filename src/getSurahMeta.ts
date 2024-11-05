@@ -1,4 +1,4 @@
-import { SuraList } from "./lists/surahList"
+import { SurahList } from "./lists/surahList"
 import { Surah, SurahMeta } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -10,5 +10,5 @@ import { checkValidSurah } from "./validation"
  */
 export function getSurahMeta(surah: Surah): SurahMeta {
   checkValidSurah(surah)
-  return SuraList[surah]
+  return SurahList[surah]
 }

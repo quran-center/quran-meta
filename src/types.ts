@@ -38,7 +38,7 @@ export type SurahMeta = [
   isMeccan: boolean,
   page: Page
 ]
-export type SuraName = [name: string, translitName: string]
+export type SurahName = [name: string, translitName: string]
 
 export type AyahMeta = {
   juz: number

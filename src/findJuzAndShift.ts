@@ -2,7 +2,7 @@ import { findAyaidBySurah } from "./findAyaidBySurah"
 import { findJuzByAyaid } from "./findJuzByAyaid"
 import { findSurahByAyaid } from "./findSurahByAyaid"
 import { JuzList } from "./lists/juzList"
-import { SuraList } from "./lists/surahList"
+import { SurahList } from "./lists/surahList"
 import { AyahId, AyahNo, Juz, Surah } from "./types"
 import { checkValidAyahId, checkValidSurah } from "./validation"
 
@@ -33,7 +33,7 @@ export function findJuzAndShift(
   const juz = findJuzByAyaid(ayahId)
   const leftAyahId = JuzList[juz]
   if (ayahMode) [surah] = findSurahByAyaid(ayahId)
-  const [surahStartAyahId] = SuraList[surah]
+  const [surahStartAyahId] = SurahList[surah]
   return {
     juz,
     ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId + 1,

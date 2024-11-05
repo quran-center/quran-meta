@@ -31,12 +31,13 @@ export { ManzilList } from "./lists/manzilList"
 export { PageList } from "./lists/pageList"
 export { RukuList } from "./lists/rukuList"
 export { SajdaList } from "./lists/sajdaList"
-export { SuraList } from "./lists/surahList"
+export { SurahList } from "./lists/surahList"
 export { nextAyah } from "./nextAyah"
 export { prevAyah } from "./prevAyah"
 export { checkValidAyahId, checkValidSurah, checkValidSurahAyah } from "./validation"
 
 // ------------------ Sura i18 Data ---------------------
 
-export { suraNames as suraNamesEn } from "./i18n/sura.en"
-export { suraNames as suraNamesRu } from "./i18n/sura.ru"
+export { surahNames as surahNamesEn } from "./i18n/sura.en"
+export { surahNames as surahNamesRu } from "./i18n/sura.ru"
+
