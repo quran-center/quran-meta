@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v3.0.1-5
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-4...v3.0.1-5)
+
+### 🚀 Enhancements
+
+- Rename sura to surah in exported names (74df866)
+- Add meta rukuCount (b41dfe9)
+- Add add validation and cross check against other apis (0c333d7)
+
+### 🏡 Chore
+
+- Meta Count tests (4f24f2e)
+- Cleanup (13581d1)
+
+### ❤️ Contributors
+
+- HG ([@husayt](http://github.com/husayt))
+
 ## v3.0.1-4
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-3...v3.0.1-4)
