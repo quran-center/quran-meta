@@ -40,4 +40,3 @@ export { checkValidAyahId, checkValidSurah, checkValidSurahAyah } from "./valida
 
 export { surahNames as surahNamesEn } from "./i18n/sura.en"
 export { surahNames as surahNamesRu } from "./i18n/sura.ru"
-
