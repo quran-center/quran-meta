@@ -2,5 +2,8 @@
   "ts-node": {
     "transpileOnly": true
   },
-  "compilerOptions": {}
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  }
 }
