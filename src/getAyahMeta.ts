@@ -16,7 +16,6 @@ import { AyahMeta, Page } from "./types"
  * @returns An object containing the ayah related meta, including information about the surah, juz, and quarter the ayah is in.
  * @throws RangeError If the ayahId number is not between 1 and 6236
  */
-
 export function getAyahMeta(ayahId: Page): AyahMeta {
   if (ayahId < 1 || ayahId > meta.numAyahs)
     throw new RangeError("ayahId must be between 1 and " + meta.numAyahs)

@@ -9,8 +9,8 @@ describe("Meta constants", () => {
     expect(meta.numAyahs).toEqual(SurahList[meta.numSuras + 1][0])
   })
 
-  it("should return correct manzilCount", () => {
-    expect(meta.manzilCount).toEqual(ManzilList.length - 2)
+  it("should return correct numManzils", () => {
+    expect(meta.numManzils).toEqual(ManzilList.length - 2)
   })
 
   it("should return correct numSajdas", () => {

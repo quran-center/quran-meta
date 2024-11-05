@@ -1,5 +1,11 @@
 import { JuzHizb } from "./types"
 
+/**
+ * Retrieves the metadata for a specific quarter (rub' al-hizb) of the Quran.
+ *
+ * @param quarterIndex - The index of the quarter (rub' al-hizb) to retrieve metadata for, where 1 is the first quarter.
+ * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
+ */
 export function getRubAlHizbMeta(quarterIndex: number): JuzHizb {
   // return HizbQuarterList[maqra]
 

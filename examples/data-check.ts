@@ -9,24 +9,10 @@ import hafsSmartData from "./data/hafs_smart_v8.json"
 import quranApi from "./data/quran-api.json"
 import tanzilData from "./data/tanzil-data.js"
 
-console.log(`There are ${hafsData.length} lines hafsData`)
-console.log(`There are ${meta.numSuras} suras in the Holy Quran`)
-// const res: string[] = []
-// for (let surah: Surah = 1; surah <= meta.numSuras; surah++) {
-//   const ayaCount = SuraList[surah][1]
-//   for (let ayah: AyahNo = 1; ayah <= ayaCount; ayah++) {
-//     // console.log(surah, ayah)
-//     // res.push([surah, ayah])
-//     res.push(`${String(surah).padStart(3, 0)}${String(ayah).padStart(3, 0)}`)
-
-//   }
-// }
-
-
+console.log(`Running data-checks against various data sources`)
 
 function checkKFQC() {
   console.log("Checking KFQC data")
-
 
   // Ayah Checks
   for (let ayah: AyahId = 1; ayah <= meta.numAyahs; ayah++) {
@@ -47,8 +33,7 @@ function checkKFQC() {
 }
 
 function checkKFQCSmart() {
-  console.log("Checking KFQC Smart data")
-
+  console.log("Checking against KFQC Smart data")
 
   // Ayah Checks
   for (let ayah: AyahId = 1; ayah <= meta.numAyahs; ayah++) {
@@ -68,7 +53,7 @@ function checkKFQCSmart() {
 
 
 function checkQuranApi() {
-  console.log("Checking QuranApi  data")
+  console.log("Checking against Quran-Api data")
 
   for (let ayah: AyahId = 1; ayah <= meta.numAyahs; ayah++) {
     const ayahMeta = getAyahMeta(ayah)
@@ -120,7 +105,7 @@ function checkQuranApi() {
   }
 
 
-  for (let manzilNo = 1; manzilNo <= meta.manzilCount; manzilNo++) {
+  for (let manzilNo = 1; manzilNo <= meta.numManzils; manzilNo++) {
     const ayahId = ManzilList[manzilNo]
     const { manzil, start, end } = quranApi.manzils.references[manzilNo - 1]
 
@@ -156,7 +141,7 @@ function checkQuranApi() {
 }
 
 function checkTanzil() {
-  console.log("Checking Tanzil data")
+  console.log("Checking against Tanzil data")
 
 
   for (let surahNo: Surah = 1; surahNo <= meta.numSuras; surahNo++) {
@@ -196,12 +181,11 @@ function checkTanzil() {
   }
 
 
-  for (let manzil = 1; manzil <= meta.manzilCount; manzil++) {
+  for (let manzil = 1; manzil <= meta.numManzils; manzil++) {
     const ayahId = ManzilList[manzil]
     const [sura, aya] = tanzilData.Manzil[manzil]
 
     if (ayahId !== findAyaidBySurah(sura, aya)) console.warn("error Tanzil manzil: ", ayahId, sura, aya)
-
   }
 
 
