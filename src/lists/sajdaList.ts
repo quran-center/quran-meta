@@ -27,4 +27,4 @@ export const SajdaList: Sajda[] = [
   [4846, "obligatory"],
   [5905, "recommended"],
   [6125, "obligatory"]
-]
+] as const

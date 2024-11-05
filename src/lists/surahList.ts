@@ -117,4 +117,4 @@ export const SurahList: SurahMeta[] = [
   [6225, 5, 20, 1, "الفلق", true, 604],
   [6230, 6, 21, 1, "الناس", true, 604],
   [6236, 0, -1, -1, "", false, -1]
-]
+] as const
