@@ -3,90 +3,33 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
-## v3.0.1-9
+## v3.0.1-beta
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-8...v3.0.1-9)
+This version is a complete rewrite of the project. Functionality has been greatly extended, most of the functions have been renamed and new ones have been added. 
 
-### 🏡 Chore
-
-- Naming standartization (7ce5fb0)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v3.0.1-8
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-7...v3.0.1-8)
-
-## v3.0.1-7
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-6...v3.0.1-7)
-
-### 🏡 Chore
-
-- Rename getAyahCountinSurah (9280eed)
-- Make internal ayaIds consistent (27b4504)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v3.0.1-6
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-5...v3.0.1-6)
-
-## v3.0.1-5
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-4...v3.0.1-5)
+Full unit test coverage has been achieved. Furthermore, in order to guarantee absolute data correctness framework for Cross-Checking  against other apis has been added.
 
 ### 🚀 Enhancements
 
 - Rename sura to surah in exported names (74df866)
 - Add meta rukuCount (b41dfe9)
-- Add add validation and cross check against other apis (0c333d7)
-
-### 🏡 Chore
-
-- Meta Count tests (4f24f2e)
-- Cleanup (13581d1)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v3.0.1-4
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-3...v3.0.1-4)
-
-## v3.0.1-3
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-2...v3.0.1-3)
-
-## v3.0.1-2
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-1...v3.0.1-2)
-
-### 🚀 Enhancements
-
+- Add  validation and cross check against other apis (0c333d7)
 - Added getAyahMeta feat: rename pageMeta to getPageMeta (2cd63ae)
 
 ### 🏡 Chore
 
+
+- Naming standartization (7ce5fb0)
+- Rename getAyahCountinSurah (9280eed)
+- Make internal ayaIds consistent (27b4504)
+- Meta Count tests (4f24f2e)
+- Cleanup (13581d1)
 - Update dependencies (679a362)
 - Update documentation (07829bb)
 
 ### ❤️ Contributors
 
 - HG ([@husayt](http://github.com/husayt))
-
-## v3.0.1-1
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-0...v3.0.1-1)
-
-## v3.0.1-0
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.9...v3.0.1-0)
 
 ## v2.5.9
 
