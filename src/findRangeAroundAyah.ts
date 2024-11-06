@@ -1,6 +1,6 @@
 import { meta } from "./const"
-import { findAyaidBySurah } from "./findAyaidBySurah"
-import { findJuzByAyaid } from "./findJuzByAyaid"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findJuzByAyahId } from "./findJuzByAyahId"
 import { findPage } from "./findPage"
 import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
@@ -25,11 +25,11 @@ export function findRangeAroundAyah(
 ): SurahAyah {
   const ayahId: AyahId = ayahMode
     ? ayah
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
+    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
 
   switch (mode) {
     case "juz": {
-      const juz: Juz = findJuzByAyaid(ayahId)
+      const juz: Juz = findJuzByAyahId(ayahId)
       return [JuzList[juz], JuzList[juz + 1] - 1]
     }
 

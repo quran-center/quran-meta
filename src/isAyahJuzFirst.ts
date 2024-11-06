@@ -1,4 +1,4 @@
-import { findAyaidBySurah } from "./findAyaidBySurah"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { JuzList } from "./lists/juzList"
 import { AyahId, AyahNo, Juz, Surah } from "./types"
 import { binarySearch } from "./utils"
@@ -11,7 +11,7 @@ import { checkValidAyahId, checkValidSurah } from "./validation"
  * @param surah - The Surah (chapter) number.
  * @param ayah - The Ayah (verse) number.
  * @param ayahMode - If true, the `ayah` parameter is treated as an Ayah ID instead of a Surah and Ayah number.
- * @returns The Juz (part) number that the given Ayah belongs to. Returns Positive number if aya is first ayah of juz, number is juz number
+ * @returns The Juz (part) number that the given Ayah belongs to. Returns Positive number if ayah is first ayah of juz, number is juz number
  */
 export function isAyahJuzFirst(
   surah: Surah,
@@ -20,7 +20,7 @@ export function isAyahJuzFirst(
 ): Juz {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
+    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
 
   return binarySearch(JuzList, ayahId)
   // return JuzList.findIndex((x: AyahId) => x == ayahId)

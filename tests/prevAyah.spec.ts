@@ -27,8 +27,8 @@ describe("prevAyah", () => {
   })
 
   it("should throw RangeError with correct message for invalid surah", () => {
-    expect(() => prevAyah(0, 1)).toThrow(`Surah must be between 1 and ${meta.numSuras}`)
-    expect(() => prevAyah(115, 1)).toThrow(`Surah must be between 1 and ${meta.numSuras}`)
+    expect(() => prevAyah(0, 1)).toThrow(`Surah must be between 1 and ${meta.numSurahs}`)
+    expect(() => prevAyah(115, 1)).toThrow(`Surah must be between 1 and ${meta.numSurahs}`)
   })
 
   it("should handle edge cases", () => {

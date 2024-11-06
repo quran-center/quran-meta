@@ -1,8 +1,8 @@
 import {
-  findAyaidBySurah,
+  findAyahIdBySurah,
   findJuzMetaBySurah,
   findPage,
-  findSurahByAyaid,
+  findSurahByAyahId,
   getPageMeta,
   getSurahMeta,
   isAyahJuzFirst,
@@ -12,22 +12,22 @@ import {
 import { AyahId, AyahNo, Surah } from "../src/types"
 
 console.log("STARING")
-console.log(1, findSurahByAyaid(1))
-console.log(2, findSurahByAyaid(8))
-console.log("findSurahByAyaid 6216", findSurahByAyaid(6216))
-console.log("findSurahByAyaid 6217", findSurahByAyaid(6217))
-console.log("findSurahByAyaid 6226", findSurahByAyaid(6226))
-console.log(meta.numAyahs, findSurahByAyaid(meta.numAyahs))
-// console.log(6237, findSurahByAyaid(6237))
-console.log("findSurahByAyaid 1", findSurahByAyaid(1))
-console.log("findSurahByAyaid 147", findSurahByAyaid(149))
+console.log(1, findSurahByAyahId(1))
+console.log(2, findSurahByAyahId(8))
+console.log("findSurahByAyahId 6216", findSurahByAyahId(6216))
+console.log("findSurahByAyahId 6217", findSurahByAyahId(6217))
+console.log("findSurahByAyahId 6226", findSurahByAyahId(6226))
+console.log(meta.numAyahs, findSurahByAyahId(meta.numAyahs))
+// console.log(6237, findSurahByAyahId(6237))
+console.log("findSurahByAyahId 1", findSurahByAyahId(1))
+console.log("findSurahByAyahId 147", findSurahByAyahId(149))
 console.log("isAyahJuzFirst 1", isAyahJuzFirst(1, 1))
 console.log("isAyahJuzFirst -1", isAyahJuzFirst(2, 2))
 console.log("isAyahJuzFirst -1", isAyahJuzFirst(2, 141))
 console.log("isAyahJuzFirst 2", isAyahJuzFirst(2, 142))
 console.log("isAyahJuzFirst -1", isAyahJuzFirst(2, 143))
-console.log("findAyaidBySurah 110.3", findAyaidBySurah(110, 3))
-console.log("findAyaidBySurah 114.6", findAyaidBySurah(114, 6))
+console.log("findAyahIdBySurah 110.3", findAyahIdBySurah(110, 3))
+console.log("findAyahIdBySurah 114.6", findAyahIdBySurah(114, 6))
 
 console.log("JuzList 6237", JuzList[31])
 console.log("findJuzMetaBySurah 1,1", findJuzMetaBySurah(1, 1))
@@ -43,12 +43,12 @@ console.log("pmeta", getPageMeta(1))
 // console.log("pmeta", pageMetaOld(1))
 
 const f = (i: AyahId) =>
-  expect(findAyaidBySurah(...findSurahByAyaid(i))).toEqual(i)
+  expect(findAyahIdBySurah(...findSurahByAyahId(i))).toEqual(i)
 const xf = (i: Surah, j: AyahNo) =>
-  expect(findSurahByAyaid(findAyaidBySurah(i, j))).toEqual([i, j])
+  expect(findSurahByAyahId(findAyahIdBySurah(i, j))).toEqual([i, j])
 
 describe("crossTest", () => {
-  it("ayaid of surah of Ayah", () => {
+  it("ayahId of surah of Ayah", () => {
     for (let i = 1; i <= meta.numAyahs; i++) {
       f(i)
     }

@@ -1,4 +1,4 @@
-import { SurahList } from "./lists/surahList"
+import { SurahList as findSurahByAyahIdModule } from "./lists/surahList"
 import { AyahId, Surah, SurahAyah } from "./types"
 import { checkValidAyahId } from "./validation"
 
@@ -8,9 +8,9 @@ import { checkValidAyahId } from "./validation"
  * @param ayaId - The Ayah ID to find the Surah and Ayah numbers for.
  * @returns An array containing the Surah number and the Ayah number within that Surah.
  */
-export function findSurahByAyaid(ayaId: AyahId): SurahAyah {
+export function findSurahByAyahId(ayaId: AyahId): SurahAyah {
   checkValidAyahId(ayaId)
 
-  const suraNum: Surah = SurahList.findIndex(x => x[0] > ayaId) - 1
-  return [suraNum, ayaId - SurahList[suraNum][0] + 1]
+  const suraNum: Surah = findSurahByAyahIdModule.findIndex(x => x[0] > ayaId) - 1
+  return [suraNum, ayaId - findSurahByAyahIdModule[suraNum][0] + 1]
 }

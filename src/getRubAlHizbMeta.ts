@@ -9,9 +9,9 @@ import { JuzHizb } from "./types"
 export function getRubAlHizbMeta(quarterIndex: number): JuzHizb {
   // return HizbQuarterList[maqra]
 
-  // const quarterIndex = HizbQuarterList.findIndex(x => x > ayaId) - 1
+  // const quarterIndex = HizbQuarterList.findIndex(x => x > ayahId) - 1
 
-  // const juz = findJuzByAyaid(ayaId)
+  // const juz = findJuzByAyahId(ayahId)
   const juz = Math.floor((quarterIndex - 1) / 8) + 1
 
   const hizbIndex = Math.floor((quarterIndex - 1) / 4) + 1

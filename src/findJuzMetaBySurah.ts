@@ -1,6 +1,6 @@
 import { meta } from "./const"
 import { findJuzAndShift } from "./findJuzAndShift"
-import { findSurahByAyaid } from "./findSurahByAyaid"
+import { findSurahByAyahId } from "./findSurahByAyahId"
 import { JuzList } from "./lists/juzList"
 import { AyahNo, Juz, JuzMeta, Surah } from "./types"
 
@@ -21,7 +21,7 @@ export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1): JuzMeta {
   let rightJuz: Juz = leftjuz
   while (
     rightJuz < meta.numJuzs
-    && findSurahByAyaid(JuzList[rightJuz + 1])[0] === surah
+    && findSurahByAyahId(JuzList[rightJuz + 1])[0] === surah
   ) {
     rightJuz++
   }

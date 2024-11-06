@@ -8,7 +8,7 @@ import { checkValidSurahAyah } from "./validation"
  * @param ayah - The ayah number within the surah.
  * @returns The ayah ID for the given surah and ayah number.
  */
-export function findAyaidBySurah(surah: Surah, ayah: AyahNo): AyahId {
+export function findAyahIdBySurah(surah: Surah, ayah: AyahNo): AyahId {
   checkValidSurahAyah(surah, ayah)
   const [startAyahId] = getSurahMeta(surah)
   return startAyahId + ayah - 1

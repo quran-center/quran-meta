@@ -1,12 +1,12 @@
 import { HizbQuarterList, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, SurahList } from "../src"
 
 describe("Meta constants", () => {
-  it("should return correct numSuras", () => {
-    expect(meta.numSuras).toEqual(SurahList.length - 2)
+  it("should return correct numSurahs", () => {
+    expect(meta.numSurahs).toEqual(SurahList.length - 2)
   })
 
   it("should return correct numAyahs", () => {
-    expect(meta.numAyahs).toEqual(SurahList[meta.numSuras + 1][0] - 1)
+    expect(meta.numAyahs).toEqual(SurahList[meta.numSurahs + 1][0] - 1)
   })
 
   it("should return correct numManzils", () => {

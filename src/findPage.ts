@@ -1,4 +1,4 @@
-import { findAyaidBySurah } from "./findAyaidBySurah"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { PageList } from "./lists/pageList"
 import { AyahId, AyahNo, Page, Surah } from "./types"
 import { checkValidAyahId, checkValidSurah } from "./validation"
@@ -14,7 +14,7 @@ import { checkValidAyahId, checkValidSurah } from "./validation"
 export function findPage(surah: Surah, ayah: AyahNo, ayahMode = false): Page {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
+    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
 
   return PageList.findIndex(x => x > ayahId) - 1
 }

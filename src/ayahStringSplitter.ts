@@ -6,7 +6,7 @@ import { checkValidSurahAyah } from "./validation"
  * @param str - String of type "x:y" or "x:y1-y2"
  * @returns array [x,y] or [x,[y1,y2]] respectively
  */
-export function ayaStringSplitter(str: string): SurahAyahSegment {
+export function ayahStringSplitter(str: string): SurahAyahSegment {
   const [surahStr, ayahsStr] = str.trim().split(":")
   const surah = parseInt(surahStr, 10)
 

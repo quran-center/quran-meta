@@ -11,7 +11,7 @@ import { Sajda } from "../types"
 // export Page from "~/js/qdata-page.json"
 // ------------------ Sajda Data ---------------------
 export const SajdaList: Sajda[] = [
-  // [ayaId, type]
+  // [ayahId, type]
   [1160, "recommended"],
   [1722, "recommended"],
   [1951, "recommended"],

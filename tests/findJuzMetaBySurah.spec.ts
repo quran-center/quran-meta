@@ -1,6 +1,6 @@
 import { expect, vi } from "vitest"
 import { findJuzMetaBySurah } from "../src/findJuzMetaBySurah"
-import * as findSurahByAyaidModule from "../src/findSurahByAyaid"
+import * as findSurahByAyahIdModule from "../src/findSurahByAyahId"
 
 describe("findJuzMetaBySurah", () => {
   beforeEach(() => {
@@ -62,11 +62,11 @@ describe("findJuzMetaBySurah", () => {
     })
   })
 
-  it("should use mocked findSurahByAyaid", () => {
-    const mockFindSurahByAyaid = vi.spyOn(findSurahByAyaidModule, "findSurahByAyaid")
-    mockFindSurahByAyaid.mockReturnValue([2, 1])
+  it("should use mocked findSurahByAyahId", () => {
+    const mockFindSurahByAyahId = vi.spyOn(findSurahByAyahIdModule, "findSurahByAyahId")
+    mockFindSurahByAyahId.mockReturnValue([2, 1])
     const result = findJuzMetaBySurah(2)
-    expect(mockFindSurahByAyaid).toHaveBeenCalled()
+    expect(mockFindSurahByAyahId).toHaveBeenCalled()
     expect(result.rightJuz).toBe(30)
   })
 })

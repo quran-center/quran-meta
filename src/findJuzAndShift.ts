@@ -1,6 +1,6 @@
-import { findAyaidBySurah } from "./findAyaidBySurah"
-import { findJuzByAyaid } from "./findJuzByAyaid"
-import { findSurahByAyaid } from "./findSurahByAyaid"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findJuzByAyahId } from "./findJuzByAyahId"
+import { findSurahByAyahId } from "./findSurahByAyahId"
 import { JuzList } from "./lists/juzList"
 import { SurahList } from "./lists/surahList"
 import { AyahId, AyahNo, Juz, Surah } from "./types"
@@ -28,11 +28,11 @@ export function findJuzAndShift(
   } {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
+    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
 
-  const juz = findJuzByAyaid(ayahId)
+  const juz = findJuzByAyahId(ayahId)
   const leftAyahId = JuzList[juz]
-  if (ayahMode) [surah] = findSurahByAyaid(ayahId)
+  if (ayahMode) [surah] = findSurahByAyahId(ayahId)
   const [surahStartAyahId] = SurahList[surah]
   return {
     juz,

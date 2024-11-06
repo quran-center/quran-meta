@@ -1,5 +1,5 @@
-import { findAyaidBySurah } from "./findAyaidBySurah"
-import { findJuzByAyaid } from "./findJuzByAyaid"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findJuzByAyahId } from "./findJuzByAyahId"
 import { AyahId, AyahNo, Juz, Surah } from "./types"
 import { checkValidSurahAyah } from "./validation"
 
@@ -15,7 +15,7 @@ export function findJuz(surah: Surah, ayah: AyahNo = 1, ayahMode = false): Juz {
   const ayahId: AyahId = ayahMode
     ? ayah
     : ((checkValidSurahAyah(surah, ayah)
-      && findAyaidBySurah(surah, ayah)) as AyahId)
+      && findAyahIdBySurah(surah, ayah)) as AyahId)
 
-  return findJuzByAyaid(ayahId)
+  return findJuzByAyahId(ayahId)
 }

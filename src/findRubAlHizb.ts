@@ -1,5 +1,5 @@
-import { findAyaidBySurah } from "./findAyaidBySurah"
-import { getRubAlHizbMetaByAyaid } from "./getRubAlHizbMetaByAyaid"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
 import { AyahId, AyahNo, JuzHizb, Surah } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -18,7 +18,7 @@ export function findRubAlHizb(
 ): JuzHizb {
   const ayahId: AyahId = ayahMode
     ? ayah
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
+    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
 
-  return getRubAlHizbMetaByAyaid(ayahId)
+  return getRubAlHizbMetaByAyahId(ayahId)
 }

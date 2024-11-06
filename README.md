@@ -31,27 +31,27 @@ This project is to help with Quran related meta queries.
 
 Answering Questions like:
 
-* How many ayahs in given sura (`getAyahCountinSurah`)
-* Is given aya 
+* How many ayahs in given surah (`getAyahCountinSurah`)
+* Is given ayah 
   * a sajdah ayah (`getAyahMeta`)?
   * beginnning of a page (`isAyahPageFirst`)? 
   * beginnning of a juz (`isAyahJuzFirst`)?
 * Find 
   * next or previous ayah (`nextAyah`/`prevAyah`)
-  * juz `findJuz` and `findJuzByAyaid`
-  * hizb `findRubAlHizb`, `getRubAlHizbMetaByAyaid`
-  * page `findPage` by surah/aya
-  * Ayaid of a given surah/aya (`findAyaidBySurah`)
+  * juz `findJuz` and `findJuzByAyahId`
+  * hizb `findRubAlHizb`, `getRubAlHizbMetaByAyahId`
+  * page `findPage` by surah/ayah
+  * AyahId of a given surah/ayah (`findAyahIdBySurah`)
   * find range around ayah (`findRangeAroundAyah`)
 * Get meta data for
   * ayah  (`getAyahMeta`)
   * surah  (`getSurahMeta`)
   * page  (`getPageMeta`)
   * juz  (`findJuzMetaBySurah`)
-  * maqra/rub-el-hizb  (`getRubAlHizbMeta`, `getRubAlHizbMetaByAyaid`)
+  * maqra/rub-el-hizb  (`getRubAlHizbMeta`, `getRubAlHizbMetaByAyahId`)
 * Validates ayah/surah id (`checkValidAyahId`,`checkValidSurah`, `checkValidSurahAyah`) 
-* converts `[surah,aya]` to `ayaId` and vice-verse ( `findSurahByAyaid` and  `findAyaidBySurah`) 
-* Checks and turns strings of type "x:y" or "x:y1-y2" to surah/aya range `ayaStringSplitter`.
+* converts `[surah, ayah]` to `ayahId` and vice-verse ( `findSurahByAyahId` and  `findAyahIdBySurah`) 
+* Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range `ayaStringSplitter`.
 
 ### Installation
 
@@ -85,14 +85,14 @@ In Node.js see example [here](/examples/hello.cjs):
 var quranMeta = require("quran-meta")
 
 console.log(" Assalam Aleykum! ") // => 'Assalam Aleykum!'
-console.log(`There are ${quranMeta.meta.numSuras} suras in the Holy Quran`) // => 'There are 114 suras in the Holy Quran'
+console.log(`There are ${quranMeta.meta.numSurahs} suras in the Holy Quran`) // => 'There are 114 suras in the Holy Quran'
 
 ```
 In the browser/ES:
 ```js
 import { meta } from "quran-meta"
 console.log("Assalam Aleykum!")
-console.log(`There are ${meta.numSuras} suras in the Holy Quran`) // => 'There are 114 suras in the Holy Quran'
+console.log(`There are ${meta.numSurahs} suras in the Holy Quran`) // => 'There are 114 suras in the Holy Quran'
 ```
 
 In TypeScript:
@@ -100,9 +100,9 @@ In TypeScript:
 ```ts
 import { meta, getAyahCountinSurah, AyahNo, Surah } from "quran-meta"
 
-console.log(`There are ${meta.numSuras} suras in the Holy Quran`)
+console.log(`There are ${meta.numSurahs} suras in the Holy Quran`)
 
-for (let surah: Surah = 1; surah <= meta.numSuras; surah++) {
+for (let surah: Surah = 1; surah <= meta.numSurahs; surah++) {
   const ayaCount = getAyahCountinSurah(surah)
   console.log(surah, ': ',ayaCount)
 }
@@ -111,8 +111,8 @@ for (let surah: Surah = 1; surah <= meta.numSuras; surah++) {
 ### Terminology
 
 * Surah: A chapter of the Quran. There are 114 chapters in Quran, each of different length.
-* Aya: A verse number in the particular surah (chapter) of Quran. it is relative to the surah.
-* Ayaid: Unique identifier for a verse in the Quran. It is a number that is the concatenation of the of sum ayahs of previous chapters of Quran and the verse number of particular Aya. There are 6236 ayahs in Quran. AyaId is absolute and is not relative to any surah.
+* Ayah: A verse number in the particular surah (chapter) of Quran. it is relative to the surah.
+* AyahId: Unique identifier for a verse in the Quran. It is a number that is the concatenation of the of sum ayahs of previous chapters of Quran and the verse number of particular Ayah. There are 6236 ayahs in Quran. AyahId is absolute, positive and is not relative to any surah.
 
 * *Juz*: A section of the Quran. There are 30 Juz in Quran of roughly equal length.
 * *Hizb*: Each Juz' is divided into two Hizb. Therefore, there are 60 Hizbs in the Quran.

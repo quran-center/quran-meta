@@ -1,7 +1,7 @@
 import { meta } from "./const"
 import { findPage } from "./findPage"
-import { findSurahByAyaid } from "./findSurahByAyaid"
-import { getRubAlHizbMetaByAyaid } from "./getRubAlHizbMetaByAyaid"
+import { findSurahByAyahId } from "./findSurahByAyahId"
+import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
 import { HizbQuarterList } from "./lists/hizbList"
 import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
@@ -20,8 +20,8 @@ export function getAyahMeta(ayahId: Page): AyahMeta {
   if (ayahId < 1 || ayahId > meta.numAyahs)
     throw new RangeError("ayahId must be between 1 and " + meta.numAyahs)
 
-  const quarterData = getRubAlHizbMetaByAyaid(ayahId)
-  const [surah, ayah] = findSurahByAyaid(ayahId)
+  const quarterData = getRubAlHizbMetaByAyahId(ayahId)
+  const [surah, ayah] = findSurahByAyahId(ayahId)
   const page: Page = findPage(-1, ayahId, true)
   const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
   const isStartOfSurah = SurahList[surah][0] === ayahId

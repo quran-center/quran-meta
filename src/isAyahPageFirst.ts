@@ -1,4 +1,4 @@
-import { findAyaidBySurah } from "./findAyaidBySurah"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { PageList } from "./lists/pageList"
 import { AyahId, AyahNo, Page, Surah } from "./types"
 import { binarySearch } from "./utils"
@@ -19,7 +19,7 @@ export function isAyahPageFirst(
 ): Page {
   const ayahId: AyahId = ayahMode
     ? ((checkValidAyahId(ayah) && ayah) as AyahId)
-    : ((checkValidSurah(surah) && findAyaidBySurah(surah, ayah)) as AyahId)
+    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
 
   return binarySearch(PageList, ayahId)
   // return PageList.findIndex((x: AyahId) => x == ayahId)

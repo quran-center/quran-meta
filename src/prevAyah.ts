@@ -1,6 +1,6 @@
 import { meta } from "./const"
-import { findAyaidBySurah } from "./findAyaidBySurah"
-import { findSurahByAyaid } from "./findSurahByAyaid"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findSurahByAyahId } from "./findSurahByAyahId"
 import { AyahId, AyahNo, Surah, SurahAyah } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -13,6 +13,6 @@ import { checkValidSurah } from "./validation"
 export function prevAyah(surah: Surah, ayah: AyahNo): SurahAyah {
   checkValidSurah(surah)
 
-  const ayaid: AyahId = findAyaidBySurah(surah, ayah)
-  return findSurahByAyaid(ayaid == 1 ? meta.numAyahs : ayaid - 1)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
+  return findSurahByAyahId(ayahId == 1 ? meta.numAyahs : ayahId - 1)
 }

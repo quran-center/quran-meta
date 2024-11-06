@@ -1,5 +1,5 @@
 import { meta } from "./const"
-import { findSurahByAyaid } from "./findSurahByAyaid"
+import { findSurahByAyahId } from "./findSurahByAyahId"
 import { PageList } from "./lists/pageList"
 import { AyahId, Page, PageMeta } from "./types"
 
@@ -21,7 +21,7 @@ export function getPageMeta(pageNum: Page): PageMeta {
 
   return {
     pageNum,
-    first: findSurahByAyaid(curPage),
-    last: [...findSurahByAyaid(nextPage - 1)]
+    first: findSurahByAyahId(curPage),
+    last: [...findSurahByAyahId(nextPage - 1)]
   }
 }
