@@ -31,7 +31,7 @@ This project is to help with Quran related meta queries.
 
 Answering Questions like:
 
-* How many ayahs in given sura (`getAyahCountinSura`)
+* How many ayahs in given sura (`getAyahCountinSurah`)
 * Is given aya 
   * a sajdah ayah (`getAyahMeta`)?
   * beginnning of a page (`isAyahPageFirst`)? 
@@ -98,12 +98,12 @@ console.log(`There are ${meta.numSuras} suras in the Holy Quran`) // => 'There a
 In TypeScript:
 
 ```ts
-import { meta, getAyahCountinSura, AyahNo, Surah } from "quran-meta"
+import { meta, getAyahCountinSurah, AyahNo, Surah } from "quran-meta"
 
 console.log(`There are ${meta.numSuras} suras in the Holy Quran`)
 
 for (let surah: Surah = 1; surah <= meta.numSuras; surah++) {
-  const ayaCount = getAyahCountinSura(surah)
+  const ayaCount = getAyahCountinSurah(surah)
   console.log(surah, ': ',ayaCount)
 }
 ```

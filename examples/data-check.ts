@@ -1,13 +1,17 @@
 /**
- * This example creates  list of [surah,ayah] number pairs in Holy Quran
+ * This script checks data in this library against other sources
  */
 // pnpx jiti data-check
 
 import { AyahId, findAyaidBySurah, findJuz, findPage, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyaid, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahMeta } from "../src/index"
+// https://qurancomplex.gov.sa/en/techquran/dev/
 import hafsData from "./data/hafsData_v2-0.json"
 import hafsSmartData from "./data/hafs_smart_v8.json"
+// https://api.alquran.cloud/v1/meta
 import quranCloud from "./data/qcloud-meta.json"
+// https://github.com/fawazahmed0/quran-api
 import quranApi from "./data/quran-api.json"
+// https://tanzil.net/res/text/metadata/quran-data.js
 import tanzilData from "./data/tanzil-data.js"
 
 console.log(`Running data-checks against various data sources`)

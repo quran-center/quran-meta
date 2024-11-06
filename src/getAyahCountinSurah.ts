@@ -6,6 +6,6 @@ import { Surah } from "./types"
  * @param surah - The surah number.
  * @returns The number of ayahs in the specified surah.
  */
-export function getAyahCountinSura(surah: Surah): number {
+export function getAyahCountinSurah(surah: Surah): number {
   return getSurahMeta(surah)[1]
 }
