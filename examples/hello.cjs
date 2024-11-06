@@ -1,4 +1,4 @@
-// node hello.js
+// node hello.cjs
 
 var quranMeta = require("../dist/index.cjs")
 console.log(" Hello World! ") // => 'Hello World'
