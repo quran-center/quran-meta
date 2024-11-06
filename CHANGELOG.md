@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v3.0.1-8
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-7...v3.0.1-8)
+
 ## v3.0.1-7
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-6...v3.0.1-7)
