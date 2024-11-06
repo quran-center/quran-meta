@@ -24,11 +24,11 @@ export function getAyahMeta(ayahId: Page): AyahMeta {
   const [surah, ayah] = findSurahByAyaid(ayahId)
   const page: Page = findPage(-1, ayahId, true)
   const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
-  const isStartOfSurah = SurahList[surah][0] + 1 === ayahId
+  const isStartOfSurah = SurahList[surah][0] === ayahId
   const isStartOfPage = PageList[page] === ayahId
   const isStartOfJuz = JuzList[quarterData.juz] === ayahId
   const isStartOfQuarter = HizbQuarterList[quarterData.rubAlHizbId] === ayahId
-  const isEndOfSurah = SurahList[surah + 1][0] === ayahId
+  const isEndOfSurah = SurahList[surah + 1][0] - 1 === ayahId
   const isEndOfPage = PageList[page + 1] - 1 === ayahId
   const isEndOfJuz = JuzList[quarterData.juz + 1] - 1 === ayahId
   const isEndOfQuarter = HizbQuarterList[quarterData.rubAlHizbId + 1] - 1 === ayahId

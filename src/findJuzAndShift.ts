@@ -36,7 +36,7 @@ export function findJuzAndShift(
   const [surahStartAyahId] = SurahList[surah]
   return {
     juz,
-    ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId + 1,
+    ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId,
     leftAyahId
   }
 }

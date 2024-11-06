@@ -11,5 +11,5 @@ import { checkValidSurahAyah } from "./validation"
 export function findAyaidBySurah(surah: Surah, ayah: AyahNo): AyahId {
   checkValidSurahAyah(surah, ayah)
   const [startAyahId] = getSurahMeta(surah)
-  return startAyahId + ayah
+  return startAyahId + ayah - 1
 }

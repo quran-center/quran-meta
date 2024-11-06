@@ -6,7 +6,7 @@ describe("Meta constants", () => {
   })
 
   it("should return correct numAyahs", () => {
-    expect(meta.numAyahs).toEqual(SurahList[meta.numSuras + 1][0])
+    expect(meta.numAyahs).toEqual(SurahList[meta.numSuras + 1][0] - 1)
   })
 
   it("should return correct numManzils", () => {

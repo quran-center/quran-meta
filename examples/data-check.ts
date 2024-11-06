@@ -86,7 +86,7 @@ function checkQuranApi() {
     const { chapter, name: oName, englishname, arabicname, revelation, verses } = quranApi.chapters[surahNo - 1]
 
     if (surahNo !== chapter) console.warn("error QuranApi surah: ", surahNo, chapter)
-    if (startAyahId + 1 !== verses[0].line) console.warn("error QuranApi surah: ", startAyahId, verses[0].line)
+    if (startAyahId  !== verses[0].line) console.warn("error QuranApi surah: ", startAyahId, verses[0].line)
     if (ayahCount !== verses.length) console.warn("error QuranApi surah: ", ayahCount, verses.length)
   }
 
@@ -161,7 +161,7 @@ function checkTanzil() {
     ]: SurahMeta = SurahList[surahNo]
     const sura = tanzilData.Sura[surahNo]
 
-    if (startAyahId !== sura[0]) console.warn("error Tanzil surah: ", startAyahId, sura)
+    if (startAyahId !== sura[0]+1) console.warn("error Tanzil surah: ", startAyahId, sura)
     if (ayahCount !== sura[1]) console.warn("error Tanzil surah: ", ayahCount, sura)
     if (surahOrder !== sura[2]) console.warn("error Tanzil surah: ", surahOrder, sura)
     if (rukuCount !== sura[3]) console.warn("error Tanzil surah: ", rukuCount, sura)

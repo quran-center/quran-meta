@@ -34,7 +34,7 @@ export function findRangeAroundAyah(
     }
 
     case "surah": {
-      return [SurahList[surah][0] + 1, SurahList[surah + 1][0]]
+      return [SurahList[surah][0], SurahList[surah + 1][0] - 1]
     }
 
     case "ayah": {
