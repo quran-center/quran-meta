@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v3.0.1
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-9...v3.0.1)
+
 ## v3.0.1-beta
 
 This version is a complete rewrite of the project. Functionality has been greatly extended, most of the functions have been renamed and new ones have been added. 
