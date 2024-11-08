@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v3.1.0
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1...v3.1.0)
+
+### 🚀 Enhancements
+
+- Add turkish and Azerbaijani surahNames (7d17ce2)
+
+### 🏡 Chore
+
+- More test cases (9d32a28)
+
+### ❤️ Contributors
+
+- HG ([@husayt](http://github.com/husayt))
+
 ## v3.0.1
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.0.1-9...v3.0.1)
