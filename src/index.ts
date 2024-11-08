@@ -38,5 +38,7 @@ export { checkValidAyahId, checkValidSurah, checkValidSurahAyah } from "./valida
 
 // ------------------ Sura i18 Data ---------------------
 
-export { surahNames as surahNamesEn } from "./i18n/surah.en"
-export { surahNames as surahNamesRu } from "./i18n/surah.ru"
+export { surahNamesAz } from "./i18n/surah.az"
+export { surahNamesEn } from "./i18n/surah.en"
+export { surahNamesRu } from "./i18n/surah.ru"
+export { surahNamesTr } from "./i18n/surah.tr"

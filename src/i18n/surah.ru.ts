@@ -1,5 +1,5 @@
 import { SurahName } from "../types"
-export const surahNames: (SurahName | [])[] = [
+export const surahNamesRu: (SurahName | [])[] = [
   [],
   ["Аль-Фатиха", "Открывающая Коран"],
   ["Аль-Бакара", "Корова"],

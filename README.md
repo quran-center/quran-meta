@@ -53,6 +53,13 @@ Answering Questions like:
 * converts `[surah, ayah]` to `ayahId` and vice-verse ( `findSurahByAyahId` and  `findAyahIdBySurah`) 
 * Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range `ayaStringSplitter`.
 
+
+### Playground
+
+See in action and try it without installing anything:
+
+* [Quran Meta Playground](https://play.vuejs.org/#eNrdVsuS0zoQ/ZUub8hUje153OLWTWVSwIXFUAUMz5U3it12PMiS0SNMSPnfaUm2E0MIC3ZsZqyj7tNHre5WdtHTtk02FqN5tNC5qluzzETdtFIZyKK1Ma2ep2leiOReF8jrjUoEmlS0TfrECplrnSorTN1gFo2OO1BYnkMum9YaLKCDUskGHlGcR5lYpGMgWoRv0Ghsuw+9gwYNO4eyFsUdq5DI1ph//sR4Xby3iq2fbtk6bLuv2+LZ1sMBemm/DSG/ECpiR0aRM5FLoSmYM4Ubp3J2fTagjIh68IrATHA00FJwAoejzGZncLMcZc08U7Jh3JJERxC+z8jfeTvktjjuP9H9O6J7++04Cx31lG/wRqWkeqWrnyl2mQAwahs+4FiWf0nvPDrImcnXMMOzgULRTSoB6Lfdnx6g+qAK6chtWgAGm5Yzg7QCWKwvl2/dlcErujK442xbKWlFsUhpJ1hcQc6Z1jdZZPDBxCvSkkVLrxd2u/5yuw5icPId5G+264jjKnBwtkI+0qy4zD+DJ9NN+hhKKQyVTFHbJqCVYtv4v4uLIUw46KIWlErYxI2kziAeHzmLwGxbpKWwzQqVO7SzptxOwoE/FhZxU8BKqgJVfEFXcRgO9JoV8iuJAlWLKr4M/2pBzRI+veU1WZYyt3rusavDRbCdAEVdyfixY2/m45lJdRpSk/rc/GmaXOZ/kSV3GX9NkvyqqDd0vrok2UOnkemkSBUWlBUqxbEVXTmSY+CznAiQa5x6VQpRxP966WOuiafPLK+XbgjNXYn7OeU4Cdxv+wa4LbxFP4smNoMdTRFv48bMgcEiteMhqXU+aixJ6UF/PmeG9V3Vm3mHgfa1v1yQJfi20T6Gm8UJXXuAfta8d3Lqpz4eOeXi8jF18cgpFzr71MMBR7KwSA8mVXQehZcqblhLT6MU9ID6AZj1GzqLiDUEzKL9M+Tg3zyse+Mn18lFckl1ok1KRYkPSXNPxP1o7UiF0fR4lXX1gwY35muO6k1ranrcJloY5/LrS48ZRTN9wP3sP4Lf64cg+k6hRrWhaTvuGaYqNGH7xfvXVLQHm9TxlpP1ic13qCW3TmMwe0btTrIP7LzaW59Sas0P+sWDQaGHQzmhPhvePovoF8b/J46+l3ud/DNmsfsORXsKvA==) - interactive playground for Quran-Meta
+
 ### Installation
 
 #### In a browser:
@@ -130,9 +137,6 @@ See [here](https://quran-center.github.io/quran-meta/docs/) for API documentatio
 You can find some examples [here](https://quran-center.github.io/quran-meta/examples/) and souce code for them [here](https://github.com/quran-center/quran-meta/tree/master/examples)
 
 
-### Playground
-
-* [Quran Meta Playground](https://play.vuejs.org/#eNrdVk2T0zgQ/StdvpCpGsfDzBZbm8qkFnY5DFWws8vCyRfFbjsaZMnoI0xI+b/TkmwnhhAO3LjMWE/dr1+31K3sk+dtO986TBbJ0hSat3aVS960SlvIk421rVlkWVHK+YMpUfCtnku0mWyb7E8nVWFMpp20vME8GR33oLG6hEI1rbNYQgeVVg08oThPcrnMxkC0iN9g0Lr2EHoPDVp2CRWX5T2rkcg2WHx4zwQv3zrNNs93bBO36YuXL3YBjcgr93mI+JFQmXouCpzLQklDsbwp3HqRs5uLAWXE2IPXBOZSoIWWYhM4ZDKbXcDtalQ1C0zzLROOFHqC+H1B/t7bI3flaf9j2T/ieXCfT5NQpud8ozdqrfRrU39Lsc8lgNW7+AGnavxdeu/RQcFssYEZXgwUms5RS8Cw7f/0AN0Ouh8duU2P32LTCmaRVgDLzdPVv/7E4DWdGNwLtqu1crJcZrQTLa6hEMyY2zyx+GjTNWnJk1XQC/t9f7ZdByl4+R4KB9t1xHEdOQRboxhp1kIVHyCQmSZ7BpWSlm5MyV0T0VqzXfrH1dUQJia65JJKCdu0UdQXxBMi5wnYXYu0lK5Zo/ZJe2uq7SQchLSwTJsS1kqXqNMrOorjcGA2rFSfSBRoLuv0afzHJbVK/AyWN2RZqcKZRcCujxfRdgKUvFbpM8/eLMacSXUWS5OF2vxsmXzlv1Mlfxi/TJHCquRbyo9XJHvoNDKdXFKNJVWFruLYiv46kmPkc4IIUBicetUaUaa/B+ljrYmnr6zgKz+DFv6KhzHlOQk8bIcGuCuDRT+KJjaDHU2RYOPHzJHBMnNjktQ67wxWpPSoP/9mlvVd1ZsFh4H2TThcUBWEtjEhhh/Fczp2D5lvJR98vPipCyFnPXw1ph4BOedCmU89PHCiBsvsaE4ll0l8pdKGtfQsKkmPZxh/eb9h8oRYY8A8ObxBHv7Bo3owpvthbEaXER/nzQNR9iO1o/jW0JtV8fqr6H68c4H6n9ZyetMmKpgQ6tOrgFlNs3zAw8w/gT+Yxyj3XqNBvaUpO+5Zpmu0cfvl2zd0WY82qdOdIOszm/+hUcJ5jdHsBbU5yT6yC2rvQjGpJf83Lx8tSjMk5YWGagT7PKHfFX+dSf0g92b+21jF7gtouQgs) - interactive playground for Quran-Meta
 
 ### Projects using Quran-meta
 
@@ -184,3 +188,5 @@ Here you can find the following
 * [AlQuran Cloud](https://alquran.cloud/api)
 * [KFGC Data](https://qurancomplex.gov.sa/en/techquran/dev/)
 
+### License
+This software is distributed under MIT license.
