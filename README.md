@@ -143,9 +143,12 @@ You can find some examples [here](https://quran-center.github.io/quran-meta/exam
 * [Koran-Center](https://koran.center) - Powerful and feature rich  web application for reading and studying the Holy Quran.
 
 ### Demo
-* [Quran Meta Visualiser](https://codesandbox.io/s/quran-visualiser-p3zjd) - demo app showcasing number of methods from Quran-meta to build interactive visualisations of Quran structure using Alpine.js & chart.js
+* [Quran Meta Visualiser ESM Alpine3](https://codesandbox.io/p/sandbox/quran-visualiser-esm-alpine-3-q89frt) - demo app showcasing number of methods from Quran-meta to build interactive visualisations of Quran structure using Alpine.js 3 & Chart.js 4 in ESM format.
 
-* [Quran Meta Visualiser ES module version](https://codesandbox.io/s/quran-visualiser-es-module-f0sq0) - ES Module version of the previous demo
+* [Quran Meta Visualiser ES module version](https://codesandbox.io/s/quran-visualiser-es-module-f0sq0) - Alpine.js 2& ChartJs.2 version of the previous demo
+
+* [Quran Meta Visualiser CJS](https://codesandbox.io/s/quran-visualiser-p3zjd) - CommonJS version of the previous demo
+
 
 ![Demo image](https://quran-center.github.io/quran-meta/examples/demo-quran-visualiser.jpg)
 
