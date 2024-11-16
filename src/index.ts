@@ -43,4 +43,3 @@ export { surahNamesAz } from "./i18n/surah.az"
 export { surahNamesEn } from "./i18n/surah.en"
 export { surahNamesRu } from "./i18n/surah.ru"
 export { surahNamesTr } from "./i18n/surah.tr"
-
