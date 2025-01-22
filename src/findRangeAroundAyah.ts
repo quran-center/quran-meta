@@ -5,7 +5,7 @@ import { findPage } from "./findPage"
 import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
 import { SurahList } from "./lists/surahList"
-import { AyahId, AyahNo, Juz, Page, Surah, SurahAyah } from "./types"
+import { AyahId, AyahNo, AyahRange, Juz, Page, Surah } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**
@@ -22,7 +22,7 @@ export function findRangeAroundAyah(
   ayah: AyahNo,
   mode: "juz" | "surah" | "ayah" | "page" | "all",
   ayahMode = false
-): SurahAyah {
+): AyahRange {
   const ayahId: AyahId = ayahMode
     ? ayah
     : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)

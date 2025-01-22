@@ -11,6 +11,7 @@ export type JuzHizb = {
   rubAlHizbId: number
 }
 export type SurahAyah = [Surah, AyahNo]
+export type AyahRange = [AyahId, AyahId]
 export type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]]
 export type PageMeta = {
   pageNum: Page
