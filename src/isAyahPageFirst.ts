@@ -11,7 +11,7 @@ import { checkValidAyahId } from "./validation"
  */
 export function isAyahPageFirst(
   ayahId: AyahId
-): Page | -1 {
+): Page | number {
   checkValidAyahId(ayahId)
 
   return binarySearch(PageList, ayahId) as Page | -1

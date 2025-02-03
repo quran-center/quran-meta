@@ -12,7 +12,7 @@ import { checkValidAyahId } from "./validation"
  */
 export function isAyahJuzFirst(
   ayahId: AyahId
-): Juz | -1 {
+): Juz | number {
   checkValidAyahId(ayahId)
 
   return binarySearch(JuzList, ayahId) as Juz | -1

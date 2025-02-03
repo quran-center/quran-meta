@@ -27,7 +27,7 @@ export function checkValidSurah(surah: Surah | number | unknown): asserts surah 
  * @param ayah - The ayah number or AyahNo object to validate
  * @throws Error If the surah-ayah combination is invalid
  */
-export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: number | AyahNo) {
+export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: number | AyahNo | unknown) {
   checkValidSurahAyahPair([surah, ayah])
 }
 

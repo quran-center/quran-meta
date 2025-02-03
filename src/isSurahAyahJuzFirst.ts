@@ -21,7 +21,7 @@ import { checkValidSurah } from "./validation"
 export function isSurahAyahJuzFirst(
   surah: Surah,
   ayah: AyahNo
-): Juz | -1 {
+): Juz | number {
   checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
 
