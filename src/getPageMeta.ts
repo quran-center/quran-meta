@@ -1,7 +1,7 @@
-import { meta } from "./const"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { PageList } from "./lists/pageList"
 import { AyahId, Page, PageMeta } from "./types"
+import { checkValidPage } from "./validation"
 
 /**
  * Retrieves metadata for a specific page of the Quran.
@@ -11,8 +11,7 @@ import { AyahId, Page, PageMeta } from "./types"
  * @throws RangeError If the page number is not between 1 and 604
  */
 export function getPageMeta(pageNum: Page): PageMeta {
-  if (pageNum < 1 || pageNum > meta.numPages)
-    throw new RangeError("pagenum must be between 1 and " + meta.numPages)
+  checkValidPage(pageNum)
 
   const [curPage, nextPage]: [AyahId, AyahId] = [
     PageList[pageNum],

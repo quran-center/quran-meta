@@ -1,4 +1,3 @@
-import { meta } from "./const"
 import { findPagebyAyahId } from "./findPagebyAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
@@ -8,6 +7,7 @@ import { PageList } from "./lists/pageList"
 import { SajdaList } from "./lists/sajdaList"
 import { SurahList } from "./lists/surahList"
 import { AyahId, AyahMeta, Page } from "./types"
+import { checkValidAyahId } from "./validation"
 
 /**
  * Retrieves metadata for a specific ayah of the Quran.
@@ -17,8 +17,7 @@ import { AyahId, AyahMeta, Page } from "./types"
  * @throws RangeError If the ayahId number is not between 1 and 6236
  */
 export function getAyahMeta(ayahId: AyahId): AyahMeta {
-  if (ayahId < 1 || ayahId > meta.numAyahs)
-    throw new RangeError("ayahId must be between 1 and " + meta.numAyahs)
+  checkValidAyahId(ayahId)
 
   const quarterData = getRubAlHizbMetaByAyahId(ayahId)
   const [surah, ayah] = findSurahAyahByAyahId(ayahId)

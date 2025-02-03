@@ -45,6 +45,15 @@ export function isValidJuz(x: number): x is Juz {
   return Number.isInteger(x) && 1 <= x && x <= meta.numJuzs
 }
 
+/**
+ * Type guard to check if a number is a valid Quran page number
+ * @param x - The number to check
+ * @returns True if the number is an integer between 1 and the total number of pages (inclusive)
+ */
+export function isValidPage(x: number): x is Juz {
+  return Number.isInteger(x) && 1 <= x && x <= meta.numPages
+}
+
 export function isValidAyahCountBetweenJuzSurah(x: number): x is Juz {
   return Number.isInteger(x) && 1 <= x && x <= meta.numJuzs
 }

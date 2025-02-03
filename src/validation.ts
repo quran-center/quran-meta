@@ -1,7 +1,7 @@
 import { meta } from "./const"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
-import { isValidAyahId, isValidSurah } from "./typeGuards"
-import { AyahId, AyahNo, Surah, SurahAyah } from "./types"
+import { isValidAyahId, isValidJuz, isValidPage, isValidSurah } from "./typeGuards"
+import { AyahId, AyahNo, Juz, Page, Surah, SurahAyah } from "./types"
 
 /**
  * Validates if the provided value is a valid Surah number.
@@ -65,5 +65,23 @@ export function checkValidAyahId(ayahId: unknown | number | AyahId): asserts aya
   }
   if (!isValidAyahId(ayahId)) {
     throw new RangeError("Ayah ID must be between 1 and " + meta.numAyahs)
+  }
+}
+
+export function checkValidPage(x: unknown | number | Page): asserts x is Page {
+  if (typeof x !== "number" || !Number.isInteger(x)) {
+    throw new TypeError("Page must be an integer")
+  }
+  if (!isValidPage(x)) {
+    throw new RangeError("Page must be between 1 and " + meta.numPages)
+  }
+}
+
+export function checkValidJuz(x: unknown | number | Juz): asserts x is Juz {
+  if (typeof x !== "number" || !Number.isInteger(x)) {
+    throw new TypeError("Juz must be an integer")
+  }
+  if (!isValidJuz(x)) {
+    throw new RangeError("Juz must be between 1 and " + meta.numJuzs)
   }
 }
