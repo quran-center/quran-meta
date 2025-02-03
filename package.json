@@ -73,21 +73,21 @@
     "verify": "pnpx jiti examples/data-check"
   },
   "devDependencies": {
-    "@eslint/js": "9.18.0",
-    "@stylistic/eslint-plugin": "^2.13.0",
-    "@types/node": "22.10.7",
-    "@vitest/coverage-v8": "3.0.2",
+    "@eslint/js": "9.19.0",
+    "@stylistic/eslint-plugin": "^3.0.1",
+    "@types/node": "22.13.0",
+    "@vitest/coverage-v8": "3.0.4",
     "changelogen": "^0.5.7",
-    "eslint": "9.18.0",
+    "eslint": "9.19.0",
     "eslint-plugin-tsdoc": "^0.4.0",
     "globals": "^15.14.0",
     "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
     "typedoc": "^0.27.6",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.20.0",
+    "typescript-eslint": "^8.22.0",
     "unbuild": "3.3.1",
-    "vitest": "^3.0.2"
+    "vitest": "^3.0.4"
   },
   "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
 }
