@@ -1,7 +1,7 @@
 import { SurahMeta } from "../types"
 
 export const SurahList: SurahMeta[] = [
-  [-1, -1, -1, -1, "", false, -1],
+  [-1, 1, 1, -1, "", false, 0], // this value is not used, but is here to make the array 1-indexed
   [1, 7, 5, 1, "الفاتحة", true, 1],
   [8, 286, 87, 40, "البقرة", false, 2],
   [294, 200, 89, 20, "آل عمران", false, 50],
@@ -116,5 +116,5 @@ export const SurahList: SurahMeta[] = [
   [6222, 4, 22, 1, "الإخلاص", true, 604],
   [6226, 5, 20, 1, "الفلق", true, 604],
   [6231, 6, 21, 1, "الناس", true, 604],
-  [6237, 0, -1, -1, "", false, -1]
+  [6237, 1, 1, -1, "", false, 604] // this value is not used, but is here to be used as a length check
 ] as const

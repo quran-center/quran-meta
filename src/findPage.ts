@@ -1,7 +1,7 @@
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { PageList } from "./lists/pageList"
 import { AyahId, AyahNo, Page, Surah } from "./types"
-import { checkValidAyahId, checkValidSurah } from "./validation"
+import { checkValidSurah } from "./validation"
 
 /**
  * Finds the page number for the given Surah and Ayah number.
@@ -11,10 +11,9 @@ import { checkValidAyahId, checkValidSurah } from "./validation"
  * @param ayahMode - If true, the `ayah` parameter is treated as an AyahId instead of an AyahNo.
  * @returns The page number for the given Surah and Ayah.
  */
-export function findPage(surah: Surah, ayah: AyahNo, ayahMode = false): Page {
-  const ayahId: AyahId = ayahMode
-    ? ((checkValidAyahId(ayah) && ayah) as AyahId)
-    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
+export function findPage(surah: Surah, ayah: AyahNo | AyahId): Page {
+  checkValidSurah(surah)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah as AyahNo)
 
-  return PageList.findIndex(x => x > ayahId) - 1
+  return PageList.findIndex(x => x > ayahId) - 1 as Page
 }

@@ -10,7 +10,7 @@ export function binarySearch(
   ar: Array<number>,
   el: number,
   compare_fn: (a: number, b: number) => number = (a, b) => a - b
-): number {
+): number | -1 {
   let m = 0
   let n = ar.length - 1
   while (m <= n) {

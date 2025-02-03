@@ -1,16 +1,15 @@
-import { SurahList as findSurahByAyahIdModule } from "./lists/surahList"
-import { AyahId, Surah, SurahAyah } from "./types"
-import { checkValidAyahId } from "./validation"
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
+import { AyahId, Surah } from "./types"
 
 /**
- * Finds the Surah (chapter) and Ayah (verse) numbers that the given Ayah ID belongs to.
+ * Finds a Surah based on the provided Ayah ID.
  *
- * @param ayaId - The Ayah ID to find the Surah and Ayah numbers for.
- * @returns An array containing the Surah number and the Ayah number within that Surah.
+ * @param ayaId - The unique identifier of the Ayah
+ * @returns The Surah that contains the specified Ayah
+ *
+ * @example
+ * const surah = findSurahByAyahId(1234);
  */
-export function findSurahByAyahId(ayaId: AyahId): SurahAyah {
-  checkValidAyahId(ayaId)
-
-  const suraNum: Surah = findSurahByAyahIdModule.findIndex(x => x[0] > ayaId) - 1
-  return [suraNum, ayaId - findSurahByAyahIdModule[suraNum][0] + 1]
+export function findSurahByAyahId(ayaId: AyahId): Surah {
+  return findSurahAyahByAyahId(ayaId)[0]
 }

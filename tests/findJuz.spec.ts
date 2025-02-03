@@ -1,4 +1,4 @@
-import { findJuz } from "../src"
+import { findJuz, findJuzByAyahId } from "../src"
 
 describe("findJuz", () => {
   it("basic", () => {
@@ -12,9 +12,16 @@ describe("findJuz", () => {
   })
 
   it("should return correct juz for first ayah of first surah", () => {
-    expect(findJuz(0, 1, true)).toEqual(1)
-    expect(findJuz(0, 6236, true)).toEqual(30)
+    expect(findJuzByAyahId(1)).toEqual(1)
+    expect(findJuzByAyahId(6236)).toEqual(30)
   })
+
+  it("should return correct juz for first ayah of first surah", () => {
+    expect(findJuzByAyahId(5672)).toEqual(29)
+    expect(findJuzByAyahId(5673)).toEqual(30)
+    expect(findJuzByAyahId(6236)).toEqual(30)
+  })
+
   it("should return correct juz for last surah", () => {
     expect(findJuz(114, 1)).toEqual(30)
   })
@@ -38,6 +45,8 @@ describe("findJuz", () => {
 
   it("should handle invalid surah numbers", () => {
     expect(() => findJuz(115, 1)).toThrow()
+
+    expect(() => findJuzByAyahId(6237)).toThrow()
   })
 
   it("should handle invalid ayah numbers", () => {

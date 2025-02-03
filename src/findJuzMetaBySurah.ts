@@ -21,7 +21,7 @@ export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1): JuzMeta {
   let rightJuz: Juz = leftjuz
   while (
     rightJuz < meta.numJuzs
-    && findSurahByAyahId(JuzList[rightJuz + 1])[0] === surah
+    && findSurahByAyahId(JuzList[rightJuz + 1]) === surah
   ) {
     rightJuz++
   }

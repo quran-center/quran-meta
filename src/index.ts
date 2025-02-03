@@ -2,7 +2,7 @@
 
 export type { QuranMeta } from "./const"
 export type {
-  AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzHizb, JuzMeta, Page, PageMeta, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahMeta, SurahName
+    AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzHizb, JuzMeta, Page, PageMeta, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahMeta, SurahName
 } from "./types"
 
 export { ayahStringSplitter } from "./ayahStringSplitter"
@@ -13,9 +13,12 @@ export { findJuzAndShift } from "./findJuzAndShift"
 export { findJuzByAyahId } from "./findJuzByAyahId"
 export { findJuzMetaBySurah } from "./findJuzMetaBySurah"
 export { findPage } from "./findPage"
+export { findPagebyAyahId } from "./findPagebyAyahId"
 export { findRangeAroundAyah } from "./findRangeAroundAyah"
+export { findRangeAroundSurahAyah } from "./findRangeAroundSurahAyah"
 export { findRubAlHizb } from "./findRubAlHizb"
 export { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
+export { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 export { findSurahByAyahId } from "./findSurahByAyahId"
 export { getAyahCountInSurah } from "./getAyahCountInSurah"
 export { getAyahMeta } from "./getAyahMeta"
@@ -26,6 +29,8 @@ export { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
 export { getSurahMeta } from "./getSurahMeta"
 export { isAyahJuzFirst } from "./isAyahJuzFirst"
 export { isAyahPageFirst } from "./isAyahPageFirst"
+export { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"
+export { isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
 export { HizbQuarterList } from "./lists/hizbList"
 export { JuzList } from "./lists/juzList"
 export { ManzilList } from "./lists/manzilList"
@@ -35,6 +40,7 @@ export { SajdaList } from "./lists/sajdaList"
 export { SurahList } from "./lists/surahList"
 export { nextAyah } from "./nextAyah"
 export { prevAyah } from "./prevAyah"
+export { isValidAyahCountBetweenJuzSurah, isValidAyahId, isValidAyahNo, isValidJuz, isValidSurah, isValidSurahAyah } from "./typeGuards"
 export { checkValidAyahId, checkValidSurah, checkValidSurahAyah } from "./validation"
 
 // ------------------ Sura i18 Data ---------------------
@@ -43,3 +49,4 @@ export { surahNamesAz } from "./i18n/surah.az"
 export { surahNamesEn } from "./i18n/surah.en"
 export { surahNamesRu } from "./i18n/surah.ru"
 export { surahNamesTr } from "./i18n/surah.tr"
+

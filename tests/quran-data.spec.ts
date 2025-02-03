@@ -2,6 +2,7 @@ import {
   findAyahIdBySurah,
   findJuzMetaBySurah,
   findPage,
+  findSurahAyahByAyahId,
   findSurahByAyahId,
   getPageMeta,
   getSurahMeta,
@@ -43,9 +44,9 @@ console.log("pmeta", getPageMeta(1))
 // console.log("pmeta", pageMetaOld(1))
 
 const f = (i: AyahId) =>
-  expect(findAyahIdBySurah(...findSurahByAyahId(i))).toEqual(i)
+  expect(findAyahIdBySurah(...findSurahAyahByAyahId(i))).toEqual(i)
 const xf = (i: Surah, j: AyahNo) =>
-  expect(findSurahByAyahId(findAyahIdBySurah(i, j))).toEqual([i, j])
+  expect(findSurahAyahByAyahId(findAyahIdBySurah(i, j))).toEqual([i, j])
 
 describe("crossTest", () => {
   it("ayahId of surah of Ayah", () => {

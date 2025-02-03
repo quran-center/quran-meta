@@ -53,6 +53,9 @@ Answering Questions like:
 * converts `[surah, ayah]` to `ayahId` and vice-verse ( `findSurahByAyahId` and  `findAyahIdBySurah`) 
 * Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range `ayaStringSplitter`.
 
+### APi Reference Documentation
+
+See [here](https://quran-center.github.io/quran-meta/docs/) for API documentation
 
 ### Playground
 
@@ -128,11 +131,6 @@ for (let surah: Surah = 1; surah <= meta.numSurahs; surah++) {
 * *Page*: A section of the Quran that contains 15 lines (Madina mushaf)(depends on the mushaf).
 * *Saajdah*: Special ayahs that require reader to prostrate. There are 15 of them in Quran.
 
-
-### APi Reference Documentation
-
-See [here](https://quran-center.github.io/quran-meta/docs/) for API documentation
-
 ### Examples
 You can find some examples [here](https://quran-center.github.io/quran-meta/examples/) and souce code for them [here](https://github.com/quran-center/quran-meta/tree/master/examples)
 
@@ -156,7 +154,7 @@ You can find some examples [here](https://quran-center.github.io/quran-meta/exam
 
 Quran-Meta is 100% unit test covered and moreover data is cross checked with other apis to guarantee absolute correctness. 
 
-one can run `pnpx jiti examples/data-check` to run suite of  validation tests against the following data sources
+One can run `pnpx jiti examples/data-check` to run suite of  validation tests against the following data sources
 
 * `qcloud-meta.json` - [AlQuran Cloud Api metadata](https://api.alquran.cloud/v1/meta) 
 * `tanzil-data.js` - [Tanzil.net  metadata](https://tanzil.net/res/text/metadata/quran-data.js) 

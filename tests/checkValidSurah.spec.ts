@@ -1,10 +1,11 @@
 import { checkValidSurah, meta } from "../src"
+import { isValidSurah } from "../src/typeGuards"
 
 describe("checkValidSurah", () => {
   it("should return true for valid surah numbers", () => {
-    expect(checkValidSurah(1)).toBe(true)
-    expect(checkValidSurah(meta.numSurahs)).toBe(true)
-    expect(checkValidSurah(Math.floor(meta.numSurahs / 2))).toBe(true)
+    expect(checkValidSurah(1)).toBeUndefined()
+    expect(checkValidSurah(meta.numSurahs)).toBeUndefined()
+    expect(checkValidSurah(Math.floor(meta.numSurahs / 2))).toBeUndefined()
   })
 
   it("should throw RangeError for surah number less than 1", () => {
@@ -18,14 +19,14 @@ describe("checkValidSurah", () => {
   })
 
   it("should return false for invalid surah numbers when checkOnly is true", () => {
-    expect(checkValidSurah(0, true)).toBe(false)
-    expect(checkValidSurah(1.9, true)).toBe(false)
-    expect(checkValidSurah(meta.numSurahs + 1, true)).toBe(false)
+    expect(isValidSurah(0)).toBe(false)
+    expect(isValidSurah(1.9)).toBe(false)
+    expect(isValidSurah(meta.numSurahs + 1)).toBe(false)
   })
 
   it("should return true for valid surah numbers when checkOnly is true", () => {
-    expect(checkValidSurah(1, true)).toBe(true)
-    expect(checkValidSurah(meta.numSurahs, true)).toBe(true)
+    expect(isValidSurah(1)).toBe(true)
+    expect(isValidSurah(meta.numSurahs)).toBe(true)
   })
 
   it("should throw TypeError for non-number surah number", () => {

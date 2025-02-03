@@ -64,7 +64,7 @@ describe("findJuzMetaBySurah", () => {
 
   it("should use mocked findSurahByAyahId", () => {
     const mockFindSurahByAyahId = vi.spyOn(findSurahByAyahIdModule, "findSurahByAyahId")
-    mockFindSurahByAyahId.mockReturnValue([2, 1])
+    mockFindSurahByAyahId.mockReturnValue(2)
     const result = findJuzMetaBySurah(2)
     expect(mockFindSurahByAyahId).toHaveBeenCalled()
     expect(result.rightJuz).toBe(30)

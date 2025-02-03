@@ -1,32 +1,27 @@
 import { meta } from "./const"
-import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuzByAyahId } from "./findJuzByAyahId"
-import { findPage } from "./findPage"
+import { findPagebyAyahId } from "./findPagebyAyahId"
+import { findSurahByAyahId } from "./findSurahByAyahId"
 import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
 import { SurahList } from "./lists/surahList"
-import { AyahId, AyahNo, AyahRange, Juz, Page, Surah } from "./types"
-import { checkValidSurah } from "./validation"
+import { AyahId, AyahRange, Juz, Page, Surah } from "./types"
 
 /**
- * Finds a range of ayahs around a given ayah based on the specified mode.
- *
- * @param surah - The surah number (1-114)
- * @param ayah - The ayah number within the surah, or the absolute ayah ID if ayahMode is true
- * @param mode - The range mode: "juz", "surah", "ayah", "page", or "all"
- * @param ayahMode - If true, treats the ayah parameter as an absolute ayah ID
- * @returns A tuple containing the start and end ayah IDs of the range
+ * Finds the range of ayahs surrounding a given ayah based on specified mode
+ * @param ayahId - The unique identifier of the ayah
+ * @param mode - The scope for finding the range:
+ *   - "juz": Returns range of ayahs in the same juz
+ *   - "surah": Returns range of ayahs in the same surah
+ *   - "ayah": Returns the single ayah as both start and end of range
+ *   - "page": Returns range of ayahs on the same page
+ *   - "all": Returns range covering all ayahs (1 to total number of ayahs)
+ * @returns An array of two numbers representing the start and end ayah IDs of the range [startAyahId, endAyahId]
  */
 export function findRangeAroundAyah(
-  surah: Surah,
-  ayah: AyahNo,
-  mode: "juz" | "surah" | "ayah" | "page" | "all",
-  ayahMode = false
+  ayahId: AyahId,
+  mode: "juz" | "surah" | "ayah" | "page" | "all"
 ): AyahRange {
-  const ayahId: AyahId = ayahMode
-    ? ayah
-    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
-
   switch (mode) {
     case "juz": {
       const juz: Juz = findJuzByAyahId(ayahId)
@@ -34,6 +29,7 @@ export function findRangeAroundAyah(
     }
 
     case "surah": {
+      const surah: Surah = findSurahByAyahId(ayahId)
       return [SurahList[surah][0], SurahList[surah + 1][0] - 1]
     }
 
@@ -41,7 +37,7 @@ export function findRangeAroundAyah(
       return [ayahId, ayahId]
     }
     case "page": {
-      const page: Page = findPage(-1, ayahId, true)
+      const page: Page = findPagebyAyahId(ayahId)
       return [PageList[page], PageList[page + 1] - 1]
     }
 

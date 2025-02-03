@@ -1,4 +1,5 @@
 import { JuzList } from "./lists/juzList"
+import { isValidJuz } from "./typeGuards"
 import { AyahId, Juz } from "./types"
 import { checkValidAyahId } from "./validation"
 
@@ -11,5 +12,9 @@ import { checkValidAyahId } from "./validation"
 export function findJuzByAyahId(ayahId: AyahId): Juz {
   checkValidAyahId(ayahId)
 
-  return JuzList.findIndex(x => x > ayahId) - 1
+  const juz = JuzList.findIndex(x => x > ayahId) - 1
+  if (!isValidJuz(juz)) {
+    throw new TypeError(`Not a valid juz value ${juz}`)
+  }
+  return juz
 }

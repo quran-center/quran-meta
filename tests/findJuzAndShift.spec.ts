@@ -1,5 +1,5 @@
 import { meta } from "../src"
-import { findJuzAndShift } from "../src/findJuzAndShift"
+import { findJuzAndShift, findJuzAndShiftByAyahId } from "../src/findJuzAndShift"
 
 describe("findJuzAndShift", () => {
   it("basic", () => {
@@ -8,7 +8,7 @@ describe("findJuzAndShift", () => {
       leftAyahId: 1,
       ayahsBetweenJuzSurah: 0
     })
-    expect(findJuzAndShift(1, 1, true)).toEqual({
+    expect(findJuzAndShiftByAyahId(1)).toEqual({
       juz: 1,
       leftAyahId: 1,
       ayahsBetweenJuzSurah: 0
@@ -71,13 +71,13 @@ describe("findJuzAndShift", () => {
   })
 
   it("should return correct juz, leftAyahId, and ayahsBetweenJuzSurah for valid input in ayah mode", () => {
-    expect(findJuzAndShift(0, 8, true)).toEqual({
+    expect(findJuzAndShiftByAyahId(8)).toEqual({
       juz: 1,
       leftAyahId: 1,
       ayahsBetweenJuzSurah: 7
     })
 
-    expect(findJuzAndShift(0, 10, true)).toEqual({
+    expect(findJuzAndShiftByAyahId(10)).toEqual({
       juz: 1,
       leftAyahId: 1,
       ayahsBetweenJuzSurah: 7
@@ -99,11 +99,11 @@ describe("findJuzAndShift", () => {
   })
 
   it("should throw RangeError for invalid ayah in ayah mode", () => {
-    expect(() => findJuzAndShift(0, meta.numAyahs + 1, true)).toThrow(RangeError)
+    expect(() => findJuzAndShiftByAyahId(meta.numAyahs + 1)).toThrow(RangeError)
   })
 
-  it("should ignore surah number if yahmmode is true", () => {
-    const result = findJuzAndShift(-1, 1, true)
+  it("should ignore surah number if ayah mode is true", () => {
+    const result = findJuzAndShiftByAyahId(1)
     expect(result.juz).toBeGreaterThan(0)
     expect(result.juz).toBeLessThanOrEqual(30)
   })

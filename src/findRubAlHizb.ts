@@ -8,17 +8,15 @@ import { checkValidSurah } from "./validation"
  *
  * @param surah - The Surah (chapter) number.
  * @param ayah - The Ayah (verse) number. Defaults to 1 if not provided.
- * @param ayahMode - If true, the `ayah` parameter is treated as an Ayah ID instead of a Surah and Ayah number.
+
  * @returns An object containing the Juz (part) number, Hizb (section) number, and the index of the Hizb that the given Ayah belongs to.
  */
 export function findRubAlHizb(
   surah: Surah,
-  ayah: AyahNo = 1,
-  ayahMode = false
+  ayah: AyahNo = 1
 ): JuzHizb {
-  const ayahId: AyahId = ayahMode
-    ? ayah
-    : ((checkValidSurah(surah) && findAyahIdBySurah(surah, ayah)) as AyahId)
+  checkValidSurah(surah)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
 
   return getRubAlHizbMetaByAyahId(ayahId)
 }

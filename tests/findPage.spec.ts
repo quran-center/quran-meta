@@ -1,6 +1,7 @@
 import { expect, vi } from "vitest"
 import { findPage } from "../src"
 import * as ayahIdModule from "../src/findAyahIdBySurah"
+import { findPagebyAyahId } from "../src/findPagebyAyahId"
 import * as module from "../src/validation"
 
 describe("findPage", () => {
@@ -32,7 +33,7 @@ describe("findPage", () => {
 
   it("should handle ayahMode correctly", () => {
     const spy = vi.spyOn(module, "checkValidAyahId")
-    const result = findPage(0, 100, true)
+    const result = findPagebyAyahId(100)
     expect(spy).toHaveBeenCalledWith(100)
     expect(result).toBe(14)
   })

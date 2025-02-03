@@ -1,4 +1,4 @@
-import { findRubAlHizb, HizbQuarterList, JuzList, meta } from "../src"
+import { findRubAlHizb, findRubAlHizbByAyahId, HizbQuarterList, JuzList, meta } from "../src"
 
 describe("findRubAlHizb", () => {
   it("should return correct JuzHizb for first surah and ayah", () => {
@@ -29,10 +29,7 @@ describe("findRubAlHizb", () => {
   })
 
   it("should handle ayahMode correctly", () => {
-    expect(findRubAlHizb(2, 286, true)).toEqual({ hizbId: 5,
-      juzPart: 3,
-      rubAlHizbId: 19,
-      juz: 3 })
+    expect(findRubAlHizbByAyahId(286)).toEqual(19)
   })
 
   it("Each Juz should have a corresponding Rub Ul Hizb", () => {

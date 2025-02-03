@@ -1,4 +1,5 @@
 import { checkValidAyahId, meta } from "../src"
+import { isValidAyahId } from "../src/typeGuards"
 
 describe("checkValidAyahId", () => {
   it("should throw RangeError for ayah id less than 1", () => {
@@ -27,21 +28,21 @@ describe("checkValidAyahId", () => {
   })
 
   it("should handle checkOnly", () => {
-    expect(checkValidAyahId(1, true)).toBe(true)
-    expect(checkValidAyahId(meta.numAyahs, true)).toBe(true)
-    expect(checkValidAyahId(Math.floor(meta.numAyahs / 2), true)).toBe(true)
-    expect(checkValidAyahId(0, true)).toBe(false)
-    expect(checkValidAyahId(meta.numAyahs + 1, true)).toBe(false)
-    expect(checkValidAyahId(1.5, true)).toBe(false)
-    expect(checkValidAyahId(NaN, true)).toBe(false)
-    expect(checkValidAyahId(Infinity, true)).toBe(false)
+    expect(isValidAyahId(1)).toBe(true)
+    expect(isValidAyahId(meta.numAyahs)).toBe(true)
+    expect(isValidAyahId(Math.floor(meta.numAyahs / 2))).toBe(true)
+    expect(isValidAyahId(0)).toBe(false)
+    expect(isValidAyahId(meta.numAyahs + 1)).toBe(false)
+    expect(isValidAyahId(1.5)).toBe(false)
+    expect(isValidAyahId(NaN)).toBe(false)
+    expect(isValidAyahId(Infinity)).toBe(false)
   })
 
   it("should handle edge cases correctly", () => {
-    expect(checkValidAyahId(1)).toBe(true)
-    expect(checkValidAyahId(meta.numAyahs)).toBe(true)
+    expect(checkValidAyahId(1)).toBeUndefined()
+    expect(checkValidAyahId(meta.numAyahs)).toBeUndefined()
     expect(() => checkValidAyahId(meta.numAyahs + 0.5)).toThrow(TypeError)
-    expect(checkValidAyahId(Math.floor(meta.numAyahs / 2))).toBe(true)
+    expect(checkValidAyahId(Math.floor(meta.numAyahs / 2))).toBeUndefined()
   })
 
   it("should throw TypeError for non-number ayah id", () => {

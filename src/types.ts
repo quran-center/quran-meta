@@ -1,14 +1,25 @@
+import { maxAyahsBetweenJuzSurah, maxAyahsInSurah, meta } from "./const"
+
+// Utility type for numeric range
+type LessThan<TNumber extends number, TArray extends unknown[] = []> = TNumber extends TArray["length"] ? TArray[number] : LessThan<TNumber, [...TArray, TArray["length"]]>
+export type NumericRange<TStart extends number, TEnd extends number> = Exclude<TEnd | LessThan<TEnd>, LessThan<TStart>>
+
 // surah, ayah
-export type Surah = number
-export type AyahNo = number
-export type AyahId = number
-export type Page = number
-export type Juz = number
+export type Surah = NumericRange<1, typeof meta.numSurahs>
+export type AyahNo = NumericRange<1, typeof maxAyahsInSurah>
+export type RubAlHizbId = NumericRange<0, typeof meta.numRubAlHizbs>
+export type HizbId = NumericRange<0, typeof meta.numHizbs>
+export type AyahId = number // NumericRange<0, meta.numAyahs>
+export type Page = NumericRange<0, typeof meta.numPages>
+export type Manzil = NumericRange<0, typeof meta.numManzils>
+export type Ruku = NumericRange<0, typeof meta.numRukus>
+export type Juz = NumericRange<0, typeof meta.numJuzs>
+export type JuzPart = NumericRange<1, typeof meta.numRubsInJuz>
 export type JuzHizb = {
   juz: Juz
-  juzPart: number // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-  hizbId: number
-  rubAlHizbId: number
+  juzPart: JuzPart
+  hizbId: HizbId
+  rubAlHizbId: RubAlHizbId
 }
 export type SurahAyah = [Surah, AyahNo]
 export type AyahRange = [AyahId, AyahId]
@@ -19,9 +30,10 @@ export type PageMeta = {
   last: SurahAyah
 }
 // [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
+export type AyahCountBetweenJuzSurah = NumericRange<0, typeof maxAyahsBetweenJuzSurah>
 export type JuzMeta = {
   leftjuz: Juz
-  ayahsBetweenJuzSurah: number
+  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
   rightJuz: Juz
   // ayahCount: number,
   leftAyahId: AyahId
@@ -32,8 +44,8 @@ export type Sajda = [AyahId, SajdaType]
 // [start, ayas, order, rukus, name,  isMeccan, page ]
 export type SurahMeta = [
   startAyahId: AyahId,
-  ayahCount: number,
-  surahOrder: number,
+  ayahCount: AyahNo,
+  surahOrder: Surah,
   rukuCount: number,
   name: string,
   isMeccan: boolean,
@@ -42,13 +54,13 @@ export type SurahMeta = [
 export type SurahName = [name: string, translitName: string]
 
 export type AyahMeta = {
-  juz: number
-  juzPart: number // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-  hizbId: number
-  rubAlHizbId: number
+  juz: Juz
+  juzPart: JuzPart // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+  hizbId: HizbId
+  rubAlHizbId: RubAlHizbId
   // rub: number
-  surah: number
-  ayah: number
+  surah: Surah
+  ayah: AyahNo
   isStartOfQuarter: boolean
   isEndOfQuarter: boolean
   isSajdahAyah: boolean

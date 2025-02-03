@@ -1,5 +1,7 @@
 import { meta } from "./const"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
+import { isValidAyahId, isValidSurah } from "./typeGuards"
+import { AyahId, AyahNo, Surah, SurahAyah } from "./types"
 
 /**
  * Checks if the given Surah (chapter) number is valid.
@@ -8,17 +10,14 @@ import { getAyahCountInSurah } from "./getAyahCountInSurah"
  * @param checkOnly - If true, the function will only check the validity and not throw an error.
  * @returns True if the Surah number is valid, false otherwise.
  */
-export function checkValidSurah(surah: number, checkOnly = false): boolean {
+export function checkValidSurah(surah: Surah | number | unknown): asserts surah is Surah {
   if (typeof surah !== "number" || !Number.isInteger(surah)) {
-    if (checkOnly) return false
     throw new TypeError("Ayah ID must be an integer")
   }
 
-  if (surah < 1 || surah > meta.numSurahs) {
-    if (checkOnly) return false
+  if (!isValidSurah(surah)) {
     throw new RangeError("Surah must be between 1 and " + meta.numSurahs)
   }
-  return true
 }
 
 /**
@@ -29,14 +28,17 @@ export function checkValidSurah(surah: number, checkOnly = false): boolean {
  * @param checkOnly - If true, the function will only check the validity and not throw an error.
  * @returns True if the Surah and Ayah numbers are valid, false otherwise.
  */
-export function checkValidSurahAyah(surah: number, ayah: number, checkOnly = false): boolean {
-  if (!checkValidSurah(surah, checkOnly)) return false
+export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: number | AyahNo) {
+  checkValidSurahAyahPair([surah, ayah])
+}
 
-  if (ayah < 1 || ayah > getAyahCountInSurah(surah)) {
-    if (checkOnly) return false
+export function checkValidSurahAyahPair(surahAyah: [Surah | number | unknown, AyahNo | number | unknown]): asserts surahAyah is SurahAyah {
+  const [surah, ayah] = surahAyah
+  checkValidSurah(surah)
+
+  if (typeof ayah !== "number" || !Number.isInteger(ayah) || ayah < 1 || ayah > getAyahCountInSurah(surah)) {
     throw new RangeError("Ayah must be between 1 and " + getAyahCountInSurah(surah))
   }
-  return true
 }
 
 /**
@@ -46,14 +48,11 @@ export function checkValidSurahAyah(surah: number, ayah: number, checkOnly = fal
  * @param checkOnly - If true, the function will only check the validity and not throw an error.
  * @returns True if the Ayah ID is valid, otherwise throws a RangeError.
  */
-export function checkValidAyahId(ayahId: number, checkOnly = false): boolean {
+export function checkValidAyahId(ayahId: unknown | number | AyahId): asserts ayahId is AyahId {
   if (typeof ayahId !== "number" || !Number.isInteger(ayahId)) {
-    if (checkOnly) return false
     throw new TypeError("Ayah ID must be an integer")
   }
-  if (ayahId < 1 || ayahId > meta.numAyahs) {
-    if (checkOnly) return false
+  if (!isValidAyahId(ayahId)) {
     throw new RangeError("Ayah ID must be between 1 and " + meta.numAyahs)
   }
-  return true
 }

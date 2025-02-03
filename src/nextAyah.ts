@@ -1,6 +1,6 @@
 import { meta } from "./const"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
-import { findSurahByAyahId } from "./findSurahByAyahId"
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { AyahId, AyahNo, Surah, SurahAyah } from "./types"
 
 /**
@@ -14,5 +14,5 @@ export function nextAyah(surah: Surah, ayah: AyahNo): SurahAyah {
     throw new RangeError("Surah must be between 1 and " + meta.numSurahs)
 
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
-  return findSurahByAyahId(ayahId == meta.numAyahs ? 1 : ayahId + 1)
+  return findSurahAyahByAyahId(ayahId == meta.numAyahs ? 1 : ayahId + 1)
 }
