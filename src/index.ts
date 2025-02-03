@@ -2,7 +2,7 @@
 
 export type { QuranMeta } from "./const"
 export type {
-  AyahId, AyahMeta, AyahNo, Juz, JuzHizb, JuzMeta, Page, PageMeta, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahMeta, SurahName
+  AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzHizb, JuzMeta, Page, PageMeta, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahMeta, SurahName
 } from "./types"
 
 export { ayahStringSplitter } from "./ayahStringSplitter"
