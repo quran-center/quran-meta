@@ -11,7 +11,6 @@ describe("isSurahAyahPageFirst", () => {
     // expect(isSurahAyahPageFirst(1, 114)).toEqual(-3)
   })
 
-
   it("should return correct Juz for valid surah and ayah in non-ayah mode", () => {
     const result = isSurahAyahPageFirst(1, 1)
     expect(result).toBeDefined()

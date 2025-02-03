@@ -38,7 +38,7 @@ describe("findJuzByAyahId", () => {
 
   it("should throw error for non-number input", () => {
     expect(() => findJuzByAyahId("1" as any)).toThrow()
-    expect(() => findJuzByAyahId(null as any)).toThrow() 
+    expect(() => findJuzByAyahId(null as any)).toThrow()
     expect(() => findJuzByAyahId(undefined as any)).toThrow()
     expect(() => findJuzByAyahId({} as any)).toThrow()
   })
