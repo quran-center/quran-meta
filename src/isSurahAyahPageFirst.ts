@@ -9,7 +9,7 @@ import { checkValidSurah } from "./validation"
  * @param surah - The surah number (1-114)
  * @param ayah - The ayah number within the surah
  * @returns The page number if the ayah is first on its page, -1 otherwise
- * @throws {@link Error} If surah number is invalid
+ * @throws Error If surah number is invalid
  */
 export function isSurahAyahPageFirst(
   surah: Surah,

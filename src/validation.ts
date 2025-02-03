@@ -7,8 +7,8 @@ import { AyahId, AyahNo, Surah, SurahAyah } from "./types"
  * Validates if the provided value is a valid Surah number.
  *
  * @param surah - The value to validate, can be a Surah object, number, or unknown type
- * @throws {@link TypeError} When the provided value is not an integer
- * @throws {@link RangeError} When the provided surah number is outside the valid range (1 to total number of surahs)
+ * @throws TypeError When the provided value is not an integer
+ * @throws RangeError When the provided surah number is outside the valid range (1 to total number of surahs)
  * @remarks This is a type assertion function that ensures the input is a valid Surah
  */
 export function checkValidSurah(surah: Surah | number | unknown): asserts surah is Surah {
@@ -25,7 +25,7 @@ export function checkValidSurah(surah: Surah | number | unknown): asserts surah 
  * Validates if the given surah and ayah numbers form a valid combination.
  * @param surah - The surah number or Surah object to validate
  * @param ayah - The ayah number or AyahNo object to validate
- * @throws {@link Error} If the surah-ayah combination is invalid
+ * @throws Error If the surah-ayah combination is invalid
  */
 export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: number | AyahNo) {
   checkValidSurahAyahPair([surah, ayah])
@@ -34,7 +34,7 @@ export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: numbe
 /**
  * Validates that a surah-ayah pair contains valid values
  * @param surahAyah - A tuple containing surah number/object and ayah number
- * @throws {@link RangeError} If ayah number is not between 1 and the maximum ayah count for the given surah
+ * @throws RangeError If ayah number is not between 1 and the maximum ayah count for the given surah
  * @throws If surah is invalid (from checkValidSurah)
  * @example
  * ```ts
@@ -56,8 +56,8 @@ export function checkValidSurahAyahPair(surahAyah: [Surah | number | unknown, Ay
  * An Ayah ID must be an integer between 1 and the total number of Ayahs.
  *
  * @param ayahId - The value to check as an Ayah ID
- * @throws {@link TypeError} If the value is not an integer
- * @throws {@link RangeError} If the value is not within valid Ayah ID range
+ * @throws TypeError If the value is not an integer
+ * @throws RangeError If the value is not within valid Ayah ID range
  */
 export function checkValidAyahId(ayahId: unknown | number | AyahId): asserts ayahId is AyahId {
   if (typeof ayahId !== "number" || !Number.isInteger(ayahId)) {

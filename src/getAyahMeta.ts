@@ -14,7 +14,7 @@ import { AyahId, AyahMeta, Page } from "./types"
  *
  * @param ayahId - The ayahId number to retrieve metadata for (1-6236)
  * @returns An object containing the ayah related meta, including information about the surah, juz, and quarter the ayah is in.
- * @throws {@link RangeError} If the ayahId number is not between 1 and 6236
+ * @throws RangeError If the ayahId number is not between 1 and 6236
  */
 export function getAyahMeta(ayahId: AyahId): AyahMeta {
   if (ayahId < 1 || ayahId > meta.numAyahs)
