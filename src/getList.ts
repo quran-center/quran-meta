@@ -4,7 +4,7 @@ import { ManzilList } from "./lists/manzilList"
 import { PageList } from "./lists/pageList"
 import { RukuList } from "./lists/rukuList"
 import { SurahList } from "./lists/surahList"
-import { AyahId, SurahMeta } from "./types"
+import { AyahId, AyahNo, SurahMeta } from "./types"
 
 export const partNames = ["surah", "juz", "page", "manzil", "rubAlHizb", "ruku"] as const
 export type PartType = (typeof partNames)[number]
@@ -20,9 +20,14 @@ export const parts = {
   ruku: RukuList
 } as const
 
+/**
+ * Represents a block or section of the Quran with its starting ayah and length
+ * startAyahId - The identifier of the first ayah in the block
+ * ayahCount - The number of ayahs contained in this block
+ */
 type PartBlock = {
   startAyahId: AyahId
-  ayahCount: number
+  ayahCount: AyahId | AyahNo
 }
 type PartBlocker = (...any: unknown[]) => PartBlock
 
@@ -41,10 +46,9 @@ function toPartFormatter(type: PartType): PartBlocker {
 }
 
 /**
- * Retrieves a list of part blocks for the specified part type.
- *
- * @param type - The type of part to retrieve the list for, such as "surah", "juz", "page", "manzil", "ruku" or "rubAlHizb".
- * @returns An array of part blocks, where each part block contains the starting ayah ID and the ayah count for that part.
+ * Retrieves a formatted list of Quran parts based on the specified type.
+ * @param type - The type of parts to retrieve (e.g., juz, hizb, rub)
+ * @returns An array of formatted part blocks, excluding the first and last elements
  */
 export function getList(type: PartType): PartBlock[] {
   const list = parts[type]

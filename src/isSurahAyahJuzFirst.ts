@@ -10,7 +10,7 @@ import { checkValidSurah } from "./validation"
  * @param surah - The Surah number to check
  * @param ayah - The Ayah number within the Surah to check
  * @returns The Juz number if the combination marks the start of a Juz, -1 otherwise
- * @throws {Error} When the provided Surah number is invalid
+ * @throws {@link Error} When the provided Surah number is invalid
  *
  * @example
  * ```typescript

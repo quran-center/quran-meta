@@ -11,8 +11,20 @@ export const meta = {
   numManzils: 7
 } as const
 
+/**
+ * The maximum number of ayahs (verses) that can exist in any surah (chapter) of the Quran.
+ * This maximum occurs in Surah Al-Baqarah (2), which has 286 ayahs.
+ */
 export const maxAyahsInSurah = 286
 
+/**
+ * Maximum number of verses (ayahs) allowed between a juz and surah boundary.
+ * Used as a threshold to determine reasonable segmentation points in Quranic text.
+ */
 export const maxAyahsBetweenJuzSurah = 200
 
+/**
+ * Represents the type derived from the `meta` constant containing Quranic metadata.
+ * This type encompasses the structure and properties of Quranic information.
+ */
 export type QuranMeta = typeof meta
