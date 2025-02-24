@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.1-4
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-3...v4.0.1-4)
+
+### 🚀 Enhancements
+
+- Add more guards and getJuzMeta function (1a6bbe2)
+
+### ❤️ Contributors
+
+- HG ([@husayt](http://github.com/husayt))
+
 ## v4.0.1-3
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-2...v4.0.1-3)
