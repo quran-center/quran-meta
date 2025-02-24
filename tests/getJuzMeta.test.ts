@@ -1,6 +1,5 @@
-import { describe, it, expect } from "vitest"
-import { getJuzMeta } from "./getJuzMeta"
-import { JuzMeta } from "./types"
+import { getJuzMeta } from "../src/getJuzMeta"
+import { JuzMeta } from "../src/types"
 
 describe("getJuzMeta", () => {
   it("should return correct metadata for a valid Juz number", () => {
