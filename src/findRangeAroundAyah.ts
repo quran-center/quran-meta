@@ -36,6 +36,7 @@ export function findRangeAroundAyah(
     case "ayah": {
       return [ayahId, ayahId]
     }
+
     case "page": {
       const page: Page = findPagebyAyahId(ayahId)
       return [PageList[page], PageList[page + 1] - 1]

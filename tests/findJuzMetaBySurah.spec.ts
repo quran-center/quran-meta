@@ -7,7 +7,7 @@ describe("findJuzMetaBySurah", () => {
     vi.clearAllMocks()
   })
 
-  it("should return correct JuzMeta for first surah", () => {
+  it("should return correct SurahJuzMeta for first surah", () => {
     const result = findJuzMetaBySurah(1)
     expect(result).toEqual({
       leftjuz: 1,
@@ -18,7 +18,7 @@ describe("findJuzMetaBySurah", () => {
     })
   })
 
-  it("should return correct JuzMeta for a surah spanning multiple juz", () => {
+  it("should return correct SurahJuzMeta for a surah spanning multiple juz", () => {
     const result = findJuzMetaBySurah(2)
     expect(result).toEqual({
       leftjuz: 1,

@@ -54,6 +54,12 @@ export function isValidPage(x: number): x is Juz {
   return Number.isInteger(x) && 1 <= x && x <= meta.numPages
 }
 
+/**
+ * Checks if a given number is a valid Ayah count between Juz and Surah.
+ *
+ * @param x - The number to check.
+ * @returns A boolean indicating whether the number is a valid Ayah count between Juz and Surah.
+ */
 export function isValidAyahCountBetweenJuzSurah(x: number): x is Juz {
   return Number.isInteger(x) && 1 <= x && x <= meta.numJuzs
 }

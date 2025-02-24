@@ -100,9 +100,15 @@ export type PageMeta = {
   first: SurahAyah
   last: SurahAyah
 }
+
+export type JuzMeta = {
+  juzNum: Juz
+  first: SurahAyah
+  last: SurahAyah
+}
 // [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
 export type AyahCountBetweenJuzSurah = NumericRange<0, typeof maxAyahsBetweenJuzSurah>
-export type JuzMeta = {
+export type SurahJuzMeta = {
   leftjuz: Juz
   ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
   rightJuz: Juz
