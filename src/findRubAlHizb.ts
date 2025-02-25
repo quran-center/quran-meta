@@ -1,6 +1,6 @@
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
-import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
-import { AyahId, AyahNo, JuzHizb, Surah } from "./types"
+import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
+import { AyahId, AyahNo, RubAlHizbId, Surah } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**
@@ -14,9 +14,9 @@ import { checkValidSurah } from "./validation"
 export function findRubAlHizb(
   surah: Surah,
   ayah: AyahNo = 1
-): JuzHizb {
+): RubAlHizbId {
   checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
 
-  return getRubAlHizbMetaByAyahId(ayahId)
+  return findRubAlHizbByAyahId(ayahId)
 }
