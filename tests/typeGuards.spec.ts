@@ -1,4 +1,4 @@
-import { isValidAyahCountBetweenJuzSurah, isValidJuz, isValidSurah, isValidSurahAyah } from "../src/typeGuards"
+import { isValidAyahCountBetweenJuzSurah, isValidHizb, isValidJuz, isValidRubAlHizb, isValidSurah, isValidSurahAyah } from "../src/typeGuards"
 
 describe("isValidAyahCountBetweenJuzSurah", () => {
   it("should return true for valid juz numbers", () => {
@@ -83,6 +83,46 @@ describe("isValidAyahCountBetweenJuzSurah", () => {
           expect(isValidSurah(1.5)).toBe(false)
           expect(isValidSurah(NaN)).toBe(false)
           expect(isValidSurah(Infinity)).toBe(false)
+        })
+
+        describe("isValidRubAlHizb", () => {
+          it("should return true for valid rub al hizb numbers", () => {
+            expect(isValidRubAlHizb(1)).toBe(true)
+            expect(isValidRubAlHizb(120)).toBe(true) 
+            expect(isValidRubAlHizb(240)).toBe(true)
+          })
+
+          it("should return false for invalid rub al hizb numbers", () => {
+            expect(isValidRubAlHizb(0)).toBe(false)
+            expect(isValidRubAlHizb(241)).toBe(false)
+            expect(isValidRubAlHizb(-1)).toBe(false)
+          })
+
+          it("should return false for non-integer values", () => {
+            expect(isValidRubAlHizb(1.5)).toBe(false)
+            expect(isValidRubAlHizb(NaN)).toBe(false)
+            expect(isValidRubAlHizb(Infinity)).toBe(false)
+          })
+
+          describe("isValidHizb", () => {
+            it("should return true for valid hizb numbers", () => {
+              expect(isValidHizb(1)).toBe(true)
+              expect(isValidHizb(30)).toBe(true)
+              expect(isValidHizb(60)).toBe(true)
+            })
+
+            it("should return false for invalid hizb numbers", () => {
+              expect(isValidHizb(0)).toBe(false)
+              expect(isValidHizb(61)).toBe(false)
+              expect(isValidHizb(-1)).toBe(false)
+            })
+
+            it("should return false for non-integer values", () => {
+              expect(isValidHizb(1.5)).toBe(false)
+              expect(isValidHizb(NaN)).toBe(false)
+              expect(isValidHizb(Infinity)).toBe(false)
+            })
+          })
         })
       })
     })

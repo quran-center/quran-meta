@@ -1,6 +1,6 @@
 import { maxAyahsInSurah, meta } from "./const"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
-import { AyahId, AyahNo, Juz, Surah, SurahAyah } from "./types"
+import { AyahId, AyahNo, HizbId, Juz, RubAlHizbId, Surah, SurahAyah } from "./types"
 
 export function isValidAyahId(x: unknown): x is AyahId {
   return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numAyahs
@@ -43,6 +43,24 @@ export function isValidSurahAyah(x: [unknown, unknown]): x is SurahAyah {
  */
 export function isValidJuz(x: unknown): x is Juz {
   return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numJuzs
+}
+
+/**
+ * Type guard to check if a number is a valid Hizb number
+ * @param x - The number to check
+ * @returns True if the number is an integer between 1 and the total number of Hizbs (inclusive)
+ */
+export function isValidHizb(x: unknown): x is HizbId {
+  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numHizbs
+}
+
+/**
+ * Type guard to check if a number is a valid RubAlHizb number
+ * @param x - The number to check
+ * @returns True if the number is an integer between 1 and the total number of RubAlHizbs (inclusive)
+ */
+export function isValidRubAlHizb(x: unknown): x is RubAlHizbId {
+  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numRubAlHizbs
 }
 
 /**
