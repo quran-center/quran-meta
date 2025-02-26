@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.1-9
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-8...v4.0.1-9)
+
+### 🚀 Enhancements
+
+- Add new Surah String Parser (6620546)
+
+### 🏡 Chore
+
+- 100% Test coverage again (254d6fd)
+- Updated dependencies (7240e2b)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.1-8
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-7...v4.0.1-8)
