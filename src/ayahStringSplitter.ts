@@ -29,9 +29,6 @@ export function ayahStringSplitter(str: string): SurahAyahSegment {
     ayahs = ayahsStr.split("-").map((a) => {
       const ayahX = parseInt(a, 10)
       checkValidAyahId(ayahX)
-      if (isNaN(ayahX) || !isValidAyahNo(ayahX)) {
-        throw new Error("Error in ayah " + a)
-      }
       return ayahX
     }) as [AyahNo, AyahNo]
     if (ayahs[0] > ayahs[1]) throw new Error("Error in ayah range " + str)

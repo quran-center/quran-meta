@@ -13,8 +13,5 @@ export function findJuzByAyahId(ayahId: AyahId): Juz {
   checkValidAyahId(ayahId)
 
   const juz = JuzList.findIndex(x => x > ayahId) - 1
-  if (!isValidJuz(juz)) {
-    throw new TypeError(`Not a valid juz value ${juz}`)
-  }
-  return juz
+  return juz as Juz
 }

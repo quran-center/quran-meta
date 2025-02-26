@@ -44,6 +44,8 @@ describe("ayaStringSplitter", () => {
   it("throws error for invalid range format", () => {
     expect(() => ayahStringSplitter("1:5-3")).toThrow()
     expect(() => ayahStringSplitter("1:5-")).toThrow()
+    expect(() => ayahStringSplitter("1:5-a")).toThrow()
+    expect(() => ayahStringSplitter("1:a-5")).toThrow()
     expect(() => ayahStringSplitter("1:-5")).toThrow()
   })
 
@@ -51,5 +53,12 @@ describe("ayaStringSplitter", () => {
     expect(() => ayahStringSplitter("1:a")).toThrow()
     expect(() => ayahStringSplitter("a:1")).toThrow()
     expect(() => ayahStringSplitter("1:1-a")).toThrow()
+  })
+
+  it("handles whitespace in input", () => {
+    expect(ayahStringSplitter(" 1:1 ")).toEqual([1, 1])
+    expect(ayahStringSplitter("2:3  ")).toEqual([2, 3])
+    expect(ayahStringSplitter("  7:26-30")).toEqual([7, [26, 30]])
+    expect(ayahStringSplitter("9:5\t")).toEqual([9, 5])
   })
 })

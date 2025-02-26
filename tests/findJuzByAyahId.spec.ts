@@ -42,4 +42,9 @@ describe("findJuzByAyahId", () => {
     expect(() => findJuzByAyahId(undefined as any)).toThrow()
     expect(() => findJuzByAyahId({} as any)).toThrow()
   })
+
+  it("should throw error for negative numbers", () => {
+    expect(() => findJuzByAyahId(-1)).toThrow()
+    expect(() => findJuzByAyahId(-100)).toThrow()
+  })
 })

@@ -33,6 +33,7 @@ describe("isValidAyahCountBetweenJuzSurah", () => {
     })
 
     it("should return false for non-integer values", () => {
+      expect(isValidJuz("1")).toBe(false)
       expect(isValidJuz(1.5)).toBe(false)
       expect(isValidJuz(NaN)).toBe(false)
       expect(isValidJuz(Infinity)).toBe(false)
@@ -40,6 +41,7 @@ describe("isValidAyahCountBetweenJuzSurah", () => {
 
     describe("isValidSurahAyah", () => {
       it("should return true for valid surah-ayah combinations", () => {
+        expect(isValidSurahAyah([1, 1])).toBe(true) // Al-Fatiha has 7 ayahs
         expect(isValidSurahAyah([1, 7])).toBe(true) // Al-Fatiha has 7 ayahs
         expect(isValidSurahAyah([2, 286])).toBe(true) // Al-Baqarah has 286 ayahs
         expect(isValidSurahAyah([114, 6])).toBe(true) // An-Nas has 6 ayahs
@@ -58,6 +60,7 @@ describe("isValidAyahCountBetweenJuzSurah", () => {
       })
 
       it("should return false for non-integer values", () => {
+        expect(isValidSurahAyah(["1", "1"])).toBe(false)
         expect(isValidSurahAyah([1.5, 1])).toBe(false)
         expect(isValidSurahAyah([1, 1.5])).toBe(false)
         expect(isValidSurahAyah([NaN, 1])).toBe(false)
@@ -81,6 +84,7 @@ describe("isValidAyahCountBetweenJuzSurah", () => {
 
         it("should return false for non-integer values", () => {
           expect(isValidSurah(1.5)).toBe(false)
+          expect(isValidSurah("1")).toBe(false)
           expect(isValidSurah(NaN)).toBe(false)
           expect(isValidSurah(Infinity)).toBe(false)
         })
@@ -88,7 +92,7 @@ describe("isValidAyahCountBetweenJuzSurah", () => {
         describe("isValidRubAlHizb", () => {
           it("should return true for valid rub al hizb numbers", () => {
             expect(isValidRubAlHizb(1)).toBe(true)
-            expect(isValidRubAlHizb(120)).toBe(true) 
+            expect(isValidRubAlHizb(120)).toBe(true)
             expect(isValidRubAlHizb(240)).toBe(true)
           })
 
@@ -99,6 +103,7 @@ describe("isValidAyahCountBetweenJuzSurah", () => {
           })
 
           it("should return false for non-integer values", () => {
+            expect(isValidRubAlHizb("1")).toBe(false)
             expect(isValidRubAlHizb(1.5)).toBe(false)
             expect(isValidRubAlHizb(NaN)).toBe(false)
             expect(isValidRubAlHizb(Infinity)).toBe(false)
@@ -112,6 +117,7 @@ describe("isValidAyahCountBetweenJuzSurah", () => {
             })
 
             it("should return false for invalid hizb numbers", () => {
+              expect(isValidHizb("1")).toBe(false)
               expect(isValidHizb(0)).toBe(false)
               expect(isValidHizb(61)).toBe(false)
               expect(isValidHizb(-1)).toBe(false)
