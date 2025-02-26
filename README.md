@@ -124,10 +124,10 @@ for (let surah: Surah = 1; surah <= meta.numSurahs; surah++) {
 * Ayah: A verse number in the particular surah (chapter) of Quran. it is relative to the surah.
 * AyahId: Unique identifier for a verse in the Quran. It is a number that is the concatenation of the of sum ayahs of previous chapters of Quran and the verse number of particular Ayah. There are 6236 ayahs in Quran. AyahId is absolute, positive and is not relative to any surah.
 
-* *Juz*: A section of the Quran. There are 30 Juz in Quran of roughly equal length.
-* *Hizb*: Each Juz' is divided into two Hizb. Therefore, there are 60 Hizbs in the Quran.
-* *Rub-el-Hizb/Maqra*: Each Hizb is subdivided into four quarters called Maqra, making eight quarters per Juz. In Arabic, `rub` means 'one-fourth' or 'quarter', while `ḥizb` (plural aḥzāb) translates to 'a group'. There are 240 Maqras in the Quran.
-* *Manzil*: For the convenience of those who read the Quran in a week the text may be divided into seven portions. Each portion is called a Manzil. There are 7 Manzil in Quran.
+* *Juz*: A section of the Quran. There are 30 Juz (ajza) in Quran of roughly equal length. Most Juz' are named after the first word of the first verse of the Juz'. Read more [here](https://en.wikipedia.org/wiki/Juz%27)
+* *Hizb*: Each Juz' is divided into two Hizb  (lit. "two groups", plural: Aḥzāb). Therefore, there are 60 Hizbs (ahzab) in the Quran.
+* *Rub-el-Hizb/Maqra*: Each Hizb is subdivided into four quarters called Maqra  (lit. "reading"), making eight quarters per Juz. In Arabic, `rub` means 'one-fourth' or 'quarter', while `ḥizb` (plural aḥzāb) translates to 'a group'. There are 240 Maqras in the Quran. In most mushafs it is noted by symbol in the shape of an octagram, represented as two overlapping squares ۞. Read more [here](https://en.wikipedia.org/wiki/Rub_el_Hizb)
+* *Manzil*: For the convenience of those who read the Quran in a week the text may be divided into seven portions. Each portion is called a Manzil. There are 7 Manzil in Quran. Read more [here](https://en.wikipedia.org/wiki/Manzil)
 * *Page*: A section of the Quran that contains 15 lines (Madina mushaf)(depends on the mushaf).
 * *Saajdah*: Special ayahs that require reader to prostrate. There are 15 of them in Quran.
 
