@@ -3,44 +3,121 @@ import { AyahNo, Surah, SurahAyahSegment } from "./types"
 import { checkValidAyahId, checkValidSurahAyah } from "./validation"
 
 /**
- *  Turns String of type "x:y" or "x:y1-y2" to array [x,y] or [x,[y1,y2]] respectively
- * @param str - String of type "x:y" or "x:y1-y2"
- * @returns array [x,y] or [x,[y1,y2]] respectively
+ * Splits a string representation of Quran reference into surah and ayah components
+ * @param str - The string to parse, expected format: "surah:ayah" or "surah:ayahStart-ayahEnd"
+ * @param isStrict - If true, enforces strict format checking. Defaults to true. If false, allows for additional characters in the string
+ * @returns A tuple containing surah number and either a single ayah number or a range [start, end]
+ * @throws {Error} If the string format is invalid
+ * @throws {Error} If surah number is invalid
+ * @throws {Error} If ayah number(s) are invalid
+ * @throws {Error} If ayah range is invalid (start > end)
+ * @example
+ * ayahStringSplitter("2:255") // returns [2, 255]
+ * ayahStringSplitter("1:1-7") // returns [1, [1, 7]]
  */
-export function ayahStringSplitter(str: string): SurahAyahSegment {
-  const [surahStr, ayahsStr] = str.trim().split(":")
-  const surahX = parseInt(surahStr, 10)
-
-  if (isNaN(surahX)) {
-    throw new Error("Error in surah format " + str)
+export function ayahStringSplitter(str: string, isStrict = true): SurahAyahSegment {
+  const result = isStrict ? string2NumberSplitterStrict(str) : string2NumberSplitter(str)
+  if (!result) {
+    throw new Error("Invalid string format: " + str)
   }
 
-  if (!ayahsStr) {
-    throw new Error("Error in data " + str)
-  }
+  const { surahOrAyah: surahX, ayah, ayahTo } = result
 
   if (!isValidSurah(surahX)) {
-    throw new Error("Error in data " + str)
+    throw new Error("Invalid ayah number: " + str)
   }
   const surah: Surah = surahX
 
   let ayahs: AyahNo | [AyahNo, AyahNo]
-  if (ayahsStr.includes("-")) {
-    ayahs = ayahsStr.split("-").map((a) => {
-      const ayahX = parseInt(a, 10)
-      checkValidAyahId(ayahX)
-      return ayahX
-    }) as [AyahNo, AyahNo]
-    if (ayahs[0] > ayahs[1]) throw new Error("Error in ayah range " + str)
+  if (ayahTo) {
+    checkValidAyahId(ayah)
+    checkValidAyahId(ayahTo)
+    if (ayah > ayahTo) throw new Error("Invalid ayah range: " + str)
+    ayahs = [ayah, ayahTo] as [AyahNo, AyahNo]
   }
   else {
-    const ayahX = parseInt(ayahsStr, 10)
-    if (!isValidAyahNo(ayahX)) {
+    if (!isValidAyahNo(ayah)) {
       throw new Error("Error in data " + str)
     }
-    checkValidSurahAyah(surah, ayahX)
-    ayahs = ayahX
+    checkValidSurahAyah(surah, ayah)
+    ayahs = ayah
   }
 
   return [surah, ayahs]
+}
+
+/**
+ * Splits a string containing surah and ayah numbers into their numeric components.
+ *
+ * @param str - Input string containing numbers separated by non-digits (e.g., "2:255" or "2 255" or "2-255")
+ * @returns An object containing the parsed numbers, or null if parsing fails
+ *          - ayah: The ayah number if present
+ *          - ayahTo: The ending ayah number if a range is specified
+ *          - surahOrAyah: The surah number
+ * @example
+ * stringNumberSplitter("2:255") // returns { ayah: 255, ayahTo: 0, surahOrAyah: 2 }
+ * stringNumberSplitter("2:255-260") // returns { ayah: 255, ayahTo: 260, surahOrAyah: 2 }
+ * stringNumberSplitter("invalid") // returns null
+ */
+export function string2NumberSplitter(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
+  const sr = /(?<surah>\d{1,3})\D*(?<ayah>\d{0,3})\D*(?<ayahTo>\d{0,3})/.exec(str)
+
+  if (sr?.groups && +sr.groups.surah > 0 /* && sr.groups.surah <= 114 */) {
+    const { ayah, ayahTo, surah }: {
+      surah?: string
+      ayah?: string
+      ayahTo?: string
+    } = sr.groups
+
+    return { surahOrAyah: +surah, ayah: +ayah, ayahTo: +ayahTo }
+  }
+  return null
+}
+
+/**
+ * Splits a string in the format "surah:ayah" or "surah:ayah-ayah" into its numeric components.
+ *
+ * @param str - The input string to parse in the format "surah:ayah" or "surah:ayah-ayah"
+ * @returns An object containing the parsed numbers:
+ *          - surahOrAyah: The surah number
+ *          - ayah: The first or only ayah number
+ *          - ayahTo: The ending ayah number (if range specified)
+ * @throws {Error} When the input string format is invalid or contains non-numeric values
+ *
+ * @example
+ * string2NumberSplitterStrict("2:255")    // returns { surahOrAyah: 2, ayah: 255, ayahTo: NaN }
+ * string2NumberSplitterStrict("2:255-260") // returns { surahOrAyah: 2, ayah: 255, ayahTo: 260 }
+ */
+export function string2NumberSplitterStrict(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
+  let [surahStr, ayahsStr] = str.trim().split(":")
+  surahStr = surahStr.trim()
+  const surahX = parseInt(surahStr.trim(), 10)
+
+  if (isNaN(surahX)) {
+    throw new Error("Error in surah format " + str)
+  }
+  ayahsStr = ayahsStr.trim()
+  if (!ayahsStr) {
+    throw new Error("Error in data " + str)
+  }
+
+  let ayahs: [number] | [number, number]
+  if (ayahsStr.includes("-")) {
+    ayahs = ayahsStr.split("-").map((a) => {
+      const ayahX = parseInt(a, 10)
+      if (isNaN(ayahX)) {
+        throw new Error("Error in surah format " + str)
+      }
+      return ayahX
+    }) as [number, number]
+  }
+  else {
+    const ayahX = parseInt(ayahsStr, 10)
+    if (isNaN(ayahX)) {
+      throw new Error("Error in surah format " + str)
+    }
+    ayahs = [ayahX, NaN]
+  }
+
+  return { surahOrAyah: +surahX, ayah: +ayahs[0], ayahTo: +ayahs[1] }
 }
