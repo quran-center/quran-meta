@@ -3,7 +3,7 @@
 export type { QuranMeta } from "./const"
 export type { AyahCountBetweenJuzSurah, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, JuzHizb, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahMeta, SurahName } from "./types"
 
-export { ayahStringSplitter, string2NumberSplitter as stringNumberSplitter } from "./ayahStringSplitter"
+export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
 export { meta } from "./const"
 export { findAyahIdBySurah } from "./findAyahIdBySurah"
