@@ -60,15 +60,16 @@
     "dev": "vitest",
     "lint": "eslint . --fix",
     "coverage": "vitest run --coverage",
+    "docs:local": "pnpx http-server docs",
     "build": "unbuild",
     "precommit": "pnpm lint&&pnpm build&& vitest --run",
-    "prepack": "pnpm build && pnpm test:full&&rimraf docs&&pnpm tsdoc",
+    "prepack": "pnpm build && pnpm test:full&&pnpm tsdoc",
     "release:rc": "changelogen --release --prerelease --publish --publishTag rc",
     "release": "changelogen --release --push --publish",
     "test": "vitest",
     "test:full": "pnpm lint && pnpm test:types && pnpm coverage",
     "test:types": "tsc --noEmit",
-    "tsdoc": "typedoc",
+    "tsdoc": "rimraf docs&&typedoc --hideGenerator --plugin typedoc-github-theme",
     "up": "pnpm update -i -L",
     "verify": "pnpx jiti examples/data-check"
   },
@@ -89,5 +90,8 @@
     "unbuild": "3.4.0",
     "vitest": "^3.0.7"
   },
-  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
+  "dependencies": {
+    "typedoc-github-theme": "^0.2.1"
+  }
 }
