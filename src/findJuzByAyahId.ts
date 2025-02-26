@@ -1,5 +1,4 @@
 import { JuzList } from "./lists/juzList"
-import { isValidJuz } from "./typeGuards"
 import { AyahId, Juz } from "./types"
 import { checkValidAyahId } from "./validation"
 
