@@ -18,12 +18,6 @@ export const meta = {
 export const maxAyahsInSurah = 286
 
 /**
- * Maximum number of verses (ayahs) allowed between a juz and surah boundary.
- * Used as a threshold to determine reasonable segmentation points in Quranic text.
- */
-export const maxAyahsBetweenJuzSurah = 200
-
-/**
  * Represents the type derived from the `meta` constant containing Quranic metadata.
  * This type encompasses the structure and properties of Quranic information.
  */

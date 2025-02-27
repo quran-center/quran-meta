@@ -1,4 +1,4 @@
-import { maxAyahsBetweenJuzSurah, maxAyahsInSurah, meta } from "./const"
+import { maxAyahsInSurah, meta } from "./const"
 
 // Utility type for numeric range
 type LessThan<TNumber extends number, TArray extends unknown[] = []> = TNumber extends TArray["length"] ? TArray[number] : LessThan<TNumber, [...TArray, TArray["length"]]>
@@ -107,7 +107,7 @@ export type JuzMeta = {
   last: SurahAyah
 }
 // [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
-export type AyahCountBetweenJuzSurah = NumericRange<0, typeof maxAyahsBetweenJuzSurah>
+export type AyahCountBetweenJuzSurah = NumericRange<0, typeof maxAyahsInSurah>
 export type SurahJuzMeta = {
   leftjuz: Juz
   ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah

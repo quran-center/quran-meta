@@ -2,14 +2,32 @@ import { maxAyahsInSurah, meta } from "./const"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import { AyahId, AyahNo, HizbId, Juz, RubAlHizbId, Surah, SurahAyah } from "./types"
 
+/**
+ * Checks if the given value is a valid AyahId.
+ *
+ * @param x - The value to check.
+ * @returns True if the value is a valid AyahId, otherwise false.
+ */
 export function isValidAyahId(x: unknown): x is AyahId {
   return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numAyahs
 }
 
+/**
+ * Checks if the given value is a valid Ayah number.
+ *
+ * @param x - The value to check.
+ * @returns True if the value is a valid Ayah number, otherwise false.
+ */
 export function isValidAyahNo(x: unknown): x is AyahNo {
   return Number.isInteger(x) && 1 <= (x as number) && x as number <= maxAyahsInSurah
 }
 
+/**
+ * Checks if the given value is a valid Surah number.
+ *
+ * @param x - The value to check.
+ * @returns `true` if the value is a valid Surah number, otherwise `false`.
+ */
 export function isValidSurah(x: unknown): x is Surah {
   return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numSurahs
 }
@@ -70,14 +88,4 @@ export function isValidRubAlHizb(x: unknown): x is RubAlHizbId {
  */
 export function isValidPage(x: unknown): x is Juz {
   return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numPages
-}
-
-/**
- * Checks if a given number is a valid Ayah count between Juz and Surah.
- *
- * @param x - The number to check.
- * @returns A boolean indicating whether the number is a valid Ayah count between Juz and Surah.
- */
-export function isValidAyahCountBetweenJuzSurah(x: number): x is Juz {
-  return Number.isInteger(x) && 1 <= x && x <= meta.numJuzs
 }

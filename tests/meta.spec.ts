@@ -1,5 +1,5 @@
 import { getSurahMeta, HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../src"
-import { meta, maxAyahsInSurah, maxAyahsBetweenJuzSurah } from "../src/const"
+import { meta, maxAyahsInSurah } from "../src/const"
 import { getList } from "../src/getList"
 
 describe("Meta constants", () => {
@@ -62,14 +62,5 @@ describe("Meta constants", () => {
   it("should have correct maximum number of ayahs in a surah", () => {
     expect(maxAyahsInSurah).toBe(286)
     expect(maxAyahsInSurah).toBe(getSurahMeta(2)[1])
-  })
-
-  it("should have correct maximum number of ayahs between a juz and surah boundary", () => {
-    expect(maxAyahsBetweenJuzSurah).toBe(200)
-    // for (let i = 1; i <= meta.numAyahs; i++) {
-    //   const [s, a] = findSurahAyahByAyahId(i)
-    //   // expect(`findJuzAndShift(s, a).ayahsBetweenJuzSurah`).toBeLessThan(200)
-    //   console.log(s, a, findJuzAndShift(s, a).ayahsBetweenJuzSurah)
-    // }
   })
 })
