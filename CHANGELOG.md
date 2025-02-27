@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.1
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-13...v4.0.1)
+
+### 🏡 Chore
+
+- Update docs (742b364)
+- Improve tests (5fa2345)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.1-13
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-12...v4.0.1-13)
