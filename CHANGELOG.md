@@ -5,136 +5,29 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v4.0.1
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-13...v4.0.1)
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-0...v4.0.1)
 
-### 🏡 Chore
-
-- Update docs (742b364)
-- Improve tests (5fa2345)
-
-### ❤️ Contributors
-
-- HG ([@husayt](https://github.com/husayt))
-
-## v4.0.1-13
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-12...v4.0.1-13)
-
-### 🏡 Chore
-
-- Add missing methods (d1e5712)
-
-### ❤️ Contributors
-
-- HG ([@husayt](https://github.com/husayt))
-
-## v4.0.1-12
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-11...v4.0.1-12)
-
-### 🏡 Chore
-
-- Updated docs (8cf8fe4)
-
-### ❤️ Contributors
-
-- HG ([@husayt](https://github.com/husayt))
-
-## v4.0.1-11
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-10...v4.0.1-11)
-
-## v4.0.1-10
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-9...v4.0.1-10)
-
-## v4.0.1-9
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-8...v4.0.1-9)
+** Breaking changes in this version**
 
 ### 🚀 Enhancements
 
-- Add new Surah String Parser (6620546)
+- Add new Surah String Parser `surahStringParser` (6620546)
+- Added `string2NumberSplitter` and `string2NumberSplitterStrict`
+- Added strict mode to `ayahStringSplitter`
+- Updated `findRubAlHizb` (872b479)
+- Better type guards (472366e)
+- Added type guards for Hizb and RubAlhizb
+- Add more guards and `getJuzMeta` function (1a6bbe2)
 
 ### 🏡 Chore
 
 - 100% Test coverage again (254d6fd)
 - Updated dependencies (7240e2b)
-
-### ❤️ Contributors
-
-- HG ([@husayt](https://github.com/husayt))
-
-## v4.0.1-8
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-7...v4.0.1-8)
-
-### 🚀 Enhancements
-
-- Update findRunAlHizb (872b479)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v4.0.1-7
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-6...v4.0.1-7)
-
-### 🚀 Enhancements
-
-- Better type guards (472366e)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v4.0.1-6
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-5...v4.0.1-6)
-
-## v4.0.1-5
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-4...v4.0.1-5)
-
-## v4.0.1-4
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-3...v4.0.1-4)
-
-### 🚀 Enhancements
-
-- Add more guards and getJuzMeta function (1a6bbe2)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v4.0.1-3
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-2...v4.0.1-3)
-
-### 🚀 Enhancements
-
+- Update API docs (742b364)
+- Improve tests (5fa2345)
+- Add missing methods (d1e5712)
+- Updated docs (8cf8fe4)
 - Add more checks (4a3640a)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v4.0.1-2
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-1...v4.0.1-2)
-
-## v4.0.1-1
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-0...v4.0.1-1)
-
-### 🚀 Enhancements
-
-- Add more checks (2006b2e)
-
-### 🏡 Chore
-
 - Fix docs (e953d37)
 
 ### ❤️ Contributors
@@ -160,7 +53,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v3.2.1
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.1-4...v3.2.1)
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.0...v3.2.1)
+
+### 🚀 Enhancements
+
+- Update dependencies (642c2e0)
 
 ### 🏡 Chore
 
@@ -170,33 +67,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 - HG ([@husayt](http://github.com/husayt))
 
-## v3.2.1-4
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.1-3...v3.2.1-4)
-
-## v3.2.1-3
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.1-2...v3.2.1-3)
-
-### 🚀 Enhancements
-
-- Update dependencies (642c2e0)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v3.2.1-2
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.1-1...v3.2.1-2)
-
-## v3.2.1-1
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.1-0...v3.2.1-1)
-
-## v3.2.1-0
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.0...v3.2.1-0)
 
 ## v3.2.0
 
