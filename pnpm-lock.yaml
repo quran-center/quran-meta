@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      typedoc-github-theme:
-        specifier: ^0.2.1
-        version: 0.2.1(typedoc@0.27.9(typescript@5.7.3))
     devDependencies:
       '@eslint/js':
         specifier: 9.21.0
@@ -45,6 +41,9 @@ importers:
       typedoc:
         specifier: ^0.27.9
         version: 0.27.9(typescript@5.7.3)
+      typedoc-github-theme:
+        specifier: ^0.2.1
+        version: 0.2.1(typedoc@0.27.9(typescript@5.7.3))
       typescript:
         specifier: ^5.7.3
         version: 5.7.3

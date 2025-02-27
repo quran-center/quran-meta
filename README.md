@@ -1,27 +1,29 @@
 Quran Meta
 ==========
 
-![Static Badge](https://img.shields.io/badge/Quran-Meta-brightgreen) 
-![GitHub License](https://img.shields.io/github/license/quran-center/quran-meta) 
-![GitHub Repo stars](https://img.shields.io/github/stars/quran-center/quran-meta)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/quran-center/quran-meta) 
+[![Static Badge](https://img.shields.io/badge/Quran-Meta-brightgreen)](https://moiva.io/?npm=quran-meta) 
+[![GitHub License](https://img.shields.io/github/license/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/blob/master/LICENSE) 
+[![GitHub Repo stars](https://img.shields.io/github/stars/quran-center/quran-meta)](https://github.com/quran-center/quran-meta)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/blob/master/package.json)
 
 
-![NPM Version](https://img.shields.io/npm/v/quran-meta) 
-![npms.io](https://img.shields.io/npms-io/final-score/quran-meta)
-![npms.io](https://img.shields.io/npms-io/maintenance-score/quran-meta)
-![npms.io](https://img.shields.io/npms-io/popularity-score/quran-meta)
-![npms.io](https://img.shields.io/npms-io/quality-score/quran-meta)
-![NPM Downloads](https://img.shields.io/npm/dy/quran-meta)
+[![NPM Version](https://img.shields.io/npm/v/quran-meta)](https://www.npmjs.com/package/quran-meta) 
+[![npms.io](https://img.shields.io/npms-io/final-score/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![npms.io](https://img.shields.io/npms-io/maintenance-score/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![npms.io](https://img.shields.io/npms-io/popularity-score/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![npms.io](https://img.shields.io/npms-io/quality-score/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![NPM Downloads](https://img.shields.io/npm/dy/quran-meta)](https://npm.chart.dev/quran-meta)
 
-![NPM Type Definitions](https://img.shields.io/npm/types/quran-meta)
-![GitHub top language](https://img.shields.io/github/languages/top/quran-center/quran-meta)
+[![NPM Type Definitions](https://img.shields.io/npm/types/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![GitHub top language](https://img.shields.io/github/languages/top/quran-center/quran-meta)](https://moiva.io/?npm=quran-meta)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=quran-center_quran-meta&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=quran-center_quran-meta)
+[![Static Badge](https://img.shields.io/badge/Snyk%20Security%20Score-A-green)](https://snyk.io/test/github/quran-center/quran-meta)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)
-![npm bundle size](https://img.shields.io/bundlephobia/min/quran-meta)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/quran-meta)
+
+[![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/quran-meta)](https://bundlephobia.com/package/quran-meta)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/quran-meta)](https://bundlephobia.com/package/quran-meta)
 
 
 

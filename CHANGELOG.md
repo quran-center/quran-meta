@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-0...v4.0.1)
 
-** Breaking changes in this version**
+**Breaking changes in this version**
 
 ### 🚀 Enhancements
 
