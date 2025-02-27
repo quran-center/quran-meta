@@ -28,12 +28,12 @@ export function findJuzAndShift(
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
 
   const juz = findJuzByAyahId(ayahId)
-  const leftAyahId = JuzList[juz]
+  const juzLeftAyahId = JuzList[juz]
   const [surahStartAyahId] = SurahList[surah]
   return {
     juz,
-    ayahsBetweenJuzSurah: (surahStartAyahId - leftAyahId) as AyahCountBetweenJuzSurah,
-    leftAyahId
+    ayahsBetweenJuzSurah: (surahStartAyahId - juzLeftAyahId) as AyahCountBetweenJuzSurah,
+    leftAyahId: juzLeftAyahId
   }
 }
 

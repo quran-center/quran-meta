@@ -130,6 +130,7 @@ for (let surah: Surah = 1; surah <= meta.numSurahs; surah++) {
 * *Manzil*: For the convenience of those who read the Quran in a week the text may be divided into seven portions. Each portion is called a Manzil. There are 7 Manzil in Quran. Read more [here](https://en.wikipedia.org/wiki/Manzil)
 * *Page*: A section of the Quran that contains 15 lines (Madina mushaf)(depends on the mushaf).
 * *Saajdah*: Special ayahs that require reader to prostrate. There are 15 of them in Quran.
+* *Ruku*: (paragraph) is a group of related verses in a Surah. The end of a Ruku’ is marked by the Arabic letter ﻉ in superscript. There are 558 Rukus in the Quran. These are logical sections according to similar theme/objective or meaning. The bigger Surahs have been split into a number of Rukus, so that we would recognize when to do Ruku' (bowing) in Salat without interrupting a proceeding subject of the Quran.
 
 ### Examples
 You can find some examples [here](https://quran-center.github.io/quran-meta/examples/) and souce code for them [here](https://github.com/quran-center/quran-meta/tree/master/examples)
