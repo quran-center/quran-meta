@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.2
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1...v4.0.2)
+
+### 🏡 Chore
+
+- Remove isValidAyahCountBetweenJuzSurah function for now (382d938)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.1
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-0...v4.0.1)
