@@ -7,9 +7,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.2...v4.0.3)
 
-## v4.0.2
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1...v4.0.2)
 
 ### 🏡 Chore
 
@@ -24,6 +21,18 @@ All notable changes to this project will be documented in this file. See [standa
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-0...v4.0.1)
 
 **Breaking changes in this version**
+
+We apologize for any inconvenience caused by the recent breaking changes. These updates were essential to ensure safer and more error-free development in the future. The primary reasons for these changes include:
+
+- Enhancing type safety to prevent errors.
+- Providing clear and predictable behavior.
+
+By leveraging TypeScript and proper type usage, many issues can be identified early, saving users from encountering hard-to-find errors later on.
+
+
+* Number of functions have been renamed to be consistent
+* `findSurahByAyahId` renamed to `findSurahAyahByAyahId` and new `findSurahAyahByAyahId` is different
+* check for other changes
 
 ### 🚀 Enhancements
 

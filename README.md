@@ -1,7 +1,7 @@
 Quran Meta
 ==========
 
-[![Static Badge](https://img.shields.io/badge/Quran-Meta-brightgreen)](https://moiva.io/?npm=quran-meta)
+[![Static Badge](https://img.shields.io/badge/Quran-Meta-brightgreen)](https://github.com/quran-center/quran-meta)
 [![Static Badge](https://img.shields.io/badge/Documentation-blue)](https://quran-center.github.io/quran-meta/docs/)
 
 [![GitHub License](https://img.shields.io/github/license/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/blob/master/LICENSE) 
@@ -54,10 +54,10 @@ Answering Questions like:
   * juz  (`findJuzMetaBySurah`)
   * maqra/rub-el-hizb  (`getRubAlHizbMeta`, `getRubAlHizbMetaByAyahId`)
 * Validates ayah/surah id (`checkValidAyahId`,`checkValidSurah`, `checkValidSurahAyah`) 
-* Typescript type guards (`isValidAyahId`, `isValidAyahNo`, `isValidSurah`, `isValidSurahAyah`, `isValidJuz`, `isValidHizb`, `isValidRubAlHizb`, `isValidPage` and ``)
+* Typescript type guards (`isValidAyahId`, `isValidAyahNo`, `isValidSurah`, `isValidSurahAyah`, `isValidJuz`, `isValidHizb`, `isValidRubAlHizb`, `isValidPage`)
 * converts `[surah, ayah]` to `ayahId` and vice-verse ( `findSurahByAyahId` and  `findAyahIdBySurah`) 
-* Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range `ayaStringSplitter`.
-* Checks and parses strings of type "x"  to Surah `surahStringParser`.
+* Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range (`ayaStringSplitter`).
+* Checks and parses strings of type "x"  to Surah (`surahStringParser`).
 
 ### APi Reference Documentation
 
