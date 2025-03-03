@@ -4,7 +4,7 @@ import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
 import { SajdaList } from "./lists/sajdaList"
 import { SurahList } from "./lists/surahList"
-import { Surah, AyahMeta, AyahId } from "./types"
+import { Surah, AyahMeta, AyahId, JuzPart } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**
@@ -43,7 +43,6 @@ export function getAyahMetasForSurah(surahNumber: Surah): AyahMeta[] {
       meta.isEndOfJuz = JuzList[meta.juz + 1] === ayahId + 1
       if (JuzList[meta.juz + 1] === ayahId) {
         meta.juz += 1
-        meta.juzPart = 0
         meta.hizbId += 1
         meta.isStartOfJuz = true
       }
@@ -52,7 +51,7 @@ export function getAyahMetasForSurah(surahNumber: Surah): AyahMeta[] {
       meta.isEndOfQuarter = HizbQuarterList[meta.rubAlHizbId + 1] === ayahId + 1
       if (HizbQuarterList[meta.rubAlHizbId + 1] === ayahId) {
         meta.rubAlHizbId += 1
-        meta.juzPart += 1
+        meta.juzPart = meta.isStartOfJuz ? 1 : meta.juzPart + 1 as JuzPart
         meta.isStartOfQuarter = true
         if (meta.juzPart === 5) meta.hizbId += 1
       }
