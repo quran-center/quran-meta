@@ -17,7 +17,7 @@ import { checkValidSurah } from "./validation"
 export function getAyahMetasForSurah(surahNumber: Surah): AyahMeta[] {
   checkValidSurah(surahNumber)
   const [
-    startAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan, page
+    startAyahId, ayahCount // , surahOrder, rukuCount, name, isMeccan, page
   ] = SurahList[surahNumber]
   const endAyahId = startAyahId + ayahCount - 1
   const result: AyahMeta[] = []
