@@ -43,7 +43,7 @@ Answering Questions like:
 * Find 
   * next or previous ayah (`nextAyah`/`prevAyah`)
   * juz `findJuz` and `findJuzByAyahId`
-  * hizb `findRubAlHizb`, `getRubAlHizbMetaByAyahId`
+  * maqra/rub-el-hizb `findRubAlHizb`, `getRubAlHizbMetaByAyahId`
   * page `findPage` by surah/ayah
   * AyahId of a given surah/ayah (`findAyahIdBySurah`)
   * find range around ayah (`findRangeAroundAyah`)

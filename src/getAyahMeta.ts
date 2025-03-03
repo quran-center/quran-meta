@@ -1,7 +1,7 @@
 import { findPagebyAyahId } from "./findPagebyAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
-import { HizbQuarterList } from "./lists/hizbList"
+import { HizbQuarterList } from "./lists/hizbQuarterList"
 import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
 import { SajdaList } from "./lists/sajdaList"
@@ -33,7 +33,7 @@ export function getAyahMeta(ayahId: AyahId): AyahMeta {
   const isEndOfQuarter = HizbQuarterList[quarterData.rubAlHizbId + 1] - 1 === ayahId
 
   return {
-    ...quarterData, surah, ayah, isStartOfQuarter,
+    ...quarterData, surah, ayah, page, isStartOfQuarter,
     isEndOfQuarter, isSajdahAyah, isStartOfPage, isEndOfPage,
     isStartOfJuz, isEndOfJuz, isStartOfSurah, isEndOfSurah
   }

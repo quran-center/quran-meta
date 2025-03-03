@@ -135,6 +135,7 @@ export type AyahMeta = {
   juzPart: JuzPart // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   hizbId: HizbId
   rubAlHizbId: RubAlHizbId
+  page: Page
   // rub: number
   surah: Surah
   ayah: AyahNo

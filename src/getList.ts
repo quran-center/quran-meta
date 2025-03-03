@@ -1,4 +1,4 @@
-import { HizbQuarterList } from "./lists/hizbList"
+import { HizbQuarterList } from "./lists/hizbQuarterList"
 import { JuzList } from "./lists/juzList"
 import { ManzilList } from "./lists/manzilList"
 import { PageList } from "./lists/pageList"

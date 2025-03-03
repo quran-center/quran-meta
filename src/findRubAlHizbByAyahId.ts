@@ -1,4 +1,4 @@
-import { HizbQuarterList } from "./lists/hizbList"
+import { HizbQuarterList } from "./lists/hizbQuarterList"
 import { AyahId, RubAlHizbId } from "./types"
 import { checkValidAyahId } from "./validation"
 
