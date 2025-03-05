@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.4-7
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-6...v4.0.4-7)
+
+### 🚀 Enhancements
+
+- Add findRukuByAyahId (b89a77d)
+
+### 🏡 Chore
+
+- Some cleanup and optimization (9fa71df)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.4-6
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-5...v4.0.4-6)
