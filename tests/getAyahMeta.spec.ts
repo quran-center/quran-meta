@@ -104,7 +104,6 @@ describe("ayahMeta", () => {
     expect(() => getAyahMeta(meta.numAyahs + 1)).toThrow(RangeError)
   })
 
-
   it("should return correct metadata for ayah 6235", () => {
     const result = getAyahMeta(6235)
     expect(result.isStartOfRuku).toBeFalsy()
