@@ -1,4 +1,4 @@
-import { getSurahMeta } from "./getSurahMeta"
+import { SurahList } from "./lists/surahList"
 import { AyahId, AyahNo, Surah } from "./types"
 import { checkValidSurahAyah } from "./validation"
 
@@ -10,6 +10,6 @@ import { checkValidSurahAyah } from "./validation"
  */
 export function findAyahIdBySurah(surah: Surah, ayah: AyahNo): AyahId {
   checkValidSurahAyah(surah, ayah)
-  const [startAyahId] = getSurahMeta(surah)
+  const [startAyahId] = SurahList[surah]
   return startAyahId + ayah - 1
 }

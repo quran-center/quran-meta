@@ -1,4 +1,4 @@
-import { getAyahMeta, meta, RukuList } from "../src"
+import { getAyahMeta, meta } from "../src"
 
 describe("ayahMeta", () => {
   it("should return correct metadata for the first ayah", () => {

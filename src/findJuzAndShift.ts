@@ -24,7 +24,6 @@ export function findJuzAndShift(
     leftAyahId: AyahId
     ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
   } {
-  checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
 
   const juz = findJuzByAyahId(ayahId)
