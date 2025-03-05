@@ -2,6 +2,7 @@ import { getAyahMeta } from "./getAyahMeta"
 import { HizbQuarterList } from "./lists/hizbQuarterList"
 import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
+import { RukuList } from "./lists/rukuList"
 import { SajdaList } from "./lists/sajdaList"
 import { SurahList } from "./lists/surahList"
 import { Surah, AyahMeta, AyahId, JuzPart } from "./types"
@@ -39,6 +40,13 @@ export function getAyahMetasForSurah(surahNumber: Surah): AyahMeta[] {
       }
       else { meta.isStartOfPage = false }
       meta.isEndOfPage = PageList[meta.page + 1] === ayahId + 1
+
+      if (RukuList[meta.ruku + 1] === ayahId) {
+        meta.ruku += 1
+        meta.isStartOfRuku = true
+      }
+      else { meta.isStartOfRuku = false }
+      meta.isEndOfRuku = RukuList[meta.ruku + 1] === ayahId + 1
 
       meta.isEndOfJuz = JuzList[meta.juz + 1] === ayahId + 1
       if (JuzList[meta.juz + 1] === ayahId) {

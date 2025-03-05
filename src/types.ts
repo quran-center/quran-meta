@@ -136,7 +136,7 @@ export type AyahMeta = {
   hizbId: HizbId
   rubAlHizbId: RubAlHizbId
   page: Page
-  // rub: number
+  ruku: number
   surah: Surah
   ayah: AyahNo
   isStartOfQuarter: boolean
@@ -148,4 +148,6 @@ export type AyahMeta = {
   isEndOfJuz: boolean
   isStartOfSurah: boolean
   isEndOfSurah: boolean
+  isStartOfRuku: boolean
+  isEndOfRuku: boolean
 }

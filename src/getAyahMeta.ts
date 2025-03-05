@@ -24,21 +24,27 @@ export function getAyahMeta(ayahId: AyahId): AyahMeta {
   const quarterData = getRubAlHizbMetaByAyahId(ayahId)
   const [surah, ayah] = findSurahAyahByAyahId(ayahId)
   const page: Page = findPagebyAyahId(ayahId)
-  const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
+
+  // const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
+  const isSajdahAyah = binarySearch(SajdaList, ayahId, (a, b) => a - b[0]) >= 0
+
+  const rk = binarySearch(RukuList, ayahId)
+  const isStartOfRuku = rk > 0
+  const ruku = isStartOfRuku ? rk : -rk - 2
+
   const isStartOfSurah = SurahList[surah][0] === ayahId
   const isStartOfPage = PageList[page] === ayahId
-  // const isStartOfRuku = RukuList[page] === ayahId
   const isStartOfJuz = JuzList[quarterData.juz] === ayahId
   const isStartOfQuarter = HizbQuarterList[quarterData.rubAlHizbId] === ayahId
   const isEndOfSurah = SurahList[surah + 1][0] - 1 === ayahId
   const isEndOfPage = PageList[page + 1] - 1 === ayahId
   const isEndOfJuz = JuzList[quarterData.juz + 1] - 1 === ayahId
-  const isEndOfRuku = JuzList[quarterData.juz + 1] - 1 === ayahId
+  const isEndOfRuku = binarySearch(RukuList, ayahId + 1) > 0
   const isEndOfQuarter = HizbQuarterList[quarterData.rubAlHizbId + 1] - 1 === ayahId
 
   return {
     ...quarterData, surah, ayah, page, isStartOfQuarter,
-    isEndOfQuarter, isSajdahAyah, isStartOfPage, isEndOfPage,
-    isStartOfJuz, isEndOfJuz, isStartOfSurah, isEndOfSurah
+    isEndOfQuarter, isSajdahAyah, isStartOfPage, isEndOfPage, ruku,
+    isStartOfJuz, isEndOfJuz, isStartOfSurah, isEndOfSurah, isStartOfRuku, isEndOfRuku
   }
 }
