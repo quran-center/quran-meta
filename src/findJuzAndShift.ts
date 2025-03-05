@@ -4,7 +4,7 @@ import { findSurahByAyahId } from "./findSurahByAyahId"
 import { JuzList } from "./lists/juzList"
 import { SurahList } from "./lists/surahList"
 import { AyahCountBetweenJuzSurah, AyahId, AyahNo, Juz, Surah } from "./types"
-import { checkValidAyahId, checkValidSurah } from "./validation"
+import { checkValidAyahId } from "./validation"
 
 /**
  * Finds the juz (section) that contains the specified ayah (verse) and calculates the number of ayahs between the start of the juz and the start of the surah (chapter) that contains the ayah.
