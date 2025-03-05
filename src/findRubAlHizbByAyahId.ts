@@ -1,5 +1,6 @@
 import { HizbQuarterList } from "./lists/hizbQuarterList"
 import { AyahId, RubAlHizbId } from "./types"
+import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
 
 /**
@@ -11,5 +12,8 @@ import { checkValidAyahId } from "./validation"
 export function findRubAlHizbByAyahId(ayahId: AyahId): RubAlHizbId {
   checkValidAyahId(ayahId)
 
-  return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId
+  // return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId
+  const jj = binarySearch(HizbQuarterList, ayahId)
+  const page = jj < 0 ? -jj - 2 : jj
+  return page as RubAlHizbId
 }

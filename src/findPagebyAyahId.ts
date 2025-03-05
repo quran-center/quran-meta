@@ -1,5 +1,6 @@
 import { PageList } from "./lists/pageList"
 import { AyahId, Page } from "./types"
+import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
 
 /**
@@ -18,5 +19,8 @@ import { checkValidAyahId } from "./validation"
 export function findPagebyAyahId(ayahId: AyahId): Page {
   checkValidAyahId(ayahId)
 
-  return PageList.findIndex(x => x > ayahId) - 1 as Page
+  // return PageList.findIndex(x => x > ayahId) - 1 as Page
+  const jj = binarySearch(PageList, ayahId)
+  const page = jj < 0 ? -jj - 2 : jj
+  return page as Page
 }

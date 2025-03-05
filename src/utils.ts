@@ -6,10 +6,10 @@
  * @param compare_fn - An optional comparison function to use for the search. Defaults to a simple numeric comparison.
  * @returns The index of the element if found, or a negative value indicating the insertion point if not found.
  */
-export function binarySearch(
-  ar: Array<number>,
-  el: number,
-  compare_fn: (a: number, b: number) => number = (a, b) => a - b
+export function binarySearch<T, X>(
+  ar: Array<T>,
+  el: X,
+  compare_fn: (a: X, b: T) => number = (a, b) => a as number - (b as number)
 ): number | -1 {
   let m = 0
   let n = ar.length - 1

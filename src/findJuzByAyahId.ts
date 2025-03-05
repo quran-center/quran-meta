@@ -1,5 +1,6 @@
 import { JuzList } from "./lists/juzList"
 import { AyahId, Juz } from "./types"
+import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
 
 /**
@@ -11,6 +12,8 @@ import { checkValidAyahId } from "./validation"
 export function findJuzByAyahId(ayahId: AyahId): Juz {
   checkValidAyahId(ayahId)
 
-  const juz = JuzList.findIndex(x => x > ayahId) - 1
+  // const juz = JuzList.findIndex(x => x > ayahId) - 1
+  const jj = binarySearch(JuzList, ayahId)
+  const juz = jj < 0 ? -jj - 2 : jj
   return juz as Juz
 }
