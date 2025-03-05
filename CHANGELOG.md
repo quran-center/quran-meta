@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.4-4
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-3...v4.0.4-4)
+
+### 🚀 Enhancements
+
+- Add rukus to meta (0845054)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.4-3
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-2...v4.0.4-3)
