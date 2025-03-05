@@ -8,7 +8,7 @@
     "surah",
     "juz"
   ],
-  "version": "4.0.4-5",
+  "version": "4.0.4-6",
   "license": "MIT",
   "jsdelivr": "./dist/index.mjs",
   "unpkg": "./dist/index.mjs",
