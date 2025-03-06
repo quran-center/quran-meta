@@ -5,59 +5,17 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v4.0.4-7
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-6...v4.0.4-7)
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.3...v4.0.4-7)
 
 ### 🚀 Enhancements
 
 - Add findRukuByAyahId (b89a77d)
+- Add rukus to meta (0845054)
+- Added getAyahMetasForSurah (a696010)
 
 ### 🏡 Chore
 
 - Some cleanup and optimization (9fa71df)
-
-### ❤️ Contributors
-
-- HG ([@husayt](https://github.com/husayt))
-
-## v4.0.4-6
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-5...v4.0.4-6)
-
-## v4.0.4-5
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-4...v4.0.4-5)
-
-## v4.0.4-4
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-3...v4.0.4-4)
-
-### 🚀 Enhancements
-
-- Add rukus to meta (0845054)
-
-### ❤️ Contributors
-
-- HG ([@husayt](https://github.com/husayt))
-
-## v4.0.4-3
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-2...v4.0.4-3)
-
-## v4.0.4-2
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-1...v4.0.4-2)
-
-## v4.0.4-1
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-0...v4.0.4-1)
-
-## v4.0.4-0
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.3...v4.0.4-0)
-
-### 🚀 Enhancements
-
-- Added getAyahMetasForSurah (a696010)
 
 ### ❤️ Contributors
 
@@ -78,7 +36,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v4.0.1
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.1-0...v4.0.1)
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.1...v4.0.1)
 
 **Breaking changes in this version**
 
@@ -103,6 +61,7 @@ By leveraging TypeScript and proper type usage, many issues can be identified ea
 - Better type guards (472366e)
 - Added type guards for Hizb and RubAlhizb
 - Add more guards and `getJuzMeta` function (1a6bbe2)
+- Major update better types and many fixes (b556bc9)
 
 ### 🏡 Chore
 
@@ -114,21 +73,6 @@ By leveraging TypeScript and proper type usage, many issues can be identified ea
 - Updated docs (8cf8fe4)
 - Add more checks (4a3640a)
 - Fix docs (e953d37)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v4.0.1-0
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.2.1...v4.0.1-0)
-
-### 🚀 Enhancements
-
-- Major update better types and many fixes (b556bc9)
-
-### 🏡 Chore
-
 - Fix tests (15f22bd)
 - Fix docs (85dc3a8)
 
@@ -155,22 +99,11 @@ By leveraging TypeScript and proper type usage, many issues can be identified ea
 
 ## v3.2.0
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.1.1-0...v3.2.0)
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.1.0...v3.2.0)
 
 ### 🚀 Enhancements
 
 - Update dependencies (be0d65b)
-
-### ❤️ Contributors
-
-- HG ([@husayt](http://github.com/husayt))
-
-## v3.1.1-0
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v3.1.0...v3.1.1-0)
-
-### 🚀 Enhancements
-
 - Add getList Method (5f17784)
 
 ### 🏡 Chore
@@ -267,27 +200,11 @@ Full unit test coverage has been achieved. Furthermore, in order to guarantee ab
 
 ## v2.5.3
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.3-0...v2.5.3)
-
-## v2.5.3-0
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.2...v2.5.3-0)
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.2...v2.5.3)
 
 ## v2.5.2
 
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.2-3...v2.5.2)
-
-## v2.5.2-3
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.2-2...v2.5.2-3)
-
-## v2.5.2-2
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.5.2-1...v2.5.2-2)
-
-## v2.5.2-0
-
-[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.4.15...v2.5.2-0)
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v2.4.15...v2.5.2)
 
 ### 🚀 Enhancements
 

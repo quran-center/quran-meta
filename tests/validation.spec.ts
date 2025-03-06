@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { checkValidJuz, checkValidPage } from "../src/validation"
+import { checkValidJuz, checkValidPage, checkValidRuku } from "../src/validation"
 import { meta } from "../src/const"
 
 describe("checkValidPage", () => {
@@ -50,6 +50,32 @@ describe("checkValidPage", () => {
       expect(() => checkValidJuz(0)).toThrow(RangeError)
       expect(() => checkValidJuz(-1)).toThrow(RangeError)
       expect(() => checkValidJuz(meta.numJuzs + 1)).toThrow(RangeError)
+    })
+
+    describe("checkValidRuku", () => {
+      it("should accept valid ruku numbers", () => {
+        expect(() => checkValidRuku(1)).not.toThrow()
+        expect(() => checkValidRuku(meta.numRukus)).not.toThrow()
+        expect(() => checkValidRuku(15)).not.toThrow()
+      })
+
+      it("should throw TypeError for non-number values", () => {
+        expect(() => checkValidRuku("1")).toThrow(TypeError)
+        expect(() => checkValidRuku(null)).toThrow(TypeError)
+        expect(() => checkValidRuku(undefined)).toThrow(TypeError)
+        expect(() => checkValidRuku({})).toThrow(TypeError)
+      })
+
+      it("should throw TypeError for non-integer numbers", () => {
+        expect(() => checkValidRuku(1.5)).toThrow(TypeError)
+        expect(() => checkValidRuku(2.7)).toThrow(TypeError)
+      })
+
+      it("should throw RangeError for out of range values", () => {
+        expect(() => checkValidRuku(0)).toThrow(RangeError)
+        expect(() => checkValidRuku(-1)).toThrow(RangeError)
+        expect(() => checkValidRuku(meta.numRukus + 1)).toThrow(RangeError)
+      })
     })
   })
 })

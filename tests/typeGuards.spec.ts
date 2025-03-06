@@ -1,4 +1,5 @@
-import { isValidHizb, isValidJuz, isValidRubAlHizb, isValidSurah, isValidSurahAyah } from "../src/typeGuards"
+import { meta } from "../src"
+import { isValidHizb, isValidJuz, isValidRubAlHizb, isValidRuku, isValidSurah, isValidSurahAyah } from "../src/typeGuards"
 
 describe("isValidJuz", () => {
   it("should return true for valid juz numbers", () => {
@@ -112,5 +113,26 @@ describe("isValidHizb", () => {
     expect(isValidHizb(1.5)).toBe(false)
     expect(isValidHizb(NaN)).toBe(false)
     expect(isValidHizb(Infinity)).toBe(false)
+  })
+
+  describe("isValidRuku", () => {
+    it("should return true for valid ruku numbers", () => {
+      expect(isValidRuku(1)).toBe(true)
+      expect(isValidRuku(30)).toBe(true)
+      expect(isValidRuku(60)).toBe(true)
+    })
+
+    it("should return false for invalid ruku numbers", () => {
+      expect(isValidRuku(0)).toBe(false)
+      expect(isValidRuku(-1)).toBe(false)
+      expect(isValidRuku(meta.numRukus + 1)).toBe(false)
+    })
+
+    it("should return false for non-integer values", () => {
+      expect(isValidRuku("1")).toBe(false)
+      expect(isValidRuku(1.5)).toBe(false)
+      expect(isValidRuku(NaN)).toBe(false)
+      expect(isValidRuku(Infinity)).toBe(false)
+    })
   })
 })

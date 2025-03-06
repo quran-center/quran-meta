@@ -1,6 +1,6 @@
 import { maxAyahsInSurah, meta } from "./const"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
-import { AyahId, AyahNo, HizbId, Juz, RubAlHizbId, Surah, SurahAyah } from "./types"
+import { AyahId, AyahNo, HizbId, Juz, RubAlHizbId, Ruku, Surah, SurahAyah } from "./types"
 
 /**
  * Checks if the given value is a valid AyahId.
@@ -88,4 +88,19 @@ export function isValidRubAlHizb(x: unknown): x is RubAlHizbId {
  */
 export function isValidPage(x: unknown): x is Juz {
   return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numPages
+}
+
+/**
+ * Type guard that checks if a value is a valid Ruku number
+ * @param x - The value to check
+ * @returns True if x is an integer between 1 and the total number of Rukus
+ * @example
+ * ```ts
+ * if (isValidRuku(5)) {
+ *   // 5 is a valid Ruku number
+ * }
+ * ```
+ */
+export function isValidRuku(x: unknown): x is Ruku {
+  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numRukus
 }
