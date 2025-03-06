@@ -1,6 +1,6 @@
 import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
 import { getRubAlHizbMeta } from "./getRubAlHizbMeta"
-import { AyahId, JuzHizb } from "./types"
+import { AyahId, RubAlHizbMeta } from "./types"
 import { checkValidAyahId } from "./validation"
 
 /**
@@ -9,7 +9,7 @@ import { checkValidAyahId } from "./validation"
  * @param ayahId - The Ayah ID to find the Juz, Hizb, and Hizb ID for.
  * @returns An object containing the Juz, Hizb, and Hizb ID for the given Ayah ID.
  */
-export function getRubAlHizbMetaByAyahId(ayahId: AyahId): JuzHizb {
+export function getRubAlHizbMetaByAyahId(ayahId: AyahId): RubAlHizbMeta {
   checkValidAyahId(ayahId)
 
   const quarterIndex = findRubAlHizbByAyahId(ayahId)
