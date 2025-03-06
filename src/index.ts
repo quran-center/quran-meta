@@ -41,8 +41,8 @@ export { SajdaList } from "./lists/sajdaList"
 export { SurahList } from "./lists/surahList"
 export { nextAyah } from "./nextAyah"
 export { prevAyah } from "./prevAyah"
-export { isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidSurah, isValidSurahAyah } from "./typeGuards"
-export { checkValidAyahId, checkValidJuz, checkValidPage, checkValidSurah, checkValidSurahAyah } from "./validation"
+export { isValidRuku, isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidSurah, isValidSurahAyah } from "./typeGuards"
+export { checkValidRuku, checkValidAyahId, checkValidJuz, checkValidPage, checkValidSurah, checkValidSurahAyah } from "./validation"
 
 // ------------------ Sura i18 Data ---------------------
 
