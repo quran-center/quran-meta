@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.4-11
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-10...v4.0.4-11)
+
+### 🚀 Enhancements
+
+- Add getRubAlHizb and getRubAlHizbByAyahId methods (4803bf6)
+- Updated getRubAlHizbMeta and getRubAlHizbMetabyAyahId (793df2c)
+- Exposed findJuzAndShift, findJuzAndShiftByAyahId, getJuzMeta, getRubAlHizb, getRubAlHizbByAyahId (dec4ac4)
+
+### 🩹 Fixes
+
+- Expose missing types (d5986c9)
+
+### 🏡 Chore
+
+- Update and fix tests (5d72db3)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.4-10
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-9...v4.0.4-10)
