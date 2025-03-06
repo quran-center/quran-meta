@@ -83,25 +83,28 @@ export type Juz = NumericRange<0, typeof meta.numJuzs>
  */
 export type JuzPart = NumericRange<1, typeof meta.numRubsInJuz>
 
-/**
- * Represents the structure of a Juz and Hizb combination in the Quran
- */
-export type JuzHizb = {
-  juz: Juz
-  juzPart: JuzPart
-  hizbId: HizbId
-  rubAlHizbId: RubAlHizbId
-}
-export type SurahAyah = [Surah, AyahNo]
-export type AyahRange = [AyahId, AyahId]
-export type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]]
-
 export type RangeMeta = {
   firstAyahId: AyahId
   lastAyahId: AyahId
   first: SurahAyah
   last: SurahAyah
 }
+
+/**
+ * Represents the structure of a Juz and Hizb combination in the Quran
+ */
+export type RubAlHizb = {
+  juz: Juz
+  juzPart: JuzPart
+  hizbId: HizbId
+  rubAlHizbId: RubAlHizbId
+}
+
+export type RubAlHizbMeta = RubAlHizb & RangeMeta
+
+export type SurahAyah = [Surah, AyahNo]
+export type AyahRange = [AyahId, AyahId]
+export type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]]
 
 export type PageMeta = {
   pageNum: Page
@@ -138,6 +141,8 @@ export type SurahMeta = [
   page: Page
 ]
 export type SurahName = [name: string, translitName: string]
+
+export type RangeMode = "juz" | "surah" | "ayah" | "page" | "ruku" | "all"
 
 export type AyahMeta = {
   juz: Juz

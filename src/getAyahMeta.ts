@@ -1,6 +1,6 @@
 import { findPagebyAyahId } from "./findPagebyAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
+import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
 import { HizbQuarterList } from "./lists/hizbQuarterList"
 import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
@@ -21,7 +21,7 @@ import { checkValidAyahId } from "./validation"
 export function getAyahMeta(ayahId: AyahId): AyahMeta {
   checkValidAyahId(ayahId)
 
-  const quarterData = getRubAlHizbMetaByAyahId(ayahId)
+  const quarterData = getRubAlHizbByAyahId(ayahId)
   const [surah, ayah] = findSurahAyahByAyahId(ayahId)
   const page: Page = findPagebyAyahId(ayahId)
 

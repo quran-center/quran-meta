@@ -1,7 +1,7 @@
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findRangeAroundAyah } from "./findRangeAroundAyah"
 import { SurahList } from "./lists/surahList"
-import { AyahId, AyahNo, AyahRange, Surah } from "./types"
+import { AyahId, AyahNo, AyahRange, RangeMode, Surah } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**
@@ -15,7 +15,7 @@ import { checkValidSurah } from "./validation"
 export function findRangeAroundSurahAyah(
   surah: Surah,
   ayah: AyahNo,
-  mode: "juz" | "surah" | "ayah" | "page" | "all"
+  mode: RangeMode
 ): AyahRange {
   checkValidSurah(surah)
   if (mode === "surah") {

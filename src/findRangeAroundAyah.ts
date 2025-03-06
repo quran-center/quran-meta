@@ -7,7 +7,7 @@ import { JuzList } from "./lists/juzList"
 import { PageList } from "./lists/pageList"
 import { RukuList } from "./lists/rukuList"
 import { SurahList } from "./lists/surahList"
-import { AyahId, AyahRange, Juz, Page, Ruku, Surah } from "./types"
+import { AyahId, AyahRange, Juz, Page, RangeMode, Ruku, Surah } from "./types"
 
 /**
  * Finds the range of ayahs surrounding a given ayah based on specified mode
@@ -23,7 +23,7 @@ import { AyahId, AyahRange, Juz, Page, Ruku, Surah } from "./types"
  */
 export function findRangeAroundAyah(
   ayahId: AyahId,
-  mode: "juz" | "surah" | "ayah" | "page" | "ruku" | "all"
+  mode: RangeMode
 ): AyahRange {
   switch (mode) {
     case "juz": {

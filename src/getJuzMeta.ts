@@ -1,6 +1,6 @@
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { JuzList } from "./lists/juzList"
-import { AyahId, JuzMeta } from "./types"
+import { AyahId, Juz, JuzMeta } from "./types"
 import { checkValidJuz } from "./validation"
 
 /**
@@ -10,7 +10,7 @@ import { checkValidJuz } from "./validation"
  * @returns An object containing the Juz number, first ayah, and last ayah in the Juz
  * @throws RangeError If the Juz number is not between 1 and 30
  */
-export function getJuzMeta(juzNum: number): JuzMeta {
+export function getJuzMeta(juzNum: Juz): JuzMeta {
   checkValidJuz(juzNum)
 
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
