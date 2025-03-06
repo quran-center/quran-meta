@@ -1,5 +1,4 @@
-import { meta } from "../src"
-import { prevAyah } from "../src/prevAyah"
+import { meta, prevAyah } from "../src"
 
 describe("prevAyah", () => {
   it("basic", () => {

@@ -1,5 +1,4 @@
-import { expect, vi } from "vitest"
-import { findJuzMetaBySurah } from "../src/findJuzMetaBySurah"
+import { findJuzMetaBySurah } from "../src"
 import * as findSurahByAyahIdModule from "../src/findSurahByAyahId"
 
 describe("findJuzMetaBySurah", () => {

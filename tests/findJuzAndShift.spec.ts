@@ -1,5 +1,4 @@
-import { meta } from "../src"
-import { findJuzAndShift, findJuzAndShiftByAyahId } from "../src/findJuzAndShift"
+import { meta, findJuzAndShift, findJuzAndShiftByAyahId } from "../src"
 
 describe("findJuzAndShift", () => {
   it("basic", () => {

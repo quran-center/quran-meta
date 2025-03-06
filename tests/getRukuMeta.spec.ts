@@ -1,5 +1,4 @@
-import { describe, expect, it } from "vitest"
-import { getRukuMeta } from "../src/getRukuMeta"
+import { getRukuMeta } from "../src"
 
 describe("getRukuMeta", () => {
   it("should return correct metadata for first ruku", () => {

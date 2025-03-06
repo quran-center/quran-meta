@@ -1,5 +1,4 @@
-import { checkValidAyahId, meta } from "../src"
-import { isValidAyahId } from "../src/typeGuards"
+import { checkValidAyahId, isValidAyahId, meta } from "../src"
 
 describe("checkValidAyahId", () => {
   it("should throw RangeError for ayah id less than 1", () => {

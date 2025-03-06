@@ -1,5 +1,4 @@
-import { getJuzMeta } from "../src/getJuzMeta"
-import { JuzMeta } from "../src/types"
+import { JuzMeta, getJuzMeta } from "../src"
 
 describe("getJuzMeta", () => {
   it("should return correct metadata for a valid Juz number", () => {

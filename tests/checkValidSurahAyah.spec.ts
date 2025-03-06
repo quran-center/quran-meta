@@ -1,5 +1,4 @@
-import { checkValidSurahAyah } from "../src"
-import { isValidSurahAyah } from "../src/typeGuards"
+import { checkValidSurahAyah, isValidSurahAyah } from "../src"
 
 describe("checkValidSurahAyah", () => {
   it("should return true for valid surah and ayah", () => {

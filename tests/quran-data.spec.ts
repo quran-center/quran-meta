@@ -9,7 +9,7 @@ import {
   isAyahJuzFirst,
   JuzList,
   meta
-} from "../src/"
+} from "../src"
 import { AyahId, AyahNo, Surah } from "../src/types"
 
 console.log("STARING")

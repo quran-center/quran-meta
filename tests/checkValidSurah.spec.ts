@@ -1,5 +1,4 @@
-import { checkValidSurah, meta } from "../src"
-import { isValidSurah } from "../src/typeGuards"
+import { isValidSurah, checkValidSurah, meta } from "../src"
 
 describe("checkValidSurah", () => {
   it("should return true for valid surah numbers", () => {

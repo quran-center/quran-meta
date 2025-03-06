@@ -1,5 +1,4 @@
-import { describe, it, expect } from "vitest"
-import { findRukuByAyahId } from "../src/findRukuByAyahId"
+import { findRukuByAyahId } from "../src"
 
 describe("findRukuByAyahId", () => {
   it("should find correct ruku for valid ayah IDs", () => {

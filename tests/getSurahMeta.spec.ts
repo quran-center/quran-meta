@@ -1,5 +1,4 @@
-import { getSurahMeta } from "../src/getSurahMeta"
-import { SurahList } from "../src/lists/surahList"
+import { getSurahMeta, SurahList } from "../src"
 
 describe("getSurahMeta", () => {
   it("should return correct metadata for first surah", () => {

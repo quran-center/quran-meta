@@ -1,15 +1,15 @@
 import { findRubAlHizb, findRubAlHizbByAyahId, HizbQuarterList, JuzList, meta } from "../src"
 
 describe("findRubAlHizb", () => {
-  it("should return correct JuzHizb for first surah and ayah", () => {
+  it("should return correct RubAlHizb for first surah and ayah", () => {
     expect(findRubAlHizb(1, 1)).toEqual(1)
   })
 
-  it("should return correct JuzHizb for a middle surah and ayah", () => {
+  it("should return correct RubAlHizb for a middle surah and ayah", () => {
     expect(findRubAlHizb(18, 1)).toEqual(117)
   })
 
-  it("should return correct JuzHizb for a last surah and ayah", () => {
+  it("should return correct RubAlHizb for a last surah and ayah", () => {
     expect(findRubAlHizb(114, 6)).toEqual(meta.numRubAlHizbs)
 
     expect(findRubAlHizb(114, 6)).toEqual(240)

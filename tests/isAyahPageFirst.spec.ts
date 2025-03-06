@@ -1,4 +1,4 @@
-import { isAyahPageFirst } from "../src/isAyahPageFirst"
+import { isAyahPageFirst } from "../src"
 
 describe("isAyahPageFirst", () => {
   it("basic", () => {

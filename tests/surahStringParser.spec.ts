@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { surahStringParser } from "../src/surahStringParser"
+import { surahStringParser } from "../src"
 
 describe("surahStringParser", () => {
   it("should parse valid surah numbers", () => {

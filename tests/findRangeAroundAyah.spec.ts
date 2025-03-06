@@ -45,6 +45,16 @@ describe("findRangeAroundSurahAyah", () => {
     expect(findRangeAroundSurahAyah(114, 6, "surah")).toEqual([6231, 6236])
   })
 
+  it("should return correct ruku range for first ayah", () => {
+    expect(findRangeAroundSurahAyah(1, 1, "ruku")).toEqual([1, 7])
+    expect(findRangeAroundSurahAyah(1, 7, "ruku")).toEqual([1, 7])
+  })
+
+  it("should return correct ruku range for last ayah", () => {
+    expect(findRangeAroundSurahAyah(114, 1, "ruku")).toEqual([6231, 6236])
+    expect(findRangeAroundSurahAyah(114, 4, "ruku")).toEqual([6231, 6236])
+  })
+
   it("should handle edge cases in findRangeAroundAyah", () => {
     // First ayah
     expect(findRangeAroundAyah(1, "juz")).toEqual([1, 148])

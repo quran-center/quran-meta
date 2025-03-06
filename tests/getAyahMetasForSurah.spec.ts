@@ -1,8 +1,5 @@
-import { describe, it, expect } from "vitest"
-import { getAyahMetasForSurah } from "../src/getAyahMetasForSurah"
-import { Surah } from "../src/types"
-import { getAyahMeta } from "../src/getAyahMeta"
-import { SurahList } from "../src"
+import { getAyahMetasForSurah, getAyahMeta, SurahList } from "../src"
+import type { Surah } from "../src"
 
 describe("getAyahMetasForSurah", () => {
   it("should return correct number of ayahs for Al-Fatiha (surah 1)", () => {
@@ -24,8 +21,8 @@ describe("getAyahMetasForSurah", () => {
   })
 
   it("should return correct number of ayahs for Al-Fatiha (surah 1)", () => {
-    for (let i: Surah = 1; i <= 114; i++) {
-      const result = getAyahMetasForSurah(i as Surah)
+    for (let i = 1 as Surah; i <= 114; i++ as Surah) {
+      const result = getAyahMetasForSurah(i)
       const [
         startAyahId, ayahCount
       ] = SurahList[i]

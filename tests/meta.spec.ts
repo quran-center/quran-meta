@@ -1,6 +1,5 @@
-import { getSurahMeta, HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../src"
-import { meta, maxAyahsInSurah } from "../src/const"
-import { getList } from "../src/getList"
+import { meta, getList, getSurahMeta, HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../src"
+import { maxAyahsInSurah } from "../src/const"
 
 describe("Meta constants", () => {
   it("should return correct numSurahs", () => {

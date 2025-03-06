@@ -1,5 +1,5 @@
-import { meta } from "../src"
-import { getList, partNames, PartType } from "../src/getList"
+import { meta, getList } from "../src"
+import { partNames, PartType } from "../src/getList"
 
 describe("getList", () => {
   it("should return an array", () => {
@@ -48,13 +48,10 @@ describe("getList", () => {
 
   it("should return same array on multiple calls", () => {
     const res = getList("surah")
-    console.log(res)
+    const res2 = getList("surah")
+    expect(res).toEqual(res2)
   })
 
-  it("should return same array on multiple calls", () => {
-    const res = getList("manzil")
-    console.log(res)
-  })
   //   it("should return array in ascending order", () => {
   //     const list = getList()
   //     const sorted = [...list].sort((a, b) => a - b)

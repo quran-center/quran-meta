@@ -1,4 +1,4 @@
-import { isSurahAyahJuzFirst } from "../src/isSurahAyahJuzFirst"
+import { isSurahAyahJuzFirst } from "../src"
 
 describe("isSurahAyahJuzFirst", () => {
   it("basic", () => {

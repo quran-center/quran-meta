@@ -1,5 +1,4 @@
-import { meta } from "../src"
-import { findSurahAyahByAyahId } from "../src/findSurahAyahByAyahId"
+import { meta, findSurahAyahByAyahId } from "../src"
 
 describe("findSurahByAyahId", () => {
   it("surah of ayahId 1", () => {
