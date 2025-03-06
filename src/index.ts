@@ -1,7 +1,7 @@
 // Quran Meta
 
 export type { QuranMeta } from "./const"
-export type { AyahCountBetweenJuzSurah, JuzMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahMeta, SurahName } from "./types"
+export type { RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahMeta, SurahName } from "./types"
 
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
