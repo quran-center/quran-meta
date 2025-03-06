@@ -7,6 +7,8 @@ describe("getJuzMeta", () => {
 
     expect(result).toEqual({
       juzNum: 1,
+      firstAyahId: 1,
+      lastAyahId: 148,
       first: [1, 1],
       last: [2, 141]
     })

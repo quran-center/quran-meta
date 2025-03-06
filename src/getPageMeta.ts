@@ -13,14 +13,17 @@ import { checkValidPage } from "./validation"
 export function getPageMeta(pageNum: Page): PageMeta {
   checkValidPage(pageNum)
 
-  const [curPage, nextPage]: [AyahId, AyahId] = [
+  const [firstAyahId, nextPage]: [AyahId, AyahId] = [
     PageList[pageNum],
     PageList[pageNum + 1]
   ]
+  const lastAyahId = nextPage - 1
 
   return {
     pageNum,
-    first: findSurahAyahByAyahId(curPage),
-    last: findSurahAyahByAyahId(nextPage - 1)
+    firstAyahId,
+    lastAyahId,
+    first: findSurahAyahByAyahId(firstAyahId),
+    last: findSurahAyahByAyahId(lastAyahId)
   }
 }
