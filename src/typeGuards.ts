@@ -107,10 +107,10 @@ export function isValidRuku(x: unknown): x is Ruku {
 
 /**
  * Type guard to check if a value is a valid Manzil number
- * 
+ *
  * @param x - The value to check
  * @returns True if the value is an integer between 1 and the total number of Manzils
- * 
+ *
  * @example
  * if (isValidManzil(3)) {
  *   // value is a valid Manzil number

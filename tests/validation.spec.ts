@@ -85,7 +85,7 @@ describe("checkValidPage", () => {
 
         it("should throw TypeError for non-number values", () => {
           expect(() => checkValidManzil("1")).toThrow(TypeError)
-          expect(() => checkValidManzil(null)).toThrow(TypeError) 
+          expect(() => checkValidManzil(null)).toThrow(TypeError)
           expect(() => checkValidManzil(undefined)).toThrow(TypeError)
           expect(() => checkValidManzil({})).toThrow(TypeError)
         })

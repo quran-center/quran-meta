@@ -71,7 +71,7 @@
     "test:types": "tsc --noEmit",
     "tsdoc": "rimraf docs&&typedoc --hideGenerator --plugin typedoc-github-theme",
     "up": "pnpm update -i -L",
-    "verify": "pnpx jiti examples/data-check"
+    "verify": "pnpx jiti examples/data-check/"
   },
   "devDependencies": {
     "@eslint/js": "9.21.0",
