@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.4-12
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-11...v4.0.4-12)
+
+### 🚀 Enhancements
+
+- Add manzil related methods (b874885)
+
+### 🏡 Chore
+
+- Improve data checks (11a5c20)
+- Improve docs (31999dc)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.4-11
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-10...v4.0.4-11)
