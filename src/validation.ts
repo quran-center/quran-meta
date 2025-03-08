@@ -1,7 +1,7 @@
 import { meta } from "./const"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
-import { isValidAyahId, isValidJuz, isValidPage, isValidRuku, isValidSurah } from "./typeGuards"
-import { AyahId, AyahNo, Juz, Page, Ruku, Surah, SurahAyah } from "./types"
+import { isValidAyahId, isValidJuz, isValidManzil, isValidPage, isValidRuku, isValidSurah } from "./typeGuards"
+import { AyahId, AyahNo, Juz, Manzil, Page, Ruku, Surah, SurahAyah } from "./types"
 
 /**
  * Validates if the provided value is a valid Surah number.
@@ -119,6 +119,22 @@ export function checkValidRuku(x: unknown | number | Ruku): asserts x is Ruku {
     throw new TypeError("Ruku must be an integer")
   }
   if (!isValidRuku(x)) {
-    throw new RangeError("Ruku must be between 1 and " + meta.numJuzs)
+    throw new RangeError("Ruku must be between 1 and " + meta.numRukus)
+  }
+}
+
+/**
+ * Type guard that checks if a value is a valid Manzil number.
+ * @param x - The value to check
+ * @throws {TypeError} If the value is not an integer
+ * @throws {RangeError} If the value is not within valid Manzil range (1 to max manzils)
+ * @remarks This is an assertion function that ensures the input is a valid Manzil type
+ */
+export function checkValidManzil(x: unknown | number | Manzil): asserts x is Manzil {
+  if (typeof x !== "number" || !Number.isInteger(x)) {
+    throw new TypeError("Manzil must be an integer")
+  }
+  if (!isValidManzil(x)) {
+    throw new RangeError("Manzil must be between 1 and " + meta.numManzils)
   }
 }

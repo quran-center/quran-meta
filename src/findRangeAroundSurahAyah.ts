@@ -9,7 +9,7 @@ import { checkValidSurah } from "./validation"
  *
  * @param surah - The surah number (1-114)
  * @param ayah - The ayah number within the surah
- * @param mode - The range mode: "juz", "surah", "ayah", "page", or "all"
+ * @param mode - The range mode: "juz", "surah", "ayah", "page", "ruku" or "all"
  * @returns A tuple containing the start and end ayah IDs of the range
  */
 export function findRangeAroundSurahAyah(

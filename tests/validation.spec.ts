@@ -1,5 +1,4 @@
-import { describe, it, expect } from "vitest"
-import { checkValidJuz, checkValidPage, checkValidRuku } from "../src/validation"
+import { checkValidJuz, checkValidManzil, checkValidPage, checkValidRuku } from "../src/validation"
 import { meta } from "../src/const"
 
 describe("checkValidPage", () => {
@@ -75,6 +74,32 @@ describe("checkValidPage", () => {
         expect(() => checkValidRuku(0)).toThrow(RangeError)
         expect(() => checkValidRuku(-1)).toThrow(RangeError)
         expect(() => checkValidRuku(meta.numRukus + 1)).toThrow(RangeError)
+      })
+
+      describe("checkValidManzil", () => {
+        it("should accept valid manzil numbers", () => {
+          expect(() => checkValidManzil(1)).not.toThrow()
+          expect(() => checkValidManzil(meta.numManzils)).not.toThrow()
+          expect(() => checkValidManzil(4)).not.toThrow()
+        })
+
+        it("should throw TypeError for non-number values", () => {
+          expect(() => checkValidManzil("1")).toThrow(TypeError)
+          expect(() => checkValidManzil(null)).toThrow(TypeError) 
+          expect(() => checkValidManzil(undefined)).toThrow(TypeError)
+          expect(() => checkValidManzil({})).toThrow(TypeError)
+        })
+
+        it("should throw TypeError for non-integer numbers", () => {
+          expect(() => checkValidManzil(1.5)).toThrow(TypeError)
+          expect(() => checkValidManzil(2.7)).toThrow(TypeError)
+        })
+
+        it("should throw RangeError for out of range values", () => {
+          expect(() => checkValidManzil(0)).toThrow(RangeError)
+          expect(() => checkValidManzil(-1)).toThrow(RangeError)
+          expect(() => checkValidManzil(meta.numManzils + 1)).toThrow(RangeError)
+        })
       })
     })
   })

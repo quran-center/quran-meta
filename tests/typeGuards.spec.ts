@@ -1,5 +1,5 @@
 import { meta } from "../src"
-import { isValidHizb, isValidJuz, isValidRubAlHizb, isValidRuku, isValidSurah, isValidSurahAyah } from "../src/typeGuards"
+import { isValidHizb, isValidJuz, isValidManzil, isValidRubAlHizb, isValidRuku, isValidSurah, isValidSurahAyah } from "../src/typeGuards"
 
 describe("isValidJuz", () => {
   it("should return true for valid juz numbers", () => {
@@ -133,6 +133,27 @@ describe("isValidHizb", () => {
       expect(isValidRuku(1.5)).toBe(false)
       expect(isValidRuku(NaN)).toBe(false)
       expect(isValidRuku(Infinity)).toBe(false)
+    })
+
+    describe("isValidManzil", () => {
+      it("should return true for valid manzil numbers", () => {
+        expect(isValidManzil(1)).toBe(true)
+        expect(isValidManzil(4)).toBe(true)
+        expect(isValidManzil(7)).toBe(true)
+      })
+
+      it("should return false for invalid manzil numbers", () => {
+        expect(isValidManzil(0)).toBe(false)
+        expect(isValidManzil(8)).toBe(false)
+        expect(isValidManzil(-1)).toBe(false)
+      })
+
+      it("should return false for non-integer values", () => {
+        expect(isValidManzil("1")).toBe(false)
+        expect(isValidManzil(1.5)).toBe(false)
+        expect(isValidManzil(NaN)).toBe(false)
+        expect(isValidManzil(Infinity)).toBe(false)
+      })
     })
   })
 })

@@ -12,6 +12,17 @@ describe("getRukuMeta", () => {
     })
   })
 
+  it("should return correct metadata for second ruku", () => {
+    const result = getRukuMeta(2)
+    expect(result).toEqual({
+      rukuNum: 2,
+      firstAyahId: 8,
+      lastAyahId: 14,
+      first: [2, 1],
+      last: [2, 7]
+    })
+  })
+
   it("should return correct metadata for a middle ruku", () => {
     const result = getRukuMeta(100)
     expect(result).toMatchObject({

@@ -110,6 +110,10 @@ export type PageMeta = {
   pageNum: Page
 } & RangeMeta
 
+export type ManzilMeta = {
+  manzilNum: Manzil
+} & RangeMeta
+
 export type JuzMeta = {
   juzNum: Juz
 } & RangeMeta
