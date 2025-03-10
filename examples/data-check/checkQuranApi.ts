@@ -5,7 +5,7 @@
  */
 
 
-import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahMeta, getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta, getSurahMeta } from "../../src"
+import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo, getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta, getSurahInfo } from "../../src"
 import { AyahNo, AyahId, Manzil, Page, Ruku, RubAlHizbId } from "../../src/types"
 
 import quranApi from "./data/quran-api.json"
@@ -37,7 +37,7 @@ export function checkQuranApi() {
             name,
             isMeccan,
             page
-        ]: SurahMeta = getSurahMeta(surahNo as Surah)
+        ]: SurahInfo = getSurahInfo(surahNo as Surah)
         const { chapter, name: oName, englishname, arabicname, revelation, verses } = quranApi.chapters[surahNo - 1]
 
         if (surahNo !== chapter) console.warn("error QuranApi surah: ", surahNo, chapter)

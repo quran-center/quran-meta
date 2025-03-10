@@ -1,26 +1,27 @@
-import { getSurahMeta, SurahList } from "../src"
+import { findPage, getSurahInfo, meta, Surah, SurahList } from "../src"
 
-describe("getSurahMeta", () => {
+describe("getSurahInfo", () => {
   it("should return correct metadata for first surah", () => {
-    const result = getSurahMeta(1)
+    const result = getSurahInfo(1)
     expect(result).toEqual(SurahList[1])
   })
 
   it("should return correct metadata for last surah", () => {
-    const result = getSurahMeta(114)
+    const result = getSurahInfo(114)
     expect(result).toEqual(SurahList[114])
   })
 
+
   it("should return correct metadata for a middle surah", () => {
-    const result = getSurahMeta(57)
+    const result = getSurahInfo(57)
     expect(result).toEqual(SurahList[57])
   })
 
   it("should throw an error for surah number 0", () => {
-    expect(() => getSurahMeta(0)).toThrow()
+    expect(() => getSurahInfo(0)).toThrow()
   })
 
   it("should throw an error for surah number 115", () => {
-    expect(() => getSurahMeta(115)).toThrow()
+    expect(() => getSurahInfo(115)).toThrow()
   })
 })

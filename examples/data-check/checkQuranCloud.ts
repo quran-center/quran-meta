@@ -3,7 +3,7 @@
  * https://api.alquran.cloud/v1/meta
  */
 
-import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahMeta } from "../../src"
+import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo } from "../../src"
 import { AyahNo, AyahId, Manzil, Page, Ruku } from "../../src/types"
 
 
@@ -21,7 +21,7 @@ export function checkQuranCloud() {
         name,
         isMeccan,
         page
-      ]: SurahMeta = SurahList[surahNo]
+      ]: SurahInfo = SurahList[surahNo]
       const sura = quranCloud.data.surahs.references[surahNo - 1]
   
       if (ayahCount !== sura.numberOfAyahs) console.warn("error QuranCloud surah: ", ayahCount, sura)

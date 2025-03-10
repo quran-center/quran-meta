@@ -49,7 +49,7 @@ Answering Questions like:
   * find range around ayah (`findRangeAroundAyah`)
 * Get meta data for
   * ayah  (`getAyahMeta`)
-  * surah  (`getSurahMeta`)
+  * surah  (`getSurahInfo`, `getSurahInfo`)
   * page  (`getPageMeta`)
   * juz  (`findJuzMetaBySurah`)
   * maqra/rub-el-hizb  (`getRubAlHizbMeta`, `getRubAlHizbMetaByAyahId`)

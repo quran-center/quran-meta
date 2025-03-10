@@ -5,7 +5,7 @@ import {
   findSurahAyahByAyahId,
   findSurahByAyahId,
   getPageMeta,
-  getSurahMeta,
+  getSurahInfo,
   isAyahJuzFirst,
   JuzList,
   meta
@@ -36,8 +36,8 @@ console.log("findJuzMetaBySurah 2,1", findJuzMetaBySurah(2, 1))
 console.log("findJuzMetaBySurah 114,1", findJuzMetaBySurah(114, 1))
 console.log("findJuzMetaBySurah 114,5", findJuzMetaBySurah(114, 5))
 console.log("findPage 604", findPage(114, 1))
-console.log("surahMeta 1", getSurahMeta(1))
-console.log("surahMeta 114", getSurahMeta(114))
+console.log("SurahInfo 1", getSurahInfo(1))
+console.log("SurahInfo 114", getSurahInfo(114))
 console.log("pageMeta 604", getPageMeta(604))
 // console.log("pmeta", pageMetaOld(604))
 console.log("pmeta", getPageMeta(1))

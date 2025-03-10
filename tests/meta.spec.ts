@@ -1,4 +1,4 @@
-import { meta, getList, getSurahMeta, HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../src"
+import { meta, getList, getSurahInfo, HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../src"
 import { maxAyahsInSurah } from "../src/const"
 
 describe("Meta constants", () => {
@@ -60,6 +60,6 @@ describe("Meta constants", () => {
 
   it("should have correct maximum number of ayahs in a surah", () => {
     expect(maxAyahsInSurah).toBe(286)
-    expect(maxAyahsInSurah).toBe(getSurahMeta(2)[1])
+    expect(maxAyahsInSurah).toBe(getSurahInfo(2)[1])
   })
 })

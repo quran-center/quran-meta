@@ -4,7 +4,7 @@ import { ManzilList } from "./lists/manzilList"
 import { PageList } from "./lists/pageList"
 import { RukuList } from "./lists/rukuList"
 import { SurahList } from "./lists/surahList"
-import { AyahId, AyahNo, SurahMeta } from "./types"
+import { AyahId, AyahNo, SurahInfo } from "./types"
 
 export const partNames = ["surah", "juz", "page", "manzil", "rubAlHizb", "ruku"] as const
 export type PartType = (typeof partNames)[number]
@@ -33,7 +33,7 @@ type PartBlocker = (...any: unknown[]) => PartBlock
 
 function toPartFormatter(type: PartType): PartBlocker {
   return (type === "surah")
-    ? ([startAyahId, ayahCount]: SurahMeta) => ({
+    ? ([startAyahId, ayahCount]: SurahInfo) => ({
         startAyahId, ayahCount
       })
     : (ayahId: AyahId, index: number) => {

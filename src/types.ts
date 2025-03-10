@@ -135,14 +135,13 @@ export type SurahJuzMeta = {
 export type SajdaType = "recommended" | "obligatory"
 export type Sajda = [AyahId, SajdaType]
 // [start, ayas, order, rukus, name,  isMeccan, page ]
-export type SurahMeta = [
+export type SurahInfo = [
   startAyahId: AyahId,
   ayahCount: AyahNo,
   surahOrder: Surah,
   rukuCount: Ruku,
   name: string,
-  isMeccan: boolean,
-  page: Page
+  isMeccan: boolean
 ]
 export type SurahName = [name: string, translitName: string]
 

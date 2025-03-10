@@ -1,7 +1,7 @@
 // Quran Meta
 
 export type { QuranMeta } from "./const"
-export type { RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahMeta, SurahName } from "./types"
+export type { RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName } from "./types"
 
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
@@ -34,7 +34,7 @@ export { getRubAlHizb } from "./getRubAlHizb"
 export { getRubAlHizbMeta } from "./getRubAlHizbMeta"
 export { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
 export { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
-export { getSurahMeta } from "./getSurahMeta"
+export { getSurahInfo as getSurahInfo } from "./getSurahInfo"
 export { isAyahJuzFirst } from "./isAyahJuzFirst"
 export { isAyahPageFirst } from "./isAyahPageFirst"
 export { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"

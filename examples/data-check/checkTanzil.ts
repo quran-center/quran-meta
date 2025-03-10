@@ -3,7 +3,7 @@
  * https://tanzil.net/res/text/metadata/quran-data.js
  */
 
-import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahMeta } from "../../src"
+import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo } from "../../src"
 import { AyahNo, AyahId, Manzil, Page, Ruku } from "../../src/types"
 
 import tanzilData from "./data/tanzil-data.js";
@@ -15,7 +15,7 @@ export function checkTanzil() {
   for (let surahNo: Surah = 1; surahNo <= meta.numSurahs; surahNo++) {
     const [
       startAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan, page
-    ]: SurahMeta = SurahList[surahNo];
+    ]: SurahInfo = SurahList[surahNo];
     const sura = tanzilData.Sura[surahNo];
 
     if (startAyahId !== sura[0] + 1) console.warn("error Tanzil surah: ", startAyahId, sura);
