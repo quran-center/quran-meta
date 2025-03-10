@@ -9,7 +9,7 @@ import { checkValidAyahId } from "./validation"
  *
  * @param ayahId - The ID of the Ayah to find the Manzil for
  * @returns The Manzil number (1-7) containing the specified Ayah
- * @throws {Error} If the provided Ayah ID is invalid
+ * @throws {@link Error} If the provided Ayah ID is invalid
  *
  * @example
  * ```typescript

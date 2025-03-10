@@ -8,10 +8,10 @@ import { checkValidAyahId } from "./validation"
  *
  * @param ayahId - The unique identifier of an Ayah in format: surah:ayah (e.g., "2:255")
  * @returns The Ruku number corresponding to the given Ayah ID
- * @throws {Error} If the provided Ayah ID is invalid
+ * @throws {@link Error} If the provided Ayah ID is invalid
  *
  * @example
- * ```typescript
+ * ```ts
  * const ruku = findRukuByAyahId("2:255");
  * // Returns the Ruku number containing Ayah 255 of Surah 2
  * ```

@@ -83,6 +83,17 @@ export type Juz = NumericRange<0, typeof meta.numJuzs>
  */
 export type JuzPart = NumericRange<1, typeof meta.numRubsInJuz>
 
+// [start, ayas, order, rukus, name,  isMeccan, page ]
+export type SurahInfo = [
+  startAyahId: AyahId,
+  ayahCount: AyahNo,
+  surahOrder: Surah,
+  rukuCount: Ruku,
+  name: string,
+  isMeccan: boolean
+]
+export type SurahName = [name: string, translitName: string]
+
 export type RangeMeta = {
   firstAyahId: AyahId
   lastAyahId: AyahId
@@ -105,6 +116,15 @@ export type RubAlHizbMeta = RubAlHizb & RangeMeta
 export type SurahAyah = [Surah, AyahNo]
 export type AyahRange = [AyahId, AyahId]
 export type SurahAyahSegment = [Surah, AyahNo | [AyahNo, AyahNo]]
+
+export type SurahMeta = {
+  name: string
+  surahNum: Surah
+  ayahCount: AyahNo
+  surahOrder: Surah
+  rukuCount: Ruku
+  isMeccan: boolean
+} & RangeMeta
 
 export type PageMeta = {
   pageNum: Page
@@ -134,16 +154,6 @@ export type SurahJuzMeta = {
 }
 export type SajdaType = "recommended" | "obligatory"
 export type Sajda = [AyahId, SajdaType]
-// [start, ayas, order, rukus, name,  isMeccan, page ]
-export type SurahInfo = [
-  startAyahId: AyahId,
-  ayahCount: AyahNo,
-  surahOrder: Surah,
-  rukuCount: Ruku,
-  name: string,
-  isMeccan: boolean
-]
-export type SurahName = [name: string, translitName: string]
 
 export type RangeMode = "juz" | "surah" | "ayah" | "page" | "ruku" | "all"
 

@@ -5,7 +5,7 @@ import { Surah } from "./types"
  * Parses a string representation of a Surah number and converts it to a valid Surah type
  * @param str - The string containing the Surah number to parse
  * @returns The parsed Surah number as a Surah type
- * @throws {Error} If the string cannot be parsed as a number or if the number is not a valid Surah number
+ * @throws {@link Error} If the string cannot be parsed as a number or if the number is not a valid Surah number
  */
 export function surahStringParser(str: string, isStrict = false): Surah {
   const surahX = isStrict ? Number(str.trim()) : Number.parseInt(str.trim(), 10)

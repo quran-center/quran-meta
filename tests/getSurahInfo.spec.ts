@@ -1,4 +1,5 @@
-import { findPage, getSurahInfo, meta, Surah, SurahList } from "../src"
+import { SurahList } from "../src"
+import { getSurahInfo } from "../src/getSurahInfo"
 
 describe("getSurahInfo", () => {
   it("should return correct metadata for first surah", () => {
@@ -10,7 +11,6 @@ describe("getSurahInfo", () => {
     const result = getSurahInfo(114)
     expect(result).toEqual(SurahList[114])
   })
-
 
   it("should return correct metadata for a middle surah", () => {
     const result = getSurahInfo(57)

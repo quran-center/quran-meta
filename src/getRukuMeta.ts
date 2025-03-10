@@ -6,7 +6,7 @@ import { checkValidRuku } from "./validation"
 /**
  * Retrieves metadata for a specific Ruku (section) of the Quran.
  * @param rukuNum - The number of the Ruku to retrieve metadata for
- * @returns {RukuMeta} An object containing metadata about the Ruku including:
+ * @returns {@link RukuMeta} An object containing metadata about the Ruku including:
  *  - rukuNum: The Ruku number
  *  - firstAyahId: The global Ayah ID of the first verse in this Ruku
  *  - lastAyahId: The global Ayah ID of the last verse in this Ruku

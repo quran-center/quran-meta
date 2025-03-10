@@ -112,9 +112,11 @@ export function isValidRuku(x: unknown): x is Ruku {
  * @returns True if the value is an integer between 1 and the total number of Manzils
  *
  * @example
+ * ```ts
  * if (isValidManzil(3)) {
  *   // value is a valid Manzil number
  * }
+ * ```
  */
 export function isValidManzil(x: unknown): x is Manzil {
   return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numManzils

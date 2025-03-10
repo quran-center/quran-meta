@@ -5,11 +5,11 @@ import {
   findSurahAyahByAyahId,
   findSurahByAyahId,
   getPageMeta,
-  getSurahInfo,
   isAyahJuzFirst,
   JuzList,
   meta
 } from "../src"
+import { getSurahInfo } from "../src/getSurahInfo"
 import { AyahId, AyahNo, Surah } from "../src/types"
 
 console.log("STARING")
