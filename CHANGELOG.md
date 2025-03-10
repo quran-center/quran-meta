@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.4-13
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-12...v4.0.4-13)
+
+### 🚀 Enhancements
+
+- Rename SurahMeta to SurahInfo (breaking change) (21303f7)
+- Add updated SurahMeta (01ce7d5)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.4-12
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-11...v4.0.4-12)
