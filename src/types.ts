@@ -83,16 +83,33 @@ export type Juz = NumericRange<0, typeof meta.numJuzs>
  */
 export type JuzPart = NumericRange<1, typeof meta.numRubsInJuz>
 
+/**
+ * Represents a numeric identifier for a line in a page of the Quran.
+ * The value should be between 0 and the total number of lines per page.
+ */
+export type LineInPage = NumericRange<0, typeof meta.numLinesPerPage>
+
+/**
+ * Represents a numeric identifier for a line in the Quran.
+ * The value should be between 0 and the total number of lines in the Quran.
+ */
+export type Line = number; // NumericRange<0, meta.numLines>
+
 // [start, ayas, order, rukus, name,  isMeccan, page ]
 export type SurahInfo = [
   startAyahId: AyahId,
   ayahCount: AyahNo,
   surahOrder: Surah,
   rukuCount: Ruku,
+  lineCount: Line,
   name: string,
   isMeccan: boolean
 ]
 export type SurahName = [name: string, translitName: string]
+
+export type SurahLineMap = {
+  [surah in Surah]: [startLineInPage: LineInPage, endLineInPage: LineInPage]
+}
 
 export type RangeMeta = {
   firstAyahId: AyahId
@@ -123,6 +140,7 @@ export type SurahMeta = {
   ayahCount: AyahNo
   surahOrder: Surah
   rukuCount: Ruku
+  lineCount: Line
   isMeccan: boolean
 } & RangeMeta
 
