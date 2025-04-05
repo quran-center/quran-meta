@@ -10,7 +10,7 @@ import { checkValidAyahId, checkValidSurahAyah } from "./validation"
  * @throws {@link Error} If the string format is invalid
  * @throws {@link Error} If surah number is invalid
  * @throws {@link Error} If ayah number(s) are invalid
- * @throws {@link sError} If ayah range is invalid (start > end)
+ * @throws {@link sError} If ayah range is invalid (start should be less than end)
  * @example
  * ```ts
  * ayahStringSplitter("2:255") // returns [2, 255]
