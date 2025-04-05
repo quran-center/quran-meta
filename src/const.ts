@@ -8,7 +8,9 @@ export const meta = {
   numRubsInJuz: 8,
   numSajdas: 15,
   numRukus: 556,
-  numManzils: 7
+  numManzils: 7,
+  numLines: 9046,
+  numLinesPerPage: 15,
 } as const
 
 /**
