@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v4.0.4-14
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-13...v4.0.4-14)
+
+### 🚀 Enhancements
+
+- Export Manzilmeta (6063bf4)
+
+### 🏡 Chore
+
+- Update deps (b424f59)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v4.0.4-13
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v4.0.4-12...v4.0.4-13)
