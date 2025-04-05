@@ -74,22 +74,22 @@
     "verify": "pnpx jiti examples/data-check/"
   },
   "devDependencies": {
-    "@eslint/js": "9.22.0",
+    "@eslint/js": "9.24.0",
     "@stylistic/eslint-plugin": "^4.2.0",
-    "@types/node": "22.13.10",
-    "@vitest/coverage-v8": "3.0.8",
+    "@types/node": "22.14.0",
+    "@vitest/coverage-v8": "3.1.1",
     "changelogen": "^0.6.1",
-    "eslint": "9.22.0",
+    "eslint": "9.24.0",
     "eslint-plugin-tsdoc": "^0.4.0",
     "globals": "^16.0.0",
     "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
-    "typedoc": "^0.27.9",
+    "typedoc": "^0.28.1",
     "typedoc-github-theme": "^0.2.1",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.0",
     "unbuild": "3.5.0",
-    "vitest": "^3.0.8"
+    "vitest": "^3.1.1"
   },
   "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
 }
