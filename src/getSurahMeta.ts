@@ -8,14 +8,7 @@ import { Surah, SurahMeta } from "./types"
  * @returns The metadata for the specified Surah.
  */
 export function getSurahMeta(surahNum: Surah): SurahMeta {
-  const [
-    firstAyahId,
-    ayahCount,
-    surahOrder,
-    rukuCount,
-    name,
-    isMeccan
-  ] = getSurahInfo(surahNum)
+  const [firstAyahId, ayahCount, surahOrder, rukuCount, lineCount, name, isMeccan] = getSurahInfo(surahNum);
 
   const lastAyahId = firstAyahId + ayahCount - 1
   return {
@@ -23,11 +16,12 @@ export function getSurahMeta(surahNum: Surah): SurahMeta {
     ayahCount,
     surahOrder,
     rukuCount,
+    lineCount,
     name,
     isMeccan,
     firstAyahId,
     lastAyahId,
     first: [surahNum, 1],
-    last: [surahNum, ayahCount]
+    last: [surahNum, ayahCount],
   }
 }
