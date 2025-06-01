@@ -1,6 +1,6 @@
 {
   "name": "quran-meta",
-  "version": "5.0.4-4",
+  "version": "5.0.4-5",
   "description": "Library with meta data and functionality related to Holy Quran",
   "type": "module",
   "license": "MIT",
@@ -19,25 +19,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "browser": "./dist/quran-meta.js",
-      "bun": "./dist/index.mjs",
-      "deno": "./dist/index.mjs",
-      "edge-light": "./dist/index.mjs",
-      "edge-routine": "./dist/index.mjs",
-      "netlify": "./dist/index.mjs",
-      "react-native": "./dist/index.mjs",
-      "wintercg": "./dist/index.mjs",
-      "worker": "./dist/index.mjs",
-      "electron": "./dist/index.mjs",
-      "workerd": "./dist/index.mjs",
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "default": "./dist/index.mjs"
-    }
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
   },
   "repository": {
     "type": "git",
