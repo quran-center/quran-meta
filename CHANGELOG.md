@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v5.0.4-1
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v5.0.4-0...v5.0.4-1)
+
+### 🚀 Enhancements
+
+- Better language support (c64f8d0)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v5.0.4-0
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v5.0.3...v5.0.4-0)
