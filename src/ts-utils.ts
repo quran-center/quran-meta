@@ -3,7 +3,7 @@ type GrowToSize<T, N extends number, A extends T[]> =
 
 export type FixedArray<T, N extends number> = GrowToSize<T, N, []>
 
-export type ArrayOfSameLength<T extends any[], U> = {
+export type ArrayOfSameLength<T extends unknown[], U> = {
   [K in keyof T]: U;
 }
 

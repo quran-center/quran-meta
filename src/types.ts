@@ -176,5 +176,3 @@ export type AyahMeta = {
   isStartOfRuku: boolean
   isEndOfRuku: boolean
 }
-
-
