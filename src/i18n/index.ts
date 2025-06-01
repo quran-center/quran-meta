@@ -25,7 +25,7 @@ type Lang = typeof languages[number]
 //   return surahNames[lang]
 // }
 
-export async function getTranslation(lang: Lang): Promise<SurahNames> {
+export async function getSurahNames(lang: Lang): Promise<SurahNames> {
   switch (lang) {
     case "ru":
       return (await import("./surah.ru")).surahNamesRu
