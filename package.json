@@ -1,6 +1,10 @@
 {
   "name": "quran-meta",
+  "version": "5.0.4-3",
   "description": "Library with meta data and functionality related to Holy Quran",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://quran-center.github.io/quran-meta/",
   "keywords": [
     "quran",
     "koran",
@@ -8,14 +12,12 @@
     "surah",
     "juz"
   ],
-  "version": "5.0.4-2",
-  "license": "MIT",
+  "author": "Huseyn Guliyev",
   "jsdelivr": "./dist/index.mjs",
   "unpkg": "./dist/index.mjs",
-  "main": "./dist/index.cjs",
-  "module": "./lib_es/index.mjs",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "type": "module",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -33,10 +35,6 @@
       "import": {
         "types": "./dist/index.d.mts",
         "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
       },
       "default": "./dist/index.mjs"
     }
@@ -61,6 +59,7 @@
     "lint": "eslint . --fix",
     "coverage": "vitest run --coverage",
     "docs:local": "pnpx http-server docs",
+    "tbuild": "tsdown",
     "unbuild": "unbuild",
     "build": "obuild ./src/index.ts",
     "precommit": "pnpm lint&&pnpm build&& vitest --run",
@@ -86,6 +85,7 @@
     "obuild": "^0.2.1",
     "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
+    "tsdown": "^0.11.13",
     "typedoc": "^0.28.5",
     "typedoc-github-theme": "^0.3.0",
     "typescript": "^5.8.3",
@@ -93,6 +93,5 @@
     "unbuild": "3.5.0",
     "vitest": "^3.1.4"
   },
-  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
-  "dependencies": {}
+  "packageManager": "pnpm@10.11.0"
 }
