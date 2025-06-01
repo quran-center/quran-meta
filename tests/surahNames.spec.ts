@@ -16,7 +16,7 @@ const languages = {
 describe("getAyahCountInSurah", () => {
   it("should return correct ayah count for first surah", () => {
     Object.values(languages).forEach((language) => {
-      expect(language.length).toBe(meta.numSurahs + 1)
+      expect(language.length).toBe(meta.numSurahs + 2)
     })
   })
 })
