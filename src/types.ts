@@ -1,7 +1,5 @@
 import { maxAyahsInSurah, meta } from "./const"
-
-// Utility type for numeric range
-type LessThan<TNumber extends number, TArray extends unknown[] = []> = TNumber extends TArray["length"] ? TArray[number] : LessThan<TNumber, [...TArray, TArray["length"]]>
+import { LessThan } from "./ts-utils"
 
 /**
  * Creates a type representing a range of numbers from TStart to TEnd (inclusive).
@@ -178,3 +176,5 @@ export type AyahMeta = {
   isStartOfRuku: boolean
   isEndOfRuku: boolean
 }
+
+

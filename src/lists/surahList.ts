@@ -1,7 +1,8 @@
 import { SurahInfo } from "../types"
+import { meta } from "../const"
+import { FixedArray } from "../ts-utils"
 
-export const SurahList: SurahInfo[] = [
-  [-1, 1, 1, 1, "", false], // this value is not used, but is here to make the array 1-indexed
+const SurahListRaw: FixedArray<SurahInfo, typeof meta["numSurahs"]> = [
   [1, 7, 5, 1, "الفاتحة", true],
   [8, 286, 87, 40, "البقرة", false],
   [294, 200, 89, 20, "آل عمران", false],
@@ -115,6 +116,13 @@ export const SurahList: SurahInfo[] = [
   [6217, 5, 6, 1, "المسد", true],
   [6222, 4, 22, 1, "الإخلاص", true],
   [6226, 5, 20, 1, "الفلق", true],
-  [6231, 6, 21, 1, "الناس", true],
-  [6237, 1, 1, 1, "", false] // this value is not used, but is here to be used as a length check
+  [6231, 6, 21, 1, "الناس", true]
 ] as const
+
+export const SurahList: FixedArray<SurahInfo, 116> = [
+  [-1, 1, 1, 1, "", false], // this value is not used, but is here to make the array 1-indexed
+  ...SurahListRaw, // 114 surahs
+  [6237, 1, 1, 1, "", false] // this value is not used, but is here to be used as a length check
+]
+
+export type SurahListType = typeof SurahList

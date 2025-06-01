@@ -1,5 +1,6 @@
-import { SurahName } from "../types"
-export const surahNamesAz: (SurahName | [])[] = [
+import type { SurahNames } from "."
+
+export const surahNamesAz: SurahNames = [
   [],
   ["əl-Fatihə", "Kitabı açan "],
   ["əl-Bəqərə", "İnək "],
@@ -114,5 +115,6 @@ export const surahNamesAz: (SurahName | [])[] = [
   ["əl-Məsəd", "Alov atası "],
   ["əl-İxlas", "Səmimiyyət"],
   ["əl-Fələq", "Sübh çağl"],
-  ["ən-Nas", "İnsanlar "]
+  ["ən-Nas", "İnsanlar "],
+  []
 ]
