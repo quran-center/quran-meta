@@ -1,10 +1,9 @@
 import {
-  meta,
-  surahNamesAz,
-  surahNamesEn,
-  surahNamesRu,
-  surahNamesTr
-} from "../src"
+  meta } from "../src"
+import { surahNamesAz } from "../src/i18n/surah.az"
+import { surahNamesEn } from "../src/i18n/surah.en"
+import { surahNamesRu } from "../src/i18n/surah.ru"
+import { surahNamesTr } from "../src/i18n/surah.tr"
 
 const languages = {
   en: surahNamesEn,

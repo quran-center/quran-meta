@@ -53,8 +53,9 @@ export { checkValidManzil, checkValidRuku, checkValidAyahId, checkValidJuz, chec
 
 // ------------------ Sura i18 Data ---------------------
 
-export { surahNamesAz } from "./i18n/surah.az"
-export { surahNamesEn } from "./i18n/surah.en"
-export { surahNamesRu } from "./i18n/surah.ru"
-export { surahNamesTr } from "./i18n/surah.tr"
+// export { surahNamesAz } from "./i18n/surah.az"
+// export { surahNamesEn } from "./i18n/surah.en"
+// export { surahNamesRu } from "./i18n/surah.ru"
+// export { surahNamesTr } from "./i18n/surah.tr"
 export { getSurahNames } from "./i18n"
+export type { Lang } from "./i18n"
