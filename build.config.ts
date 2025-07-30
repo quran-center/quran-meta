@@ -1,59 +1,33 @@
-import { defineBuildConfig } from "unbuild"
-import pack from "./package.json"
+// obuild config https://github.com/unjs/obuild
 
-const banner = `/*! 
- * Quran Meta library ${pack.version}
- *
- * Released under the MIT license
- */
-`
+import { defineBuildConfig } from "obuild/config"
 
 export default defineBuildConfig({
-  declaration: true,
-  rollup: {
-    emitCJS: true,
-    output: {
-      banner: banner
-    }
-  },
-
   entries: [
-    "./src/index",
     {
-      builder: "mkdist",
-      input: "./src/",
-      outDir: "./lib_es",
-      format: "esm"
-    },
-    {
-      input: "src/",
-      outDir: "lib_cjs/",
-      format: "cjs",
-      ext: "cjs",
-      declaration: false
+      type: "bundle",
+      input: ["./src/index.ts", "./src/i18n/index.ts"]
+      // outDir: "./dist",
+      // minify: false,
+      // stub: false,
+      // rolldown: {}, // https://rolldown.rs/reference/config-options
+      // dts: {}, // https://github.com/sxzz/rolldown-plugin-dts#options
     }
+    // {
+    //   type: "transform",
+    //   input: "./src/runtime",
+    //   outDir: "./dist/runtime"
+    //   // minify: false,
+    //   // stub: false,
+    //   // oxc: {},
+    //   // resolve: {}
+    // }
   ],
   hooks: {
-    "rollup:options": (ctx, option) => {
-      option.output?.push(
-        {
-          entryFileNames: "quran-meta.js",
-          name: "quranMeta",
-          dir: "dist",
-          format: "umd",
-          banner: banner,
-          sourcemap: true
-        },
-        {
-          entryFileNames: "quran-meta.min.js",
-          name: "quranMeta",
-          inlineDynamicImports: true,
-          dir: "dist",
-          format: "umd",
-          banner: banner,
-          compact: true
-        }
-      )
-    }
+    // start: (ctx) => {},
+    // end: (ctx) => {},
+    // entries: (entries, ctx) => {},
+    // rolldownConfig: (config, ctx) => {},
+    // rolldownOutput: (output, res, ctx) => {},
   }
 })

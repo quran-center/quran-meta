@@ -1,5 +1,6 @@
 import { maxAyahsInSurah, meta } from "./const"
 import { LessThan } from "./ts-utils"
+export type { SurahListType } from "./lists/surahList"
 
 /**
  * Creates a type representing a range of numbers from TStart to TEnd (inclusive).

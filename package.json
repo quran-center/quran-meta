@@ -13,13 +13,14 @@
     "juz"
   ],
   "author": "Huseyn Guliyev",
-  "jsdelivr": "./dist/index.mjs",
-  "unpkg": "./dist/index.mjs",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "jsdelivr": "./dist/index.js",
+  "unpkg": "./dist/index.js",
+  "main": "./dist/index.js",
+  "iife": "./dist/index.iife.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
   "repository": {
@@ -35,16 +36,16 @@
     "types/"
   ],
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "dev": "vitest",
     "lint": "eslint . --fix",
     "coverage": "vitest run --coverage",
     "docs:local": "pnpx http-server docs",
-    "tbuild": "tsdown",
-    "unbuild": "unbuild",
-    "build": "obuild ./src/index.ts",
+    "build": "tsdown",
+    "unbuild": "unbuild --config unbuild.config.ts",
+    "obuild": "obuild",
     "precommit": "pnpm lint&&pnpm build&& vitest --run",
     "prepack": "pnpm build && pnpm test:full&&pnpm tsdoc",
     "release:rc": "changelogen --release --prerelease --publish --publishTag rc",

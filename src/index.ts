@@ -1,7 +1,7 @@
 // Quran Meta
 
 export type { QuranMeta } from "./const"
-export type { RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
+export type { SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
 
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
@@ -53,9 +53,6 @@ export { checkValidManzil, checkValidRuku, checkValidAyahId, checkValidJuz, chec
 
 // ------------------ Sura i18 Data ---------------------
 
-// export { surahNamesAz } from "./i18n/surah.az"
-// export { surahNamesEn } from "./i18n/surah.en"
-// export { surahNamesRu } from "./i18n/surah.ru"
-// export { surahNamesTr } from "./i18n/surah.tr"
-export { getSurahNames } from "./i18n"
-export type { Lang } from "./i18n"
+export * from "./i18n"
+// export { getSurahNamesAsync } from "./i18n/getSurahNamesAsync"
+// export type { Lang, SurahNames } from "./i18n/types"

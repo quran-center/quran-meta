@@ -1,4 +1,4 @@
-import type { SurahNames } from "."
+import type { SurahNames } from "./types"
 
 export const surahNamesEn: SurahNames = [
   [],

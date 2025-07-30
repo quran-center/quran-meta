@@ -4,7 +4,7 @@ import { Surah, SurahMeta } from "./types"
 /**
  * Gets the metadata for the specified Surah.
  *
- * @param surah - The Surah to get the metadata for.
+ * @param surahNum - The Surah to get the metadata for.
  * @returns The metadata for the specified Surah.
  */
 export function getSurahMeta(surahNum: Surah): SurahMeta {

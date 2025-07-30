@@ -1,40 +1,18 @@
-import { SurahListType } from "../lists/surahList"
-import { ArrayOfSameLength } from "../ts-utils"
-import { SurahName } from "../types"
-// import { surahNamesEn } from "./surah.en"
-// import { surahNamesRu } from "./surah.ru"
-// import { surahNamesTr } from "./surah.tr"
+import { surahNamesEn } from "./surah.en"
+import { surahNamesAz } from "./surah.az"
+import { surahNamesRu } from "./surah.ru"
+import { surahNamesTr } from "./surah.tr"
+import type { Lang, SurahNamesI18n } from "./types"
 
-export type SurahNames = ArrayOfSameLength<SurahListType, SurahName | []>
+export { surahNamesEn, surahNamesAz, surahNamesRu, surahNamesTr }
 
-export const languages = ["en", "az", "ru", "tr"] as const
-export type Lang = typeof languages[number]
+export const surahNames: SurahNamesI18n = {
+  en: surahNamesEn,
+  az: surahNamesAz,
+  tr: surahNamesTr,
+  ru: surahNamesRu
+}
 
-// type SurahNamesI18n = {
-//   [K in Lang]: SurahNames
-// }
-
-// export const surahNames: SurahNamesI18n = {
-//   en: surahNamesEn,
-//   az: surahNamesRu,
-//   tr: surahNamesTr,
-//   ru: surahNamesRu
-// }
-
-// export function getTranslation(lang: Lang) {
-//   return surahNames[lang]
-// }
-
-export async function getSurahNames(lang: Lang): Promise<SurahNames> {
-  switch (lang) {
-    case "ru":
-      return (await import("./surah.ru")).surahNamesRu
-    case "tr":
-      return (await import("./surah.tr")).surahNamesTr
-    case "az":
-      return (await import("./surah.az")).surahNamesAz
-    case "en":
-    default:
-      return (await import("./surah.en")).surahNamesEn // fallback to English
-  }
+export function getSurahNames(lang: Lang) {
+  return surahNames[lang]
 }
