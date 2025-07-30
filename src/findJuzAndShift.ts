@@ -20,10 +20,10 @@ export function findJuzAndShift(
   surah: Surah,
   ayah: AyahNo
 ): {
-    juz: Juz
-    leftAyahId: AyahId
-    ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
-  } {
+  juz: Juz
+  leftAyahId: AyahId
+  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
+} {
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
 
   const juz = findJuzByAyahId(ayahId)
@@ -51,10 +51,10 @@ export function findJuzAndShift(
 export function findJuzAndShiftByAyahId(
   ayahId: AyahId
 ): {
-    juz: Juz
-    leftAyahId: AyahId
-    ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
-  } {
+  juz: Juz
+  leftAyahId: AyahId
+  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
+} {
   checkValidAyahId(ayahId)
 
   const juz = findJuzByAyahId(ayahId)
