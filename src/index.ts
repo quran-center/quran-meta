@@ -55,4 +55,3 @@ export { checkValidManzil, checkValidRuku, checkValidAyahId, checkValidJuz, chec
 
 export * from "./i18n"
 // export { getSurahNamesAsync } from "./i18n/getSurahNamesAsync"
-// export type { Lang, SurahNames } from "./i18n/types"
