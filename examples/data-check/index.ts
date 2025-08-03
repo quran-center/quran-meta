@@ -26,13 +26,11 @@ console.log(`Running data-checks against various data sources`)
 
 
 
-
-
-
-
 checkQuranApi()
 checkTanzil()
 checkQuranCloud()
 checkKFQCShuba()
 checkKFQCSmart()
 checkKFQCHafs()
+
+console.log(`Data checks completed.`)

@@ -9,6 +9,7 @@ export function checkKFQCSmart() {
   console.log("\x1b[36mChecking against KFQC Hafs Smart data\x1b[0m")
   console.log("-------------------------------------")
 
+  let x=''
   // Ayah Checks
   for (let ayahId: AyahId = 1; ayahId <= meta.numAyahs; ayahId++) {
     const ayahMeta = getAyahMeta(ayahId)
@@ -23,10 +24,8 @@ export function checkKFQCSmart() {
     if (ayahMeta.juz !== hfMeta.jozz) console.warn("Error: juz of Ayah are not matching: ", ayahMeta, hfMeta)
     if (ayahMeta.surah !== hfMeta.sura_no) console.warn("Error: surah of Ayah are not matching: ", ayahMeta, hfMeta)
     if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
-    if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
-    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== getSurahMeta(ayahMeta.surah).name) console.warn("Error: name of Surah are not matching: ", getSurahMeta(ayahMeta.surah).name, hfMeta)
-      
-
+    if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)   
+    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== getSurahMeta(ayahMeta.surah).name) console.warn("Error: name of Surah are not matching: ", getSurahMeta(ayahMeta.surah).name, hfMeta)      
   }
-
+console.log(x)
 }
