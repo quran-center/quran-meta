@@ -10,20 +10,20 @@ Quran Meta
 
 
 [![NPM Version](https://img.shields.io/npm/v/quran-meta)](https://www.npmjs.com/package/quran-meta) 
-[![npms.io](https://img.shields.io/npms-io/final-score/quran-meta)](https://moiva.io/?npm=quran-meta)
-[![npms.io](https://img.shields.io/npms-io/maintenance-score/quran-meta)](https://moiva.io/?npm=quran-meta)
-[![npms.io](https://img.shields.io/npms-io/popularity-score/quran-meta)](https://moiva.io/?npm=quran-meta)
-[![npms.io](https://img.shields.io/npms-io/quality-score/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![npms.io](https://img.shields.io/npms-io/final-score/quran-meta)](https://npmpackage.info/package/quran-meta)
+[![npms.io](https://img.shields.io/npms-io/maintenance-score/quran-meta)](https://npmpackage.info/package/quran-meta)
+[![npms.io](https://img.shields.io/npms-io/popularity-score/quran-meta)](https://npmpackage.info/package/quran-meta)
+[![npms.io](https://img.shields.io/npms-io/quality-score/quran-meta)](https://npmpackage.info/package/quran-meta)
 [![NPM Downloads](https://img.shields.io/npm/dy/quran-meta)](https://npm.chart.dev/quran-meta)
 
-[![NPM Type Definitions](https://img.shields.io/npm/types/quran-meta)](https://moiva.io/?npm=quran-meta)
-[![GitHub top language](https://img.shields.io/github/languages/top/quran-center/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![NPM Type Definitions](https://img.shields.io/npm/types/quran-meta)](https://npmpackage.info/package/quran-meta)
+[![GitHub top language](https://img.shields.io/github/languages/top/quran-center/quran-meta)](https://npmpackage.info/package/quran-meta)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=quran-center_quran-meta&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=quran-center_quran-meta)
 [![Static Badge](https://img.shields.io/badge/Snyk%20Security%20Score-A-green)](https://snyk.io/test/github/quran-center/quran-meta)
 
 
-[![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)](https://moiva.io/?npm=quran-meta)
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)](https://moiva.io/?npm=quran-meta)
+[![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)](https://npmpackage.info/package/quran-meta)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)](https://npmpackage.info/package/quran-meta)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/quran-meta)](https://bundlephobia.com/package/quran-meta)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/quran-meta)](https://bundlephobia.com/package/quran-meta)
 
@@ -169,6 +169,8 @@ One can run `pnpx jiti examples/data-check` to run suite of  validation tests ag
 * `hafsData_v2-0.json` - [Data coming with UthmanicHafs font from KFQC](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
 * `hafs_smart_v8.json` - [Data coming with Smart device UthmanicHafs font from KFQC](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
 
+There are some differences with KFQC data in page numbering, due to variations between different mushafs. We plan to address these differences in future updates by supporting multiple page numbering systems of different mushafs (15 line, 16 line and etc).
+
 Any suggestion to further improve this are welcome.
 
 ### Distributions and Downloads
@@ -180,8 +182,9 @@ Here you can find the following
 |[Source code](https://github.com/quran-center/quran-meta/tree/master/src) in typescript  | TS |
 |||
  **[Distributions](https://cdn.jsdelivr.net/npm/quran-meta/dist/) of library as**| | 
-| [ESM](https://cdn.jsdelivr.net/npm/quran-meta/dist/index.mjs) for use with modern bundlers like webpack 2 or Rollup  and  for direct imports in modern browsers via `<script type="module">`| ES5+ESM |
-  
+| [ESM](https://cdn.jsdelivr.net/npm/quran-meta/dist/index.js) for use with modern bundlers like webpack 2 or Rollup  and  for direct imports in modern browsers via `<script type="module">`| ES5+ESM |
+| [IIFE](https://cdn.jsdelivr.net/npm/quran-meta/dist/index.iife.js) for use with classic browsers  via `<script>`| IIFE |
+
 
 
 

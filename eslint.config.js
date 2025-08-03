@@ -1,7 +1,6 @@
 import jsLint from "@eslint/js"
 import stylistic from "@stylistic/eslint-plugin"
 import tsDocLint from "eslint-plugin-tsdoc"
-import globals from "globals"
 import tsLint from "typescript-eslint"
 
 export default [
@@ -9,9 +8,6 @@ export default [
   {
     files: ["src/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     languageOptions: {
-      globals: {
-        ...globals.browser, ...globals.node
-      }
     }
   },
   // syntax rules
@@ -46,12 +42,7 @@ export default [
   {
     files: ["tests/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.mocha,
-        ...globals.jest
-      }
+
     },
 
     rules: {
