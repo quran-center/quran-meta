@@ -166,8 +166,13 @@ One can run `pnpx jiti examples/data-check` to run suite of  validation tests ag
 * `qcloud-meta.json` - [AlQuran Cloud Api metadata](https://api.alquran.cloud/v1/meta) 
 * `tanzil-data.js` - [Tanzil.net  metadata](https://tanzil.net/res/text/metadata/quran-data.js) 
 * `quran-api.json` - [Quran Api metadata](https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api/info.json) 
-* `hafsData_v2-0.json` - [Data coming with UthmanicHafs font from KFQC](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
-* `hafs_smart_v8.json` - [Data coming with Smart device UthmanicHafs font from KFQC](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
+* `hafsData_v2-0.json` - [Data coming with KFGQPC Hafs Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
+* `hafs_smart_v8.json` - [Data coming with KFGQPC Smart device UthmanicHafs font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
+* `SousiData_v2-0.json` - [Data coming with KFGQPC Sousi Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicSousi_v2-0.zip)
+* `DouriData_v2-0.json` - [Data coming with KFGQPC Douri Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicDouri_v2-0.zip)
+* `QalounData_v2-1.json` - [Data coming with KFGQPC Qaloun Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicQaloun_v2-1.zip)
+* `shubaData_v2-0.json` - [Data coming with  KFGQPC Shuba Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicShuba_v2-0.zip)
+* `warshData_v2-1.json` - [Data coming with KFGQPC Warsh Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicWarsh_v2-1.zip)
 
 There are some differences with KFQC data in page numbering, due to variations between different mushafs. We plan to address these differences in future updates by supporting multiple page numbering systems of different mushafs (15 line, 16 line and etc).
 
@@ -180,6 +185,8 @@ Here you can find the following
 |||
 |--|--|
 |[Source code](https://github.com/quran-center/quran-meta/tree/master/src) in typescript  | TS |
+| [Javascript code](https://cdn.jsdelivr.net/npm/quran-meta/lib_es/) autotranspiled from TS as ES Next  | ESNext |
+|[Javascript code](https://cdn.jsdelivr.net/npm/quran-meta/lib_cjs/) autotranspiled from TS as CJS|ES5+CommonJS|
 |||
  **[Distributions](https://cdn.jsdelivr.net/npm/quran-meta/dist/) of library as**| | 
 | [ESM](https://cdn.jsdelivr.net/npm/quran-meta/dist/index.js) for use with modern bundlers like webpack 2 or Rollup  and  for direct imports in modern browsers via `<script type="module">`| ES5+ESM |
@@ -193,7 +200,7 @@ Here you can find the following
 * [Tanzil.net](https://tanzil.net) 
 * [Quran.com Js Api](https://github.com/quran/api-js), [Quran.com API](https://api-docs.quran.com/), 
 * [AlQuran Cloud](https://alquran.cloud/api)
-* [KFGC Data](https://qurancomplex.gov.sa/en/techquran/dev/)
+* [KFQC Data](https://qurancomplex.gov.sa/en/techquran/dev/)
 
 ### License
 This software is distributed under MIT license.
