@@ -5,7 +5,9 @@ import { AyahNo, AyahId, Manzil, Page, Ruku } from "../../src/types"
 import hafsSmartData from "./data/hafs_smart_v8.json"
 
 export function checkKFQCSmart() {
-  console.log("Checking against KFQC Smart data")
+  console.log("=====================================")
+  console.log("\x1b[36mChecking against KFQC Smart data\x1b[0m")
+  console.log("-------------------------------------")
 
   // Ayah Checks
   for (let ayah: AyahId = 1; ayah <= meta.numAyahs; ayah++) {
@@ -13,11 +15,14 @@ export function checkKFQCSmart() {
     const hfMeta = hafsSmartData[ayah - 1]
     const page = findPagebyAyahId(ayah)
     const rub = getRubAlHizbMetaByAyahId(ayah)
-    if (rub.rubAlHizbId !== ayahMeta.rubAlHizbId) console.warn("error rub: ", rub, ayahMeta)
-    if (ayahMeta.juz !== hfMeta.jozz) console.warn("error juz: ", ayahMeta, hfMeta)
-    if (ayahMeta.surah !== hfMeta.sura_no) console.warn("error surah: ", ayahMeta, hfMeta)
-    if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("error ayah: ", ayahMeta, hfMeta)
-    if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("error ayah: ", ayahMeta, hfMeta)
+    
+    // Commented  as KFQC Smart data is using different page numbering which Quran Meta does not support
+    // if (page !== hfMeta.page) console.log("Error page: ", ayahMeta, hfMeta)
+    if (rub.rubAlHizbId !== ayahMeta.rubAlHizbId) console.warn("Error: rub of Ayah are not matching: ", rub, ayahMeta)
+    if (ayahMeta.juz !== hfMeta.jozz) console.warn("Error: juz of Ayah are not matching: ", ayahMeta, hfMeta)
+    if (ayahMeta.surah !== hfMeta.sura_no) console.warn("Error: surah of Ayah are not matching: ", ayahMeta, hfMeta)
+    if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
+    if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
 
   }
 

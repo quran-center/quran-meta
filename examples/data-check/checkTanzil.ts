@@ -8,20 +8,21 @@ import { AyahNo, AyahId, Manzil, Page, Ruku } from "../../src/types"
 
 import tanzilData from "./data/tanzil-data.js";
 
-export function checkTanzil() {
-  console.log("Checking against Tanzil data");
-
+export function checkTanzil() {  
+  console.log("=====================================")
+  console.log("\x1b[32mChecking against Tanzil data\x1b[0m")
+  console.log("-------------------------------------")
 
   for (let surahNo: Surah = 1; surahNo <= meta.numSurahs; surahNo++) {
     const [
-      startAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan, page
+      startAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan
     ]: SurahInfo = SurahList[surahNo];
     const sura = tanzilData.Sura[surahNo];
 
-    if (startAyahId !== sura[0] + 1) console.warn("error Tanzil surah: ", startAyahId, sura);
-    if (ayahCount !== sura[1]) console.warn("error Tanzil surah: ", ayahCount, sura);
-    if (surahOrder !== sura[2]) console.warn("error Tanzil surah: ", surahOrder, sura);
-    if (rukuCount !== sura[3]) console.warn("error Tanzil surah: ", rukuCount, sura);
+    if (startAyahId !== sura[0] + 1) console.warn("Error: Tanzil surah: ", startAyahId, sura);
+    if (ayahCount !== sura[1]) console.warn("Error: Tanzil surah: ", ayahCount, sura);
+    if (surahOrder !== sura[2]) console.warn("Error: Tanzil surah: ", surahOrder, sura);
+    if (rukuCount !== sura[3]) console.warn("Error: Tanzil surah: ", rukuCount, sura);
 
   }
 
@@ -29,8 +30,8 @@ export function checkTanzil() {
     const ayahId = JuzList[juzNo];
     const [sura, ayah] = tanzilData.Juz[juzNo];
 
-    if (juzNo !== findJuz(sura, ayah)) console.warn("error Tanzil juz: ", ayahId, sura, ayah);
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("error Tanzil juz: ", ayahId, sura, ayah);
+    if (juzNo !== findJuz(sura, ayah)) console.warn("Error: Tanzil juz: ", ayahId, sura, ayah);
+    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil juz: ", ayahId, sura, ayah);
   }
 
 
@@ -38,8 +39,8 @@ export function checkTanzil() {
     const ayahId = HizbQuarterList[rubHizb];
     const [sura, ayah] = tanzilData.HizbQaurter[rubHizb];
 
-    if (rubHizb !== findRubAlHizb(sura, ayah)) console.warn("error Tanzil rubAlHizb: ", ayahId, sura, ayah);
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("error Tanzil findRubAlHizb: ", ayahId, sura, ayah);
+    if (rubHizb !== findRubAlHizb(sura, ayah)) console.warn("Error: Tanzil rubAlHizb: ", ayahId, sura, ayah);
+    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil findRubAlHizb: ", ayahId, sura, ayah);
   }
 
 
@@ -47,7 +48,7 @@ export function checkTanzil() {
     const ayahId = ManzilList[manzil];
     const [sura, ayah] = tanzilData.Manzil[manzil];
 
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("error Tanzil manzil: ", ayahId, sura, ayah);
+    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil manzil: ", ayahId, sura, ayah);
   }
 
 
@@ -55,21 +56,21 @@ export function checkTanzil() {
     const ayahId = RukuList[rukuNo];
     const [sura, ayah] = tanzilData.Ruku[rukuNo];
 
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("error Tanzil ruku ", ayahId, sura, ayah);
+    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil ruku ", ayahId, sura, ayah);
   }
 
   for (let page = 1; page <= meta.numPages; page++) {
     const ayahId = PageList[page];
     const [sura, ayah] = tanzilData.Page[page];
 
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("error Tanzil page: ", ayahId, sura, ayah);
+    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil page: ", ayahId, sura, ayah);
   }
 
   for (let sajda = 0; sajda < meta.numSajdas; sajda++) {
     const [ayahId] = SajdaList[sajda];
     const [sura, ayah] = tanzilData.Sajda[sajda + 1];
 
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("error Tanzil sajda: ", ayahId, sura, ayah);
+    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil sajda: ", ayahId, sura, ayah);
   }
 
 }

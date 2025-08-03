@@ -3,7 +3,7 @@
  */
 // node sample.mjs
 
-import { meta, SurahList } from "../dist/index.mjs"
+import { meta, SurahList } from "../dist/index.js"
 console.log(`There are ${meta.numSurahs} suras in the Holy Quran`)
 const res = []
 for (let surah = 1; surah <= meta.numSurahs; surah++) {

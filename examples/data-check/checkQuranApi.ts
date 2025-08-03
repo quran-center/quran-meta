@@ -5,13 +5,15 @@
  */
 
 
-import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo, getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta, getSurahInfo, getSurahMeta } from "../../src"
+import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo, getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta, getSurahMeta } from "../../src"
 import { AyahNo, AyahId, Manzil, Page, Ruku, RubAlHizbId } from "../../src/types"
 
 import quranApi from "./data/quran-api.json"
 
 export function checkQuranApi() {
-    console.log("Checking against Quran-Api data")
+    console.log("=====================================")
+    console.log("\x1b[34mChecking against Quran-Api data\x1b[0m")
+      console.log("-------------------------------------")
 
     for (let ayah: AyahId = 1; ayah <= meta.numAyahs; ayah++) {
         const ayahMeta = getAyahMeta(ayah)
