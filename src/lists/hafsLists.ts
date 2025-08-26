@@ -1,9 +1,8 @@
-import { AyahId, Sajda, SurahInfo } from "../types"
-import { meta } from "../const"
-import { FixedArray } from "../ts-utils"
+import type { AyahId, SurahInfo } from "../types"
+import type { FixedArray } from "../ts-utils"
 
 // ------------------ Hizb Quarter (Rub-ul-Hizb) Data ---------------------
-const HizbQuarterList: AyahId[] = [
+export const HizbQuarterList: AyahId[] = [
     0, 1, 33, 51, 67, 82, 99, 113, 131, 149, 165, 184, 196, 210, 226, 240, 250,
     260, 270, 279, 290, 308, 326, 345, 368, 386, 406, 426, 446, 464, 479, 494,
     505, 517, 529, 551, 567, 581, 593, 607, 628, 641, 656, 670, 681, 696, 710,
@@ -25,7 +24,7 @@ const HizbQuarterList: AyahId[] = [
 ] as const
 
 // ------------------ Juz Data ---------------------
-const JuzList: AyahId[] = [
+export const JuzList: AyahId[] = [
     0, 1, 149, 260, 386, 517, 641, 751, 900, 1042, 1201, 1328, 1479, 1649, 1803,
     2030, 2215, 2484, 2674, 2876, 3215, 3386, 3564, 3733, 4090, 4265, 4511, 4706,
     5105, 5242, 5673, 6237
@@ -33,12 +32,12 @@ const JuzList: AyahId[] = [
 
 
 // ------------------ Manzil Data ---------------------
-const ManzilList: AyahId[] = [
+export const ManzilList: AyahId[] = [
     0, 1, 670, 1365, 2030, 2933, 3789, 4631, 6237
 ] as const
 
 // ------------------ Page Data ---------------------
-const PageList: AyahId[] = [
+export const PageList: AyahId[] = [
     0, 1, 8, 13, 24, 32, 37, 45, 56, 65, 69, 77, 84, 91, 96, 101, 109, 113, 120,
     127, 134, 142, 149, 153, 161, 171, 177, 184, 189, 194, 198, 204, 210, 218,
     223, 227, 232, 238, 241, 245, 253, 256, 260, 264, 267, 272, 277, 282, 289,
@@ -88,7 +87,7 @@ const PageList: AyahId[] = [
 
 
 // ------------------ Ruku Data ---------------------
-const RukuList: AyahId[] = [
+export const RukuList: AyahId[] = [
     0, 1, 8, 15, 28, 37, 47, 54, 67, 69, 79, 90, 94, 104, 111, 120, 129, 137, 149,
     155, 160, 171, 175, 184, 190, 196, 204, 218, 224, 229, 236, 239, 243, 250,
     256, 261, 265, 268, 274, 281, 289, 291, 294, 303, 314, 324, 335, 348, 357,
@@ -134,7 +133,7 @@ const RukuList: AyahId[] = [
 ] as const
 
 // ------------------ Sajda Data ---------------------
-const SajdaList: AyahId[] = [
+export const SajdaList: AyahId[] = [
     1160,
     1722,
     1951,
@@ -152,7 +151,7 @@ const SajdaList: AyahId[] = [
     6125
 ]as const
 
-const SurahList: FixedArray<SurahInfo, 116> = [
+export const SurahList: FixedArray<SurahInfo, 116> = [
     [-1, 1, 1, 1, "", false], // this value is not used, but is here to make the array 1-indexed
     [1, 7, 5, 1, "الفَاتِحة", true],
     [8, 286, 87, 40, "البَقَرَة", false],
