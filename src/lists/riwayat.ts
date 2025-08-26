@@ -1,2 +1,0 @@
-import { hafsList } from "./hafsLists";
-
