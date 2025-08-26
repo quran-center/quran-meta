@@ -1,6 +1,7 @@
 import { maxAyahsInSurah, meta } from "./const"
-import { LessThan } from "./ts-utils"
-export type { SurahListType } from "./lists/surahList"
+import { LessThan,FixedArray } from "./ts-utils"
+
+export type  SurahListType = FixedArray<SurahInfo, 116>
 
 /**
  * Creates a type representing a range of numbers from TStart to TEnd (inclusive).
