@@ -1,6 +1,4 @@
-import { AyahId } from "../types"
-import { SurahInfo } from "../types"
-import { meta } from "../const"
+import { AyahId,SurahInfo } from "../types"
 import { FixedArray } from "../ts-utils"
 
 // ------------------ Hizb Eighth (thumun-ul-Hizb) Data ---------------------
@@ -82,7 +80,7 @@ const ManzilList: AyahId[] = [
 ] as const
 
 // ------------------ Page Data ---------------------
-const pageList: AyahId[] = [0, 1, 8, 12, 23, 31, 36, 44, 55, 64, 68, 76, 83, 90, 95, 100, 108, 112, 119, 126, 133,
+const PageList: AyahId[] = [0, 1, 8, 12, 23, 31, 36, 44, 55, 64, 68, 76, 83, 90, 95, 100, 108, 112, 119, 126, 133,
     141, 148, 152, 160, 170, 176, 183, 188, 193, 197, 203, 208, 216, 221, 225, 230, 236, 239, 243, 251,
     254, 258, 263, 266, 271, 276, 281, 288, 289, 293, 302, 308, 315, 322, 330, 338, 344, 353, 362, 369,
     375, 383, 393, 401, 408, 414, 425, 433, 441, 446, 450, 458, 466, 473, 479, 487, 493, 499, 504, 507,
@@ -147,7 +145,10 @@ const RukuList: AyahId[] = [0, 1, 8, 14, 27, 36, 46, 53, 66, 68, 78, 90, 93, 103
 // ------------------ Sajda Data ---------------------
 const SajdaList: AyahId[] = [1162, 1725, 1956, 2142, 2307, 2611, 2668, 2910, 3179, 3512, 3987, 4243, 4823, 5880, 6103]
 
-const SurahListRaw: FixedArray<SurahInfo, typeof meta["numSurahs"]> = [
+
+// ------------------ surah Data ---------------------
+const SurahList: FixedArray<SurahInfo, 116> = [
+    [-1, 1, 1, 1, "", false],
     [1, 7, 5, 1, 'الفَاتِحة', true],
     [8, 285, 87, 40, 'البَقَرَة', false],
     [293, 200, 89, 20, 'آل عِمران', false],
@@ -261,5 +262,17 @@ const SurahListRaw: FixedArray<SurahInfo, typeof meta["numSurahs"]> = [
     [6195, 5, 6, 1, 'المَسَد', true],
     [6200, 4, 22, 1, 'الإخلَاص', true],
     [6204, 5, 20, 1, 'الفَلَق', true],
-    [6209, 6, 21, 1, 'النَّاس', true]
-]
+    [6209, 6, 21, 1, 'النَّاس', true],
+    [6237, 1, 1, 1, "", false]
+] as const
+
+export  const QalunLists = {
+    HizbEighthList,
+    HizbQuarterList,
+    JuzList,
+    ManzilList,
+    PageList,
+    RukuList,
+    SajdaList,
+    SurahList,
+}
