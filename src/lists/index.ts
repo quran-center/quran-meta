@@ -1,4 +1,4 @@
-import { HafsLists } from "./hafsLists";
+import { HafsLists } from "./HafsLists";
 import { QalunLists } from "./QalunLists";
 import { AyahId, SurahInfo } from "../types"
 import { FixedArray } from "../ts-utils"
@@ -15,8 +15,8 @@ type allLists = {
 }
 
 type missingListsPerRiwaya ={
-    HafsLists : "HizbEighthList",
-    QalunLists : never
+    Hafs : "HizbEighthList",
+    Qalun : never
 }
 
 type RiwayaList = {
@@ -24,6 +24,6 @@ type RiwayaList = {
 }
 
 export const lists : RiwayaList = {
-    HafsLists,
-    QalunLists
+    Hafs: HafsLists,
+    Qalun: QalunLists
 }
