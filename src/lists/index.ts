@@ -1,7 +1,14 @@
 import type {Riwayas} from "./types"
+import {HafsLists} from "./HafsLists"
+import { QalunLists } from "./QalunLists";
 
-const getList = async<R extends keyof Riwayas, L extends keyof Riwayas[R]>(riwaya:R, listName:L): Promise<Riwayas[R]> => {
 
-    return (await import(`./${riwaya}Lists.ts`))[listName]
+const riwayahs: Riwayas = {
+Hafs : HafsLists,
+Qalun : QalunLists
+}
+
+const getList = <R extends keyof Riwayas, L extends keyof Riwayas[R]>(riwaya:R, listName:L): Riwayas[R][L] => {
+    return riwayahs[riwaya][listName]   
 };
-getList("Hafs","JuzList").then(console.log)
+getList("Hafs","HizbQuarterList")
