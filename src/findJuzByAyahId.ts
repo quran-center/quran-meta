@@ -11,7 +11,7 @@ import { checkValidAyahId } from "./validation"
  * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns The Juz (part) of the Quran that contains the given Ayah ID.
  */
-export function findJuzByAyahId(ayahId: AyahId,riwaya:RiwayahsWith<"JuzList">): Juz {
+export function findJuzByAyahId(ayahId: AyahId,riwaya?:RiwayahsWith<"JuzList">): Juz {
   const JuzList = getList("JuzList",riwaya)
   checkValidAyahId(ayahId)
 
