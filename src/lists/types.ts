@@ -16,9 +16,14 @@ type missingListsPerRiwaya ={
     Hafs : "HizbEighthList",
     Qalun : never
 }
-
 export type Riwayas = {
     [k in keyof missingListsPerRiwaya] : Omit<allLists,missingListsPerRiwaya[k]>
-}
+} 
+
+export type RiwayahsWith<L extends allLists>={
+[R in keyof Riwayas] : L extends keyof Riwayas[R] ? R : never 
+}[keyof Riwayas]
+
 
 export type riwayaName = keyof Riwayas
+
