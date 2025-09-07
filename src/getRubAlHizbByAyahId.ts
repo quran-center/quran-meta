@@ -15,5 +15,5 @@ export function getRubAlHizbByAyahId(ayahId: AyahId,riwaya?:RiwayahsWith<"HizbQu
   checkValidAyahId(ayahId)
 
   const quarterIndex = findRubAlHizbByAyahId(ayahId,riwaya)
-  return getRubAlHizb(quarterIndex,riwaya)
+  return getRubAlHizb(quarterIndex)
 }
