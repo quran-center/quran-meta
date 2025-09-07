@@ -8,6 +8,7 @@ import { checkValidAyahId } from "./validation"
  * Determines if the given ayah is the first ayah of a juz.
  *
  * @param ayahId - The ayah id .
+ * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns The page number if the ayah is the first ayah of the page, otherwise -1.
  */
 export function isAyahPageFirst(

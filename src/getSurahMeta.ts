@@ -5,7 +5,7 @@ import { RiwayahsWith } from "./lists/types";
  * Gets the metadata for the specified Surah.
  *
  * @param surahNum - The Surah to get the metadata for.
- *@param riwaya - The riwaya. Defaults to "Hafs" if not provided.
+ * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  *  @returns The metadata for the specified Surah.
  */
 export function getSurahMeta(
