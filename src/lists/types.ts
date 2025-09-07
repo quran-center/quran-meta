@@ -25,7 +25,9 @@ export type RiwayahsWith<L extends keyof allLists> = {
   [R in keyof Riwayas]: L extends keyof Riwayas[R] ? R : never
 }[keyof Riwayas]
 
-
+export type RiwayahsWithAll<L extends (keyof allLists)[]>={
+      [R in keyof Riwayas] : L[number] extends keyof Riwayas[R] ? R : never
+}[keyof Riwayas]
 
 
 export type riwayaName = keyof Riwayas
