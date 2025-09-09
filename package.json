@@ -23,11 +23,8 @@
     ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https@github.com:quran-center/quran-meta.git",
-    "directory": "packages/quran-meta"
-  },
+
+  "repository": "quran-center/quran-meta",
   "files": [
     "src/",
     "dist/",
@@ -51,6 +48,7 @@
     "prepack": "pnpm build && pnpm test:full&&pnpm tsdoc",
     "release:rc": "changelogen --release --prerelease --publish --publishTag rc",
     "release": "changelogen --release --push --publish",
+    "release:gh": "changelogen gh release",
     "test": "vitest",
     "test:full": "pnpm lint && pnpm test:types && pnpm coverage",
     "test:types": "tsc --noEmit",
@@ -75,5 +73,5 @@
     "typescript-eslint": "^8.43.0",
     "vitest": "^3.2.4"
   },
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.15.1"
 }
