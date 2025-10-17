@@ -1,3 +1,10 @@
+import { getCurrentReading } from "./reading"
+import { getReadingMeta, hafsReadingMeta } from "./readingMeta"
+
+/**
+ * Default metadata for Hafs reading (for backward compatibility)
+ * @deprecated Use getMeta() for reading-aware metadata
+ */
 export const meta = {
   numAyahs: 6236,
   numSurahs: 114,
@@ -10,6 +17,20 @@ export const meta = {
   numRukus: 556,
   numManzils: 7
 } as const
+
+/**
+ * Gets metadata for the current reading
+ * 
+ * @remarks
+ * This function returns metadata appropriate for the currently selected reading.
+ * Use setCurrentReading() to change the active reading.
+ * 
+ * @returns Metadata for the current reading
+ */
+export function getMeta() {
+  const reading = getCurrentReading()
+  return getReadingMeta(reading)
+}
 
 /**
  * The maximum number of ayahs (verses) that can exist in any surah (chapter) of the Quran.

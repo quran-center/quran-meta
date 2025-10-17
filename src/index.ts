@@ -1,11 +1,15 @@
 // Quran Meta
 
 export type { QuranMeta } from "./const"
+export type { Reading } from "./reading"
+export type { ReadingMeta } from "./readingMeta"
 export type { SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
 
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
-export { meta } from "./const"
+export { meta, getMeta } from "./const"
+export { getCurrentReading, setCurrentReading, withReading, DEFAULT_READING } from "./reading"
+export { getReadingMeta, hafsReadingMeta, warshReadingMeta } from "./readingMeta"
 export { findAyahIdBySurah } from "./findAyahIdBySurah"
 export { findJuz } from "./findJuz"
 export { findJuzAndShift, findJuzAndShiftByAyahId } from "./findJuzAndShift"
