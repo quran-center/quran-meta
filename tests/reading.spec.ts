@@ -71,7 +71,7 @@ describe("Reading configuration", () => {
         throw new Error("Test error")
       })
     }
-    catch (e) {
+    catch {
       // Expected error
     }
     

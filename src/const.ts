@@ -1,5 +1,5 @@
 import { getCurrentReading } from "./reading"
-import { getReadingMeta, hafsReadingMeta } from "./readingMeta"
+import { getReadingMeta } from "./readingMeta"
 
 /**
  * Default metadata for Hafs reading (for backward compatibility)
