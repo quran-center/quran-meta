@@ -51,7 +51,75 @@ export const hafsReadingMeta: ReadingMeta = {
 export const warshReadingMeta: ReadingMeta = {
   numAyahs: 6214, // 22 fewer than Hafs
   numSurahs: 114,
-  numPages: 604, // May differ in actual mushaf
+  numPages: 603, // Warsh mushaf
+  numJuzs: 30,
+  numHizbs: 60,
+  numRubAlHizbs: 240,
+  numRubsInJuz: 8,
+  numSajdas: 15,
+  numRukus: 556,
+  numManzils: 7
+}
+
+/**
+ * Metadata for Qaloun reading
+ * Note: Qaloun has 6214 ayahs (same as Warsh)
+ */
+export const qalounReadingMeta: ReadingMeta = {
+  numAyahs: 6214,
+  numSurahs: 114,
+  numPages: 603,
+  numJuzs: 30,
+  numHizbs: 60,
+  numRubAlHizbs: 240,
+  numRubsInJuz: 8,
+  numSajdas: 15,
+  numRukus: 556,
+  numManzils: 7
+}
+
+/**
+ * Metadata for Douri reading
+ * Note: Douri has 6217 ayahs
+ */
+export const douriReadingMeta: ReadingMeta = {
+  numAyahs: 6217,
+  numSurahs: 114,
+  numPages: 603,
+  numJuzs: 30,
+  numHizbs: 60,
+  numRubAlHizbs: 240,
+  numRubsInJuz: 8,
+  numSajdas: 15,
+  numRukus: 556,
+  numManzils: 7
+}
+
+/**
+ * Metadata for Sousi reading
+ * Note: Sousi has 6217 ayahs (same as Douri)
+ */
+export const sousiReadingMeta: ReadingMeta = {
+  numAyahs: 6217,
+  numSurahs: 114,
+  numPages: 603,
+  numJuzs: 30,
+  numHizbs: 60,
+  numRubAlHizbs: 240,
+  numRubsInJuz: 8,
+  numSajdas: 15,
+  numRukus: 556,
+  numManzils: 7
+}
+
+/**
+ * Metadata for Shuba reading
+ * Note: Shuba has 6236 ayahs (same as Hafs)
+ */
+export const shubaReadingMeta: ReadingMeta = {
+  numAyahs: 6236,
+  numSurahs: 114,
+  numPages: 603,
   numJuzs: 30,
   numHizbs: 60,
   numRubAlHizbs: 240,
@@ -67,10 +135,10 @@ export const warshReadingMeta: ReadingMeta = {
 const readingMetaMap: Record<Reading, ReadingMeta> = {
   hafs: hafsReadingMeta,
   warsh: warshReadingMeta,
-  qaloun: warshReadingMeta, // Using warsh as placeholder for now
-  douri: hafsReadingMeta,   // Using hafs as placeholder for now
-  sousi: hafsReadingMeta,   // Using hafs as placeholder for now
-  shuba: hafsReadingMeta    // Using hafs as placeholder for now
+  qaloun: qalounReadingMeta,
+  douri: douriReadingMeta,
+  sousi: sousiReadingMeta,
+  shuba: shubaReadingMeta
 }
 
 /**
