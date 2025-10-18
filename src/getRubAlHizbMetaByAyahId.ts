@@ -2,7 +2,6 @@ import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId";
 import { getRubAlHizbMeta } from "./getRubAlHizbMeta";
 import { AyahId, RubAlHizbMeta } from "./types";
 import { checkValidAyahId } from "./validation";
-import { getList } from "./lists/index";
 import { RiwayahsWith } from "./lists/types";
 /**
  * Finds the Juz, Hizb, and Rub-el-Hizb id for the given Ayah ID.
