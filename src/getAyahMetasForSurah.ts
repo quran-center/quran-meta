@@ -1,10 +1,6 @@
 import { getAyahMeta } from "./getAyahMeta"
-import { HizbQuarterList } from "./lists/hizbQuarterList"
-import { JuzList } from "./lists/juzList"
-import { PageList } from "./lists/pageList"
-import { RukuList } from "./lists/rukuList"
-import { SajdaList } from "./lists/sajdaList"
-import { SurahList } from "./lists/surahList"
+import { getListsOfRiwaya } from "./lists/index";
+import { riwayaName } from "./lists/types";
 import { Surah, AyahMeta, AyahId, JuzPart } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -15,16 +11,18 @@ import { checkValidSurah } from "./validation"
  * @returns Array of AyahMeta objects for each ayah in the surah
  * @throws RangeError If the surah number is not between 1 and 114
  */
-export function getAyahMetasForSurah(surahNumber: Surah): AyahMeta[] {
+export function getAyahMetasForSurah(surahNumber: Surah, riwaya: riwayaName): AyahMeta[] {
   checkValidSurah(surahNumber)
-  const [
+    const {SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList} = getListsOfRiwaya(riwaya);
+  
+    const [
     startAyahId, ayahCount // , surahOrder, rukuCount, name, isMeccan, page
   ] = SurahList[surahNumber]
   const endAyahId = startAyahId + ayahCount - 1
   const result: AyahMeta[] = []
 
   // const rubAlHizbMeta = getRubAlHizbMetaByAyahId(startAyahId as AyahId)
-  let meta = getAyahMeta(startAyahId as AyahId)
+  let meta = getAyahMeta(startAyahId as AyahId, riwaya)
   for (let ayahId = startAyahId; ayahId <= endAyahId; ayahId++) {
     // Most properties will be the same as previous ayah except for specific positions
     if (ayahId > startAyahId) {
@@ -65,7 +63,7 @@ export function getAyahMetasForSurah(surahNumber: Surah): AyahMeta[] {
       }
       else { meta.isStartOfQuarter = false }
 
-      meta.isSajdahAyah = SajdaList.some(x => x[0] === ayahId)
+      meta.isSajdahAyah = SajdaList.some(x => x === ayahId)
     }
     result.push(meta)
   }
