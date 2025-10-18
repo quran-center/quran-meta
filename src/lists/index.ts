@@ -8,6 +8,9 @@ Hafs : HafsLists,
 Qalun : QalunLists
 }as const
 
+export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R] {
+  return riwayahs[riwaya];
+}
 
 export const getList = <
   R extends keyof Riwayas,
@@ -29,3 +32,4 @@ export const getList = <
 
   throw new Error(`List ${String(listName)} not found in any riwaya`)
 }
+
