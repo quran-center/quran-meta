@@ -3,9 +3,12 @@
  * https://tanzil.net/res/text/metadata/quran-data.js
  */
 
-import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo } from "../../src"
-import { AyahNo, AyahId, Manzil, Page, Ruku } from "../../src/types"
-
+  import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../src/lists/HafsLists"
+  import { meta } from "../../src/const"
+  import {quranMeta} from "../../src/initPackage"
+  import { AyahNo, AyahId, Manzil, Page, Ruku,SurahInfo,Juz,Surah,RubAlHizbId } from "../../src/types"
+  const {  getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta,findPagebyAyahId,findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId,getSurahMeta } = quranMeta({riwaya: "Hafs"})
+ 
 import tanzilData from "./data/tanzil-data.js";
 
 export function checkTanzil() {  
@@ -67,7 +70,7 @@ export function checkTanzil() {
   }
 
   for (let sajda = 0; sajda < meta.numSajdas; sajda++) {
-    const [ayahId] = SajdaList[sajda];
+    const ayahId = SajdaList[sajda];
     const [sura, ayah] = tanzilData.Sajda[sajda + 1];
 
     if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil sajda: ", ayahId, sura, ayah);

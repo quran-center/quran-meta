@@ -3,9 +3,12 @@
  * https://api.alquran.cloud/v1/meta
  */
 
-import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo } from "../../src"
-import { AyahNo, AyahId, Manzil, Page, Ruku } from "../../src/types"
-
+  import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../src/lists/HafsLists"
+  import { meta } from "../../src/const"
+  import {quranMeta} from "../../src/initPackage"
+  import { AyahNo, AyahId, Manzil, Page, Ruku,SurahInfo,Juz,Surah,RubAlHizbId } from "../../src/types"
+  const {  getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta,findPagebyAyahId,findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId,getSurahMeta } = quranMeta({riwaya: "Hafs"})
+ 
 
 import quranCloud from "./data/qcloud-meta.json"
 
@@ -69,7 +72,7 @@ export function checkQuranCloud() {
     }
   
     for (let sajda = 0; sajda < meta.numSajdas; sajda++) {
-      const [ayahId] = SajdaList[sajda]
+      const ayahId = SajdaList[sajda]
       const { surah, ayah } = quranCloud.data.sajdas.references[sajda] as { surah: Surah, ayah: AyahNo }
   
       if (ayahId !== findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud sajda: ", ayahId, surah, ayah)

@@ -5,9 +5,12 @@
  */
 
 
-import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo, getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta, getSurahMeta } from "../../src"
-import { AyahNo, AyahId, Manzil, Page, Ruku, RubAlHizbId } from "../../src/types"
-
+  import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../src/lists/HafsLists"
+  import { meta } from "../../src/const"
+  import {quranMeta} from "../../src/initPackage"
+  import { AyahNo, AyahId, Manzil, Page, Ruku,SurahInfo,Juz,Surah,RubAlHizbId } from "../../src/types"
+  const {  getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta,findPagebyAyahId,findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId,getSurahMeta } = quranMeta({riwaya: "Hafs"})
+ 
 import quranApi from "./data/quran-api.json"
 
 export function checkQuranApi() {
@@ -16,7 +19,7 @@ export function checkQuranApi() {
       console.log("-------------------------------------")
 
     for (let ayah: AyahId = 1; ayah <= meta.numAyahs; ayah++) {
-        const ayahMeta = getAyahMeta(ayah)
+        const ayahMeta = getAyahMeta(ayah,"Hafs")
         const pageNo = findPagebyAyahId(ayah)
         const { verse, line, juz, manzil, page, ruku, maqra, sajda } = quranApi.chapters[ayahMeta.surah - 1].verses[ayahMeta.ayah - 1]
 
@@ -147,12 +150,12 @@ export function checkQuranApi() {
     }
 
     for (let sajdaId = 0; sajdaId < meta.numSajdas; sajdaId++) {
-        const [ayahId, recommended] = SajdaList[sajdaId]
+        const ayahId = SajdaList[sajdaId]
         const { sajda, chapter, verse, recommended: isRecommended, obligatory: isObligatory } = quranApi.sajdas.references[sajdaId] as { sajda: number, chapter: Surah, verse: AyahNo, recommended: boolean, obligatory: boolean }
 
         if (ayahId !== findAyahIdBySurah(chapter, verse)) console.warn("error QuranApi sajda: ", ayahId, chapter, verse)
-        if (isRecommended && "recommended" !== recommended) console.warn("error QuranApi sajda: ", isRecommended, recommended)
-        if (isObligatory && "obligatory" !== recommended) console.warn("error QuranApi sajda: ", isObligatory, recommended)
+/*         if (isRecommended && "recommended" !== recommended) console.warn("error QuranApi sajda: ", isRecommended, recommended)
+        if (isObligatory && "obligatory" !== recommended) console.warn("error QuranApi sajda: ", isObligatory, recommended) */
     }
 
 }
