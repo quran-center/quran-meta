@@ -1,17 +1,11 @@
-import { findPagebyAyahId } from "./findPagebyAyahId"
-import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
-import { HizbQuarterList } from "./lists/hizbQuarterList"
-import { JuzList } from "./lists/juzList"
-import { PageList } from "./lists/pageList"
-import { RukuList } from "./lists/rukuList"
-import { SajdaList } from "./lists/sajdaList"
-import { SurahList } from "./lists/surahList"
-import { getList } from "./lists/index"
-import { RiwayahsWith } from "./lists/types"
-import { AyahId, AyahMeta, Page } from "./types"
-import { binarySearch } from "./utils"
-import { checkValidAyahId } from "./validation"
+import { findPagebyAyahId } from "./findPagebyAyahId";
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
+import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId";
+import { getListsOfRiwaya } from "./lists/index";
+import { riwayaName } from "./lists/types";
+import { AyahId, AyahMeta, Page } from "./types";
+import { binarySearch } from "./utils";
+import { checkValidAyahId } from "./validation";
 
 /**
  * Retrieves metadata for a specific ayah of the Quran.
@@ -20,33 +14,50 @@ import { checkValidAyahId } from "./validation"
  * @returns An object containing the ayah related meta, including information about the surah, juz, and quarter the ayah is in.
  * @throws RangeError If the ayahId number is not between 1 and 6236
  */
-export function getAyahMeta(ayahId: AyahId): AyahMeta {
-  checkValidAyahId(ayahId)
-
-  const quarterData = getRubAlHizbByAyahId(ayahId)
-  const [surah, ayah] = findSurahAyahByAyahId(ayahId)
-  const page: Page = findPagebyAyahId(ayahId)
+export function getAyahMeta(ayahId: AyahId, riwaya: riwayaName): AyahMeta {
+  checkValidAyahId(ayahId);
+  const allLists = getListsOfRiwaya(riwaya);
+  if ("HizbEighthList" in allLists) {
+    //add thumun functions here
+  }
+  
+  const quarterData = getRubAlHizbByAyahId(ayahId, riwaya);
+  const [surah, ayah] = findSurahAyahByAyahId(ayahId, riwaya);
+  const page: Page = findPagebyAyahId(ayahId, riwaya);
 
   // const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
-  const isSajdahAyah = binarySearch(SajdaList, ayahId, (a, b) => a - b[0]) >= 0
+  const isSajdahAyah = binarySearch(allLists.SajdaList, ayahId, (a, b) => a - b) >= 0;
 
-  const rk = binarySearch(RukuList, ayahId)
-  const isStartOfRuku = rk > 0
-  const ruku = isStartOfRuku ? rk : -rk - 2
+  const rk = binarySearch(allLists.RukuList, ayahId);
+  const isStartOfRuku = rk > 0;
+  const ruku = isStartOfRuku ? rk : -rk - 2;
 
-  const isStartOfSurah = SurahList[surah][0] === ayahId
-  const isStartOfPage = PageList[page] === ayahId
-  const isStartOfJuz = JuzList[quarterData.juz] === ayahId
-  const isStartOfQuarter = HizbQuarterList[quarterData.rubAlHizbId] === ayahId
-  const isEndOfSurah = SurahList[surah + 1][0] - 1 === ayahId
-  const isEndOfPage = PageList[page + 1] - 1 === ayahId
-  const isEndOfJuz = JuzList[quarterData.juz + 1] - 1 === ayahId
-  const isEndOfRuku = binarySearch(RukuList, ayahId + 1) > 0
-  const isEndOfQuarter = HizbQuarterList[quarterData.rubAlHizbId + 1] - 1 === ayahId
+  const isStartOfSurah = allLists.SurahList[surah][0] === ayahId;
+  const isStartOfPage = allLists.PageList[page] === ayahId;
+  const isStartOfJuz = allLists.JuzList[quarterData.juz] === ayahId;
+  const isStartOfQuarter = allLists.HizbQuarterList[quarterData.rubAlHizbId] === ayahId;
+  const isEndOfSurah = allLists.SurahList[surah + 1][0] - 1 === ayahId;
+  const isEndOfPage = allLists.PageList[page + 1] - 1 === ayahId;
+  const isEndOfJuz = allLists.JuzList[quarterData.juz + 1] - 1 === ayahId;
+  const isEndOfRuku = binarySearch(allLists.RukuList, ayahId + 1) > 0;
+  const isEndOfQuarter = allLists.HizbQuarterList[quarterData.rubAlHizbId + 1] - 1 === ayahId;
 
   return {
-    ...quarterData, surah, ayah, page, isStartOfQuarter,
-    isEndOfQuarter, isSajdahAyah, isStartOfPage, isEndOfPage, ruku,
-    isStartOfJuz, isEndOfJuz, isStartOfSurah, isEndOfSurah, isStartOfRuku, isEndOfRuku
-  }
+    ...quarterData,
+    surah,
+    ayah,
+    page,
+    isStartOfQuarter,
+    isEndOfQuarter,
+    isSajdahAyah,
+    isStartOfPage,
+    isEndOfPage,
+    ruku,
+    isStartOfJuz,
+    isEndOfJuz,
+    isStartOfSurah,
+    isEndOfSurah,
+    isStartOfRuku,
+    isEndOfRuku,
+  };
 }
