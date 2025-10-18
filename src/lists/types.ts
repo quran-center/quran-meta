@@ -19,7 +19,8 @@ type missingListsPerRiwaya ={
 export type Riwayas = {
     [k in keyof missingListsPerRiwaya] : Omit<allLists,missingListsPerRiwaya[k]>
 } 
-
+/* // Get all list keys available in a specific riwaya
+export type ListsInRiwaya<R extends keyof Riwayas> = keyof Riwayas[R] */
 
 export type RiwayahsWith<L extends keyof allLists> = {
   [R in keyof Riwayas]: L extends keyof Riwayas[R] ? R : never
@@ -31,4 +32,5 @@ export type RiwayahsWithAll<L extends (keyof allLists)[]>={
 
 
 export type riwayaName = keyof Riwayas
+ export type allListsNames = keyof allLists 
 

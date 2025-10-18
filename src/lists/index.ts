@@ -3,7 +3,7 @@ import {HafsLists} from "./HafsLists"
 import { QalunLists } from "./QalunLists";
 
 
-const riwayahs: Riwayas = {
+export const riwayahs: Riwayas = {
 Hafs : HafsLists,
 Qalun : QalunLists
 }as const
