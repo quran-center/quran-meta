@@ -11,12 +11,14 @@ import { checkValidAyahId } from "./validation";
  * Retrieves metadata for a specific ayah of the Quran.
  *
  * @param ayahId - The ayahId number to retrieve metadata for (1-6236)
+ * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns An object containing the ayah related meta, including information about the surah, juz, and quarter the ayah is in.
  * @throws RangeError If the ayahId number is not between 1 and 6236
  */
 export function getAyahMeta(ayahId: AyahId, riwaya: riwayaName): AyahMeta {
   checkValidAyahId(ayahId);
   const allLists = getListsOfRiwaya(riwaya);
+  
   if ("HizbEighthList" in allLists) {
     //add thumun functions here
   }

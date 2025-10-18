@@ -51,6 +51,7 @@ function toPartFormatter(type: PartType,list:any[]): PartBlocker {
 /**
  * Retrieves a formatted list of Quran parts based on the specified type.
  * @param type - The type of parts to retrieve (e.g., juz, hizb, rub)
+ * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns An array of formatted part blocks, excluding the first and last elements
  */
 export function generatePartBlocks<R extends keyof Riwayas>(riwaya:R ,type:PartTypeInRiwaya<R> ): PartBlock[] {

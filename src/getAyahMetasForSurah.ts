@@ -8,6 +8,7 @@ import { checkValidSurah } from "./validation"
  * Retrieves metadata for all ayahs in a specific surah.
  *
  * @param surahNumber - The surah number (1-114)
+ * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns Array of AyahMeta objects for each ayah in the surah
  * @throws RangeError If the surah number is not between 1 and 114
  */
