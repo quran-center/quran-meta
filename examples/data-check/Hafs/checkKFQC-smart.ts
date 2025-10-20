@@ -1,10 +1,10 @@
-  import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../src/lists/HafsLists"
-  import { meta } from "../../src/const"
-  import {quranMeta} from "../../src/initPackage"
-  import { AyahNo, AyahId, Manzil, Page, Ruku,SurahInfo,Juz } from "../../src/types"
+  import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
+  import { meta } from "../../../src/const"
+  import {quranMeta} from "../../../src/initPackage"
+  import { AyahNo, AyahId, Manzil, Page, Ruku,SurahInfo,Juz } from "../../../src/types"
   const { findPagebyAyahId,findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId,getSurahMeta } = quranMeta({riwaya: "Hafs"})
   
-import hafsSmartData from "./data/hafs_smart_v8.json"
+import hafsSmartData from "./../data/hafs_smart_v8.json"
 
 export function checkKFQCSmart() {
   console.log("=====================================")

@@ -5,13 +5,13 @@
  */
 
 
-  import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../src/lists/HafsLists"
-  import { meta } from "../../src/const"
-  import {quranMeta} from "../../src/initPackage"
-  import { AyahNo, AyahId, Manzil, Page, Ruku,SurahInfo,Juz,Surah,RubAlHizbId } from "../../src/types"
+  import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
+  import { meta } from "../../../src/const"
+  import {quranMeta} from "../../../src/initPackage"
+  import { AyahNo, AyahId, Manzil, Page, Ruku,SurahInfo,Juz,Surah,RubAlHizbId } from "../../../src/types"
   const {  getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta,findPagebyAyahId,findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId,getSurahMeta } = quranMeta({riwaya: "Hafs"})
  
-import quranApi from "./data/quran-api.json"
+import quranApi from "./../data/quran-api.json"
 
 export function checkQuranApi() {
     console.log("=====================================")
