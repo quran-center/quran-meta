@@ -16,6 +16,8 @@ import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId";
 import { findRukuByAyahId } from "./findRukuByAyahId";
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
 import { findSurahByAyahId } from "./findSurahByAyahId";
+import { findThumunAlHizb } from "./findThumunAlHizb";
+import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId";
 import { getAyahCountInSurah } from "./getAyahCountInSurah";
 import { getAyahMeta } from "./getAyahMeta";
 import { getAyahMetasForSurah } from "./getAyahMetasForSurah";
@@ -29,6 +31,10 @@ import { getRubAlHizbMeta } from "./getRubAlHizbMeta";
 import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId";
 import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId";
 import { getSurahMeta } from "./getSurahMeta";
+import { getThumunAlHizb } from "./getThumunAlHizb";
+import { getThumunAlHizbByAyahId } from "./getThumunAlHizbByAyahId";
+import { getThumunAlHizbMeta } from "./getThumunAlHizbMeta";
+import { getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId";
 import { isAyahJuzFirst } from "./isAyahJuzFirst";
 import { isAyahPageFirst } from "./isAyahPageFirst";
 import { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst";
@@ -83,7 +89,12 @@ const functionListMap = {
   getRubAlHizbByAyahId: "HizbQuarterList",
 
   // ThumunAlHizb functions
-
+  findThumunAlHizb: "HizbEighthList",
+  findThumunAlHizbByAyahId: "HizbEighthList",
+  getThumunAlHizb: "HizbEighthList",
+  getThumunAlHizbByAyahId: "HizbEighthList",
+  getThumunAlHizbMeta: "HizbEighthList",
+  getThumunAlHizbMetaByAyahId: "HizbEighthList",
   // Ruku functions
   findRukuByAyahId: "RukuList",
   getRukuMeta: "RukuList",
@@ -127,6 +138,12 @@ const allFunctions = {
   generatePartBlocks,
   findRukuByAyahId,
   getRukuMeta,
+  findThumunAlHizb,
+  findThumunAlHizbByAyahId,
+  getThumunAlHizb,
+  getThumunAlHizbByAyahId,
+  getThumunAlHizbMeta,
+  getThumunAlHizbMetaByAyahId,
 };
 type FunctionListMap = typeof functionListMap;
 type AllFunctions = typeof allFunctions;
@@ -153,7 +170,6 @@ type WithDefaultRiwaya<
 export type QuranPackageConfig<R extends keyof Riwayas = "Hafs"> = {
   riwaya?: R;
 };
-
 
 export function quranMeta<R extends keyof Riwayas = "Hafs">(
   config?: QuranPackageConfig<R>
@@ -206,4 +222,7 @@ export function quranMeta<R extends keyof Riwayas = "Hafs">(
 }
 
 //Usage example
-const quran = quranMeta({ riwaya: "Hafs" }).generatePartBlocks("Hafs","rubAlHizb");
+const quran = quranMeta({ riwaya: "Hafs" }).generatePartBlocks(
+  "Hafs",
+  "rubAlHizb"
+);
