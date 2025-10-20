@@ -1,6 +1,7 @@
 import { findPagebyAyahId } from "./findPagebyAyahId";
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
 import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId";
+import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId";
 import { getListsOfRiwaya } from "./lists/index";
 import { riwayaName } from "./lists/types";
 import { AyahId, AyahMeta, Page } from "./types";
@@ -18,9 +19,10 @@ import { checkValidAyahId } from "./validation";
 export function getAyahMeta(ayahId: AyahId, riwaya: riwayaName): AyahMeta {
   checkValidAyahId(ayahId);
   const allLists = getListsOfRiwaya(riwaya);
-  
-  if ("HizbEighthList" in allLists) {
+  let thumunAlHizbId;
+  if ("HizbEighthList" in allLists && riwaya !== "Hafs") {
     //add thumun functions here
+     thumunAlHizbId = findThumunAlHizbByAyahId(ayahId, riwaya);
   }
   
   const quarterData = getRubAlHizbByAyahId(ayahId, riwaya);
@@ -49,6 +51,7 @@ export function getAyahMeta(ayahId: AyahId, riwaya: riwayaName): AyahMeta {
     surah,
     ayah,
     page,
+    ...(thumunAlHizbId !== undefined ? { thumunAlHizbId } : {}),
     isStartOfQuarter,
     isEndOfQuarter,
     isSajdahAyah,
