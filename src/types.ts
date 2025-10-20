@@ -109,6 +109,18 @@ export type RangeMeta = {
 /**
  * Represents the structure of a Juz and Hizb combination in the Quran
  */
+export type ThumunAlHizb = {
+  juz: Juz
+  juzPart: JuzPart
+  hizbId: HizbId
+  rubAlHizbId: RubAlHizbId
+  thumunAlHizbId: ThumunAlHizbId
+}
+export type ThumunAlHizbMeta = ThumunAlHizb & RangeMeta 
+
+/**
+ * Represents the structure of a Juz and Hizb combination in the Quran
+ */
 export type RubAlHizb = {
   juz: Juz
   juzPart: JuzPart
@@ -116,7 +128,7 @@ export type RubAlHizb = {
   rubAlHizbId: RubAlHizbId
 }
 
-export type RubAlHizbMeta = RubAlHizb & RangeMeta
+export type RubAlHizbMeta = RubAlHizb & RangeMeta 
 
 export type SurahAyah = [Surah, AyahNo]
 export type AyahRange = [AyahId, AyahId]
