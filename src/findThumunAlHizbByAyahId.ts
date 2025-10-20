@@ -1,6 +1,6 @@
 import { getList } from "./lists/index";
 import { RiwayahsWith } from "./lists/types";
-import { AyahId, RubAlHizbId } from "./types";
+import { AyahId, ThumunAlHizbId } from "./types";
 import { binarySearch } from "./utils";
 import { checkValidAyahId } from "./validation";
 
@@ -14,11 +14,11 @@ import { checkValidAyahId } from "./validation";
 export function findThumunAlHizbByAyahId(
   ayahId: AyahId,
   riwaya: RiwayahsWith<"HizbEighthList"> = "Qalun"
-): RubAlHizbId {
+): ThumunAlHizbId {
   checkValidAyahId(ayahId);
   const HizbEighthList = getList("HizbEighthList", riwaya);
   // return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId
   const jj = binarySearch(HizbEighthList, ayahId);
   const page = jj < 0 ? -jj - 2 : jj;
-  return page as RubAlHizbId;
+  return page as ThumunAlHizbId;
 }
