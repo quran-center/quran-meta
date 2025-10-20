@@ -28,7 +28,11 @@ export type Surah = NumericRange<1, typeof meta.numSurahs>
  *
  */
 export type AyahNo = NumericRange<1, typeof maxAyahsInSurah>
-
+/**
+ * Represents a valid thumun al-Hizb (Eighth of a Hizb) identifier.
+ * The value must be a number between 0 and the total number of thumun al-Hizbs in the Quran.
+ */
+export type ThumunAlHizbId = NumericRange<0, typeof meta.numThumunAlHizbs>
 /**
  * Represents a valid Rub al-Hizb (quarter of a Hizb) identifier.
  * The value must be a number between 0 and the total number of Rub al-Hizbs in the Quran.
