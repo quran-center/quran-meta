@@ -44,6 +44,7 @@ export { prevAyah } from "./prevAyah"
 export { isValidManzil, isValidRuku, isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidSurah, isValidSurahAyah } from "./typeGuards"
 export { checkValidManzil, checkValidRuku, checkValidAyahId, checkValidJuz, checkValidPage, checkValidSurah, checkValidSurahAyah } from "./validation"
 export {quranMeta} from "./initPackage"
+import {quranMeta} from "./initPackage"
 // ------------------ Sura i18 Data ---------------------
 
 export * from "./i18n"

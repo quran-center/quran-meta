@@ -1,5 +1,5 @@
 import type { Riwayas, allListsNames } from "./lists/types";
-import { riwayahs } from "./lists/index";
+import { getListsOfRiwaya } from "./lists/index";
 import { findAyahIdBySurah } from "./findAyahIdBySurah";
 import { findJuz } from "./findJuz";
 import { findJuzAndShift, findJuzAndShiftByAyahId } from "./findJuzAndShift";
@@ -197,8 +197,8 @@ export function quranMeta<R extends keyof Riwayas = "Hafs">(
   };
 
   const availableLists = Object.keys(
-    riwayahs[defaultRiwaya]
-  ) as allListsNames[];
+    getListsOfRiwaya(defaultRiwaya)
+  ) as Partial<allListsNames[]>;
 
   const api: any = {};
 
@@ -221,8 +221,4 @@ export function quranMeta<R extends keyof Riwayas = "Hafs">(
   return api as QuranPackageAPI<R>;
 }
 
-//Usage example
-const quran = quranMeta({ riwaya: "Hafs" }).generatePartBlocks(
-  "Hafs",
-  "rubAlHizb"
-);
+

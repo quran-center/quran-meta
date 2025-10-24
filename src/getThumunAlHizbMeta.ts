@@ -11,7 +11,7 @@ import { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types";
  * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
  */
-export function getRubAlHizbMeta(
+export function getThumunAlHizbMeta(
  eighthIndex: ThumunAlHizbId,
   riwaya: RiwayahsWith<"HizbEighthList"> = "Qalun"
 ): ThumunAlHizbMeta {
