@@ -1,15 +1,3 @@
-interface Meta {
-  numAyahs: number;
-  numSurahs: number;
-  numPages: number;
-  numJuzs: number;
-  numHizbs: number;
-  numRubAlHizbs: number;
-  numRubsInJuz: number;
-  numSajdas: number;
-  numRukus: number;
-  numManzils: number;
-}
 export const meta = {
   numAyahs: 6236,
   numSurahs: 114,

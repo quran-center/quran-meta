@@ -20,9 +20,9 @@ export function getAyahMeta(ayahId: AyahId, riwaya: riwayaName): AyahMeta {
   checkValidAyahId(ayahId);
   const allLists = getListsOfRiwaya(riwaya);
   let thumunAlHizbId;
-  if ("HizbEighthList" in allLists && riwaya !== "Hafs") {
+  if ("HizbEighthList" in allLists) {
     //add thumun functions here
-     thumunAlHizbId = findThumunAlHizbByAyahId(ayahId, riwaya);
+     thumunAlHizbId = findThumunAlHizbByAyahId(ayahId, riwaya as "Qalun");
   }
   
   const quarterData = getRubAlHizbByAyahId(ayahId, riwaya);
