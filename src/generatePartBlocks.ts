@@ -22,7 +22,7 @@ type PartTypeInRiwaya<R extends keyof Riwayas> = {
     : never
 }[PartType]
 
-let s :PartTypeInRiwaya<"Hafs"> ="rubAlHizb"
+
 /**
  * Represents a block or section of the Quran with its starting ayah and length
  * startAyahId - The identifier of the first ayah in the block
@@ -62,4 +62,4 @@ export function generatePartBlocks<R extends keyof Riwayas>(riwaya:R ,type:PartT
   }
   return list.slice(1, list.length - 1).map(toPartFormatter(type,list))
 } 
-generatePartBlocks("Hafs", "juz") 
+
