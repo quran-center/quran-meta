@@ -18,9 +18,9 @@ import { checkValidAyahId } from "./validation"
  */
 export function getAyahMeta(ayahId: AyahId, riwaya: riwayaName): AyahMeta {
   checkValidAyahId(ayahId)
-  const allLists = getListsOfRiwaya(riwaya)
+  const { SurahList, PageList, JuzList, HizbQuarterList, RukuList, SajdaList } = getListsOfRiwaya(riwaya)
   let thumunAlHizbId
-  if ("HizbEighthList" in allLists) {
+  if ("HizbEighthList" in getListsOfRiwaya(riwaya)) {
     // add thumun functions here
     thumunAlHizbId = findThumunAlHizbByAyahId(ayahId, riwaya as "Qalun")
   }
@@ -30,21 +30,21 @@ export function getAyahMeta(ayahId: AyahId, riwaya: riwayaName): AyahMeta {
   const page: Page = findPagebyAyahId(ayahId, riwaya)
 
   // const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
-  const isSajdahAyah = binarySearch(allLists.SajdaList, ayahId, (a, b) => a - b) >= 0
+  const isSajdahAyah = binarySearch(SajdaList, ayahId, (a, b) => a - b) >= 0
 
-  const rk = binarySearch(allLists.RukuList, ayahId)
+  const rk = binarySearch(RukuList, ayahId)
   const isStartOfRuku = rk > 0
   const ruku = isStartOfRuku ? rk : -rk - 2
 
-  const isStartOfSurah = allLists.SurahList[surah][0] === ayahId
-  const isStartOfPage = allLists.PageList[page] === ayahId
-  const isStartOfJuz = allLists.JuzList[quarterData.juz] === ayahId
-  const isStartOfQuarter = allLists.HizbQuarterList[quarterData.rubAlHizbId] === ayahId
-  const isEndOfSurah = allLists.SurahList[surah + 1][0] - 1 === ayahId
-  const isEndOfPage = allLists.PageList[page + 1] - 1 === ayahId
-  const isEndOfJuz = allLists.JuzList[quarterData.juz + 1] - 1 === ayahId
-  const isEndOfRuku = binarySearch(allLists.RukuList, ayahId + 1) > 0
-  const isEndOfQuarter = allLists.HizbQuarterList[quarterData.rubAlHizbId + 1] - 1 === ayahId
+  const isStartOfSurah = SurahList[surah][0] === ayahId
+  const isStartOfPage = PageList[page] === ayahId
+  const isStartOfJuz = JuzList[quarterData.juz] === ayahId
+  const isStartOfQuarter = HizbQuarterList[quarterData.rubAlHizbId] === ayahId
+  const isEndOfSurah = SurahList[surah + 1][0] - 1 === ayahId
+  const isEndOfPage = PageList[page + 1] - 1 === ayahId
+  const isEndOfJuz = JuzList[quarterData.juz + 1] - 1 === ayahId
+  const isEndOfRuku = binarySearch(RukuList, ayahId + 1) > 0
+  const isEndOfQuarter = HizbQuarterList[quarterData.rubAlHizbId + 1] - 1 === ayahId
 
   return {
     ...quarterData,
