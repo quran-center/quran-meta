@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v5.1.1-0
+
+[compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v5.1.0...v5.1.1-0)
+
+### 🚀 Enhancements
+
+- Update examples and docs (ea299e3)
+- Add more data checks from KFQC texts (8122191)
+- Update surah names from KFQC Hafs and add checks (50ff0fc)
+
+### 🏡 Chore
+
+- Add oxlint formatter (498da67)
+- Update dependencies (1da02aa)
+- Update unit tests (d0b0fb8)
+- Update deps (5fdb194)
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v5.1.0
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v5.0.4...v5.1.0)
