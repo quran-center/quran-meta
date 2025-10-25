@@ -1,8 +1,8 @@
-import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
-import {getThumunAlHizb} from "./getThumunAlHizb";
-import { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types";
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
+import { getThumunAlHizb } from "./getThumunAlHizb"
+import { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types"
 
 /**
  * Retrieves the metadata for a specific quarter (rub' al-hizb) of the Quran.
@@ -12,22 +12,22 @@ import { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types";
  * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
  */
 export function getThumunAlHizbMeta(
- eighthIndex: ThumunAlHizbId,
+  eighthIndex: ThumunAlHizbId,
   riwaya: RiwayahsWith<"HizbEighthList"> = "Qalun"
 ): ThumunAlHizbMeta {
-  const res = getThumunAlHizb(eighthIndex);
-  const HizbEighthList = getList("HizbEighthList", riwaya);
+  const res = getThumunAlHizb(eighthIndex)
+  const HizbEighthList = getList("HizbEighthList", riwaya)
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
     HizbEighthList[eighthIndex],
-    HizbEighthList[eighthIndex + 1],
-  ];
-  const lastAyahId = nextJuzAyahId - 1;
+    HizbEighthList[eighthIndex + 1]
+  ]
+  const lastAyahId = nextJuzAyahId - 1
 
   return {
     firstAyahId,
     lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId),
     last: findSurahAyahByAyahId(lastAyahId),
-    ...res,
-  };
+    ...res
+  }
 }

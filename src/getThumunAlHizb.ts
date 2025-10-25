@@ -1,4 +1,4 @@
-import { HizbId, Juz, ThumunAlHizb, JuzPart, ThumunAlHizbId, RubAlHizbId } from "./types";
+import { HizbId, Juz, ThumunAlHizb, JuzPart, ThumunAlHizbId, RubAlHizbId } from "./types"
 
 /**
  * Retrieves the basic metadata for a specific Eighth (thumun' al-hizb) of the Quran.
@@ -7,18 +7,18 @@ import { HizbId, Juz, ThumunAlHizb, JuzPart, ThumunAlHizbId, RubAlHizbId } from 
  * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
  */
 export function getThumunAlHizb(
-  eighthIndex: ThumunAlHizbId,
+  eighthIndex: ThumunAlHizbId
 ): ThumunAlHizb {
   // return HizbQuarterList[maqra]
 
   // const quarterIndex = HizbQuarterList.findIndex(x => x > ayahId) - 1
 
   // const juz = findJuzByAyahId(ayahId)
-  const juz = (Math.floor((eighthIndex - 1) / 16) + 1) as Juz;
+  const juz = (Math.floor((eighthIndex - 1) / 16) + 1) as Juz
   // isValidJuz(juz)
-  
-  const hizbIndex = (Math.floor((eighthIndex - 1) / 8) + 1) as HizbId;
-  const rubAlHizbId = (Math.floor((eighthIndex - 1) / 2) + 1) as RubAlHizbId;
-  const juzPart = (eighthIndex % 16 || 16) as JuzPart;
-  return { juz, hizbId: hizbIndex, juzPart, rubAlHizbId,thumunAlHizbId: eighthIndex };
+
+  const hizbIndex = (Math.floor((eighthIndex - 1) / 8) + 1) as HizbId
+  const rubAlHizbId = (Math.floor((eighthIndex - 1) / 2) + 1) as RubAlHizbId
+  const juzPart = (eighthIndex % 16 || 16) as JuzPart
+  return { juz, hizbId: hizbIndex, juzPart, rubAlHizbId, thumunAlHizbId: eighthIndex }
 }

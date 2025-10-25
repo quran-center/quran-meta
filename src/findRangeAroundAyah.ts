@@ -1,15 +1,15 @@
-import { meta } from "./const";
-import { findJuzByAyahId } from "./findJuzByAyahId";
-import { findPagebyAyahId } from "./findPagebyAyahId";
-import { findRukuByAyahId } from "./findRukuByAyahId";
-import { findSurahByAyahId } from "./findSurahByAyahId";
-import { getList } from "./lists/index";
-import { RiwayahsWithAll } from "./lists/types";
-import { AyahId, AyahRange, Juz, Page, RangeMode, Ruku, Surah } from "./types";
+import { meta } from "./const"
+import { findJuzByAyahId } from "./findJuzByAyahId"
+import { findPagebyAyahId } from "./findPagebyAyahId"
+import { findRukuByAyahId } from "./findRukuByAyahId"
+import { findSurahByAyahId } from "./findSurahByAyahId"
+import { getList } from "./lists/index"
+import { RiwayahsWithAll } from "./lists/types"
+import { AyahId, AyahRange, Juz, Page, RangeMode, Ruku, Surah } from "./types"
 
 type compatibleRiwayah = RiwayahsWithAll<
   ["JuzList", "SurahList", "RukuList", "PageList"]
->;
+>
 /**
  * Finds the range of ayahs surrounding a given ayah based on specified mode
  * @param ayahId - The unique identifier of the ayah
@@ -28,37 +28,37 @@ export function findRangeAroundAyah(
   mode: RangeMode,
   riwaya?: compatibleRiwayah
 ): AyahRange {
-  const JuzList = getList("JuzList", riwaya);
-  const SurahList = getList("SurahList", riwaya);
-  const PageList = getList("PageList", riwaya);
-  const RukuList = getList("RukuList", riwaya);
+  const JuzList = getList("JuzList", riwaya)
+  const SurahList = getList("SurahList", riwaya)
+  const PageList = getList("PageList", riwaya)
+  const RukuList = getList("RukuList", riwaya)
   switch (mode) {
     case "juz": {
-      const juz: Juz = findJuzByAyahId(ayahId);
-      return [JuzList[juz], JuzList[juz + 1] - 1];
+      const juz: Juz = findJuzByAyahId(ayahId)
+      return [JuzList[juz], JuzList[juz + 1] - 1]
     }
 
     case "surah": {
-      const surah: Surah = findSurahByAyahId(ayahId);
-      return [SurahList[surah][0], SurahList[surah + 1][0] - 1];
+      const surah: Surah = findSurahByAyahId(ayahId)
+      return [SurahList[surah][0], SurahList[surah + 1][0] - 1]
     }
 
     case "ayah": {
-      return [ayahId, ayahId];
+      return [ayahId, ayahId]
     }
 
     case "page": {
-      const page: Page = findPagebyAyahId(ayahId);
-      return [PageList[page], PageList[page + 1] - 1];
+      const page: Page = findPagebyAyahId(ayahId)
+      return [PageList[page], PageList[page + 1] - 1]
     }
 
     case "ruku": {
-      const ruku: Ruku = findRukuByAyahId(ayahId);
-      return [RukuList[ruku], RukuList[ruku + 1] - 1];
+      const ruku: Ruku = findRukuByAyahId(ayahId)
+      return [RukuList[ruku], RukuList[ruku + 1] - 1]
     }
 
     case "all":
     default:
-      return [1, meta.numAyahs];
+      return [1, meta.numAyahs]
   }
 }

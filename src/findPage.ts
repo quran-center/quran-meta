@@ -13,10 +13,10 @@ import { checkValidSurah } from "./validation"
  * @param ayah - The Ayah number to find the page for.
  * @returns The page number for the given Surah and Ayah.
  */
-export function findPage(surah: Surah, ayah: AyahNo | AyahId = 1,riwaya?:RiwayahsWith<"PageList">): Page {
+export function findPage(surah: Surah, ayah: AyahNo | AyahId = 1, riwaya?: RiwayahsWith<"PageList">): Page {
   checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah as AyahNo)
-const PageList = getList("PageList",riwaya)
+  const PageList = getList("PageList", riwaya)
   // return PageList.findIndex(x => x > ayahId) - 1 as Page
   const jj = binarySearch(PageList, ayahId)
   const page = jj < 0 ? -jj - 2 : jj

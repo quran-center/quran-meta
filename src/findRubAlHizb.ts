@@ -1,8 +1,8 @@
-import { RiwayahsWithAll } from "./lists/types";
-import { findAyahIdBySurah } from "./findAyahIdBySurah";
-import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId";
-import { AyahId, AyahNo, RubAlHizbId, Surah } from "./types";
-import { checkValidSurah } from "./validation";
+import { RiwayahsWithAll } from "./lists/types"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
+import { AyahId, AyahNo, RubAlHizbId, Surah } from "./types"
+import { checkValidSurah } from "./validation"
 
 /**
  * Finds the Juz (part) and Rub-ul-Hizb/Maqra (quarter section) of the Quran that the given Ayah (verse) belongs to.
@@ -17,8 +17,8 @@ export function findRubAlHizb(
   ayah: AyahNo = 1,
   riwaya?: RiwayahsWithAll<["SurahList", "HizbQuarterList"]>
 ): RubAlHizbId {
-  checkValidSurah(surah);
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya);
+  checkValidSurah(surah)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya)
 
-  return findRubAlHizbByAyahId(ayahId, riwaya);
+  return findRubAlHizbByAyahId(ayahId, riwaya)
 }

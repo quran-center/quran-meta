@@ -1,8 +1,8 @@
-import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
-import { AyahId, Page, PageMeta } from "./types";
-import { checkValidPage } from "./validation";
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
+import { AyahId, Page, PageMeta } from "./types"
+import { checkValidPage } from "./validation"
 
 /**
  * Retrieves metadata for a specific page of the Quran.
@@ -16,19 +16,19 @@ export function getPageMeta(
   pageNum: Page,
   riwaya?: RiwayahsWith<"PageList">
 ): PageMeta {
-  checkValidPage(pageNum);
-  const PageList = getList("PageList", riwaya);
+  checkValidPage(pageNum)
+  const PageList = getList("PageList", riwaya)
   const [firstAyahId, nextPage]: [AyahId, AyahId] = [
     PageList[pageNum],
-    PageList[pageNum + 1],
-  ];
-  const lastAyahId = nextPage - 1;
+    PageList[pageNum + 1]
+  ]
+  const lastAyahId = nextPage - 1
 
   return {
     pageNum,
     firstAyahId,
     lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId),
-    last: findSurahAyahByAyahId(lastAyahId),
-  };
+    last: findSurahAyahByAyahId(lastAyahId)
+  }
 }

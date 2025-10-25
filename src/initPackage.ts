@@ -1,46 +1,46 @@
-import type { Riwayas, allListsNames } from "./lists/types";
-import { getListsOfRiwaya } from "./lists/index";
-import { findAyahIdBySurah } from "./findAyahIdBySurah";
-import { findJuz } from "./findJuz";
-import { findJuzAndShift, findJuzAndShiftByAyahId } from "./findJuzAndShift";
-import { findJuzByAyahId } from "./findJuzByAyahId";
-import { findJuzMetaBySurah } from "./findJuzMetaBySurah";
-import { findManzil } from "./findManzil";
-import { findManzilByAyahId } from "./findManzilByAyahId";
-import { findPage } from "./findPage";
-import { findPagebyAyahId } from "./findPagebyAyahId";
-import { findRangeAroundAyah } from "./findRangeAroundAyah";
-import { findRangeAroundSurahAyah } from "./findRangeAroundSurahAyah";
-import { findRubAlHizb } from "./findRubAlHizb";
-import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId";
-import { findRukuByAyahId } from "./findRukuByAyahId";
-import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
-import { findSurahByAyahId } from "./findSurahByAyahId";
-import { findThumunAlHizb } from "./findThumunAlHizb";
-import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId";
-import { getAyahCountInSurah } from "./getAyahCountInSurah";
-import { getAyahMeta } from "./getAyahMeta";
-import { getAyahMetasForSurah } from "./getAyahMetasForSurah";
-import { getJuzMeta } from "./getJuzMeta";
-import { generatePartBlocks, type PartType } from "./generatePartBlocks";
-import { getManzilMeta } from "./getManzilMeta";
-import { getPageMeta } from "./getPageMeta";
-import { getRukuMeta } from "./getRukuMeta";
-import { getRubAlHizb } from "./getRubAlHizb";
-import { getRubAlHizbMeta } from "./getRubAlHizbMeta";
-import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId";
-import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId";
-import { getSurahMeta } from "./getSurahMeta";
-import { getThumunAlHizb } from "./getThumunAlHizb";
-import { getThumunAlHizbByAyahId } from "./getThumunAlHizbByAyahId";
-import { getThumunAlHizbMeta } from "./getThumunAlHizbMeta";
-import { getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId";
-import { isAyahJuzFirst } from "./isAyahJuzFirst";
-import { isAyahPageFirst } from "./isAyahPageFirst";
-import { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst";
-import { isSurahAyahPageFirst } from "./isSurahAyahPageFirst";
-import { nextAyah } from "./nextAyah";
-import { prevAyah } from "./prevAyah";
+import type { Riwayas, allListsNames } from "./lists/types"
+import { getListsOfRiwaya } from "./lists/index"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findJuz } from "./findJuz"
+import { findJuzAndShift, findJuzAndShiftByAyahId } from "./findJuzAndShift"
+import { findJuzByAyahId } from "./findJuzByAyahId"
+import { findJuzMetaBySurah } from "./findJuzMetaBySurah"
+import { findManzil } from "./findManzil"
+import { findManzilByAyahId } from "./findManzilByAyahId"
+import { findPage } from "./findPage"
+import { findPagebyAyahId } from "./findPagebyAyahId"
+import { findRangeAroundAyah } from "./findRangeAroundAyah"
+import { findRangeAroundSurahAyah } from "./findRangeAroundSurahAyah"
+import { findRubAlHizb } from "./findRubAlHizb"
+import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
+import { findRukuByAyahId } from "./findRukuByAyahId"
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
+import { findSurahByAyahId } from "./findSurahByAyahId"
+import { findThumunAlHizb } from "./findThumunAlHizb"
+import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
+import { getAyahCountInSurah } from "./getAyahCountInSurah"
+import { getAyahMeta } from "./getAyahMeta"
+import { getAyahMetasForSurah } from "./getAyahMetasForSurah"
+import { getJuzMeta } from "./getJuzMeta"
+import { generatePartBlocks, type PartType } from "./generatePartBlocks"
+import { getManzilMeta } from "./getManzilMeta"
+import { getPageMeta } from "./getPageMeta"
+import { getRukuMeta } from "./getRukuMeta"
+import { getRubAlHizb } from "./getRubAlHizb"
+import { getRubAlHizbMeta } from "./getRubAlHizbMeta"
+import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
+import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
+import { getSurahMeta } from "./getSurahMeta"
+import { getThumunAlHizb } from "./getThumunAlHizb"
+import { getThumunAlHizbByAyahId } from "./getThumunAlHizbByAyahId"
+import { getThumunAlHizbMeta } from "./getThumunAlHizbMeta"
+import { getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId"
+import { isAyahJuzFirst } from "./isAyahJuzFirst"
+import { isAyahPageFirst } from "./isAyahPageFirst"
+import { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"
+import { isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
+import { nextAyah } from "./nextAyah"
+import { prevAyah } from "./prevAyah"
 
 // Map functions to their required lists
 const functionListMap = {
@@ -97,8 +97,8 @@ const functionListMap = {
   getThumunAlHizbMetaByAyahId: "HizbEighthList",
   // Ruku functions
   findRukuByAyahId: "RukuList",
-  getRukuMeta: "RukuList",
-} as const;
+  getRukuMeta: "RukuList"
+} as const
 
 // Import all functions in one place
 const allFunctions = {
@@ -143,10 +143,10 @@ const allFunctions = {
   getThumunAlHizb,
   getThumunAlHizbByAyahId,
   getThumunAlHizbMeta,
-  getThumunAlHizbMetaByAyahId,
-};
-type FunctionListMap = typeof functionListMap;
-type AllFunctions = typeof allFunctions;
+  getThumunAlHizbMetaByAyahId
+}
+type FunctionListMap = typeof functionListMap
+type AllFunctions = typeof allFunctions
 
 // Generate the conditional API type
 type QuranPackageAPI<R extends keyof Riwayas> = {
@@ -155,7 +155,7 @@ type QuranPackageAPI<R extends keyof Riwayas> = {
       ? K
       : never
     : K]: K extends keyof AllFunctions ? AllFunctions[K] : never;
-};
+}
 
 // Helper type to add default riwaya parameter
 type WithDefaultRiwaya<
@@ -165,42 +165,42 @@ type WithDefaultRiwaya<
   ? Args extends [...infer Rest, infer Last]
     ? (...args: [...Rest, R?]) => Return
     : F
-  : F;
+  : F
 
 export type QuranPackageConfig<R extends keyof Riwayas = "Hafs"> = {
-  riwaya?: R;
-};
+  riwaya?: R
+}
 
 export function quranMeta<R extends keyof Riwayas = "Hafs">(
   config?: QuranPackageConfig<R>
 ): QuranPackageAPI<R> {
-  const defaultRiwaya = (config?.riwaya ?? "Hafs") as R;
+  const defaultRiwaya = (config?.riwaya ?? "Hafs") as R
 
-  //Wrap the function with the default riwaya parameter
+  // Wrap the function with the default riwaya parameter
   const wrap = <F extends (...args: any[]) => any>(
     fn: F
   ): WithDefaultRiwaya<F, R> => {
-    const paramCount = fn.length;
+    const paramCount = fn.length
 
     return ((...args: any[]) => {
-      const finalArgs = [...args];
+      const finalArgs = [...args]
 
       if (
-        finalArgs.length < paramCount ||
-        finalArgs[paramCount - 1] === undefined
+        finalArgs.length < paramCount
+        || finalArgs[paramCount - 1] === undefined
       ) {
-        finalArgs[paramCount - 1] = defaultRiwaya;
+        finalArgs[paramCount - 1] = defaultRiwaya
       }
 
-      return fn(...finalArgs);
-    }) as WithDefaultRiwaya<F, R>;
-  };
+      return fn(...finalArgs)
+    }) as WithDefaultRiwaya<F, R>
+  }
 
   const availableLists = Object.keys(
     getListsOfRiwaya(defaultRiwaya)
-  ) as Partial<allListsNames[]>;
+  ) as Partial<allListsNames[]>
 
-  const api: any = {};
+  const api: any = {}
 
   // Generate API by iterating through the function map
   for (const [functionName, requiredList] of Object.entries(functionListMap)) {
@@ -208,17 +208,15 @@ export function quranMeta<R extends keyof Riwayas = "Hafs">(
     // 1. It requires no list (requiredList is null), OR
     // 2. The required list is available in this riwaya
     if (
-      requiredList === null ||
-      availableLists.includes(requiredList as allListsNames)
+      requiredList === null
+      || availableLists.includes(requiredList as allListsNames)
     ) {
-      const fn = allFunctions[functionName as keyof AllFunctions];
+      const fn = allFunctions[functionName as keyof AllFunctions]
       if (fn) {
-        api[functionName] = wrap(fn);
+        api[functionName] = wrap(fn)
       }
     }
   }
 
-  return api as QuranPackageAPI<R>;
+  return api as QuranPackageAPI<R>
 }
-
-

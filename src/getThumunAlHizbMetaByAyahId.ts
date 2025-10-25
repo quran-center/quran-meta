@@ -1,8 +1,8 @@
-import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId";
-import { getThumunAlHizbMeta } from "./getThumunAlHizbMeta";
-import { AyahId, ThumunAlHizbMeta } from "./types";
-import { checkValidAyahId } from "./validation";
-import { RiwayahsWith } from "./lists/types";
+import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
+import { getThumunAlHizbMeta } from "./getThumunAlHizbMeta"
+import { AyahId, ThumunAlHizbMeta } from "./types"
+import { checkValidAyahId } from "./validation"
+import { RiwayahsWith } from "./lists/types"
 /**
  * Finds the Juz, Hizb, and Rub-el-Hizb id for the given Ayah ID.
  *
@@ -12,9 +12,9 @@ import { RiwayahsWith } from "./lists/types";
  */
 export function getThumunAlHizbMetaByAyahId(
   ayahId: AyahId,
-  riwaya: RiwayahsWith<"HizbEighthList">="Qalun"
+  riwaya: RiwayahsWith<"HizbEighthList"> = "Qalun"
 ): ThumunAlHizbMeta {
-  checkValidAyahId(ayahId);
-  const eighthIndex = findThumunAlHizbByAyahId(ayahId, riwaya);
-  return getThumunAlHizbMeta(eighthIndex);
+  checkValidAyahId(ayahId)
+  const eighthIndex = findThumunAlHizbByAyahId(ayahId, riwaya)
+  return getThumunAlHizbMeta(eighthIndex)
 }

@@ -10,8 +10,8 @@ import { RiwayahsWithAll } from "./lists/types"
  * @param riwaya - The riwaya. (defaults to "Hafs")
  * @returns The Manzil number (1-7) containing the specified Ayah
  */
-export function findManzil(surah: Surah, ayah: AyahNo = 1,riwaya?:RiwayahsWithAll<["ManzilList","SurahList"]>): Manzil {
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah,riwaya)
+export function findManzil(surah: Surah, ayah: AyahNo = 1, riwaya?: RiwayahsWithAll<["ManzilList", "SurahList"]>): Manzil {
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya)
 
   return findManzilByAyahId(ayahId)
 }

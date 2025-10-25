@@ -1,17 +1,17 @@
-import { getList, getListsOfRiwaya } from "./lists/index";
-import type { Riwayas, allListsNames, RiwayahsWith } from "./lists/types";
-import { AyahId, AyahNo, SurahInfo } from "./types";
+import { getList, getListsOfRiwaya } from "./lists/index"
+import type { Riwayas, allListsNames, RiwayahsWith } from "./lists/types"
+import { AyahId, AyahNo, SurahInfo } from "./types"
 
 /* A map of readable parameters that can be used in the function and their corresponding list name */
-export type PartType =
-  | "surah"
-  | "juz"
-  | "rubAlHizb"
-  | "thumunAlHizb"
-  | "page"
-  | "manzil"
-  | "ruku";
-  
+export type PartType
+  = | "surah"
+    | "juz"
+    | "rubAlHizb"
+    | "thumunAlHizb"
+    | "page"
+    | "manzil"
+    | "ruku"
+
 export const parts = {
   surah: "SurahList",
   juz: "JuzList",
@@ -19,9 +19,8 @@ export const parts = {
   thumunAlHizb: "HizbEighthList",
   page: "PageList",
   manzil: "ManzilList",
-  ruku: "RukuList",
-} as const satisfies Record<PartType, allListsNames>;
-
+  ruku: "RukuList"
+} as const satisfies Record<PartType, allListsNames>
 
 /**
  * Represents a block or section of the Quran with its starting ayah and length
@@ -29,25 +28,25 @@ export const parts = {
  * ayahCount - The number of ayahs contained in this block
  */
 type PartBlock = {
-  startAyahId: AyahId;
-  ayahCount: AyahId | AyahNo;
-};
-type PartBlocker = (...any: unknown[]) => PartBlock;
+  startAyahId: AyahId
+  ayahCount: AyahId | AyahNo
+}
+type PartBlocker = (...any: unknown[]) => PartBlock
 
 function toPartFormatter(type: PartType, list: any[]): PartBlocker {
   return type === "surah"
     ? ([startAyahId, ayahCount]: SurahInfo) => ({
         startAyahId,
-        ayahCount,
+        ayahCount
       })
     : (ayahId: AyahId, index: number) => {
         // console.log(ayahId,index,parts[type][index+2] )
-        const ayahCount = list[index + 2] - ayahId;
+        const ayahCount = list[index + 2] - ayahId
         return {
           startAyahId: ayahId,
-          ayahCount,
-        };
-      };
+          ayahCount
+        }
+      }
 }
 
 /**
@@ -60,16 +59,14 @@ export function generatePartBlocks<P extends PartType>(
   type: P,
   riwaya?: RiwayahsWith<(typeof parts)[P]>
 ): PartBlock[] {
-  if (!parts[type]) throw new Error(`Invalid part type: ${type}`);
+  if (!parts[type]) throw new Error(`Invalid part type: ${type}`)
 
-  const listName = parts[type];
-  const list = getList(listName, riwaya as any);
+  const listName = parts[type]
+  const list = getList(listName, riwaya as any)
 
   if (!Array.isArray(list)) {
-    throw new Error(`Expected array for ${String(listName)}`);
+    throw new Error(`Expected array for ${String(listName)}`)
   }
 
-  return list.slice(1, list.length - 1).map(toPartFormatter(type, list));
+  return list.slice(1, list.length - 1).map(toPartFormatter(type, list))
 }
-
-

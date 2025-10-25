@@ -1,9 +1,9 @@
-import { findAyahIdBySurah } from "./findAyahIdBySurah";
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
-import { AyahId, AyahNo, Page, Surah } from "./types";
-import { binarySearch } from "./utils";
-import { checkValidSurah } from "./validation";
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
+import { AyahId, AyahNo, Page, Surah } from "./types"
+import { binarySearch } from "./utils"
+import { checkValidSurah } from "./validation"
 
 /**
  * Determines if an ayah is the first ayah on its page in the Quran
@@ -18,9 +18,9 @@ export function isSurahAyahPageFirst(
   ayah: AyahNo,
   riwaya?: RiwayahsWith<"PageList">
 ): Page | number {
-  checkValidSurah(surah);
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah);
-  const PageList = getList("PageList", riwaya);
-  return binarySearch(PageList, ayahId) as Page | -1;
+  checkValidSurah(surah)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
+  const PageList = getList("PageList", riwaya)
+  return binarySearch(PageList, ayahId) as Page | -1
   // return PageList.findIndex((x: AyahId) => x == ayahId)
 }

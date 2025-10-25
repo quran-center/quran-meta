@@ -1,5 +1,5 @@
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
 import { AyahId, Page } from "./types"
 import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
@@ -12,10 +12,10 @@ import { checkValidAyahId } from "./validation"
  * @returns The page number if the ayah is the first ayah of the page, otherwise -1.
  */
 export function isAyahPageFirst(
-  ayahId: AyahId,  riwaya?: RiwayahsWith<"PageList">
+  ayahId: AyahId, riwaya?: RiwayahsWith<"PageList">
 ): Page | number {
   checkValidAyahId(ayahId)
-const PageList = getList("PageList",riwaya)
+  const PageList = getList("PageList", riwaya)
   return binarySearch(PageList, ayahId) as Page | -1
   // return PageList.findIndex((x: AyahId) => x == ayahId)
 }

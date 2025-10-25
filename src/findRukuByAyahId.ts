@@ -1,8 +1,8 @@
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
-import { AyahId, Ruku } from "./types";
-import { binarySearch } from "./utils";
-import { checkValidAyahId } from "./validation";
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
+import { AyahId, Ruku } from "./types"
+import { binarySearch } from "./utils"
+import { checkValidAyahId } from "./validation"
 
 /**
  * Finds the Ruku number for a given Ayah ID using binary search.
@@ -23,10 +23,10 @@ export function findRukuByAyahId(
   ayahId: AyahId,
   riwaya?: RiwayahsWith<"ManzilList">
 ): Ruku {
-  checkValidAyahId(ayahId);
-  const RukuList = getList("RukuList", riwaya);
+  checkValidAyahId(ayahId)
+  const RukuList = getList("RukuList", riwaya)
 
-  const jj = binarySearch(RukuList, ayahId);
-  const juz = jj < 0 ? -jj - 2 : jj;
-  return juz as Ruku;
+  const jj = binarySearch(RukuList, ayahId)
+  const juz = jj < 0 ? -jj - 2 : jj
+  return juz as Ruku
 }

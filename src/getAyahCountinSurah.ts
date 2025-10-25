@@ -1,6 +1,6 @@
-import { RiwayahsWith } from "./lists/types";
-import { getSurahInfo } from "./getSurahInfo";
-import { AyahNo, Surah } from "./types";
+import { RiwayahsWith } from "./lists/types"
+import { getSurahInfo } from "./getSurahInfo"
+import { AyahNo, Surah } from "./types"
 
 /**
  * Get the number of ayahs (verses) in the specified surah.
@@ -12,5 +12,5 @@ export function getAyahCountInSurah(
   surah: Surah,
   riwaya?: RiwayahsWith<"SurahList">
 ): AyahNo {
-  return getSurahInfo(surah, riwaya)[1];
+  return getSurahInfo(surah, riwaya)[1]
 }

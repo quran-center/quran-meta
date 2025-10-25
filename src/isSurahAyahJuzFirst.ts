@@ -1,7 +1,7 @@
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { AyahId, AyahNo, Juz, Surah } from "./types"
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
 import { binarySearch } from "./utils"
 import { checkValidSurah } from "./validation"
 
@@ -22,11 +22,11 @@ import { checkValidSurah } from "./validation"
  */
 export function isSurahAyahJuzFirst(
   surah: Surah,
-  ayah: AyahNo,  riwaya?: RiwayahsWith<"JuzList">
+  ayah: AyahNo, riwaya?: RiwayahsWith<"JuzList">
 ): Juz | number {
   checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
-const JuzList = getList("JuzList",riwaya)
+  const JuzList = getList("JuzList", riwaya)
   return binarySearch(JuzList, ayahId) as Juz | -1
   // return JuzList.findIndex((x: AyahId) => x == ayahId)
 }

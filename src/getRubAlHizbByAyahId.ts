@@ -1,6 +1,6 @@
 import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
 import { getRubAlHizb } from "./getRubAlHizb"
-import { RiwayahsWith } from "./lists/types";
+import { RiwayahsWith } from "./lists/types"
 import { AyahId, RubAlHizb } from "./types"
 import { checkValidAyahId } from "./validation"
 
@@ -11,9 +11,9 @@ import { checkValidAyahId } from "./validation"
  * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns An object containing the Juz, Hizb, and Hizb ID for the given Ayah ID.
  */
-export function getRubAlHizbByAyahId(ayahId: AyahId,riwaya?:RiwayahsWith<"HizbQuarterList">): RubAlHizb {
+export function getRubAlHizbByAyahId(ayahId: AyahId, riwaya?: RiwayahsWith<"HizbQuarterList">): RubAlHizb {
   checkValidAyahId(ayahId)
 
-  const quarterIndex = findRubAlHizbByAyahId(ayahId,riwaya)
+  const quarterIndex = findRubAlHizbByAyahId(ayahId, riwaya)
   return getRubAlHizb(quarterIndex)
 }

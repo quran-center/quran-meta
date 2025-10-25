@@ -1,5 +1,5 @@
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
 import { Surah, SurahInfo } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -10,8 +10,8 @@ import { checkValidSurah } from "./validation"
  * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns The metadata for the specified Surah.
  */
-export function getSurahInfo(surah: Surah,riwaya?:RiwayahsWith<"SurahList">): SurahInfo {
+export function getSurahInfo(surah: Surah, riwaya?: RiwayahsWith<"SurahList">): SurahInfo {
   checkValidSurah(surah)
-  const SurahList = getList("SurahList",riwaya)
+  const SurahList = getList("SurahList", riwaya)
   return SurahList[surah]
 }

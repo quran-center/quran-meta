@@ -1,11 +1,11 @@
-import { findAyahIdBySurah } from "./findAyahIdBySurah";
-import { findJuzByAyahId } from "./findJuzByAyahId";
-import { findSurahByAyahId } from "./findSurahByAyahId";
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findJuzByAyahId } from "./findJuzByAyahId"
+import { findSurahByAyahId } from "./findSurahByAyahId"
 
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
-import { AyahCountBetweenJuzSurah, AyahId, AyahNo, Juz, Surah } from "./types";
-import { checkValidAyahId } from "./validation";
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
+import { AyahCountBetweenJuzSurah, AyahId, AyahNo, Juz, Surah } from "./types"
+import { checkValidAyahId } from "./validation"
 
 /**
  * Finds the juz (section) that contains the specified ayah (verse) and calculates the number of ayahs between the start of the juz and the start of the surah (chapter) that contains the ayah.
@@ -23,22 +23,22 @@ export function findJuzAndShift(
   ayah: AyahNo,
   riwaya?: RiwayahsWith<"JuzList"> & RiwayahsWith<"SurahList">
 ): {
-  juz: Juz;
-  leftAyahId: AyahId;
-  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah;
+  juz: Juz
+  leftAyahId: AyahId
+  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
 } {
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah);
-  const JuzList = getList("JuzList", riwaya);
-  const SurahList = getList("SurahList", riwaya);
-  const juz = findJuzByAyahId(ayahId);
-  const juzLeftAyahId = JuzList[juz];
-  const [surahStartAyahId] = SurahList[surah];
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
+  const JuzList = getList("JuzList", riwaya)
+  const SurahList = getList("SurahList", riwaya)
+  const juz = findJuzByAyahId(ayahId)
+  const juzLeftAyahId = JuzList[juz]
+  const [surahStartAyahId] = SurahList[surah]
   return {
     juz,
-    ayahsBetweenJuzSurah: (surahStartAyahId -
-      juzLeftAyahId) as AyahCountBetweenJuzSurah,
-    leftAyahId: juzLeftAyahId,
-  };
+    ayahsBetweenJuzSurah: (surahStartAyahId
+      - juzLeftAyahId) as AyahCountBetweenJuzSurah,
+    leftAyahId: juzLeftAyahId
+  }
 }
 
 /**
@@ -57,21 +57,21 @@ export function findJuzAndShiftByAyahId(
   ayahId: AyahId,
   riwaya?: RiwayahsWith<"JuzList"> & RiwayahsWith<"SurahList">
 ): {
-  juz: Juz;
-  leftAyahId: AyahId;
-  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah;
+  juz: Juz
+  leftAyahId: AyahId
+  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
 } {
-  checkValidAyahId(ayahId);
-  const JuzList = getList("JuzList", riwaya);
-  const SurahList = getList("SurahList", riwaya);
-  const juz = findJuzByAyahId(ayahId);
-  const leftAyahId = JuzList[juz];
-  const surah = findSurahByAyahId(ayahId);
-  const [surahStartAyahId] = SurahList[surah];
+  checkValidAyahId(ayahId)
+  const JuzList = getList("JuzList", riwaya)
+  const SurahList = getList("SurahList", riwaya)
+  const juz = findJuzByAyahId(ayahId)
+  const leftAyahId = JuzList[juz]
+  const surah = findSurahByAyahId(ayahId)
+  const [surahStartAyahId] = SurahList[surah]
   return {
     juz,
-    ayahsBetweenJuzSurah: (surahStartAyahId -
-      leftAyahId) as AyahCountBetweenJuzSurah,
-    leftAyahId,
-  };
+    ayahsBetweenJuzSurah: (surahStartAyahId
+      - leftAyahId) as AyahCountBetweenJuzSurah,
+    leftAyahId
+  }
 }

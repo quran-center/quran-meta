@@ -1,15 +1,14 @@
-import type {Riwayas} from "./types"
-import {HafsLists} from "./HafsLists"
-import { QalunLists } from "./QalunLists";
-
+import type { Riwayas } from "./types"
+import { HafsLists } from "./HafsLists"
+import { QalunLists } from "./QalunLists"
 
 export const riwayahs: Riwayas = {
-Hafs : HafsLists,
-Qalun : QalunLists
-}as const
+  Hafs: HafsLists,
+  Qalun: QalunLists
+} as const
 
 export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R] {
-  return riwayahs[riwaya];
+  return riwayahs[riwaya]
 }
 
 export const getList = <
@@ -32,4 +31,3 @@ export const getList = <
 
   throw new Error(`List ${String(listName)} not found in any riwaya`)
 }
-

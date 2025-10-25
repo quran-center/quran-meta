@@ -1,9 +1,9 @@
-import { meta } from "./const";
-import { findJuzAndShift } from "./findJuzAndShift";
-import { findSurahByAyahId } from "./findSurahByAyahId";
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
-import { AyahNo, Juz, SurahJuzMeta as SurahJuzMeta, Surah } from "./types";
+import { meta } from "./const"
+import { findJuzAndShift } from "./findJuzAndShift"
+import { findSurahByAyahId } from "./findSurahByAyahId"
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
+import { AyahNo, Juz, SurahJuzMeta as SurahJuzMeta, Surah } from "./types"
 
 /**
  * Finds the SurahJuzMeta for a given Surah and Ayah.
@@ -21,15 +21,15 @@ export function findJuzMetaBySurah(
   const {
     juz: leftjuz,
     ayahsBetweenJuzSurah,
-    leftAyahId,
-  } = findJuzAndShift(surah, ayah);
-  const JuzList = getList("JuzList", riwaya);
-  let rightJuz: Juz = leftjuz;
+    leftAyahId
+  } = findJuzAndShift(surah, ayah)
+  const JuzList = getList("JuzList", riwaya)
+  let rightJuz: Juz = leftjuz
   while (
-    rightJuz < meta.numJuzs &&
-    findSurahByAyahId(JuzList[rightJuz + 1]) === surah
+    rightJuz < meta.numJuzs
+    && findSurahByAyahId(JuzList[rightJuz + 1]) === surah
   ) {
-    rightJuz++;
+    rightJuz++
   }
 
   return {
@@ -37,6 +37,6 @@ export function findJuzMetaBySurah(
     ayahsBetweenJuzSurah,
     rightJuz,
     leftAyahId,
-    rightAyahId: JuzList[rightJuz + 1], // todo check if this is correct or should be -1
-  };
+    rightAyahId: JuzList[rightJuz + 1] // todo check if this is correct or should be -1
+  }
 }

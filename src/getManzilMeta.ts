@@ -1,8 +1,8 @@
-import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
-import { AyahId, ManzilMeta } from "./types";
-import { checkValidManzil } from "./validation";
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
+import { AyahId, ManzilMeta } from "./types"
+import { checkValidManzil } from "./validation"
 
 /**
  * Retrieves metadata for a specific Manzil (section) of the Quran
@@ -21,18 +21,18 @@ export function getManzilMeta(
   manzilNum: number,
   riwaya?: RiwayahsWith<"ManzilList">
 ): ManzilMeta {
-  checkValidManzil(manzilNum);
-  const ManzilList = getList("ManzilList", riwaya);
+  checkValidManzil(manzilNum)
+  const ManzilList = getList("ManzilList", riwaya)
   const [firstAyahId, nextManzilAyahId]: [AyahId, AyahId] = [
     ManzilList[manzilNum],
-    ManzilList[manzilNum + 1],
-  ];
-  const lastAyahId = nextManzilAyahId - 1;
+    ManzilList[manzilNum + 1]
+  ]
+  const lastAyahId = nextManzilAyahId - 1
   return {
     manzilNum,
     firstAyahId,
     lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId),
-    last: findSurahAyahByAyahId(lastAyahId),
-  };
+    last: findSurahAyahByAyahId(lastAyahId)
+  }
 }

@@ -1,6 +1,6 @@
-import { getSurahInfo } from "./getSurahInfo";
-import { Surah, SurahMeta } from "./types";
-import { RiwayahsWith } from "./lists/types";
+import { getSurahInfo } from "./getSurahInfo"
+import { Surah, SurahMeta } from "./types"
+import { RiwayahsWith } from "./lists/types"
 /**
  * Gets the metadata for the specified Surah.
  *
@@ -12,10 +12,10 @@ export function getSurahMeta(
   surahNum: Surah,
   riwaya?: RiwayahsWith<"SurahList">
 ): SurahMeta {
-  const [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan] =
-    getSurahInfo(surahNum, riwaya);
+  const [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan]
+    = getSurahInfo(surahNum, riwaya)
 
-  const lastAyahId = firstAyahId + ayahCount - 1;
+  const lastAyahId = firstAyahId + ayahCount - 1
   return {
     surahNum,
     ayahCount,
@@ -26,6 +26,6 @@ export function getSurahMeta(
     firstAyahId,
     lastAyahId,
     first: [surahNum, 1],
-    last: [surahNum, ayahCount],
-  };
+    last: [surahNum, ayahCount]
+  }
 }

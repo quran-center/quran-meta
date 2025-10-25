@@ -11,8 +11,8 @@ import { AyahId, AyahNo, Juz, Surah } from "./types"
  * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns The Juz (part) number that the given Ayah belongs to.
  */
-export function findJuz(surah: Surah, ayah: AyahNo = 1,riwaya?:RiwayahsWith<"JuzList">): Juz {
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah,riwaya)
+export function findJuz(surah: Surah, ayah: AyahNo = 1, riwaya?: RiwayahsWith<"JuzList">): Juz {
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya)
 
-  return findJuzByAyahId(ayahId,riwaya)
+  return findJuzByAyahId(ayahId, riwaya)
 }

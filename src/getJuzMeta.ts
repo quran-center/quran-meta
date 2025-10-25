@@ -1,8 +1,8 @@
-import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
-import { getList } from "./lists/index";
-import { RiwayahsWith } from "./lists/types";
-import { AyahId, Juz, JuzMeta } from "./types";
-import { checkValidJuz } from "./validation";
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
+import { AyahId, Juz, JuzMeta } from "./types"
+import { checkValidJuz } from "./validation"
 
 /**
  * Retrieves metadata for a specific Juz of the Quran.
@@ -16,18 +16,18 @@ export function getJuzMeta(
   juzNum: Juz,
   riwaya?: RiwayahsWith<"JuzList">
 ): JuzMeta {
-  checkValidJuz(juzNum);
-  const JuzList = getList("JuzList", riwaya);
+  checkValidJuz(juzNum)
+  const JuzList = getList("JuzList", riwaya)
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
     JuzList[juzNum],
-    JuzList[juzNum + 1],
-  ];
-  const lastAyahId = nextJuzAyahId - 1;
+    JuzList[juzNum + 1]
+  ]
+  const lastAyahId = nextJuzAyahId - 1
   return {
     juzNum,
     firstAyahId,
     lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId),
-    last: findSurahAyahByAyahId(lastAyahId),
-  };
+    last: findSurahAyahByAyahId(lastAyahId)
+  }
 }

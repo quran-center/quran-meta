@@ -1,6 +1,6 @@
 import { getAyahMeta } from "./getAyahMeta"
-import { getListsOfRiwaya } from "./lists/index";
-import { riwayaName } from "./lists/types";
+import { getListsOfRiwaya } from "./lists/index"
+import { riwayaName } from "./lists/types"
 import { Surah, AyahMeta, AyahId, JuzPart } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -14,9 +14,9 @@ import { checkValidSurah } from "./validation"
  */
 export function getAyahMetasForSurah(surahNumber: Surah, riwaya: riwayaName): AyahMeta[] {
   checkValidSurah(surahNumber)
-    const {SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList} = getListsOfRiwaya(riwaya);
-  
-    const [
+  const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = getListsOfRiwaya(riwaya)
+
+  const [
     startAyahId, ayahCount // , surahOrder, rukuCount, name, isMeccan, page
   ] = SurahList[surahNumber]
   const endAyahId = startAyahId + ayahCount - 1

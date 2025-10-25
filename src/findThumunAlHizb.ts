@@ -1,8 +1,8 @@
-import { RiwayahsWithAll } from "./lists/types";
-import { findAyahIdBySurah } from "./findAyahIdBySurah";
-import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId";
-import { AyahId, AyahNo, ThumunAlHizbId, Surah } from "./types";
-import { checkValidSurah } from "./validation";
+import { RiwayahsWithAll } from "./lists/types"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
+import { AyahId, AyahNo, ThumunAlHizbId, Surah } from "./types"
+import { checkValidSurah } from "./validation"
 
 /**
  * Finds the Juz (part) and thumun-ul-Hizb (Eighth section) of the Quran that the given Ayah (verse) belongs to.
@@ -17,11 +17,8 @@ export function findThumunAlHizb(
   ayah: AyahNo = 1,
   riwaya: RiwayahsWithAll<["SurahList", "HizbEighthList"]> = "Qalun"
 ): ThumunAlHizbId {
-  checkValidSurah(surah);
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya);
+  checkValidSurah(surah)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya)
 
-  return findThumunAlHizbByAyahId(ayahId, riwaya);
+  return findThumunAlHizbByAyahId(ayahId, riwaya)
 }
-
-
-

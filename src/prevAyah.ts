@@ -1,9 +1,9 @@
-import { meta } from "./const";
-import { findAyahIdBySurah } from "./findAyahIdBySurah";
-import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId";
-import { AyahId, AyahNo, Surah, SurahAyah } from "./types";
-import { checkValidSurah } from "./validation";
-import { RiwayahsWith } from "./lists/types";
+import { meta } from "./const"
+import { findAyahIdBySurah } from "./findAyahIdBySurah"
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
+import { AyahId, AyahNo, Surah, SurahAyah } from "./types"
+import { checkValidSurah } from "./validation"
+import { RiwayahsWith } from "./lists/types"
 /**
  * Get the previous ayah for the given surah and ayah number.
  * @param surah - The surah number.
@@ -16,8 +16,8 @@ export function prevAyah(
   ayah: AyahNo,
   riwaya?: RiwayahsWith<"SurahList">
 ): SurahAyah {
-  checkValidSurah(surah);
+  checkValidSurah(surah)
 
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah,riwaya);
-  return findSurahAyahByAyahId(ayahId == 1 ? meta.numAyahs : ayahId - 1,riwaya);
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya)
+  return findSurahAyahByAyahId(ayahId == 1 ? meta.numAyahs : ayahId - 1, riwaya)
 }

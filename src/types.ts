@@ -1,7 +1,5 @@
 import { maxAyahsInSurah, meta } from "./const"
-import { LessThan,FixedArray } from "./ts-utils"
-
-
+import { LessThan, FixedArray } from "./ts-utils"
 
 /**
  * Creates a type representing a range of numbers from TStart to TEnd (inclusive).
@@ -96,7 +94,7 @@ export type SurahInfo = [
   name: string,
   isMeccan: boolean
 ]
-export type  SurahListType = FixedArray<SurahInfo, 116>
+export type SurahListType = FixedArray<SurahInfo, 116>
 export type SurahName = [name: string, translitName: string]
 
 export type RangeMeta = {
@@ -116,7 +114,7 @@ export type ThumunAlHizb = {
   rubAlHizbId: RubAlHizbId
   thumunAlHizbId: ThumunAlHizbId
 }
-export type ThumunAlHizbMeta = ThumunAlHizb & RangeMeta 
+export type ThumunAlHizbMeta = ThumunAlHizb & RangeMeta
 
 /**
  * Represents the structure of a Juz and Hizb combination in the Quran
@@ -128,7 +126,7 @@ export type RubAlHizb = {
   rubAlHizbId: RubAlHizbId
 }
 
-export type RubAlHizbMeta = RubAlHizb & RangeMeta 
+export type RubAlHizbMeta = RubAlHizb & RangeMeta
 
 export type SurahAyah = [Surah, AyahNo]
 export type AyahRange = [AyahId, AyahId]
