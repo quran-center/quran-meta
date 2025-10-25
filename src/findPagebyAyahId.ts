@@ -1,4 +1,5 @@
-import { PageList } from "./lists/pageList"
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
 import { AyahId, Page } from "./types"
 import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
@@ -7,6 +8,7 @@ import { checkValidAyahId } from "./validation"
  * Returns the page number for a given ayah ID in the Quran.
  *
  * @param ayahId - A numeric identifier representing a verse (ayah) in the Quran
+ * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns The page number where the specified ayah can be found
  * @throws Will throw an error if the ayahId is invalid
  *
@@ -16,9 +18,9 @@ import { checkValidAyahId } from "./validation"
  * ```
  */
 
-export function findPagebyAyahId(ayahId: AyahId): Page {
+export function findPagebyAyahId(ayahId: AyahId,riwaya?:RiwayahsWith<"PageList">): Page {
   checkValidAyahId(ayahId)
-
+ const PageList = getList("PageList",riwaya)
   // return PageList.findIndex(x => x > ayahId) - 1 as Page
   const jj = binarySearch(PageList, ayahId)
   const page = jj < 0 ? -jj - 2 : jj
