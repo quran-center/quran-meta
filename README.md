@@ -33,6 +33,17 @@ Quran Meta
 
 This project is to help with Quran related meta queries. 
 
+### ✨ New: Multiple Quranic Readings Support
+
+The library now supports switching between different Quranic readings (Qira'at) such as Hafs, Warsh, Qaloun, and others. Different readings may have variations in ayah counts, page numbering, and divisions. See [READINGS.md](docs/READINGS.md) for details.
+
+```typescript
+import { setCurrentReading, getMeta } from "quran-meta"
+
+setCurrentReading("warsh")
+console.log(getMeta().numAyahs) // 6214 (Warsh has 22 fewer than Hafs)
+``` 
+
 Answering Questions like:
 
 * How many ayahs in given surah (`getAyahCountinSurah`)
@@ -59,9 +70,13 @@ Answering Questions like:
 * Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range (`ayaStringSplitter`).
 * Checks and parses strings of type "x"  to Surah (`surahStringParser`).
 
-### APi Reference Documentation
+### API Reference Documentation
 
 See [here](https://quran-center.github.io/quran-meta/docs/) for API documentation
+
+### Multiple Readings Support
+
+See [READINGS.md](docs/READINGS.md) for detailed information about using different Quranic readings
 
 ### Playground
 
