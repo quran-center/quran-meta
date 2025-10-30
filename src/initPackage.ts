@@ -22,7 +22,7 @@ import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import { getAyahMeta } from "./getAyahMeta"
 import { getAyahMetasForSurah } from "./getAyahMetasForSurah"
 import { getJuzMeta } from "./getJuzMeta"
-import { generatePartBlocks, type PartType } from "./generatePartBlocks"
+import { generatePartBlocks } from "./generatePartBlocks"
 import { getManzilMeta } from "./getManzilMeta"
 import { getPageMeta } from "./getPageMeta"
 import { getRukuMeta } from "./getRukuMeta"
@@ -159,10 +159,10 @@ type QuranPackageAPI<R extends keyof Riwayas> = {
 
 // Helper type to add default riwaya parameter
 type WithDefaultRiwaya<
-  F extends (...args: any[]) => any,
+  F extends (...args: unknown[]) => unknown,
   R extends keyof Riwayas
 > = F extends (...args: infer Args) => infer Return
-  ? Args extends [...infer Rest, infer Last]
+  ? Args extends [...infer Rest, unknown]
     ? (...args: [...Rest, R?]) => Return
     : F
   : F
@@ -177,12 +177,12 @@ export function quranMeta<R extends keyof Riwayas = "Hafs">(
   const defaultRiwaya = (config?.riwaya ?? "Hafs") as R
 
   // Wrap the function with the default riwaya parameter
-  const wrap = <F extends (...args: any[]) => any>(
+  const wrap = <F extends (...args: unknown[]) => unknown>(
     fn: F
   ): WithDefaultRiwaya<F, R> => {
     const paramCount = fn.length
 
-    return ((...args: any[]) => {
+    return ((...args: unknown[]) => {
       const finalArgs = [...args]
 
       if (
@@ -200,7 +200,9 @@ export function quranMeta<R extends keyof Riwayas = "Hafs">(
     getListsOfRiwaya(defaultRiwaya)
   ) as Partial<allListsNames[]>
 
-  const api: any = {}
+  const api: {
+    [K in keyof typeof allFunctions]?: (...args: unknown[]) => unknown
+  } = {}
 
   // Generate API by iterating through the function map
   for (const [functionName, requiredList] of Object.entries(functionListMap)) {
@@ -209,14 +211,13 @@ export function quranMeta<R extends keyof Riwayas = "Hafs">(
     // 2. The required list is available in this riwaya
     if (
       requiredList === null
-      || availableLists.includes(requiredList as allListsNames)
+      || availableLists.includes(requiredList)
     ) {
       const fn = allFunctions[functionName as keyof AllFunctions]
       if (fn) {
-        api[functionName] = wrap(fn)
+        api[functionName as keyof AllFunctions] = wrap(fn)
       }
     }
   }
-
   return api as QuranPackageAPI<R>
 }

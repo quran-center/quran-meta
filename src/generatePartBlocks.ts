@@ -1,5 +1,5 @@
-import { getList, getListsOfRiwaya } from "./lists/index"
-import type { Riwayas, allListsNames, RiwayahsWith } from "./lists/types"
+import { getList } from "./lists/index"
+import type { allListsNames, RiwayahsWith } from "./lists/types"
 import { AyahId, AyahNo, SurahInfo } from "./types"
 
 /* A map of readable parameters that can be used in the function and their corresponding list name */
@@ -33,7 +33,7 @@ type PartBlock = {
 }
 type PartBlocker = (...any: unknown[]) => PartBlock
 
-function toPartFormatter(type: PartType, list: any[]): PartBlocker {
+function toPartFormatter(type: PartType, list: AyahId[] | SurahInfo[]): PartBlocker {
   return type === "surah"
     ? ([startAyahId, ayahCount]: SurahInfo) => ({
         startAyahId,
@@ -41,7 +41,7 @@ function toPartFormatter(type: PartType, list: any[]): PartBlocker {
       })
     : (ayahId: AyahId, index: number) => {
         // console.log(ayahId,index,parts[type][index+2] )
-        const ayahCount = list[index + 2] - ayahId
+        const ayahCount = (list as AyahId[])[index + 2] - ayahId
         return {
           startAyahId: ayahId,
           ayahCount
@@ -62,7 +62,7 @@ export function generatePartBlocks<P extends PartType>(
   if (!parts[type]) throw new Error(`Invalid part type: ${type}`)
 
   const listName = parts[type]
-  const list = getList(listName, riwaya as any)
+  const list = getList(listName, riwaya as "Qalun")
 
   if (!Array.isArray(list)) {
     throw new Error(`Expected array for ${String(listName)}`)
