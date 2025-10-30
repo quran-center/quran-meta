@@ -1,4 +1,4 @@
-import type { SurahListType } from "../lists/surahList"
+import type { SurahListType } from "../types"
 import type { ArrayOfSameLength } from "../ts-utils"
 import type { SurahName } from "../types"
 

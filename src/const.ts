@@ -5,6 +5,7 @@ export const meta = {
   numJuzs: 30,
   numHizbs: 60,
   numRubAlHizbs: 240,
+  numThumunAlHizbs: 480,
   numRubsInJuz: 8,
   numSajdas: 15,
   numRukus: 556,

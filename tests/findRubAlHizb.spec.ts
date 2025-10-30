@@ -1,4 +1,8 @@
-import { findRubAlHizb, findRubAlHizbByAyahId, HizbQuarterList, JuzList, meta } from "../src"
+import { findRubAlHizb, findRubAlHizbByAyahId, meta } from "../src"
+import { getList } from "../src/lists"
+
+const JuzList = getList("JuzList")
+const HizbQuarterList = getList("HizbQuarterList")
 
 describe("findRubAlHizb", () => {
   it("should return correct RubAlHizb for first surah and ayah", () => {

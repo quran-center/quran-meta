@@ -1,6 +1,5 @@
 import { maxAyahsInSurah, meta } from "./const"
-import { LessThan } from "./ts-utils"
-export type { SurahListType } from "./lists/surahList"
+import { LessThan, FixedArray } from "./ts-utils"
 
 /**
  * Creates a type representing a range of numbers from TStart to TEnd (inclusive).
@@ -27,7 +26,11 @@ export type Surah = NumericRange<1, typeof meta.numSurahs>
  *
  */
 export type AyahNo = NumericRange<1, typeof maxAyahsInSurah>
-
+/**
+ * Represents a valid thumun al-Hizb (Eighth of a Hizb) identifier.
+ * The value must be a number between 0 and the total number of thumun al-Hizbs in the Quran.
+ */
+export type ThumunAlHizbId = NumericRange<0, typeof meta.numThumunAlHizbs>
 /**
  * Represents a valid Rub al-Hizb (quarter of a Hizb) identifier.
  * The value must be a number between 0 and the total number of Rub al-Hizbs in the Quran.
@@ -91,6 +94,7 @@ export type SurahInfo = [
   name: string,
   isMeccan: boolean
 ]
+export type SurahListType = FixedArray<SurahInfo, 116>
 export type SurahName = [name: string, translitName: string]
 
 export type RangeMeta = {
@@ -99,6 +103,18 @@ export type RangeMeta = {
   first: SurahAyah
   last: SurahAyah
 }
+
+/**
+ * Represents the structure of a Juz and Hizb combination in the Quran
+ */
+export type ThumunAlHizb = {
+  juz: Juz
+  juzPart: JuzPart
+  hizbId: HizbId
+  rubAlHizbId: RubAlHizbId
+  thumunAlHizbId: ThumunAlHizbId
+}
+export type ThumunAlHizbMeta = ThumunAlHizb & RangeMeta
 
 /**
  * Represents the structure of a Juz and Hizb combination in the Quran
@@ -161,6 +177,7 @@ export type AyahMeta = {
   juzPart: JuzPart // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   hizbId: HizbId
   rubAlHizbId: RubAlHizbId
+  thumunAlHizbId?: ThumunAlHizbId
   page: Page
   ruku: number
   surah: Surah

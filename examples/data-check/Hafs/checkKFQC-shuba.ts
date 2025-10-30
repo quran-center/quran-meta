@@ -3,10 +3,13 @@
    *  https://qurancomplex.gov.sa/en/techquran/dev/
    */
   
-  import { findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId, HizbQuarterList, Juz, JuzList, ManzilList, meta, PageList, RukuList, SajdaList, Surah, SurahList, SurahInfo, getSurahMeta } from "../../src"
-  import { AyahNo, AyahId, Manzil, Page, Ruku } from "../../src/types"
+  import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
+  import { meta } from "../../../src"
+  import {quranMeta} from "../../../src"
+  import { AyahNo, AyahId, Manzil, Page, Ruku,SurahInfo,Juz } from "../../../src/types"
+  const { findPagebyAyahId,findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getRubAlHizbMetaByAyahId,getSurahMeta } = quranMeta({riwaya: "Hafs"})
   
-  import shubaData from "./data/shubaData_v2-0.json"
+  import shubaData from "./../data/shubaData_v2-0.json"
   
   
   export function checkKFQCShuba() {
@@ -16,7 +19,7 @@
     
       // Ayah Checks
       for (let ayahId: AyahId = 1; ayahId <= meta.numAyahs; ayahId++) {
-        const ayahMeta = getAyahMeta(ayahId)
+        const ayahMeta = getAyahMeta(ayahId,"Hafs")
         const hfMeta = shubaData[ayahId - 1]
         const page = findPagebyAyahId(ayahId)
         const rub = getRubAlHizbMetaByAyahId(ayahId)
