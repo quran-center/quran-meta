@@ -1,5 +1,7 @@
-import { SurahList } from "../src"
+import { getList } from "../src/lists"
 import { getSurahInfo } from "../src/getSurahInfo"
+
+const SurahList = getList("SurahList")
 
 describe("getSurahInfo", () => {
   it("should return correct metadata for first surah", () => {

@@ -1,23 +1,23 @@
-import { meta, getList } from "../src"
-import { partNames, PartType } from "../src/getList"
+import { meta, generatePartBlocks } from "../src"
+import { partNames, PartType } from "../src/generatePartBlocks"
 
 describe("getList", () => {
   it("should return an array", () => {
-    partNames.forEach((part: PartType) => {
-      expect(Array.isArray(getList(part))).toBe(true)
+    partNames.filter(partName => partName !== "thumunAlHizb").forEach((part: PartType) => {
+      expect(Array.isArray(generatePartBlocks(part, "Hafs"))).toBe(true)
     })
   })
 
   it("should return a non-empty array", () => {
     partNames.forEach((part: PartType) => {
-      expect(getList(part).length).toBeGreaterThan(0)
+      expect(generatePartBlocks(part).length).toBeGreaterThan(0)
     })
   })
 
   it("sum of ayahCount should be 6236", () => {
-    partNames.forEach((partName: PartType) => {
+    partNames.filter(partNames => partNames !== "thumunAlHizb").forEach((partName: PartType) => {
     //   const partList = parts[partName]
-      const list = getList(partName)
+      const list = generatePartBlocks(partName, "Hafs")
       let sum = 0
       list.forEach((item) => {
         sum += item.ayahCount
@@ -37,18 +37,18 @@ describe("getList", () => {
       manzil: meta.numManzils
     }
 
-    partNames.forEach((partName: PartType) => {
+    partNames.filter(partName => partName !== "thumunAlHizb").forEach((partName) => {
       // const partList = parts[partName]
 
-      const list = getList(partName)
+      const list = generatePartBlocks(partName, "Hafs")
 
       expect(list.length, "check " + partName).toEqual(partLengths[partName])
     })
   })
 
   it("should return same array on multiple calls", () => {
-    const res = getList("surah")
-    const res2 = getList("surah")
+    const res = generatePartBlocks("surah")
+    const res2 = generatePartBlocks("surah")
     expect(res).toEqual(res2)
   })
 

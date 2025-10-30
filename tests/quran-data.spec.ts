@@ -6,11 +6,13 @@ import {
   findSurahByAyahId,
   getPageMeta,
   isAyahJuzFirst,
-  JuzList,
   meta
 } from "../src"
 import { getSurahInfo } from "../src/getSurahInfo"
 import { AyahId, AyahNo, Surah } from "../src/types"
+import { getList } from "../src/lists"
+
+const JuzList = getList("JuzList", "Hafs")
 
 console.log("STARING")
 console.log(1, findSurahByAyahId(1))
@@ -22,11 +24,11 @@ console.log(meta.numAyahs, findSurahByAyahId(meta.numAyahs))
 // console.log(6237, findSurahByAyahId(6237))
 console.log("findSurahByAyahId 1", findSurahByAyahId(1))
 console.log("findSurahByAyahId 147", findSurahByAyahId(149))
-console.log("isAyahJuzFirst 1", isAyahJuzFirst(1, 1))
-console.log("isAyahJuzFirst -1", isAyahJuzFirst(2, 2))
-console.log("isAyahJuzFirst -1", isAyahJuzFirst(2, 141))
-console.log("isAyahJuzFirst 2", isAyahJuzFirst(2, 142))
-console.log("isAyahJuzFirst -1", isAyahJuzFirst(2, 143))
+console.log("isAyahJuzFirst 1", isAyahJuzFirst(findAyahIdBySurah(1, 1)))
+console.log("isAyahJuzFirst -1", isAyahJuzFirst(findAyahIdBySurah(2, 2)))
+console.log("isAyahJuzFirst -1", isAyahJuzFirst(findAyahIdBySurah(2, 141)))
+console.log("isAyahJuzFirst 2", isAyahJuzFirst(findAyahIdBySurah(2, 142)))
+console.log("isAyahJuzFirst -1", isAyahJuzFirst(findAyahIdBySurah(2, 143)))
 console.log("findAyahIdBySurah 110.3", findAyahIdBySurah(110, 3))
 console.log("findAyahIdBySurah 114.6", findAyahIdBySurah(114, 6))
 

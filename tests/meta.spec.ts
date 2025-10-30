@@ -1,12 +1,14 @@
-import { meta, getList, HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../src"
+import { meta, generatePartBlocks } from "../src"
+import { getListsOfRiwaya } from "../src/lists"
 import { maxAyahsInSurah } from "../src/const"
 import { getSurahInfo } from "../src/getSurahInfo"
+const { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } = getListsOfRiwaya("Hafs")
 
 describe("Meta constants", () => {
   it("should return correct numSurahs", () => {
     expect(meta.numSurahs).toEqual(SurahList.length - 2)
     expect(meta.numSurahs).toBe(114)
-    expect(meta.numSurahs).toBe(getList("surah").length)
+    expect(meta.numSurahs).toBe(generatePartBlocks("surah").length)
   })
 
   it("should return correct numAyahs", () => {
@@ -20,7 +22,7 @@ describe("Meta constants", () => {
 
   it("should return correct numManzils", () => {
     expect(meta.numManzils).toBe(7)
-    expect(meta.numManzils).toBe(getList("manzil").length)
+    expect(meta.numManzils).toBe(generatePartBlocks("manzil").length)
     expect(meta.numManzils).toEqual(ManzilList.length - 2)
   })
 
@@ -31,31 +33,31 @@ describe("Meta constants", () => {
 
   it("should return correct numPages", () => {
     expect(meta.numPages).toBe(604)
-    expect(meta.numPages).toBe(getList("page").length)
+    expect(meta.numPages).toBe(generatePartBlocks("page").length)
     expect(meta.numPages).toEqual(PageList.length - 2)
   })
 
   it("should return correct numJuzs", () => {
     expect(meta.numJuzs).toBe(30)
-    expect(meta.numJuzs).toBe(getList("juz").length)
+    expect(meta.numJuzs).toBe(generatePartBlocks("juz").length)
     expect(meta.numJuzs).toEqual(JuzList.length - 2)
   })
 
   it("should return correct numRubAlHizbs", () => {
     expect(meta.numRubAlHizbs).toBe(240)
-    expect(meta.numRubAlHizbs).toBe(getList("rubAlHizb").length)
+    expect(meta.numRubAlHizbs).toBe(generatePartBlocks("rubAlHizb").length)
     expect(meta.numRubAlHizbs).toEqual(HizbQuarterList.length - 2)
   })
 
   it("should return correct numHizbs", () => {
     expect(meta.numHizbs).toBe(60)
-    expect(meta.numHizbs).toBe(getList("rubAlHizb").length / 4)
+    expect(meta.numHizbs).toBe(generatePartBlocks("rubAlHizb").length / 4)
     expect(meta.numHizbs).toEqual(meta.numRubAlHizbs / 4)
   })
 
   it("should return correct numRukus", () => {
     expect(meta.numRukus).toBe(556)
-    expect(meta.numRukus).toBe(getList("ruku").length)
+    expect(meta.numRukus).toBe(generatePartBlocks("ruku").length)
     expect(meta.numRukus).toEqual(RukuList.length - 2)
   })
 
