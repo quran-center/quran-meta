@@ -13,7 +13,7 @@ import { RubAlHizbMeta, RubAlHizbId, AyahId } from "./types"
  */
 export function getRubAlHizbMeta(
   quarterIndex: RubAlHizbId,
-  riwaya?: RiwayahsWith<"HizbQuarterList">
+  riwaya: RiwayahsWith<"HizbQuarterList"> = "Hafs"
 ): RubAlHizbMeta {
   const res = getRubAlHizb(quarterIndex)
   const HizbQuarterList = getList("HizbQuarterList", riwaya)

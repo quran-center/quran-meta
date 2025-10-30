@@ -14,7 +14,7 @@ import { checkValidJuz } from "./validation"
  */
 export function getJuzMeta(
   juzNum: Juz,
-  riwaya?: RiwayahsWith<"JuzList">
+  riwaya: RiwayahsWith<"JuzList"> = "Hafs"
 ): JuzMeta {
   checkValidJuz(juzNum)
   const JuzList = getList("JuzList", riwaya)

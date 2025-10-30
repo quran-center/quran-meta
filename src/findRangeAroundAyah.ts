@@ -26,7 +26,7 @@ type compatibleRiwayah = RiwayahsWithAll<
 export function findRangeAroundAyah(
   ayahId: AyahId,
   mode: RangeMode,
-  riwaya?: compatibleRiwayah
+  riwaya: compatibleRiwayah = "Hafs"
 ): AyahRange {
   const JuzList = getList("JuzList", riwaya)
   const SurahList = getList("SurahList", riwaya)

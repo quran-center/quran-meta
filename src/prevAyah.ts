@@ -14,7 +14,7 @@ import { RiwayahsWith } from "./lists/types"
 export function prevAyah(
   surah: Surah,
   ayah: AyahNo,
-  riwaya?: RiwayahsWith<"SurahList">
+  riwaya: RiwayahsWith<"SurahList"> = "Hafs"
 ): SurahAyah {
   checkValidSurah(surah)
 

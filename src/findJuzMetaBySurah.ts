@@ -16,7 +16,7 @@ import { AyahNo, Juz, SurahJuzMeta as SurahJuzMeta, Surah } from "./types"
 export function findJuzMetaBySurah(
   surah: Surah,
   ayah: AyahNo = 1,
-  riwaya?: RiwayahsWith<"JuzList">
+  riwaya: RiwayahsWith<"JuzList"> = "Hafs"
 ): SurahJuzMeta {
   const {
     juz: leftjuz,

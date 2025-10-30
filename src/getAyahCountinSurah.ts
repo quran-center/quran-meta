@@ -10,7 +10,7 @@ import { AyahNo, Surah } from "./types"
  */
 export function getAyahCountInSurah(
   surah: Surah,
-  riwaya?: RiwayahsWith<"SurahList">
+  riwaya: RiwayahsWith<"SurahList"> = "Hafs"
 ): AyahNo {
   return getSurahInfo(surah, riwaya)[1]
 }

@@ -14,7 +14,7 @@ import { checkValidAyahId } from "./validation"
 
 export function findSurahAyahByAyahId(
   ayahId: AyahId,
-  riwaya?: RiwayahsWith<"SurahList">
+  riwaya: RiwayahsWith<"SurahList"> = "Hafs"
 ): SurahAyah {
   checkValidAyahId(ayahId)
   const SurahList = getList("SurahList", riwaya)

@@ -3,14 +3,9 @@ import type { allListsNames, RiwayahsWith } from "./lists/types"
 import { AyahId, AyahNo, SurahInfo } from "./types"
 
 /* A map of readable parameters that can be used in the function and their corresponding list name */
-export type PartType
-  = | "surah"
-    | "juz"
-    | "rubAlHizb"
-    | "thumunAlHizb"
-    | "page"
-    | "manzil"
-    | "ruku"
+
+export const partNames = ["surah", "juz", "rubAlHizb", "thumunAlHizb", "page", "manzil", "ruku"] as const
+export type PartType = (typeof partNames)[number]
 
 export const parts = {
   surah: "SurahList",

@@ -22,7 +22,8 @@ import { checkValidSurah } from "./validation"
  */
 export function isSurahAyahJuzFirst(
   surah: Surah,
-  ayah: AyahNo, riwaya?: RiwayahsWith<"JuzList">
+  ayah: AyahNo,
+  riwaya: RiwayahsWith<"JuzList"> = "Hafs"
 ): Juz | number {
   checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)

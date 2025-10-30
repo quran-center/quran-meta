@@ -16,7 +16,7 @@ import { checkValidSurah } from "./validation"
 export function isSurahAyahPageFirst(
   surah: Surah,
   ayah: AyahNo,
-  riwaya?: RiwayahsWith<"PageList">
+  riwaya: RiwayahsWith<"PageList"> = "Hafs"
 ): Page | number {
   checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)

@@ -12,7 +12,8 @@ import { checkValidAyahId } from "./validation"
  * @returns The page number if the ayah is the first ayah of the page, otherwise -1.
  */
 export function isAyahPageFirst(
-  ayahId: AyahId, riwaya?: RiwayahsWith<"PageList">
+  ayahId: AyahId,
+  riwaya: RiwayahsWith<"PageList"> = "Hafs"
 ): Page | number {
   checkValidAyahId(ayahId)
   const PageList = getList("PageList", riwaya)

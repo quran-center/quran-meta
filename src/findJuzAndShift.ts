@@ -21,7 +21,7 @@ import { checkValidAyahId } from "./validation"
 export function findJuzAndShift(
   surah: Surah,
   ayah: AyahNo,
-  riwaya?: RiwayahsWith<"JuzList"> & RiwayahsWith<"SurahList">
+  riwaya: RiwayahsWith<"JuzList"> & RiwayahsWith<"SurahList"> = "Hafs"
 ): {
   juz: Juz
   leftAyahId: AyahId

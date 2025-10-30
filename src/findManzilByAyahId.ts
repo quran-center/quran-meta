@@ -18,7 +18,7 @@ import { checkValidAyahId } from "./validation"
  * const manzil = findManzilByAyahId(2345); // Returns the Manzil containing Ayah 2345
  * ```
  */
-export function findManzilByAyahId(ayahId: AyahId, riwaya?: RiwayahsWith<"ManzilList">): Manzil {
+export function findManzilByAyahId(ayahId: AyahId, riwaya: RiwayahsWith<"ManzilList"> = "Hafs"): Manzil {
   checkValidAyahId(ayahId)
   const ManzilList = getList("ManzilList", riwaya)
   const jj = binarySearch(ManzilList, ayahId)

@@ -10,7 +10,7 @@ import { RiwayahsWith } from "./lists/types"
  */
 export function getSurahMeta(
   surahNum: Surah,
-  riwaya?: RiwayahsWith<"SurahList">
+  riwaya: RiwayahsWith<"SurahList"> = "Hafs"
 ): SurahMeta {
   const [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan]
     = getSurahInfo(surahNum, riwaya)

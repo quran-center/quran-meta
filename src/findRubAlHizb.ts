@@ -15,7 +15,7 @@ import { checkValidSurah } from "./validation"
 export function findRubAlHizb(
   surah: Surah,
   ayah: AyahNo = 1,
-  riwaya?: RiwayahsWithAll<["SurahList", "HizbQuarterList"]>
+  riwaya: RiwayahsWithAll<["SurahList", "HizbQuarterList"]> = "Hafs"
 ): RubAlHizbId {
   checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya)

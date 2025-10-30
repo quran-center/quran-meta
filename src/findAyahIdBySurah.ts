@@ -10,7 +10,7 @@ import { checkValidSurahAyah } from "./validation"
  * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns The ayah ID for the given surah and ayah number.
  */
-export function findAyahIdBySurah(surah: Surah, ayah: AyahNo, riwaya?: RiwayahsWith<"SurahList">): AyahId {
+export function findAyahIdBySurah(surah: Surah, ayah: AyahNo, riwaya: RiwayahsWith<"SurahList"> = "Hafs"): AyahId {
   checkValidSurahAyah(surah, ayah)
   const SurahList = getList("SurahList", riwaya)
   const [startAyahId] = SurahList[surah]

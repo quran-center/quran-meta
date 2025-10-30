@@ -12,7 +12,7 @@ import { RiwayahsWith } from "./lists/types"
  */
 export function getRubAlHizbMetaByAyahId(
   ayahId: AyahId,
-  riwaya?: RiwayahsWith<"HizbQuarterList">
+  riwaya: RiwayahsWith<"HizbQuarterList"> = "Hafs"
 ): RubAlHizbMeta {
   checkValidAyahId(ayahId)
   const quarterIndex = findRubAlHizbByAyahId(ayahId, riwaya)

@@ -10,7 +10,7 @@ import { RiwayahsWith } from "./lists/types"
  * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns The surah and ayah number of the next ayah.
  */
-export function nextAyah(surah: Surah, ayah: AyahNo, riwaya?: RiwayahsWith<"SurahList">): SurahAyah {
+export function nextAyah(surah: Surah, ayah: AyahNo, riwaya: RiwayahsWith<"SurahList"> = "Hafs"): SurahAyah {
   if (surah < 1 || surah > meta.numSurahs)
     throw new RangeError("Surah must be between 1 and " + meta.numSurahs)
 

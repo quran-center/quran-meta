@@ -13,7 +13,7 @@ import { checkValidAyahId } from "./validation"
  */
 export function findRubAlHizbByAyahId(
   ayahId: AyahId,
-  riwaya?: RiwayahsWith<"HizbQuarterList">
+  riwaya: RiwayahsWith<"HizbQuarterList"> = "Hafs"
 ): RubAlHizbId {
   checkValidAyahId(ayahId)
   const HizbQuarterList = getList("HizbQuarterList", riwaya)

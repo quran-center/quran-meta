@@ -14,7 +14,7 @@ import { checkValidPage } from "./validation"
  */
 export function getPageMeta(
   pageNum: Page,
-  riwaya?: RiwayahsWith<"PageList">
+  riwaya: RiwayahsWith<"PageList"> = "Hafs"
 ): PageMeta {
   checkValidPage(pageNum)
   const PageList = getList("PageList", riwaya)

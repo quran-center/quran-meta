@@ -18,7 +18,7 @@ import { checkValidRuku } from "./validation"
  */
 export function getRukuMeta(
   rukuNum: number,
-  riwaya?: RiwayahsWith<"RukuList">
+  riwaya: RiwayahsWith<"RukuList"> = "Hafs"
 ): RukuMeta {
   checkValidRuku(rukuNum)
   const RukuList = getList("RukuList", riwaya)

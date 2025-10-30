@@ -18,7 +18,7 @@ import { checkValidAyahId } from "./validation"
  * ```
  */
 
-export function findPagebyAyahId(ayahId: AyahId, riwaya?: RiwayahsWith<"PageList">): Page {
+export function findPagebyAyahId(ayahId: AyahId, riwaya: RiwayahsWith<"PageList"> = "Hafs"): Page {
   checkValidAyahId(ayahId)
   const PageList = getList("PageList", riwaya)
   // return PageList.findIndex(x => x > ayahId) - 1 as Page

@@ -19,7 +19,7 @@ import { checkValidManzil } from "./validation"
  */
 export function getManzilMeta(
   manzilNum: number,
-  riwaya?: RiwayahsWith<"ManzilList">
+  riwaya: RiwayahsWith<"ManzilList"> = "Hafs"
 ): ManzilMeta {
   checkValidManzil(manzilNum)
   const ManzilList = getList("ManzilList", riwaya)

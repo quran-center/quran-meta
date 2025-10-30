@@ -13,7 +13,7 @@ import { checkValidAyahId } from "./validation"
  * @returns The Juz (part) number that the given Ayah belongs to. Returns Positive number if ayah is first ayah of juz, number is juz number
  */
 export function isAyahJuzFirst(
-  ayahId: AyahId, riwaya?: RiwayahsWith<"JuzList">
+  ayahId: AyahId, riwaya: RiwayahsWith<"JuzList"> = "Hafs"
 ): Juz | number {
   checkValidAyahId(ayahId)
   const JuzList = getList("JuzList", riwaya)
