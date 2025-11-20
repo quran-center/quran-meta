@@ -23,7 +23,6 @@ export function checkKFQCQalun() {
       
       const ayahMeta = getAyahMeta(ayahId,"Qalun")
       const hfMeta = QalunData[ayahId - 1]
-      const page = findPagebyAyahId(ayahId)
       const rub = getRubAlHizbMetaByAyahId(ayahId)
 
 
