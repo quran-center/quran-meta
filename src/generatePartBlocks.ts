@@ -1,5 +1,5 @@
 import { getList } from "./lists/index"
-import type { allListsNames, RiwayahsWith } from "./lists/types"
+import type { AllListsNames, RiwayahsWith } from "./lists/types"
 import { AyahId, AyahNo, SurahInfo } from "./types"
 
 /* A map of readable parameters that can be used in the function and their corresponding list name */
@@ -15,7 +15,7 @@ export const parts = {
   page: "PageList",
   manzil: "ManzilList",
   ruku: "RukuList"
-} as const satisfies Record<PartType, allListsNames>
+} as const satisfies Record<PartType, AllListsNames>
 
 /**
  * Represents a block or section of the Quran with its starting ayah and length

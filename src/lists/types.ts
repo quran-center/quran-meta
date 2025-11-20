@@ -1,7 +1,7 @@
 import { AyahId, SurahInfo } from "../types"
 import { FixedArray } from "../ts-utils"
 
-type allLists = {
+type AllLists = {
   HizbEighthList: AyahId[]
   HizbQuarterList: AyahId[]
   JuzList: AyahId[]
@@ -11,25 +11,25 @@ type allLists = {
   SajdaList: AyahId[]
   SurahList: FixedArray<SurahInfo, 116>
 }
+type RiwayasNames = ["Hafs", "Qalun"]
+export type RiwayaName = RiwayasNames[number]
+export type AllListsNames = keyof AllLists
 
-type missingListsPerRiwaya = {
+type MissingListsPerRiwaya = {
   Hafs: "HizbEighthList"
   Qalun: never
 }
 export type Riwayas = {
-  [k in keyof missingListsPerRiwaya]: Omit<allLists, missingListsPerRiwaya[k]>
+  [k in RiwayaName]: Omit<AllLists, MissingListsPerRiwaya[k]>
 }
 
 /* // Get all list keys available in a specific riwaya
 export type ListsInRiwaya<R extends keyof Riwayas> = keyof Riwayas[R] */
 
-export type RiwayahsWith<L extends keyof allLists> = {
-  [R in keyof Riwayas]: L extends keyof Riwayas[R] ? R : never
-}[keyof Riwayas]
+export type RiwayahsWith<L extends AllListsNames> = {
+  [R in RiwayaName]: L extends keyof Riwayas[R] ? R : never
+}[RiwayaName]
 
-export type RiwayahsWithAll<L extends (keyof allLists)[]> = {
-  [R in keyof Riwayas]: L[number] extends keyof Riwayas[R] ? R : never
-}[keyof Riwayas]
-
-export type riwayaName = keyof Riwayas
-export type allListsNames = keyof allLists
+export type RiwayahsWithAll<L extends (AllListsNames)[]> = {
+  [R in RiwayaName]: L[number] extends keyof Riwayas[R] ? R : never
+}[RiwayaName]

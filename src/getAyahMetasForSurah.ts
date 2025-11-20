@@ -1,6 +1,6 @@
 import { getAyahMeta } from "./getAyahMeta"
 import { getListsOfRiwaya } from "./lists/index"
-import { riwayaName } from "./lists/types"
+import { RiwayaName } from "./lists/types"
 import { Surah, AyahMeta, AyahId, JuzPart } from "./types"
 import { checkValidSurah } from "./validation"
 
@@ -12,7 +12,7 @@ import { checkValidSurah } from "./validation"
  * @returns Array of AyahMeta objects for each ayah in the surah
  * @throws RangeError If the surah number is not between 1 and 114
  */
-export function getAyahMetasForSurah(surahNumber: Surah, riwaya: riwayaName = "Hafs"): AyahMeta[] {
+export function getAyahMetasForSurah(surahNumber: Surah, riwaya: RiwayaName = "Hafs"): AyahMeta[] {
   checkValidSurah(surahNumber)
   const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = getListsOfRiwaya(riwaya)
 

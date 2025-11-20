@@ -1,4 +1,4 @@
-import type { Riwayas, allListsNames } from "./lists/types"
+import type { Riwayas, AllListsNames } from "./lists/types"
 import { getListsOfRiwaya } from "./lists/index"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuz } from "./findJuz"
@@ -150,7 +150,7 @@ type AllFunctions = typeof allFunctions
 
 // Generate the conditional API type
 type QuranPackageAPI<R extends keyof Riwayas> = {
-  [K in keyof FunctionListMap as FunctionListMap[K] extends allListsNames
+  [K in keyof FunctionListMap as FunctionListMap[K] extends AllListsNames
     ? FunctionListMap[K] extends keyof Riwayas[R]
       ? K
       : never
@@ -198,7 +198,7 @@ export function quranMeta<R extends keyof Riwayas = "Hafs">(
 
   const availableLists = Object.keys(
     getListsOfRiwaya(defaultRiwaya)
-  ) as Partial<allListsNames[]>
+  ) as Partial<AllListsNames[]>
 
   const api: {
     [K in keyof typeof allFunctions]?: (...args: unknown[]) => unknown
