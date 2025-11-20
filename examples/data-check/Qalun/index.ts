@@ -26,4 +26,4 @@ checkKFQCQalun()
 
 
 
-console.log(`Hafs Data checks completed.`)
+console.log(`Qalun Data checks completed.`)
