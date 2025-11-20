@@ -9,7 +9,6 @@ import { checkValidAyahId } from "./validation"
  *
  * @param ayahId - The unique identifier of an Ayah in format: surah:ayah (e.g., "2:255")
  * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
- *  @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns The Ruku number corresponding to the given Ayah ID
  * @throws {@link Error} If the provided Ayah ID is invalid
  *
