@@ -20,7 +20,7 @@ import { checkValidAyahId } from "./validation"
  */
 export function findRukuByAyahId(
   ayahId: AyahId,
-  riwaya: RiwayahsWith<"ManzilList"> = "Hafs"
+  riwaya: RiwayahsWith<"RukuList"> = "Hafs"
 ): Ruku {
   checkValidAyahId(ayahId)
   const RukuList = getList("RukuList", riwaya)
