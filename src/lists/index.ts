@@ -2,11 +2,21 @@ import type { Riwayas } from "./types"
 import { HafsLists } from "./HafsLists"
 import { QalunLists } from "./QalunLists"
 
+// todo: as the lists are going to be large, consider dynamic import here
+
 const riwayahs: Riwayas = {
   Hafs: HafsLists,
   Qalun: QalunLists
 } as const
 
+/**
+ * Retrieves the lists associated with a specific Riwaya.
+ *
+ * @example
+ * ```typescript
+ * const hafsLists = getListsOfRiwaya('hafs');
+ * ```
+ */
 export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R] {
   return riwayahs[riwaya]
 }

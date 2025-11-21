@@ -1,10 +1,9 @@
 import { findPagebyAyahId } from "./findPagebyAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
-import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
 import { getListsOfRiwaya } from "./lists/index"
 import { RiwayaName } from "./lists/types"
-import { AyahId, AyahMeta, Page } from "./types"
+import { AyahId, AyahMeta, Page, ThumunAlHizbId } from "./types"
 import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
 
@@ -18,11 +17,16 @@ import { checkValidAyahId } from "./validation"
  */
 export function getAyahMeta(ayahId: AyahId, riwaya: RiwayaName = "Hafs"): AyahMeta {
   checkValidAyahId(ayahId)
-  const { SurahList, PageList, JuzList, HizbQuarterList, RukuList, SajdaList } = getListsOfRiwaya(riwaya)
-  let thumunAlHizbId
-  if ("HizbEighthList" in getListsOfRiwaya(riwaya)) {
-    // add thumun functions here
-    thumunAlHizbId = findThumunAlHizbByAyahId(ayahId, riwaya as "Qalun")
+  const lists = getListsOfRiwaya(riwaya)
+  const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = lists
+
+  const getThumunData = () => {
+    if ("HizbEighthList" in lists) {
+      const jj = binarySearch(lists.HizbEighthList, ayahId)
+      const thumunAlHizbId = (jj < 0 ? -jj - 2 : jj) as ThumunAlHizbId
+      return { thumunAlHizbId }
+    }
+    return {}
   }
 
   const quarterData = getRubAlHizbByAyahId(ayahId, riwaya)
@@ -48,10 +52,10 @@ export function getAyahMeta(ayahId: AyahId, riwaya: RiwayaName = "Hafs"): AyahMe
 
   return {
     ...quarterData,
+    ...getThumunData(),
     surah,
     ayah,
     page,
-    ...(thumunAlHizbId !== undefined ? { thumunAlHizbId } : {}),
     isStartOfQuarter,
     isEndOfQuarter,
     isSajdahAyah,
