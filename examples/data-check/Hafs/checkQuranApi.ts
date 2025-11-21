@@ -5,8 +5,7 @@
  */
 
 import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList } from "../../../src/lists/HafsLists"
-import { meta } from "../../../src"
-import { quranMeta } from "../../../src"
+import { meta, quranMeta } from "../../../src"
 import { AyahNo, AyahId, Manzil, Page, Ruku, Juz, Surah, RubAlHizbId } from "../../../src/types"
 const { getJuzMeta, getRubAlHizbMeta, getRukuMeta, getPageMeta, getManzilMeta, findPagebyAyahId, findAyahIdBySurah, findJuz, findRubAlHizb, getAyahMeta, getSurahMeta } = quranMeta({ riwaya: "Hafs" })
 

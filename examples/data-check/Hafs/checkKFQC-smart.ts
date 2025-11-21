@@ -1,5 +1,4 @@
-import { meta } from "../../../src"
-import { quranMeta } from "../../../src"
+import { quranMeta, meta } from "../../../src"
 import { AyahId } from "../../../src/types"
 const { findPagebyAyahId, getAyahMeta, getSurahMeta } = quranMeta({ riwaya: "Hafs" })
 

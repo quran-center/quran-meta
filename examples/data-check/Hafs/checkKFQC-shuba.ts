@@ -3,8 +3,7 @@
    *  https://qurancomplex.gov.sa/en/techquran/dev/
    */
   
-  import { meta } from "../../../src"
-  import {quranMeta} from "../../../src"
+  import {quranMeta, meta} from "../../../src"
   import { AyahId } from "../../../src/types"
   const { getAyahMeta, getRubAlHizbMetaByAyahId } = quranMeta({riwaya: "Hafs"})
   
