@@ -17,6 +17,6 @@ export function isAyahPageFirst(
 ): Page | number {
   checkValidAyahId(ayahId)
   const PageList = getList("PageList", riwaya)
-  return binarySearch(PageList, ayahId) as Page | -1
+  return binarySearch(PageList, ayahId)
   // return PageList.findIndex((x: AyahId) => x == ayahId)
 }

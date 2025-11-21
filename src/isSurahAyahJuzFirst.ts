@@ -28,6 +28,6 @@ export function isSurahAyahJuzFirst(
   checkValidSurah(surah)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
   const JuzList = getList("JuzList", riwaya)
-  return binarySearch(JuzList, ayahId) as Juz | -1
+  return binarySearch(JuzList, ayahId)
   // return JuzList.findIndex((x: AyahId) => x == ayahId)
 }

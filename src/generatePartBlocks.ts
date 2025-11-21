@@ -63,5 +63,5 @@ export function generatePartBlocks<P extends PartType>(
     throw new Error(`Expected array for ${String(listName)}`)
   }
 
-  return list.slice(1, list.length - 1).map(toPartFormatter(type, list))
+  return list.slice(1, -1).map(toPartFormatter(type, list))
 }

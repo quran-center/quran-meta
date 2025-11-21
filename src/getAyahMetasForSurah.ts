@@ -23,7 +23,7 @@ export function getAyahMetasForSurah(surahNumber: Surah, riwaya: RiwayaName = "H
   const result: AyahMeta[] = []
 
   // const rubAlHizbMeta = getRubAlHizbMetaByAyahId(startAyahId as AyahId)
-  let meta = getAyahMeta(startAyahId as AyahId, riwaya)
+  let meta = getAyahMeta(startAyahId, riwaya)
   result.push(meta)
   for (let ayahId = startAyahId + 1; ayahId <= endAyahId; ayahId++) {
     // Most properties will be the same as previous ayah except for specific positions

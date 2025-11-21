@@ -17,6 +17,6 @@ export function isAyahJuzFirst(
 ): Juz | number {
   checkValidAyahId(ayahId)
   const JuzList = getList("JuzList", riwaya)
-  return binarySearch(JuzList, ayahId) as Juz | -1
+  return binarySearch(JuzList, ayahId)
   // return JuzList.findIndex((x: AyahId) => x == ayahId)
 }
