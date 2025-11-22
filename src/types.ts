@@ -10,12 +10,49 @@ import { QalunMeta } from "./lists/QalunLists"
 export const maxAyahsInSurah = 286
 
 /**
- * Default metadata (uses Hafs as default)
+ * Default metadata for the Quran (uses Hafs riwaya as default).
+ * 
+ * @remarks
+ * Hafs metadata includes:
+ * - 6236 ayahs (verses)
+ * - 114 surahs (chapters)
+ * - 604 pages
+ * - 30 juzs (parts)
+ * - 60 hizbs (sections)
+ * - 240 rub al-hizbs (quarters)
+ * - 0 thumun al-hizbs (eighths) - not used in Hafs
+ * - 15 sajdas (prostrations)
+ * - 556 rukus
+ * - 7 manzils
+ * 
+ * @example
+ * ```typescript
+ * import { meta } from 'quran-meta'
+ * console.log(meta.numAyahs)  // 6236
+ * console.log(meta.numSurahs)  // 114
+ * ```
  */
 export const meta = HafsMeta
 
 /**
- * Riwaya-specific metadata
+ * Riwaya-specific metadata for all available riwayas.
+ * Use this to access metadata for specific recitation traditions.
+ * 
+ * @remarks
+ * Available riwayas:
+ * - **Hafs**: 6236 ayahs, 15 sajdas, 0 ThumunAlHizbs (standard)
+ * - **Qalun**: 6214 ayahs, 12 sajdas, 480 ThumunAlHizbs
+ * 
+ * @example
+ * ```typescript
+ * import { riwayaMeta } from 'quran-meta'
+ * const hafsMeta = riwayaMeta.Hafs
+ * const qalunMeta = riwayaMeta.Qalun
+ * 
+ * console.log(hafsMeta.numAyahs)  // 6236
+ * console.log(qalunMeta.numAyahs)  // 6214
+ * console.log(qalunMeta.numThumunAlHizbs)  // 480 (only in Qalun)
+ * ```
  */
 export const riwayaMeta: Record<RiwayaName, QuranMeta> = {
   Hafs: HafsMeta,
@@ -23,20 +60,46 @@ export const riwayaMeta: Record<RiwayaName, QuranMeta> = {
 }
 
 /**
- * Represents the type for Quranic metadata.
- * This type encompasses the structure and properties of Quranic information.
+ * Represents the complete metadata structure for Quranic information.
+ * Contains counts for all structural divisions of the Quran.
+ * 
+ * @remarks
+ * Different riwayas may have different values for these properties.
+ * Most notably, Qalun has 6214 ayahs while Hafs has 6236 ayahs.
+ * 
+ * @example
+ * ```typescript
+ * import { meta, riwayaMeta } from 'quran-meta'
+ * 
+ * // Hafs metadata (default)
+ * console.log(meta.numAyahs)  // 6236
+ * 
+ * // Qalun metadata
+ * console.log(riwayaMeta.Qalun.numAyahs)  // 6214
+ * ```
  */
 export type QuranMeta = {
+  /** Total number of ayahs (verses) in this riwaya */
   numAyahs: number
+  /** Total number of surahs (chapters) - always 114 */
   numSurahs: number
+  /** Total number of pages - typically 604 */
   numPages: number
+  /** Total number of juzs (parts) - always 30 */
   numJuzs: number
+  /** Total number of hizbs (sections) - always 60 */
   numHizbs: number
+  /** Total number of rub al-hizbs (quarters) - always 240 */
   numRubAlHizbs: number
+  /** Total number of thumun al-hizbs (eighths) - 0 for Hafs, 480 for Qalun */
   numThumunAlHizbs: number
+  /** Number of rubs (quarters) in each juz - always 8 */
   numRubsInJuz: number
+  /** Total number of sajdas (prostrations) - varies by riwaya */
   numSajdas: number
+  /** Total number of rukus (sections) - varies by riwaya */
   numRukus: number
+  /** Total number of manzils (7-day reading divisions) - always 7 */
   numManzils: number
 }
 
@@ -67,21 +130,27 @@ export type Surah = NumericRange<1, typeof meta.numSurahs>
 export type AyahNo = NumericRange<1, typeof maxAyahsInSurah>
 /**
  * Represents a valid thumun al-Hizb (Eighth of a Hizb) identifier.
- * The value must be a number between 0 and the total number of thumun al-Hizbs in the Quran.
+ * The value must be a number between 1 and 480 (maximum across all riwayas).
+ * Uses 1-based indexing where 1 is the first thumun al-hizb.
+ * 
+ * @remarks
+ * - Hafs: 0 ThumunAlHizbs (not supported)
+ * - Qalun: 480 ThumunAlHizbs
  */
-export type ThumunAlHizbId = NumericRange<0, typeof meta.numThumunAlHizbs>
+export type ThumunAlHizbId = NumericRange<1, 480>
 /**
  * Represents a valid Rub al-Hizb (quarter of a Hizb) identifier.
- * The value must be a number between 0 and the total number of Rub al-Hizbs in the Quran.
+ * The value must be a number between 1 and 240 (consistent across all riwayas).
+ * Uses 1-based indexing where 1 is the first rub al-hizb.
  */
-export type RubAlHizbId = NumericRange<0, typeof meta.numRubAlHizbs>
+export type RubAlHizbId = NumericRange<1, 240>
 
 /**
  * Represents a valid Hizb number in the Quran.
  * A Hizb is one of 60 equal divisions of the Quran.
- * A number between 0 and the total number of Hizbs in the Quran
+ * Uses 1-based indexing where 1 is the first hizb.
  */
-export type HizbId = NumericRange<0, typeof meta.numHizbs>
+export type HizbId = NumericRange<1, 60>
 
 /**
  * Represents a numeric identifier for an Ayah (verse) in the Quran.
@@ -91,31 +160,29 @@ export type AyahId = number // NumericRange<0, meta.numAyahs>
 
 /**
  * Represents a valid page number within the Quran.
- * The value must be within the range of 0 to the total number of pages (inclusive).
- *
+ * Uses 1-based indexing where 1 is the first page (typically 604 pages total).
  */
-export type Page = NumericRange<0, typeof meta.numPages>
+export type Page = NumericRange<1, 604>
 
 /**
  * Represents a Manzil number in the Quran.
  * A Manzil is one of seven roughly equal parts of the Quran used for sequential reading over seven days.
- * A number between 0 and the total number of Manzils (7)
+ * Uses 1-based indexing where 1 is the first manzil (1-7).
  */
-export type Manzil = NumericRange<0, typeof meta.numManzils>
+export type Manzil = NumericRange<1, 7>
 
 /**
  * A type representing a valid Ruku (section) number in the Quran.
- * The value must be a number between 0 and the total number of Rukus defined in meta.
+ * Uses 1-based indexing where 1 is the first ruku (typically 556 rukus in Hafs).
  */
-export type Ruku = NumericRange<0, typeof meta.numRukus>
+export type Ruku = NumericRange<1, 556>
 
 /**
  * Represents a Juz (part) number in the Quran.
- * A numeric value ranging from 0 to the total number of Juzs in the Quran.
  * The Quran is traditionally divided into 30 Juzs for ease of recitation and memorization.
- *
+ * Uses 1-based indexing where 1 is the first juz (1-30).
  */
-export type Juz = NumericRange<0, typeof meta.numJuzs>
+export type Juz = NumericRange<1, 30>
 
 /**
  * Represents a part (rub') number within a Juz.

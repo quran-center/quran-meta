@@ -1,7 +1,7 @@
 import { getAyahMeta } from "./getAyahMeta"
 import { getListsOfRiwaya } from "./lists/index"
 import { RiwayaName } from "./lists/types"
-import { Surah, AyahMeta, AyahId, JuzPart } from "./types"
+import { Surah, AyahMeta, JuzPart } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**

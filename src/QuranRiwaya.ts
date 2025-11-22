@@ -53,20 +53,52 @@ import { getSurahInfo } from "./getSurahInfo"
  * with your desired riwaya and call methods directly.
  *
  * @example
+ * **Basic Usage with Hafs**
  * ```typescript
  * const hafs = QuranRiwaya.hafs()
- * const meta = hafs.getSurahMeta(2)
- * const isFirst = hafs.isAyahJuzFirst(149)
- *
- * const qalun = QuranRiwaya.qalun()
- * const thumun = qalun.findThumunAlHizb(1, 1)
+ * const surahMeta = hafs.getSurahMeta(2)  // Get Al-Baqarah metadata
+ * const isFirst = hafs.isAyahJuzFirst(149)  // Check if ayah is first in juz
+ * const page = hafs.findPage(2, 1)  // Find page for Al-Baqarah:1
  * ```
+ *
+ * @example
+ * **Working with Qalun (has ThumunAlHizb support)**
+ * ```typescript
+ * const qalun = QuranRiwaya.qalun()
+ * const thumun = qalun.findThumunAlHizb(1, 1)  // Get thumun al-hizb for Al-Fatiha:1
+ * const thumunMeta = qalun.getThumunAlHizbMeta(1)  // Get metadata for first thumun
+ * console.log(qalun.getMeta().numAyahs)  // 6214 (Qalun has fewer ayahs than Hafs)
+ * ```
+ *
+ * @example
+ * **Using dynamic riwaya selection**
+ * ```typescript
+ * const riwaya = QuranRiwaya.create("Qalun")
+ * const meta = riwaya.getMeta()
+ * ```
+ *
+ * @remarks
+ * - Hafs riwaya: 6236 ayahs, 15 sajdas, 240 RubAlHizbs, 0 ThumunAlHizbs
+ * - Qalun riwaya: 6214 ayahs, 12 sajdas, 240 RubAlHizbs, 480 ThumunAlHizbs
+ * - ThumunAlHizb methods will throw an error if called on Hafs riwaya
  */
 export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   private readonly riwaya: R
 
   private constructor(riwaya: R) {
     this.riwaya = riwaya
+  }
+
+  /**
+   * Validates if the current riwaya supports ThumunAlHizb (Eighth of Hizb) feature.
+   * This feature is only available for Qalun riwaya.
+   * @throws Error if the feature is not supported by the current riwaya
+   */
+  private validateThumunAlHizbSupport(): void {
+    const meta = riwayaMeta[this.riwaya]
+    if (meta.numThumunAlHizbs === 0) {
+      throw new Error(`ThumunAlHizb feature is not available for ${this.riwaya} riwaya. Only available for Qalun.`)
+    }
   }
 
   /**
@@ -336,48 +368,60 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   /**
    * Finds the thumun al-hizb for a given surah and ayah
    * @remarks Only available for Qalun riwaya
+   * @throws Error if called on Hafs riwaya (not supported)
    */
   findThumunAlHizb(surah: Surah, ayah: AyahNo = 1): number {
+    this.validateThumunAlHizbSupport()
     return findThumunAlHizb(surah, ayah, this.riwaya as RiwayahsWithAll<["SurahList", "HizbEighthList"]>)
   }
 
   /**
    * Finds the thumun al-hizb for a given ayah ID
    * @remarks Only available for Qalun riwaya
+   * @throws Error if called on Hafs riwaya (not supported)
    */
   findThumunAlHizbByAyahId(ayahId: AyahId): number {
+    this.validateThumunAlHizbSupport()
     return findThumunAlHizbByAyahId(ayahId, this.riwaya as RiwayahsWith<"HizbEighthList">)
   }
 
   /**
    * Gets thumun al-hizb information
    * @remarks Only available for Qalun riwaya
+   * @throws Error if called on Hafs riwaya (not supported)
    */
   getThumunAlHizb(eighthIndex: ThumunAlHizbId): ThumunAlHizb {
+    this.validateThumunAlHizbSupport()
     return getThumunAlHizb(eighthIndex)
   }
 
   /**
    * Gets thumun al-hizb by ayah ID
    * @remarks Only available for Qalun riwaya
+   * @throws Error if called on Hafs riwaya (not supported)
    */
   getThumunAlHizbByAyahId(ayahId: AyahId): ThumunAlHizb {
+    this.validateThumunAlHizbSupport()
     return getThumunAlHizbByAyahId(ayahId, this.riwaya as RiwayahsWith<"HizbEighthList">)
   }
 
   /**
    * Gets thumun al-hizb metadata
    * @remarks Only available for Qalun riwaya
+   * @throws Error if called on Hafs riwaya (not supported)
    */
   getThumunAlHizbMeta(thumunAlHizbId: ThumunAlHizbId): ThumunAlHizbMeta {
+    this.validateThumunAlHizbSupport()
     return getThumunAlHizbMeta(thumunAlHizbId, this.riwaya as RiwayahsWith<"HizbEighthList">)
   }
 
   /**
    * Gets thumun al-hizb metadata by ayah ID
    * @remarks Only available for Qalun riwaya
+   * @throws Error if called on Hafs riwaya (not supported)
    */
   getThumunAlHizbMetaByAyahId(ayahId: AyahId): ThumunAlHizbMeta {
+    this.validateThumunAlHizbSupport()
     return getThumunAlHizbMetaByAyahId(ayahId, this.riwaya as RiwayahsWith<"HizbEighthList">)
   }
 
