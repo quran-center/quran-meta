@@ -1,4 +1,4 @@
-import { meta } from "./const"
+import { meta } from "./types"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import { isValidAyahId, isValidJuz, isValidManzil, isValidPage, isValidRuku, isValidSurah } from "./typeGuards"
 import { AyahId, AyahNo, Juz, Manzil, Page, Ruku, Surah, SurahAyah } from "./types"

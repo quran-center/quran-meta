@@ -264,6 +264,23 @@ export const SurahList: FixedArray<SurahInfo, 116> = [
   [6216, 1, 1, 1, "", false]
 ] as const
 
+/**
+ * Qalun riwaya metadata
+ */
+export const QalunMeta = {
+  numAyahs: 6214, // Qalun has 22 fewer ayahs than Hafs
+  numSurahs: 114,
+  numPages: 604,
+  numJuzs: 30,
+  numHizbs: 60,
+  numRubAlHizbs: 240,
+  numThumunAlHizbs: 480,
+  numRubsInJuz: 8,
+  numSajdas: 12, // Qalun has fewer sajdas
+  numRukus: 556,
+  numManzils: 7
+} as const
+
 export const QalunLists = {
   HizbEighthList,
   HizbQuarterList,

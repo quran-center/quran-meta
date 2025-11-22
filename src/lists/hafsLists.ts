@@ -268,6 +268,23 @@ export const SurahList: FixedArray<SurahInfo, 116> = [
   [6237, 1, 1, 1, "", false]
 ] as const
 
+/**
+ * Hafs riwaya metadata
+ */
+export const HafsMeta = {
+  numAyahs: 6236,
+  numSurahs: 114,
+  numPages: 604,
+  numJuzs: 30,
+  numHizbs: 60,
+  numRubAlHizbs: 240,
+  numThumunAlHizbs: 0, // Hafs doesn't have Thumun al-Hizb
+  numRubsInJuz: 8,
+  numSajdas: 15,
+  numRukus: 556,
+  numManzils: 7
+} as const
+
 export const HafsLists = {
   HizbQuarterList,
   JuzList,

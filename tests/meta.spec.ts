@@ -1,6 +1,6 @@
 import { meta, generatePartBlocks } from "../src"
 import { getListsOfRiwaya } from "../src/lists"
-import { maxAyahsInSurah } from "../src/const"
+import { maxAyahsInSurah } from "../src/types"
 import { getSurahInfo } from "../src/getSurahInfo"
 const { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } = getListsOfRiwaya("Hafs")
 

@@ -1,4 +1,4 @@
-import { meta } from "./const"
+import { meta } from "./types"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { AyahId, AyahNo, Surah, SurahAyah } from "./types"

@@ -1,11 +1,13 @@
 // Quran Meta
 
-export type { QuranMeta } from "./const"
-export type { SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
+export type { QuranMeta, SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
+
+// ==================== New Class-Based API ====================
+export { QuranRiwaya } from "./QuranRiwaya"
 
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
-export { meta } from "./const"
+export { meta, riwayaMeta } from "./types"
 export { findAyahIdBySurah } from "./findAyahIdBySurah"
 export { findJuz } from "./findJuz"
 export { findJuzAndShift, findJuzAndShiftByAyahId } from "./findJuzAndShift"
@@ -44,6 +46,7 @@ export { prevAyah } from "./prevAyah"
 export { isValidManzil, isValidRuku, isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidSurah, isValidSurahAyah } from "./typeGuards"
 export { checkValidManzil, checkValidRuku, checkValidAyahId, checkValidJuz, checkValidPage, checkValidSurah, checkValidSurahAyah } from "./validation"
 export { quranMeta } from "./initPackage"
+export type { QuranPackageConfig } from "./initPackage"
 
 // ------------------ Sura i18 Data ---------------------
 

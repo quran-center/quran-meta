@@ -1,4 +1,4 @@
-import { maxAyahsInSurah, meta } from "./const"
+import { maxAyahsInSurah, meta } from "./types"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import { AyahId, AyahNo, HizbId, Juz, Manzil, RubAlHizbId, Ruku, Surah, SurahAyah } from "./types"
 

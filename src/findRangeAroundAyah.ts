@@ -1,4 +1,4 @@
-import { meta } from "./const"
+import { meta } from "./types"
 import { findJuzByAyahId } from "./findJuzByAyahId"
 import { findPagebyAyahId } from "./findPagebyAyahId"
 import { findRukuByAyahId } from "./findRukuByAyahId"

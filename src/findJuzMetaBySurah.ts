@@ -1,4 +1,4 @@
-import { meta } from "./const"
+import { meta } from "./types"
 import { findJuzAndShift } from "./findJuzAndShift"
 import { findSurahByAyahId } from "./findSurahByAyahId"
 import { getList } from "./lists/index"
