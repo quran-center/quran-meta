@@ -204,6 +204,12 @@ describe("QuranRiwaya", () => {
       expect(thumun).toBe(1)
     })
 
+    it("should find thumun al-hizb by ayah ID (mid-thumun)", () => {
+      // ayahId 10 is between 1 and 20, should be in thumun 1
+      const thumun = qalun.findThumunAlHizbByAyahId(10)
+      expect(thumun).toBe(1)
+    })
+
     it("should get thumun al-hizb", () => {
       const thumun = qalun.getThumunAlHizb(1)
       expect(thumun.juz).toBe(1)
@@ -320,6 +326,34 @@ describe("QuranRiwaya", () => {
       const qalun = QuranRiwaya.qalun()
       const thumun = qalun.findThumunAlHizb(1, 1)
       expect(typeof thumun).toBe("number")
+    })
+  })
+
+  describe("Riwaya-specific validation", () => {
+    const hafs = QuranRiwaya.hafs()
+
+    it("should throw error when calling findThumunAlHizb on Hafs", () => {
+      expect(() => hafs.findThumunAlHizb(1, 1)).toThrow("ThumunAlHizb feature is not available for Hafs riwaya")
+    })
+
+    it("should throw error when calling findThumunAlHizbByAyahId on Hafs", () => {
+      expect(() => hafs.findThumunAlHizbByAyahId(1)).toThrow("ThumunAlHizb feature is not available for Hafs riwaya")
+    })
+
+    it("should throw error when calling getThumunAlHizb on Hafs", () => {
+      expect(() => hafs.getThumunAlHizb(1)).toThrow("ThumunAlHizb feature is not available for Hafs riwaya")
+    })
+
+    it("should throw error when calling getThumunAlHizbByAyahId on Hafs", () => {
+      expect(() => hafs.getThumunAlHizbByAyahId(1)).toThrow("ThumunAlHizb feature is not available for Hafs riwaya")
+    })
+
+    it("should throw error when calling getThumunAlHizbMeta on Hafs", () => {
+      expect(() => hafs.getThumunAlHizbMeta(1)).toThrow("ThumunAlHizb feature is not available for Hafs riwaya")
+    })
+
+    it("should throw error when calling getThumunAlHizbMetaByAyahId on Hafs", () => {
+      expect(() => hafs.getThumunAlHizbMetaByAyahId(1)).toThrow("ThumunAlHizb feature is not available for Hafs riwaya")
     })
   })
 
