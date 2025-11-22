@@ -95,9 +95,50 @@ $ npm i --save quran-meta
 
 ### Usage
 
-**New Class-Based API (v6.0+)**
+**Tree-Shakeable Riwaya-Specific Imports (Recommended)**
 
-The recommended way to use quran-meta is with the new class-based API which provides a cleaner interface without repetitive riwaya parameters:
+For optimal bundle size, import from riwaya-specific entry points. This ensures only the data you need is bundled:
+
+```typescript
+// Hafs-specific import (only Hafs data bundled, ~50% smaller)
+import { getAyahMeta, findJuz, meta, quran } from "quran-meta/hafs"
+
+console.log(`Total ayahs: ${meta.numAyahs}`) // 6236
+
+// Using functional API (Hafs is default)
+const ayahMeta = getAyahMeta(1)
+console.log(ayahMeta.juz) // => 1
+
+// Using class API
+const next = quran.nextAyah(1, 7)
+console.log(next) // => [2, 1]
+```
+
+```typescript
+// Qalun-specific import (only Qalun data bundled)
+import { getAyahMeta, findThumunAlHizb, meta, quran } from "quran-meta/qalun"
+
+console.log(`Total ayahs: ${meta.numAyahs}`) // 6214
+console.log(`Thumun al-Hizbs: ${meta.numThumunAlHizbs}`) // 480
+
+// Qalun-specific features available
+const thumun = findThumunAlHizb(1, 1)
+console.log(thumun) // => 1
+
+const ayahMeta = getAyahMeta(1)
+console.log(ayahMeta.thumunAlHizbId) // Available in Qalun!
+```
+
+**Benefits of riwaya-specific imports:**
+- ✅ **50% smaller bundle** - only loads the riwaya you need
+- ✅ **Zero configuration** - works immediately, no initialization required
+- ✅ **Tree-shakeable** - unused riwayas are eliminated by bundlers
+- ✅ **Type-safe** - full TypeScript support with correct types per riwaya
+- ✅ **Future-proof** - easily add new riwayas without breaking changes
+
+**Class-Based API**
+
+For generic code that works with multiple riwayas, use the class-based API:
 
 ```typescript
 import { QuranRiwaya } from "quran-meta"

@@ -20,7 +20,18 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./hafs": {
+      "types": "./dist/hafs.d.ts",
+      "import": "./dist/hafs.js"
+    },
+    "./qalun": {
+      "types": "./dist/qalun.d.ts",
+      "import": "./dist/qalun.js"
+    },
     "./package.json": "./package.json"
   },
   "repository": "quran-center/quran-meta",

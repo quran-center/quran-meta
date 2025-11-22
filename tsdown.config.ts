@@ -7,6 +7,18 @@ export default defineConfig([
     name: "base",
     exports: true
   },
+  {
+    entry: "src/hafs.ts",
+    platform: "neutral",
+    name: "hafs",
+    exports: true
+  },
+  {
+    entry: "src/qalun.ts",
+    platform: "neutral",
+    name: "qalun",
+    exports: true
+  },
   // {
   //   entry: "src/i18n/index.ts",
   //   platform: "neutral",
