@@ -1,5 +1,5 @@
 import { checkValidJuz, checkValidManzil, checkValidPage, checkValidRuku } from "../src/validation"
-import { meta } from "../src/const"
+import { meta } from "../src/types"
 
 describe("checkValidPage", () => {
   it("should accept valid page numbers", () => {

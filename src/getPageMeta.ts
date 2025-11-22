@@ -1,5 +1,6 @@
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import { PageList } from "./lists/pageList"
+import { getList } from "./lists/index"
+import { RiwayahsWith } from "./lists/types"
 import { AyahId, Page, PageMeta } from "./types"
 import { checkValidPage } from "./validation"
 
@@ -7,12 +8,16 @@ import { checkValidPage } from "./validation"
  * Retrieves metadata for a specific page of the Quran.
  *
  * @param pageNum - The page number to retrieve metadata for (1-604)
+ * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns {@link PageMeta} An object containing the page number, first ayah, and last ayah on the page
  * @throws {@link RangeError} If the page number is not between 1 and 604
  */
-export function getPageMeta(pageNum: Page): PageMeta {
+export function getPageMeta(
+  pageNum: Page,
+  riwaya: RiwayahsWith<"PageList"> = "Hafs"
+): PageMeta {
   checkValidPage(pageNum)
-
+  const PageList = getList("PageList", riwaya)
   const [firstAyahId, nextPage]: [AyahId, AyahId] = [
     PageList[pageNum],
     PageList[pageNum + 1]

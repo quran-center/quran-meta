@@ -1,6 +1,5 @@
-import type { SurahListType } from "../lists/surahList"
+import type { SurahListType, SurahName } from "../types"
 import type { ArrayOfSameLength } from "../ts-utils"
-import type { SurahName } from "../types"
 
 export type SurahNames = ArrayOfSameLength<SurahListType, SurahName | []>
 

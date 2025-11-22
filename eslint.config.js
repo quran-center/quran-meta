@@ -6,8 +6,23 @@ import tsLint from "typescript-eslint"
 export default [
   // config parsers
   {
-    files: ["src/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
+    files: ["src/**.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     languageOptions: {
+    }
+  },
+  {
+    files: ["examples/**.{js,mjs,cjs,ts,mts,jsx,tsx}"],
+    languageOptions: {
+      globals: {
+        process: "readonly",
+        console: "readonly",
+        fetch: "readonly"
+      }
+    },
+    rules: {
+      "no-console": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off"
     }
   },
   // syntax rules
@@ -29,7 +44,6 @@ export default [
       "**/coverage/",
       "**/dist/",
       "**/docs/",
-      "**/examples/",
       "**/lib_cjs/",
       "**/lib_es/"
     ]

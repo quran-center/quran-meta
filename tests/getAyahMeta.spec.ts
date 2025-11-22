@@ -111,4 +111,11 @@ describe("ayahMeta", () => {
     expect(result.isEndOfQuarter).toBeFalsy()
     expect(result.ruku).toBe(meta.numRukus)
   })
+
+  it("should include thumunAlHizbId for Qalun riwaya", () => {
+    const result = getAyahMeta(1, "Qalun")
+    expect(result.thumunAlHizbId).toBeDefined()
+    expect(result.thumunAlHizbId).toBeGreaterThanOrEqual(1)
+    expect(result.thumunAlHizbId).toBeLessThanOrEqual(480)
+  })
 })

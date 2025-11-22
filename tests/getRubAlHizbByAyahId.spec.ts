@@ -1,6 +1,10 @@
-import { getRubAlHizb, findJuzByAyahId, getRubAlHizbByAyahId, HizbQuarterList, JuzList, meta, RubAlHizbId } from "../src"
+import { getRubAlHizb, findJuzByAyahId, getRubAlHizbByAyahId, meta, RubAlHizbId } from "../src"
+import { getList } from "../src/lists/index"
 
 import * as module from "../src/validation"
+
+const JuzList = getList("JuzList")
+const HizbQuarterList = getList("HizbQuarterList")
 
 describe("getRubAlHizbByAyahId", () => {
   beforeEach(() => {

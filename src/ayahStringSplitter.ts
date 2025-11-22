@@ -57,8 +57,8 @@ export function ayahStringSplitter(str: string, isStrict = true): SurahAyahSegme
  *          - ayahTo: The ending ayah number if a range is specified
  *          - surahOrAyah: The surah number
  * @example
- * stringNumberSplitter("2:255") // returns { ayah: 255, ayahTo: 0, surahOrAyah: 2 }
- * stringNumberSplitter("2:255-260") // returns { ayah: 255, ayahTo: 260, surahOrAyah: 2 }
+ * stringNumberSplitter("2:255") // returns \{ ayah: 255, ayahTo: 0, surahOrAyah: 2 \}
+ * stringNumberSplitter("2:255-260") // returns \{ ayah: 255, ayahTo: 260, surahOrAyah: 2 \}
  * stringNumberSplitter("invalid") // returns null
  */
 export function string2NumberSplitter(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
@@ -87,8 +87,8 @@ export function string2NumberSplitter(str: string): { ayah?: number, ayahTo?: nu
  * @throws {@link Error} When the input string format is invalid or contains non-numeric values
  *
  * @example
- * string2NumberSplitterStrict("2:255")    // returns { surahOrAyah: 2, ayah: 255, ayahTo: NaN }
- * string2NumberSplitterStrict("2:255-260") // returns { surahOrAyah: 2, ayah: 255, ayahTo: 260 }
+ * string2NumberSplitterStrict("2:255")    // returns \{ surahOrAyah: 2, ayah: 255, ayahTo: NaN \}
+ * string2NumberSplitterStrict("2:255-260") // returns \{ surahOrAyah: 2, ayah: 255, ayahTo: 260 \}
  */
 export function string2NumberSplitterStrict(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
   let [surahStr, ayahsStr] = str.trim().split(":")

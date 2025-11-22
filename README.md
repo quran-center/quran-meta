@@ -95,6 +95,98 @@ $ npm i --save quran-meta
 
 ### Usage
 
+**Tree-Shakeable Riwaya-Specific Imports (Recommended)**
+
+For optimal bundle size, import from riwaya-specific entry points. This ensures only the data you need is bundled:
+
+```typescript
+// Hafs-specific import (only Hafs data bundled, ~50% smaller)
+import { getAyahMeta, findJuz, meta, quran } from "quran-meta/hafs"
+
+console.log(`Total ayahs: ${meta.numAyahs}`) // 6236
+
+// Using functional API (Hafs is default)
+const ayahMeta = getAyahMeta(1)
+console.log(ayahMeta.juz) // => 1
+
+// Using class API
+const next = quran.nextAyah(1, 7)
+console.log(next) // => [2, 1]
+```
+
+```typescript
+// Qalun-specific import (only Qalun data bundled)
+import { getAyahMeta, findThumunAlHizb, meta, quran } from "quran-meta/qalun"
+
+console.log(`Total ayahs: ${meta.numAyahs}`) // 6214
+console.log(`Thumun al-Hizbs: ${meta.numThumunAlHizbs}`) // 480
+
+// Qalun-specific features available
+const thumun = findThumunAlHizb(1, 1)
+console.log(thumun) // => 1
+
+const ayahMeta = getAyahMeta(1)
+console.log(ayahMeta.thumunAlHizbId) // Available in Qalun!
+```
+
+**Benefits of riwaya-specific imports:**
+- ✅ **50% smaller bundle** - only loads the riwaya you need
+- ✅ **Zero configuration** - works immediately, no initialization required
+- ✅ **Tree-shakeable** - unused riwayas are eliminated by bundlers
+- ✅ **Type-safe** - full TypeScript support with correct types per riwaya
+- ✅ **Future-proof** - easily add new riwayas without breaking changes
+
+**Class-Based API**
+
+For generic code that works with multiple riwayas, use the class-based API:
+
+```typescript
+import { QuranRiwaya } from "quran-meta"
+
+// Create a Hafs instance
+const hafs = QuranRiwaya.hafs()
+
+// Get surah metadata
+const surahMeta = hafs.getSurahMeta(2)
+console.log(surahMeta.name) // => 'البَقَرَة'
+console.log(surahMeta.ayahCount) // => 286
+
+// Find juz information
+const juz = hafs.findJuz(2, 1)
+console.log(juz) // => 1
+
+// Check if ayah is first in juz
+const isFirst = hafs.isAyahJuzFirst(149)
+console.log(isFirst) // => 2
+
+// Get ayah metadata
+const ayahMeta = hafs.getAyahMeta(1)
+console.log(ayahMeta) // => { surah: 1, ayah: 1, juz: 1, page: 1, ... }
+
+// Navigation
+const next = hafs.nextAyah(1, 7)
+console.log(next) // => [2, 1]
+
+// Use Qalun riwaya for Thumun al-Hizb support
+const qalun = QuranRiwaya.qalun()
+const thumun = qalun.findThumunAlHizb(1, 1)
+console.log(thumun) // => 1
+
+// Create custom riwaya instance
+const custom = QuranRiwaya.create("Hafs")
+```
+
+**Benefits of the class-based API:**
+- ✓ No repetitive riwaya parameter in every function call
+- ✓ Clear context with a dedicated instance
+- ✓ Better IDE autocomplete and type safety
+- ✓ Chainable and fluent API
+- ✓ Riwaya-specific methods (e.g., Qalun's Thumun al-Hizb)
+
+**Legacy Functional API**
+
+The original functional API is still available for backward compatibility:
+
 In Node.js see example [here](/examples/hello.cjs):
 
 ```js
