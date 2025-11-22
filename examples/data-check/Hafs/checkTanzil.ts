@@ -4,9 +4,8 @@
  */
 
 import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
-import { meta, quranMeta } from "../../../src"
+import { meta, quran } from "../../../src/hafs"
 import { SurahInfo, Juz, Surah } from "../../../src/types"
-const { findAyahIdBySurah, findJuz, findRubAlHizb } = quranMeta({ riwaya: "Hafs" })
 
 import tanzilData from "./../data/tanzil-data.js"
 
@@ -31,43 +30,43 @@ export function checkTanzil() {
     const ayahId = JuzList[juzNo]
     const [sura, ayah] = tanzilData.Juz[juzNo]
 
-    if (juzNo !== findJuz(sura, ayah)) console.warn("Error: Tanzil juz: ", ayahId, sura, ayah)
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil juz: ", ayahId, sura, ayah)
+    if (juzNo !== quran.findJuz(sura, ayah)) console.warn("Error: Tanzil juz: ", ayahId, sura, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil juz: ", ayahId, sura, ayah)
   }
 
   for (let rubHizb: Juz = 1; rubHizb <= meta.numRubAlHizbs; rubHizb++) {
     const ayahId = HizbQuarterList[rubHizb]
     const [sura, ayah] = tanzilData.HizbQaurter[rubHizb]
 
-    if (rubHizb !== findRubAlHizb(sura, ayah)) console.warn("Error: Tanzil rubAlHizb: ", ayahId, sura, ayah)
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil findRubAlHizb: ", ayahId, sura, ayah)
+    if (rubHizb !== quran.findRubAlHizb(sura, ayah)) console.warn("Error: Tanzil rubAlHizb: ", ayahId, sura, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil findRubAlHizb: ", ayahId, sura, ayah)
   }
 
   for (let manzil = 1; manzil <= meta.numManzils; manzil++) {
     const ayahId = ManzilList[manzil]
     const [sura, ayah] = tanzilData.Manzil[manzil]
 
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil manzil: ", ayahId, sura, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil manzil: ", ayahId, sura, ayah)
   }
 
   for (let rukuNo = 1; rukuNo <= meta.numRukus; rukuNo++) {
     const ayahId = RukuList[rukuNo]
     const [sura, ayah] = tanzilData.Ruku[rukuNo]
 
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil ruku ", ayahId, sura, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil ruku ", ayahId, sura, ayah)
   }
 
   for (let page = 1; page <= meta.numPages; page++) {
     const ayahId = PageList[page]
     const [sura, ayah] = tanzilData.Page[page]
 
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil page: ", ayahId, sura, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil page: ", ayahId, sura, ayah)
   }
 
   for (let sajda = 0; sajda < meta.numSajdas; sajda++) {
     const ayahId = SajdaList[sajda]
     const [sura, ayah] = tanzilData.Sajda[sajda + 1]
 
-    if (ayahId !== findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil sajda: ", ayahId, sura, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil sajda: ", ayahId, sura, ayah)
   }
 }

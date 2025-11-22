@@ -4,9 +4,8 @@
  */
 
 import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
-import { quranMeta, meta } from "../../../src"
+import { meta, quran } from "../../../src/hafs"
 import { AyahNo, SurahInfo, Juz, Surah } from "../../../src/types"
-const { findAyahIdBySurah, findJuz, findRubAlHizb } = quranMeta({ riwaya: "Hafs" })
 
 import quranCloud from "./../data/qcloud-meta.json"
 
@@ -36,43 +35,43 @@ export function checkQuranCloud() {
     const ayahId = JuzList[juzNo]
     const { surah, ayah } = quranCloud.data.juzs.references[juzNo - 1] as { surah: Surah, ayah: AyahNo }
 
-    if (juzNo !== findJuz(surah, ayah)) console.warn("Error QuranCloud juz: ", ayahId, surah, ayah)
-    if (ayahId !== findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud juz: ", ayahId, surah, ayah)
+    if (juzNo !== quran.findJuz(surah, ayah)) console.warn("Error QuranCloud juz: ", ayahId, surah, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud juz: ", ayahId, surah, ayah)
   }
 
   for (let rubHizb: Juz = 1; rubHizb <= meta.numRubAlHizbs; rubHizb++) {
     const ayahId = HizbQuarterList[rubHizb]
     const { surah, ayah } = quranCloud.data.hizbQuarters.references[rubHizb - 1] as { surah: Surah, ayah: AyahNo }
 
-    if (rubHizb !== findRubAlHizb(surah, ayah)) console.warn("Error QuranCloud rubAlHizb: ", ayahId, surah, ayah)
-    if (ayahId !== findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud findRubAlHizb: ", ayahId, surah, ayah)
+    if (rubHizb !== quran.findRubAlHizb(surah, ayah)) console.warn("Error QuranCloud rubAlHizb: ", ayahId, surah, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud findRubAlHizb: ", ayahId, surah, ayah)
   }
 
   for (let manzil = 1; manzil <= meta.numManzils; manzil++) {
     const ayahId = ManzilList[manzil]
     const { surah, ayah } = quranCloud.data.manzils.references[manzil - 1] as { surah: Surah, ayah: AyahNo }
 
-    if (ayahId !== findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud manzil: ", ayahId, surah, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud manzil: ", ayahId, surah, ayah)
   }
 
   for (let rukuNo = 1; rukuNo <= meta.numRukus; rukuNo++) {
     const ayahId = RukuList[rukuNo]
     const { surah, ayah } = quranCloud.data.rukus.references[rukuNo - 1] as { surah: Surah, ayah: AyahNo }
 
-    if (ayahId !== findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud ruku ", ayahId, surah, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud ruku ", ayahId, surah, ayah)
   }
 
   for (let page = 1; page <= meta.numPages; page++) {
     const ayahId = PageList[page]
     const { surah, ayah } = quranCloud.data.pages.references[page - 1] as { surah: Surah, ayah: AyahNo }
 
-    if (ayahId !== findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud page: ", ayahId, surah, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud page: ", ayahId, surah, ayah)
   }
 
   for (let sajda = 0; sajda < meta.numSajdas; sajda++) {
     const ayahId = SajdaList[sajda]
     const { surah, ayah } = quranCloud.data.sajdas.references[sajda] as { surah: Surah, ayah: AyahNo }
 
-    if (ayahId !== findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud sajda: ", ayahId, surah, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(surah, ayah)) console.warn("Error QuranCloud sajda: ", ayahId, surah, ayah)
   }
 }

@@ -3,9 +3,8 @@
  *  https://qurancomplex.gov.sa/en/techquran/dev/
  */
 
-import { meta, quranMeta } from "../../../src"
+import { meta, quran } from "../../../src/hafs"
 import { AyahId } from "../../../src/types"
-const { findPagebyAyahId, getAyahMeta, getRubAlHizbMetaByAyahId, getSurahMeta } = quranMeta({ riwaya: "Hafs" })
 
 import hafsData from "./../data/hafsData_v2-0.json"
 
@@ -16,10 +15,10 @@ export function checkKFQCHafs() {
 
   // Ayah Checks
   for (let ayahId: AyahId = 1; ayahId <= meta.numAyahs; ayahId++) {
-    const ayahMeta = getAyahMeta(ayahId, "Hafs")
+    const ayahMeta = quran.getAyahMeta(ayahId)
     const hfMeta = hafsData[ayahId - 1]
-    const _page = findPagebyAyahId(ayahId)
-    const rub = getRubAlHizbMetaByAyahId(ayahId)
+    const _page = quran.findPagebyAyahId(ayahId)
+    const rub = quran.getRubAlHizbMetaByAyahId(ayahId)
 
     // Commented  as KFQC  data is using different page numbering which Quran Meta does not support
     // if (page !== hfMeta.page) console.log("Error page: ", ayahMeta, hfMeta)
@@ -30,6 +29,6 @@ export function checkKFQCHafs() {
     if (ayahMeta.isSajdahAyah !== hfMeta.aya_text.includes("۩")) console.warn(`Error: sajdah of Ayah ${ayahId} are not matching: `, ayahMeta, hfMeta)
     // if (ayahMeta.isStartOfQuarter !== hfMeta.aya_text.includes("۞")) console.warn(`Error: Juz of Ayah ${ayahId} are not matching: `, ayahMeta, hfMeta)
     if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
-    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== getSurahMeta(ayahMeta.surah).name) console.warn("Error: name of Surah are not matching: ", getSurahMeta(ayahMeta.surah).name, hfMeta)
+    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== quran.getSurahMeta(ayahMeta.surah).name) console.warn("Error: name of Surah are not matching: ", quran.getSurahMeta(ayahMeta.surah).name, hfMeta)
   }
 }

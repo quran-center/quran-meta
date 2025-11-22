@@ -1,6 +1,5 @@
-import { quranMeta, meta } from "../../../src"
+import { getSurahMeta, meta, quran } from "../../../src/hafs"
 import { AyahId } from "../../../src/types"
-const { findPagebyAyahId, getAyahMeta, getSurahMeta } = quranMeta({ riwaya: "Hafs" })
 
 import hafsSmartData from "./../data/hafs_smart_v8.json"
 
@@ -12,9 +11,9 @@ export function checkKFQCSmart() {
   const x = ""
   // Ayah Checks
   for (let ayahId: AyahId = 1; ayahId <= meta.numAyahs; ayahId++) {
-    const ayahMeta = getAyahMeta(ayahId, "Hafs")
+    const ayahMeta = quran.getAyahMeta(ayahId)
     const hfMeta = hafsSmartData[ayahId - 1]
-    const _page = findPagebyAyahId(ayahId)
+    const _page = quran.findPagebyAyahId(ayahId)
     // const rub = getRubAlHizbMetaByAyahId(ayahId)
 
     // Commented  as KFQC Smart data is using different page numbering which Quran Meta does not support
@@ -25,7 +24,7 @@ export function checkKFQCSmart() {
     if (ayahMeta.surah !== hfMeta.sura_no) console.warn("Error: surah of Ayah are not matching: ", ayahMeta, hfMeta)
     if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
     if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
-    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== getSurahMeta(ayahMeta.surah).name) console.warn("Error: name of Surah are not matching: ", getSurahMeta(ayahMeta.surah).name, hfMeta)
+    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== quran.getSurahMeta(ayahMeta.surah).name) console.warn("Error: name of Surah are not matching: ", getSurahMeta(ayahMeta.surah).name, hfMeta)
   }
   console.log(x)
 }
