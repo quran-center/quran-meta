@@ -15,23 +15,12 @@
   "author": "Huseyn Guliyev",
   "jsdelivr": "./dist/index.js",
   "unpkg": "./dist/index.js",
-  "main": "./dist/index.js",
+  "main": "./dist/warsh.js",
   "iife": "./dist/index.iife.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./dist/warsh.js",
+  "types": "./dist/warsh.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./hafs": {
-      "types": "./dist/hafs.d.ts",
-      "import": "./dist/hafs.js"
-    },
-    "./qalun": {
-      "types": "./dist/qalun.d.ts",
-      "import": "./dist/qalun.js"
-    },
+    ".": "./dist/warsh.js",
     "./package.json": "./package.json"
   },
   "repository": "quran-center/quran-meta",

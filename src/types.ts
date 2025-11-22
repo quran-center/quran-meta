@@ -2,6 +2,7 @@ import { LessThan, FixedArray } from "./ts-utils"
 import type { RiwayaName } from "./lists/types"
 import { HafsMeta } from "./lists/HafsLists"
 import { QalunMeta } from "./lists/QalunLists"
+import { WarshMeta } from "./lists/WarshLists"
 
 /**
  * The maximum number of ayahs (verses) that can exist in any surah (chapter) of the Quran.
@@ -11,7 +12,7 @@ export const maxAyahsInSurah = 286
 
 /**
  * Default metadata for the Quran (uses Hafs riwaya as default).
- * 
+ *
  * @remarks
  * Hafs metadata includes:
  * - 6236 ayahs (verses)
@@ -24,7 +25,7 @@ export const maxAyahsInSurah = 286
  * - 15 sajdas (prostrations)
  * - 556 rukus
  * - 7 manzils
- * 
+ *
  * @example
  * ```typescript
  * import { meta } from 'quran-meta'
@@ -37,18 +38,18 @@ export const meta = HafsMeta
 /**
  * Riwaya-specific metadata for all available riwayas.
  * Use this to access metadata for specific recitation traditions.
- * 
+ *
  * @remarks
  * Available riwayas:
  * - **Hafs**: 6236 ayahs, 15 sajdas, 0 ThumunAlHizbs (standard)
  * - **Qalun**: 6214 ayahs, 12 sajdas, 480 ThumunAlHizbs
- * 
+ *
  * @example
  * ```typescript
  * import { riwayaMeta } from 'quran-meta'
  * const hafsMeta = riwayaMeta.Hafs
  * const qalunMeta = riwayaMeta.Qalun
- * 
+ *
  * console.log(hafsMeta.numAyahs)  // 6236
  * console.log(qalunMeta.numAyahs)  // 6214
  * console.log(qalunMeta.numThumunAlHizbs)  // 480 (only in Qalun)
@@ -56,24 +57,25 @@ export const meta = HafsMeta
  */
 export const riwayaMeta: Record<RiwayaName, QuranMeta> = {
   Hafs: HafsMeta,
-  Qalun: QalunMeta
+  Qalun: QalunMeta,
+  Warsh: WarshMeta
 }
 
 /**
  * Represents the complete metadata structure for Quranic information.
  * Contains counts for all structural divisions of the Quran.
- * 
+ *
  * @remarks
  * Different riwayas may have different values for these properties.
  * Most notably, Qalun has 6214 ayahs while Hafs has 6236 ayahs.
- * 
+ *
  * @example
  * ```typescript
  * import { meta, riwayaMeta } from 'quran-meta'
- * 
+ *
  * // Hafs metadata (default)
  * console.log(meta.numAyahs)  // 6236
- * 
+ *
  * // Qalun metadata
  * console.log(riwayaMeta.Qalun.numAyahs)  // 6214
  * ```
@@ -132,7 +134,7 @@ export type AyahNo = NumericRange<1, typeof maxAyahsInSurah>
  * Represents a valid thumun al-Hizb (Eighth of a Hizb) identifier.
  * The value must be a number between 1 and 480 (maximum across all riwayas).
  * Uses 1-based indexing where 1 is the first thumun al-hizb.
- * 
+ *
  * @remarks
  * - Hafs: 0 ThumunAlHizbs (not supported)
  * - Qalun: 480 ThumunAlHizbs

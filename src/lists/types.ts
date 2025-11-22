@@ -11,16 +11,17 @@ type AllLists = {
   SajdaList: AyahId[]
   SurahList: FixedArray<SurahInfo, 116>
 }
-type RiwayasNames = ["Hafs", "Qalun"]
+type RiwayasNames = ["Hafs", "Qalun", "Warsh"]
 export type RiwayaName = RiwayasNames[number]
 export type AllListsNames = keyof AllLists
 
 type MissingListsPerRiwaya = {
-  Hafs: "HizbEighthList"
+  Hafs: ["HizbEighthList"]
   Qalun: never
+  Warsh: ["HizbEighthList", "RukuList"]
 }
 export type Riwayas = {
-  [k in RiwayaName]: Omit<AllLists, MissingListsPerRiwaya[k]>
+  [k in RiwayaName]: Omit<AllLists, MissingListsPerRiwaya[k][number]>
 }
 
 /* // Get all list keys available in a specific riwaya

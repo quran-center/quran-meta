@@ -2,6 +2,9 @@
  * Example demonstrating Qalun-specific entry point
  *
  * Shows how to use Qalun riwaya with ThumunAlHizb support
+ *
+ *
+ * Run with: pnpx jiti qalun-entry-example.ts
  */
 
 // Import from Qalun-specific entry (only Qalun data bundled)

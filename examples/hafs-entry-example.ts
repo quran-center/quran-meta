@@ -3,6 +3,8 @@
  *
  * This shows how to use the tree-shakeable imports that only bundle
  * the data for the riwaya you need.
+ *
+ * Run with: pnpx jiti hafs-entry-example.ts
  */
 
 // Option 1: Import from Hafs-specific entry (only Hafs data bundled)

@@ -1,12 +1,12 @@
 import type { Riwayas } from "./types"
 import { HafsLists } from "./HafsLists"
 import { QalunLists } from "./QalunLists"
-
-// todo: as the lists are going to be large, consider dynamic import here
+import { WarshLists } from "./WarshLists"
 
 const riwayahs: Riwayas = {
   Hafs: HafsLists,
-  Qalun: QalunLists
+  Qalun: QalunLists,
+  Warsh: WarshLists
 } as const
 
 /**

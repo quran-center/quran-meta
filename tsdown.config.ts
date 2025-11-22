@@ -19,6 +19,12 @@ export default defineConfig([
     name: "qalun",
     exports: true
   },
+  {
+    entry: "src/warsh.ts",
+    platform: "neutral",
+    name: "warsh",
+    exports: true
+  },
   // {
   //   entry: "src/i18n/index.ts",
   //   platform: "neutral",

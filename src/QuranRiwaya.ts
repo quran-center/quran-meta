@@ -123,6 +123,13 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return new QuranRiwaya("Qalun")
   }
 
+  /**
+   * Create a QuranRiwaya instance with Warsh riwaya
+   */
+  static warsh(): QuranRiwaya<"Warsh"> {
+    return new QuranRiwaya("Warsh")
+  }
+
   // ==================== Surah Methods ====================
 
   /**
