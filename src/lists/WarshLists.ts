@@ -1,4 +1,4 @@
-import type { AyahId, SurahInfo } from "../types"
+import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
 
 // where data was not available, Qaloun data was used (ruku, hizbQuarter, sajda, manzil, hizbEighth,hizbQuarter)
@@ -347,7 +347,8 @@ export const RukuList: AyahId[] = [0, 1, 8, 14, 27, 36, 46, 53, 66, 68, 78, 90, 
 /**
  * Warsh riwaya metadata
  */
-export const WarshMeta = {
+export const WarshMeta: QuranMeta = {
+  riwayaName: "Warsh",
   numAyahs: 6214,
   numSurahs: 114,
   numPages: 604,

@@ -1,4 +1,4 @@
-import type { AyahId, SurahInfo } from "../types"
+import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
 
 // ------------------ Hizb Eighth (thumun-ul-Hizb) Data ---------------------
@@ -267,7 +267,8 @@ export const SurahList: FixedArray<SurahInfo, 116> = [
 /**
  * Qalun riwaya metadata
  */
-export const QalunMeta = {
+export const QalunMeta: QuranMeta = {
+  riwayaName: "Qalun",
   numAyahs: 6214, // Qalun has 22 fewer ayahs than Hafs
   numSurahs: 114,
   numPages: 604,

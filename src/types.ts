@@ -81,6 +81,8 @@ export const riwayaMeta: Record<RiwayaName, QuranMeta> = {
  * ```
  */
 export type QuranMeta = {
+  /** Name of the riwaya (recitation tradition) */
+  riwayaName: RiwayaName
   /** Total number of ayahs (verses) in this riwaya */
   numAyahs: number
   /** Total number of surahs (chapters) - always 114 */
