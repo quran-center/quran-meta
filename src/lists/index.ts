@@ -37,7 +37,7 @@ export const getList = <
   listName: L,
   riwaya?: R
 ): Riwayas[R][L] => {
-  const actualRiwaya = (riwaya || "Hafs") 
+  const actualRiwaya = (riwaya || "Hafs")
   const lists = getListsOfRiwaya(actualRiwaya)
 
   if (listName in lists) {
