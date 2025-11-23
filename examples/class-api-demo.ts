@@ -9,7 +9,7 @@ console.log("=== QuranRiwaya Class-Based API Demo ===\n")
 
 // Create Hafs instance using convenience factory
 
-console.log("Created Hafs instance:", hafs.getRiwayaName())
+console.log("Created Hafs instance:", hafs.riwayaName)
 
 // Get surah metadata
 const surahMeta = hafs.getSurahMeta(2)
@@ -50,7 +50,7 @@ console.log("Previous ayah before [2, 1]:", prevAyah)
 // Create Qalun instance
 const qalun = createQalun()
 console.log("\n\n=== Qalun Riwaya ===")
-console.log("Created Qalun instance:", qalun.getRiwayaName())
+console.log("Created Qalun instance:", qalun.riwayaName)
 
 // Qalun-specific: Thumun al-Hizb (eighth of hizb)
 try {

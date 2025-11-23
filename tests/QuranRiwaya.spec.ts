@@ -6,12 +6,12 @@ describe("QuranRiwaya", () => {
   describe("Factory methods", () => {
     it("should create Hafs instance with create() factory", () => {
       const hafs = QuranRiwaya.create(HafsLists)
-      expect(hafs.getRiwayaName()).toBe("Hafs")
+      expect(hafs.riwayaName).toBe("Hafs")
     })
 
     it("should create Qalun instance with create() factory", () => {
       const qalun = QuranRiwaya.create(QalunLists)
-      expect(qalun.getRiwayaName()).toBe("Qalun")
+      expect(qalun.riwayaName).toBe("Qalun")
     })
   })
 
@@ -63,20 +63,20 @@ describe("QuranRiwaya", () => {
   describe("Utility methods", () => {
     it("should get riwaya name", () => {
       const hafs = QuranRiwaya.create(HafsLists)
-      expect(hafs.getRiwayaName()).toBe("Hafs")
+      expect(hafs.riwayaName).toBe("Hafs")
 
       const qalun = QuranRiwaya.create(QalunLists)
-      expect(qalun.getRiwayaName()).toBe("Qalun")
+      expect(qalun.riwayaName).toBe("Qalun")
     })
 
     it("should get metadata", () => {
       const hafs = QuranRiwaya.create(HafsLists)
-      const meta = hafs.getMeta()
+      const meta = hafs.meta
       expect(meta.numAyahs).toBe(6236)
       expect(meta.numSurahs).toBe(114)
 
       const qalun = QuranRiwaya.create(QalunLists)
-      const qalunMeta = qalun.getMeta()
+      const qalunMeta = qalun.meta  
       expect(qalunMeta.numAyahs).toBe(6214)
     })
   })
