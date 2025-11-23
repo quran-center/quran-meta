@@ -38,7 +38,7 @@ import { getThumunAlHizbByAyahId } from "./getThumunAlHizbByAyahId"
 import { getThumunAlHizbMeta } from "./getThumunAlHizbMeta"
 import { prevAyah } from "./prevAyah"
 import { nextAyah } from "./nextAyah"
-import type { PartType } from "./generatePartBlocks";
+import type { PartType } from "./generatePartBlocks"
 import { isAyahJuzFirst } from "./isAyahJuzFirst"
 import { isAyahPageFirst } from "./isAyahPageFirst"
 import { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"
@@ -110,10 +110,9 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return getSurahMeta(surahNum, this.#data)
   }
 
-    ayahStringSplitter(str: string, isStrict = true): SurahAyahSegment {
+  ayahStringSplitter(str: string, isStrict = true): SurahAyahSegment {
     return ayahStringSplitter(str, isStrict, this.#data)
   }
-
 
   /**
      * Gets the surah info array [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan]
@@ -148,10 +147,9 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
      */
   findAyahIdBySurah(surah: Surah, ayah: AyahNo): AyahId {
     return findAyahIdBySurah(surah, ayah, this.#data)
+  }
 
-  }  
-  
-  generatePartBlockss<P extends PartType>(  type: P  ) {
+  generatePartBlockss<P extends PartType>(type: P) {
     return generatePartBlocks(type, this.#data)
   }
 
@@ -298,8 +296,8 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
      */
   getRubAlHizbByAyahId(ayahId: AyahId): RubAlHizb {
     return getRubAlHizbByAyahId(ayahId, this.#data)
-  } 
-  
+  }
+
   /**
      * Gets RubAlHizb data (juz, hizb, etc.) for a given ayah ID
      */
@@ -343,16 +341,16 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   getThumunAlHizbMeta(eighthIndex: ThumunAlHizbId): ThumunAlHizbMeta | null {
     return getThumunAlHizbMeta(eighthIndex, this.#data)
   }
-  
+
   getThumunAlHizbByAyahId(ayahId: AyahId): ThumunAlHizb | null {
     return getThumunAlHizbByAyahId(ayahId, this.#data)
   }
-  
+
   getThumunAlHizbMetaByAyahId(ayahId: AyahId): ThumunAlHizb | null {
     return getThumunAlHizbMetaByAyahId(ayahId, this.#data)
   }
 
-    getThumunAlHizb(eighthIndex: ThumunAlHizbId): ThumunAlHizb | null {
+  getThumunAlHizb(eighthIndex: ThumunAlHizbId): ThumunAlHizb | null {
     return getThumunAlHizb(eighthIndex)
   }
   // ==================== Ayah Metadata ====================

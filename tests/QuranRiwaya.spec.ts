@@ -76,7 +76,7 @@ describe("QuranRiwaya", () => {
       expect(meta.numSurahs).toBe(114)
 
       const qalun = QuranRiwaya.create(QalunLists)
-      const qalunMeta = qalun.meta  
+      const qalunMeta = qalun.meta
       expect(qalunMeta.numAyahs).toBe(6214)
     })
   })
