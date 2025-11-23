@@ -9,8 +9,6 @@ import { WarshLists } from "./lists/WarshLists"
 // ==================== New Class-Based API ====================
 import { QuranRiwaya } from "./QuranRiwaya"
 
-export { QuranRiwaya } from "./QuranRiwaya"
-
 /**
  * Create a QuranRiwaya instance with Hafs riwaya (default)
  */
@@ -31,6 +29,9 @@ export const createWarsh = () => QuranRiwaya.create(WarshLists)
  */
 export const quran = createHafs()
 
+export { QuranRiwaya } from "./QuranRiwaya"
+export { getList } from "./lists/getList"
+export { getListsOfRiwaya, getListOfRiwaya } from "./lists"
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
 export { findAyahIdBySurah } from "./findAyahIdBySurah"

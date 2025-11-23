@@ -1,9 +1,9 @@
 import { getAyahMetasForSurah, getAyahMeta } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 import type { Surah } from "../src"
-import { getList } from "../src/lists"
+import { getListOfRiwaya } from "../src/lists"
 
-const SurahList = getList("SurahList")
+const SurahList = getListOfRiwaya("SurahList")
 
 describe("getAyahMetasForSurah", () => {
   it("should return correct number of ayahs for Al-Fatiha (surah 1)", () => {

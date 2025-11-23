@@ -1,10 +1,11 @@
 import { generatePartBlocks } from "../src"
 import type { PartType } from "../src/generatePartBlocks"
 import { partNames } from "../src/generatePartBlocks"
+import { getListOfRiwaya } from "../src/lists"
 import { HafsLists } from "../src/lists/HafsLists"
 import { QalunLists } from "../src/lists/QalunLists"
 
-describe("getList", () => {
+describe("getListOfRiwaya", () => {
   it("should return an array", () => {
     partNames.filter(partName => partName !== "thumunAlHizb").forEach((part: PartType) => {
       expect(Array.isArray(generatePartBlocks(part, HafsLists))).toBe(true)
@@ -59,11 +60,11 @@ describe("getList", () => {
     expect(res).toEqual(res2)
   })
 
-  //   it("should return array in ascending order", () => {
-  //     const list = getList()
-  //     const sorted = [...list].sort((a, b) => a - b)
-  //     expect(list).toEqual(sorted)
-  //   })
+  // it("should return array in ascending order", () => {
+  //   const list = getListOfRiwaya()
+  //   const sorted = [...list].sort((a, b) => a - b)
+  //   expect(list).toEqual(sorted)
+  // })
 
   //   it("should return same array on multiple calls", () => {
   //     const firstCall = getList()

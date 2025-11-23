@@ -30,7 +30,7 @@ export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R]
   }
 }
 
-export const getList = <
+export const getListOfRiwaya = <
   R extends keyof Riwayas,
   L extends keyof Riwayas[R]
 >(

@@ -15,6 +15,7 @@
  */
 
 import { QalunLists as riwayaLists } from "./lists/QalunLists"
+import { getList as _getList } from "./lists/getList"
 import { ayahStringSplitter as _ayahStringSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah as _findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuz as _findJuz } from "./findJuz"
@@ -75,6 +76,8 @@ export type { PartType } from "./generatePartBlocks"
  * Qalun metadata
  */
 export const meta = riwayaLists.meta
+
+export const getList = (listName: keyof Omit<typeof riwayaLists, "meta">) => _getList(listName, riwayaLists)
 
 /**
  * Qalun Lists (SurahList, JuzList, etc.)
