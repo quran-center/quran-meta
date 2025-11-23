@@ -1,7 +1,5 @@
-import type { AyahId } from "../src"
 import { checkValidAyahId, isValidAyahId } from "../src"
 import { meta } from "../src/hafs"
-import { HafsMeta } from "../src/lists"
 
 describe("checkValidAyahId", () => {
   it("should throw RangeError for ayah id less than 1", () => {

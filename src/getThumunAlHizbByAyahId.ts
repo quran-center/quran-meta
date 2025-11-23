@@ -11,7 +11,7 @@ import { checkValidAyahId } from "./validation"
  * @param data - The riwaya. Defaults to "Qalun" if not provided.
  * @returns An object containing the Juz, Hizb, Hizb ID and thuumun-el-Hizb id for the given Ayah ID.
  */
-export function getThumunAlHizbByAyahId(ayahId: AyahId, data: RiwayahsWith<"HizbEighthList"> = "Qalun"): ThumunAlHizb {
+export function getThumunAlHizbByAyahId(ayahId: AyahId, data: RiwayahsWith<"HizbEighthList">): ThumunAlHizb {
   checkValidAyahId(ayahId, data.meta)
 
   const eighthIndex = findThumunAlHizbByAyahId(ayahId, data)

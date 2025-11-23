@@ -1,4 +1,4 @@
-import type { RiwayaData, RiwayahsWith } from "./lists/types"
+import type { RiwayahsWith } from "./lists/types"
 import type { AyahId, ThumunAlHizbId } from "./types"
 import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
@@ -16,7 +16,9 @@ export function findThumunAlHizbByAyahId(
 ): ThumunAlHizbId {
   checkValidAyahId(ayahId, data.meta)
   const HizbEighthList = data.HizbEighthList
-
+  if (!HizbEighthList) {
+    throw new Error(`Riwaya ${data.meta.riwayaName} does not have Hizb Eighth List data.`)
+  }
   // return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId
   const jj = binarySearch(HizbEighthList, ayahId)
   const thumun = jj < 0 ? -jj - 2 : jj

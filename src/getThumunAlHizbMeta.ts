@@ -1,5 +1,5 @@
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import type { RiwayaData } from "./lists/types"
+import type { RiwayahsWith } from "./lists/types"
 import { getThumunAlHizb } from "./getThumunAlHizb"
 import type { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types"
 
@@ -12,11 +12,13 @@ import type { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types"
  */
 export function getThumunAlHizbMeta(
   eighthIndex: ThumunAlHizbId,
-  data: RiwayaData
+  data: RiwayahsWith<"HizbEighthList">
 ): ThumunAlHizbMeta {
   const res = getThumunAlHizb(eighthIndex)
   const HizbEighthList = data.HizbEighthList
-
+  if (!HizbEighthList) {
+    throw new Error(`Riwaya ${data.meta.riwayaName} does not have Hizb Eighth List data.`)
+  }
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
     HizbEighthList[eighthIndex],
     HizbEighthList[eighthIndex + 1]

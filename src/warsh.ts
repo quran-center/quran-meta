@@ -50,7 +50,6 @@ import { WarshMeta, WarshLists } from "./lists/WarshLists"
 
 // Re-export all types
 export type * from "./types"
-export type { QuranPackageConfig } from "./initPackage"
 export type { PartType } from "./generatePartBlocks"
 
 // Re-export utilities

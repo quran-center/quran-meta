@@ -1,6 +1,5 @@
-import type { RiwayaName, Riwayas, RiwayaData } from "./lists/types"
-import type { AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzMeta, Manzil, ManzilMeta, Page, PageMeta, RangeMode, RubAlHizb, RubAlHizbId, RubAlHizbMeta, Ruku, RukuMeta, Surah, SurahAyah, SurahJuzMeta, SurahMeta, QuranMeta, SurahInfo, SurahListType, ThumunAlHizbId, ThumunAlHizbMeta } from "./types"
-import { binarySearch } from "./utils"
+import type { RiwayaName, Riwayas } from "./lists/types"
+import type { AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzMeta, Manzil, ManzilMeta, Page, PageMeta, RangeMode, RubAlHizb, RubAlHizbId, RubAlHizbMeta, Ruku, RukuMeta, Surah, SurahAyah, SurahJuzMeta, SurahMeta, QuranMeta, SurahInfo, ThumunAlHizbId, ThumunAlHizbMeta } from "./types"
 import { getSurahInfo } from "./getSurahInfo"
 import { getSurahMeta } from "./getSurahMeta"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
@@ -395,7 +394,7 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   /**
      * Gets the metadata for this riwaya
      */
-  getMeta(): QuranMeta {
+  getmeta(): QuranMeta {
     return this.meta
   }
 

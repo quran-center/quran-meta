@@ -50,7 +50,6 @@ import { HafsMeta, HafsLists } from "./lists/HafsLists"
 
 // Re-export all types
 export type * from "./types"
-export type { QuranPackageConfig } from "./initPackage"
 export type { PartType } from "./generatePartBlocks"
 
 // Re-export utilities

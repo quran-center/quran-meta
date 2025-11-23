@@ -72,8 +72,6 @@ export { nextAyah } from "./nextAyah"
 export { prevAyah } from "./prevAyah"
 export { isValidManzil, isValidRuku, isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidSurah, isValidSurahAyah } from "./typeGuards"
 export { checkValidManzil, checkValidRuku, checkValidAyahId, checkValidJuz, checkValidPage, checkValidSurah, checkValidSurahAyah } from "./validation"
-export { quranMeta } from "./initPackage"
-export type { QuranPackageConfig } from "./initPackage"
 
 // ------------------ Sura i18 Data ---------------------
 
