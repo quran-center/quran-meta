@@ -1,8 +1,10 @@
-import { JuzMeta, getJuzMeta } from "../src"
+import type { JuzMeta } from "../src"
+import { getJuzMeta } from "../src"
+import { HafsLists } from "../src/lists/HafsLists"
 
 describe("getJuzMeta", () => {
   it("should return correct metadata for a valid Juz number", () => {
-    const result: JuzMeta = getJuzMeta(1)
+    const result: JuzMeta = getJuzMeta(1, HafsLists)
 
     expect(result).toEqual({
       juzNum: 1,
@@ -14,7 +16,7 @@ describe("getJuzMeta", () => {
   })
 
   it("should throw RangeError for an invalid Juz number", () => {
-    expect(() => getJuzMeta(0)).toThrow(RangeError)
-    expect(() => getJuzMeta(31)).toThrow(RangeError)
+    expect(() => getJuzMeta(0, HafsLists)).toThrow(RangeError)
+    expect(() => getJuzMeta(31, HafsLists)).toThrow(RangeError)
   })
 })

@@ -1,6 +1,6 @@
 import { getSurahNamesAsync } from "../../src/i18n/getSurahNamesAsync"
 import type { Lang } from "../../src"
-import { meta } from "../../src"
+import { meta } from "../../src/hafs"
 
 describe("getSurahNamesAsync", () => {
   const langs: Lang[] = ["en", "az", "ru", "tr"]

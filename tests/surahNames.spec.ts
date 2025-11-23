@@ -1,5 +1,4 @@
-import {
-  meta } from "../src"
+import { meta } from "../src/hafs"
 import { surahNamesAz } from "../src/i18n/surah.az"
 import { surahNamesEn } from "../src/i18n/surah.en"
 import { surahNamesRu } from "../src/i18n/surah.ru"

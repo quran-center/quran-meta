@@ -2,6 +2,132 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v6.0.0
+
+
+### 🎉 Major New Features
+
+**Multi-Riwaya Support**
+- Added support for **3 Quran recitation styles (riwayas)**: Hafs, Qalun, and Warsh
+- Tree-shakeable entry points for optimal bundle sizes:
+  - `quran-meta` - Main entry (all riwayas, ~115 KB)
+  - `quran-meta/hafs` - Hafs only (~77 KB)
+  - `quran-meta/qalun` - Qalun only (~81 KB)  
+  - `quran-meta/warsh` - Warsh only (~77 KB)
+- Each riwaya has different ayah counts and page/juz divisions
+
+**Closure-based Architecture**
+- Refactored from class-based to closure-based functional API for better tree-shaking
+- All methods pre-bound to their respective Lists for convenience
+- No binding issues - functions work correctly when destructured
+- Smaller bundle sizes and better optimization
+
+**New Data Structures**
+- Added `WarshLists` with complete Warsh riwaya metadata (6214 ayahs, 604 pages)
+- Added `QalunLists` with complete Qalun riwaya metadata (6214 ayahs, 603 pages)
+- All Lists now include `meta` property with riwaya-specific metadata
+- Added `AllLists` type for riwaya data structures
+
+### 🚀 Enhancements
+
+**API Changes**
+- All functional API functions now accept `lists: AllLists` parameter instead of `riwaya: string`
+- Riwaya-specific entry points export pre-configured functions (no need to pass Lists)
+- Added metadata exports: `HafsMeta`, `QalunMeta`, `WarshMeta`
+- Export all Lists individually: `SurahList`, `JuzList`, `PageList`, etc.
+- Export all meta properties individually: `numAyahs`, `numPages`, `numSurahs`, etc.
+
+**Type Safety Improvements**
+- Made `HizbEighthList` optional in `AllLists` type (only exists for Qalun/Warsh)
+- Better TypeScript inference for riwaya-specific methods
+- Consistent type imports using `import type` syntax
+
+**Bundle Optimization**
+- Eliminated cross-riwaya contamination (each bundle contains only its own data)
+- 87% bundle size reduction for riwaya-specific entries (from ~144 KB to ~77-81 KB)
+- Proper tree-shaking - unused riwayas are completely eliminated
+- No `this` binding overhead with closure pattern
+
+### 🩹 Fixes
+
+- Format export statement for quranMeta in index.ts ([11c92b8](https://github.com/quran-center/quran-meta/commit/11c92b8))
+- Update import path for SurahListType in i18n types.ts ([a9a99d9](https://github.com/quran-center/quran-meta/commit/a9a99d9))
+- Correct type Names and casings ([61a1d4d](https://github.com/quran-center/quran-meta/commit/61a1d4d))
+- Fixed `findJuzMetaBySurah` parameter ordering (ayah is now properly optional)
+- Fixed validation functions to properly pass Lists parameter
+- Fixed type guards to accept Lists parameter for riwaya-specific validation
+- Fixed `checkValidSurahAyah` to use correct Lists for validation
+- Removed deprecated `getList()` function calls from tests
+- Format export statement for quranMeta in index.ts ([11c92b8](https://github.com/quran-center/quran-meta/commit/11c92b8))
+- Update import path for SurahListType in i18n types.ts ([a9a99d9](https://github.com/quran-center/quran-meta/commit/a9a99d9))
+- Correct type Names and casings ([61a1d4d](https://github.com/quran-center/quran-meta/commit/61a1d4d))
+
+### 💅 Refactors
+
+- **BREAKING**: Refactored entire functional API to accept `lists` parameter
+- **BREAKING**: Removed QuranRiwaya class from riwaya-specific entry points
+- Converted QuranRiwaya from class to factory function pattern
+- Moved from class delegation to direct closure invocation
+- Simplified lists variable usage in getAyahMeta function ([7ba68c1](https://github.com/quran-center/quran-meta/commit/7ba68c1))
+- Updated all 40+ functional API functions to new signature pattern
+
+### 💅 Refactors
+
+- Simplify lists variable usage in getAyahMeta function ([7ba68c1](https://github.com/quran-center/quran-meta/commit/7ba68c1))
+
+### 🏡 Chore
+
+- Update pkg.json ([f76266b](https://github.com/quran-center/quran-meta/commit/f76266b))
+- Update dependencies ([d7db021](https://github.com/quran-center/quran-meta/commit/d7db021))
+- Update dependencies ([b23a5f3](https://github.com/quran-center/quran-meta/commit/b23a5f3))
+- Added ESLint rules: `@typescript-eslint/consistent-type-imports` and `import/no-duplicates`
+- Added oxlint rules for consistent type imports and merged imports
+- 100% test coverage maintained (347 tests passing)
+- Created generator scripts for future riwaya additions
+- Update pkg.json ([f76266b](https://github.com/quran-center/quran-meta/commit/f76266b))
+- Update dependencies ([d7db021](https://github.com/quran-center/quran-meta/commit/d7db021))
+- Update dependencies ([b23a5f3](https://github.com/quran-center/quran-meta/commit/b23a5f3))
+
+### 📚 Breaking changes
+
+To minimize breaking changes for existing users, riwaya-specific entry points now export pre-bound functions. What used to be imported from `quran-meta` can now be imported from `quran-meta/hafs`.
+```
+import { findJuz, getAyahMeta, meta } from 'quran-meta'
+***
+import { findJuz, getAyahMeta, meta } from 'quran-meta/hafs'
+```
+
+### 📚 Documentation
+
+**Usage Examples**
+
+```typescript
+// Tree-shakeable import (Hafs only - 77 KB)
+import { findJuz, getAyahMeta, meta } from 'quran-meta/hafs'
+console.log(meta.numAyahs) // 6236
+const juz = findJuz(2, 142)
+const ayahMeta = getAyahMeta(1)
+
+// Qalun specific (81 KB)
+import { meta, findPage } from 'quran-meta/qalun'
+console.log(meta.numAyahs) // 6214
+console.log(meta.numPages) // 603
+
+// Warsh specific (77 KB)
+import { meta, getPageMeta } from 'quran-meta/warsh'
+console.log(meta.numPages) // 604
+
+// All riwayas (full bundle - 115 KB)
+import { quran, QuranRiwaya } from 'quran-meta'
+const hafsQuran = QuranRiwaya.create("Hafs", HafsMeta, HafsLists)
+
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+- Abdou <2000abdallah2014@gmail.com>
+
+
 
 ## v5.1.1-0
 

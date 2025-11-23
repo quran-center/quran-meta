@@ -1,12 +1,13 @@
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import { ManzilList } from "./lists/manzilList"
-import { AyahId, ManzilMeta } from "./types"
+import type { RiwayaData } from "./lists/types"
+import type { AyahId, ManzilMeta } from "./types"
 import { checkValidManzil } from "./validation"
 
 /**
  * Retrieves metadata for a specific Manzil (section) of the Quran
  *
  * @param manzilNum - The number of the Manzil (1-7)
+ * @param data - The Lists object for the riwaya.
  * @returns The metadata for the specified Manzil containing:
  *  - manzilNum: The Manzil number
  *  - firstAyahId: ID of the first ayah in the Manzil
@@ -15,9 +16,12 @@ import { checkValidManzil } from "./validation"
  *  - last: Surah and ayah details of the last ayah
  * @throws Will throw an error if manzilNum is invalid
  */
-export function getManzilMeta(manzilNum: number): ManzilMeta {
-  checkValidManzil(manzilNum)
-
+export function getManzilMeta(
+  manzilNum: number,
+  data: RiwayaData
+): ManzilMeta {
+  checkValidManzil(manzilNum, data.meta)
+  const ManzilList = data.ManzilList
   const [firstAyahId, nextManzilAyahId]: [AyahId, AyahId] = [
     ManzilList[manzilNum],
     ManzilList[manzilNum + 1]
@@ -27,7 +31,7 @@ export function getManzilMeta(manzilNum: number): ManzilMeta {
     manzilNum,
     firstAyahId,
     lastAyahId,
-    first: findSurahAyahByAyahId(firstAyahId),
-    last: findSurahAyahByAyahId(lastAyahId)
+    first: findSurahAyahByAyahId(firstAyahId, data),
+    last: findSurahAyahByAyahId(lastAyahId, data)
   }
 }

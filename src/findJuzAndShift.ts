@@ -1,9 +1,9 @@
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuzByAyahId } from "./findJuzByAyahId"
 import { findSurahByAyahId } from "./findSurahByAyahId"
-import { JuzList } from "./lists/juzList"
-import { SurahList } from "./lists/surahList"
-import { AyahCountBetweenJuzSurah, AyahId, AyahNo, Juz, Surah } from "./types"
+
+import type { RiwayaData } from "./lists/types"
+import type { AyahCountBetweenJuzSurah, AyahId, AyahNo, Juz, Surah } from "./types"
 import { checkValidAyahId } from "./validation"
 
 /**
@@ -11,6 +11,7 @@ import { checkValidAyahId } from "./validation"
  *
  * @param surah - The surah (chapter) that contains the ayah.
  * @param ayah - The ayah (verse) number.
+ * @param lists - The Lists object for the riwaya.
  * @returns An object containing the following properties:
  *   - `juz`: The juz (section) that contains the ayah.
  *   - `leftAyahId`: The ayah ID of the first ayah in the juz.
@@ -18,20 +19,23 @@ import { checkValidAyahId } from "./validation"
  */
 export function findJuzAndShift(
   surah: Surah,
-  ayah: AyahNo
+  ayah: AyahNo,
+  lists: RiwayaData
 ): {
   juz: Juz
   leftAyahId: AyahId
   ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
 } {
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
-
-  const juz = findJuzByAyahId(ayahId)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, lists)
+  const JuzList = lists.JuzList
+  const SurahList = lists.SurahList
+  const juz = findJuzByAyahId(ayahId, lists)
   const juzLeftAyahId = JuzList[juz]
   const [surahStartAyahId] = SurahList[surah]
   return {
     juz,
-    ayahsBetweenJuzSurah: (surahStartAyahId - juzLeftAyahId) as AyahCountBetweenJuzSurah,
+    ayahsBetweenJuzSurah: (surahStartAyahId
+      - juzLeftAyahId) as AyahCountBetweenJuzSurah,
     leftAyahId: juzLeftAyahId
   }
 }
@@ -40,7 +44,7 @@ export function findJuzAndShift(
  * Finds the Juz number and calculates the shift between Juz start and Surah start for a given Ayah ID
  *
  * @param ayahId - The unique identifier of an Ayah (verse) in the Quran
- *
+ * @param data - The Lists object for the riwaya.
  * @returns An object containing:
  * - juz: The Juz number where the Ayah is located
  * - leftAyahId: The starting Ayah ID of the Juz
@@ -49,21 +53,24 @@ export function findJuzAndShift(
  * @throws Error If the provided Ayah ID is invalid
  */
 export function findJuzAndShiftByAyahId(
-  ayahId: AyahId
+  ayahId: AyahId,
+  data: RiwayaData
 ): {
   juz: Juz
   leftAyahId: AyahId
   ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
 } {
-  checkValidAyahId(ayahId)
-
-  const juz = findJuzByAyahId(ayahId)
+  checkValidAyahId(ayahId, data.meta)
+  const JuzList = data.JuzList
+  const SurahList = data.SurahList
+  const juz = findJuzByAyahId(ayahId, data)
   const leftAyahId = JuzList[juz]
-  const surah = findSurahByAyahId(ayahId)
+  const surah = findSurahByAyahId(ayahId, data)
   const [surahStartAyahId] = SurahList[surah]
   return {
     juz,
-    ayahsBetweenJuzSurah: surahStartAyahId - leftAyahId as AyahCountBetweenJuzSurah,
+    ayahsBetweenJuzSurah: (surahStartAyahId
+      - leftAyahId) as AyahCountBetweenJuzSurah,
     leftAyahId
   }
 }

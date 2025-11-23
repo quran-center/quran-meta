@@ -1,9 +1,10 @@
 import { describe, it, expect } from "vitest"
+import { HafsLists } from "../src/lists/HafsLists"
 import { getManzilMeta } from "../src/getManzilMeta"
 
 describe("getManzilMeta", () => {
   it("should return correct metadata for Manzil 1", () => {
-    const result = getManzilMeta(1)
+    const result = getManzilMeta(1, HafsLists)
     expect(result).toEqual({
       manzilNum: 1,
       firstAyahId: 1,
@@ -14,7 +15,7 @@ describe("getManzilMeta", () => {
   })
 
   it("should return correct metadata for Manzil 4", () => {
-    const result = getManzilMeta(4)
+    const result = getManzilMeta(4, HafsLists)
     expect(result).toEqual({
       manzilNum: 4,
       firstAyahId: 2030,
@@ -25,7 +26,7 @@ describe("getManzilMeta", () => {
   })
 
   it("should return correct metadata for Manzil 8", () => {
-    const result = getManzilMeta(7)
+    const result = getManzilMeta(7, HafsLists)
     expect(result).toEqual({
       manzilNum: 7,
       firstAyahId: 4631,
@@ -36,10 +37,10 @@ describe("getManzilMeta", () => {
   })
 
   it("should throw error for invalid Manzil number 0", () => {
-    expect(() => getManzilMeta(0)).toThrow()
+    expect(() => getManzilMeta(0, HafsLists)).toThrow()
   })
 
   it("should throw error for invalid Manzil number 8", () => {
-    expect(() => getManzilMeta(8)).toThrow()
+    expect(() => getManzilMeta(8, HafsLists)).toThrow()
   })
 })

@@ -1,5 +1,5 @@
-import { ManzilList } from "./lists/manzilList"
-import { AyahId, Manzil } from "./types"
+import type { RiwayaData } from "./lists/types"
+import type { AyahId, Manzil } from "./types"
 import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
 
@@ -8,17 +8,18 @@ import { checkValidAyahId } from "./validation"
  * A Manzil is one of seven approximately equal divisions of the Quran.
  *
  * @param ayahId - The ID of the Ayah to find the Manzil for
+ * @param data - The Lists object for the riwaya.
  * @returns The Manzil number (1-7) containing the specified Ayah
  * @throws {@link Error} If the provided Ayah ID is invalid
  *
  * @example
  * ```typescript
- * const manzil = findManzilByAyahId(2345); // Returns the Manzil containing Ayah 2345
+ * const manzil = findManzilByAyahId(2345, HafsLists); // Returns the Manzil containing Ayah 2345
  * ```
  */
-export function findManzilByAyahId(ayahId: AyahId): Manzil {
-  checkValidAyahId(ayahId)
-
+export function findManzilByAyahId(ayahId: AyahId, data: RiwayaData): Manzil {
+  checkValidAyahId(ayahId, data.meta)
+  const ManzilList = data.ManzilList
   const jj = binarySearch(ManzilList, ayahId)
   const juz = jj < 0 ? -jj - 2 : jj
   return juz as Manzil

@@ -1,14 +1,23 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [
+    "eslint",
     "typescript",
-    "react"
+    "unicorn",
+    "oxc",
+    "import",
+    "jsdoc",   
+    "node",
+    "promise",
+    "vitest",
+    "regex",
   ],
   "categories": {
     "correctness": "off"
   },
   "env": {
-    "builtin": true
+    "builtin": true,
+    "browser": true
   },
   "rules": {
     "for-direction": "error",
@@ -84,6 +93,8 @@
     "@typescript-eslint/prefer-as-const": "error",
     "@typescript-eslint/prefer-namespace-keyword": "error",
     "@typescript-eslint/triple-slash-reference": "error",
+    "typescript/consistent-type-imports": "error",
+    "import/no-duplicates": "error",
     "react/jsx-curly-brace-presence": "off",
     "react/self-closing-comp": "off"
   },
@@ -92,14 +103,13 @@
     "**/coverage/",
     "**/dist/",
     "**/docs/",
-    "**/examples/",
     "**/lib_cjs/",
     "**/lib_es/"
   ],
   "overrides": [
     {
       "files": [
-        "src/*.{js,mjs,cjs,ts,mts,jsx,tsx}"
+        "src/**.{js,ts,mjs,cjs,ts,mts,jsx,tsx}"
       ],
       "env": {
         "browser": true,
@@ -110,28 +120,13 @@
     },
     {
       "files": [
-        "**/*.ts",
-        "**/*.tsx",
-        "**/*.mts",
-        "**/*.cts"
+        "examples/**.{js,ts,mjs,cjs,ts,mts,jsx,tsx}"
       ],
-      "rules": {
-        "no-class-assign": "off",
-        "no-const-assign": "off",
-        "no-dupe-class-members": "off",
-        "no-dupe-keys": "off",
-        "no-func-assign": "off",
-        "no-import-assign": "off",
-        "no-new-native-nonconstructor": "off",
-        "no-obj-calls": "off",
-        "no-redeclare": "off",
-        "no-setter-return": "off",
-        "no-this-before-super": "off",
-        "no-unsafe-negation": "off",
-        "no-var": "error",
-        "no-with": "off",
-        "prefer-rest-params": "error",
-        "prefer-spread": "error"
+      "env": {
+        "browser": true,
+        "commonjs": true,
+        "node": true,
+        "shared-node-browser": true
       }
     },
     {

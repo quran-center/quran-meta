@@ -1,4 +1,5 @@
-import { Lang, surahNames } from "."
+import type { Lang } from "."
+import { surahNames } from "."
 
 /**
  * Retrieves the list of Surah names in the specified language.

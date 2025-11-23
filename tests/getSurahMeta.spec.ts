@@ -1,8 +1,9 @@
 import { getSurahMeta } from "../src/getSurahMeta"
+import { HafsLists } from "../src/lists/HafsLists"
 
 describe("getSurahMeta", () => {
   it("returns correct metadata for Surah Al-Fatihah (1)", () => {
-    const meta = getSurahMeta(1)
+    const meta = getSurahMeta(1, HafsLists)
     expect(meta).toEqual({
       surahNum: 1,
       ayahCount: 7,
@@ -18,7 +19,7 @@ describe("getSurahMeta", () => {
   })
 
   it("returns correct metadata for Surah Al-Baqarah (2)", () => {
-    const meta = getSurahMeta(2)
+    const meta = getSurahMeta(2, HafsLists)
     expect(meta).toEqual({
       surahNum: 2,
       ayahCount: 286,

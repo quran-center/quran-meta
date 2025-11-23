@@ -1,11 +1,38 @@
 // Quran Meta
 
-export type { QuranMeta } from "./const"
-export type { SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
+export type { QuranMeta, SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
+
+import { HafsLists } from "./lists/HafsLists"
+import { QalunLists } from "./lists/QalunLists"
+import { WarshLists } from "./lists/WarshLists"
+
+// ==================== New Class-Based API ====================
+import { QuranRiwaya } from "./QuranRiwaya"
+
+export { QuranRiwaya } from "./QuranRiwaya"
+
+/**
+ * Create a QuranRiwaya instance with Hafs riwaya (default)
+ */
+export const createHafs = () => QuranRiwaya.create(HafsLists)
+
+/**
+ * Create a QuranRiwaya instance with Qalun riwaya
+ */
+export const createQalun = () => QuranRiwaya.create(QalunLists)
+
+/**
+ * Create a QuranRiwaya instance with Warsh riwaya
+ */
+export const createWarsh = () => QuranRiwaya.create(WarshLists)
+
+/**
+ * Pre-initialized QuranRiwaya instance for Hafs (for convenience)
+ */
+export const quran = createHafs()
 
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
-export { meta } from "./const"
 export { findAyahIdBySurah } from "./findAyahIdBySurah"
 export { findJuz } from "./findJuz"
 export { findJuzAndShift, findJuzAndShiftByAyahId } from "./findJuzAndShift"
@@ -26,7 +53,7 @@ export { getAyahCountInSurah } from "./getAyahCountInSurah"
 export { getAyahMeta } from "./getAyahMeta"
 export { getAyahMetasForSurah } from "./getAyahMetasForSurah"
 export { getJuzMeta } from "./getJuzMeta"
-export { getList, type PartType, partNames } from "./getList"
+export { generatePartBlocks, type PartType } from "./generatePartBlocks"
 export { getManzilMeta } from "./getManzilMeta"
 export { getPageMeta } from "./getPageMeta"
 export { getRukuMeta } from "./getRukuMeta"
@@ -39,13 +66,6 @@ export { isAyahJuzFirst } from "./isAyahJuzFirst"
 export { isAyahPageFirst } from "./isAyahPageFirst"
 export { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"
 export { isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
-export { HizbQuarterList } from "./lists/hizbQuarterList"
-export { JuzList } from "./lists/juzList"
-export { ManzilList } from "./lists/manzilList"
-export { PageList } from "./lists/pageList"
-export { RukuList } from "./lists/rukuList"
-export { SajdaList } from "./lists/sajdaList"
-export { SurahList } from "./lists/surahList"
 export { nextAyah } from "./nextAyah"
 export { prevAyah } from "./prevAyah"
 export { isValidManzil, isValidRuku, isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidSurah, isValidSurahAyah } from "./typeGuards"

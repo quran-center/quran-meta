@@ -3,7 +3,8 @@
  */
 // pnpx jiti sample.ts
 
-import { AyahNo, meta, Surah, SurahList } from "../src/index"
+import type { AyahNo, Surah } from "../src/index"
+import { meta, SurahList } from "../src/hafs"
 
 console.log(`There are ${meta.numSurahs} suras in the Holy Quran`)
 const res: string[] = []
