@@ -7,7 +7,7 @@ export default defineConfig([
     entry: `src/${entry}.ts`,
     platform: "neutral" as const,
     name,
-    exports: true
+    exports: false
   })),
   ...Object.entries(exports).map(([name, entry]) => ({
     entry: `src/${entry}.ts`,
@@ -28,7 +28,7 @@ export default defineConfig([
     entry: "src/index.ts",
     format: "iife",
     name: "iife",
-    exports: true,
+    exports: false,
     outputOptions: {
       name: "quranMeta"
     }

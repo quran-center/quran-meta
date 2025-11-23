@@ -19,7 +19,7 @@ export function getAyahMeta(ayahId: AyahId, data: RiwayaData): AyahMeta {
   const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = data
 
   const getThumunData = () => {
-    if (data.HizbEighthList) {
+    if ("HizbEighthList" in data && data.HizbEighthList) {
       const jj = binarySearch(data.HizbEighthList, ayahId)
       const thumunAlHizbId = (jj < 0 ? -jj - 2 : jj) as ThumunAlHizbId
       return { thumunAlHizbId }

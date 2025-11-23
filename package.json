@@ -17,10 +17,10 @@
   "unpkg": "./dist/index.js",
   "i18n": "./dist/i18n/index.js",
   "iife": "./dist/index.iife.js",
-  "module": "./dist/warsh.js",
-  "types": "./dist/warsh.d.ts",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/warsh.js",
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
   "repository": "quran-center/quran-meta",
@@ -75,5 +75,5 @@
     "vitest": "^4.0.12"
   },
   "packageManager": "pnpm@10.15.1",
-  "main": "./dist/warsh.js"
+  "main": "./dist/index.js"
 }
