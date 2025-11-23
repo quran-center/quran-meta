@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+## v6.0.0-alpha.2
+
+[compare changes](https://github.com/quran-center/quran-meta/compare/v5.1.1-0...v6.0.0-alpha.2)
+
+### 🩹 Fixes
+
+- Format export statement for quranMeta in index.ts ([11c92b8](https://github.com/quran-center/quran-meta/commit/11c92b8))
+- Update import path for SurahListType in i18n types.ts ([a9a99d9](https://github.com/quran-center/quran-meta/commit/a9a99d9))
+- Correct type Names and casings ([61a1d4d](https://github.com/quran-center/quran-meta/commit/61a1d4d))
+
+### 💅 Refactors
+
+- Simplify lists variable usage in getAyahMeta function ([7ba68c1](https://github.com/quran-center/quran-meta/commit/7ba68c1))
+
+### 🏡 Chore
+
+- Update pkg.json ([f76266b](https://github.com/quran-center/quran-meta/commit/f76266b))
+- Update dependencies ([d7db021](https://github.com/quran-center/quran-meta/commit/d7db021))
+- Update dependencies ([b23a5f3](https://github.com/quran-center/quran-meta/commit/b23a5f3))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+- Abdou <2000abdallah2014@gmail.com>
+
 ## v5.1.1-0
 
 [compare changes](https://git+https@github.com/quran-center/quran-meta/compare/v5.1.0...v5.1.1-0)
