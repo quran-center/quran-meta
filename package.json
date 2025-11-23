@@ -1,6 +1,6 @@
 {
   "name": "quran-meta",
-  "version": "6.0.0-alpha.2",
+  "version": "6.0.0",
   "description": "Library with meta data and functionality related to Holy Quran",
   "type": "module",
   "license": "MIT",
@@ -17,11 +17,29 @@
   "unpkg": "./dist/index.js",
   "i18n": "./dist/i18n/index.js",
   "iife": "./dist/index.iife.js",
-  "module": "./dist/index.js",
+  "hafs": "./dist/hafs.js",
+  "warsh": "./dist/warsh.js",
+  "qalun": "./dist/qalun.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./i18n": {
+      "types": "./dist/i18n/index.d.ts",
+      "import": "./dist/i18n/index.js"
+    },
+    "./hafs": {
+      "types": "./dist/hafs.d.ts",
+      "import": "./dist/hafs.js"
+    },
+    "./warsh": {
+      "types": "./dist/warsh.d.ts",
+      "import": "./dist/warsh.js"
+    },
+    "./qalun": {
+      "types": "./dist/qalun.d.ts",
+      "import": "./dist/qalun.js"
+    }
   },
   "repository": "quran-center/quran-meta",
   "files": [

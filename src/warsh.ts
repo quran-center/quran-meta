@@ -46,26 +46,13 @@
  */
 
 import { QuranRiwaya } from "./QuranRiwaya"
-import { WarshMeta, WarshLists } from "./lists/WarshLists"
+import { WarshLists } from "./lists/WarshLists"
 
 // Re-export all types
 export type * from "./types"
 export type { PartType } from "./generatePartBlocks"
 
-// Re-export utilities
-export { surahStringParser } from "./surahStringParser"
-export * from "./i18n"
-
-/**
- * Metadata constants for Warsh riwaya
- */
-export const meta = WarshMeta
-
-/**
- * Warsh-specific QuranRiwaya instance
- */
-
 /**
  * Pre-initialized QuranRiwaya instance for Warsh
  */
-export const quran = QuranRiwaya.create(WarshLists)
+export default QuranRiwaya.create(WarshLists)

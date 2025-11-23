@@ -5,7 +5,6 @@ export type { QuranMeta, SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCoun
 import { HafsLists } from "./lists/HafsLists"
 import { QalunLists } from "./lists/QalunLists"
 import { WarshLists } from "./lists/WarshLists"
-import type { QuranMeta } from "./types"
 
 // ==================== New Class-Based API ====================
 import { QuranRiwaya } from "./QuranRiwaya"

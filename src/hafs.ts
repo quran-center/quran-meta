@@ -46,20 +46,11 @@
  */
 
 import { QuranRiwaya } from "./QuranRiwaya"
-import { HafsMeta, HafsLists } from "./lists/HafsLists"
+import { HafsLists } from "./lists/HafsLists"
 
 // Re-export all types
 export type * from "./types"
 export type { PartType } from "./generatePartBlocks"
-
-// Re-export utilities
-export { surahStringParser } from "./surahStringParser"
-export * from "./i18n"
-
-/**
- * Metadata constants for Hafs riwaya
- */
-export const meta = HafsMeta
 
 /**
  * Pre-initialized QuranRiwaya instance for Hafs
@@ -72,4 +63,4 @@ export const meta = HafsMeta
  * const juz = quran.findJuz(1, 1)
  * ```
  */
-export const quran = QuranRiwaya.create(HafsLists)
+export default QuranRiwaya.create(HafsLists)

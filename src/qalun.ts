@@ -46,26 +46,13 @@
  */
 
 import { QuranRiwaya } from "./QuranRiwaya"
-import { QalunMeta, QalunLists } from "./lists/QalunLists"
+import { QalunLists } from "./lists/QalunLists"
 
 // Re-export all types
 export type * from "./types"
 export type { PartType } from "./generatePartBlocks"
 
-// Re-export utilities
-export { surahStringParser } from "./surahStringParser"
-export * from "./i18n"
-
-/**
- * Metadata constants for Qalun riwaya
- */
-export const meta = QalunMeta
-
-/**
- * Qalun-specific QuranRiwaya instance
- */
-
 /**
  * Pre-initialized QuranRiwaya instance for Qalun
  */
-export const quran = QuranRiwaya.create(QalunLists)
+export default QuranRiwaya.create(QalunLists)
