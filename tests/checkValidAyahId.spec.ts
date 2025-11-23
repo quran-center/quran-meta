@@ -19,12 +19,12 @@ describe("checkValidAyahId", () => {
   })
 
   it("should throw TypeError for NaN", () => {
-    expect(() => checkValidAyahId(NaN, meta)).toThrow(TypeError)
+    expect(() => checkValidAyahId(Number.NaN, meta)).toThrow(TypeError)
   })
 
   it("should throw TypeError for Infinity", () => {
-    expect(() => checkValidAyahId(Infinity, meta)).toThrow(TypeError)
-    expect(() => checkValidAyahId(-Infinity, meta)).toThrow(TypeError)
+    expect(() => checkValidAyahId(Number.POSITIVE_INFINITY, meta)).toThrow(TypeError)
+    expect(() => checkValidAyahId(Number.NEGATIVE_INFINITY, meta)).toThrow(TypeError)
   })
 
   it("should handle checkOnly", () => {
