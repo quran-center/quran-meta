@@ -1,37 +1,29 @@
 import { defineConfig } from "tsdown/config"
 
+const exports = { hafs: "hafs", qalun: "qalun", warsh: "warsh", base: "index" }
+
 export default defineConfig([
-  {
-    entry: "src/index.ts",
-    platform: "neutral",
-    name: "base",
+  ...Object.entries(exports).map(([name, entry]) => ({
+    entry: `src/${entry}.ts`,
+    platform: "neutral" as const,
+    name,
     exports: true
-  },
+  })),
+  ...Object.entries(exports).map(([name, entry]) => ({
+    entry: `src/${entry}.ts`,
+    platform: "neutral" as const,
+    name,
+    minify: true,
+    exports: false,
+    outExtensions: () => ({ js: ".min.js" })
+  })),
   {
-    entry: "src/hafs.ts",
+    entry: "src/i18n/index.ts",
     platform: "neutral",
-    name: "hafs",
-    exports: true
+    exports: false,
+    name: "i18n",
+    outDir: "dist/i18n"
   },
-  {
-    entry: "src/qalun.ts",
-    platform: "neutral",
-    name: "qalun",
-    exports: true
-  },
-  {
-    entry: "src/warsh.ts",
-    platform: "neutral",
-    name: "warsh",
-    exports: true
-  },
-  // {
-  //   entry: "src/i18n/index.ts",
-  //   platform: "neutral",
-  //   exports: true,
-  //   name: "i18n",
-  //   outDir: "dist/i18n"
-  // },
   {
     entry: "src/index.ts",
     format: "iife",

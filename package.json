@@ -1,6 +1,6 @@
 {
   "name": "quran-meta",
-  "version": "6.0.0",
+  "version": "6.0.0-alpha.1",
   "description": "Library with meta data and functionality related to Holy Quran",
   "type": "module",
   "license": "MIT",
@@ -15,12 +15,12 @@
   "author": "Huseyn Guliyev",
   "jsdelivr": "./dist/index.js",
   "unpkg": "./dist/index.js",
-  "main": "./dist/hafs.js",
+  "i18n": "./dist/i18n/index.js",
   "iife": "./dist/index.iife.js",
-  "module": "./dist/hafs.js",
-  "types": "./dist/hafs.d.ts",
+  "module": "./dist/warsh.js",
+  "types": "./dist/warsh.d.ts",
   "exports": {
-    ".": "./dist/hafs.js",
+    ".": "./dist/warsh.js",
     "./package.json": "./package.json"
   },
   "repository": "quran-center/quran-meta",
@@ -74,5 +74,6 @@
     "typescript-eslint": "^8.47.0",
     "vitest": "^4.0.12"
   },
-  "packageManager": "pnpm@10.15.1"
+  "packageManager": "pnpm@10.15.1",
+  "main": "./dist/warsh.js"
 }
