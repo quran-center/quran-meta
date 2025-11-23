@@ -1,5 +1,5 @@
 import { checkValidSurahAyah, isValidSurahAyah } from "../src"
-import { HafsLists } from "../src/lists/HafsLists"
+import { HafsLists } from "../src/lists/aHafsLists"
 
 describe("checkValidSurahAyah", () => {
   it("should return true for valid surah and ayah", () => {

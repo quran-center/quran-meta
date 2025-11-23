@@ -1,5 +1,5 @@
 import { findRangeAroundAyah, findRangeAroundSurahAyah } from "../src"
-import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/aHafsLists"
 
 describe("findRangeAroundSurahAyah", () => {
   it("should return correct range for juz mode", () => {

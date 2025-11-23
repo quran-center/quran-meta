@@ -1,6 +1,6 @@
 import type { RubAlHizbId } from "../src"
 import { getRubAlHizb, findJuzByAyahId, getRubAlHizbByAyahId } from "../src"
-import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/aHafsLists"
 
 import * as module from "../src/validation"
 

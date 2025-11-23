@@ -1,5 +1,5 @@
 import { findJuzByAyahId } from "../src"
-import { HafsLists } from "../src/lists/HafsLists"
+import { HafsLists } from "../src/lists/aHafsLists"
 
 describe("findJuzByAyahId", () => {
   it("basic", () => {

@@ -3,7 +3,7 @@
  * https://tanzil.net/res/text/metadata/quran-data.js
  */
 
-import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
+import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/aHafsLists"
 import { meta, createHafs } from "../../../src/hafs"
 import type { SurahInfo, Juz, Surah } from "../../../src/types"
 

@@ -1,5 +1,5 @@
 import { findManzilByAyahId } from "../src"
-import { HafsLists } from "../src/lists/HafsLists"
+import { HafsLists } from "../src/lists/aHafsLists"
 
 describe("findManzilByAyahId", () => {
   it("should return correct manzil for beginning of Quran", () => {

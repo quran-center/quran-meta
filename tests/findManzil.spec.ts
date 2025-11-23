@@ -1,5 +1,5 @@
 import { findManzil } from "../src"
-import { HafsLists } from "../src/lists/HafsLists"
+import { HafsLists } from "../src/lists/aHafsLists"
 
 describe("findManzil", () => {
   it("should return correct manzil for surah 1", () => {

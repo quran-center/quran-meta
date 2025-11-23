@@ -2,7 +2,7 @@
 
 export type { QuranMeta, SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
 
-import { HafsLists } from "./lists/HafsLists"
+import { HafsLists } from "./lists/aHafsLists"
 import { QalunLists } from "./lists/QalunLists"
 import { WarshLists } from "./lists/WarshLists"
 
@@ -49,7 +49,7 @@ export { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
 export { findRukuByAyahId } from "./findRukuByAyahId"
 export { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 export { findSurahByAyahId } from "./findSurahByAyahId"
-export { getAyahCountInSurah } from "./getAyahCountInSurah"
+export { getAyahCountInSurah } from "./agetAyahCountInSurah"
 export { getAyahMeta } from "./getAyahMeta"
 export { getAyahMetasForSurah } from "./getAyahMetasForSurah"
 export { getJuzMeta } from "./getJuzMeta"

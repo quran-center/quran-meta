@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest"
 import { surahStringParser } from "../src"
-import { HafsMeta as meta } from "../src/lists/HafsLists"
+import { HafsMeta as meta } from "../src/lists/aHafsLists"
 
 describe("surahStringParser", () => {
   it("should parse valid surah numbers", () => {

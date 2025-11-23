@@ -1,5 +1,5 @@
 import { isSurahAyahJuzFirst } from "../src"
-import { HafsLists } from "../src/lists/HafsLists"
+import { HafsLists } from "../src/lists/aHafsLists"
 
 describe("isSurahAyahJuzFirst", () => {
   it("basic", () => {

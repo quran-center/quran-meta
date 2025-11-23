@@ -1,5 +1,5 @@
 import { getAyahMeta } from "../src"
-import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/aHafsLists"
 import { QalunLists } from "../src/lists/QalunLists"
 
 describe("ayahMeta", () => {

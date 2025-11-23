@@ -5,7 +5,7 @@
  */
 
 import { meta, createHafs } from "../../../src/hafs"
-import { JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList } from "../../../src/lists/HafsLists"
+import { JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList } from "../../../src/lists/aHafsLists"
 import type { AyahNo, AyahId, Manzil, Page, Ruku, Juz, Surah, RubAlHizbId } from "../../../src/types"
 
 const quran = createHafs()

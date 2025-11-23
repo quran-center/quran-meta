@@ -1,7 +1,7 @@
 import { generatePartBlocks } from "../src"
 import type { PartType } from "../src/generatePartBlocks"
 import { partNames } from "../src/generatePartBlocks"
-import { HafsLists } from "../src/lists/HafsLists"
+import { HafsLists } from "../src/lists/aHafsLists"
 import { QalunLists } from "../src/lists/QalunLists"
 
 describe("getList", () => {

@@ -39,7 +39,7 @@ import { getThumunAlHizbMetaByAyahId as _getThumunAlHizbMetaByAyahId } from "./g
 import { findSurahAyahByAyahId as _findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { findSurahByAyahId as _findSurahByAyahId } from "./findSurahByAyahId"
 import { generatePartBlocks as _generatePartBlocks, type PartType } from "./generatePartBlocks"
-import { getAyahCountInSurah as _getAyahCountInSurah } from "./getAyahCountInSurah"
+import { getAyahCountInSurah as _getAyahCountInSurah } from "./agetAyahCountInSurah"
 import { getAyahMeta as _getAyahMeta } from "./getAyahMeta"
 import { getAyahMetasForSurah as _getAyahMetasForSurah } from "./getAyahMetasForSurah"
 import { getJuzMeta as _getJuzMeta } from "./getJuzMeta"

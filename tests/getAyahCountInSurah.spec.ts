@@ -1,5 +1,5 @@
 import { getAyahCountInSurah } from "../src"
-import { HafsLists } from "../src/lists/HafsLists"
+import { HafsLists } from "../src/lists/aHafsLists"
 
 describe("getAyahCountInSurah", () => {
   it("should return correct ayah count for first surah", () => {

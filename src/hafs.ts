@@ -14,7 +14,7 @@
  * ```
  */
 
-import { HafsLists as riwayaLists } from "./lists/HafsLists"
+import { HafsLists as riwayaLists } from "./lists/aHafsLists"
 import { ayahStringSplitter as _ayahStringSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah as _findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuz as _findJuz } from "./findJuz"
@@ -33,7 +33,7 @@ import { findRukuByAyahId as _findRukuByAyahId } from "./findRukuByAyahId"
 import { findSurahAyahByAyahId as _findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { findSurahByAyahId as _findSurahByAyahId } from "./findSurahByAyahId"
 import { generatePartBlocks as _generatePartBlocks, type PartType } from "./generatePartBlocks"
-import { getAyahCountInSurah as _getAyahCountInSurah } from "./getAyahCountInSurah"
+import { getAyahCountInSurah as _getAyahCountInSurah } from "./agetAyahCountInSurah"
 import { getAyahMeta as _getAyahMeta } from "./getAyahMeta"
 import { getAyahMetasForSurah as _getAyahMetasForSurah } from "./getAyahMetasForSurah"
 import { getJuzMeta as _getJuzMeta } from "./getJuzMeta"

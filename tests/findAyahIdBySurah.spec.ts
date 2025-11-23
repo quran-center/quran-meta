@@ -1,5 +1,5 @@
 import { findAyahIdBySurah } from "../src"
-import { HafsMeta, HafsLists } from "../src/lists/HafsLists"
+import { HafsMeta, HafsLists } from "../src/lists/aHafsLists"
 
 describe("findAyahIdBySurah", () => {
   it("should return correct AyahId for first ayah of first surah", () => {
