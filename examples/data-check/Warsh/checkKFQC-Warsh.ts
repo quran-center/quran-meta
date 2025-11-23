@@ -3,10 +3,11 @@
  *  https://qurancomplex.gov.sa/en/techquran/dev/
  */
 
-import { quran } from "../../../src/warsh"
+import { createWarsh } from "../../../src/warsh"
 import type { AyahId } from "../../../src/types"
 import WarshData from "../data/WarshData_v2-1.json"
 
+const quran = createWarsh()
 const ayahCount = WarshData.length
 
 export function checkKFQCWarsh() {

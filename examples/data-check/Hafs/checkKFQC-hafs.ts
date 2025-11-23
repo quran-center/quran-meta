@@ -3,8 +3,10 @@
  *  https://qurancomplex.gov.sa/en/techquran/dev/
  */
 
-import { meta, quran } from "../../../src/hafs"
+import { meta, createHafs } from "../../../src/hafs"
 import type { AyahId } from "../../../src/types"
+
+const quran = createHafs()
 
 import hafsData from "./../data/hafsData_v2-0.json"
 

@@ -3,7 +3,7 @@
  * run with: pnpx jiti warsh-entry-example.ts
  */
 
-import { quran, meta } from "../src/warsh"
+import { findJuz, findPage, getAyahMeta, getSurahInfo, meta } from "../src/warsh"
 
 console.log("=== Warsh Riwaya Example ===\n")
 
@@ -18,23 +18,23 @@ console.log(`Total Rub al Hizbs: ${meta.numRubAlHizbs}`)
 console.log(`Total Rukus: ${meta.numRukus}\n`)
 
 // Get surah info
-const surahInfo = quran.getSurahInfo(1)
+const surahInfo = getSurahInfo(1)
 console.log("Surah Al-Fatiha info:", surahInfo)
 
 // Get ayah metadata
-const ayahMeta = quran.getAyahMeta(1)
+const ayahMeta = getAyahMeta(1)
 console.log("First ayah metadata:", ayahMeta)
 
 // Find juz for a surah/ayah
-const juz = quran.findJuz(2, 142)
+const juz = findJuz(2, 142)
 console.log(`\nSurah 2, Ayah 142 is in Juz: ${juz}`)
 
 // Find page
-const page = quran.findPage(2, 142)
+const page = findPage(2, 142)
 console.log(`Surah 2, Ayah 142 is on Page: ${page}`)
 
 // Get last ayah
-const lastAyah = quran.getAyahMeta(meta.numAyahs)
+const lastAyah = getAyahMeta(meta.numAyahs)
 console.log(`\nLast ayah (${meta.numAyahs}):`, lastAyah)
 
 console.log("\n✓ Warsh riwaya is working correctly!")

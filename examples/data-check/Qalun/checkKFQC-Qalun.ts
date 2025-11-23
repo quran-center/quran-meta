@@ -3,10 +3,12 @@
  *  https://qurancomplex.gov.sa/en/techquran/dev/
  */
 
-import { meta, quran } from "../../../src/qalun"
+import { meta, createQalun } from "../../../src/qalun"
 import type { AyahId } from "../../../src/types"
 
 import QalunData from "../data/QalounData_v2-1.json"
+
+const quran = createQalun()
 
 const ayahCount = QalunData.length
 

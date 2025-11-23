@@ -419,19 +419,19 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
 
   isValidAyahId(x: unknown): x is AyahId {
     return isValidAyahId(x, this.#meta)
-  }  
-  
+  }
+
   isValidPage(x: unknown): x is Page {
     return isValidPage(x, this.#meta)
-  }  
-  
+  }
+
   isValidSurah(x: unknown): x is Surah {
     return isValidSurah(x, this.#meta)
   }
-  
+
   //   isValidAyahNo(x: unknown): x is AyahNo {
-//     return isValidAyahNo(x, this.#meta)
-//   }
+  //     return isValidAyahNo(x, this.#meta)
+  //   }
 
   isValidJuz(x: unknown): x is Juz {
     return isValidJuz(x, this.#meta)
@@ -444,18 +444,18 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   isValidSurahAyah(x: [unknown, unknown]): x is SurahAyah {
     return isValidSurahAyah(x, this.#data)
   }
-  
-    static isValidAyahNo(x: unknown): x is AyahNo  {
-      return isValidAyahNo(x)
-    }
-    
-  // ==================== Utility Methods ====================
-  
-    surahStringParser(str: string, isStrict = false): Page | number {
-      return surahStringParser(str, isStrict, this.#meta)
-    }
 
- static string2NumberSplitter(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
+  static isValidAyahNo(x: unknown): x is AyahNo {
+    return isValidAyahNo(x)
+  }
+
+  // ==================== Utility Methods ====================
+
+  surahStringParser(str: string, isStrict = false): Page | number {
+    return surahStringParser(str, isStrict, this.#meta)
+  }
+
+  static string2NumberSplitter(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
     return string2NumberSplitter(str)
   }
 

@@ -1,7 +1,9 @@
-import { meta, quran } from "../../../src/hafs"
+import { meta, createHafs } from "../../../src/hafs"
 import type { AyahId } from "../../../src/types"
 
 import hafsSmartData from "./../data/hafs_smart_v8.json"
+
+const quran = createHafs()
 
 export function checkKFQCSmart() {
   console.log("=====================================")

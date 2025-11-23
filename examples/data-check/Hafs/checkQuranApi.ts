@@ -4,10 +4,11 @@
  * data url: https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/info.json
  */
 
-import { meta, quran } from "../../../src/hafs"
+import { meta, createHafs } from "../../../src/hafs"
 import { JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList } from "../../../src/lists/HafsLists"
 import type { AyahNo, AyahId, Manzil, Page, Ruku, Juz, Surah, RubAlHizbId } from "../../../src/types"
 
+const quran = createHafs()
 import quranApi from "./../data/quran-api.json"
 
 export function checkQuranApi() {

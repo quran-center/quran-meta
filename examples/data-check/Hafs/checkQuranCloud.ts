@@ -4,10 +4,12 @@
  */
 
 import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
-import { meta, quran } from "../../../src/hafs"
+import { meta, createHafs } from "../../../src/hafs"
 import type { AyahNo, SurahInfo, Juz, Surah } from "../../../src/types"
 
 import quranCloud from "./../data/qcloud-meta.json"
+
+const quran = createHafs()
 
 export function checkQuranCloud() {
   console.log("=====================================")
