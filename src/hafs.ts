@@ -62,7 +62,6 @@ export * from "./i18n"
  */
 export const meta = HafsMeta
 
-
 /**
  * Pre-initialized QuranRiwaya instance for Hafs
  *

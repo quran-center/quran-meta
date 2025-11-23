@@ -66,7 +66,6 @@ export const meta = WarshMeta
  * Warsh-specific QuranRiwaya instance
  */
 
-
 /**
  * Pre-initialized QuranRiwaya instance for Warsh
  */

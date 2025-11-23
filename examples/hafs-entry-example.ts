@@ -8,7 +8,7 @@
  */
 
 // Option 1: Import from Hafs-specific entry (only Hafs data bundled)
-import { getAyahMeta, findJuz, meta, quran } from "../src/hafs"
+import { meta, quran } from "../src/hafs"
 
 console.log("=== Hafs Entry Point Example ===")
 console.log(`Total ayahs in Hafs: ${meta.numAyahs}`)
@@ -16,14 +16,14 @@ console.log(`Total pages in Hafs: ${meta.numPages}`)
 console.log(`Thumun al-Hizbs in Hafs: ${meta.numThumunAlHizbs}`) // 0
 
 // Using functional API (Hafs is default)
-const ayahMeta = getAyahMeta(1)
+const ayahMeta = quran.getAyahMeta(1)
 console.log(`Ayah 1 metadata:`, {
   surah: ayahMeta.surah,
   juz: ayahMeta.juz,
   page: ayahMeta.page
 })
 
-const juz = findJuz(1, 1)
+const juz = quran.findJuz(1, 1)
 console.log(`Surah 1, Ayah 1 is in Juz: ${juz}`)
 
 // Using class API

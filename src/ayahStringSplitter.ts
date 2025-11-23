@@ -25,7 +25,7 @@ export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaDat
   }
 
   const { surahOrAyah: surahX, ayah, ayahTo } = result
-  const meta=data.meta
+  const meta = data.meta
 
   if (!isValidSurah(surahX, meta)) {
     throw new Error("Invalid ayah number: " + str)

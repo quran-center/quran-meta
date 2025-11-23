@@ -1,7 +1,7 @@
-import type { AyahId} from "../src";
+import type { AyahId } from "../src"
 import { checkValidAyahId, isValidAyahId } from "../src"
 import { meta } from "../src/hafs"
-import { HafsMeta } from "../src/lists";
+import { HafsMeta } from "../src/lists"
 
 describe("checkValidAyahId", () => {
   it("should throw RangeError for ayah id less than 1", () => {
@@ -15,7 +15,7 @@ describe("checkValidAyahId", () => {
   })
 
   it("should throw TypeError for non-integer ayah id", () => {
-    expect(() => checkValidAyahId(1.5, meta )).toThrow(TypeError)
+    expect(() => checkValidAyahId(1.5, meta)).toThrow(TypeError)
     expect(() => checkValidAyahId(2.99, meta)).toThrow(TypeError)
     expect(() => checkValidAyahId(Math.PI, meta)).toThrow(TypeError)
   })

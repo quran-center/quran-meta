@@ -9,10 +9,6 @@
 
 // Import from Qalun-specific entry (only Qalun data bundled)
 import {
-  getAyahMeta,
-  findJuz,
-  findThumunAlHizb,
-  getThumunAlHizbMeta,
   meta,
   quran
 } from "../src/qalun"
@@ -23,7 +19,7 @@ console.log(`Total pages in Qalun: ${meta.numPages}`)
 console.log(`Thumun al-Hizbs in Qalun: ${meta.numThumunAlHizbs}`) // 480
 
 // Using functional API (Qalun is default)
-const ayahMeta = getAyahMeta(1)
+const ayahMeta = quran.getAyahMeta(1)
 console.log(`Ayah 1 metadata:`, {
   surah: ayahMeta.surah,
   juz: ayahMeta.juz,
@@ -31,15 +27,15 @@ console.log(`Ayah 1 metadata:`, {
   thumunAlHizbId: ayahMeta.thumunAlHizbId // Only available in Qalun!
 })
 
-const juz = findJuz(1, 1)
+const juz = quran.findJuz(1, 1)
 console.log(`Surah 1, Ayah 1 is in Juz: ${juz}`)
 
 // Qalun-specific: ThumunAlHizb functions
-const thumun = findThumunAlHizb(1, 1)
+const thumun = quran.findThumunAlHizb(1, 1)
 console.log(`Surah 1, Ayah 1 is in Thumun: ${thumun}`)
 
-const thumunMeta = getThumunAlHizbMeta(1)
-console.log(`Thumun 1 metadata:`, {
+const thumunMeta = quran.getThumunAlHizbMeta(1)
+console.log(`Thumun 1 meta  data:`, {
   juz: thumunMeta.juz,
   hizbId: thumunMeta.hizbId,
   rubAlHizbId: thumunMeta.rubAlHizbId,

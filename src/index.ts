@@ -16,22 +16,22 @@ export { QuranRiwaya } from "./QuranRiwaya"
 /**
  * Create a QuranRiwaya instance with Hafs riwaya (default)
  */
-export const createHafsQuran = () => QuranRiwaya.create(HafsLists)
+export const createHafs = () => QuranRiwaya.create(HafsLists)
 
 /**
  * Create a QuranRiwaya instance with Qalun riwaya
  */
-export const createQalunQuran = () => QuranRiwaya.create(QalunLists)
+export const createQalun = () => QuranRiwaya.create(QalunLists)
 
 /**
  * Create a QuranRiwaya instance with Warsh riwaya
  */
-export const createWarshQuran = () => QuranRiwaya.create(WarshLists)
+export const createWarsh = () => QuranRiwaya.create(WarshLists)
 
 /**
  * Pre-initialized QuranRiwaya instance for Hafs (for convenience)
  */
-export const quran = createHafsQuran()
+export const quran = createHafs()
 
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"

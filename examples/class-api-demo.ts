@@ -3,8 +3,7 @@
  * Run with: pnpx jiti examples/class-api-demo.ts
  */
 
-import { QuranRiwaya } from "../src"
-import { quran as hafs, createQalunQuran } from "../src"
+import { quran as hafs, createQalun } from "../src"
 
 console.log("=== QuranRiwaya Class-Based API Demo ===\n")
 
@@ -49,7 +48,7 @@ const prevAyah = hafs.prevAyah(2, 1)
 console.log("Previous ayah before [2, 1]:", prevAyah)
 
 // Create Qalun instance
-const qalun = createQalunQuran()
+const qalun = createQalun()
 console.log("\n\n=== Qalun Riwaya ===")
 console.log("Created Qalun instance:", qalun.getRiwayaName())
 

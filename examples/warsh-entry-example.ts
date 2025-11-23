@@ -1,5 +1,6 @@
 /**
- * Example demonstrating Warsh riwaya usage
+ * Example demonstrating Warsh riwaya
+ * run with: pnpx jiti warsh-entry-example.ts
  */
 
 import { quran, meta } from "../src/warsh"
