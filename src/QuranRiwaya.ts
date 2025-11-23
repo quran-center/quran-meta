@@ -1,42 +1,49 @@
 import type { RiwayaName, Riwayas } from "./lists/types"
-import type { AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzMeta, Manzil, ManzilMeta, Page, PageMeta, RangeMode, RubAlHizb, RubAlHizbId, RubAlHizbMeta, Ruku, RukuMeta, Surah, SurahAyah, SurahJuzMeta, SurahMeta, QuranMeta, SurahInfo, ThumunAlHizbId, ThumunAlHizbMeta } from "./types"
-import { getSurahInfo } from "./getSurahInfo"
-import { getSurahMeta } from "./getSurahMeta"
-import { getAyahCountInSurah } from "./getAyahCountInSurah"
+import type { AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzMeta, Manzil, ManzilMeta, Page, PageMeta, RangeMode, RubAlHizb, RubAlHizbId, RubAlHizbMeta, Ruku, RukuMeta, Surah, SurahAyah, SurahJuzMeta, SurahMeta, QuranMeta, SurahInfo, ThumunAlHizbId, ThumunAlHizbMeta, SurahAyahSegment, ThumunAlHizb } from "./types"
+import { ayahStringSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
-import { findSurahByAyahId } from "./findSurahByAyahId"
-import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import { nextAyah } from "./nextAyah"
-import { prevAyah } from "./prevAyah"
 import { findJuz } from "./findJuz"
-import { findJuzByAyahId } from "./findJuzByAyahId"
-import { getJuzMeta } from "./getJuzMeta"
 import { findJuzMetaBySurah } from "./findJuzMetaBySurah"
 import { findJuzAndShift, findJuzAndShiftByAyahId } from "./findJuzAndShift"
-import { findPage } from "./findPage"
-import { findPagebyAyahId } from "./findPagebyAyahId"
-import { getPageMeta } from "./getPageMeta"
+import { findJuzByAyahId } from "./findJuzByAyahId"
 import { findManzil } from "./findManzil"
 import { findManzilByAyahId } from "./findManzilByAyahId"
-import { getManzilMeta } from "./getManzilMeta"
-import { findRukuByAyahId } from "./findRukuByAyahId"
-import { getRukuMeta } from "./getRukuMeta"
+import { findPage } from "./findPage"
+import { findPagebyAyahId } from "./findPagebyAyahId"
+import { findRangeAroundAyah } from "./findRangeAroundAyah"
+import { findRangeAroundSurahAyah } from "./findRangeAroundSurahAyah"
 import { findRubAlHizb } from "./findRubAlHizb"
 import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
+import { findRukuByAyahId } from "./findRukuByAyahId"
+import { findSurahByAyahId } from "./findSurahByAyahId"
+import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
+import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
+import { findThumunAlHizb } from "./findThumunAlHizb"
+import { generatePartBlocks } from "./generatePartBlocks"
+import { getAyahCountInSurah } from "./getAyahCountInSurah"
+import { getAyahMeta } from "./getAyahMeta"
+import { getAyahMetasForSurah } from "./getAyahMetasForSurah"
+import { getJuzMeta } from "./getJuzMeta"
+import { getManzilMeta } from "./getManzilMeta"
+import { getPageMeta } from "./getPageMeta"
+import { getRubAlHizb } from "./getRubAlHizb"
 import { getRubAlHizbMeta } from "./getRubAlHizbMeta"
 import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
 import { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
-import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
+import { getRukuMeta } from "./getRukuMeta"
+import { getSurahInfo } from "./getSurahInfo"
+import { getSurahMeta } from "./getSurahMeta"
+import { getThumunAlHizb } from "./getThumunAlHizb"
+import { getThumunAlHizbByAyahId } from "./getThumunAlHizbByAyahId"
 import { getThumunAlHizbMeta } from "./getThumunAlHizbMeta"
-import { getAyahMeta } from "./getAyahMeta"
-import { getAyahMetasForSurah } from "./getAyahMetasForSurah"
-import { findRangeAroundAyah } from "./findRangeAroundAyah"
-import { findRangeAroundSurahAyah } from "./findRangeAroundSurahAyah"
+import { prevAyah } from "./prevAyah"
+import { nextAyah } from "./nextAyah"
+import type { PartType } from "./generatePartBlocks";
 import { isAyahJuzFirst } from "./isAyahJuzFirst"
 import { isAyahPageFirst } from "./isAyahPageFirst"
 import { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"
 import { isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
-import { findThumunAlHizb } from "./findThumunAlHizb"
+import { getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId"
 
 /**
  * QuranRiwaya class provides a clean API for Quran metadata operations
@@ -103,6 +110,11 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return getSurahMeta(surahNum, this.#data)
   }
 
+    ayahStringSplitter(str: string, isStrict = true): SurahAyahSegment {
+    return ayahStringSplitter(str, isStrict, this.#data)
+  }
+
+
   /**
      * Gets the surah info array [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan]
      */
@@ -136,6 +148,11 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
      */
   findAyahIdBySurah(surah: Surah, ayah: AyahNo): AyahId {
     return findAyahIdBySurah(surah, ayah, this.#data)
+
+  }  
+  
+  generatePartBlockss<P extends PartType>(  type: P  ) {
+    return generatePartBlocks(type, this.#data)
   }
 
   /**
@@ -281,6 +298,13 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
      */
   getRubAlHizbByAyahId(ayahId: AyahId): RubAlHizb {
     return getRubAlHizbByAyahId(ayahId, this.#data)
+  } 
+  
+  /**
+     * Gets RubAlHizb data (juz, hizb, etc.) for a given ayah ID
+     */
+  getRubAlHizb(quarterIndex: RubAlHizbId): RubAlHizb {
+    return getRubAlHizb(quarterIndex)
   }
 
   /**
@@ -319,7 +343,18 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   getThumunAlHizbMeta(eighthIndex: ThumunAlHizbId): ThumunAlHizbMeta | null {
     return getThumunAlHizbMeta(eighthIndex, this.#data)
   }
+  
+  getThumunAlHizbByAyahId(ayahId: AyahId): ThumunAlHizb | null {
+    return getThumunAlHizbByAyahId(ayahId, this.#data)
+  }
+  
+  getThumunAlHizbMetaByAyahId(ayahId: AyahId): ThumunAlHizb | null {
+    return getThumunAlHizbMetaByAyahId(ayahId, this.#data)
+  }
 
+    getThumunAlHizb(eighthIndex: ThumunAlHizbId): ThumunAlHizb | null {
+    return getThumunAlHizb(eighthIndex)
+  }
   // ==================== Ayah Metadata ====================
 
   /**
