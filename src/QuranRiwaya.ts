@@ -1,6 +1,6 @@
 import type { RiwayaName, Riwayas } from "./lists/types"
 import type { AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzMeta, Manzil, ManzilMeta, Page, PageMeta, RangeMode, RubAlHizb, RubAlHizbId, RubAlHizbMeta, Ruku, RukuMeta, Surah, SurahAyah, SurahJuzMeta, SurahMeta, QuranMeta, SurahInfo, ThumunAlHizbId, ThumunAlHizbMeta, SurahAyahSegment, ThumunAlHizb } from "./types"
-import { ayahStringSplitter } from "./ayahStringSplitter"
+import { ayahStringSplitter, string2NumberSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuz } from "./findJuz"
 import { findJuzMetaBySurah } from "./findJuzMetaBySurah"
@@ -45,6 +45,7 @@ import { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"
 import { isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
 import { getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId"
 import { surahStringParser } from "./surahStringParser"
+import { isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidRuku, isValidSurah, isValidSurahAyah } from "./typeGuards"
 
 /**
  * QuranRiwaya class provides a clean API for Quran metadata operations
@@ -150,7 +151,7 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return findAyahIdBySurah(surah, ayah, this.#data)
   }
 
-  generatePartBlockss<P extends PartType>(type: P) {
+  generatePartBlocks<P extends PartType>(type: P) {
     return generatePartBlocks(type, this.#data)
   }
 
@@ -416,10 +417,46 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return isSurahAyahPageFirst(surah, ayah, this.#data)
   }
 
-  // ==================== Utility Methods ====================
+  isValidAyahId(x: unknown): x is AyahId {
+    return isValidAyahId(x, this.#meta)
+  }  
+  
+  isValidPage(x: unknown): x is Page {
+    return isValidPage(x, this.#meta)
+  }  
+  
+  isValidSurah(x: unknown): x is Surah {
+    return isValidSurah(x, this.#meta)
+  }
+  
+  //   isValidAyahNo(x: unknown): x is AyahNo {
+//     return isValidAyahNo(x, this.#meta)
+//   }
 
-  surahStringParser(str: string, isStrict = false): Page | number {
-    return surahStringParser(str, isStrict, this.#meta)
+  isValidJuz(x: unknown): x is Juz {
+    return isValidJuz(x, this.#meta)
+  }
+
+  isValidRuku(x: unknown): x is Ruku {
+    return isValidRuku(x, this.#meta)
+  }
+
+  isValidSurahAyah(x: [unknown, unknown]): x is SurahAyah {
+    return isValidSurahAyah(x, this.#data)
+  }
+  
+    static isValidAyahNo(x: unknown): x is AyahNo  {
+      return isValidAyahNo(x)
+    }
+    
+  // ==================== Utility Methods ====================
+  
+    surahStringParser(str: string, isStrict = false): Page | number {
+      return surahStringParser(str, isStrict, this.#meta)
+    }
+
+ static string2NumberSplitter(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
+    return string2NumberSplitter(str)
   }
 
   /**

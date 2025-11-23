@@ -8,9 +8,8 @@
  */
 
 // Import from Qalun-specific entry (only Qalun data bundled)
-import {
-  meta,
-  quran
+import quran,{
+  meta
 } from "../src/qalun"
 
 console.log("=== Qalun Entry Point Example ===")
