@@ -1,4 +1,4 @@
-import { Lang, SurahNames } from "./types"
+import type { Lang, SurahNames } from "./types"
 
 export async function getSurahNamesAsync(lang: Lang): Promise<SurahNames> {
   switch (lang) {

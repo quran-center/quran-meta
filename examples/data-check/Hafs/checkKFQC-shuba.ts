@@ -4,7 +4,7 @@
    */
 
 import { quranMeta, meta } from "../../../src"
-import { AyahId } from "../../../src/types"
+import type { AyahId } from "../../../src/types"
 const { getAyahMeta, getRubAlHizbMetaByAyahId } = quranMeta({ riwaya: "Hafs" })
 
 import shubaData from "./../data/shubaData_v2-0.json"

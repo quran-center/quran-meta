@@ -1,5 +1,6 @@
+import type { RiwayaData } from "./lists/types"
 import { isValidAyahNo, isValidSurah } from "./typeGuards"
-import { AyahNo, Surah, SurahAyahSegment } from "./types"
+import type { AyahNo, Surah, SurahAyahSegment } from "./types"
 import { checkValidAyahId, checkValidSurahAyah } from "./validation"
 
 /**
@@ -17,23 +18,24 @@ import { checkValidAyahId, checkValidSurahAyah } from "./validation"
  * ayahStringSplitter("1:1-7") // returns [1, [1, 7]]
  * ```
  */
-export function ayahStringSplitter(str: string, isStrict = true): SurahAyahSegment {
+export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaData): SurahAyahSegment {
   const result = isStrict ? string2NumberSplitterStrict(str) : string2NumberSplitter(str)
   if (!result) {
     throw new Error("Invalid string format: " + str)
   }
 
   const { surahOrAyah: surahX, ayah, ayahTo } = result
+  const meta=data.meta
 
-  if (!isValidSurah(surahX)) {
+  if (!isValidSurah(surahX, meta)) {
     throw new Error("Invalid ayah number: " + str)
   }
   const surah: Surah = surahX
 
   let ayahs: AyahNo | [AyahNo, AyahNo]
   if (ayahTo) {
-    checkValidAyahId(ayah)
-    checkValidAyahId(ayahTo)
+    checkValidAyahId(ayah, meta)
+    checkValidAyahId(ayahTo, meta)
     if (ayah > ayahTo) throw new Error("Invalid ayah range: " + str)
     ayahs = [ayah, ayahTo] as [AyahNo, AyahNo]
   }
@@ -41,7 +43,7 @@ export function ayahStringSplitter(str: string, isStrict = true): SurahAyahSegme
     if (!isValidAyahNo(ayah)) {
       throw new Error("Error in data " + str)
     }
-    checkValidSurahAyah(surah, ayah)
+    checkValidSurahAyah(surah, ayah, data)
     ayahs = ayah
   }
 

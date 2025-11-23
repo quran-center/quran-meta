@@ -1,23 +1,22 @@
-import { meta } from "./types"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import { AyahId, AyahNo, Surah, SurahAyah } from "./types"
+import type { AyahId, AyahNo, Surah, SurahAyah } from "./types"
 import { checkValidSurah } from "./validation"
-import { RiwayahsWith } from "./lists/types"
+import type { RiwayaData } from "./lists/types"
 /**
  * Get the previous ayah for the given surah and ayah number.
  * @param surah - The surah number.
  * @param ayah - The ayah number within the surah.
- * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
+ * @param data - The Lists object containing SurahList.
  * @returns The surah and ayah number of the previous ayah.
  */
 export function prevAyah(
   surah: Surah,
   ayah: AyahNo,
-  riwaya: RiwayahsWith<"SurahList"> = "Hafs"
+  data: RiwayaData
 ): SurahAyah {
-  checkValidSurah(surah)
+  checkValidSurah(surah, data.meta)
 
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya)
-  return findSurahAyahByAyahId(ayahId == 1 ? meta.numAyahs : ayahId - 1, riwaya)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
+  return findSurahAyahByAyahId(ayahId == 1 ? data.meta.numAyahs : ayahId - 1, data)
 }

@@ -1,4 +1,6 @@
 import { quranMeta } from "../src/initPackage"
+import { HafsLists } from "../src/lists/HafsLists"
+import { QalunLists } from "../src/lists/QalunLists"
 
 describe("quranMeta factory", () => {
   describe("Default Hafs riwaya", () => {
@@ -11,14 +13,14 @@ describe("quranMeta factory", () => {
 
     it("should use Hafs as default when no config provided", () => {
       const api = quranMeta()
-      const surah = api.getSurahMeta(1)
+      const surah = api.getSurahMeta(1, HafsLists)
       expect(surah).toBeDefined()
       expect(surah.ayahCount).toBe(7)
     })
 
-    it("should use Hafs when riwaya parameter is undefined", () => {
+    it("should use Hafs Lists when called with HafsLists parameter", () => {
       const api = quranMeta()
-      const meta = api.getAyahMeta(1, undefined)
+      const meta = api.getAyahMeta(1, HafsLists)
       expect(meta.surah).toBe(1)
     })
 
@@ -46,7 +48,7 @@ describe("quranMeta factory", () => {
 
     it("should use Qalun as default when configured", () => {
       const api = quranMeta({ riwaya: "Qalun" })
-      const surah = api.getSurahMeta(1)
+      const surah = api.getSurahMeta(1, QalunLists)
       expect(surah).toBeDefined()
       expect(surah.ayahCount).toBe(7)
     })
@@ -61,38 +63,34 @@ describe("quranMeta factory", () => {
 
     it("should call ThumunAlHizb methods successfully", () => {
       const api = quranMeta({ riwaya: "Qalun" })
-      const thumun = api.findThumunAlHizb(1, 1)
+      const thumun = api.findThumunAlHizb(1, 1, QalunLists)
       expect(thumun).toBe(1)
     })
 
-    it("should use Qalun when riwaya parameter is explicitly provided", () => {
+    it("should call getAyahMeta with QalunLists", () => {
       const api = quranMeta({ riwaya: "Qalun" })
-      // Note: Due to JavaScript function.length behavior with default parameters,
-      // the wrapper cannot automatically inject defaults for optional parameters.
-      // Users must explicitly pass the riwaya when needed.
-      const meta = api.getAyahMeta(1, "Qalun")
+      const meta = api.getAyahMeta(1, QalunLists)
       expect(meta.thumunAlHizbId).toBeDefined()
     })
   })
 
   describe("Function wrapping", () => {
-    it("should wrap functions with default riwaya", () => {
+    it("should wrap functions and require Lists parameter", () => {
       const api = quranMeta({ riwaya: "Hafs" })
-      // Call without explicit riwaya - should use default
-      const juz = api.findJuz(1, 1)
+      // Functions now require Lists parameter to be passed explicitly
+      const juz = api.findJuz(1, 1, HafsLists)
       expect(juz).toBe(1)
     })
 
-    it("should allow explicit riwaya override", () => {
-      const api = quranMeta({ riwaya: "Hafs" })
-      // Explicitly pass Qalun to override default
-      const meta = api.getAyahMeta(1, "Qalun")
+    it("should work with QalunLists when Qalun is configured", () => {
+      const api = quranMeta({ riwaya: "Qalun" })
+      const meta = api.getAyahMeta(1, QalunLists)
       expect(meta.thumunAlHizbId).toBeDefined()
     })
 
     it("should handle functions with no riwaya parameter", () => {
       const api = quranMeta()
-      const surahMeta = api.getSurahMeta(1)
+      const surahMeta = api.getSurahMeta(1, HafsLists)
       expect(surahMeta.ayahCount).toBe(7)
     })
   })

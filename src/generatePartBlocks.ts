@@ -1,6 +1,5 @@
-import { getList } from "./lists/index"
-import type { AllListsNames, RiwayahsWith } from "./lists/types"
-import { AyahId, AyahNo, SurahInfo } from "./types"
+import type { RiwayaData, AllListsNames } from "./lists/types"
+import type { AyahId, AyahNo, SurahInfo } from "./types"
 
 /* A map of readable parameters that can be used in the function and their corresponding list name */
 
@@ -47,17 +46,21 @@ function toPartFormatter(type: PartType, list: AyahId[] | SurahInfo[]): PartBloc
 /**
  * Retrieves a formatted list of Quran parts based on the specified type.
  * @param type - The type of parts to retrieve (e.g., juz, hizb, rub)
- * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
+ * @param data - The Lists object for the riwaya.
  * @returns An array of formatted part blocks, excluding the first and last elements
  */
 export function generatePartBlocks<P extends PartType>(
   type: P,
-  riwaya?: RiwayahsWith<(typeof parts)[P]>
-): PartBlock[] {
+  data: RiwayaData
+): PartBlock[] | null {
   if (!parts[type]) throw new Error(`Invalid part type: ${type}`)
 
-  const listName = parts[type]
-  const list = getList(listName, riwaya as "Qalun")
+  const listName = parts[type] as keyof RiwayaData
+  const list = data[listName]
+
+  if (!list) {
+    return null
+  }
 
   if (!Array.isArray(list)) {
     throw new Error(`Expected array for ${String(listName)}`)

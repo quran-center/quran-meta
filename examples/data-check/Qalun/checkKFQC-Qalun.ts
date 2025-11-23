@@ -4,7 +4,7 @@
  */
 
 import { meta, quran } from "../../../src/qalun"
-import { AyahId } from "../../../src/types"
+import type { AyahId } from "../../../src/types"
 
 import QalunData from "../data/QalounData_v2-1.json"
 

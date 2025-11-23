@@ -1,8 +1,7 @@
 import { describe, it, expect } from "vitest"
 import { QalunLists, QalunMeta } from "../src/lists/QalunLists"
-import type { Riwayas } from "../src/lists/types"
 
-const qalunLists: Riwayas["Qalun"] = QalunLists
+const qalunLists = QalunLists
 
 describe("QalunMeta validation", () => {
   it("should have correct numSurahs", () => {

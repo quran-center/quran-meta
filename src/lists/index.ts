@@ -3,22 +3,31 @@ import { HafsLists } from "./HafsLists"
 import { QalunLists } from "./QalunLists"
 import { WarshLists } from "./WarshLists"
 
-const riwayahs: Riwayas = {
-  Hafs: HafsLists,
-  Qalun: QalunLists,
-  Warsh: WarshLists
-} as const
+// Export Meta objects for direct use
+export { HafsMeta } from "./HafsLists"
+export { QalunMeta } from "./QalunLists"
+export { WarshMeta } from "./WarshLists"
 
 /**
  * Retrieves the lists associated with a specific Riwaya.
+ * Uses switch statement to enable tree-shaking.
  *
  * @example
  * ```typescript
- * const hafsLists = getListsOfRiwaya('hafs');
+ * const hafsLists = getListsOfRiwaya('Hafs');
  * ```
  */
 export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R] {
-  return riwayahs[riwaya]
+  switch (riwaya) {
+    case "Hafs":
+      return HafsLists as Riwayas[R]
+    case "Qalun":
+      return QalunLists as Riwayas[R]
+    case "Warsh":
+      return WarshLists as Riwayas[R]
+    default:
+      throw new Error(`Unknown riwaya: ${riwaya}`)
+  }
 }
 
 export const getList = <
@@ -28,16 +37,12 @@ export const getList = <
   listName: L,
   riwaya?: R
 ): Riwayas[R][L] => {
-  if (riwaya) {
-    return riwayahs[riwaya][listName]
+  const actualRiwaya = (riwaya || "Hafs") as keyof Riwayas
+  const lists = getListsOfRiwaya(actualRiwaya)
+
+  if (listName in lists) {
+    return lists[listName as keyof typeof lists] as Riwayas[R][L]
   }
 
-  // if no riwaya is provided, fallback (choose the first one that has this list)
-  for (const r of Object.keys(riwayahs) as (keyof Riwayas)[]) {
-    if (listName in riwayahs[r]) {
-      return riwayahs[r][listName as keyof Riwayas[typeof r]] as Riwayas[R][L]
-    }
-  }
-
-  throw new Error(`List ${String(listName)} not found in any riwaya`)
+  throw new Error(`List ${String(listName)} not found in ${actualRiwaya} riwaya`)
 }

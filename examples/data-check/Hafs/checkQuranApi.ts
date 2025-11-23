@@ -6,7 +6,7 @@
 
 import { meta, quran } from "../../../src/hafs"
 import { JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList } from "../../../src/lists/HafsLists"
-import { AyahNo, AyahId, Manzil, Page, Ruku, Juz, Surah, RubAlHizbId } from "../../../src/types"
+import type { AyahNo, AyahId, Manzil, Page, Ruku, Juz, Surah, RubAlHizbId } from "../../../src/types"
 
 import quranApi from "./../data/quran-api.json"
 

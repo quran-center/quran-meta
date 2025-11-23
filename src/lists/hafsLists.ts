@@ -1,4 +1,4 @@
-import type { AyahId, QuranMeta, QuranMeta, SurahInfo } from "../types"
+import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
 
 // ------------------ Hizb Quarter (Rub-ul-Hizb) Data ---------------------
@@ -287,6 +287,7 @@ export const HafsMeta: QuranMeta = {
 } as const
 
 export const HafsLists = {
+  meta: HafsMeta,
   HizbQuarterList,
   JuzList,
   ManzilList,

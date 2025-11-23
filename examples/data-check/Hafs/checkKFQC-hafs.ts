@@ -4,7 +4,7 @@
  */
 
 import { meta, quran } from "../../../src/hafs"
-import { AyahId } from "../../../src/types"
+import type { AyahId } from "../../../src/types"
 
 import hafsData from "./../data/hafsData_v2-0.json"
 

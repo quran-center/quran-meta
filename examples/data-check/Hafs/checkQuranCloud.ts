@@ -5,7 +5,7 @@
 
 import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
 import { meta, quran } from "../../../src/hafs"
-import { AyahNo, SurahInfo, Juz, Surah } from "../../../src/types"
+import type { AyahNo, SurahInfo, Juz, Surah } from "../../../src/types"
 
 import quranCloud from "./../data/qcloud-meta.json"
 

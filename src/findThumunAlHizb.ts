@@ -1,7 +1,7 @@
-import { RiwayahsWithAll } from "./lists/types"
+import type { RiwayaData, RiwayahsWith } from "./lists/types"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
-import { AyahId, AyahNo, ThumunAlHizbId, Surah } from "./types"
+import type { AyahId, AyahNo, ThumunAlHizbId, Surah } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**
@@ -15,10 +15,10 @@ import { checkValidSurah } from "./validation"
 export function findThumunAlHizb(
   surah: Surah,
   ayah: AyahNo = 1,
-  riwaya: RiwayahsWithAll<["SurahList", "HizbEighthList"]> = "Qalun"
+  data: RiwayahsWith<"HizbEighthList">
 ): ThumunAlHizbId {
-  checkValidSurah(surah)
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, riwaya)
+  checkValidSurah(surah, data.meta)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
 
-  return findThumunAlHizbByAyahId(ayahId, riwaya)
+  return findThumunAlHizbByAyahId(ayahId, data)
 }

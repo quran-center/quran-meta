@@ -1,22 +1,22 @@
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import { getList } from "./lists/index"
-import { RiwayahsWith } from "./lists/types"
+import type { RiwayaData } from "./lists/types"
 import { getThumunAlHizb } from "./getThumunAlHizb"
-import { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types"
+import type { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types"
 
 /**
  * Retrieves the metadata for a specific quarter (rub' al-hizb) of the Quran.
  *
  * @param eighthIndex - The index of the Eighth (thumun' al-hizb) to retrieve metadata for, where 1 is the first quarter.
- * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
+ * @param data - The Lists object for the riwaya.
  * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
  */
 export function getThumunAlHizbMeta(
   eighthIndex: ThumunAlHizbId,
-  riwaya: RiwayahsWith<"HizbEighthList"> = "Qalun"
+  data: RiwayaData
 ): ThumunAlHizbMeta {
   const res = getThumunAlHizb(eighthIndex)
-  const HizbEighthList = getList("HizbEighthList", riwaya)
+  const HizbEighthList = data.HizbEighthList
+
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
     HizbEighthList[eighthIndex],
     HizbEighthList[eighthIndex + 1]
@@ -26,8 +26,8 @@ export function getThumunAlHizbMeta(
   return {
     firstAyahId,
     lastAyahId,
-    first: findSurahAyahByAyahId(firstAyahId),
-    last: findSurahAyahByAyahId(lastAyahId),
+    first: findSurahAyahByAyahId(firstAyahId, data),
+    last: findSurahAyahByAyahId(lastAyahId, data),
     ...res
   }
 }

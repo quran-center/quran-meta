@@ -1,14 +1,23 @@
-import { LessThan, FixedArray } from "./ts-utils"
+import type { LessThan, FixedArray } from "./ts-utils"
 import type { RiwayaName } from "./lists/types"
-import { HafsMeta } from "./lists/HafsLists"
-import { QalunMeta } from "./lists/QalunLists"
-import { WarshMeta } from "./lists/WarshLists"
 
 /**
  * The maximum number of ayahs (verses) that can exist in any surah (chapter) of the Quran.
  * This maximum occurs in Surah Al-Baqarah (2), which has 286 ayahs.
  */
 export const maxAyahsInSurah = 286
+
+/**
+ * Total number of surahs (chapters) in the Quran.
+ * This is constant across all riwayas.
+ */
+export const numSurahs = 114
+
+/**
+ * Number of Rub al-Hizbs (quarters) in each Juz.
+ * This is constant across all riwayas.
+ */
+export const numRubsInJuz = 8
 
 /**
  * Default metadata for the Quran (uses Hafs riwaya as default).
@@ -28,38 +37,26 @@ export const maxAyahsInSurah = 286
  *
  * @example
  * ```typescript
- * import { meta } from 'quran-meta'
+ * import { meta } from 'quran-meta/hafs'
  * console.log(meta.numAyahs)  // 6236
- * console.log(meta.numSurahs)  // 114
  * ```
  */
-export const meta = HafsMeta
+// Note: meta is defined in index.ts to avoid circular dependency
 
 /**
- * Riwaya-specific metadata for all available riwayas.
- * Use this to access metadata for specific recitation traditions.
- *
- * @remarks
- * Available riwayas:
- * - **Hafs**: 6236 ayahs, 15 sajdas, 0 ThumunAlHizbs (standard)
- * - **Qalun**: 6214 ayahs, 12 sajdas, 480 ThumunAlHizbs
+ * Riwaya-specific metadata type.
+ * For tree-shakeable imports, use specific entry points:
+ * - 'quran-meta/hafs' for Hafs only
+ * - 'quran-meta/qalun' for Qalun only
+ * - 'quran-meta/warsh' for Warsh only
  *
  * @example
  * ```typescript
- * import { riwayaMeta } from 'quran-meta'
- * const hafsMeta = riwayaMeta.Hafs
- * const qalunMeta = riwayaMeta.Qalun
- *
- * console.log(hafsMeta.numAyahs)  // 6236
- * console.log(qalunMeta.numAyahs)  // 6214
- * console.log(qalunMeta.numThumunAlHizbs)  // 480 (only in Qalun)
+ * import { meta } from 'quran-meta/hafs'  // Only Hafs data bundled
+ * import { meta } from 'quran-meta/qalun' // Only Qalun data bundled
  * ```
  */
-export const riwayaMeta: Record<RiwayaName, QuranMeta> = {
-  Hafs: HafsMeta,
-  Qalun: QalunMeta,
-  Warsh: WarshMeta
-}
+// riwayaMeta removed to prevent bundling all riwayas - use specific entry points instead
 
 /**
  * Represents the complete metadata structure for Quranic information.
@@ -122,9 +119,9 @@ export type NumericRange<TStart extends number, TEnd extends number> = Exclude<T
 
 /**
  * Represents a valid Surah number in the Quran.
- * A type that ensures the number is within the valid range of Surahs (1 to the total number of Surahs).
+ * A type that ensures the number is within the valid range of Surahs (1 to 114).
  */
-export type Surah = NumericRange<1, typeof meta.numSurahs>
+export type Surah = NumericRange<1, typeof numSurahs>
 
 /**
  * Represents the number of an ayah (verse) within a surah.
@@ -193,7 +190,7 @@ export type Juz = NumericRange<1, 30>
  * A numeric value ranging from 1 to the total number of rub's (quarters) in a Juz.
  * A number constrained between 1 and the total number of rub's in a Juz
  */
-export type JuzPart = NumericRange<1, typeof meta.numRubsInJuz>
+export type JuzPart = NumericRange<1, typeof numRubsInJuz>
 
 // [start, ayas, order, rukus, name,  isMeccan, page ]
 export type SurahInfo = [

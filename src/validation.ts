@@ -1,7 +1,7 @@
-import { meta } from "./types"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
+import type { RiwayaData } from "./lists/types"
 import { isValidAyahId, isValidJuz, isValidManzil, isValidPage, isValidRuku, isValidSurah } from "./typeGuards"
-import { AyahId, AyahNo, Juz, Manzil, Page, Ruku, Surah, SurahAyah } from "./types"
+import type { AyahId, AyahNo, Juz, Manzil, Page, QuranMeta, Ruku, Surah, SurahAyah } from "./types"
 
 /**
  * Validates if the provided value is a valid Surah number.
@@ -11,12 +11,12 @@ import { AyahId, AyahNo, Juz, Manzil, Page, Ruku, Surah, SurahAyah } from "./typ
  * @throws RangeError When the provided surah number is outside the valid range (1 to total number of surahs)
  * @remarks This is a type assertion function that ensures the input is a valid Surah
  */
-export function checkValidSurah(surah: Surah | number | unknown): asserts surah is Surah {
+export function checkValidSurah(surah: Surah | number | unknown, meta: QuranMeta): asserts surah is Surah {
   if (typeof surah !== "number" || !Number.isInteger(surah)) {
     throw new TypeError("Ayah ID must be an integer")
   }
 
-  if (!isValidSurah(surah)) {
+  if (!isValidSurah(surah, meta)) {
     throw new RangeError("Surah must be between 1 and " + meta.numSurahs)
   }
 }
@@ -27,8 +27,8 @@ export function checkValidSurah(surah: Surah | number | unknown): asserts surah 
  * @param ayah - The ayah number or AyahNo object to validate
  * @throws Error If the surah-ayah combination is invalid
  */
-export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: number | AyahNo | unknown) {
-  checkValidSurahAyahPair([surah, ayah])
+export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: number | AyahNo | unknown, data: RiwayaData) {
+  checkValidSurahAyahPair([surah, ayah], data)
 }
 
 /**
@@ -42,12 +42,12 @@ export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: numbe
  * checkValidSurahAyahPair([1, 8]) // Throws RangeError
  * ```
  */
-export function checkValidSurahAyahPair(surahAyah: [Surah | number | unknown, AyahNo | number | unknown]): asserts surahAyah is SurahAyah {
+export function checkValidSurahAyahPair(surahAyah: [Surah | number | unknown, AyahNo | number | unknown], data: RiwayaData): asserts surahAyah is SurahAyah {
   const [surah, ayah] = surahAyah
-  checkValidSurah(surah)
+  checkValidSurah(surah, data.meta)
 
-  if (typeof ayah !== "number" || !Number.isInteger(ayah) || ayah < 1 || ayah > getAyahCountInSurah(surah)) {
-    throw new RangeError("Ayah must be between 1 and " + getAyahCountInSurah(surah))
+  if (typeof ayah !== "number" || !Number.isInteger(ayah) || ayah < 1 || ayah > getAyahCountInSurah(surah, data)) {
+    throw new RangeError("Ayah must be between 1 and " + getAyahCountInSurah(surah, data))
   }
 }
 
@@ -59,11 +59,11 @@ export function checkValidSurahAyahPair(surahAyah: [Surah | number | unknown, Ay
  * @throws TypeError If the value is not an integer
  * @throws RangeError If the value is not within valid Ayah ID range
  */
-export function checkValidAyahId(ayahId: unknown | number | AyahId): asserts ayahId is AyahId {
+export function checkValidAyahId(ayahId: unknown | number | AyahId, meta: QuranMeta): asserts ayahId is AyahId {
   if (typeof ayahId !== "number" || !Number.isInteger(ayahId)) {
     throw new TypeError("Ayah ID must be an integer")
   }
-  if (!isValidAyahId(ayahId)) {
+  if (!isValidAyahId(ayahId, meta)) {
     throw new RangeError("Ayah ID must be between 1 and " + meta.numAyahs)
   }
 }
@@ -75,11 +75,11 @@ export function checkValidAyahId(ayahId: unknown | number | AyahId): asserts aya
  * @throws {@link RangeError} When the value is not within valid page range (1 to numPages)
  * @remarks This is a type assertion function that ensures a value is a valid Page number
  */
-export function checkValidPage(x: unknown | number | Page): asserts x is Page {
+export function checkValidPage(x: unknown | number | Page, meta: QuranMeta): asserts x is Page {
   if (typeof x !== "number" || !Number.isInteger(x)) {
     throw new TypeError("Page must be an integer")
   }
-  if (!isValidPage(x)) {
+  if (!isValidPage(x, meta)) {
     throw new RangeError("Page must be between 1 and " + meta.numPages)
   }
 }
@@ -93,11 +93,11 @@ export function checkValidPage(x: unknown | number | Page): asserts x is Page {
  * @throws {@link TypeError} If value is not an integer
  * @throws {@link RangeError} If value is not between 1 and the total number of Juz
  */
-export function checkValidJuz(x: unknown | number | Juz): asserts x is Juz {
+export function checkValidJuz(x: unknown | number | Juz, meta: QuranMeta): asserts x is Juz {
   if (typeof x !== "number" || !Number.isInteger(x)) {
     throw new TypeError("Juz must be an integer")
   }
-  if (!isValidJuz(x)) {
+  if (!isValidJuz(x, meta)) {
     throw new RangeError("Juz must be between 1 and " + meta.numJuzs)
   }
 }
@@ -114,11 +114,11 @@ export function checkValidJuz(x: unknown | number | Juz): asserts x is Juz {
  * checkValidRuku(999); // Throws RangeError
  * ```
  */
-export function checkValidRuku(x: unknown | number | Ruku): asserts x is Ruku {
+export function checkValidRuku(x: unknown | number | Ruku, meta: QuranMeta): asserts x is Ruku {
   if (typeof x !== "number" || !Number.isInteger(x)) {
     throw new TypeError("Ruku must be an integer")
   }
-  if (!isValidRuku(x)) {
+  if (!isValidRuku(x, meta)) {
     throw new RangeError("Ruku must be between 1 and " + meta.numRukus)
   }
 }
@@ -130,11 +130,11 @@ export function checkValidRuku(x: unknown | number | Ruku): asserts x is Ruku {
  * @throws {@link RangeError} If the value is not within valid Manzil range (1 to max manzils)
  * @remarks This is an assertion function that ensures the input is a valid Manzil type
  */
-export function checkValidManzil(x: unknown | number | Manzil): asserts x is Manzil {
+export function checkValidManzil(x: unknown | number | Manzil, meta: QuranMeta): asserts x is Manzil {
   if (typeof x !== "number" || !Number.isInteger(x)) {
     throw new TypeError("Manzil must be an integer")
   }
-  if (!isValidManzil(x)) {
+  if (!isValidManzil(x, meta)) {
     throw new RangeError("Manzil must be between 1 and " + meta.numManzils)
   }
 }

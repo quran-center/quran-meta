@@ -5,10 +5,10 @@ import { checkWarsh } from "./Warsh"
 // Uncomment the check you want to run
 
 console.log("checking Hafs data...")
-// checkHafs()
+checkHafs()
 
 console.log("checking Qalun data...")
-// checkQalun()
+checkQalun()
 
 console.log("checking Warsh data...")
 checkWarsh()

@@ -1,23 +1,22 @@
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
-import { getList } from "./lists/index"
-import { RiwayahsWith } from "./lists/types"
-import { AyahId, Juz, JuzMeta } from "./types"
+import type { RiwayaData } from "./lists/types"
+import type { AyahId, Juz, JuzMeta } from "./types"
 import { checkValidJuz } from "./validation"
 
 /**
  * Retrieves metadata for a specific Juz of the Quran.
  *
  * @param juzNum - The Juz number to retrieve metadata for (1-30)
- * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
- *@returns An object containing the Juz number, first ayah, and last ayah in the Juz
+ * @param data - The Lists object for the riwaya.
+ * @returns An object containing the Juz number, first ayah, and last ayah in the Juz
  * @throws RangeError If the Juz number is not between 1 and 30
  */
 export function getJuzMeta(
   juzNum: Juz,
-  riwaya: RiwayahsWith<"JuzList"> = "Hafs"
+  data: RiwayaData
 ): JuzMeta {
-  checkValidJuz(juzNum)
-  const JuzList = getList("JuzList", riwaya)
+  checkValidJuz(juzNum, data.meta)
+  const JuzList = data.JuzList
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
     JuzList[juzNum],
     JuzList[juzNum + 1]
@@ -27,7 +26,7 @@ export function getJuzMeta(
     juzNum,
     firstAyahId,
     lastAyahId,
-    first: findSurahAyahByAyahId(firstAyahId),
-    last: findSurahAyahByAyahId(lastAyahId)
+    first: findSurahAyahByAyahId(firstAyahId, data),
+    last: findSurahAyahByAyahId(lastAyahId, data)
   }
 }

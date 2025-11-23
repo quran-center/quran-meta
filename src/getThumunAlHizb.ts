@@ -1,5 +1,5 @@
 import { getRubAlHizb } from "./getRubAlHizb"
-import { ThumunAlHizb, ThumunAlHizbId, RubAlHizbId } from "./types"
+import type { ThumunAlHizb, ThumunAlHizbId, RubAlHizbId } from "./types"
 
 /**
  * Retrieves the basic metadata for a specific Eighth (thumun' al-hizb) of the Quran.

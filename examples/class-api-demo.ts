@@ -3,12 +3,13 @@
  * Run with: pnpx jiti examples/class-api-demo.ts
  */
 
-import { QuranRiwaya } from "../src/index"
+import { QuranRiwaya } from "../src"
+import { quran as hafs, createQalunQuran } from "../src"
 
 console.log("=== QuranRiwaya Class-Based API Demo ===\n")
 
 // Create Hafs instance using convenience factory
-const hafs = QuranRiwaya.hafs()
+
 console.log("Created Hafs instance:", hafs.getRiwayaName())
 
 // Get surah metadata
@@ -48,7 +49,7 @@ const prevAyah = hafs.prevAyah(2, 1)
 console.log("Previous ayah before [2, 1]:", prevAyah)
 
 // Create Qalun instance
-const qalun = QuranRiwaya.qalun()
+const qalun = createQalunQuran()
 console.log("\n\n=== Qalun Riwaya ===")
 console.log("Created Qalun instance:", qalun.getRiwayaName())
 

@@ -1,4 +1,4 @@
-import { HizbId, Juz, RubAlHizb, JuzPart, RubAlHizbId } from "./types"
+import type { HizbId, Juz, RubAlHizb, JuzPart, RubAlHizbId } from "./types"
 
 /**
  * Retrieves the basic metadata for a specific quarter (rub' al-hizb) of the Quran.

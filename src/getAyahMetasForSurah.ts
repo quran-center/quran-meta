@@ -1,20 +1,19 @@
 import { getAyahMeta } from "./getAyahMeta"
-import { getListsOfRiwaya } from "./lists/index"
-import { RiwayaName } from "./lists/types"
-import { Surah, AyahMeta, JuzPart } from "./types"
+import type { RiwayaData } from "./lists/types"
+import type { Surah, AyahMeta, JuzPart } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**
  * Retrieves metadata for all ayahs in a specific surah.
  *
  * @param surahNumber - The surah number (1-114)
- * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
+ * @param data - The Lists object for the riwaya.
  * @returns Array of AyahMeta objects for each ayah in the surah
  * @throws RangeError If the surah number is not between 1 and 114
  */
-export function getAyahMetasForSurah(surahNumber: Surah, riwaya: RiwayaName = "Hafs"): AyahMeta[] {
-  checkValidSurah(surahNumber)
-  const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = getListsOfRiwaya(riwaya)
+export function getAyahMetasForSurah(surahNumber: Surah, data: RiwayaData): AyahMeta[] {
+  checkValidSurah(surahNumber, data.meta)
+  const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = data
 
   const [
     startAyahId, ayahCount // , surahOrder, rukuCount, name, isMeccan, page
@@ -23,7 +22,7 @@ export function getAyahMetasForSurah(surahNumber: Surah, riwaya: RiwayaName = "H
   const result: AyahMeta[] = []
 
   // const rubAlHizbMeta = getRubAlHizbMetaByAyahId(startAyahId as AyahId)
-  let meta = getAyahMeta(startAyahId, riwaya)
+  let meta = getAyahMeta(startAyahId, data)
   result.push(meta)
   for (let ayahId = startAyahId + 1; ayahId <= endAyahId; ayahId++) {
     // Most properties will be the same as previous ayah except for specific positions

@@ -4,7 +4,6 @@
 // pnpx jiti data-check
 
 import { checkKFQCWarsh } from "./checkKFQC-Warsh"
-import "../generate-riwayah"
 
 console.log(`Running data-checks against various data sources`)
 

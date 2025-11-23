@@ -1,4 +1,5 @@
 import { getRubAlHizbMetaByAyahId } from "../src"
+import { HafsLists } from "../src/lists/HafsLists"
 
 describe("getRubAlHizbMetaByAyahId", () => {
   beforeEach(() => {
@@ -6,7 +7,7 @@ describe("getRubAlHizbMetaByAyahId", () => {
   })
 
   it("should return correct RubAlHizbMeta for first ayah", () => {
-    const result = getRubAlHizbMetaByAyahId(1)
+    const result = getRubAlHizbMetaByAyahId(1, HafsLists)
     expect(result).toEqual({
       hizbId: 1,
       juz: 1,
@@ -26,7 +27,7 @@ describe("getRubAlHizbMetaByAyahId", () => {
   })
 
   it("should return correct RubAlHizbMeta for middle ayah", () => {
-    const result = getRubAlHizbMetaByAyahId(81)
+    const result = getRubAlHizbMetaByAyahId(81, HafsLists)
     expect(result).toEqual({
       hizbId: 1,
       juz: 1,
@@ -46,7 +47,7 @@ describe("getRubAlHizbMetaByAyahId", () => {
   })
 
   it("should return correct RubAlHizbMeta for last ayah", () => {
-    const result = getRubAlHizbMetaByAyahId(6236)
+    const result = getRubAlHizbMetaByAyahId(6236, HafsLists)
     expect(result).toEqual({
       hizbId: 60,
       juz: 30,

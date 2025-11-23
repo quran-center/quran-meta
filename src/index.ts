@@ -2,12 +2,39 @@
 
 export type { QuranMeta, SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
 
+import { HafsLists } from "./lists/HafsLists"
+import { QalunLists } from "./lists/QalunLists"
+import { WarshLists } from "./lists/WarshLists"
+import type { RiwayaName } from "./lists/types"
+import type { QuranMeta } from "./types"
+
 // ==================== New Class-Based API ====================
+import { QuranRiwaya } from "./QuranRiwaya"
+
 export { QuranRiwaya } from "./QuranRiwaya"
+
+/**
+ * Create a QuranRiwaya instance with Hafs riwaya (default)
+ */
+export const createHafsQuran = () => QuranRiwaya.create(HafsLists)
+
+/**
+ * Create a QuranRiwaya instance with Qalun riwaya
+ */
+export const createQalunQuran = () => QuranRiwaya.create(QalunLists)
+
+/**
+ * Create a QuranRiwaya instance with Warsh riwaya
+ */
+export const createWarshQuran = () => QuranRiwaya.create(WarshLists)
+
+/**
+ * Pre-initialized QuranRiwaya instance for Hafs (for convenience)
+ */
+export const quran = createHafsQuran()
 
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
-export { meta, riwayaMeta } from "./types"
 export { findAyahIdBySurah } from "./findAyahIdBySurah"
 export { findJuz } from "./findJuz"
 export { findJuzAndShift, findJuzAndShiftByAyahId } from "./findJuzAndShift"

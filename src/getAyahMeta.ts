@@ -1,9 +1,8 @@
 import { findPagebyAyahId } from "./findPagebyAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
-import { getListsOfRiwaya } from "./lists/index"
-import { RiwayaName } from "./lists/types"
-import { AyahId, AyahMeta, Page, ThumunAlHizbId } from "./types"
+import type { RiwayaData } from "./lists/types"
+import type { AyahId, AyahMeta, Page, ThumunAlHizbId } from "./types"
 import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
 
@@ -11,27 +10,26 @@ import { checkValidAyahId } from "./validation"
  * Retrieves metadata for a specific ayah of the Quran.
  *
  * @param ayahId - The ayahId number to retrieve metadata for (1-6236)
- * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
+ * @param data - The Lists object for the riwaya.
  * @returns An object containing the ayah related meta, including information about the surah, juz, and quarter the ayah is in.
  * @throws RangeError If the ayahId number is not between 1 and 6236
  */
-export function getAyahMeta(ayahId: AyahId, riwaya: RiwayaName = "Hafs"): AyahMeta {
-  checkValidAyahId(ayahId)
-  const lists = getListsOfRiwaya(riwaya)
-  const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = lists
+export function getAyahMeta(ayahId: AyahId, data: RiwayaData): AyahMeta {
+  checkValidAyahId(ayahId, data.meta)
+  const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = data
 
   const getThumunData = () => {
-    if ("HizbEighthList" in lists) {
-      const jj = binarySearch(lists.HizbEighthList, ayahId)
+    if (data.HizbEighthList) {
+      const jj = binarySearch(data.HizbEighthList, ayahId)
       const thumunAlHizbId = (jj < 0 ? -jj - 2 : jj) as ThumunAlHizbId
       return { thumunAlHizbId }
     }
     return {}
   }
 
-  const quarterData = getRubAlHizbByAyahId(ayahId, riwaya)
-  const [surah, ayah] = findSurahAyahByAyahId(ayahId, riwaya)
-  const page: Page = findPagebyAyahId(ayahId, riwaya)
+  const quarterData = getRubAlHizbByAyahId(ayahId, data)
+  const [surah, ayah] = findSurahAyahByAyahId(ayahId, data)
+  const page: Page = findPagebyAyahId(ayahId, data)
 
   // const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
   const isSajdahAyah = binarySearch(SajdaList, ayahId, (a, b) => a - b) >= 0

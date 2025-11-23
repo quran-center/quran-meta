@@ -5,7 +5,6 @@
 
 import { checkQuranApi } from "./checkQuranApi"
 import { checkKFQCHafs } from "./checkKFQC-hafs"
-import { checkKFQCShuba } from "./checkKFQC-shuba"
 import { checkKFQCSmart } from "./checkKFQC-smart"
 import { checkTanzil } from "./checkTanzil"
 import { checkQuranCloud } from "./checkQuranCloud"
@@ -16,7 +15,6 @@ export const checkHafs = () => {
   checkQuranApi()
   checkTanzil()
   checkQuranCloud()
-  checkKFQCShuba()
   checkKFQCSmart()
   checkKFQCHafs()
 }

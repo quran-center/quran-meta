@@ -3,9 +3,9 @@
  *  https://qurancomplex.gov.sa/en/techquran/dev/
  */
 
-import { meta, quran } from "../../../src/warsh"
-import { AyahId } from "../../../src/types"
-import WarshData from "../data/warshData_v2-1.json"
+import { quran } from "../../../src/warsh"
+import type { AyahId } from "../../../src/types"
+import WarshData from "../data/WarshData_v2-1.json"
 
 const ayahCount = WarshData.length
 

@@ -1,7 +1,6 @@
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
-import { AyahId, AyahNo, Juz, Surah } from "./types"
-import { getList } from "./lists/index"
-import { RiwayahsWith } from "./lists/types"
+import type { AyahId, AyahNo, Juz, Surah } from "./types"
+import type { RiwayaData } from "./lists/types"
 import { binarySearch } from "./utils"
 import { checkValidSurah } from "./validation"
 
@@ -10,24 +9,24 @@ import { checkValidSurah } from "./validation"
  *
  * @param surah - The Surah number to check
  * @param ayah - The Ayah number within the Surah to check
- * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
+ * @param data - The Lists object for the riwaya.
  * @returns The Juz number if the combination marks the start of a Juz, -1 otherwise
  * @throws Error When the provided Surah number is invalid
  *
  * @example
  * ```typescript
- * isSurahAyahJuzFirst(2, 142) // Returns 2
- * isSurahAyahJuzFirst(2, 143) // Returns -1
+ * isSurahAyahJuzFirst(2, 142, HafsLists) // Returns 2
+ * isSurahAyahJuzFirst(2, 143, HafsLists) // Returns -1
  * ```
  */
 export function isSurahAyahJuzFirst(
   surah: Surah,
   ayah: AyahNo,
-  riwaya: RiwayahsWith<"JuzList"> = "Hafs"
+  data: RiwayaData
 ): Juz | number {
-  checkValidSurah(surah)
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah)
-  const JuzList = getList("JuzList", riwaya)
+  checkValidSurah(surah, data.meta)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
+  const JuzList = data.JuzList
   return binarySearch(JuzList, ayahId)
   // return JuzList.findIndex((x: AyahId) => x == ayahId)
 }

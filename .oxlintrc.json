@@ -93,6 +93,8 @@
     "@typescript-eslint/prefer-as-const": "error",
     "@typescript-eslint/prefer-namespace-keyword": "error",
     "@typescript-eslint/triple-slash-reference": "error",
+    "typescript/consistent-type-imports": "error",
+    "import/no-duplicates": "error",
     "react/jsx-curly-brace-presence": "off",
     "react/self-closing-comp": "off"
   },

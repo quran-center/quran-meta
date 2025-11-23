@@ -1,20 +1,20 @@
 import { findRubAlHizbByAyahId } from "./findRubAlHizbByAyahId"
 import { getRubAlHizbMeta } from "./getRubAlHizbMeta"
-import { AyahId, RubAlHizbMeta } from "./types"
+import type { AyahId, RubAlHizbMeta } from "./types"
 import { checkValidAyahId } from "./validation"
-import { RiwayahsWith } from "./lists/types"
+import type { RiwayaData } from "./lists/types"
 /**
  * Finds the Juz, Hizb, and Rub-el-Hizb id for the given Ayah ID.
  *
  * @param ayahId - The Ayah ID to find the Juz, Hizb, and Hizb ID for.
- * @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
+ * @param data - The Lists object containing HizbQuarterList.
  * @returns An object containing the Juz, Hizb, and Hizb ID for the given Ayah ID.
  */
 export function getRubAlHizbMetaByAyahId(
   ayahId: AyahId,
-  riwaya: RiwayahsWith<"HizbQuarterList"> = "Hafs"
+  data: RiwayaData
 ): RubAlHizbMeta {
-  checkValidAyahId(ayahId)
-  const quarterIndex = findRubAlHizbByAyahId(ayahId, riwaya)
-  return getRubAlHizbMeta(quarterIndex)
+  checkValidAyahId(ayahId, data.meta)
+  const quarterIndex = findRubAlHizbByAyahId(ayahId, data)
+  return getRubAlHizbMeta(quarterIndex, data)
 }

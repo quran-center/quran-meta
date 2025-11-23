@@ -363,6 +363,7 @@ export const WarshMeta: QuranMeta = {
 } as const
 
 export const WarshLists = {
+  meta: WarshMeta,
   HizbQuarterList,
   JuzList,
   ManzilList,

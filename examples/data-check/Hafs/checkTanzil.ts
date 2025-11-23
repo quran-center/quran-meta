@@ -5,7 +5,7 @@
 
 import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
 import { meta, quran } from "../../../src/hafs"
-import { SurahInfo, Juz, Surah } from "../../../src/types"
+import type { SurahInfo, Juz, Surah } from "../../../src/types"
 
 import tanzilData from "./../data/tanzil-data.js"
 
