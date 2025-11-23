@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v6.0.0
 
+[compare changes](https://github.com/quran-center/quran-meta/compare/5.2...v6.0.0)
+
+## v6.0.0
+
 
 ### 🎉 Major New Features
 
