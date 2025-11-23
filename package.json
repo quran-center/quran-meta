@@ -1,6 +1,6 @@
 {
   "name": "quran-meta",
-  "version": "6.0.0",
+  "version": "6.0.0-alpha.5",
   "description": "Library with meta data and functionality related to Holy Quran",
   "type": "module",
   "license": "MIT",
