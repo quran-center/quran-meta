@@ -1,5 +1,5 @@
 import { getRukuMeta } from "../src"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 
 describe("getRukuMeta", () => {
   it("should return correct metadata for first ruku", () => {

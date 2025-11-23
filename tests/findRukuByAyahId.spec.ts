@@ -1,5 +1,5 @@
 import { findRukuByAyahId } from "../src"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 
 describe("findRukuByAyahId", () => {
   it("should find correct ruku for valid ayah IDs", () => {

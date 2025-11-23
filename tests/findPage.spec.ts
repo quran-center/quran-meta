@@ -1,5 +1,5 @@
 import { findPage, findPagebyAyahId } from "../src"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 import * as ayahIdModule from "../src/findAyahIdBySurah"
 import * as module from "../src/validation"
 

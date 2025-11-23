@@ -1,6 +1,6 @@
 import type { Page } from "../src"
 import { getPageMeta } from "../src"
-import { HafsLists, HafsMeta } from "../src/lists/aHafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
 describe("pageMeta", () => {
   it("should return correct metadata for the first page", () => {

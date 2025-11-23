@@ -1,5 +1,5 @@
 import { QuranRiwaya } from "../src/QuranRiwaya"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 import { QalunLists } from "../src/lists/QalunLists"
 
 describe("QuranRiwaya", () => {

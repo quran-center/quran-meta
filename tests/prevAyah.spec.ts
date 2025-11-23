@@ -1,5 +1,5 @@
 import { prevAyah } from "../src"
-import { HafsMeta, HafsLists } from "../src/lists/aHafsLists"
+import { HafsMeta, HafsLists } from "../src/lists/HafsLists"
 
 const meta = HafsMeta
 

@@ -1,5 +1,5 @@
 import { findJuzMetaBySurah } from "../src"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 import * as findSurahByAyahIdModule from "../src/findSurahByAyahId"
 
 describe("findJuzMetaBySurah", () => {

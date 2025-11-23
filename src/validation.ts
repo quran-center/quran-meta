@@ -1,4 +1,4 @@
-import { getAyahCountInSurah } from "./agetAyahCountInSurah"
+import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import type { RiwayaData } from "./lists/types"
 import { isValidAyahId, isValidJuz, isValidManzil, isValidPage, isValidRuku, isValidSurah } from "./typeGuards"
 import type { AyahId, AyahNo, Juz, Manzil, Page, QuranMeta, Ruku, Surah, SurahAyah } from "./types"

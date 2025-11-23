@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 import { getManzilMeta } from "../src/getManzilMeta"
 
 describe("getManzilMeta", () => {

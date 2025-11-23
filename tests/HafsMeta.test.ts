@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { HafsLists, HafsMeta } from "../src/lists/aHafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 import type { Riwayas } from "../src/lists/types"
 
 const hafsLists: Riwayas["Hafs"] = HafsLists

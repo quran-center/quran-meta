@@ -9,7 +9,7 @@ import {
 } from "../src"
 import { meta as HafsMeta } from "../src/hafs"
 import { getSurahInfo } from "../src/getSurahInfo"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 import type { AyahId, AyahNo, Surah } from "../src/types"
 
 const JuzList = HafsLists.JuzList

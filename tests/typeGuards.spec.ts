@@ -1,4 +1,4 @@
-import { HafsLists as data, HafsMeta as meta } from "../src/lists/aHafsLists"
+import { HafsLists as data, HafsMeta as meta } from "../src/lists/HafsLists"
 import { isValidHizb, isValidJuz, isValidManzil, isValidRubAlHizb, isValidRuku, isValidSurah, isValidSurahAyah } from "../src/typeGuards"
 
 describe("isValidJuz", () => {

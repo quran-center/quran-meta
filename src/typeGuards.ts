@@ -1,5 +1,5 @@
 import { maxAyahsInSurah } from "./types"
-import { getAyahCountInSurah } from "./agetAyahCountInSurah"
+import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import type { AyahId, AyahNo, HizbId, Juz, Manzil, RubAlHizbId, Ruku, Surah, SurahAyah, QuranMeta } from "./types"
 import type { RiwayaData } from "./lists/types"
 

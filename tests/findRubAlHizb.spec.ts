@@ -1,5 +1,5 @@
 import { findRubAlHizb, findRubAlHizbByAyahId } from "../src"
-import { HafsLists, HafsMeta } from "../src/lists/aHafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
 const JuzList = HafsLists.JuzList
 const HizbQuarterList = HafsLists.HizbQuarterList

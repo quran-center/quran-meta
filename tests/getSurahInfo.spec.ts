@@ -1,5 +1,5 @@
 import { getSurahInfo } from "../src/getSurahInfo"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 
 const SurahList = HafsLists.SurahList
 

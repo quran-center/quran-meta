@@ -2,7 +2,7 @@ import { generatePartBlocks } from "../src"
 import { getListsOfRiwaya } from "../src/lists"
 import { maxAyahsInSurah } from "../src/types"
 import { getSurahInfo } from "../src/getSurahInfo"
-import { HafsLists, HafsMeta } from "../src/lists/aHafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 const { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } = getListsOfRiwaya("Hafs")
 
 describe("Meta constants", () => {

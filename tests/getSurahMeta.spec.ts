@@ -1,5 +1,5 @@
 import { getSurahMeta } from "../src/getSurahMeta"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 
 describe("getSurahMeta", () => {
   it("returns correct metadata for Surah Al-Fatihah (1)", () => {

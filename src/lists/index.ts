@@ -1,10 +1,10 @@
 import type { Riwayas } from "./types"
-import { HafsLists } from "./aHafsLists"
+import { HafsLists } from "./HafsLists"
 import { QalunLists } from "./QalunLists"
 import { WarshLists } from "./WarshLists"
 
 // Export Meta objects for direct use
-export { HafsMeta } from "./aHafsLists"
+export { HafsMeta } from "./HafsLists"
 export { QalunMeta } from "./QalunLists"
 export { WarshMeta } from "./WarshLists"
 

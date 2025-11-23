@@ -3,7 +3,7 @@
  * https://api.alquran.cloud/v1/meta
  */
 
-import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/aHafsLists"
+import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
 import { meta, createHafs } from "../../../src/hafs"
 import type { AyahNo, SurahInfo, Juz, Surah } from "../../../src/types"
 

@@ -1,5 +1,5 @@
 import { getAyahMetasForSurah, getAyahMeta } from "../src"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 import type { Surah } from "../src"
 import { getList } from "../src/lists"
 

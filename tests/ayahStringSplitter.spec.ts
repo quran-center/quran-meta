@@ -1,5 +1,5 @@
 import { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "../src/ayahStringSplitter"
-import { HafsLists as data } from "../src/lists/aHafsLists"
+import { HafsLists as data } from "../src/lists/HafsLists"
 
 describe("ayaStringSplitter", () => {
   it("basic tests", () => {

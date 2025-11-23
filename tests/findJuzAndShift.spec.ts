@@ -1,5 +1,5 @@
 import { findJuzAndShift, findJuzAndShiftByAyahId } from "../src"
-import { HafsLists, HafsMeta } from "../src/lists/aHafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
 describe("findJuzAndShift", () => {
   it("basic", () => {

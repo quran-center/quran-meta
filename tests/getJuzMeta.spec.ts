@@ -1,6 +1,6 @@
 import type { JuzMeta } from "../src"
 import { getJuzMeta } from "../src"
-import { HafsLists } from "../src/lists/aHafsLists"
+import { HafsLists } from "../src/lists/HafsLists"
 
 describe("getJuzMeta", () => {
   it("should return correct metadata for a valid Juz number", () => {
