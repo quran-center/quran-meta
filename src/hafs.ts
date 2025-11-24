@@ -52,15 +52,27 @@ import { isSurahAyahJuzFirst as _isSurahAyahJuzFirst } from "./isSurahAyahJuzFir
 import { isSurahAyahPageFirst as _isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
 import { nextAyah as _nextAyah } from "./nextAyah"
 import { prevAyah as _prevAyah } from "./prevAyah"
-import { isValidAyahId as _isValidAyahId,
+import {
+  isValidAyahId as _isValidAyahId,
   isValidJuz as _isValidJuz,
   isValidPage as _isValidPage,
   isValidRuku as _isValidRuku,
   isValidManzil as _isValidManzil,
   isValidSurah as _isValidSurah,
-  isValidSurahAyah as _isValidSurahAyah } from "./typeGuards"
-import type { AyahId, AyahNo, Juz, Manzil, Page, RangeMode, RubAlHizbId, Ruku, Surah } from "./types"
+  isValidSurahAyah as _isValidSurahAyah
+} from "./typeGuards"
 import { QuranRiwaya } from "./QuranRiwaya"
+import {
+  checkValidSurahAyah as _checkValidSurahAyah,
+  checkValidSurah as _checkValidSurah,
+  checkValidSurahAyahPair as _checkValidSurahAyahPair,
+  checkValidAyahId as _checkValidAyahId,
+  checkValidPage as _checkValidPage,
+  checkValidJuz as _checkValidJuz,
+  checkValidRuku as _checkValidRuku,
+  checkValidManzil as _checkValidManzil
+} from "./validation"
+import type { AyahId, AyahNo, Juz, Manzil, Page, RangeMode, RubAlHizbId, Ruku, Surah } from "./types"
 import type { PartType } from "./lists/types"
 
 // Re-export all types
@@ -97,6 +109,26 @@ export const surahStringParser = (str: string) => {
     ayah: ayah ? (Number.parseInt(ayah) as AyahNo) : (1 as AyahNo)
   }
 }
+
+// Validation methods
+
+export const checkValidSurahAyah = (surah: Surah | number | unknown, ayah: number | AyahNo | unknown) =>
+  _checkValidSurahAyah(surah, ayah, riwayaLists)
+
+export const checkValidSurah = (surah: Surah | number | unknown) =>
+  _checkValidSurah(surah, meta)
+export const checkValidSurahAyahPair = (pair: [unknown, unknown]) =>
+  _checkValidSurahAyahPair(pair, riwayaLists)
+export const checkValidAyahId = (ayahId: unknown) =>
+  _checkValidAyahId(ayahId, meta)
+export const checkValidPage = (page: unknown) =>
+  _checkValidPage(page, meta)
+export const checkValidJuz = (juz: unknown) =>
+  _checkValidJuz(juz, meta)
+export const checkValidRuku = (ruku: unknown) =>
+  _checkValidRuku(ruku, meta)
+export const checkValidManzil = (manzil: unknown) =>
+  _checkValidManzil(manzil, meta)
 
 // Surah methods
 export const getSurahMeta = (surah: Surah) =>

@@ -4,51 +4,70 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v6.0.7
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.6...v6.0.7)
 
-## v6.0.6
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.0...v6.0.7)
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.5...v6.0.6)
+### 🚀 Enhancements
 
-## v6.0.5
+- **Closure-based exports**: Exported all riwaya functions (hafs/qalun/warsh) as standalone, tree-shakeable closures
+- Fixed instance method binding issues - exported functions no longer lose internal state
+- Finalized closure-based riwaya entry points for optimal bundle sizes
+- QuranRiwaya now accepts riwaya Lists at construction time
+- Removed hard-coded multi-riwaya imports from QuranRiwaya class
+- Started migration of API functions to accept `AllLists` parameter
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.4...v6.0.5)
+### 🩹 Fixes
+
+- Resolved `this` context loss when exporting QuranRiwaya methods
+- Fixed "cannot read properties of undefined" errors in exported functions
+- Config and formatting improvements
+- Minor type and formatting fixes
+- Restored full QuranRiwaya class functionality while maintaining per-riwaya tree-shakeability
+- Per-riwaya wrappers now bind functionality to Lists instead of importing all riwayas
+- Further reduced bundle sizes by avoiding eager imports of other riwayas
+- Updated all 40+ functional API functions to new signature pattern
+- Bulk update of tests to pass Lists parameters
+- Fixed QuranRiwaya methods to properly delegate to updated functional API
+
+### 📚 Documentation
+
+- Added proper TypeScript type inference for `listName` parameter in `getList()`
+- Minor docs and packaging improvements
+
+### 💅 Refactors
+
+- Restored QuranRiwaya methods to use new Lists-based functional API
+- Updated validation and type guard functions to accept Lists parameter
+- Began conversion of functional API to Lists-based signatures
+- Started migrating tests and wrappers to new parameter patterns
+- Introduced factory/wrapper patterns to keep imports local to each riwaya
+- Restructured index exports for better tree-shaking
+
+**Linter Improvements**
+- Added ESLint rule: `@typescript-eslint/consistent-type-imports` (enforces `import type` syntax)
+- Added ESLint rule: `import/no-duplicates` with `prefer-inline` option
+- Added oxlint rules for consistent type imports and merged imports
+
+**Major Refactor: Lists-based API**
+- Refactored entire functional API to accept `lists: AllLists` parameter instead of `riwaya: string`
+- Added `AllLists` type for riwaya data structures
+- Made `HizbEighthList` optional in `AllLists` type (only exists for Qalun/Warsh)
+
+**Bundle Optimization**
+- Fixed cross-riwaya bundle contamination issue
+- Removed top-level imports that pulled all riwayas into single-riwaya bundles
+- Reworked entrypoint exports to avoid importing all Lists in riwaya-specific bundles
 
 ### 🏡 Chore
 
+- Test stability improvements
 - Normalise parameters ([0e6a002](https://github.com/quran-center/quran-meta/commit/0e6a002))
 
 ### ❤️ Contributors
 
 - HG ([@husayt](https://github.com/husayt))
 
-## v6.0.4
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.3...v6.0.4)
-
-### 🏡 Chore
-
-- Fix types ([4db7027](https://github.com/quran-center/quran-meta/commit/4db7027))
-
-### ❤️ Contributors
-
-- HG ([@husayt](https://github.com/husayt))
-
-## v6.0.3
-
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.2...v6.0.3)
-
-## v6.0.2
-
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.1...v6.0.2)
-
-## v6.0.1
-
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.0...v6.0.1)
-
-## v6.0.0
-
-[compare changes](https://github.com/quran-center/quran-meta/compare/5.2...v6.0.0)
 
 ## v6.0.0
 
