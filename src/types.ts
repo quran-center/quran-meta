@@ -274,8 +274,6 @@ export type SurahJuzMeta = {
   leftAyahId: AyahId
   rightAyahId: AyahId
 }
-export type SajdaType = "recommended" | "obligatory"
-export type Sajda = [AyahId, SajdaType]
 
 export type RangeMode = "juz" | "surah" | "ayah" | "page" | "ruku" | "all"
 

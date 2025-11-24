@@ -19,7 +19,7 @@ import { findSurahByAyahId } from "./findSurahByAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
 import { findThumunAlHizb } from "./findThumunAlHizb"
-import { generatePartBlocks } from "./lists/generatePartBlocks"
+import { getList, getListNormalised, generatePartBlocks } from "./lists/getList"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import { getAyahMeta } from "./getAyahMeta"
 import { getAyahMetasForSurah } from "./getAyahMetasForSurah"
@@ -152,6 +152,14 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
 
   generatePartBlocks<P extends PartType>(type: P) {
     return generatePartBlocks(type, this.#data)
+  }
+
+  getList<P extends PartType>(type: P) {
+    return getList(type, this.#data)
+  }
+
+  getListNormalised<P extends PartType>(type: P) {
+    return getListNormalised(type, this.#data)
   }
 
   /**

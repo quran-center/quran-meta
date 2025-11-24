@@ -1,6 +1,6 @@
 // Quran Meta
 
-export type { QuranMeta, SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Sajda, SajdaType, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
+export type { QuranMeta, SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
 
 import { HafsLists } from "./lists/HafsLists"
 import { QalunLists } from "./lists/QalunLists"
@@ -30,7 +30,7 @@ export const createWarsh = () => QuranRiwaya.create(WarshLists)
 export const quran = createHafs()
 
 export { QuranRiwaya } from "./QuranRiwaya"
-export { getList } from "./lists/getList"
+export { getList, generatePartBlocks, getListNormalised } from "./lists/getList"
 export { getListsOfRiwaya, getListOfRiwaya } from "./lists"
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
@@ -54,7 +54,6 @@ export { getAyahCountInSurah } from "./getAyahCountInSurah"
 export { getAyahMeta } from "./getAyahMeta"
 export { getAyahMetasForSurah } from "./getAyahMetasForSurah"
 export { getJuzMeta } from "./getJuzMeta"
-export { generatePartBlocks } from "./lists/generatePartBlocks"
 export { getManzilMeta } from "./getManzilMeta"
 export { getPageMeta } from "./getPageMeta"
 export { getRukuMeta } from "./getRukuMeta"

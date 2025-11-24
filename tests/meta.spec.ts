@@ -1,5 +1,5 @@
-import { generatePartBlocks } from "../src"
 import { getListsOfRiwaya } from "../src/lists"
+import { generatePartBlocks } from "../src/lists/getList"
 import { maxAyahsInSurah } from "../src/types"
 import { getSurahInfo } from "../src/getSurahInfo"
 import { HafsLists, HafsMeta } from "../src/lists/HafsLists"

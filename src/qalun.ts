@@ -15,7 +15,7 @@
  */
 
 import { QalunLists } from "./lists/QalunLists"
-import { getList as _getList } from "./lists/getList"
+import { getList as _getList, generatePartBlocks as _generatePartBlocks, getListNormalised as _getListNormalised } from "./lists/getList"
 import { ayahStringSplitter as _ayahStringSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah as _findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuz as _findJuz } from "./findJuz"
@@ -39,7 +39,6 @@ import { getThumunAlHizbMeta as _getThumunAlHizbMeta } from "./getThumunAlHizbMe
 import { getThumunAlHizbMetaByAyahId as _getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId"
 import { findSurahAyahByAyahId as _findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { findSurahByAyahId as _findSurahByAyahId } from "./findSurahByAyahId"
-import { generatePartBlocks as _generatePartBlocks } from "./lists/generatePartBlocks"
 import { getAyahCountInSurah as _getAyahCountInSurah } from "./getAyahCountInSurah"
 import { getAyahMeta as _getAyahMeta } from "./getAyahMeta"
 import { getAyahMetasForSurah as _getAyahMetasForSurah } from "./getAyahMetasForSurah"
@@ -78,6 +77,7 @@ export { PartType }
  */
 export const riwayaLists: RiwayaData = QalunLists
 export const getList = (listName: PartType) => _getList(listName, riwayaLists)
+export const getListNormalised = (listName: PartType) => _getListNormalised(listName, riwayaLists)
 
 export const meta = riwayaLists.meta
 /**
