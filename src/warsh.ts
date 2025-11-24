@@ -56,6 +56,7 @@ import { isValidAyahId as _isValidAyahId,
   isValidJuz as _isValidJuz,
   isValidPage as _isValidPage,
   isValidRuku as _isValidRuku,
+  isValidManzil as _isValidManzil,
   isValidSurah as _isValidSurah,
   isValidSurahAyah as _isValidSurahAyah } from "./typeGuards"
 import type { AyahId, AyahNo, Juz, Manzil, Page, RangeMode, RubAlHizbId, Ruku, Surah } from "./types"
@@ -230,6 +231,9 @@ export const isValidAyahNo = (ayahNo: number): ayahNo is AyahNo =>
 
 export const isValidAyahId = (x: unknown) =>
   _isValidAyahId(x, meta)
+
+export const isValidManzil = (x: unknown) =>
+  _isValidManzil(x, meta)
 
 export const isValidPage = (x: unknown) =>
   _isValidPage(x, meta)
