@@ -296,6 +296,7 @@ You can find some examples [here](https://quran-center.github.io/quran-meta/exam
 ### Projects using Quran-meta
 
 * [Koran-Center](https://koran.center) - Powerful and feature rich  web application for reading and studying the Holy Quran.
+* [Visual Quran](https://visual.koran.center/) - Interactive platform with visualizations and insights into Quran's structure.
 
 ### Demo
 * [Quran Meta Visualiser ESM Alpine3](https://codesandbox.io/p/sandbox/quran-visualiser-esm-alpine-3-q89frt) - demo app showcasing number of methods from Quran-meta to build interactive visualisations of Quran structure using Alpine.js 3 & Chart.js 4 in ESM format.
