@@ -1,6 +1,6 @@
 import { generatePartBlocks } from "../src"
-import type { PartType } from "../src/generatePartBlocks"
-import { partNames } from "../src/generatePartBlocks"
+import type { PartType } from "../src/lists/types"
+import { partNames } from "../src/lists/types"
 import { HafsLists } from "../src/lists/HafsLists"
 import { QalunLists } from "../src/lists/QalunLists"
 

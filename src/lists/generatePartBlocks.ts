@@ -1,20 +1,5 @@
-import type { RiwayaData, AllListsNames } from "./lists/types"
-import type { AyahId, AyahNo, SurahInfo } from "./types"
-
-/* A map of readable parameters that can be used in the function and their corresponding list name */
-
-export const partNames = ["surah", "juz", "rubAlHizb", "thumunAlHizb", "page", "manzil", "ruku"] as const
-export type PartType = (typeof partNames)[number]
-
-export const parts = {
-  surah: "SurahList",
-  juz: "JuzList",
-  rubAlHizb: "HizbQuarterList",
-  thumunAlHizb: "HizbEighthList",
-  page: "PageList",
-  manzil: "ManzilList",
-  ruku: "RukuList"
-} as const satisfies Record<PartType, AllListsNames>
+import { type RiwayaData, type PartType, parts } from "./types"
+import type { AyahId, AyahNo, SurahInfo } from "../types"
 
 /**
  * Represents a block or section of the Quran with its starting ayah and length
@@ -45,17 +30,17 @@ function toPartFormatter(type: PartType, list: AyahId[] | SurahInfo[]): PartBloc
 
 /**
  * Retrieves a formatted list of Quran parts based on the specified type.
- * @param type - The type of parts to retrieve (e.g., juz, hizb, rub)
+ * @param name - The type of parts to retrieve (e.g., juz, hizb, rub)
  * @param data - The Lists object for the riwaya.
  * @returns An array of formatted part blocks, excluding the first and last elements
  */
 export function generatePartBlocks<P extends PartType>(
-  type: P,
+  name: P,
   data: RiwayaData
 ): PartBlock[] | null {
-  if (!parts[type]) throw new Error(`Invalid part type: ${type}`)
+  if (!parts[name]) throw new Error(`Invalid part type: ${name}`)
 
-  const listName = parts[type] as keyof RiwayaData
+  const listName = parts[name] as keyof RiwayaData
   const list = data[listName]
 
   if (!list) {
@@ -66,5 +51,5 @@ export function generatePartBlocks<P extends PartType>(
     throw new TypeError(`Expected array for ${String(listName)}`)
   }
 
-  return list.slice(1, -1).map(toPartFormatter(type, list))
+  return list.slice(1, -1).map(toPartFormatter(name, list))
 }

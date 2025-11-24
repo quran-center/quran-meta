@@ -35,3 +35,18 @@ export type RiwayahsWith<L extends AllListsNames> = {
 export type RiwayahsWithAll<L extends (AllListsNames)[]> = {
   [R in RiwayaName]: L[number] extends keyof Riwayas[R] ? Riwayas[R] : never
 }[RiwayaName]
+
+/* A map of readable parameters that can be used in the function and their corresponding list name */
+
+export const partNames = ["surah", "juz", "rubAlHizb", "thumunAlHizb", "page", "manzil", "ruku"] as const
+export type PartType = (typeof partNames)[number]
+
+export const parts = {
+  surah: "SurahList",
+  juz: "JuzList",
+  rubAlHizb: "HizbQuarterList",
+  thumunAlHizb: "HizbEighthList",
+  page: "PageList",
+  manzil: "ManzilList",
+  ruku: "RukuList"
+} as const satisfies Record<PartType, AllListsNames>

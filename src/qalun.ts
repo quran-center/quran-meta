@@ -39,7 +39,7 @@ import { getThumunAlHizbMeta as _getThumunAlHizbMeta } from "./getThumunAlHizbMe
 import { getThumunAlHizbMetaByAyahId as _getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId"
 import { findSurahAyahByAyahId as _findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { findSurahByAyahId as _findSurahByAyahId } from "./findSurahByAyahId"
-import { generatePartBlocks as _generatePartBlocks, type PartType } from "./generatePartBlocks"
+import { generatePartBlocks as _generatePartBlocks } from "./lists/generatePartBlocks"
 import { getAyahCountInSurah as _getAyahCountInSurah } from "./getAyahCountInSurah"
 import { getAyahMeta as _getAyahMeta } from "./getAyahMeta"
 import { getAyahMetasForSurah as _getAyahMetasForSurah } from "./getAyahMetasForSurah"
@@ -67,17 +67,17 @@ import { isValidAyahId as _isValidAyahId,
   isValidSurahAyah as _isValidSurahAyah } from "./typeGuards"
 import type { AyahId, AyahNo, Juz, Manzil, Page, RangeMode, RubAlHizbId, Ruku, Surah, ThumunAlHizbId } from "./types"
 import { QuranRiwaya } from "./QuranRiwaya"
-import type { RiwayaData } from "./lists/types"
+import type { PartType, RiwayaData } from "./lists/types"
 
 // Re-export all types
 export type * from "./types"
-export type { PartType } from "./generatePartBlocks"
+export { PartType }
 
 /**
  * Qalun metadata
  */
 export const riwayaLists: RiwayaData = QalunLists
-export const getList = (listName: keyof Omit<typeof riwayaLists, "meta">) => _getList(listName, riwayaLists)
+export const getList = (listName: PartType) => _getList(listName, riwayaLists)
 
 export const meta = riwayaLists.meta
 /**
