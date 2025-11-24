@@ -14,7 +14,7 @@
  * ```
  */
 
-import { QalunLists as riwayaLists } from "./lists/QalunLists"
+import { QalunLists } from "./lists/QalunLists"
 import { getList as _getList } from "./lists/getList"
 import { ayahStringSplitter as _ayahStringSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah as _findAyahIdBySurah } from "./findAyahIdBySurah"
@@ -67,6 +67,7 @@ import { isValidAyahId as _isValidAyahId,
   isValidSurahAyah as _isValidSurahAyah } from "./typeGuards"
 import type { AyahId, AyahNo, Juz, Manzil, Page, RangeMode, RubAlHizbId, Ruku, Surah, ThumunAlHizbId } from "./types"
 import { QuranRiwaya } from "./QuranRiwaya"
+import type { RiwayaData } from "./lists/types"
 
 // Re-export all types
 export type * from "./types"
@@ -75,10 +76,10 @@ export type { PartType } from "./generatePartBlocks"
 /**
  * Qalun metadata
  */
-export const meta = riwayaLists.meta
-
+export const riwayaLists: RiwayaData = QalunLists
 export const getList = (listName: keyof Omit<typeof riwayaLists, "meta">) => _getList(listName, riwayaLists)
 
+export const meta = riwayaLists.meta
 /**
  * Qalun Lists (SurahList, JuzList, etc.)
  */

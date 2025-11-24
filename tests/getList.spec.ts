@@ -1,7 +1,6 @@
 import { generatePartBlocks } from "../src"
 import type { PartType } from "../src/generatePartBlocks"
 import { partNames } from "../src/generatePartBlocks"
-import { getListOfRiwaya } from "../src/lists"
 import { HafsLists } from "../src/lists/HafsLists"
 import { QalunLists } from "../src/lists/QalunLists"
 
