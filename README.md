@@ -64,6 +64,7 @@ Answering Questions like:
 ### Features
 * Supports multiple riwayas (Hafs, Qalun, Warsh are ready. Douri, Shuba, Sousi are on the way) with riwaya-specific data and features.
 * Type-safe riwaya-specific methods (e.g., Qalun's Thumun al-Hizb).
+* Custom riwaya instances for advanced use cases. If you want to use quran-meta  library with your own data (e.g another riwaya or different pagination than we support) just create your own instance of QuranRiwaya with your data.
 * Fully documented with examples.
 * 100% unit test covered with data correctness validation against multiple data sources.
 * Fully typed with Typescript types and type guards.
@@ -260,6 +261,18 @@ for (let surah: Surah = 1; surah <= meta.numSurahs; surah++) {
   console.log(surah, ': ',ayaCount)
 }
 ```
+
+Here's a paragraph describing this major feature:
+
+## Custom Riwaya Support - Build Your Own!
+
+**quran-meta** now supports **custom riwaya instances**, allowing you to use the library with your own Quranic data sources. Whether you're working with a different recitation style (riwaya) not yet included in the library, using an alternative pagination system (like different mushaf layouts with 13, 15, or 16 lines per page), or integrating region-specific Quranic metadata, you can now create your own `QuranRiwaya` instance with your custom data. Simply prepare your data in the required format (Lists structure with SurahList, JuzList, PageList, etc.) and instantiate the library with `QuranRiwaya.create(riwayaName, customMeta, customLists)`. 
+
+All 40+ methods will work seamlessly with your data—including navigation (`nextAyah`, `prevAyah`), metadata queries (`getAyahMeta`, `getSurahInfo`), and advanced features (juz/page/ruku lookups). This opens up possibilities for researchers, developers working with regional mushaf standards, digital Quran applications targeting specific communities, and anyone needing Quranic metadata for specialized use cases. 
+
+The library's architecture is designed to be data-agnostic—just plug in your data and everything works! For guidance on data structure requirements, see the [API documentation](https://quran-center.github.io/quran-meta/docs/) or examine the existing riwaya implementations (Hafs, Qalun, Warsh) as reference examples.
+
+We are commited to expanding support for more riwayas and pagination systems in future releases. Meanwhile, we welcome contributions from the community to help build a richer ecosystem of Quranic metadata.
 
 ### Terminology
 
