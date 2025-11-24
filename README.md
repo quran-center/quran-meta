@@ -29,13 +29,15 @@ Quran Meta
 
 
 
-## Welcome to Quran Meta Project
+## Welcome to Quran Meta Project - the most comprehensive Quran metadata library!
 
 This project is to help with Quran related meta queries. 
 
 Answering Questions like:
 
-* How many ayahs in given surah (`getAyahCountinSurah`)
+* How many ayahs in given surah of Hafs Riwaya or Warsh or Qalun (`getAyahCountinSurah`)
+* What is the juz of given ayah (`getAyahMeta`)?
+* What is the next ayah after given ayah (`nextAyah`)?
 * Is given ayah 
   * a sajdah ayah (`getAyahMeta`)?
   * beginnning of a page (`isAyahPageFirst`)? 
@@ -53,11 +55,54 @@ Answering Questions like:
   * page  (`getPageMeta`)
   * juz  (`findJuzMetaBySurah`)
   * maqra/rub-el-hizb  (`getRubAlHizbMeta`, `getRubAlHizbMetaByAyahId`)
-* Validates ayah/surah id (`checkValidAyahId`,`checkValidSurah`, `checkValidSurahAyah`) 
+* Validates ayah/surah id (`checkValidAyahId`,`checkValidSurah`, `checkValidSurahAyah`, etc) 
 * Typescript type guards (`isValidAyahId`, `isValidAyahNo`, `isValidSurah`, `isValidSurahAyah`, `isValidJuz`, `isValidHizb`, `isValidRubAlHizb`, `isValidPage`)
 * converts `[surah, ayah]` to `ayahId` and vice-verse ( `findSurahByAyahId` and  `findAyahIdBySurah`) 
 * Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range (`ayaStringSplitter`).
 * Checks and parses strings of type "x"  to Surah (`surahStringParser`).
+
+### Features
+* Supports multiple riwayas (Hafs, Qalun, Warsh are ready. Douri, Shuba, Sousi are on the way) with riwaya-specific data and features.
+* Type-safe riwaya-specific methods (e.g., Qalun's Thumun al-Hizb).
+* Fully documented with examples.
+* 100% unit test covered with data correctness validation against multiple data sources.
+* Fully typed with Typescript types and type guards.
+* Zero dependencies, lightweight and fast.
+* Works in both browser and Node.js environments.
+* Compatible with modern JavaScript and TypeScript projects.
+* Supports modern module systems (ESM, CommonJS, IIFE).
+* Open source and community driven.
+* Easy to use API with both functional and class-based approaches.
+* Tree-shakeable riwaya-specific imports for optimal bundle size.
+* Supports various build systems and bundlers.
+* Comprehensive error handling and input validation.
+* Suitable for a wide range of Quran-related applications.
+* Modular and extensible architecture.
+* Clear and consistent naming conventions.
+* Rich set of utility functions for Quranic metadata.
+* Easy integration with other Quranic libraries and tools.
+* Actively maintained and updated.
+* Actively seeks community feedback and contributions.
+
+### Upcoming Features
+* Supports multiple mushaf page numbering systems (planned for future updates).
+* More riwayas and recitations (planned for future updates).
+* Enhanced performance optimizations (planned for future updates).
+* Additional utility functions (planned for future updates).
+* Community contributions and plugins (Submissions welcome).
+* Support for additional languages and locales .
+* Improved documentation and tutorials.
+* Interactive online tools and demos (please, submit in issues).
+* More data sources for cross-validation (please, suggest in discussions).
+
+### Future Roadmap
+
+* Integration with Quran text rendering libraries.
+* Collaboration with Quranic studies platforms.
+* Integration with Quranic search engines.
+* Advanced analytics and reporting features.
+* Community-driven feature requests and voting.
+
 
 ### APi Reference Documentation
 
@@ -67,7 +112,7 @@ See [here](https://quran-center.github.io/quran-meta/docs/) for API documentatio
 
 See in action and try it without installing anything:
 
-* [![Static Badge](https://play.vuejs.org/#eNrdVs1u4zYQfhVCKGAbsKwkbreoobib3S7QLOA03W170mFpiZYZU5RKUt44hp6gvfbcV+wjdDiUFCrNegv01ostzs83Mx+HQx6Dq6qa7WsWLIJYp4pXhggq88skMDoJlonkRVUqQ5Jga0ylF1GUZnJ2pzMm+F7NJDORrIroZS3LVOtI1dLwgiVB73gkim2mJC2LqjYsIw3ZqLIgI4g58owKZuiUbLjMbmnOpiRn5n2t6HaF8nTL0t0vVPAMhVcHunXG9us6e3VAsRO9rR/6IL+CWIYWG2L10cyhYhCy9XHxHNCUgLdb3JRTZ2EzeB4wjhxjwBIsWvY0M3X1hMNEpqXUoLN45NIyEiP2cjyfdEoKQVudi78cX4AykYIZUkGSoOxYjG3Sy/F4Qi6XPWljhJ/tqaihIAvnvieAYjFQjdV4QH2JHZpPvI9oURyORb7OfBBHnp/PYF8+l9gd7JiHBlvgQ8HyFICDYEqVaqVzD6eFOCaSEKMO7oM810qfhLceDUmpSbdkzCYdhIItVpIwVNufVgBdD33fgNuwMwwrKkENgxUh8fZ8+aPtIoJbcSvoIVdlLbM4Ao2zuCCLVFCtoYP6wr4lI8PuTahYNiKLdrGGLEfQYlgKOR7bDmsaEmITWxH2VdMA/IWDF3TNBOkCrEWZ7gii6SJ6QTalNNDgGa8LJ80VPYTfnJ11YRwHMZfAMtmHRQmjAHAwchLg4YKlrIs1U5YPaw20D8IRrJhlYZGRdakypsIz2CU/HNFbmpUfISmiuMzDc/fHJRww94mWc7DclGmtFyi78BfOdiDIeF6GLyx6sehrhqwjR02E3PxXmizzn2DJbsb/hiRcZXwP9fGN16tg2lXStSywAq3YN7NtR3B0eA6BCc2GbrliTIZfY+492ThPkdrt3EL2Q20macFs548HUkv4a+DRWBUs9GTanxM04HrF0hSOIxywv/7847cV2+2oxCMGy99XNKOSj9wBmrdFQ/TadQl+C76083dhgXFQW2MQ+gZ4Gq8ztGkH6DNWMOvQwk7EgTqO+oAxL3Ky0CoFnj74lzIVeDvNUlHWWWTpohEvIJ/oiyPW28CHjd18aDfTbafbiHbyLH/WbFML4o2o76ih7fRozR5zgQRvsIlJuSErKh+40FiBvSJn0N+t7Ek1AzecKkMvJzrlZPkc+qDklIvdo6ELSk65wH4MPazglMP3/GE99EDJKZd39ZpcCecJXee5guZK/Av/Xf0PRyvyfNr2iSPvKgqmgXsPhQWt4EVXSngD4g2XtAp4vACsi5kEj08fK/7Me/DR+OVXs/PZGTSZNhGMFnYPxm7iwdXZQBJGw/tnw/MnKdhrnAumfqgMh/fRIBUqRPnxLcqMgju7k+Pd/oz8Tt+7nG8V00zt4X3a6wxV8ORx6jfvb2DweEoY27UA6xPKd0yXorY5OrNXMLMhbc8Os71GRmG+/qTf3BsmdVeUTRTZQPskgHfx6xOlP6Y7n33Zs9j8DWMn+vo=) - interactive playground for Quran-Meta
+* [![Static Badge](https://play.vuejs.org/#eNrdVs1u4zYQfhVCKGAbsKRsXKStobib3S7QLOA03W170mFpiZIZU5RKUt44hp6gvfbcV+wjdDiUFCnNegv01ostzs83Mx+HQx69q6oK9jXzll6kE8UrQwSV+WXsGR17q1jyoiqVIbG3NabSyzBMUhnc6ZQJvleBZCaUVRG+rGWZaB2qWhpesNjrHY9EsWxOkrKoasNS0pBMlQWZQMzJwKhghs5JxmV6S3M2Jzkz72tFt2uUJ1uW7H6hgqcovDrQrTO2X9fpqwOKneht/dAH+RXE0rfY/pZmGgL2Ic2hYhC3dXRBHdqcAIRb3JRzZ2HTeAYVAKPQ0QZUwaKlUDNTV0+IjGVSSg06i0cuLS0RYq+mi1mnpBC01bn4q+k5KGMpmCEVJAnKjsrIJr2aTmfkctUzN0X4YE9FDQVZOPc9AxSLgWqsZgDUl9ihDdkfIloUh2ORr9MhiCNvmM9ocz6X2B1s2wANtmAIBctTAA6CKVWqtc4HOC3EMZaEGHVwH+S5fvokvPVoSEJNsiVTNusgFGyxkoSh2v60Amh9aP4G3MadYVhRCWoYrAiJti9WP9ouIrgVt4IeclXWMo1C0DiLc7JMBNUaOqgv7FsyMeze+IqlE7JsFxvIcgIthqWQ47HtsKYhPjaxFWFfNQ3Anzt4QTdMkC7ARpTJjiCaLsILkpXSQIOnvC6cNFf04H9zdtaFcRxEXALLZO8XJcwDwMHIsYeHC5ayLjZMWT6sNdA+CkewYpb6RUo2pUqZ8s9gl4bhiN7StPwISRHFZe6/cH9cwgFzn2i5AMusTGq9RNn5cOFsR4KU56V/YdGLZV8zZB06akLk5r/SZJn/BEt2M/43JOEq5Xuoj2eDXgXTrpKuZYEVaMW+mW07gqPDcwhMaDZ2yxVj0v8Kc+/JxnmK1G4XFrIfaoGkBbOdPx1JLeGvgUdjVbDQs3l/TtCA6zVLEjiOcMD++vOP39Zst6MSjxgsf1/TlEo+cQdo0RYN0WvXJfgt+MrO36UFxkFtjUE4NMDTeJ2iTTtAn7GCWYcWdiKO1FHYB4x4kZOlVgnw9GF4M1OBt1OQiLJOQ0sXDXkB+YRfHLHeBj5s7OZDu5luO91GtJNn9bNmWS3IYER9Rw1tp0dr9pgLJHiDTUzKjKypfOBCYwX2igygv1vZk2pGbjhVxl5OdMrJ8jn2QckpF7tHYxeUnHKB/Rh7WMEph+/5w2bsgZJTLu/qDbkSzhO6buAKmivxL/x39T8crWjg07ZPFA6uIm/uufeQX9AKnnWlhIcg3nBxq4DHC8C6mLH35EFldZ95GT56vLwIzoKvodO0Ca0z2LqpB9dnA4kYDW+gjOdP0rBXORdM/VAZDm+kUTpUiPLjW5QZBfd2J8f7/Rn5nb53Kd8qppnaw0O11xmq4Nnj1G/e38DwGShhdNcCrE8o3zFditrm6MxewdyGtAd2mO01sgoz9if95t4wqbuibKLIBtrHHjyQX58o/THdRfBlz2LzN9BY/io=) - interactive playground for Quran-Meta
 
 ### Installation
 
