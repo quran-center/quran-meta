@@ -283,11 +283,19 @@ We are commited to expanding support for more riwayas and pagination systems in 
 * *Juz*: A section of the Quran. There are 30 Juz (ajza) in Quran of roughly equal length. Most Juz' are named after the first word of the first verse of the Juz'. Read more [here](https://en.wikipedia.org/wiki/Juz%27)
 * *Hizb*: Each Juz' is divided into two Hizb  (lit. "two groups", plural: Aḥzāb). Therefore, there are 60 Hizbs (ahzab) in the Quran.
 * *Rub-el-Hizb/Maqra*: Each Hizb is subdivided into four quarters called Maqra  (lit. "reading"), making eight quarters per Juz. In Arabic, `rub` means 'one-fourth' or 'quarter', while `ḥizb` (plural aḥzāb) translates to 'a group'. There are 240 Maqras in the Quran. In most mushafs it is noted by symbol in the shape of an octagram, represented as two overlapping squares **۞**. Read more [here](https://en.wikipedia.org/wiki/Rub_el_Hizb)
+* *Thumun al-Hizb*: Specific to Qalun riwaya, each Hizb is further divided into eight equal parts called Thumun al-Hizb (lit. "one-eighth of a Hizb"). This results in a total of 480 Thumun al-Hizbs in the Quran. This subdivision allows for more granular reading and recitation segments, facilitating easier memorization and study. Read more [here](https://en.wikipedia.org/wiki/Thumun_al-Hizb)
 * *Manzil*: For the convenience of those who read the Quran in a week the text may be divided into seven portions. Each portion is called a Manzil. There are 7 Manzil in Quran. Read more [here](https://en.wikipedia.org/wiki/Manzil)
 * *Page*: A section of the Quran that contains 15 lines (Madina mushaf)(depends on the mushaf).
 * *Saajdah*: Special ayahs that require reader to prostrate. There are 15 of them in Quran.
 * *Ruku*: (paragraph) is a group of related verses in a Surah. The end of a Ruku’ is marked by the Arabic letter **ﻉ** in superscript. There are 558 Rukus in the Quran. These are logical sections according to similar theme/objective or meaning. The bigger Surahs have been split into a number of Rukus, so that we would recognize when to do Ruku' (bowing) in Salat without interrupting a proceeding subject of the Quran. Additionally, on the margins of the Quran, usually three figures are written with **ﻉ**. The top figure shows the number of Rukus completed in that Surah. The middle figure shows the number of Ayats in the Ruku just completed. The bottom figure shows the number of Rukus completed in that Juz.
-
+* *Qira'at (Recitations) and Riwayat (Narrations)*: The Quran has been transmitted through different authentic modes of recitation, known as Qira'at.
+        There are ten recognized Qira'at, each named after a prominent reciter (Qari).
+        Within each Qira'at, there are multiple Riwayat (narrations) - the chains of transmission through which these recitations were preserved.
+        The most widely used today is the *Hafs from 'Asim* narration, which is used throughout most of the Muslim world and forms the basis for all visualizations on this website.
+        Other well-known narrations include *Warsh from Nafi'* (common in North and West Africa) and *Qalun from Nafi'* (used in parts of Africa).
+        While the variations between these narrations are minor (mostly involving pronunciation, elongation, or slight differences in word forms),
+        they can occasionally affect verse counts and word statistics. Read more [here](https://en.wikipedia.org/wiki/Qira%27at)
+        
 ### Examples
 You can find some examples [here](https://quran-center.github.io/quran-meta/examples/) and souce code for them [here](https://github.com/quran-center/quran-meta/tree/master/examples)
 
