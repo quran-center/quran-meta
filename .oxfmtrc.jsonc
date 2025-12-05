@@ -1,0 +1,30 @@
+{
+  // oxfmt configuration for Vue/Nuxt project
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  // Formatting options
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 120,
+  "singleQuote": false,
+  "trailingComma": "none",
+  "semi": false,
+  "arrowParens": "always",
+  "endOfLine": "crlf",
+  "objectWrap": "preserve",
+  // "experimentalSortImports": {
+  //   "enabled": true,
+  //   "newlinesBetweenGroups": "always"
+  // },
+  "ignorePatterns": [
+    "**/node_modules",
+    "**/data",
+    "**/dist",
+    "**/lib_cjs",
+    "**/lib_es",
+    "**/.nuxt",
+    "**/.output",
+    "**/coverage",
+    "**/docs",
+    "**/coverage",
+  ]
+}

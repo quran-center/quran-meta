@@ -54,6 +54,7 @@
   },
   "scripts": {
     "dev": "vitest",
+    "fmt": "oxfmt .",
     "lint": "oxlint --type-aware --fix .",
     "lint:es": "eslint --fix .",
     "coverage": "vitest run --coverage",
@@ -76,22 +77,24 @@
   },
   "devDependencies": {
     "@eslint/js": "9.39.1",
-    "@stylistic/eslint-plugin": "^5.6.1",
     "@types/node": "24.10.1",
-    "@vitest/coverage-v8": "4.0.13",
+    "@vitest/coverage-v8": "4.0.15",
     "changelogen": "^0.6.2",
     "eslint": "9.39.1",
     "eslint-plugin-tsdoc": "^0.5.0",
-    "oxlint": "^1.29.0",
-    "oxlint-tsgolint": "^0.8.1",
+    "oxlint": "^1.31.0",
+    "oxlint-tsgolint": "^0.8.3",
     "rimraf": "^6.1.2",
-    "tsdown": "^0.16.6",
-    "typedoc": "^0.28.14",
+    "tsdown": "^0.17.0",
+    "typedoc": "^0.28.15",
     "typedoc-github-theme": "^0.3.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.47.0",
-    "vitest": "^4.0.13"
+    "typescript-eslint": "^8.48.1",
+    "vitest": "^4.0.15"
   },
   "packageManager": "pnpm@10.15.1",
-  "main": "./dist/index.js"
+  "main": "./dist/index.js",
+  "dependencies": {
+    "oxfmt": "^0.16.0"
+  }
 }
