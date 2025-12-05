@@ -12,11 +12,7 @@ import { checkValidSurah } from "./validation"
  *  @param riwaya - The riwaya. Defaults to "Qalun" if not provided.
  * @returns An object containing the Juz (part) number, Hizb (section) number, and the index of the Hizb that the given Ayah belongs to.
  */
-export function findThumunAlHizb(
-  surah: Surah,
-  ayah: AyahNo = 1,
-  data: RiwayahsWith<"HizbEighthList">
-): ThumunAlHizbId {
+export function findThumunAlHizb(surah: Surah, ayah: AyahNo = 1, data: RiwayahsWith<"HizbEighthList">): ThumunAlHizbId {
   checkValidSurah(surah, data.meta)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
 

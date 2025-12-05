@@ -52,8 +52,8 @@ let currentSurahNo = 0
 for (let i = 0; i < data.length; i++) {
   if (data[i].sura_no > currentSurahNo) {
     const firstAyah = data[i]
-    const surahData = data.filter(a => a.sura_no === firstAyah.sura_no)
-    const name = firstAyah.sura_name_ar.trim().replace(/"/g, "\\\"") // Escape quotes
+    const surahData = data.filter((a) => a.sura_no === firstAyah.sura_no)
+    const name = firstAyah.sura_name_ar.trim().replace(/"/g, '\\"') // Escape quotes
     surahList.push([
       firstAyah.id,
       surahData.length,
@@ -83,11 +83,11 @@ const manzilList = [
   0,
   1,
   Math.floor(data.length / 7),
-  Math.floor(data.length * 2 / 7),
-  Math.floor(data.length * 3 / 7),
-  Math.floor(data.length * 4 / 7),
-  Math.floor(data.length * 5 / 7),
-  Math.floor(data.length * 6 / 7),
+  Math.floor((data.length * 2) / 7),
+  Math.floor((data.length * 3) / 7),
+  Math.floor((data.length * 4) / 7),
+  Math.floor((data.length * 5) / 7),
+  Math.floor((data.length * 6) / 7),
   data.length + 1
 ]
 
@@ -144,7 +144,7 @@ export const SajdaList: AyahId[] = ${JSON.stringify(sajdaList)} as const
 
 // ------------------ Surah Data ---------------------
 export const SurahList: FixedArray<SurahInfo, 116> = [
-${surahList.map(s => "  [" + s[0] + ", " + s[1] + ", " + s[2] + ", " + s[3] + ", \"" + s[4] + "\", " + s[5] + "]").join(",\n")}
+${surahList.map((s) => "  [" + s[0] + ", " + s[1] + ", " + s[2] + ", " + s[3] + ', "' + s[4] + '", ' + s[5] + "]").join(",\n")}
 ] as const
 
 /**

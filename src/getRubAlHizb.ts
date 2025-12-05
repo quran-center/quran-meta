@@ -7,9 +7,7 @@ import type { HizbId, Juz, RubAlHizb, JuzPart, RubAlHizbId } from "./types"
  *  @param riwaya - The riwaya. Defaults to "Hafs" if not provided.
  * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
  */
-export function getRubAlHizb(
-  quarterIndex: RubAlHizbId
-): RubAlHizb {
+export function getRubAlHizb(quarterIndex: RubAlHizbId): RubAlHizb {
   // return HizbQuarterList[maqra]
 
   // const quarterIndex = HizbQuarterList.findIndex(x => x > ayahId) - 1

@@ -6,32 +6,38 @@ import { QalunLists } from "../src/lists/QalunLists"
 
 describe("getListOfRiwaya", () => {
   it("should return an array", () => {
-    partNames.filter(partName => partName !== "thumunAlHizb").forEach((part: PartType) => {
-      expect(Array.isArray(generatePartBlocks(part, HafsLists))).toBe(true)
-    })
+    partNames
+      .filter((partName) => partName !== "thumunAlHizb")
+      .forEach((part: PartType) => {
+        expect(Array.isArray(generatePartBlocks(part, HafsLists))).toBe(true)
+      })
   })
 
   it("should return a non-empty array", () => {
-    partNames.filter(part => part !== "thumunAlHizb").forEach((part: PartType) => {
-      expect((generatePartBlocks(part, HafsLists) || []).length).toBeGreaterThan(0)
-    })
+    partNames
+      .filter((part) => part !== "thumunAlHizb")
+      .forEach((part: PartType) => {
+        expect((generatePartBlocks(part, HafsLists) || []).length).toBeGreaterThan(0)
+      })
     // Test thumunAlHizb with Qalun
     expect((generatePartBlocks("thumunAlHizb", QalunLists) || []).length).toBeGreaterThan(0)
   })
 
   it("sum of ayahCount should be 6236", () => {
-    partNames.filter(partNames => partNames !== "thumunAlHizb").forEach((partName: PartType) => {
-    //   const partList = parts[partName]
-      const list = generatePartBlocks(partName, HafsLists)
-      let sum = 0
-      if (list) {
-        list.forEach((item) => {
-          sum += item.ayahCount
-        })
-      }
+    partNames
+      .filter((partNames) => partNames !== "thumunAlHizb")
+      .forEach((partName: PartType) => {
+        //   const partList = parts[partName]
+        const list = generatePartBlocks(partName, HafsLists)
+        let sum = 0
+        if (list) {
+          list.forEach((item) => {
+            sum += item.ayahCount
+          })
+        }
 
-      expect(sum).toEqual(HafsLists.meta.numAyahs)
-    })
+        expect(sum).toEqual(HafsLists.meta.numAyahs)
+      })
   })
 
   it("number of items is equal to partition", () => {
@@ -44,13 +50,15 @@ describe("getListOfRiwaya", () => {
       manzil: HafsLists.meta.numManzils
     }
 
-    partNames.filter(partName => partName !== "thumunAlHizb").forEach((partName) => {
-      // const partList = parts[partName]
+    partNames
+      .filter((partName) => partName !== "thumunAlHizb")
+      .forEach((partName) => {
+        // const partList = parts[partName]
 
-      const list = generatePartBlocks(partName, HafsLists)
+        const list = generatePartBlocks(partName, HafsLists)
 
-      expect(list?.length, "check " + partName).toEqual(partLengths[partName])
-    })
+        expect(list?.length, "check " + partName).toEqual(partLengths[partName])
+      })
   })
 
   it("should return same array on multiple calls", () => {
@@ -71,10 +79,10 @@ describe("getListOfRiwaya", () => {
   //     expect(firstCall).toEqual(secondCall)
   //   })
 
-//   it("should return immutable array", () => {
-//     const original = getList()
-//     const copy = [...original]
-//     original.push(999)
-//     expect(getList()).toEqual(copy)
-//   })
+  //   it("should return immutable array", () => {
+  //     const original = getList()
+  //     const copy = [...original]
+  //     original.push(999)
+  //     expect(getList()).toEqual(copy)
+  //   })
 })

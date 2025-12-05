@@ -27,7 +27,11 @@ export function checkValidSurah(surah: Surah | number | unknown, meta: QuranMeta
  * @param ayah - The ayah number or AyahNo object to validate
  * @throws Error If the surah-ayah combination is invalid
  */
-export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: number | AyahNo | unknown, data: RiwayaData) {
+export function checkValidSurahAyah(
+  surah: Surah | number | unknown,
+  ayah: number | AyahNo | unknown,
+  data: RiwayaData
+) {
   checkValidSurahAyahPair([surah, ayah], data)
 }
 
@@ -42,7 +46,10 @@ export function checkValidSurahAyah(surah: Surah | number | unknown, ayah: numbe
  * checkValidSurahAyahPair([1, 8]) // Throws RangeError
  * ```
  */
-export function checkValidSurahAyahPair(surahAyah: [Surah | number | unknown, AyahNo | number | unknown], data: RiwayaData): asserts surahAyah is SurahAyah {
+export function checkValidSurahAyahPair(
+  surahAyah: [Surah | number | unknown, AyahNo | number | unknown],
+  data: RiwayaData
+): asserts surahAyah is SurahAyah {
   const [surah, ayah] = surahAyah
   checkValidSurah(surah, data.meta)
 

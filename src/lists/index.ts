@@ -30,14 +30,11 @@ export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R]
   }
 }
 
-export const getListOfRiwaya = <
-  R extends keyof Riwayas,
-  L extends keyof Riwayas[R]
->(
+export const getListOfRiwaya = <R extends keyof Riwayas, L extends keyof Riwayas[R]>(
   listName: L,
   riwaya?: R
 ): Riwayas[R][L] => {
-  const actualRiwaya = (riwaya || "Hafs")
+  const actualRiwaya = riwaya || "Hafs"
   const lists = getListsOfRiwaya(actualRiwaya)
 
   if (listName in lists) {

@@ -13,12 +13,7 @@ import { checkValidSurah } from "./validation"
  * @param lists - The Lists object for the riwaya.
  * @returns A tuple containing the start and end ayah IDs of the range
  */
-export function findRangeAroundSurahAyah(
-  surah: Surah,
-  ayah: AyahNo,
-  mode: RangeMode,
-  data: RiwayaData
-): AyahRange {
+export function findRangeAroundSurahAyah(surah: Surah, ayah: AyahNo, mode: RangeMode, data: RiwayaData): AyahRange {
   checkValidSurah(surah, data.meta)
   const SurahList = data.SurahList
   if (mode === "surah") {

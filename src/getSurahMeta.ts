@@ -8,12 +8,8 @@ import type { RiwayaData } from "./lists/types"
  * @param data - The Lists object containing SurahList.
  * @returns The metadata for the specified Surah.
  */
-export function getSurahMeta(
-  surahNum: Surah,
-  data: RiwayaData
-): SurahMeta {
-  const [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan]
-    = getSurahInfo(surahNum, data)
+export function getSurahMeta(surahNum: Surah, data: RiwayaData): SurahMeta {
+  const [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan] = getSurahInfo(surahNum, data)
 
   const lastAyahId = firstAyahId + ayahCount - 1
   return {

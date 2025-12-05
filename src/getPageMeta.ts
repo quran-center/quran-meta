@@ -11,16 +11,10 @@ import { checkValidPage } from "./validation"
  * @returns {@link PageMeta} An object containing the page number, first ayah, and last ayah on the page
  * @throws {@link RangeError} If the page number is not between 1 and 604
  */
-export function getPageMeta(
-  pageNum: Page,
-  data: RiwayaData
-): PageMeta {
+export function getPageMeta(pageNum: Page, data: RiwayaData): PageMeta {
   checkValidPage(pageNum, data.meta)
   const PageList = data.PageList
-  const [firstAyahId, nextPage]: [AyahId, AyahId] = [
-    PageList[pageNum],
-    PageList[pageNum + 1]
-  ]
+  const [firstAyahId, nextPage]: [AyahId, AyahId] = [PageList[pageNum], PageList[pageNum + 1]]
   const lastAyahId = nextPage - 1
 
   return {

@@ -10,10 +10,7 @@ import type { RubAlHizbMeta, RubAlHizbId, AyahId } from "./types"
  * @param data - The Lists object for the riwaya.
  * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
  */
-export function getRubAlHizbMeta(
-  quarterIndex: RubAlHizbId,
-  data: RiwayaData
-): RubAlHizbMeta {
+export function getRubAlHizbMeta(quarterIndex: RubAlHizbId, data: RiwayaData): RubAlHizbMeta {
   const res = getRubAlHizb(quarterIndex)
   const HizbQuarterList = data.HizbQuarterList
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [

@@ -11,16 +11,10 @@ import { checkValidJuz } from "./validation"
  * @returns An object containing the Juz number, first ayah, and last ayah in the Juz
  * @throws RangeError If the Juz number is not between 1 and 30
  */
-export function getJuzMeta(
-  juzNum: Juz,
-  data: RiwayaData
-): JuzMeta {
+export function getJuzMeta(juzNum: Juz, data: RiwayaData): JuzMeta {
   checkValidJuz(juzNum, data.meta)
   const JuzList = data.JuzList
-  const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
-    JuzList[juzNum],
-    JuzList[juzNum + 1]
-  ]
+  const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [JuzList[juzNum], JuzList[juzNum + 1]]
   const lastAyahId = nextJuzAyahId - 1
   return {
     juzNum,

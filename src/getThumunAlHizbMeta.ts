@@ -19,10 +19,7 @@ export function getThumunAlHizbMeta(
   if (!HizbEighthList) {
     throw new Error(`Riwaya ${data.meta.riwayaName} does not have Hizb Eighth List data.`)
   }
-  const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
-    HizbEighthList[eighthIndex],
-    HizbEighthList[eighthIndex + 1]
-  ]
+  const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [HizbEighthList[eighthIndex], HizbEighthList[eighthIndex + 1]]
   const lastAyahId = nextJuzAyahId - 1
 
   return {

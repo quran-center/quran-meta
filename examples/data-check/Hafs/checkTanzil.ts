@@ -3,7 +3,15 @@
  * https://tanzil.net/res/text/metadata/quran-data.js
  */
 
-import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList, SurahList } from "../../../src/lists/HafsLists"
+import {
+  HizbQuarterList,
+  JuzList,
+  ManzilList,
+  PageList,
+  RukuList,
+  SajdaList,
+  SurahList
+} from "../../../src/lists/HafsLists"
 import { meta, createHafs } from "../../../src/hafs"
 import type { SurahInfo, Juz, Surah } from "../../../src/types"
 
@@ -17,9 +25,7 @@ export function checkTanzil() {
   console.log("-------------------------------------")
 
   for (let surahNo: Surah = 1; surahNo <= meta.numSurahs; surahNo++) {
-    const [
-      startAyahId, ayahCount, surahOrder, rukuCount, _name, _isMeccan
-    ]: SurahInfo = SurahList[surahNo]
+    const [startAyahId, ayahCount, surahOrder, rukuCount, _name, _isMeccan]: SurahInfo = SurahList[surahNo]
     const sura = tanzilData.Sura[surahNo]
 
     if (startAyahId !== sura[0] + 1) console.warn("Error: Tanzil surah: ", startAyahId, sura)
@@ -41,7 +47,8 @@ export function checkTanzil() {
     const [sura, ayah] = tanzilData.HizbQaurter[rubHizb]
 
     if (rubHizb !== quran.findRubAlHizb(sura, ayah)) console.warn("Error: Tanzil rubAlHizb: ", ayahId, sura, ayah)
-    if (ayahId !== quran.findAyahIdBySurah(sura, ayah)) console.warn("Error: Tanzil findRubAlHizb: ", ayahId, sura, ayah)
+    if (ayahId !== quran.findAyahIdBySurah(sura, ayah))
+      console.warn("Error: Tanzil findRubAlHizb: ", ayahId, sura, ayah)
   }
 
   for (let manzil = 1; manzil <= meta.numManzils; manzil++) {

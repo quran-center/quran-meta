@@ -86,13 +86,15 @@ describe("getRubAlHizbByAyahId", () => {
       const juzAyahId = JuzList[Math.ceil(rubAlHizbId / 8)]
       const rubulHizbAyahId = HizbQuarterList[rubAlHizbId]
       const rubMeta = getRubAlHizbByAyahId(rubulHizbAyahId, HafsLists)
-      const hizbAyahId = HizbQuarterList[Math.ceil((rubAlHizbId) / 4) * 4 - 3]
+      const hizbAyahId = HizbQuarterList[Math.ceil(rubAlHizbId / 4) * 4 - 3]
       // console.log("Maqra:", rubAlHizbId, "Maqra Ayah:", rubulHizbAyahId, findSurahByAyahId(rubulHizbAyahId), "hizb Ayah id", hizbAyahId, `Juz Ayah:`, juzAyahId, rubMeta)
       expect(rubMeta.juz).toEqual(findJuzByAyahId(juzAyahId, HafsLists))
       expect(rubAlHizbId).toEqual(rubMeta.rubAlHizbId)
       expect(getRubAlHizb(rubAlHizbId)).toEqual(rubMeta)
       expect(getRubAlHizbByAyahId(hizbAyahId, HafsLists).hizbId).toEqual(rubMeta.hizbId)
-      expect(getRubAlHizbByAyahId(juzAyahId, HafsLists).hizbId).toEqual(rubMeta.juzPart <= 4 ? rubMeta.hizbId : rubMeta.hizbId - 1)
+      expect(getRubAlHizbByAyahId(juzAyahId, HafsLists).hizbId).toEqual(
+        rubMeta.juzPart <= 4 ? rubMeta.hizbId : rubMeta.hizbId - 1
+      )
     }
   })
 

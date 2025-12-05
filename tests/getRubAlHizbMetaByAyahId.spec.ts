@@ -13,15 +13,9 @@ describe("getRubAlHizbMetaByAyahId", () => {
       juz: 1,
       juzPart: 1,
       rubAlHizbId: 1,
-      first: [
-        1,
-        1
-      ],
+      first: [1, 1],
       firstAyahId: 1,
-      last: [
-        2,
-        25
-      ],
+      last: [2, 25],
       lastAyahId: 32
     })
   })
@@ -33,15 +27,9 @@ describe("getRubAlHizbMetaByAyahId", () => {
       juz: 1,
       juzPart: 4,
       rubAlHizbId: 4,
-      first: [
-        2,
-        60
-      ],
+      first: [2, 60],
       firstAyahId: 67,
-      last: [
-        2,
-        74
-      ],
+      last: [2, 74],
       lastAyahId: 81
     })
   })
@@ -53,15 +41,9 @@ describe("getRubAlHizbMetaByAyahId", () => {
       juz: 30,
       juzPart: 8,
       rubAlHizbId: 240,
-      first: [
-        100,
-        9
-      ],
+      first: [100, 9],
       firstAyahId: 6155,
-      last: [
-        114,
-        6
-      ],
+      last: [114, 6],
       lastAyahId: 6236
     })
   })

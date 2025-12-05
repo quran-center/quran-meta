@@ -16,7 +16,8 @@ export function getAyahMetasForSurah(surahNumber: Surah, data: RiwayaData): Ayah
   const { SurahList, SajdaList, PageList, RukuList, JuzList, HizbQuarterList } = data
 
   const [
-    startAyahId, ayahCount // , surahOrder, rukuCount, name, isMeccan, page
+    startAyahId,
+    ayahCount // , surahOrder, rukuCount, name, isMeccan, page
   ] = SurahList[surahNumber]
   const endAyahId = startAyahId + ayahCount - 1
   const result: AyahMeta[] = []
@@ -35,8 +36,7 @@ export function getAyahMetasForSurah(surahNumber: Surah, data: RiwayaData): Ayah
     if (PageList[meta.page + 1] === ayahId) {
       meta.page += 1
       meta.isStartOfPage = true
-    }
-    else {
+    } else {
       meta.isStartOfPage = false
     }
     meta.isEndOfPage = PageList[meta.page + 1] === ayahId + 1
@@ -44,8 +44,7 @@ export function getAyahMetasForSurah(surahNumber: Surah, data: RiwayaData): Ayah
     if (RukuList[meta.ruku + 1] === ayahId) {
       meta.ruku += 1
       meta.isStartOfRuku = true
-    }
-    else {
+    } else {
       meta.isStartOfRuku = false
     }
     meta.isEndOfRuku = RukuList[meta.ruku + 1] === ayahId + 1
@@ -55,18 +54,16 @@ export function getAyahMetasForSurah(surahNumber: Surah, data: RiwayaData): Ayah
       meta.juz += 1
       meta.hizbId += 1
       meta.isStartOfJuz = true
-    }
-    else {
+    } else {
       meta.isStartOfJuz = false
     }
     meta.isEndOfQuarter = HizbQuarterList[meta.rubAlHizbId + 1] === ayahId + 1
     if (HizbQuarterList[meta.rubAlHizbId + 1] === ayahId) {
       meta.rubAlHizbId += 1
-      meta.juzPart = meta.isStartOfJuz ? 1 : meta.juzPart + 1 as JuzPart
+      meta.juzPart = meta.isStartOfJuz ? 1 : ((meta.juzPart + 1) as JuzPart)
       meta.isStartOfQuarter = true
       if (meta.juzPart === 5) meta.hizbId += 1
-    }
-    else {
+    } else {
       meta.isStartOfQuarter = false
     }
 

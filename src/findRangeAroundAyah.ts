@@ -18,11 +18,7 @@ import type { AyahId, AyahRange, Juz, Page, RangeMode, Ruku, Surah } from "./typ
  * @param data - The Lists object for the riwaya.
  * @returns An array of two numbers representing the start and end ayah IDs of the range [startAyahId, endAyahId]
  */
-export function findRangeAroundAyah(
-  ayahId: AyahId,
-  mode: RangeMode,
-  data: RiwayaData
-): AyahRange {
+export function findRangeAroundAyah(ayahId: AyahId, mode: RangeMode, data: RiwayaData): AyahRange {
   const JuzList = data.JuzList
   const SurahList = data.SurahList
   const PageList = data.PageList

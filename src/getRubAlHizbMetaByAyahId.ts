@@ -10,10 +10,7 @@ import type { RiwayaData } from "./lists/types"
  * @param data - The Lists object containing HizbQuarterList.
  * @returns An object containing the Juz, Hizb, and Hizb ID for the given Ayah ID.
  */
-export function getRubAlHizbMetaByAyahId(
-  ayahId: AyahId,
-  data: RiwayaData
-): RubAlHizbMeta {
+export function getRubAlHizbMetaByAyahId(ayahId: AyahId, data: RiwayaData): RubAlHizbMeta {
   checkValidAyahId(ayahId, data.meta)
   const quarterIndex = findRubAlHizbByAyahId(ayahId, data)
   return getRubAlHizbMeta(quarterIndex, data)

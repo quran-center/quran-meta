@@ -38,8 +38,7 @@ export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaDat
     checkValidAyahId(ayahTo, meta)
     if (ayah > ayahTo) throw new Error("Invalid ayah range: " + str)
     ayahs = [ayah, ayahTo] as [AyahNo, AyahNo]
-  }
-  else {
+  } else {
     if (!isValidAyahNo(ayah)) {
       throw new Error("Error in data " + str)
     }
@@ -63,11 +62,15 @@ export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaDat
  * stringNumberSplitter("2:255-260") // returns \{ ayah: 255, ayahTo: 260, surahOrAyah: 2 \}
  * stringNumberSplitter("invalid") // returns null
  */
-export function string2NumberSplitter(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
+export function string2NumberSplitter(str: string): { ayah?: number; ayahTo?: number; surahOrAyah?: number } | null {
   const sr = /(?<surah>\d{1,3})\D*(?<ayah>\d{0,3})\D*(?<ayahTo>\d{0,3})/.exec(str)
 
   if (sr?.groups && +sr.groups.surah > 0 /* && sr.groups.surah <= 114 */) {
-    const { ayah, ayahTo, surah }: {
+    const {
+      ayah,
+      ayahTo,
+      surah
+    }: {
       surah?: string
       ayah?: string
       ayahTo?: string
@@ -92,7 +95,9 @@ export function string2NumberSplitter(str: string): { ayah?: number, ayahTo?: nu
  * string2NumberSplitterStrict("2:255")    // returns \{ surahOrAyah: 2, ayah: 255, ayahTo: NaN \}
  * string2NumberSplitterStrict("2:255-260") // returns \{ surahOrAyah: 2, ayah: 255, ayahTo: 260 \}
  */
-export function string2NumberSplitterStrict(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
+export function string2NumberSplitterStrict(
+  str: string
+): { ayah?: number; ayahTo?: number; surahOrAyah?: number } | null {
   let [surahStr, ayahsStr] = str.trim().split(":")
   surahStr = surahStr.trim()
   const surahX = parseInt(surahStr.trim(), 10)
@@ -114,8 +119,7 @@ export function string2NumberSplitterStrict(str: string): { ayah?: number, ayahT
       }
       return ayahX
     }) as [number, number]
-  }
-  else {
+  } else {
     const ayahX = parseInt(ayahsStr, 10)
     if (isNaN(ayahX)) {
       throw new Error("Error in surah format " + str)

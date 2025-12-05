@@ -9,8 +9,8 @@ export default {
   out: "docs",
   customFooterHtml: `v. ${pkg.version}`,
   navigationLinks: {
-    "GitHub": "https://github.com/quran-center/quran-meta",
-    "API": "/modules",
+    GitHub: "https://github.com/quran-center/quran-meta",
+    API: "/modules",
     "Koran.center": "https://koran.center"
   },
   // sidebarLinks: {

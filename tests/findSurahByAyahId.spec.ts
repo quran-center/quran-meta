@@ -9,9 +9,7 @@ describe("findSurahByAyahId", () => {
     expect(findSurahAyahByAyahId(8, HafsLists)).toEqual(expect.arrayContaining([2, 1]))
     expect(findSurahAyahByAyahId(6231, HafsLists)).toEqual(expect.arrayContaining([114, 1]))
     expect(findSurahAyahByAyahId(6230, HafsLists)).toEqual(expect.arrayContaining([113, 5]))
-    expect(findSurahAyahByAyahId(HafsMeta.numAyahs, HafsLists)).toEqual(
-      expect.arrayContaining([114, 6])
-    )
+    expect(findSurahAyahByAyahId(HafsMeta.numAyahs, HafsLists)).toEqual(expect.arrayContaining([114, 6]))
   })
 
   it("should return correct surah and ayah for first ayah", () => {

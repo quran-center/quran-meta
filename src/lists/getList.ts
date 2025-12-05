@@ -36,10 +36,7 @@ function toPartFormatter(type: PartType, list: AyahId[] | SurahInfo[]): PartBloc
  * @param data - The Lists object for the riwaya.
  * @returns An array of formatted part blocks, excluding the first and last elements
  */
-export function generatePartBlocks<P extends PartType>(
-  name: P,
-  data: RiwayaData
-): PartBlock[] | null {
+export function generatePartBlocks<P extends PartType>(name: P, data: RiwayaData): PartBlock[] | null {
   if (!parts[name]) throw new Error(`Invalid part type: ${name}`)
 
   const listName = parts[name] as keyof RiwayaData
@@ -56,12 +53,7 @@ export function generatePartBlocks<P extends PartType>(
   return list.slice(1, -1).map(toPartFormatter(name, list))
 }
 
-export const getList = <
-  P extends PartType,
-  M extends Riwayas,
-  R extends keyof M,
-  L extends keyof Omit<M[R], "meta">
->(
+export const getList = <P extends PartType, M extends Riwayas, R extends keyof M, L extends keyof Omit<M[R], "meta">>(
   name: P,
   lists: RiwayaData
 ): M[R][L] => {

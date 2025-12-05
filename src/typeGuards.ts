@@ -10,7 +10,7 @@ import type { RiwayaData } from "./lists/types"
  * @returns True if the value is a valid AyahId, otherwise false.
  */
 export function isValidAyahId(x: unknown, meta: QuranMeta): x is AyahId {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numAyahs
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= meta.numAyahs
 }
 
 /**
@@ -20,7 +20,7 @@ export function isValidAyahId(x: unknown, meta: QuranMeta): x is AyahId {
  * @returns True if the value is a valid Ayah number, otherwise false.
  */
 export function isValidAyahNo(x: unknown): x is AyahNo {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= maxAyahsInSurah
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= maxAyahsInSurah
 }
 
 /**
@@ -30,7 +30,7 @@ export function isValidAyahNo(x: unknown): x is AyahNo {
  * @returns `true` if the value is a valid Surah number, otherwise `false`.
  */
 export function isValidSurah(x: unknown, meta: QuranMeta): x is Surah {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numSurahs
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= meta.numSurahs
 }
 
 /**
@@ -53,7 +53,7 @@ export function isValidSurahAyah(x: [unknown, unknown], data: RiwayaData): x is 
     return false
   }
 
-  return (Number.isInteger(ayah) && (ayah as number) >= 1 && ayah as number <= getAyahCountInSurah(surah, data))
+  return Number.isInteger(ayah) && (ayah as number) >= 1 && (ayah as number) <= getAyahCountInSurah(surah, data)
 }
 
 /**
@@ -62,7 +62,7 @@ export function isValidSurahAyah(x: [unknown, unknown], data: RiwayaData): x is 
  * @returns True if the number is an integer between 1 and the total number of Juzs (inclusive)
  */
 export function isValidJuz(x: unknown, meta: QuranMeta): x is Juz {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numJuzs
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= meta.numJuzs
 }
 
 /**
@@ -71,7 +71,7 @@ export function isValidJuz(x: unknown, meta: QuranMeta): x is Juz {
  * @returns True if the number is an integer between 1 and the total number of Hizbs (inclusive)
  */
 export function isValidHizb(x: unknown, meta: QuranMeta): x is HizbId {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numHizbs
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= meta.numHizbs
 }
 
 /**
@@ -80,7 +80,7 @@ export function isValidHizb(x: unknown, meta: QuranMeta): x is HizbId {
  * @returns True if the number is an integer between 1 and the total number of RubAlHizbs (inclusive)
  */
 export function isValidRubAlHizb(x: unknown, lists: RiwayaData): x is RubAlHizbId {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= lists.meta.numRubAlHizbs
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= lists.meta.numRubAlHizbs
 }
 
 /**
@@ -89,7 +89,7 @@ export function isValidRubAlHizb(x: unknown, lists: RiwayaData): x is RubAlHizbI
  * @returns True if the number is an integer between 1 and the total number of pages (inclusive)
  */
 export function isValidPage(x: unknown, meta: QuranMeta): x is Juz {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numPages
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= meta.numPages
 }
 
 /**
@@ -104,7 +104,7 @@ export function isValidPage(x: unknown, meta: QuranMeta): x is Juz {
  * ```
  */
 export function isValidRuku(x: unknown, meta: QuranMeta): x is Ruku {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numRukus
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= meta.numRukus
 }
 
 /**
@@ -121,5 +121,5 @@ export function isValidRuku(x: unknown, meta: QuranMeta): x is Ruku {
  * ```
  */
 export function isValidManzil(x: unknown, meta: QuranMeta): x is Manzil {
-  return Number.isInteger(x) && 1 <= (x as number) && x as number <= meta.numManzils
+  return Number.isInteger(x) && 1 <= (x as number) && (x as number) <= meta.numManzils
 }

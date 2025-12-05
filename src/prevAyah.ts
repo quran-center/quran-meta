@@ -10,11 +10,7 @@ import type { RiwayaData } from "./lists/types"
  * @param data - The Lists object containing SurahList.
  * @returns The surah and ayah number of the previous ayah.
  */
-export function prevAyah(
-  surah: Surah,
-  ayah: AyahNo,
-  data: RiwayaData
-): SurahAyah {
+export function prevAyah(surah: Surah, ayah: AyahNo, data: RiwayaData): SurahAyah {
   checkValidSurah(surah, data.meta)
 
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)

@@ -15,16 +15,10 @@ import { checkValidRuku } from "./validation"
  *  - last: The Surah and Ayah numbers for the last verse
  * @throws Will throw an error if the provided Ruku number is invalid
  */
-export function getRukuMeta(
-  rukuNum: number,
-  data: RiwayaData
-): RukuMeta {
+export function getRukuMeta(rukuNum: number, data: RiwayaData): RukuMeta {
   checkValidRuku(rukuNum, data.meta)
   const RukuList = data.RukuList
-  const [firstAyahId, nextRukuAyahId]: [AyahId, AyahId] = [
-    RukuList[rukuNum],
-    RukuList[rukuNum + 1]
-  ]
+  const [firstAyahId, nextRukuAyahId]: [AyahId, AyahId] = [RukuList[rukuNum], RukuList[rukuNum + 1]]
   const lastAyahId = nextRukuAyahId - 1
   return {
     rukuNum,

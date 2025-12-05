@@ -1,7 +1,7 @@
 /**
-   *  Checking data from
-   *  https://qurancomplex.gov.sa/en/techquran/dev/
-   */
+ *  Checking data from
+ *  https://qurancomplex.gov.sa/en/techquran/dev/
+ */
 
 import { quranMeta, meta } from "../../../src"
 import type { AyahId } from "../../../src/types"
@@ -27,7 +27,8 @@ export function checkKFQCShuba() {
     if (rub.rubAlHizbId !== ayahMeta.rubAlHizbId) console.warn("Error: rub of Ayah are not matching: ", rub, ayahMeta)
     if (ayahMeta.juz !== hfMeta.jozz) console.warn("Error: juz of Ayah are not matching: ", ayahMeta, hfMeta)
     if (ayahMeta.surah !== hfMeta.sura_no) console.warn("Error: surah of Ayah are not matching: ", ayahMeta, hfMeta)
-    if (ayahMeta.isSajdahAyah !== hfMeta.aya_text.includes("۩")) console.warn(`Error: sajdah of Ayah ${ayahId} are not matching: `, ayahMeta, hfMeta)
+    if (ayahMeta.isSajdahAyah !== hfMeta.aya_text.includes("۩"))
+      console.warn(`Error: sajdah of Ayah ${ayahId} are not matching: `, ayahMeta, hfMeta)
 
     if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
     // if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== getSurahMeta(ayahMeta.surah).name) console.warn("Error: name of Surah are not matching: ", getSurahMeta(ayahMeta.surah).name, hfMeta)

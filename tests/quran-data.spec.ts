@@ -45,8 +45,7 @@ console.log("pageMeta 604", getPageMeta(604, HafsLists))
 console.log("pmeta", getPageMeta(1, HafsLists))
 // console.log("pmeta", pageMetaOld(1))
 
-const f = (i: AyahId) =>
-  expect(findAyahIdBySurah(...findSurahAyahByAyahId(i, HafsLists), HafsLists)).toEqual(i)
+const f = (i: AyahId) => expect(findAyahIdBySurah(...findSurahAyahByAyahId(i, HafsLists), HafsLists)).toEqual(i)
 const xf = (i: Surah, j: AyahNo) =>
   expect(findSurahAyahByAyahId(findAyahIdBySurah(i, j, HafsLists), HafsLists)).toEqual([i, j])
 

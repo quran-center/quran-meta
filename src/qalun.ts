@@ -15,11 +15,18 @@
  */
 
 import { QalunLists } from "./lists/QalunLists"
-import { getList as _getList, generatePartBlocks as _generatePartBlocks, getListNormalised as _getListNormalised } from "./lists/getList"
+import {
+  getList as _getList,
+  generatePartBlocks as _generatePartBlocks,
+  getListNormalised as _getListNormalised
+} from "./lists/getList"
 import { ayahStringSplitter as _ayahStringSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah as _findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuz as _findJuz } from "./findJuz"
-import { findJuzAndShift as _findJuzAndShift, findJuzAndShiftByAyahId as _findJuzAndShiftByAyahId } from "./findJuzAndShift"
+import {
+  findJuzAndShift as _findJuzAndShift,
+  findJuzAndShiftByAyahId as _findJuzAndShiftByAyahId
+} from "./findJuzAndShift"
 import { findJuzByAyahId as _findJuzByAyahId } from "./findJuzByAyahId"
 import { findJuzMetaBySurah as _findJuzMetaBySurah } from "./findJuzMetaBySurah"
 import { findManzil as _findManzil } from "./findManzil"
@@ -58,12 +65,14 @@ import { isSurahAyahJuzFirst as _isSurahAyahJuzFirst } from "./isSurahAyahJuzFir
 import { isSurahAyahPageFirst as _isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
 import { nextAyah as _nextAyah } from "./nextAyah"
 import { prevAyah as _prevAyah } from "./prevAyah"
-import { isValidAyahId as _isValidAyahId,
+import {
+  isValidAyahId as _isValidAyahId,
   isValidJuz as _isValidJuz,
   isValidPage as _isValidPage,
   isValidRuku as _isValidRuku,
   isValidSurah as _isValidSurah,
-  isValidSurahAyah as _isValidSurahAyah } from "./typeGuards"
+  isValidSurahAyah as _isValidSurahAyah
+} from "./typeGuards"
 import { QuranRiwaya } from "./QuranRiwaya"
 import {
   checkValidSurahAyah as _checkValidSurahAyah,
@@ -102,8 +111,7 @@ export const RukuList = riwayaLists.RukuList
 export const SajdaList = riwayaLists.SajdaList
 
 // String parsers and utilities (closures with riwayaLists)
-export const ayahStringSplitter = (str: string, isStrict = true) =>
-  _ayahStringSplitter(str, isStrict, riwayaLists)
+export const ayahStringSplitter = (str: string, isStrict = true) => _ayahStringSplitter(str, isStrict, riwayaLists)
 
 export const surahStringParser = (str: string) => {
   const [surah, ayah] = str.split(":")
@@ -118,193 +126,138 @@ export const surahStringParser = (str: string) => {
 export const checkValidSurahAyah = (surah: Surah | number | unknown, ayah: number | AyahNo | unknown) =>
   _checkValidSurahAyah(surah, ayah, riwayaLists)
 
-export const checkValidSurah = (surah: Surah | number | unknown) =>
-  _checkValidSurah(surah, meta)
-export const checkValidSurahAyahPair = (pair: [unknown, unknown]) =>
-  _checkValidSurahAyahPair(pair, riwayaLists)
-export const checkValidAyahId = (ayahId: unknown) =>
-  _checkValidAyahId(ayahId, meta)
-export const checkValidPage = (page: unknown) =>
-  _checkValidPage(page, meta)
-export const checkValidJuz = (juz: unknown) =>
-  _checkValidJuz(juz, meta)
-export const checkValidRuku = (ruku: unknown) =>
-  _checkValidRuku(ruku, meta)
-export const checkValidManzil = (manzil: unknown) =>
-  _checkValidManzil(manzil, meta)
+export const checkValidSurah = (surah: Surah | number | unknown) => _checkValidSurah(surah, meta)
+export const checkValidSurahAyahPair = (pair: [unknown, unknown]) => _checkValidSurahAyahPair(pair, riwayaLists)
+export const checkValidAyahId = (ayahId: unknown) => _checkValidAyahId(ayahId, meta)
+export const checkValidPage = (page: unknown) => _checkValidPage(page, meta)
+export const checkValidJuz = (juz: unknown) => _checkValidJuz(juz, meta)
+export const checkValidRuku = (ruku: unknown) => _checkValidRuku(ruku, meta)
+export const checkValidManzil = (manzil: unknown) => _checkValidManzil(manzil, meta)
 
 // Surah methods
-export const getSurahMeta = (surah: Surah) =>
-  _getSurahMeta(surah, riwayaLists)
+export const getSurahMeta = (surah: Surah) => _getSurahMeta(surah, riwayaLists)
 
-export const getSurahInfo = (surah: Surah) =>
-  _getSurahInfo(surah, riwayaLists)
+export const getSurahInfo = (surah: Surah) => _getSurahInfo(surah, riwayaLists)
 
-export const getAyahCountInSurah = (surah: Surah) =>
-  _getAyahCountInSurah(surah, riwayaLists)
+export const getAyahCountInSurah = (surah: Surah) => _getAyahCountInSurah(surah, riwayaLists)
 
 // Ayah methods
 export const findAyahIdBySurah = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
   _findAyahIdBySurah(surah, ayah, riwayaLists)
 
-export const findSurahByAyahId = (ayahId: AyahId) =>
-  _findSurahByAyahId(ayahId, riwayaLists)
+export const findSurahByAyahId = (ayahId: AyahId) => _findSurahByAyahId(ayahId, riwayaLists)
 
-export const findSurahAyahByAyahId = (ayahId: AyahId) =>
-  _findSurahAyahByAyahId(ayahId, riwayaLists)
+export const findSurahAyahByAyahId = (ayahId: AyahId) => _findSurahAyahByAyahId(ayahId, riwayaLists)
 
-export const nextAyah = (surah: Surah, ayah: AyahNo) =>
-  _nextAyah(surah, ayah, riwayaLists)
+export const nextAyah = (surah: Surah, ayah: AyahNo) => _nextAyah(surah, ayah, riwayaLists)
 
-export const prevAyah = (surah: Surah, ayah: AyahNo) =>
-  _prevAyah(surah, ayah, riwayaLists)
+export const prevAyah = (surah: Surah, ayah: AyahNo) => _prevAyah(surah, ayah, riwayaLists)
 
 // Juz methods
-export const findJuz = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
-  _findJuz(surah, ayah, riwayaLists)
+export const findJuz = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _findJuz(surah, ayah, riwayaLists)
 
-export const findJuzByAyahId = (ayahId: AyahId) =>
-  _findJuzByAyahId(ayahId, riwayaLists)
+export const findJuzByAyahId = (ayahId: AyahId) => _findJuzByAyahId(ayahId, riwayaLists)
 
-export const getJuzMeta = (juz: Juz) =>
-  _getJuzMeta(juz, riwayaLists)
+export const getJuzMeta = (juz: Juz) => _getJuzMeta(juz, riwayaLists)
 
 export const findJuzMetaBySurah = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
   _findJuzMetaBySurah(surah, ayah, riwayaLists)
 
-export const findJuzAndShift = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
-  _findJuzAndShift(surah, ayah, riwayaLists)
+export const findJuzAndShift = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _findJuzAndShift(surah, ayah, riwayaLists)
 
 export const findJuzAndShiftByAyahId = (ayahId: AyahId) => {
   return _findJuzAndShiftByAyahId(ayahId, riwayaLists)
 }
 
 // Page methods
-export const findPage = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
-  _findPage(surah, ayah, riwayaLists)
+export const findPage = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _findPage(surah, ayah, riwayaLists)
 
-export const findPagebyAyahId = (ayahId: AyahId) =>
-  _findPagebyAyahId(ayahId, riwayaLists)
+export const findPagebyAyahId = (ayahId: AyahId) => _findPagebyAyahId(ayahId, riwayaLists)
 
-export const getPageMeta = (page: Page) =>
-  _getPageMeta(page, riwayaLists)
+export const getPageMeta = (page: Page) => _getPageMeta(page, riwayaLists)
 
 // Manzil methods
-export const findManzil = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
-  _findManzil(surah, ayah, riwayaLists)
+export const findManzil = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _findManzil(surah, ayah, riwayaLists)
 
-export const findManzilByAyahId = (ayahId: AyahId) =>
-  _findManzilByAyahId(ayahId, riwayaLists)
+export const findManzilByAyahId = (ayahId: AyahId) => _findManzilByAyahId(ayahId, riwayaLists)
 
-export const getManzilMeta = (manzil: Manzil) =>
-  _getManzilMeta(manzil, riwayaLists)
+export const getManzilMeta = (manzil: Manzil) => _getManzilMeta(manzil, riwayaLists)
 
 // Ruku methods
-export const findRukuByAyahId = (ayahId: AyahId) =>
-  _findRukuByAyahId(ayahId, riwayaLists)
+export const findRukuByAyahId = (ayahId: AyahId) => _findRukuByAyahId(ayahId, riwayaLists)
 
-export const getRukuMeta = (ruku: Ruku) =>
-  _getRukuMeta(ruku, riwayaLists)
+export const getRukuMeta = (ruku: Ruku) => _getRukuMeta(ruku, riwayaLists)
 
 // RubAlHizb methods
-export const findRubAlHizb = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
-  _findRubAlHizb(surah, ayah, riwayaLists)
+export const findRubAlHizb = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _findRubAlHizb(surah, ayah, riwayaLists)
 
-export const findRubAlHizbByAyahId = (ayahId: AyahId) =>
-  _findRubAlHizbByAyahId(ayahId, riwayaLists)
+export const findRubAlHizbByAyahId = (ayahId: AyahId) => _findRubAlHizbByAyahId(ayahId, riwayaLists)
 
-export const getRubAlHizb = (quarterIndex: RubAlHizbId
-) => _getRubAlHizb(quarterIndex)
+export const getRubAlHizb = (quarterIndex: RubAlHizbId) => _getRubAlHizb(quarterIndex)
 
-export const getRubAlHizbMeta = (quarterIndex: RubAlHizbId) =>
-  _getRubAlHizbMeta(quarterIndex, riwayaLists)
+export const getRubAlHizbMeta = (quarterIndex: RubAlHizbId) => _getRubAlHizbMeta(quarterIndex, riwayaLists)
 
-export const getRubAlHizbMetaByAyahId = (ayahId: AyahId) =>
-  _getRubAlHizbMetaByAyahId(ayahId, riwayaLists)
+export const getRubAlHizbMetaByAyahId = (ayahId: AyahId) => _getRubAlHizbMetaByAyahId(ayahId, riwayaLists)
 
-export const getRubAlHizbByAyahId = (ayahId: AyahId) =>
-  _getRubAlHizbByAyahId(ayahId, riwayaLists)
+export const getRubAlHizbByAyahId = (ayahId: AyahId) => _getRubAlHizbByAyahId(ayahId, riwayaLists)
 
 // Thumun metadata
 
-export const findThumunAlHizb = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _findThumunAlHizb(surah, ayah, riwayaLists)
+export const findThumunAlHizb = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
+  _findThumunAlHizb(surah, ayah, riwayaLists)
 
-export const findThumunAlHizbByAyahId = (ayahId: AyahId) =>
-  _findThumunAlHizbByAyahId(ayahId, riwayaLists)
+export const findThumunAlHizbByAyahId = (ayahId: AyahId) => _findThumunAlHizbByAyahId(ayahId, riwayaLists)
 
-export const getThumunAlHizb = (quarterIndex: ThumunAlHizbId) =>
-  _getThumunAlHizb(quarterIndex)
+export const getThumunAlHizb = (quarterIndex: ThumunAlHizbId) => _getThumunAlHizb(quarterIndex)
 
-export const getThumunAlHizbByAyahId = (ayahId: AyahId) =>
-  _getThumunAlHizbByAyahId(ayahId, riwayaLists)
+export const getThumunAlHizbByAyahId = (ayahId: AyahId) => _getThumunAlHizbByAyahId(ayahId, riwayaLists)
 
-export const getThumunAlHizbMeta = (quarterIndex: ThumunAlHizbId) =>
-  _getThumunAlHizbMeta(quarterIndex, riwayaLists)
+export const getThumunAlHizbMeta = (quarterIndex: ThumunAlHizbId) => _getThumunAlHizbMeta(quarterIndex, riwayaLists)
 
 export const getThumunAlHizbMetaByAyahId = (ayahId: AyahId) => _getThumunAlHizbMetaByAyahId(ayahId, riwayaLists)
 
 // Ayah metadata
-export const getAyahMeta = (ayahId: AyahId) =>
-  _getAyahMeta(ayahId, riwayaLists)
+export const getAyahMeta = (ayahId: AyahId) => _getAyahMeta(ayahId, riwayaLists)
 
-export const getAyahMetasForSurah = (surah: Surah) =>
-  _getAyahMetasForSurah(surah, riwayaLists)
+export const getAyahMetasForSurah = (surah: Surah) => _getAyahMetasForSurah(surah, riwayaLists)
 
 // Range methods
-export const findRangeAroundAyah = (
-  ayahId: AyahId,
-  mode: RangeMode
-) => _findRangeAroundAyah(ayahId, mode, riwayaLists)
+export const findRangeAroundAyah = (ayahId: AyahId, mode: RangeMode) => _findRangeAroundAyah(ayahId, mode, riwayaLists)
 
-export const findRangeAroundSurahAyah = (
-  surah: Surah,
-  ayah: AyahNo,
-  mode: RangeMode
-) => _findRangeAroundSurahAyah(surah, ayah, mode, riwayaLists)
+export const findRangeAroundSurahAyah = (surah: Surah, ayah: AyahNo, mode: RangeMode) =>
+  _findRangeAroundSurahAyah(surah, ayah, mode, riwayaLists)
 
 // Helper methods
-export const isAyahJuzFirst = (ayahId: AyahId) =>
-  _isAyahJuzFirst(ayahId, riwayaLists)
+export const isAyahJuzFirst = (ayahId: AyahId) => _isAyahJuzFirst(ayahId, riwayaLists)
 
-export const isAyahPageFirst = (ayahId: AyahId) =>
-  _isAyahPageFirst(ayahId, riwayaLists)
+export const isAyahPageFirst = (ayahId: AyahId) => _isAyahPageFirst(ayahId, riwayaLists)
 
-export const isSurahAyahJuzFirst = (surah: Surah, ayah: AyahNo) =>
-  _isSurahAyahJuzFirst(surah, ayah, riwayaLists)
+export const isSurahAyahJuzFirst = (surah: Surah, ayah: AyahNo) => _isSurahAyahJuzFirst(surah, ayah, riwayaLists)
 
-export const isSurahAyahPageFirst = (surah: Surah, ayah: AyahNo) =>
-  _isSurahAyahPageFirst(surah, ayah, riwayaLists)
+export const isSurahAyahPageFirst = (surah: Surah, ayah: AyahNo) => _isSurahAyahPageFirst(surah, ayah, riwayaLists)
 
 // Validation methods
-export const isValidSurah = (x: unknown) =>
-  _isValidSurah(x, meta)
+export const isValidSurah = (x: unknown) => _isValidSurah(x, meta)
 
-export const isValidAyahNo = (ayahNo: number): ayahNo is AyahNo =>
-  ayahNo >= 1 && ayahNo <= 286
+export const isValidAyahNo = (ayahNo: number): ayahNo is AyahNo => ayahNo >= 1 && ayahNo <= 286
 
-export const isValidAyahId = (x: unknown) =>
-  _isValidAyahId(x, meta)
+export const isValidAyahId = (x: unknown) => _isValidAyahId(x, meta)
 
-export const isValidPage = (x: unknown) =>
-  _isValidPage(x, meta)
+export const isValidPage = (x: unknown) => _isValidPage(x, meta)
 
 export const string2NumberSplitter = (str: string): number[] =>
   str
     .split(/[\s,:;.\-_/\\|]/)
-    .filter(s => s.trim() !== "")
-    .map(s => Number.parseInt(s.trim()))
-    .filter(n => !Number.isNaN(n))
+    .filter((s) => s.trim() !== "")
+    .map((s) => Number.parseInt(s.trim()))
+    .filter((n) => !Number.isNaN(n))
 
-export const isValidJuz = (x: unknown) =>
-  _isValidJuz(x, meta)
+export const isValidJuz = (x: unknown) => _isValidJuz(x, meta)
 
-export const isValidRuku = (x: unknown) =>
-  _isValidRuku(x, meta)
-export const isValidSurahAyah = (x: [unknown, unknown]) =>
-  _isValidSurahAyah(x, riwayaLists)
+export const isValidRuku = (x: unknown) => _isValidRuku(x, meta)
+export const isValidSurahAyah = (x: [unknown, unknown]) => _isValidSurahAyah(x, riwayaLists)
 
-export const generatePartBlocks = (part: PartType) =>
-  _generatePartBlocks(part, riwayaLists)
+export const generatePartBlocks = (part: PartType) => _generatePartBlocks(part, riwayaLists)
 
 /**
  * Pre-initialized QuranRiwaya instance for Qalun

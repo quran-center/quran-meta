@@ -18,11 +18,9 @@ export function binarySearch<T, X>(
     const cmp = compare_fn(el, ar[k])
     if (cmp > 0) {
       m = k + 1
-    }
-    else if (cmp < 0) {
+    } else if (cmp < 0) {
       n = k - 1
-    }
-    else {
+    } else {
       return k
     }
   }

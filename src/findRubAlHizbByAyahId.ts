@@ -10,10 +10,7 @@ import { checkValidAyahId } from "./validation"
  * @param lists - The Lists object for the riwaya.
  * @returns The Maqra of the Quran that contains the given Ayah ID.
  */
-export function findRubAlHizbByAyahId(
-  ayahId: AyahId,
-  data: RiwayaData
-): RubAlHizbId {
+export function findRubAlHizbByAyahId(ayahId: AyahId, data: RiwayaData): RubAlHizbId {
   checkValidAyahId(ayahId, data.meta)
   const HizbQuarterList = data.HizbQuarterList
   // return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId

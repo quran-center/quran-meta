@@ -1,6 +1,36 @@
 // Quran Meta
 
-export type { QuranMeta, SurahListType, RangeMeta, RukuMeta, RangeMode, AyahCountBetweenJuzSurah, JuzMeta, SurahMeta, AyahId, AyahMeta, AyahNo, AyahRange, HizbId, Juz, RubAlHizb, RubAlHizbMeta, SurahJuzMeta, JuzPart, Manzil, Page, PageMeta, RubAlHizbId, Ruku, Surah, SurahAyah, SurahAyahSegment, SurahInfo, SurahName, ManzilMeta } from "./types"
+export type {
+  QuranMeta,
+  SurahListType,
+  RangeMeta,
+  RukuMeta,
+  RangeMode,
+  AyahCountBetweenJuzSurah,
+  JuzMeta,
+  SurahMeta,
+  AyahId,
+  AyahMeta,
+  AyahNo,
+  AyahRange,
+  HizbId,
+  Juz,
+  RubAlHizb,
+  RubAlHizbMeta,
+  SurahJuzMeta,
+  JuzPart,
+  Manzil,
+  Page,
+  PageMeta,
+  RubAlHizbId,
+  Ruku,
+  Surah,
+  SurahAyah,
+  SurahAyahSegment,
+  SurahInfo,
+  SurahName,
+  ManzilMeta
+} from "./types"
 
 import { HafsLists } from "./lists/HafsLists"
 import { QalunLists } from "./lists/QalunLists"
@@ -68,8 +98,25 @@ export { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"
 export { isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
 export { nextAyah } from "./nextAyah"
 export { prevAyah } from "./prevAyah"
-export { isValidManzil, isValidRuku, isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidSurah, isValidSurahAyah } from "./typeGuards"
-export { checkValidManzil, checkValidRuku, checkValidAyahId, checkValidJuz, checkValidPage, checkValidSurah, checkValidSurahAyah } from "./validation"
+export {
+  isValidManzil,
+  isValidRuku,
+  isValidAyahId,
+  isValidAyahNo,
+  isValidJuz,
+  isValidPage,
+  isValidSurah,
+  isValidSurahAyah
+} from "./typeGuards"
+export {
+  checkValidManzil,
+  checkValidRuku,
+  checkValidAyahId,
+  checkValidJuz,
+  checkValidPage,
+  checkValidSurah,
+  checkValidSurahAyah
+} from "./validation"
 
 // ------------------ Sura i18 Data ---------------------
 

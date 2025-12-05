@@ -16,16 +16,10 @@ import { checkValidManzil } from "./validation"
  *  - last: Surah and ayah details of the last ayah
  * @throws Will throw an error if manzilNum is invalid
  */
-export function getManzilMeta(
-  manzilNum: number,
-  data: RiwayaData
-): ManzilMeta {
+export function getManzilMeta(manzilNum: number, data: RiwayaData): ManzilMeta {
   checkValidManzil(manzilNum, data.meta)
   const ManzilList = data.ManzilList
-  const [firstAyahId, nextManzilAyahId]: [AyahId, AyahId] = [
-    ManzilList[manzilNum],
-    ManzilList[manzilNum + 1]
-  ]
+  const [firstAyahId, nextManzilAyahId]: [AyahId, AyahId] = [ManzilList[manzilNum], ManzilList[manzilNum + 1]]
   const lastAyahId = nextManzilAyahId - 1
   return {
     manzilNum,

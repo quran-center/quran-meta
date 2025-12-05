@@ -27,9 +27,7 @@ describe("getAyahMetasForSurah", () => {
   it("should return correct number of ayahs for Al-Fatiha (surah 1)", () => {
     for (let i = 1 as Surah; i <= 114; i++ as Surah) {
       const result = getAyahMetasForSurah(i, HafsLists)
-      const [
-        startAyahId, ayahCount
-      ] = SurahList[i]
+      const [startAyahId, ayahCount] = SurahList[i]
       for (let id = 1; id <= ayahCount; id++) {
         expect(result[id - 1]).toEqual(getAyahMeta(id + startAyahId - 1, HafsLists))
       }

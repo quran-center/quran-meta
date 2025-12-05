@@ -1,5 +1,32 @@
 import type { RiwayaName, PartType, Riwayas } from "./lists/types"
-import type { AyahId, AyahMeta, AyahNo, AyahRange, Juz, JuzMeta, Manzil, ManzilMeta, Page, PageMeta, RangeMode, RubAlHizb, RubAlHizbId, RubAlHizbMeta, Ruku, RukuMeta, Surah, SurahAyah, SurahJuzMeta, SurahMeta, QuranMeta, SurahInfo, ThumunAlHizbId, ThumunAlHizbMeta, SurahAyahSegment, ThumunAlHizb } from "./types"
+import type {
+  AyahId,
+  AyahMeta,
+  AyahNo,
+  AyahRange,
+  Juz,
+  JuzMeta,
+  Manzil,
+  ManzilMeta,
+  Page,
+  PageMeta,
+  RangeMode,
+  RubAlHizb,
+  RubAlHizbId,
+  RubAlHizbMeta,
+  Ruku,
+  RukuMeta,
+  Surah,
+  SurahAyah,
+  SurahJuzMeta,
+  SurahMeta,
+  QuranMeta,
+  SurahInfo,
+  ThumunAlHizbId,
+  ThumunAlHizbMeta,
+  SurahAyahSegment,
+  ThumunAlHizb
+} from "./types"
 import { ayahStringSplitter, string2NumberSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findJuz } from "./findJuz"
@@ -44,7 +71,15 @@ import { isSurahAyahJuzFirst } from "./isSurahAyahJuzFirst"
 import { isSurahAyahPageFirst } from "./isSurahAyahPageFirst"
 import { getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId"
 import { surahStringParser } from "./surahStringParser"
-import { isValidAyahId, isValidAyahNo, isValidJuz, isValidPage, isValidRuku, isValidSurah, isValidSurahAyah } from "./typeGuards"
+import {
+  isValidAyahId,
+  isValidAyahNo,
+  isValidJuz,
+  isValidPage,
+  isValidRuku,
+  isValidSurah,
+  isValidSurahAyah
+} from "./typeGuards"
 
 /**
  * QuranRiwaya class provides a clean API for Quran metadata operations
@@ -93,11 +128,11 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   }
 
   /**
-  * Create a QuranRiwaya instance with the specified riwaya, metadata, and lists
-  * @param riwaya - The riwaya name ("Hafs", "Qalun", or "Warsh")
-  * @param meta - The metadata for this riwaya
-  * @param rData - The Lists object for this riwaya
-  */
+   * Create a QuranRiwaya instance with the specified riwaya, metadata, and lists
+   * @param riwaya - The riwaya name ("Hafs", "Qalun", or "Warsh")
+   * @param meta - The metadata for this riwaya
+   * @param rData - The Lists object for this riwaya
+   */
   static create<R extends RiwayaName>(rData: Riwayas[R]): QuranRiwaya<R> {
     return new QuranRiwaya(rData)
   }
@@ -105,8 +140,8 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Surah Methods ====================
 
   /**
-  * Gets the metadata for the specified Surah
-  */
+   * Gets the metadata for the specified Surah
+   */
   getSurahMeta(surahNum: Surah): SurahMeta {
     return getSurahMeta(surahNum, this.#data)
   }
@@ -116,36 +151,36 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   }
 
   /**
-  * Gets the surah info array [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan]
-  */
+   * Gets the surah info array [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan]
+   */
   getSurahInfo(surah: Surah): SurahInfo {
     return getSurahInfo(surah, this.#data)
   }
 
   /**
-  * Gets the count of ayahs in a surah
-  */
+   * Gets the count of ayahs in a surah
+   */
   getAyahCountInSurah(surah: Surah): number {
     return getAyahCountInSurah(surah, this.#data)
   }
 
   /**
-  * Finds the surah number for a given ayah ID
-  */
+   * Finds the surah number for a given ayah ID
+   */
   findSurahByAyahId(ayahId: AyahId): Surah {
     return findSurahByAyahId(ayahId, this.#data)
   }
 
   /**
-  * Finds the [surah, ayah] tuple for a given ayah ID
-  */
+   * Finds the [surah, ayah] tuple for a given ayah ID
+   */
   findSurahAyahByAyahId(ayahId: AyahId): SurahAyah {
     return findSurahAyahByAyahId(ayahId, this.#data)
   }
 
   /**
-  * Finds the ayah ID for a given surah and ayah number
-  */
+   * Finds the ayah ID for a given surah and ayah number
+   */
   findAyahIdBySurah(surah: Surah, ayah: AyahNo): AyahId {
     return findAyahIdBySurah(surah, ayah, this.#data)
   }
@@ -170,8 +205,8 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   }
 
   /**
-  * Gets the previous ayah before the given surah and ayah
-  */
+   * Gets the previous ayah before the given surah and ayah
+   */
   prevAyah(surah: Surah, ayah: AyahNo): SurahAyah {
     return prevAyah(surah, ayah, this.#data)
   }
@@ -179,15 +214,15 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Juz Methods ====================
 
   /**
-  * Finds the juz number for a given surah and ayah
-  */
+   * Finds the juz number for a given surah and ayah
+   */
   findJuz(surah: Surah, ayah: AyahNo = 1): Juz {
     return findJuz(surah, ayah, this.#data)
   }
 
   /**
-  * Finds the juz number for a given ayah ID
-  */
+   * Finds the juz number for a given ayah ID
+   */
   findJuzByAyahId(ayahId: AyahId): Juz {
     return findJuzByAyahId(ayahId, this.#data)
   }
@@ -195,22 +230,22 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Page Methods ====================
 
   /**
-  * Finds the page number for a given surah and ayah
-  */
+   * Finds the page number for a given surah and ayah
+   */
   findPage(surah: Surah, ayah: AyahNo = 1): Page {
     return findPage(surah, ayah, this.#data)
   }
 
   /**
-  * Finds the page number for a given ayah ID
-  */
+   * Finds the page number for a given ayah ID
+   */
   findPagebyAyahId(ayahId: AyahId): Page {
     return findPagebyAyahId(ayahId, this.#data)
   }
 
   /**
-  * Gets metadata for a specific page
-  */
+   * Gets metadata for a specific page
+   */
   getPageMeta(pageNum: Page): PageMeta {
     return getPageMeta(pageNum, this.#data)
   }
@@ -218,22 +253,22 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Manzil Methods ====================
 
   /**
-  * Finds the manzil number for a given surah and ayah
-  */
+   * Finds the manzil number for a given surah and ayah
+   */
   findManzil(surah: Surah, ayah: AyahNo = 1): Manzil {
     return findManzil(surah, ayah, this.#data)
   }
 
   /**
-  * Finds the manzil number for a given ayah ID
-  */
+   * Finds the manzil number for a given ayah ID
+   */
   findManzilByAyahId(ayahId: AyahId): Manzil {
     return findManzilByAyahId(ayahId, this.#data)
   }
 
   /**
-  * Gets metadata for a specific manzil
-  */
+   * Gets metadata for a specific manzil
+   */
   getManzilMeta(manzilNum: number): ManzilMeta {
     return getManzilMeta(manzilNum, this.#data)
   }
@@ -241,15 +276,15 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Ruku Methods ====================
 
   /**
-  * Finds the ruku number for a given ayah ID
-  */
+   * Finds the ruku number for a given ayah ID
+   */
   findRukuByAyahId(ayahId: AyahId): Ruku {
     return findRukuByAyahId(ayahId, this.#data)
   }
 
   /**
-  * Gets metadata for a specific ruku
-  */
+   * Gets metadata for a specific ruku
+   */
   getRukuMeta(rukuNum: number): RukuMeta {
     return getRukuMeta(rukuNum, this.#data)
   }
@@ -257,29 +292,29 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Juz Additional Methods ====================
 
   /**
-  * Gets metadata for a specific juz
-  */
+   * Gets metadata for a specific juz
+   */
   getJuzMeta(juzNum: Juz): JuzMeta {
     return getJuzMeta(juzNum, this.#data)
   }
 
   /**
-  * Finds juz metadata for a given surah and ayah
-  */
+   * Finds juz metadata for a given surah and ayah
+   */
   findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1): SurahJuzMeta {
     return findJuzMetaBySurah(surah, ayah, this.#data)
   }
 
   /**
-  * Finds juz and calculates shift between juz start and surah start
-  */
+   * Finds juz and calculates shift between juz start and surah start
+   */
   findJuzAndShift(surah: Surah, ayah: AyahNo) {
     return findJuzAndShift(surah, ayah, this.#data)
   }
 
   /**
-  * Finds juz and shift for a given ayah ID
-  */
+   * Finds juz and shift for a given ayah ID
+   */
   findJuzAndShiftByAyahId(ayahId: AyahId) {
     return findJuzAndShiftByAyahId(ayahId, this.#data)
   }
@@ -287,43 +322,43 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== RubAlHizb Methods ====================
 
   /**
-  * Finds the RubAlHizb for a given surah and ayah
-  */
+   * Finds the RubAlHizb for a given surah and ayah
+   */
   findRubAlHizb(surah: Surah, ayah: AyahNo = 1): RubAlHizbId {
     return findRubAlHizb(surah, ayah, this.#data)
   }
 
   /**
-  * Finds the RubAlHizb ID for a given ayah ID
-  */
+   * Finds the RubAlHizb ID for a given ayah ID
+   */
   findRubAlHizbByAyahId(ayahId: AyahId): RubAlHizbId {
     return findRubAlHizbByAyahId(ayahId, this.#data)
   }
 
   /**
-  * Gets RubAlHizb data (juz, hizb, etc.) for a given ayah ID
-  */
+   * Gets RubAlHizb data (juz, hizb, etc.) for a given ayah ID
+   */
   getRubAlHizbByAyahId(ayahId: AyahId): RubAlHizb {
     return getRubAlHizbByAyahId(ayahId, this.#data)
   }
 
   /**
-  * Gets RubAlHizb data (juz, hizb, etc.) for a given ayah ID
-  */
+   * Gets RubAlHizb data (juz, hizb, etc.) for a given ayah ID
+   */
   getRubAlHizb(quarterIndex: RubAlHizbId): RubAlHizb {
     return getRubAlHizb(quarterIndex)
   }
 
   /**
-  * Gets complete RubAlHizb metadata for a given ayah ID
-  */
+   * Gets complete RubAlHizb metadata for a given ayah ID
+   */
   getRubAlHizbMetaByAyahId(ayahId: AyahId): RubAlHizbMeta {
     return getRubAlHizbMetaByAyahId(ayahId, this.#data)
   }
 
   /**
-  * Gets metadata for a specific RubAlHizb
-  */
+   * Gets metadata for a specific RubAlHizb
+   */
   getRubAlHizbMeta(quarterIndex: RubAlHizbId): RubAlHizbMeta {
     return getRubAlHizbMeta(quarterIndex, this.#data)
   }
@@ -331,22 +366,22 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== ThumunAlHizb Methods ====================
 
   /**
-  * Finds the ThumunAlHizb ID for a given ayah ID (Qalun/Warsh only)
-  */
+   * Finds the ThumunAlHizb ID for a given ayah ID (Qalun/Warsh only)
+   */
   findThumunAlHizbByAyahId(ayahId: AyahId): ThumunAlHizbId | null {
     return findThumunAlHizbByAyahId(ayahId, this.#data)
   }
 
   /**
-  * Finds the ThumunAlHizb ID for a given ayah ID (Qalun/Warsh only)
-  */
+   * Finds the ThumunAlHizb ID for a given ayah ID (Qalun/Warsh only)
+   */
   findThumunAlHizb(surah: Surah, ayah: AyahNo = 1): ThumunAlHizbId | null {
     return findThumunAlHizb(surah, ayah, this.#data)
   }
 
   /**
-  * Gets metadata for a specific ThumunAlHizb (Qalun/Warsh only)
-  */
+   * Gets metadata for a specific ThumunAlHizb (Qalun/Warsh only)
+   */
   getThumunAlHizbMeta(eighthIndex: ThumunAlHizbId): ThumunAlHizbMeta | null {
     return getThumunAlHizbMeta(eighthIndex, this.#data)
   }
@@ -365,15 +400,15 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Ayah Metadata ====================
 
   /**
-  * Gets comprehensive metadata for a specific ayah
-  */
+   * Gets comprehensive metadata for a specific ayah
+   */
   getAyahMeta(ayahId: AyahId): AyahMeta {
     return getAyahMeta(ayahId, this.#data)
   }
 
   /**
-  * Gets metadata for all ayahs in a surah
-  */
+   * Gets metadata for all ayahs in a surah
+   */
   getAyahMetasForSurah(surahNumber: Surah): AyahMeta[] {
     return getAyahMetasForSurah(surahNumber, this.#data)
   }
@@ -381,15 +416,15 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Range Methods ====================
 
   /**
-  * Finds the range of ayahs around a given ayah
-  */
+   * Finds the range of ayahs around a given ayah
+   */
   findRangeAroundAyah(ayahId: AyahId, mode: RangeMode): AyahRange {
     return findRangeAroundAyah(ayahId, mode, this.#data)
   }
 
   /**
-  * Finds the range of ayahs around a given surah and ayah
-  */
+   * Finds the range of ayahs around a given surah and ayah
+   */
   findRangeAroundSurahAyah(surah: Surah, ayah: AyahNo, mode: RangeMode): AyahRange {
     return findRangeAroundSurahAyah(surah, ayah, mode, this.#data)
   }
@@ -397,29 +432,29 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== Helper Methods ====================
 
   /**
-  * Checks if an ayah is the first ayah of a juz
-  */
+   * Checks if an ayah is the first ayah of a juz
+   */
   isAyahJuzFirst(ayahId: AyahId): Juz | number {
     return isAyahJuzFirst(ayahId, this.#data)
   }
 
   /**
-  * Checks if an ayah is the first ayah of a page
-  */
+   * Checks if an ayah is the first ayah of a page
+   */
   isAyahPageFirst(ayahId: AyahId): Page | number {
     return isAyahPageFirst(ayahId, this.#data)
   }
 
   /**
-  * Checks if a surah-ayah combination is the first ayah of a juz
-  */
+   * Checks if a surah-ayah combination is the first ayah of a juz
+   */
   isSurahAyahJuzFirst(surah: Surah, ayah: AyahNo): Juz | number {
     return isSurahAyahJuzFirst(surah, ayah, this.#data)
   }
 
   /**
-  * Checks if a surah-ayah combination is the first ayah of a page
-  */
+   * Checks if a surah-ayah combination is the first ayah of a page
+   */
   isSurahAyahPageFirst(surah: Surah, ayah: AyahNo): Page | number {
     return isSurahAyahPageFirst(surah, ayah, this.#data)
   }
@@ -462,27 +497,27 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return surahStringParser(str, isStrict, this.#meta)
   }
 
-  static string2NumberSplitter(str: string): { ayah?: number, ayahTo?: number, surahOrAyah?: number } | null {
+  static string2NumberSplitter(str: string): { ayah?: number; ayahTo?: number; surahOrAyah?: number } | null {
     return string2NumberSplitter(str)
   }
 
   /**
-  * Gets the riwaya name
-  */
+   * Gets the riwaya name
+   */
   get riwayaName(): R {
     return this.#riwaya
   }
 
   /**
-  * Gets the metadata for this riwaya
-  */
+   * Gets the metadata for this riwaya
+   */
   get meta(): QuranMeta {
     return this.#meta
   }
 
   /**
-  * Gets the metadata for this riwaya
-  */
+   * Gets the metadata for this riwaya
+   */
   get lists(): Riwayas[R] {
     return this.#data
   }

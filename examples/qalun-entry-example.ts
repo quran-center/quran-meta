@@ -8,13 +8,7 @@
  */
 
 // Import from Qalun-specific entry (only Qalun data bundled)
-import {
-  findJuz,
-  findThumunAlHizb,
-  getThumunAlHizbMeta,
-  getAyahMeta,
-  meta
-} from "../src/qalun"
+import { findJuz, findThumunAlHizb, getThumunAlHizbMeta, getAyahMeta, meta } from "../src/qalun"
 
 console.log("=== Qalun Entry Point Example ===")
 console.log(`Total ayahs in Qalun: ${meta.numAyahs}`)

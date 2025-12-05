@@ -11,10 +11,7 @@ import { checkValidAyahId } from "./validation"
  * @returns An array containing the Surah number and the Ayah number within that Surah.
  */
 
-export function findSurahAyahByAyahId(
-  ayahId: AyahId,
-  data: RiwayaData
-): SurahAyah {
+export function findSurahAyahByAyahId(ayahId: AyahId, data: RiwayaData): SurahAyah {
   checkValidAyahId(ayahId, data.meta)
   const SurahList = data.SurahList
   // const suraNum: Surah = (SurahList.findIndex(x => x[0] > ayahId) - 1) as Surah

@@ -17,10 +17,7 @@ import { checkValidAyahId } from "./validation"
  * // Returns the Ruku number containing Ayah 255 of Surah 2
  * ```
  */
-export function findRukuByAyahId(
-  ayahId: AyahId,
-  data: RiwayaData
-): Ruku {
+export function findRukuByAyahId(ayahId: AyahId, data: RiwayaData): Ruku {
   checkValidAyahId(ayahId, data.meta)
   const RukuList = data.RukuList
 

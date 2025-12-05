@@ -10,10 +10,7 @@ import { checkValidAyahId } from "./validation"
  * @param data - The Lists object for the riwaya.
  * @returns The thumun of the Quran that contains the given Ayah ID.
  */
-export function findThumunAlHizbByAyahId(
-  ayahId: AyahId,
-  data: RiwayahsWith<"HizbEighthList">
-): ThumunAlHizbId {
+export function findThumunAlHizbByAyahId(ayahId: AyahId, data: RiwayahsWith<"HizbEighthList">): ThumunAlHizbId {
   checkValidAyahId(ayahId, data.meta)
   const HizbEighthList = data.HizbEighthList
   if (!HizbEighthList) {

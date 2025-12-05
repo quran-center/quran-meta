@@ -28,9 +28,11 @@ export function checkKFQCHafs() {
     if (rub.rubAlHizbId !== ayahMeta.rubAlHizbId) console.warn("Error: rub of Ayah are not matching: ", rub, ayahMeta)
     if (ayahMeta.juz !== hfMeta.jozz) console.warn("Error: juz of Ayah are not matching: ", ayahMeta, hfMeta)
     if (ayahMeta.surah !== hfMeta.sura_no) console.warn("Error: surah of Ayah are not matching: ", ayahMeta, hfMeta)
-    if (ayahMeta.isSajdahAyah !== hfMeta.aya_text.includes("۩")) console.warn(`Error: sajdah of Ayah ${ayahId} are not matching: `, ayahMeta, hfMeta)
+    if (ayahMeta.isSajdahAyah !== hfMeta.aya_text.includes("۩"))
+      console.warn(`Error: sajdah of Ayah ${ayahId} are not matching: `, ayahMeta, hfMeta)
     // if (ayahMeta.isStartOfQuarter !== hfMeta.aya_text.includes("۞")) console.warn(`Error: Juz of Ayah ${ayahId} are not matching: `, ayahMeta, hfMeta)
     if (ayahMeta.ayah !== hfMeta.aya_no) console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
-    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== quran.getSurahMeta(ayahMeta.surah).name) console.warn("Error: name of Surah are not matching: ", quran.getSurahMeta(ayahMeta.surah).name, hfMeta)
+    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== quran.getSurahMeta(ayahMeta.surah).name)
+      console.warn("Error: name of Surah are not matching: ", quran.getSurahMeta(ayahMeta.surah).name, hfMeta)
   }
 }

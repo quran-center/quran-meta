@@ -12,11 +12,7 @@ import { checkValidSurah } from "./validation"
  * @param data - The Lists object containing SurahList and HizbQuarterList.
  * @returns An object containing the Juz (part) number, Hizb (section) number, and the index of the Hizb that the given Ayah belongs to.
  */
-export function findRubAlHizb(
-  surah: Surah,
-  ayah: AyahNo = 1,
-  data: RiwayaData
-): RubAlHizbId {
+export function findRubAlHizb(surah: Surah, ayah: AyahNo = 1, data: RiwayaData): RubAlHizbId {
   checkValidSurah(surah, data.meta)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
 

@@ -49,5 +49,4 @@ export default defineConfig([
     outDir: "lib_cjs",
     unbundle: true
   }
-]
-)
+])

@@ -11,22 +11,11 @@ import type { AyahNo, Juz, SurahJuzMeta, Surah } from "./types"
  * @param data - The Lists object for the riwaya.
  * @returns The SurahJuzMeta object containing the left juz, ayahs between juz and surah, right juz, ayah ID of first ayah in left juz, and last ayah ID of right juz .
  */
-export function findJuzMetaBySurah(
-  surah: Surah,
-  ayah: AyahNo = 1,
-  data: RiwayaData
-): SurahJuzMeta {
-  const {
-    juz: leftjuz,
-    ayahsBetweenJuzSurah,
-    leftAyahId
-  } = findJuzAndShift(surah, ayah, data)
+export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1, data: RiwayaData): SurahJuzMeta {
+  const { juz: leftjuz, ayahsBetweenJuzSurah, leftAyahId } = findJuzAndShift(surah, ayah, data)
   const JuzList = data.JuzList
   let rightJuz: Juz = leftjuz
-  while (
-    rightJuz < data.meta.numJuzs
-    && findSurahByAyahId(JuzList[rightJuz + 1], data) === surah
-  ) {
+  while (rightJuz < data.meta.numJuzs && findSurahByAyahId(JuzList[rightJuz + 1], data) === surah) {
     rightJuz++
   }
 

@@ -61,8 +61,7 @@ try {
   console.log("Thumun al-Hizb 1 metadata:")
   console.log("  First ayah ID:", thumunMeta.firstAyahId)
   console.log("  Last ayah ID:", thumunMeta.lastAyahId)
-}
-catch {
+} catch {
   console.log("Thumun al-Hizb methods only available in Qalun")
 }
 
