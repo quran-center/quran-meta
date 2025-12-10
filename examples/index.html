@@ -1,7 +1,7 @@
 <html>
-<script src="../dist/index.iife.js" type="text/javascript"></script>
+  <script src="../dist/index.iife.js" type="text/javascript"></script>
 
-<div>
+  <div>
     <h2>IIFE Build Usage</h2>
     <p>This uses the IIFE build of the library which exposes the <code>quranMeta</code> variable globally.</p>
     <p>This is useful for older browsers or when you want to include the library without using modules.</p>
@@ -9,23 +9,20 @@
 
     <p>Check the console for output.</p>
     <p>Also, the output is displayed below.</p>
-</div>
-<div id="output">
-
-</div>
-<script type="text/javascript">
-   console.log("QuranMeta", quranMeta)
-   document.getElementById("output").innerHTML = `
-        <p>Number of Surahs: ${quranMeta.meta.numSurahs}</p>
-        <p>Number of Ayahs: ${quranMeta.meta.numAyahs}</p>
-        <p>Number of Pages: ${quranMeta.meta.numPages}</p>
-        <p>Number of Juz: ${quranMeta.meta.numJuzs}</p>
-        <p>Number of Hizb: ${quranMeta.meta.numHizbs}</p>
-        <p>Number of Rub' al-Hizb: ${quranMeta.meta.numRubAlHizbs}</p>
-        <p>Number of Manzil: ${quranMeta.meta.numManzils}</p>
-        <p>Number of Ruku: ${quranMeta.meta.numRukus}</p>
-        <p>Number of Sajdahs: ${quranMeta.meta.numSajdas}</p>
-   `;
-</script>
-
+  </div>
+  <div id="output"></div>
+  <script type="text/javascript">
+    console.log("QuranMeta", quranMeta)
+    document.getElementById("output").innerHTML = `
+         <p>Number of Surahs: ${quranMeta.meta.numSurahs}</p>
+         <p>Number of Ayahs: ${quranMeta.meta.numAyahs}</p>
+         <p>Number of Pages: ${quranMeta.meta.numPages}</p>
+         <p>Number of Juz: ${quranMeta.meta.numJuzs}</p>
+         <p>Number of Hizb: ${quranMeta.meta.numHizbs}</p>
+         <p>Number of Rub' al-Hizb: ${quranMeta.meta.numRubAlHizbs}</p>
+         <p>Number of Manzil: ${quranMeta.meta.numManzils}</p>
+         <p>Number of Ruku: ${quranMeta.meta.numRukus}</p>
+         <p>Number of Sajdahs: ${quranMeta.meta.numSajdas}</p>
+    `;
+  </script>
 </html>

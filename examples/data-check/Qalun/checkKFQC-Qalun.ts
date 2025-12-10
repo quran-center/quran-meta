@@ -46,8 +46,12 @@ export function checkKFQCQalun() {
       )
   }
 }
-/*
-  The Juz checks shows a warning at:
-  AyahId (3211 to 3213) | Juz 20 instead of 19 | Error from the dataset
-  AyahId (3558 to 3561) | Juz 22 instead of 21 | Error from the dataset
+/*
+
+  The Juz checks shows a warning at:
+
+  AyahId (3211 to 3213) | Juz 20 instead of 19 | Error from the dataset
+
+  AyahId (3558 to 3561) | Juz 22 instead of 21 | Error from the dataset
+
   */

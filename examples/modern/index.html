@@ -1,34 +1,34 @@
 <html>
-   <head>
-      <title>Quran Meta</title>
-   </head>
-   <body>
-      <h1>Quran Meta Usage with Modern JavaScript</h1>
-      <p>This example uses the modern ES module build of the Quran Meta library.</p>
-      <p>It imports the <code>meta</code> object directly from the library, allowing you to access Quran metadata in a modular way.</p>
-      <p>Check the console for output.</p>
+  <head>
+    <title>Quran Meta</title>
+  </head>
+  <body>
+    <h1>Quran Meta Usage with Modern JavaScript</h1>
+    <p>This example uses the modern ES module build of the Quran Meta library.</p>
+    <p>
+      It imports the <code>meta</code> object directly from the library, allowing you to access Quran metadata in a
+      modular way.
+    </p>
+    <p>Check the console for output.</p>
 
-<div id="output" style="margin-top: 20px; color:blue;">
-   
+    <div id="output" style="margin-top: 20px; color:blue;"></div>
+    <script type="module">
+      import { meta } from "../../dist/index.js"
 
-</div>
-<script type="module">
-   import { meta } from "../../dist/index.js"
-   
-   console.log("Quran Meta: ",meta)
-   // alert(`There are ${meta.numSurahs} suras in the Holy Quran`)
+      console.log("Quran Meta: ",meta)
+      // alert(`There are ${meta.numSurahs} suras in the Holy Quran`)
 
-      document.getElementById("output").innerHTML = `
-        <p>Number of Surahs: ${meta.numSurahs}</p>
-        <p>Number of Ayahs: ${meta.numAyahs}</p>
-        <p>Number of Pages: ${meta.numPages}</p>
-        <p>Number of Juz: ${meta.numJuzs}</p>
-        <p>Number of Hizb: ${meta.numHizbs}</p>
-        <p>Number of Rub' al-Hizb: ${meta.numRubAlHizbs}</p>
-        <p>Number of Manzil: ${meta.numManzils}</p>
-        <p>Number of Ruku: ${meta.numRukus}</p>
-        <p>Number of Sajdahs: ${meta.numSajdas}</p>
-   `;
-</script>
-</body>
+         document.getElementById("output").innerHTML = `
+           <p>Number of Surahs: ${meta.numSurahs}</p>
+           <p>Number of Ayahs: ${meta.numAyahs}</p>
+           <p>Number of Pages: ${meta.numPages}</p>
+           <p>Number of Juz: ${meta.numJuzs}</p>
+           <p>Number of Hizb: ${meta.numHizbs}</p>
+           <p>Number of Rub' al-Hizb: ${meta.numRubAlHizbs}</p>
+           <p>Number of Manzil: ${meta.numManzils}</p>
+           <p>Number of Ruku: ${meta.numRukus}</p>
+           <p>Number of Sajdahs: ${meta.numSajdas}</p>
+      `;
+    </script>
+  </body>
 </html>

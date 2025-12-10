@@ -25,7 +25,8 @@ export type Riwayas = {
   [k in RiwayaName]: Omit<RiwayaFullData, MissingListsPerRiwaya[k][number]> & { meta: QuranMeta }
 }
 export type RiwayaData = Riwayas[RiwayaName]
-/* // Get all list keys available in a specific riwaya
+/* // Get all list keys available in a specific riwaya
+
 export type ListsInRiwaya<R extends keyof Riwayas> = keyof Riwayas[R] */
 
 export type RiwayahsWith<L extends AllListsNames> = {

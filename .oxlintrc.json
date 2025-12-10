@@ -1,16 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "eslint",
-    "typescript",
-    "unicorn",
-    "oxc",
-    "import",
-    "jsdoc",   
-    "node",
-    "promise",
-    "vitest",   
-  ],
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "jsdoc", "node", "promise", "vitest"],
   "categories": {
     "correctness": "off"
   },
@@ -97,19 +87,10 @@
     "react/jsx-curly-brace-presence": "off",
     "react/self-closing-comp": "off"
   },
-  "ignorePatterns": [
-    "**/node_modules/",
-    "**/coverage/",
-    "**/dist/",
-    "**/docs/",
-    "**/lib_cjs/",
-    "**/lib_es/"
-  ],
+  "ignorePatterns": ["**/node_modules/", "**/coverage/", "**/dist/", "**/docs/", "**/lib_cjs/", "**/lib_es/"],
   "overrides": [
     {
-      "files": [
-        "src/**.{js,ts,mjs,cjs,ts,mts,jsx,tsx}"
-      ],
+      "files": ["src/**.{js,ts,mjs,cjs,ts,mts,jsx,tsx}"],
       "env": {
         "browser": true,
         "commonjs": true,
@@ -118,9 +99,7 @@
       }
     },
     {
-      "files": [
-        "examples/**.{js,ts,mjs,cjs,ts,mts,jsx,tsx}"
-      ],
+      "files": ["examples/**.{js,ts,mjs,cjs,ts,mts,jsx,tsx}"],
       "env": {
         "browser": true,
         "commonjs": true,
@@ -129,9 +108,7 @@
       }
     },
     {
-      "files": [
-        "tests/*.{js,mjs,cjs,ts,mts,jsx,tsx}"
-      ],
+      "files": ["tests/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off"
       },

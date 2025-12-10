@@ -8,7 +8,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v6.0.7
 
-
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.0...v6.0.7)
 
 ### 🚀 Enhancements
@@ -48,16 +47,19 @@ All notable changes to this project will be documented in this file. See [standa
 - Restructured index exports for better tree-shaking
 
 **Linter Improvements**
+
 - Added ESLint rule: `@typescript-eslint/consistent-type-imports` (enforces `import type` syntax)
 - Added ESLint rule: `import/no-duplicates` with `prefer-inline` option
 - Added oxlint rules for consistent type imports and merged imports
 
 **Major Refactor: Lists-based API**
+
 - Refactored entire functional API to accept `lists: AllLists` parameter instead of `riwaya: string`
 - Added `AllLists` type for riwaya data structures
 - Made `HizbEighthList` optional in `AllLists` type (only exists for Qalun/Warsh)
 
 **Bundle Optimization**
+
 - Fixed cross-riwaya bundle contamination issue
 - Removed top-level imports that pulled all riwayas into single-riwaya bundles
 - Reworked entrypoint exports to avoid importing all Lists in riwaya-specific bundles
@@ -71,29 +73,29 @@ All notable changes to this project will be documented in this file. See [standa
 
 - HG ([@husayt](https://github.com/husayt))
 
-
-
 ## v6.0.0
-
 
 ### 🎉 Major New Features
 
 **Multi-Riwaya Support**
+
 - Added support for **3 Quran recitation styles (riwayas)**: Hafs, Qalun, and Warsh
 - Tree-shakeable entry points for optimal bundle sizes:
   - `quran-meta` - Main entry (all riwayas, ~115 KB)
   - `quran-meta/hafs` - Hafs only (~77 KB)
-  - `quran-meta/qalun` - Qalun only (~81 KB)  
+  - `quran-meta/qalun` - Qalun only (~81 KB)
   - `quran-meta/warsh` - Warsh only (~77 KB)
 - Each riwaya has different ayah counts and page/juz divisions
 
 **Closure-based Architecture**
+
 - Refactored from class-based to closure-based functional API for better tree-shaking
 - All methods pre-bound to their respective Lists for convenience
 - No binding issues - functions work correctly when destructured
 - Smaller bundle sizes and better optimization
 
 **New Data Structures**
+
 - Added `WarshLists` with complete Warsh riwaya metadata (6214 ayahs, 604 pages)
 - Added `QalunLists` with complete Qalun riwaya metadata (6214 ayahs, 603 pages)
 - All Lists now include `meta` property with riwaya-specific metadata
@@ -102,6 +104,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### 🚀 Enhancements
 
 **API Changes**
+
 - All functional API functions now accept `lists: AllLists` parameter instead of `riwaya: string`
 - Riwaya-specific entry points export pre-configured functions (no need to pass Lists)
 - Added metadata exports: `HafsMeta`, `QalunMeta`, `WarshMeta`
@@ -109,11 +112,13 @@ All notable changes to this project will be documented in this file. See [standa
 - Export all meta properties individually: `numAyahs`, `numPages`, `numSurahs`, etc.
 
 **Type Safety Improvements**
+
 - Made `HizbEighthList` optional in `AllLists` type (only exists for Qalun/Warsh)
 - Better TypeScript inference for riwaya-specific methods
 - Consistent type imports using `import type` syntax
 
 **Bundle Optimization**
+
 - Eliminated cross-riwaya contamination (each bundle contains only its own data)
 - 87% bundle size reduction for riwaya-specific entries (from ~144 KB to ~77-81 KB)
 - Proper tree-shaking - unused riwayas are completely eliminated
@@ -162,6 +167,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### 📚 Breaking changes
 
 To minimize breaking changes for existing users, riwaya-specific entry points now export pre-bound functions. What used to be imported from `quran-meta` can now be imported from `quran-meta/hafs`.
+
 ```
 import { findJuz, getAyahMeta, meta } from 'quran-meta'
 ***
@@ -572,7 +578,7 @@ By leveraging TypeScript and proper type usage, many issues can be identified ea
 
 ## v3.0.1-beta
 
-This version is a complete rewrite of the project. Functionality has been greatly extended, most of the functions have been renamed and new ones have been added. 
+This version is a complete rewrite of the project. Functionality has been greatly extended, most of the functions have been renamed and new ones have been added.
 
 Full unit test coverage has been achieved. Furthermore, in order to guarantee absolute data correctness framework for Cross-Checking  against other apis has been added.
 
@@ -725,3 +731,4 @@ Full unit test coverage has been achieved. Furthermore, in order to guarantee ab
 ### [1.0.2](https://github.com/quran-center/quran-meta/compare/v1.0.1...v1.0.2) (2020-04-12)
 
 ### 1.0.1 (2020-04-12)
+```

@@ -191,7 +191,8 @@ export function checkQuranApi() {
 
     if (ayahId !== quran.findAyahIdBySurah(chapter, verse))
       console.warn("error QuranApi sajda: ", ayahId, chapter, verse)
-    /*         if (isRecommended && "recommended" !== recommended) console.warn("error QuranApi sajda: ", isRecommended, recommended)
+    /*         if (isRecommended && "recommended" !== recommended) console.warn("error QuranApi sajda: ", isRecommended, recommended)
+
         if (isObligatory && "obligatory" !== recommended) console.warn("error QuranApi sajda: ", isObligatory, recommended) */
   }
 }

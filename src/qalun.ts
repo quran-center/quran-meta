@@ -115,7 +115,7 @@ export const SajdaList = riwayaLists.SajdaList
 // String parsers and utilities (closures with riwayaLists)
 export const ayahStringSplitter = (str: string, isStrict = true) => _ayahStringSplitter(str, isStrict, riwayaLists)
 
-export const surahStringParser = (str: string, isStrict:boolean = false) => _surahStringParser(str, isStrict, meta)
+export const surahStringParser = (str: string, isStrict: boolean = false) => _surahStringParser(str, isStrict, meta)
 
 // Validation methods
 
@@ -189,7 +189,7 @@ export const findRubAlHizb = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _find
 
 export const findRubAlHizbByAyahId = (ayahId: AyahId) => _findRubAlHizbByAyahId(ayahId, riwayaLists)
 
-export { getRubAlHizb  } from "./getRubAlHizb"
+export { getRubAlHizb } from "./getRubAlHizb"
 
 export const getRubAlHizbMeta = (quarterIndex: RubAlHizbId) => _getRubAlHizbMeta(quarterIndex, riwayaLists)
 
@@ -242,7 +242,6 @@ export const isValidPage = (x: unknown) => _isValidPage(x, meta)
 export { isValidAyahNo }
 
 export { string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
-
 
 export const isValidJuz = (x: unknown) => _isValidJuz(x, meta)
 
