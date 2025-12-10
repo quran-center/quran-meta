@@ -9,8 +9,7 @@
     "jsdoc",   
     "node",
     "promise",
-    "vitest",
-    "regex",
+    "vitest",   
   ],
   "categories": {
     "correctness": "off"
