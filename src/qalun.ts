@@ -52,7 +52,6 @@ import { getAyahMetasForSurah as _getAyahMetasForSurah } from "./getAyahMetasFor
 import { getJuzMeta as _getJuzMeta } from "./getJuzMeta"
 import { getManzilMeta as _getManzilMeta } from "./getManzilMeta"
 import { getPageMeta as _getPageMeta } from "./getPageMeta"
-import { getRubAlHizb as _getRubAlHizb } from "./getRubAlHizb"
 import { getRubAlHizbByAyahId as _getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
 import { getRubAlHizbMeta as _getRubAlHizbMeta } from "./getRubAlHizbMeta"
 import { getRubAlHizbMetaByAyahId as _getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
@@ -71,7 +70,8 @@ import {
   isValidPage as _isValidPage,
   isValidRuku as _isValidRuku,
   isValidSurah as _isValidSurah,
-  isValidSurahAyah as _isValidSurahAyah
+  isValidSurahAyah as _isValidSurahAyah,
+  isValidAyahNo
 } from "./typeGuards"
 import { QuranRiwaya } from "./QuranRiwaya"
 import {
@@ -84,6 +84,8 @@ import {
   checkValidRuku as _checkValidRuku,
   checkValidManzil as _checkValidManzil
 } from "./validation"
+import { surahStringParser as _surahStringParser } from "./surahStringParser"
+
 import type { AyahId, AyahNo, Juz, Manzil, Page, RangeMode, RubAlHizbId, Ruku, Surah, ThumunAlHizbId } from "./types"
 import type { PartType, RiwayaData } from "./lists/types"
 
@@ -113,13 +115,7 @@ export const SajdaList = riwayaLists.SajdaList
 // String parsers and utilities (closures with riwayaLists)
 export const ayahStringSplitter = (str: string, isStrict = true) => _ayahStringSplitter(str, isStrict, riwayaLists)
 
-export const surahStringParser = (str: string) => {
-  const [surah, ayah] = str.split(":")
-  return {
-    surah: Number.parseInt(surah) as Surah,
-    ayah: ayah ? (Number.parseInt(ayah) as AyahNo) : (1 as AyahNo)
-  }
-}
+export const surahStringParser = (str: string, isStrict:boolean = false) => _surahStringParser(str, isStrict, meta)
 
 // Validation methods
 
@@ -193,7 +189,7 @@ export const findRubAlHizb = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _find
 
 export const findRubAlHizbByAyahId = (ayahId: AyahId) => _findRubAlHizbByAyahId(ayahId, riwayaLists)
 
-export const getRubAlHizb = (quarterIndex: RubAlHizbId) => _getRubAlHizb(quarterIndex)
+export { getRubAlHizb  } from "./getRubAlHizb"
 
 export const getRubAlHizbMeta = (quarterIndex: RubAlHizbId) => _getRubAlHizbMeta(quarterIndex, riwayaLists)
 
@@ -239,18 +235,14 @@ export const isSurahAyahPageFirst = (surah: Surah, ayah: AyahNo) => _isSurahAyah
 // Validation methods
 export const isValidSurah = (x: unknown) => _isValidSurah(x, meta)
 
-export const isValidAyahNo = (ayahNo: number): ayahNo is AyahNo => ayahNo >= 1 && ayahNo <= 286
-
 export const isValidAyahId = (x: unknown) => _isValidAyahId(x, meta)
 
 export const isValidPage = (x: unknown) => _isValidPage(x, meta)
 
-export const string2NumberSplitter = (str: string): number[] =>
-  str
-    .split(/[\s,:;.\-_/\\|]/)
-    .filter((s) => s.trim() !== "")
-    .map((s) => Number.parseInt(s.trim()))
-    .filter((n) => !Number.isNaN(n))
+export { isValidAyahNo }
+
+export { string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
+
 
 export const isValidJuz = (x: unknown) => _isValidJuz(x, meta)
 

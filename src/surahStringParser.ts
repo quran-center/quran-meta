@@ -7,7 +7,7 @@ import type { QuranMeta, Surah } from "./types"
  * @returns The parsed Surah number as a Surah type
  * @throws {@link Error} If the string cannot be parsed as a number or if the number is not a valid Surah number
  */
-export function surahStringParser(str: string, isStrict = false, meta: QuranMeta): Surah {
+export function surahStringParser(str: string, isStrict: boolean = false, meta: QuranMeta): Surah {
   const surahX = isStrict ? Number(str.trim()) : Number.parseInt(str.trim(), 10)
 
   if (isNaN(surahX)) {
