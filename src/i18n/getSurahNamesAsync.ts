@@ -15,7 +15,13 @@ export async function getSurahNamesAsync(lang: Lang): Promise<SurahNames> {
     case "fr":
       return (await import("./surah.fr")).surahNamesFr
     case "lt":
-      return (await import("./surah.lt")).surahNamesLt   
+      return (await import("./surah.lt")).surahNamesLt
+    case "tg":
+      return (await import("./surah.tg")).surahNamesTg
+    case "ky":
+      return (await import("./surah.ky")).surahNamesKy
+    case "bs":
+      return (await import("./surah.bs")).surahNamesBs     
     case "en":
     default:
       return (await import("./surah.en")).surahNamesEn // fallback to English

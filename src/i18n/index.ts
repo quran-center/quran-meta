@@ -3,11 +3,28 @@ import { surahNamesAz } from "./surah.az"
 import { surahNamesRu } from "./surah.ru"
 import { surahNamesTr } from "./surah.tr"
 import { surahNamesUz } from "./surah.uz"
-
-import type { Lang, SurahNames, SurahNamesI18n  } from "./types"
 import { surahNamesKk } from "./surah.kk"
+import { surahNamesBs } from "./surah.bs"
+import { surahNamesFr } from "./surah.fr"
+import { surahNamesLt } from "./surah.lt"
+import { surahNamesKy } from "./surah.ky"
+import { surahNamesTg } from "./surah.tg"
 
-export { surahNamesEn, surahNamesAz, surahNamesRu, surahNamesTr }
+import type { Lang, SurahNames, SurahNamesI18n } from "./types"
+
+export {
+  surahNamesEn,
+  surahNamesAz,
+  surahNamesTr,
+  surahNamesRu,
+  surahNamesUz,
+  surahNamesKk,
+  surahNamesFr,
+  surahNamesLt,
+  surahNamesTg,
+  surahNamesKy,
+  surahNamesBs,
+}
 
 export const surahNames: SurahNamesI18n = {
   en: surahNamesEn,
@@ -16,9 +33,12 @@ export const surahNames: SurahNamesI18n = {
   ru: surahNamesRu,
   uz: surahNamesUz,
   kk: surahNamesKk,
-  fr: surahNamesEn,
-  lt: surahNamesEn,
-  
+  fr: surahNamesFr,
+  lt: surahNamesLt,
+  tg: surahNamesTg,
+  ky: surahNamesKy,
+  bs: surahNamesBs,
+
 }
 
 export { getSurahNames } from "./getSurahNames"
