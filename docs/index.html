@@ -17,10 +17,12 @@
 <a href="https://npmpackage.info/package/quran-meta"><img src="https://img.shields.io/github/languages/code-size/quran-center/quran-meta" alt="GitHub code size in bytes"></a>
 <a href="https://bundlephobia.com/package/quran-meta"><img src="https://img.shields.io/bundlephobia/min/quran-meta" alt="npm bundle size"></a>
 <a href="https://bundlephobia.com/package/quran-meta"><img src="https://img.shields.io/bundlephobia/minzip/quran-meta" alt="npm bundle size"></a></p>
-<h2 id="welcome-to-quran-meta-project" class="tsd-anchor-link">Welcome to Quran Meta Project<a href="#welcome-to-quran-meta-project" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>This project is to help with Quran related meta queries.</p>
+<h2 id="welcome-to-quran-meta-project-the-most-comprehensive-quran-metadata-library" class="tsd-anchor-link">Welcome to Quran Meta Project - the most comprehensive Quran metadata library!<a href="#welcome-to-quran-meta-project-the-most-comprehensive-quran-metadata-library" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>This project is to help with Quran related meta queries.</p>
 <p>Answering Questions like:</p>
 <ul>
-<li>How many ayahs in given surah (<code>getAyahCountinSurah</code>)</li>
+<li>How many ayahs in given surah of Hafs Riwaya or Warsh or Qalun (<code>getAyahCountinSurah</code>)</li>
+<li>What is the juz of given ayah (<code>getAyahMeta</code>)?</li>
+<li>What is the next ayah after given ayah (<code>nextAyah</code>)?</li>
 <li>Is given ayah
 <ul>
 <li>a sajdah ayah (<code>getAyahMeta</code>)?</li>
@@ -40,23 +42,65 @@
 </li>
 <li>Get meta data for
 <ul>
-<li>ayah  (<code>getAyahMeta</code>)</li>
-<li>surah  (<code>getSurahInfo</code>, <code>getSurahInfo</code>)</li>
-<li>page  (<code>getPageMeta</code>)</li>
-<li>juz  (<code>findJuzMetaBySurah</code>)</li>
-<li>maqra/rub-el-hizb  (<code>getRubAlHizbMeta</code>, <code>getRubAlHizbMetaByAyahId</code>)</li>
+<li>ayah (<code>getAyahMeta</code>)</li>
+<li>surah (<code>getSurahInfo</code>, <code>getSurahInfo</code>)</li>
+<li>page (<code>getPageMeta</code>)</li>
+<li>juz (<code>findJuzMetaBySurah</code>)</li>
+<li>maqra/rub-el-hizb (<code>getRubAlHizbMeta</code>, <code>getRubAlHizbMetaByAyahId</code>)</li>
 </ul>
 </li>
-<li>Validates ayah/surah id (<code>checkValidAyahId</code>,<code>checkValidSurah</code>, <code>checkValidSurahAyah</code>)</li>
+<li>Validates ayah/surah id (<code>checkValidAyahId</code>,<code>checkValidSurah</code>, <code>checkValidSurahAyah</code>, etc)</li>
 <li>Typescript type guards (<code>isValidAyahId</code>, <code>isValidAyahNo</code>, <code>isValidSurah</code>, <code>isValidSurahAyah</code>, <code>isValidJuz</code>, <code>isValidHizb</code>, <code>isValidRubAlHizb</code>, <code>isValidPage</code>)</li>
-<li>converts <code>[surah, ayah]</code> to <code>ayahId</code> and vice-verse ( <code>findSurahByAyahId</code> and  <code>findAyahIdBySurah</code>)</li>
+<li>converts <code>[surah, ayah]</code> to <code>ayahId</code> and vice-verse ( <code>findSurahByAyahId</code> and <code>findAyahIdBySurah</code>)</li>
 <li>Checks and turns strings of type &quot;x:y&quot; or &quot;x:y1-y2&quot; to surah/ayah range (<code>ayaStringSplitter</code>).</li>
-<li>Checks and parses strings of type &quot;x&quot;  to Surah (<code>surahStringParser</code>).</li>
+<li>Checks and parses strings of type &quot;x&quot; to Surah (<code>surahStringParser</code>).</li>
+</ul>
+<h3 id="features" class="tsd-anchor-link">Features<a href="#features" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>Supports multiple riwayas (Hafs, Qalun, Warsh are ready. Douri, Shuba, Sousi are on the way) with riwaya-specific data and features.</li>
+<li>Type-safe riwaya-specific methods (e.g., Qalun's Thumun al-Hizb).</li>
+<li>Custom riwaya instances for advanced use cases. If you want to use quran-meta library with your own data (e.g another riwaya or different pagination than we support) just create your own instance of QuranRiwaya with your data.</li>
+<li>Fully documented with examples.</li>
+<li>100% unit test covered with data correctness validation against multiple data sources.</li>
+<li>Fully typed with Typescript types and type guards.</li>
+<li>Zero dependencies, lightweight and fast.</li>
+<li>Works in both browser and Node.js environments.</li>
+<li>Compatible with modern JavaScript and TypeScript projects.</li>
+<li>Supports modern module systems (ESM, CommonJS, IIFE).</li>
+<li>Open source and community driven.</li>
+<li>Easy to use API with both functional and class-based approaches.</li>
+<li>Tree-shakeable riwaya-specific imports for optimal bundle size.</li>
+<li>Supports various build systems and bundlers.</li>
+<li>Comprehensive error handling and input validation.</li>
+<li>Suitable for a wide range of Quran-related applications.</li>
+<li>Modular and extensible architecture.</li>
+<li>Clear and consistent naming conventions.</li>
+<li>Rich set of utility functions for Quranic metadata.</li>
+<li>Easy integration with other Quranic libraries and tools.</li>
+<li>Actively maintained and updated.</li>
+<li>Actively seeks community feedback and contributions.</li>
+</ul>
+<h3 id="upcoming-features" class="tsd-anchor-link">Upcoming Features<a href="#upcoming-features" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>Supports multiple mushaf page numbering systems (planned for future updates).</li>
+<li>More riwayas and recitations (planned for future updates).</li>
+<li>Enhanced performance optimizations (planned for future updates).</li>
+<li>Additional utility functions (planned for future updates).</li>
+<li>Community contributions and plugins (Submissions welcome).</li>
+<li>Support for additional languages and locales .</li>
+<li>Improved documentation and tutorials.</li>
+<li>Interactive online tools and demos (please, submit in issues).</li>
+<li>More data sources for cross-validation (please, suggest in discussions).</li>
+</ul>
+<h3 id="future-roadmap" class="tsd-anchor-link">Future Roadmap<a href="#future-roadmap" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>Integration with Quran text rendering libraries.</li>
+<li>Collaboration with Quranic studies platforms.</li>
+<li>Integration with Quranic search engines.</li>
+<li>Advanced analytics and reporting features.</li>
+<li>Community-driven feature requests and voting.</li>
 </ul>
 <h3 id="api-reference-documentation" class="tsd-anchor-link">APi Reference Documentation<a href="#api-reference-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>See <a href="https://quran-center.github.io/quran-meta/docs/">here</a> for API documentation</p>
 <h3 id="playground" class="tsd-anchor-link">Playground<a href="#playground" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>See in action and try it without installing anything:</p>
 <ul>
-<li>[<img src="https://play.vuejs.org/#eNrdVs1u4zYQfhVCKGAbsKwkbreoobib3S7QLOA03W170mFpiZYZU5RKUt44hp6gvfbcV+wjdDiUFCrNegv01ostzs83Mx+HQx6Dq6qa7WsWLIJYp4pXhggq88skMDoJlonkRVUqQ5Jga0ylF1GUZnJ2pzMm+F7NJDORrIroZS3LVOtI1dLwgiVB73gkim2mJC2LqjYsIw3ZqLIgI4g58owKZuiUbLjMbmnOpiRn5n2t6HaF8nTL0t0vVPAMhVcHunXG9us6e3VAsRO9rR/6IL+CWIYWG2L10cyhYhCy9XHxHNCUgLdb3JRTZ2EzeB4wjhxjwBIsWvY0M3X1hMNEpqXUoLN45NIyEiP2cjyfdEoKQVudi78cX4AykYIZUkGSoOxYjG3Sy/F4Qi6XPWljhJ/tqaihIAvnvieAYjFQjdV4QH2JHZpPvI9oURyORb7OfBBHnp/PYF8+l9gd7JiHBlvgQ8HyFICDYEqVaqVzD6eFOCaSEKMO7oM810qfhLceDUmpSbdkzCYdhIItVpIwVNufVgBdD33fgNuwMwwrKkENgxUh8fZ8+aPtIoJbcSvoIVdlLbM4Ao2zuCCLVFCtoYP6wr4lI8PuTahYNiKLdrGGLEfQYlgKOR7bDmsaEmITWxH2VdMA/IWDF3TNBOkCrEWZ7gii6SJ6QTalNNDgGa8LJ80VPYTfnJ11YRwHMZfAMtmHRQmjAHAwchLg4YKlrIs1U5YPaw20D8IRrJhlYZGRdakypsIz2CU/HNFbmpUfISmiuMzDc/fHJRww94mWc7DclGmtFyi78BfOdiDIeF6GLyx6sehrhqwjR02E3PxXmizzn2DJbsb/hiRcZXwP9fGN16tg2lXStSywAq3YN7NtR3B0eA6BCc2GbrliTIZfY+492ThPkdrt3EL2Q20macFs548HUkv4a+DRWBUs9GTanxM04HrF0hSOIxywv/7847cV2+2oxCMGy99XNKOSj9wBmrdFQ/TadQl+C76083dhgXFQW2MQ+gZ4Gq8ztGkH6DNWMOvQwk7EgTqO+oAxL3Ky0CoFnj74lzIVeDvNUlHWWWTpohEvIJ/oiyPW28CHjd18aDfTbafbiHbyLH/WbFML4o2o76ih7fRozR5zgQRvsIlJuSErKh+40FiBvSJn0N+t7Ek1AzecKkMvJzrlZPkc+qDklIvdo6ELSk65wH4MPazglMP3/GE99EDJKZd39ZpcCecJXee5guZK/Av/Xf0PRyvyfNr2iSPvKgqmgXsPhQWt4EVXSngD4g2XtAp4vACsi5kEj08fK/7Me/DR+OVXs/PZGTSZNhGMFnYPxm7iwdXZQBJGw/tnw/MnKdhrnAumfqgMh/fRIBUqRPnxLcqMgju7k+Pd/oz8Tt+7nG8V00zt4X3a6wxV8ORx6jfvb2DweEoY27UA6xPKd0yXorY5OrNXMLMhbc8Os71GRmG+/qTf3BsmdVeUTRTZQPskgHfx6xOlP6Y7n33Zs9j8DWMn+vo=" alt="Static Badge"> - interactive playground for Quran-Meta</li>
+<li><a href="https://play.vuejs.org/#eNrdVs1u4zYQfhVCKGAbsKRsXKStobib3S7QLOA03W170mFpiZIZU5RKUt44hp6gvfbcV+wjdDiUFCnNegv01ostzs83Mx+HQx69q6oK9jXzll6kE8UrQwSV+WXsGR17q1jyoiqVIbG3NabSyzBMUhnc6ZQJvleBZCaUVRG+rGWZaB2qWhpesNjrHY9EsWxOkrKoasNS0pBMlQWZQMzJwKhghs5JxmV6S3M2Jzkz72tFt2uUJ1uW7H6hgqcovDrQrTO2X9fpqwOKneht/dAH+RXE0rfY/pZmGgL2Ic2hYhC3dXRBHdqcAIRb3JRzZ2HTeAYVAKPQ0QZUwaKlUDNTV0+IjGVSSg06i0cuLS0RYq+mi1mnpBC01bn4q+k5KGMpmCEVJAnKjsrIJr2aTmfkctUzN0X4YE9FDQVZOPc9AxSLgWqsZgDUl9ihDdkfIloUh2ORr9MhiCNvmM9ocz6X2B1s2wANtmAIBctTAA6CKVWqtc4HOC3EMZaEGHVwH+S5fvokvPVoSEJNsiVTNusgFGyxkoSh2v60Amh9aP4G3MadYVhRCWoYrAiJti9WP9ouIrgVt4IeclXWMo1C0DiLc7JMBNUaOqgv7FsyMeze+IqlE7JsFxvIcgIthqWQ47HtsKYhPjaxFWFfNQ3Anzt4QTdMkC7ARpTJjiCaLsILkpXSQIOnvC6cNFf04H9zdtaFcRxEXALLZO8XJcwDwMHIsYeHC5ayLjZMWT6sNdA+CkewYpb6RUo2pUqZ8s9gl4bhiN7StPwISRHFZe6/cH9cwgFzn2i5AMusTGq9RNn5cOFsR4KU56V/YdGLZV8zZB06akLk5r/SZJn/BEt2M/43JOEq5Xuoj2eDXgXTrpKuZYEVaMW+mW07gqPDcwhMaDZ2yxVj0v8Kc+/JxnmK1G4XFrIfaoGkBbOdPx1JLeGvgUdjVbDQs3l/TtCA6zVLEjiOcMD++vOP39Zst6MSjxgsf1/TlEo+cQdo0RYN0WvXJfgt+MrO36UFxkFtjUE4NMDTeJ2iTTtAn7GCWYcWdiKO1FHYB4x4kZOlVgnw9GF4M1OBt1OQiLJOQ0sXDXkB+YRfHLHeBj5s7OZDu5luO91GtJNn9bNmWS3IYER9Rw1tp0dr9pgLJHiDTUzKjKypfOBCYwX2igygv1vZk2pGbjhVxl5OdMrJ8jn2QckpF7tHYxeUnHKB/Rh7WMEph+/5w2bsgZJTLu/qDbkSzhO6buAKmivxL/x39T8crWjg07ZPFA6uIm/uufeQX9AKnnWlhIcg3nBxq4DHC8C6mLH35EFldZ95GT56vLwIzoKvodO0Ca0z2LqpB9dnA4kYDW+gjOdP0rBXORdM/VAZDm+kUTpUiPLjW5QZBfd2J8f7/Rn5nb53Kd8qppnaw0O11xmq4Nnj1G/e38DwGShhdNcCrE8o3zFditrm6MxewdyGtAd2mO01sgoz9if95t4wqbuibKLIBtrHHjyQX58o/THdRfBlz2LzN9BY/io="><img src="https://img.shields.io/badge/Try-Playground-darkgreen" alt="Static Badge"></a> - interactive playground for Quran-Meta</li>
 </ul>
 <h3 id="installation" class="tsd-anchor-link">Installation<a href="#installation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><h4 id="in-a-browser" class="tsd-anchor-link">In a browser:<a href="#in-a-browser" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><pre><code class="html"><span class="hl-0">&lt;</span><span class="hl-1">script</span><span class="hl-2"> </span><span class="hl-3">src</span><span class="hl-2">=</span><span class="hl-4">&quot;quran-meta.js&quot;</span><span class="hl-0">&gt;&lt;/</span><span class="hl-1">script</span><span class="hl-0">&gt;</span>
 </code><button type="button">Copy</button></pre>
@@ -116,6 +160,11 @@
 <pre><code class="ts"><span class="hl-5">import</span><span class="hl-8"> { </span><span class="hl-6">meta</span><span class="hl-8">, </span><span class="hl-6">getAyahCountinSurah</span><span class="hl-8">, </span><span class="hl-6">AyahNo</span><span class="hl-8">, </span><span class="hl-6">Surah</span><span class="hl-8"> } </span><span class="hl-5">from</span><span class="hl-8"> </span><span class="hl-7">&quot;quran-meta&quot;</span><br/><br/><span class="hl-6">console</span><span class="hl-8">.</span><span class="hl-10">log</span><span class="hl-8">(</span><span class="hl-7">`There are </span><span class="hl-11">${</span><span class="hl-6">meta</span><span class="hl-2">.</span><span class="hl-6">numSurahs</span><span class="hl-11">}</span><span class="hl-7"> suras in the Holy Quran`</span><span class="hl-8">)</span><br/><br/><span class="hl-5">for</span><span class="hl-8"> (</span><span class="hl-11">let</span><span class="hl-8"> </span><span class="hl-6">surah</span><span class="hl-8">: </span><span class="hl-14">Surah</span><span class="hl-8"> = </span><span class="hl-13">1</span><span class="hl-8">; </span><span class="hl-6">surah</span><span class="hl-8"> &lt;= </span><span class="hl-6">meta</span><span class="hl-8">.</span><span class="hl-6">numSurahs</span><span class="hl-8">; </span><span class="hl-6">surah</span><span class="hl-8">++) {</span><br/><span class="hl-8">  </span><span class="hl-11">const</span><span class="hl-8"> </span><span class="hl-12">ayaCount</span><span class="hl-8"> = </span><span class="hl-10">getAyahCountinSurah</span><span class="hl-8">(</span><span class="hl-6">surah</span><span class="hl-8">)</span><br/><span class="hl-8">  </span><span class="hl-6">console</span><span class="hl-8">.</span><span class="hl-10">log</span><span class="hl-8">(</span><span class="hl-6">surah</span><span class="hl-8">, </span><span class="hl-7">&#39;: &#39;</span><span class="hl-8">,</span><span class="hl-6">ayaCount</span><span class="hl-8">)</span><br/><span class="hl-8">}</span>
 </code><button type="button">Copy</button></pre>
 
+<p>Here's a paragraph describing this major feature:</p>
+<h2 id="custom-riwaya-support-build-your-own" class="tsd-anchor-link">Custom Riwaya Support - Build Your Own!<a href="#custom-riwaya-support-build-your-own" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p><strong>quran-meta</strong> now supports <strong>custom riwaya instances</strong>, allowing you to use the library with your own Quranic data sources. Whether you're working with a different recitation style (riwaya) not yet included in the library, using an alternative pagination system (like different mushaf layouts with 13, 15, or 16 lines per page), or integrating region-specific Quranic metadata, you can now create your own <code>QuranRiwaya</code> instance with your custom data. Simply prepare your data in the required format (Lists structure with SurahList, JuzList, PageList, etc.) and instantiate the library with <code>QuranRiwaya.create(riwayaName, customMeta, customLists)</code>.</p>
+<p>All 40+ methods will work seamlessly with your data—including navigation (<code>nextAyah</code>, <code>prevAyah</code>), metadata queries (<code>getAyahMeta</code>, <code>getSurahInfo</code>), and advanced features (juz/page/ruku lookups). This opens up possibilities for researchers, developers working with regional mushaf standards, digital Quran applications targeting specific communities, and anyone needing Quranic metadata for specialized use cases.</p>
+<p>The library's architecture is designed to be data-agnostic—just plug in your data and everything works! For guidance on data structure requirements, see the <a href="https://quran-center.github.io/quran-meta/docs/">API documentation</a> or examine the existing riwaya implementations (Hafs, Qalun, Warsh) as reference examples.</p>
+<p>We are commited to expanding support for more riwayas and pagination systems in future releases. Meanwhile, we welcome contributions from the community to help build a richer ecosystem of Quranic metadata.</p>
 <h3 id="terminology" class="tsd-anchor-link">Terminology<a href="#terminology" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
 <li>
 <p>Surah: A chapter of the Quran. There are 114 chapters in Quran, each of different length.</p>
@@ -130,10 +179,13 @@
 <p><em>Juz</em>: A section of the Quran. There are 30 Juz (ajza) in Quran of roughly equal length. Most Juz' are named after the first word of the first verse of the Juz'. Read more <a href="https://en.wikipedia.org/wiki/Juz%27">here</a></p>
 </li>
 <li>
-<p><em>Hizb</em>: Each Juz' is divided into two Hizb  (lit. &quot;two groups&quot;, plural: Aḥzāb). Therefore, there are 60 Hizbs (ahzab) in the Quran.</p>
+<p><em>Hizb</em>: Each Juz' is divided into two Hizb (lit. &quot;two groups&quot;, plural: Aḥzāb). Therefore, there are 60 Hizbs (ahzab) in the Quran.</p>
 </li>
 <li>
-<p><em>Rub-el-Hizb/Maqra</em>: Each Hizb is subdivided into four quarters called Maqra  (lit. &quot;reading&quot;), making eight quarters per Juz. In Arabic, <code>rub</code> means 'one-fourth' or 'quarter', while <code>ḥizb</code> (plural aḥzāb) translates to 'a group'. There are 240 Maqras in the Quran. In most mushafs it is noted by symbol in the shape of an octagram, represented as two overlapping squares <strong>۞</strong>. Read more <a href="https://en.wikipedia.org/wiki/Rub_el_Hizb">here</a></p>
+<p><em>Rub-el-Hizb/Maqra</em>: Each Hizb is subdivided into four quarters called Maqra (lit. &quot;reading&quot;), making eight quarters per Juz. In Arabic, <code>rub</code> means 'one-fourth' or 'quarter', while <code>ḥizb</code> (plural aḥzāb) translates to 'a group'. There are 240 Maqras in the Quran. In most mushafs it is noted by symbol in the shape of an octagram, represented as two overlapping squares <strong>۞</strong>. Read more <a href="https://en.wikipedia.org/wiki/Rub_el_Hizb">here</a></p>
+</li>
+<li>
+<p><em>Thumun al-Hizb</em>: Specific to Qalun riwaya, each Hizb is further divided into eight equal parts called Thumun al-Hizb (lit. &quot;one-eighth of a Hizb&quot;). This results in a total of 480 Thumun al-Hizbs in the Quran. This subdivision allows for more granular reading and recitation segments, facilitating easier memorization and study. Read more <a href="https://en.wikipedia.org/wiki/Thumun_al-Hizb">here</a></p>
 </li>
 <li>
 <p><em>Manzil</em>: For the convenience of those who read the Quran in a week the text may be divided into seven portions. Each portion is called a Manzil. There are 7 Manzil in Quran. Read more <a href="https://en.wikipedia.org/wiki/Manzil">here</a></p>
@@ -147,10 +199,20 @@
 <li>
 <p><em>Ruku</em>: (paragraph) is a group of related verses in a Surah. The end of a Ruku’ is marked by the Arabic letter <strong>ﻉ</strong> in superscript. There are 558 Rukus in the Quran. These are logical sections according to similar theme/objective or meaning. The bigger Surahs have been split into a number of Rukus, so that we would recognize when to do Ruku' (bowing) in Salat without interrupting a proceeding subject of the Quran. Additionally, on the margins of the Quran, usually three figures are written with <strong>ﻉ</strong>. The top figure shows the number of Rukus completed in that Surah. The middle figure shows the number of Ayats in the Ruku just completed. The bottom figure shows the number of Rukus completed in that Juz.</p>
 </li>
+<li>
+<p><em>Qira'at (Recitations) and Riwayat (Narrations)</em>: The Quran has been transmitted through different authentic modes of recitation, known as Qira'at.
+There are ten recognized Qira'at, each named after a prominent reciter (Qari).
+Within each Qira'at, there are multiple Riwayat (narrations) - the chains of transmission through which these recitations were preserved.
+The most widely used today is the <em>Hafs from 'Asim</em> narration, which is used throughout most of the Muslim world and forms the basis for all visualizations on this website.
+Other well-known narrations include <em>Warsh from Nafi'</em> (common in North and West Africa) and <em>Qalun from Nafi'</em> (used in parts of Africa).
+While the variations between these narrations are minor (mostly involving pronunciation, elongation, or slight differences in word forms),
+they can occasionally affect verse counts and word statistics. Read more <a href="https://en.wikipedia.org/wiki/Qira%27at">here</a></p>
+</li>
 </ul>
 <h3 id="examples" class="tsd-anchor-link">Examples<a href="#examples" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>You can find some examples <a href="https://quran-center.github.io/quran-meta/examples/">here</a> and souce code for them <a href="https://github.com/quran-center/quran-meta/tree/master/examples">here</a></p>
 <h3 id="projects-using-quran-meta" class="tsd-anchor-link">Projects using Quran-meta<a href="#projects-using-quran-meta" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
-<li><a href="https://koran.center">Koran-Center</a> - Powerful and feature rich  web application for reading and studying the Holy Quran.</li>
+<li><a href="https://koran.center">Koran-Center</a> - Powerful and feature rich web application for reading and studying the Holy Quran.</li>
+<li><a href="https://visual.koran.center/">Visual Quran</a> - Interactive platform with visualizations and insights into Quran's structure.</li>
 </ul>
 <h3 id="demo" class="tsd-anchor-link">Demo<a href="#demo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
 <li>
@@ -165,17 +227,17 @@
 </ul>
 <p><img src="https://quran-center.github.io/quran-meta/examples/demo-quran-visualiser.jpg" alt="Demo image"></p>
 <h3 id="data-correctness-and-validity-testing" class="tsd-anchor-link">Data correctness and validity testing<a href="#data-correctness-and-validity-testing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>Quran-Meta is 100% unit test covered and moreover data is cross checked with other apis to guarantee absolute correctness.</p>
-<p>One can run <code>pnpx jiti examples/data-check</code> to run suite of  validation tests against the following data sources</p>
+<p>One can run <code>pnpx jiti examples/data-check</code> to run suite of validation tests against the following data sources</p>
 <ul>
 <li><code>qcloud-meta.json</code> - <a href="https://api.alquran.cloud/v1/meta">AlQuran Cloud Api metadata</a></li>
-<li><code>tanzil-data.js</code> - <a href="https://tanzil.net/res/text/metadata/quran-data.js">Tanzil.net  metadata</a></li>
+<li><code>tanzil-data.js</code> - <a href="https://tanzil.net/res/text/metadata/quran-data.js">Tanzil.net metadata</a></li>
 <li><code>quran-api.json</code> - <a href="https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api/info.json">Quran Api metadata</a></li>
 <li><code>hafsData_v2-0.json</code> - <a href="https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip">Data coming with KFGQPC Hafs Uthmanic font</a></li>
 <li><code>hafs_smart_v8.json</code> - <a href="https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip">Data coming with KFGQPC Smart device UthmanicHafs font</a></li>
 <li><code>SousiData_v2-0.json</code> - <a href="https://download.qurancomplex.gov.sa/resources_dev/UthmanicSousi_v2-0.zip">Data coming with KFGQPC Sousi Uthmanic font</a></li>
 <li><code>DouriData_v2-0.json</code> - <a href="https://download.qurancomplex.gov.sa/resources_dev/UthmanicDouri_v2-0.zip">Data coming with KFGQPC Douri Uthmanic font</a></li>
 <li><code>QalounData_v2-1.json</code> - <a href="https://download.qurancomplex.gov.sa/resources_dev/UthmanicQaloun_v2-1.zip">Data coming with KFGQPC Qaloun Uthmanic font</a></li>
-<li><code>shubaData_v2-0.json</code> - <a href="https://download.qurancomplex.gov.sa/resources_dev/UthmanicShuba_v2-0.zip">Data coming with  KFGQPC Shuba Uthmanic font</a></li>
+<li><code>shubaData_v2-0.json</code> - <a href="https://download.qurancomplex.gov.sa/resources_dev/UthmanicShuba_v2-0.zip">Data coming with KFGQPC Shuba Uthmanic font</a></li>
 <li><code>warshData_v2-1.json</code> - <a href="https://download.qurancomplex.gov.sa/resources_dev/UthmanicWarsh_v2-1.zip">Data coming with KFGQPC Warsh Uthmanic font</a></li>
 </ul>
 <p>There are some differences with KFQC data in page numbering, due to variations between different mushafs. We plan to address these differences in future updates by supporting multiple page numbering systems of different mushafs (15 line, 16 line and etc).</p>
@@ -210,11 +272,11 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="https://cdn.jsdelivr.net/npm/quran-meta/dist/index.js">ESM</a> for use with modern bundlers like webpack 2 or Rollup  and  for direct imports in modern browsers via <code>&lt;script type=&quot;module&quot;&gt;</code></td>
+<td><a href="https://cdn.jsdelivr.net/npm/quran-meta/dist/index.js">ESM</a> for use with modern bundlers like webpack 2 or Rollup and for direct imports in modern browsers via <code>&lt;script type=&quot;module&quot;&gt;</code></td>
 <td>ES5+ESM</td>
 </tr>
 <tr>
-<td><a href="https://cdn.jsdelivr.net/npm/quran-meta/dist/index.iife.js">IIFE</a> for use with classic browsers  via <code>&lt;script&gt;</code></td>
+<td><a href="https://cdn.jsdelivr.net/npm/quran-meta/dist/index.iife.js">IIFE</a> for use with classic browsers via <code>&lt;script&gt;</code></td>
 <td>IIFE</td>
 </tr>
 </tbody>
@@ -226,4 +288,4 @@
 <li><a href="https://qurancomplex.gov.sa/en/techquran/dev/">KFQC Data</a></li>
 </ul>
 <h3 id="license" class="tsd-anchor-link">License<a href="#license" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>This software is distributed under MIT license.</p>
-</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#quran-meta"><span>Quran <wbr/>Meta</span></a><ul><li><a href="#welcome-to-quran-meta-project"><span>Welcome to <wbr/>Quran <wbr/>Meta <wbr/>Project</span></a></li><li><ul><li><a href="#api-reference-documentation"><span>A<wbr/>Pi <wbr/>Reference <wbr/>Documentation</span></a></li><li><a href="#playground"><span>Playground</span></a></li><li><a href="#installation"><span>Installation</span></a></li><li><ul><li><a href="#in-a-browser"><span>In a browser:</span></a></li><li><a href="#using-npm"><span>Using npm:</span></a></li></ul></li><li><a href="#usage"><span>Usage</span></a></li><li><a href="#terminology"><span>Terminology</span></a></li><li><a href="#examples"><span>Examples</span></a></li><li><a href="#projects-using-quran-meta"><span>Projects using <wbr/>Quran-<wbr/>meta</span></a></li><li><a href="#demo"><span>Demo</span></a></li><li><a href="#data-correctness-and-validity-testing"><span>Data correctness and validity testing</span></a></li><li><a href="#distributions-and-downloads"><span>Distributions and <wbr/>Downloads</span></a></li><li><a href="#references"><span>References:</span></a></li><li><a href="#license"><span>License</span></a></li></ul></li></ul></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/quran-center/quran-meta" class="tsd-nav-link">GitHub</a><a href="/modules" class="tsd-nav-link">API</a><a href="https://koran.center" class="tsd-nav-link">Koran.center</a></nav><nav class="tsd-navigation"><a href="modules.html">quran-meta</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p>v. 6.0.8</p></footer><div class="overlay"></div></body></html>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#quran-meta"><span>Quran <wbr/>Meta</span></a><ul><li><a href="#welcome-to-quran-meta-project-the-most-comprehensive-quran-metadata-library"><span>Welcome to <wbr/>Quran <wbr/>Meta <wbr/>Project -<wbr/> the most comprehensive <wbr/>Quran metadata library!</span></a></li><li><ul><li><a href="#features"><span>Features</span></a></li><li><a href="#upcoming-features"><span>Upcoming <wbr/>Features</span></a></li><li><a href="#future-roadmap"><span>Future <wbr/>Roadmap</span></a></li><li><a href="#api-reference-documentation"><span>A<wbr/>Pi <wbr/>Reference <wbr/>Documentation</span></a></li><li><a href="#playground"><span>Playground</span></a></li><li><a href="#installation"><span>Installation</span></a></li><li><ul><li><a href="#in-a-browser"><span>In a browser:</span></a></li><li><a href="#using-npm"><span>Using npm:</span></a></li></ul></li><li><a href="#usage"><span>Usage</span></a></li></ul></li><li><a href="#custom-riwaya-support-build-your-own"><span>Custom <wbr/>Riwaya <wbr/>Support -<wbr/> <wbr/>Build <wbr/>Your <wbr/>Own!</span></a></li><li><ul><li><a href="#terminology"><span>Terminology</span></a></li><li><a href="#examples"><span>Examples</span></a></li><li><a href="#projects-using-quran-meta"><span>Projects using <wbr/>Quran-<wbr/>meta</span></a></li><li><a href="#demo"><span>Demo</span></a></li><li><a href="#data-correctness-and-validity-testing"><span>Data correctness and validity testing</span></a></li><li><a href="#distributions-and-downloads"><span>Distributions and <wbr/>Downloads</span></a></li><li><a href="#references"><span>References:</span></a></li><li><a href="#license"><span>License</span></a></li></ul></li></ul></div></details></div><div class="site-menu"><nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/quran-center/quran-meta" class="tsd-nav-link">GitHub</a><a href="/modules" class="tsd-nav-link">API</a><a href="https://koran.center" class="tsd-nav-link">Koran.center</a></nav><nav class="tsd-navigation"><a href="modules.html">quran-meta</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p>v. 6.0.11</p></footer><div class="overlay"></div></body></html>

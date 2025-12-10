@@ -3,7 +3,7 @@ import type { ArrayOfSameLength } from "../ts-utils"
 
 export type SurahNames = ArrayOfSameLength<SurahListType, SurahName | []>
 
-export const languages = ["en", "az", "ru", "tr", "uz"] as const
+export const languages = ["en", "az", "ru", "tr", "uz", "kk", "fr", "lt"] as const
 export type Lang = (typeof languages)[number]
 
 export type SurahNamesI18n = {
