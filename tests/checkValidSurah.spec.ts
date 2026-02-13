@@ -1,7 +1,7 @@
-import { isValidSurah, checkValidSurah } from "../src"
+import { checkValidSurah, isValidSurah } from "../src"
 import { meta } from "../src/hafs"
 
-describe("checkValidSurah", () => {
+describe(checkValidSurah, () => {
   it("should return true for valid surah numbers", () => {
     expect(checkValidSurah(1, meta)).toBeUndefined()
     expect(checkValidSurah(meta.numSurahs, meta)).toBeUndefined()
@@ -19,14 +19,14 @@ describe("checkValidSurah", () => {
   })
 
   it("should return false for invalid surah numbers when checkOnly is true", () => {
-    expect(isValidSurah(0, meta)).toBe(false)
-    expect(isValidSurah(1.9, meta)).toBe(false)
-    expect(isValidSurah(meta.numSurahs + 1, meta)).toBe(false)
+    expect(isValidSurah(0, meta)).toBeFalsy()
+    expect(isValidSurah(1.9, meta)).toBeFalsy()
+    expect(isValidSurah(meta.numSurahs + 1, meta)).toBeFalsy()
   })
 
   it("should return true for valid surah numbers when checkOnly is true", () => {
-    expect(isValidSurah(1, meta)).toBe(true)
-    expect(isValidSurah(meta.numSurahs, meta)).toBe(true)
+    expect(isValidSurah(1, meta)).toBeTruthy()
+    expect(isValidSurah(meta.numSurahs, meta)).toBeTruthy()
   })
 
   it("should throw TypeError for non-number surah number", () => {

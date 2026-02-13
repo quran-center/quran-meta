@@ -19,7 +19,7 @@ import { checkValidAyahId } from "./validation"
  */
 export function findManzilByAyahId(ayahId: AyahId, data: RiwayaData): Manzil {
   checkValidAyahId(ayahId, data.meta)
-  const ManzilList = data.ManzilList
+  const { ManzilList } = data
   const jj = binarySearch(ManzilList, ayahId)
   const juz = jj < 0 ? -jj - 2 : jj
   return juz as Manzil

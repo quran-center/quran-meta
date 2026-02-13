@@ -1,10 +1,10 @@
 import { findRubAlHizb, findRubAlHizbByAyahId } from "../src"
 import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
-const JuzList = HafsLists.JuzList
-const HizbQuarterList = HafsLists.HizbQuarterList
+const { JuzList } = HafsLists
+const { HizbQuarterList } = HafsLists
 
-describe("findRubAlHizb", () => {
+describe(findRubAlHizb, () => {
   it("should return correct RubAlHizb for first surah and ayah", () => {
     expect(findRubAlHizb(1, 1, HafsLists)).toEqual(1)
   })
@@ -27,7 +27,7 @@ describe("findRubAlHizb", () => {
     for (let i = 0; i < HafsMeta.numJuzs; i++) {
       const juzAyahId = JuzList[i + 1]
       const rubulHizbAyahId = HizbQuarterList[i * 8 + 1]
-      // console.log(`Juz`, juzAyahId, rubulHizbAyahId)
+      // Console.log(`Juz`, juzAyahId, rubulHizbAyahId)
       expect(juzAyahId).toEqual(rubulHizbAyahId)
     }
   })

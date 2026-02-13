@@ -7,7 +7,7 @@
  * @returns The index of the element if found, or a negative value indicating the insertion point if not found.
  */
 export function binarySearch<T, X>(
-  ar: Array<T>,
+  ar: T[],
   el: X,
   compare_fn: (a: X, b: T) => number = (a, b) => (a as number) - (b as number)
 ): number {

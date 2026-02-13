@@ -7,12 +7,12 @@
 
 const name = "Warsh" // For output file naming
 import data from "./data/WarshData_v2-1.json"
-// import data from "../data/WarshData_v2-0.json"
-// import data from "../data/DouriData_v2-0.json"
-// import data from "../data/SousiData_v2-0.json"
-// import data from "../data/shubaData_v2-0.json"
-// import data from "../data/QalounData_v2-1.json"
-// import data from "../data/hafsData_v2-0.json"
+// Import data from "../data/WarshData_v2-0.json"
+// Import data from "../data/DouriData_v2-0.json"
+// Import data from "../data/SousiData_v2-0.json"
+// Import data from "../data/shubaData_v2-0.json"
+// Import data from "../data/QalounData_v2-1.json"
+// Import data from "../data/hafsData_v2-0.json"
 
 // Helper to format arrays
 function formatArray(arr, itemsPerLine = 15) {
@@ -27,7 +27,7 @@ function formatArray(arr, itemsPerLine = 15) {
 const pageList = [0, 1]
 let currentPage = 1
 for (let i = 0; i < data.length; i++) {
-  const page = parseInt(data[i].page)
+  const page = Number.parseInt(data[i].page)
   if (page > currentPage) {
     pageList.push(data[i].id)
     currentPage = page
@@ -53,7 +53,7 @@ for (let i = 0; i < data.length; i++) {
   if (data[i].sura_no > currentSurahNo) {
     const firstAyah = data[i]
     const surahData = data.filter((a) => a.sura_no === firstAyah.sura_no)
-    const name = firstAyah.sura_name_ar.trim().replace(/"/g, '\\"') // Escape quotes
+    const name = firstAyah.sura_name_ar.trim().replace(/"/g, String.raw`\"`) // Escape quotes
     surahList.push([
       firstAyah.id,
       surahData.length,
@@ -74,7 +74,9 @@ const hizbEighthList = [0, 1]
 for (let i = 0; i < data.length; i++) {
   if (data[i].aya_text.includes("۞")) {
     hizbEighthList.push(data[i].id)
-    if (!(hizbEighthList.length % 2)) hizbQuarterList.push(data[i].id)
+    if (!(hizbEighthList.length % 2)) {
+      hizbQuarterList.push(data[i].id)
+    }
   }
 }
 
@@ -93,10 +95,10 @@ const manzilList = [
 
 // RukuList - placeholder (need actual data)
 const rukuList = [0]
-// for (let i = 1; i <= 556; i++) {
-//   rukuList.push(Math.floor(i * data.length / 556))
+// For (let i = 1; i <= 556; i++) {
+//   RukuList.push(Math.floor(i * data.length / 556))
 // }
-// rukuList.push(data.length + 1)
+// RukuList.push(data.length + 1)
 
 const sajdaList = []
 for (let i = 0; i < data.length; i++) {

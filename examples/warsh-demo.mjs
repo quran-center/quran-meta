@@ -3,7 +3,7 @@
  * node warsh-demo.mjs
  */
 
-import { quran, meta } from "../dist/warsh.js"
+import { meta, quran } from "../dist/warsh.js"
 
 console.log("=== Warsh Riwaya Example ===\n")
 

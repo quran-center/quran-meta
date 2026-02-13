@@ -13,9 +13,9 @@ import { checkValidSurah } from "./validation"
  * @throws Error If surah number is invalid
  */
 export function isSurahAyahPageFirst(surah: Surah, ayah: AyahNo, data: RiwayaData): Page | number {
-  checkValidSurah(surah, data.meta)
+  const { PageList, meta } = data
+  checkValidSurah(surah, meta)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
-  const PageList = data.PageList
   return binarySearch(PageList, ayahId)
-  // return PageList.findIndex((x: AyahId) => x == ayahId)
+  // Return PageList.findIndex((x: AyahId) => x == ayahId)
 }

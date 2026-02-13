@@ -1,11 +1,11 @@
-import { getAyahMetasForSurah, getAyahMeta } from "../src"
+import { getAyahMeta, getAyahMetasForSurah } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 import type { Surah } from "../src"
 import { getListOfRiwaya } from "../src/lists"
 
 const SurahList = getListOfRiwaya("SurahList")
 
-describe("getAyahMetasForSurah", () => {
+describe(getAyahMetasForSurah, () => {
   it("should return correct number of ayahs for Al-Fatiha (surah 1)", () => {
     const result = getAyahMetasForSurah(1, HafsLists)
     expect(result).toHaveLength(7)
@@ -37,7 +37,7 @@ describe("getAyahMetasForSurah", () => {
   it("should return array of AyahMeta objects with required properties", () => {
     const result = getAyahMetasForSurah(1, HafsLists)
     const firstAyah = result[0]
-    // console.log(firstAyah)
+    // Console.log(firstAyah)
     expect(firstAyah).toHaveProperty("ayah")
     expect(firstAyah).toHaveProperty("surah")
     expect(firstAyah).toHaveProperty("page")

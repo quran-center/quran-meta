@@ -20,9 +20,9 @@ import { checkValidSurah } from "./validation"
  * ```
  */
 export function isSurahAyahJuzFirst(surah: Surah, ayah: AyahNo, data: RiwayaData): Juz | number {
-  checkValidSurah(surah, data.meta)
+  const { JuzList, meta } = data
+  checkValidSurah(surah, meta)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
-  const JuzList = data.JuzList
   return binarySearch(JuzList, ayahId)
-  // return JuzList.findIndex((x: AyahId) => x == ayahId)
+  // Return JuzList.findIndex((x: AyahId) => x == ayahId)
 }

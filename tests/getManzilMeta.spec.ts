@@ -1,38 +1,38 @@
-import { describe, it, expect } from "vitest"
+import { describe, expect, it } from "vitest"
 import { HafsLists } from "../src/lists/HafsLists"
 import { getManzilMeta } from "../src/getManzilMeta"
 
-describe("getManzilMeta", () => {
+describe(getManzilMeta, () => {
   it("should return correct metadata for Manzil 1", () => {
     const result = getManzilMeta(1, HafsLists)
     expect(result).toEqual({
-      manzilNum: 1,
-      firstAyahId: 1,
-      lastAyahId: 669,
       first: [1, 1],
-      last: [4, 176]
+      firstAyahId: 1,
+      last: [4, 176],
+      lastAyahId: 669,
+      manzilNum: 1
     })
   })
 
   it("should return correct metadata for Manzil 4", () => {
     const result = getManzilMeta(4, HafsLists)
     expect(result).toEqual({
-      manzilNum: 4,
-      firstAyahId: 2030,
-      lastAyahId: 2932,
       first: [17, 1],
-      last: [25, 77]
+      firstAyahId: 2030,
+      last: [25, 77],
+      lastAyahId: 2932,
+      manzilNum: 4
     })
   })
 
   it("should return correct metadata for Manzil 8", () => {
     const result = getManzilMeta(7, HafsLists)
     expect(result).toEqual({
-      manzilNum: 7,
-      firstAyahId: 4631,
-      lastAyahId: 6236,
       first: [50, 1],
-      last: [114, 6]
+      firstAyahId: 4631,
+      last: [114, 6],
+      lastAyahId: 6236,
+      manzilNum: 7
     })
   })
 

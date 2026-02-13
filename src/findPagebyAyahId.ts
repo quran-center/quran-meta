@@ -19,8 +19,8 @@ import { checkValidAyahId } from "./validation"
 
 export function findPagebyAyahId(ayahId: AyahId, data: RiwayaData): Page {
   checkValidAyahId(ayahId, data.meta)
-  const PageList = data.PageList
-  // return PageList.findIndex(x => x > ayahId) - 1 as Page
+  const { PageList } = data
+  // Return PageList.findIndex(x => x > ayahId) - 1 as Page
   const jj = binarySearch(PageList, ayahId)
   const page = jj < 0 ? -jj - 2 : jj
   return page as Page

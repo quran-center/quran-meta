@@ -16,8 +16,8 @@
 
 import { HafsLists as riwayaLists } from "./lists/HafsLists"
 import {
-  getList as _getList,
   generatePartBlocks as _generatePartBlocks,
+  getList as _getList,
   getListNormalised as _getListNormalised
 } from "./lists/getList"
 import { ayahStringSplitter as _ayahStringSplitter } from "./ayahStringSplitter"
@@ -60,24 +60,24 @@ import { nextAyah as _nextAyah } from "./nextAyah"
 import { prevAyah as _prevAyah } from "./prevAyah"
 import {
   isValidAyahId as _isValidAyahId,
-  isValidAyahNo,
   isValidJuz as _isValidJuz,
+  isValidManzil as _isValidManzil,
   isValidPage as _isValidPage,
   isValidRuku as _isValidRuku,
-  isValidManzil as _isValidManzil,
   isValidSurah as _isValidSurah,
-  isValidSurahAyah as _isValidSurahAyah
+  isValidSurahAyah as _isValidSurahAyah,
+  isValidAyahNo
 } from "./typeGuards"
 import { QuranRiwaya } from "./QuranRiwaya"
 import {
-  checkValidSurahAyah as _checkValidSurahAyah,
-  checkValidSurah as _checkValidSurah,
-  checkValidSurahAyahPair as _checkValidSurahAyahPair,
   checkValidAyahId as _checkValidAyahId,
-  checkValidPage as _checkValidPage,
   checkValidJuz as _checkValidJuz,
+  checkValidManzil as _checkValidManzil,
+  checkValidPage as _checkValidPage,
   checkValidRuku as _checkValidRuku,
-  checkValidManzil as _checkValidManzil
+  checkValidSurah as _checkValidSurah,
+  checkValidSurahAyah as _checkValidSurahAyah,
+  checkValidSurahAyahPair as _checkValidSurahAyahPair
 } from "./validation"
 import { surahStringParser as _surahStringParser } from "./surahStringParser"
 
@@ -91,7 +91,7 @@ export type { PartType } from "./lists/types"
 /**
  * Hafs metadata
  */
-export const meta = riwayaLists.meta
+export const { meta } = riwayaLists
 
 export const getList = (listName: PartType) => _getList(listName, riwayaLists)
 export const getListNormalised = (listName: PartType) => _getListNormalised(listName, riwayaLists)
@@ -99,13 +99,13 @@ export const getListNormalised = (listName: PartType) => _getListNormalised(list
 /**
  * Hafs Lists (SurahList, JuzList, etc.)
  */
-export const HizbQuarterList = riwayaLists.HizbQuarterList
-export const JuzList = riwayaLists.JuzList
-export const ManzilList = riwayaLists.ManzilList
-export const PageList = riwayaLists.PageList
-export const SurahList = riwayaLists.SurahList
-export const RukuList = riwayaLists.RukuList
-export const SajdaList = riwayaLists.SajdaList
+export const { HizbQuarterList } = riwayaLists
+export const { JuzList } = riwayaLists
+export const { ManzilList } = riwayaLists
+export const { PageList } = riwayaLists
+export const { SurahList } = riwayaLists
+export const { RukuList } = riwayaLists
+export const { SajdaList } = riwayaLists
 
 // String parsers and utilities (closures with riwayaLists)
 export const ayahStringSplitter = (str: string, isStrict = true) => _ayahStringSplitter(str, isStrict, riwayaLists)
@@ -114,16 +114,31 @@ export const surahStringParser = (str: string, isStrict: boolean = false) => _su
 
 // Validation methods
 
-export const checkValidSurahAyah = (surah: Surah | number | unknown, ayah: number | AyahNo | unknown) =>
+export const checkValidSurahAyah = (surah: Surah | number | unknown, ayah: number | AyahNo | unknown) => {
   _checkValidSurahAyah(surah, ayah, riwayaLists)
+}
 
-export const checkValidSurah = (surah: Surah | number | unknown) => _checkValidSurah(surah, meta)
-export const checkValidSurahAyahPair = (pair: [unknown, unknown]) => _checkValidSurahAyahPair(pair, riwayaLists)
-export const checkValidAyahId = (ayahId: unknown) => _checkValidAyahId(ayahId, meta)
-export const checkValidPage = (page: unknown) => _checkValidPage(page, meta)
-export const checkValidJuz = (juz: unknown) => _checkValidJuz(juz, meta)
-export const checkValidRuku = (ruku: unknown) => _checkValidRuku(ruku, meta)
-export const checkValidManzil = (manzil: unknown) => _checkValidManzil(manzil, meta)
+export const checkValidSurah = (surah: Surah | number | unknown) => {
+  _checkValidSurah(surah, meta)
+}
+export const checkValidSurahAyahPair = (pair: [unknown, unknown]) => {
+  _checkValidSurahAyahPair(pair, riwayaLists)
+}
+export const checkValidAyahId = (ayahId: unknown) => {
+  _checkValidAyahId(ayahId, meta)
+}
+export const checkValidPage = (page: unknown) => {
+  _checkValidPage(page, meta)
+}
+export const checkValidJuz = (juz: unknown) => {
+  _checkValidJuz(juz, meta)
+}
+export const checkValidRuku = (ruku: unknown) => {
+  _checkValidRuku(ruku, meta)
+}
+export const checkValidManzil = (manzil: unknown) => {
+  _checkValidManzil(manzil, meta)
+}
 
 // Surah methods
 export const getSurahMeta = (surah: Surah) => _getSurahMeta(surah, riwayaLists)
@@ -156,9 +171,7 @@ export const findJuzMetaBySurah = (surah: Surah, ayah: AyahNo = 1 as AyahNo) =>
 
 export const findJuzAndShift = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _findJuzAndShift(surah, ayah, riwayaLists)
 
-export const findJuzAndShiftByAyahId = (ayahId: AyahId) => {
-  return _findJuzAndShiftByAyahId(ayahId, riwayaLists)
-}
+export const findJuzAndShiftByAyahId = (ayahId: AyahId) => _findJuzAndShiftByAyahId(ayahId, riwayaLists)
 
 // Page methods
 export const findPage = (surah: Surah, ayah: AyahNo = 1 as AyahNo) => _findPage(surah, ayah, riwayaLists)

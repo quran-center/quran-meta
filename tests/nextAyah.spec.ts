@@ -1,9 +1,9 @@
 import { nextAyah } from "../src"
-import { HafsMeta, HafsLists } from "../src/lists/HafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
 const meta = HafsMeta
 
-describe("nextAyah", () => {
+describe(nextAyah, () => {
   it("should return the next ayah within the same surah", () => {
     expect(nextAyah(1, 1, HafsLists)).toEqual(expect.arrayContaining([1, 2]))
     expect(nextAyah(2, 285, HafsLists)).toEqual(expect.arrayContaining([2, 286]))

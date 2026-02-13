@@ -1,8 +1,8 @@
 import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
 
-// where data was not available, Qaloun data was used (ruku, hizbQuarter, sajda, manzil, hizbEighth,hizbQuarter)
-// todo : verify and update with Warsh specific data
+// Where data was not available, Qaloun data was used (ruku, hizbQuarter, sajda, manzil, hizbEighth,hizbQuarter)
+// Todo : verify and update with Warsh specific data
 
 // ------------------ Hizb Eighth (thumun-ul-Hizb) Data ---------------------
 export const HizbEighthList: AyahId[] = [
@@ -31,7 +31,7 @@ export const HizbEighthList: AyahId[] = [
   5174, 5183, 5190, 5200, 5206, 5214, 5219, 5238, 5268, 5297, 5339, 5372, 5393, 5412, 5428, 5445, 5473, 5504, 5529,
   5568, 5586, 5614, 5649, 5689, 5729, 5766, 5790, 5830, 5875, 5896, 5924, 5959, 6001, 6036, 6068, 6104, 6134, 6167, 6215
 ]
-// export const HizbEighthList: AyahId[] = [
+// Export const HizbEighthList: AyahId[] = [
 //   0, 1, 23, 32, 40, 48, 60, 66, 73, 82, 91, 98, 107, 112, 120,
 //   130, 139, 148, 154, 164, 172, 183, 191, 195, 202, 208, 218, 224, 233, 238,
 //   240, 248, 253, 258, 264, 269, 273, 278, 286, 289, 297, 307, 315, 325, 334,
@@ -81,7 +81,7 @@ export const HizbQuarterList: AyahId[] = [
   5174, 5190, 5206, 5219, 5268, 5339, 5393, 5428, 5473, 5529, 5586, 5649, 5729, 5790, 5875, 5924, 6001, 6068, 6134, 6215
 ]
 
-// export const HizbQuarterList: AyahId[] = [
+// Export const HizbQuarterList: AyahId[] = [
 //   0, 1, 32, 48, 66, 82, 98, 112, 130, 148, 164, 183, 195, 208, 224,
 //   238, 248, 258, 269, 278, 289, 307, 325, 343, 366, 383, 405, 425, 445, 463,
 //   478, 498, 505, 516, 528, 549, 565, 578, 591, 605, 621, 639, 657, 671, 680,
@@ -153,7 +153,7 @@ export const SajdaList: AyahId[] = [
 
 // ------------------ Surah Data ---------------------
 export const SurahList: FixedArray<SurahInfo, 116> = [
-  [-1, 1, 1, 1, "", false], // this value is not used, but is here to make the array 1-indexed
+  [-1, 1, 1, 1, "", false], // This value is not used, but is here to make the array 1-indexed
   [1, 7, 1, 1, "الفَاتِحة", true],
   [8, 285, 2, 1, "البَقَرَة", true],
   [293, 200, 3, 1, "آل عِمران", true],
@@ -321,12 +321,12 @@ export const WarshMeta: QuranMeta = {
 } as const
 
 export const WarshLists = {
-  meta: WarshMeta,
   HizbQuarterList,
   JuzList,
   ManzilList,
   PageList,
   RukuList,
   SajdaList,
-  SurahList
+  SurahList,
+  meta: WarshMeta
 }

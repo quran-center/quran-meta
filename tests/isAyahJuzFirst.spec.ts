@@ -1,7 +1,7 @@
 import { isAyahJuzFirst } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("isAyahJuzFirst", () => {
+describe(isAyahJuzFirst, () => {
   it("basic", () => {
     expect(isAyahJuzFirst(1, HafsLists)).toEqual(1)
     expect(isAyahJuzFirst(149, HafsLists)).toEqual(2)

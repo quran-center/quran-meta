@@ -1,4 +1,4 @@
-import type { Riwayas, RiwayaData, PartType } from "./types"
+import type { PartType, RiwayaData, Riwayas } from "./types"
 import { parts } from "./types"
 
 import type { AyahId, AyahNo, SurahInfo } from "../types"
@@ -8,7 +8,7 @@ import type { AyahId, AyahNo, SurahInfo } from "../types"
  * startAyahId - The identifier of the first ayah in the block
  * ayahCount - The number of ayahs contained in this block
  */
-type PartBlock = {
+export interface PartBlock {
   startAyahId: AyahId
   ayahCount: AyahId | AyahNo
 }
@@ -17,15 +17,15 @@ type PartBlocker = (...any: unknown[]) => PartBlock
 function toPartFormatter(type: PartType, list: AyahId[] | SurahInfo[]): PartBlocker {
   return type === "surah"
     ? ([startAyahId, ayahCount]: SurahInfo) => ({
-        startAyahId,
-        ayahCount
+        ayahCount,
+        startAyahId
       })
     : (ayahId: AyahId, index: number) => {
-        // console.log(ayahId,index,parts[type][index+2] )
+        // Console.log(ayahId,index,parts[type][index+2] )
         const ayahCount = (list as AyahId[])[index + 2] - ayahId
         return {
-          startAyahId: ayahId,
-          ayahCount
+          ayahCount,
+          startAyahId: ayahId
         }
       }
 }
@@ -37,7 +37,9 @@ function toPartFormatter(type: PartType, list: AyahId[] | SurahInfo[]): PartBloc
  * @returns An array of formatted part blocks, excluding the first and last elements
  */
 export function generatePartBlocks<P extends PartType>(name: P, data: RiwayaData): PartBlock[] | null {
-  if (!parts[name]) throw new Error(`Invalid part type: ${name}`)
+  if (!parts[name]) {
+    throw new Error(`Invalid part type: ${name}`)
+  }
 
   const listName = parts[name] as keyof RiwayaData
   const list = data[listName]
@@ -57,7 +59,9 @@ export const getList = <P extends PartType, M extends Riwayas, R extends keyof M
   name: P,
   lists: RiwayaData
 ): M[R][L] => {
-  if (!parts[name]) throw new Error(`Invalid list name: ${name}`)
+  if (!parts[name]) {
+    throw new Error(`Invalid list name: ${name}`)
+  }
 
   const listName = parts[name] as keyof Omit<RiwayaData, "meta">
   if (listName in lists) {
@@ -69,5 +73,5 @@ export const getList = <P extends PartType, M extends Riwayas, R extends keyof M
 
 export function getListNormalised(name: PartType, lists: RiwayaData): PartBlock[] {
   const list = getList(name, lists)
-  return list.slice(1, list.length - 1).map(toPartFormatter(name, list))
+  return list.slice(1, -1).map(toPartFormatter(name, list))
 }

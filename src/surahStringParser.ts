@@ -11,7 +11,7 @@ export function surahStringParser(str: string, isStrict: boolean = false, meta: 
   const surahX = isStrict ? Number(str.trim()) : Number.parseInt(str.trim(), 10)
 
   if (isNaN(surahX)) {
-    throw new Error("Error in surah format " + str)
+    throw new TypeError("Error in surah format " + str)
   }
 
   if (!isValidSurah(surahX, meta)) {

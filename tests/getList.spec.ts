@@ -9,7 +9,7 @@ describe("getListOfRiwaya", () => {
     partNames
       .filter((partName) => partName !== "thumunAlHizb")
       .forEach((part: PartType) => {
-        expect(Array.isArray(generatePartBlocks(part, HafsLists))).toBe(true)
+        expect(Array.isArray(generatePartBlocks(part, HafsLists))).toBeTruthy()
       })
   })
 
@@ -27,7 +27,7 @@ describe("getListOfRiwaya", () => {
     partNames
       .filter((partNames) => partNames !== "thumunAlHizb")
       .forEach((partName: PartType) => {
-        //   const partList = parts[partName]
+        //   Const partList = parts[partName]
         const list = generatePartBlocks(partName, HafsLists)
         let sum = 0
         if (list) {
@@ -42,18 +42,18 @@ describe("getListOfRiwaya", () => {
 
   it("number of items is equal to partition", () => {
     const partLengths = {
-      surah: HafsLists.meta.numSurahs,
       juz: HafsLists.meta.numJuzs,
-      rubAlHizb: HafsLists.meta.numRubAlHizbs,
+      manzil: HafsLists.meta.numManzils,
       page: HafsLists.meta.numPages,
+      rubAlHizb: HafsLists.meta.numRubAlHizbs,
       ruku: HafsLists.meta.numRukus,
-      manzil: HafsLists.meta.numManzils
+      surah: HafsLists.meta.numSurahs
     }
 
     partNames
       .filter((partName) => partName !== "thumunAlHizb")
       .forEach((partName) => {
-        // const partList = parts[partName]
+        // Const partList = parts[partName]
 
         const list = generatePartBlocks(partName, HafsLists)
 
@@ -67,22 +67,22 @@ describe("getListOfRiwaya", () => {
     expect(res).toEqual(res2)
   })
 
-  // it("should return array in ascending order", () => {
-  //   const list = getListOfRiwaya()
-  //   const sorted = [...list].sort((a, b) => a - b)
-  //   expect(list).toEqual(sorted)
+  // It("should return array in ascending order", () => {
+  //   Const list = getListOfRiwaya()
+  //   Const sorted = [...list].sort((a, b) => a - b)
+  //   Expect(list).toEqual(sorted)
   // })
 
-  //   it("should return same array on multiple calls", () => {
-  //     const firstCall = getList()
-  //     const secondCall = getList()
-  //     expect(firstCall).toEqual(secondCall)
+  //   It("should return same array on multiple calls", () => {
+  //     Const firstCall = getList()
+  //     Const secondCall = getList()
+  //     Expect(firstCall).toEqual(secondCall)
   //   })
 
-  //   it("should return immutable array", () => {
-  //     const original = getList()
-  //     const copy = [...original]
-  //     original.push(999)
-  //     expect(getList()).toEqual(copy)
+  //   It("should return immutable array", () => {
+  //     Const original = getList()
+  //     Const copy = [...original]
+  //     Original.push(999)
+  //     Expect(getList()).toEqual(copy)
   //   })
 })

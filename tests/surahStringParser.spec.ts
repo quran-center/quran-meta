@@ -1,8 +1,8 @@
-import { describe, it, expect } from "vitest"
+import { describe, expect, it } from "vitest"
 import { surahStringParser } from "../src"
 import { HafsMeta as meta } from "../src/lists/HafsLists"
 
-describe("surahStringParser", () => {
+describe(surahStringParser, () => {
   it("should parse valid surah numbers", () => {
     expect(surahStringParser("1", false, meta)).toBe(1)
     expect(surahStringParser("114", false, meta)).toBe(114)

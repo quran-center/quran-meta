@@ -1,7 +1,7 @@
 import { findManzilByAyahId } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("findManzilByAyahId", () => {
+describe(findManzilByAyahId, () => {
   it("should return correct manzil for beginning of Quran", () => {
     expect(findManzilByAyahId(1, HafsLists)).toBe(1)
   })

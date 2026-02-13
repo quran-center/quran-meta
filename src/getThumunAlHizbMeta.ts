@@ -1,7 +1,7 @@
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import type { RiwayahsWith } from "./lists/types"
 import { getThumunAlHizb } from "./getThumunAlHizb"
-import type { ThumunAlHizbMeta, ThumunAlHizbId, AyahId } from "./types"
+import type { AyahId, ThumunAlHizbId, ThumunAlHizbMeta } from "./types"
 
 /**
  * Retrieves the metadata for a specific quarter (rub' al-hizb) of the Quran.
@@ -15,7 +15,7 @@ export function getThumunAlHizbMeta(
   data: RiwayahsWith<"HizbEighthList">
 ): ThumunAlHizbMeta {
   const res = getThumunAlHizb(eighthIndex)
-  const HizbEighthList = data.HizbEighthList
+  const { HizbEighthList } = data
   if (!HizbEighthList) {
     throw new Error(`Riwaya ${data.meta.riwayaName} does not have Hizb Eighth List data.`)
   }
@@ -23,10 +23,10 @@ export function getThumunAlHizbMeta(
   const lastAyahId = nextJuzAyahId - 1
 
   return {
-    firstAyahId,
-    lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId, data),
+    firstAyahId,
     last: findSurahAyahByAyahId(lastAyahId, data),
+    lastAyahId,
     ...res
   }
 }

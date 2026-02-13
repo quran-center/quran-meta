@@ -271,7 +271,6 @@ export const QalunMeta: QuranMeta = {
 } as const
 
 export const QalunLists = {
-  meta: QalunMeta,
   HizbEighthList,
   HizbQuarterList,
   JuzList,
@@ -279,5 +278,6 @@ export const QalunLists = {
   PageList,
   RukuList,
   SajdaList,
-  SurahList
+  SurahList,
+  meta: QalunMeta
 }

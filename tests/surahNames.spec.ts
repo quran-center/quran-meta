@@ -5,9 +5,9 @@ import { surahNamesRu } from "../src/i18n/surah.ru"
 import { surahNamesTr } from "../src/i18n/surah.tr"
 
 const languages = {
+  az: surahNamesAz,
   en: surahNamesEn,
   ru: surahNamesRu,
-  az: surahNamesAz,
   tr: surahNamesTr
 }
 

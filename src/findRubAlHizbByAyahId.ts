@@ -12,8 +12,8 @@ import { checkValidAyahId } from "./validation"
  */
 export function findRubAlHizbByAyahId(ayahId: AyahId, data: RiwayaData): RubAlHizbId {
   checkValidAyahId(ayahId, data.meta)
-  const HizbQuarterList = data.HizbQuarterList
-  // return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId
+  const { HizbQuarterList } = data
+  // Return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId
   const jj = binarySearch(HizbQuarterList, ayahId)
   const page = jj < 0 ? -jj - 2 : jj
   return page as RubAlHizbId

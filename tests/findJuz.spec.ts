@@ -1,7 +1,7 @@
 import { findJuz, findJuzByAyahId } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("findJuz", () => {
+describe(findJuz, () => {
   it("basic", () => {
     expect(findJuz(1, 2, HafsLists)).toEqual(1)
     expect(findJuz(2, 1, HafsLists)).toEqual(1)

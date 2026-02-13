@@ -1,7 +1,7 @@
 import { checkValidAyahId, isValidAyahId } from "../src"
 import { meta } from "../src/hafs"
 
-describe("checkValidAyahId", () => {
+describe(checkValidAyahId, () => {
   it("should throw RangeError for ayah id less than 1", () => {
     expect(() => checkValidAyahId(0, meta)).toThrow(RangeError)
     expect(() => checkValidAyahId(-1, meta)).toThrow(RangeError)
@@ -28,14 +28,14 @@ describe("checkValidAyahId", () => {
   })
 
   it("should handle checkOnly", () => {
-    expect(isValidAyahId(1, meta)).toBe(true)
-    expect(isValidAyahId(meta.numAyahs, meta)).toBe(true)
-    expect(isValidAyahId(Math.floor(meta.numAyahs / 2), meta)).toBe(true)
-    expect(isValidAyahId(0, meta)).toBe(false)
-    expect(isValidAyahId(meta.numAyahs + 1, meta)).toBe(false)
-    expect(isValidAyahId(1.5, meta)).toBe(false)
-    expect(isValidAyahId(NaN, meta)).toBe(false)
-    expect(isValidAyahId(Infinity, meta)).toBe(false)
+    expect(isValidAyahId(1, meta)).toBeTruthy()
+    expect(isValidAyahId(meta.numAyahs, meta)).toBeTruthy()
+    expect(isValidAyahId(Math.floor(meta.numAyahs / 2), meta)).toBeTruthy()
+    expect(isValidAyahId(0, meta)).toBeFalsy()
+    expect(isValidAyahId(meta.numAyahs + 1, meta)).toBeFalsy()
+    expect(isValidAyahId(1.5, meta)).toBeFalsy()
+    expect(isValidAyahId(Number.NaN, meta)).toBeFalsy()
+    expect(isValidAyahId(Infinity, meta)).toBeFalsy()
   })
 
   it("should handle edge cases correctly", () => {

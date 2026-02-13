@@ -11,8 +11,8 @@ import { checkValidAyahId } from "./validation"
  * @returns The page number if the ayah is the first ayah of the page, otherwise -1.
  */
 export function isAyahPageFirst(ayahId: AyahId, data: RiwayaData): Page | number {
-  checkValidAyahId(ayahId, data.meta)
-  const PageList = data.PageList
+  const { PageList, meta } = data
+  checkValidAyahId(ayahId, meta)
   return binarySearch(PageList, ayahId)
-  // return PageList.findIndex((x: AyahId) => x == ayahId)
+  // Return PageList.findIndex((x: AyahId) => x == ayahId)
 }

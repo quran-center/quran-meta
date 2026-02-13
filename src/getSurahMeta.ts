@@ -13,15 +13,15 @@ export function getSurahMeta(surahNum: Surah, data: RiwayaData): SurahMeta {
 
   const lastAyahId = firstAyahId + ayahCount - 1
   return {
-    surahNum,
     ayahCount,
-    surahOrder,
-    rukuCount,
-    name,
-    isMeccan,
-    firstAyahId,
-    lastAyahId,
     first: [surahNum, 1],
-    last: [surahNum, ayahCount]
+    firstAyahId,
+    isMeccan,
+    last: [surahNum, ayahCount],
+    lastAyahId,
+    name,
+    rukuCount,
+    surahNum,
+    surahOrder
   }
 }

@@ -1,9 +1,9 @@
 import { prevAyah } from "../src"
-import { HafsMeta, HafsLists } from "../src/lists/HafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
 const meta = HafsMeta
 
-describe("prevAyah", () => {
+describe(prevAyah, () => {
   it("basic", () => {
     expect(prevAyah(1, 6, HafsLists)).toEqual(expect.arrayContaining([1, 5]))
     expect(prevAyah(113, 1, HafsLists)).toEqual(expect.arrayContaining([112, 4]))

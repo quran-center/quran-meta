@@ -25,7 +25,7 @@ export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaDat
   }
 
   const { surahOrAyah: surahX, ayah, ayahTo } = result
-  const meta = data.meta
+  const { meta } = data
 
   if (!isValidSurah(surahX, meta)) {
     throw new Error("Invalid ayah number: " + str)
@@ -36,7 +36,9 @@ export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaDat
   if (ayahTo) {
     checkValidAyahId(ayah, meta)
     checkValidAyahId(ayahTo, meta)
-    if (ayah > ayahTo) throw new Error("Invalid ayah range: " + str)
+    if (ayah > ayahTo) {
+      throw new Error("Invalid ayah range: " + str)
+    }
     ayahs = [ayah, ayahTo] as [AyahNo, AyahNo]
   } else {
     if (!isValidAyahNo(ayah)) {
@@ -65,7 +67,7 @@ export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaDat
 export function string2NumberSplitter(str: string): { ayah?: number; ayahTo?: number; surahOrAyah?: number } | null {
   const sr = /(?<surah>\d{1,3})\D*(?<ayah>\d{0,3})\D*(?<ayahTo>\d{0,3})/.exec(str)
 
-  if (sr?.groups && +sr.groups.surah > 0 /* && sr.groups.surah <= 114 */) {
+  if (sr?.groups && Number(sr.groups.surah) > 0 /* && sr.groups.surah <= 114 */) {
     const {
       ayah,
       ayahTo,
@@ -76,7 +78,7 @@ export function string2NumberSplitter(str: string): { ayah?: number; ayahTo?: nu
       ayahTo?: string
     } = sr.groups
 
-    return { surahOrAyah: +surah, ayah: +ayah, ayahTo: +ayahTo }
+    return { ayah: +ayah, ayahTo: +ayahTo, surahOrAyah: +surah }
   }
   return null
 }
@@ -100,10 +102,10 @@ export function string2NumberSplitterStrict(
 ): { ayah?: number; ayahTo?: number; surahOrAyah?: number } | null {
   let [surahStr, ayahsStr] = str.trim().split(":")
   surahStr = surahStr.trim()
-  const surahX = parseInt(surahStr.trim(), 10)
+  const surahX = Number.parseInt(surahStr.trim(), 10)
 
   if (isNaN(surahX)) {
-    throw new Error("Error in surah format " + str)
+    throw new TypeError("Error in surah format " + str)
   }
   ayahsStr = ayahsStr.trim()
   if (!ayahsStr) {
@@ -113,19 +115,19 @@ export function string2NumberSplitterStrict(
   let ayahs: [number] | [number, number]
   if (ayahsStr.includes("-")) {
     ayahs = ayahsStr.split("-").map((a) => {
-      const ayahX = parseInt(a, 10)
+      const ayahX = Number.parseInt(a, 10)
       if (isNaN(ayahX)) {
-        throw new Error("Error in surah format " + str)
+        throw new TypeError("Error in surah format " + str)
       }
       return ayahX
     }) as [number, number]
   } else {
-    const ayahX = parseInt(ayahsStr, 10)
+    const ayahX = Number.parseInt(ayahsStr, 10)
     if (isNaN(ayahX)) {
-      throw new Error("Error in surah format " + str)
+      throw new TypeError("Error in surah format " + str)
     }
-    ayahs = [ayahX, NaN]
+    ayahs = [ayahX, Number.NaN]
   }
 
-  return { surahOrAyah: +surahX, ayah: +ayahs[0], ayahTo: +ayahs[1] }
+  return { ayah: +ayahs[0], ayahTo: +ayahs[1], surahOrAyah: +surahX }
 }

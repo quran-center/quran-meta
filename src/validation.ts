@@ -66,7 +66,7 @@ export function checkValidSurahAyahPair(
  * @throws TypeError If the value is not an integer
  * @throws RangeError If the value is not within valid Ayah ID range
  */
-export function checkValidAyahId(ayahId: unknown | number | AyahId, meta: QuranMeta): asserts ayahId is AyahId {
+export function checkValidAyahId(ayahId: unknown | number, meta: QuranMeta): asserts ayahId is AyahId {
   if (typeof ayahId !== "number" || !Number.isInteger(ayahId)) {
     throw new TypeError("Ayah ID must be an integer")
   }

@@ -13,14 +13,14 @@ import { checkValidJuz } from "./validation"
  */
 export function getJuzMeta(juzNum: Juz, data: RiwayaData): JuzMeta {
   checkValidJuz(juzNum, data.meta)
-  const JuzList = data.JuzList
+  const { JuzList } = data
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [JuzList[juzNum], JuzList[juzNum + 1]]
   const lastAyahId = nextJuzAyahId - 1
   return {
-    juzNum,
-    firstAyahId,
-    lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId, data),
-    last: findSurahAyahByAyahId(lastAyahId, data)
+    firstAyahId,
+    juzNum,
+    last: findSurahAyahByAyahId(lastAyahId, data),
+    lastAyahId
   }
 }

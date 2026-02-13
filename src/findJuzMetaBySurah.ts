@@ -1,7 +1,7 @@
 import { findJuzAndShift } from "./findJuzAndShift"
 import { findSurahByAyahId } from "./findSurahByAyahId"
 import type { RiwayaData } from "./lists/types"
-import type { AyahNo, Juz, SurahJuzMeta, Surah } from "./types"
+import type { AyahNo, Juz, Surah, SurahJuzMeta } from "./types"
 
 /**
  * Finds the SurahJuzMeta for a given Surah and Ayah.
@@ -13,17 +13,17 @@ import type { AyahNo, Juz, SurahJuzMeta, Surah } from "./types"
  */
 export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1, data: RiwayaData): SurahJuzMeta {
   const { juz: leftjuz, ayahsBetweenJuzSurah, leftAyahId } = findJuzAndShift(surah, ayah, data)
-  const JuzList = data.JuzList
+  const { JuzList } = data
   let rightJuz: Juz = leftjuz
   while (rightJuz < data.meta.numJuzs && findSurahByAyahId(JuzList[rightJuz + 1], data) === surah) {
     rightJuz++
   }
 
   return {
-    leftjuz,
     ayahsBetweenJuzSurah,
-    rightJuz,
     leftAyahId,
-    rightAyahId: JuzList[rightJuz + 1] // todo check if this is correct or should be -1
+    leftjuz,
+    rightAyahId: JuzList[rightJuz + 1],
+    rightJuz // Todo check if this is correct or should be -1
   }
 }

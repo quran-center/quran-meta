@@ -19,14 +19,18 @@ export { WarshMeta } from "./WarshLists"
  */
 export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R] {
   switch (riwaya) {
-    case "Hafs":
+    case "Hafs": {
       return HafsLists as Riwayas[R]
-    case "Qalun":
+    }
+    case "Qalun": {
       return QalunLists as Riwayas[R]
-    case "Warsh":
+    }
+    case "Warsh": {
       return WarshLists as Riwayas[R]
-    default:
+    }
+    default: {
       throw new Error(`Unknown riwaya: ${riwaya}`)
+    }
   }
 }
 
@@ -34,7 +38,7 @@ export const getListOfRiwaya = <R extends keyof Riwayas, L extends keyof Riwayas
   listName: L,
   riwaya?: R
 ): Riwayas[R][L] => {
-  const actualRiwaya = riwaya || "Hafs"
+  const actualRiwaya = riwaya ?? "Hafs"
   const lists = getListsOfRiwaya(actualRiwaya)
 
   if (listName in lists) {

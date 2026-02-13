@@ -1,7 +1,7 @@
 import { checkValidJuz, checkValidManzil, checkValidPage, checkValidRuku } from "../src/validation"
 import { meta } from "../src/hafs"
 
-describe("checkValidPage", () => {
+describe(checkValidPage, () => {
   it("should accept valid page numbers", () => {
     expect(() => checkValidPage(1, meta)).not.toThrow()
     expect(() => checkValidPage(meta.numPages, meta)).not.toThrow()
@@ -26,7 +26,7 @@ describe("checkValidPage", () => {
     expect(() => checkValidPage(meta.numPages + 1, meta)).toThrow(RangeError)
   })
 
-  describe("checkValidJuz", () => {
+  describe(checkValidJuz, () => {
     it("should accept valid juz numbers", () => {
       expect(() => checkValidJuz(1, meta)).not.toThrow()
       expect(() => checkValidJuz(meta.numJuzs, meta)).not.toThrow()
@@ -51,7 +51,7 @@ describe("checkValidPage", () => {
       expect(() => checkValidJuz(meta.numJuzs + 1, meta)).toThrow(RangeError)
     })
 
-    describe("checkValidRuku", () => {
+    describe(checkValidRuku, () => {
       it("should accept valid ruku numbers", () => {
         expect(() => checkValidRuku(1, meta)).not.toThrow()
         expect(() => checkValidRuku(meta.numRukus, meta)).not.toThrow()
@@ -76,7 +76,7 @@ describe("checkValidPage", () => {
         expect(() => checkValidRuku(meta.numRukus + 1, meta)).toThrow(RangeError)
       })
 
-      describe("checkValidManzil", () => {
+      describe(checkValidManzil, () => {
         it("should accept valid manzil numbers", () => {
           expect(() => checkValidManzil(1, meta)).not.toThrow()
           expect(() => checkValidManzil(meta.numManzils, meta)).not.toThrow()

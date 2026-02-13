@@ -1,27 +1,27 @@
 import { isSurahAyahPageFirst } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("isSurahAyahPageFirst", () => {
+describe(isSurahAyahPageFirst, () => {
   it("basic", () => {
     expect(isSurahAyahPageFirst(1, 1, HafsLists)).toEqual(1)
     expect(isSurahAyahPageFirst(2, 1, HafsLists)).toEqual(2)
     expect(isSurahAyahPageFirst(2, 142, HafsLists)).toEqual(22)
 
     expect(isSurahAyahPageFirst(2, 2, HafsLists)).toEqual(-4)
-    // expect(isSurahAyahPageFirst(114, 1, HafsLists)).toEqual(-32)
-    // expect(isSurahAyahPageFirst(1, 114, HafsLists)).toEqual(-3)
+    // Expect(isSurahAyahPageFirst(114, 1, HafsLists)).toEqual(-32)
+    // Expect(isSurahAyahPageFirst(1, 114, HafsLists)).toEqual(-3)
   })
 
   it("should return correct Juz for valid surah and ayah in non-ayah mode", () => {
     const result = isSurahAyahPageFirst(1, 1, HafsLists)
     expect(result).toBeDefined()
-    expect(typeof result).toBe("number")
+    expectTypeOf(result).toBeNumber()
   })
 
   it("should handle edge case with last surah and ayah", () => {
     const result = isSurahAyahPageFirst(114, 6, HafsLists)
     expect(result).toBeDefined()
-    expect(typeof result).toBe("number")
+    expectTypeOf(result).toBeNumber()
   })
 
   it("should throw error for invalid surah in non-ayah mode", () => {
@@ -31,6 +31,6 @@ describe("isSurahAyahPageFirst", () => {
   it("should handle middle surah and ayah", () => {
     const result = isSurahAyahPageFirst(50, 20, HafsLists)
     expect(result).toBeDefined()
-    expect(typeof result).toBe("number")
+    expectTypeOf(result).toBeNumber()
   })
 })

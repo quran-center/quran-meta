@@ -2,7 +2,7 @@ import { findJuzMetaBySurah } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 import * as findSurahByAyahIdModule from "../src/findSurahByAyahId"
 
-describe("findJuzMetaBySurah", () => {
+describe(findJuzMetaBySurah, () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })
@@ -10,55 +10,55 @@ describe("findJuzMetaBySurah", () => {
   it("should return correct SurahJuzMeta for first surah", () => {
     const result = findJuzMetaBySurah(1, 1, HafsLists)
     expect(result).toEqual({
-      leftjuz: 1,
       ayahsBetweenJuzSurah: 0,
-      rightJuz: 1,
       leftAyahId: 1,
-      rightAyahId: 149
+      leftjuz: 1,
+      rightAyahId: 149,
+      rightJuz: 1
     })
   })
 
   it("should return correct SurahJuzMeta for a surah spanning multiple juz", () => {
     const result = findJuzMetaBySurah(2, 1, HafsLists)
     expect(result).toEqual({
-      leftjuz: 1,
       ayahsBetweenJuzSurah: 7,
-      rightJuz: 3,
       leftAyahId: 1,
-      rightAyahId: 386
+      leftjuz: 1,
+      rightAyahId: 386,
+      rightJuz: 3
     })
   })
 
   it("should handle a surah entirely within one juz", () => {
     const result = findJuzMetaBySurah(114, 1, HafsLists)
     expect(result).toEqual({
-      leftjuz: 30,
       ayahsBetweenJuzSurah: 558,
-      rightJuz: 30,
       leftAyahId: 5673,
-      rightAyahId: 6237
+      leftjuz: 30,
+      rightAyahId: 6237,
+      rightJuz: 30
     })
   })
 
   it("should return correct JuzMeta when ayah is specified", () => {
     const result = findJuzMetaBySurah(2, 150, HafsLists)
     expect(result).toEqual({
-      leftjuz: 2,
       ayahsBetweenJuzSurah: -141,
-      rightJuz: 3,
       leftAyahId: 149,
-      rightAyahId: 386
+      leftjuz: 2,
+      rightAyahId: 386,
+      rightJuz: 3
     })
   })
 
   it("should handle edge case when ayah is at juz boundary", () => {
     const result = findJuzMetaBySurah(2, 141, HafsLists)
     expect(result).toEqual({
-      leftjuz: 1,
       ayahsBetweenJuzSurah: 7,
-      rightJuz: 3,
       leftAyahId: 1,
-      rightAyahId: 386
+      leftjuz: 1,
+      rightAyahId: 386,
+      rightJuz: 3
     })
   })
 

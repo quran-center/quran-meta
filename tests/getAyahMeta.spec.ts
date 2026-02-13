@@ -50,7 +50,7 @@ describe("ayahMeta", () => {
   it("should return correct metadata for the 14th ayah", () => {
     const result = getAyahMeta(14, HafsLists)
     expect(result.isStartOfSurah).toBeFalsy()
-    // expect(result.isStartOfPage).toBeTruthy()
+    // Expect(result.isStartOfPage).toBeTruthy()
     expect(result.isStartOfJuz).toBeFalsy()
     expect(result.isEndOfSurah).toBeFalsy()
     expect(result.isEndOfPage).toBeFalsy()
@@ -63,7 +63,7 @@ describe("ayahMeta", () => {
   it("should return correct metadata for the 15th ayah", () => {
     const result = getAyahMeta(15, HafsLists)
     expect(result.isStartOfSurah).toBeFalsy()
-    // expect(result.isStartOfPage).toBeTruthy()
+    // Expect(result.isStartOfPage).toBeTruthy()
     expect(result.isStartOfJuz).toBeFalsy()
     expect(result.isEndOfSurah).toBeFalsy()
     expect(result.isEndOfPage).toBeFalsy()

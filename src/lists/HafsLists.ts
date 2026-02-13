@@ -99,7 +99,7 @@ export const SajdaList: AyahId[] = [
 ] as const
 
 export const SurahList: FixedArray<SurahInfo, 116> = [
-  [-1, 1, 1, 1, "", false], // this value is not used, but is here to make the array 1-indexed
+  [-1, 1, 1, 1, "", false], // This value is not used, but is here to make the array 1-indexed
   [1, 7, 5, 1, "الفَاتِحة", true],
   [8, 286, 87, 40, "البَقَرَة", false],
   [294, 200, 89, 20, "آل عِمران", false],
@@ -236,12 +236,12 @@ export const HafsMeta: QuranMeta = {
 } as const
 
 export const HafsLists = {
-  meta: HafsMeta,
   HizbQuarterList,
   JuzList,
   ManzilList,
   PageList,
   RukuList,
   SajdaList,
-  SurahList
+  SurahList,
+  meta: HafsMeta
 }

@@ -12,8 +12,8 @@ import { checkValidAyahId } from "./validation"
  * @returns The Juz (part) number that the given Ayah belongs to. Returns Positive number if ayah is first ayah of juz, number is juz number
  */
 export function isAyahJuzFirst(ayahId: AyahId, data: RiwayaData): Juz | number {
-  checkValidAyahId(ayahId, data.meta)
-  const JuzList = data.JuzList
+  const { JuzList, meta } = data
+  checkValidAyahId(ayahId, meta)
   return binarySearch(JuzList, ayahId)
-  // return JuzList.findIndex((x: AyahId) => x == ayahId)
+  // Return JuzList.findIndex((x: AyahId) => x == ayahId)
 }

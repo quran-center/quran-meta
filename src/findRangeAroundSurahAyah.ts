@@ -15,7 +15,7 @@ import { checkValidSurah } from "./validation"
  */
 export function findRangeAroundSurahAyah(surah: Surah, ayah: AyahNo, mode: RangeMode, data: RiwayaData): AyahRange {
   checkValidSurah(surah, data.meta)
-  const SurahList = data.SurahList
+  const { SurahList } = data
   if (mode === "surah") {
     return [SurahList[surah][0], SurahList[surah + 1][0] - 1]
   }

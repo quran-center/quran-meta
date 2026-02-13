@@ -1,7 +1,7 @@
 import { findManzil } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("findManzil", () => {
+describe(findManzil, () => {
   it("should return correct manzil for surah 1", () => {
     expect(findManzil(1, 1, HafsLists)).toBe(1)
   })

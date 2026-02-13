@@ -1,36 +1,36 @@
 import { getSurahMeta } from "../src/getSurahMeta"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("getSurahMeta", () => {
+describe(getSurahMeta, () => {
   it("returns correct metadata for Surah Al-Fatihah (1)", () => {
     const meta = getSurahMeta(1, HafsLists)
     expect(meta).toEqual({
-      surahNum: 1,
       ayahCount: 7,
-      surahOrder: 5,
-      rukuCount: 1,
-      name: "الفَاتِحة",
-      isMeccan: true,
-      firstAyahId: 1,
-      lastAyahId: 7,
       first: [1, 1],
-      last: [1, 7]
+      firstAyahId: 1,
+      isMeccan: true,
+      last: [1, 7],
+      lastAyahId: 7,
+      name: "الفَاتِحة",
+      rukuCount: 1,
+      surahNum: 1,
+      surahOrder: 5
     })
   })
 
   it("returns correct metadata for Surah Al-Baqarah (2)", () => {
     const meta = getSurahMeta(2, HafsLists)
     expect(meta).toEqual({
-      surahNum: 2,
       ayahCount: 286,
-      surahOrder: 87,
-      rukuCount: 40,
-      name: "البَقَرَة",
-      isMeccan: false,
-      firstAyahId: 8,
-      lastAyahId: 293,
       first: [2, 1],
-      last: [2, 286]
+      firstAyahId: 8,
+      isMeccan: false,
+      last: [2, 286],
+      lastAyahId: 293,
+      name: "البَقَرَة",
+      rukuCount: 40,
+      surahNum: 2,
+      surahOrder: 87
     })
   })
 })

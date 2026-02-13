@@ -3,7 +3,7 @@ import tsDocLint from "eslint-plugin-tsdoc"
 import tsLint from "typescript-eslint"
 
 export default [
-  // config parsers
+  // Config parsers
   {
     files: ["src/**.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     languageOptions: {}
@@ -12,18 +12,18 @@ export default [
     files: ["examples/**.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     languageOptions: {
       globals: {
-        process: "readonly",
         console: "readonly",
-        fetch: "readonly"
+        fetch: "readonly",
+        process: "readonly"
       }
     },
     rules: {
+      "@typescript-eslint/no-unused-vars": "off",
       "no-console": "off",
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "off"
+      "no-unused-vars": "off"
     }
   },
-  // syntax rules
+  // Syntax rules
   jsLint.configs.recommended,
   ...tsLint.configs.recommended,
 

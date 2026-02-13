@@ -13,7 +13,7 @@ import { checkValidAyahId } from "./validation"
 export function findJuzByAyahId(ayahId: AyahId, data: RiwayaData): Juz {
   checkValidAyahId(ayahId, data.meta)
 
-  // const juz = lists.JuzList.findIndex(x => x > ayahId) - 1
+  // Const juz = lists.JuzList.findIndex(x => x > ayahId) - 1
   const jj = binarySearch(data.JuzList, ayahId)
   const juz = jj < 0 ? -jj - 2 : jj
   return juz as Juz

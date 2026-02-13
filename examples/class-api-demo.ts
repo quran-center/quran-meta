@@ -3,7 +3,7 @@
  * Run with: pnpx jiti examples/class-api-demo.ts
  */
 
-import { quran as hafs, createQalun } from "../src"
+import { createQalun, quran as hafs } from "../src"
 
 console.log("=== QuranRiwaya Class-Based API Demo ===\n")
 

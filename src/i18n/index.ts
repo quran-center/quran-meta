@@ -27,17 +27,17 @@ export {
 }
 
 export const surahNames: SurahNamesI18n = {
-  en: surahNamesEn,
   az: surahNamesAz,
-  tr: surahNamesTr,
-  ru: surahNamesRu,
-  uz: surahNamesUz,
-  kk: surahNamesKk,
+  bs: surahNamesBs,
+  en: surahNamesEn,
   fr: surahNamesFr,
-  lt: surahNamesLt,
-  tg: surahNamesTg,
+  kk: surahNamesKk,
   ky: surahNamesKy,
-  bs: surahNamesBs
+  lt: surahNamesLt,
+  ru: surahNamesRu,
+  tg: surahNamesTg,
+  tr: surahNamesTr,
+  uz: surahNamesUz
 }
 
 export { getSurahNames } from "./getSurahNames"

@@ -1,7 +1,7 @@
 import { findRangeAroundAyah, findRangeAroundSurahAyah } from "../src"
 import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
-describe("findRangeAroundSurahAyah", () => {
+describe(findRangeAroundSurahAyah, () => {
   it("should return correct range for juz mode", () => {
     expect(findRangeAroundSurahAyah(2, 142, "juz", HafsLists)).toEqual([149, 259])
   })

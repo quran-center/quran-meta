@@ -1,4 +1,4 @@
-import type { LessThan, FixedArray } from "./ts-utils"
+import type { FixedArray, LessThan } from "./ts-utils"
 import type { RiwayaName } from "./lists/types"
 
 /**
@@ -56,7 +56,7 @@ export const numRubsInJuz = 8
  * import { meta } from 'quran-meta/qalun' // Only Qalun data bundled
  * ```
  */
-// riwayaMeta removed to prevent bundling all riwayas - use specific entry points instead
+// RiwayaMeta removed to prevent bundling all riwayas - use specific entry points instead
 
 /**
  * Represents the complete metadata structure for Quranic information.
@@ -77,7 +77,7 @@ export const numRubsInJuz = 8
  * console.log(riwayaMeta.Qalun.numAyahs)  // 6214
  * ```
  */
-export type QuranMeta = {
+export interface QuranMeta {
   /** Name of the riwaya (recitation tradition) */
   riwayaName: RiwayaName
   /** Total number of ayahs (verses) in this riwaya */
@@ -204,7 +204,7 @@ export type SurahInfo = [
 export type SurahListType = FixedArray<SurahInfo, 116>
 export type SurahName = [name: string, translitName: string]
 
-export type RangeMeta = {
+export interface RangeMeta {
   firstAyahId: AyahId
   lastAyahId: AyahId
   first: SurahAyah
@@ -214,7 +214,7 @@ export type RangeMeta = {
 /**
  * Represents the structure of a Juz and Hizb combination in the Quran
  */
-export type ThumunAlHizb = {
+export interface ThumunAlHizb {
   juz: Juz
   juzPart: JuzPart
   hizbId: HizbId
@@ -226,7 +226,7 @@ export type ThumunAlHizbMeta = ThumunAlHizb & RangeMeta
 /**
  * Represents the structure of a Juz and Hizb combination in the Quran
  */
-export type RubAlHizb = {
+export interface RubAlHizb {
   juz: Juz
   juzPart: JuzPart
   hizbId: HizbId
@@ -266,7 +266,7 @@ export type RukuMeta = {
 
 // [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
 export type AyahCountBetweenJuzSurah = NumericRange<0, typeof maxAyahsInSurah>
-export type SurahJuzMeta = {
+export interface SurahJuzMeta {
   leftjuz: Juz
   ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
   rightJuz: Juz
@@ -277,7 +277,7 @@ export type SurahJuzMeta = {
 
 export type RangeMode = "juz" | "surah" | "ayah" | "page" | "ruku" | "all"
 
-export type AyahMeta = {
+export interface AyahMeta {
   juz: Juz
   juzPart: JuzPart // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   hizbId: HizbId

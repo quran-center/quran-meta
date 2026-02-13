@@ -1,6 +1,6 @@
 import { getAyahMeta } from "./getAyahMeta"
 import type { RiwayaData } from "./lists/types"
-import type { Surah, AyahMeta, JuzPart } from "./types"
+import type { AyahMeta, JuzPart, Surah } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**
@@ -22,14 +22,14 @@ export function getAyahMetasForSurah(surahNumber: Surah, data: RiwayaData): Ayah
   const endAyahId = startAyahId + ayahCount - 1
   const result: AyahMeta[] = []
 
-  // const rubAlHizbMeta = getRubAlHizbMetaByAyahId(startAyahId as AyahId)
+  // Const rubAlHizbMeta = getRubAlHizbMetaByAyahId(startAyahId as AyahId)
   let meta = getAyahMeta(startAyahId, data)
   result.push(meta)
   for (let ayahId = startAyahId + 1; ayahId <= endAyahId; ayahId++) {
     // Most properties will be the same as previous ayah except for specific positions
     meta = structuredClone(meta)
     meta.ayah += 1
-    // console.log(ayahId, meta.ayah, meta.page, PageList[meta.page + 1])
+    // Console.log(ayahId, meta.ayah, meta.page, PageList[meta.page + 1])
     meta.isStartOfSurah = false
     meta.isEndOfSurah = endAyahId === ayahId
 
@@ -62,7 +62,9 @@ export function getAyahMetasForSurah(surahNumber: Surah, data: RiwayaData): Ayah
       meta.rubAlHizbId += 1
       meta.juzPart = meta.isStartOfJuz ? 1 : ((meta.juzPart + 1) as JuzPart)
       meta.isStartOfQuarter = true
-      if (meta.juzPart === 5) meta.hizbId += 1
+      if (meta.juzPart === 5) {
+        meta.hizbId += 1
+      }
     } else {
       meta.isStartOfQuarter = false
     }

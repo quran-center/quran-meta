@@ -4,9 +4,9 @@
  * data url: https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/info.json
  */
 
-import { meta, createHafs } from "../../../src/hafs"
-import { JuzList, HizbQuarterList, ManzilList, RukuList, PageList, SajdaList } from "../../../src/lists/HafsLists"
-import type { AyahNo, AyahId, Manzil, Page, Ruku, Juz, Surah, RubAlHizbId } from "../../../src/types"
+import { createHafs, meta } from "../../../src/hafs"
+import { HizbQuarterList, JuzList, ManzilList, PageList, RukuList, SajdaList } from "../../../src/lists/HafsLists"
+import type { AyahId, AyahNo, Juz, Manzil, Page, RubAlHizbId, Ruku, Surah } from "../../../src/types"
 
 const quran = createHafs()
 import quranApi from "./../data/quran-api.json"
@@ -30,14 +30,30 @@ export function checkQuranApi() {
       sajda
     } = quranApi.chapters[ayahMeta.surah - 1].verses[ayahMeta.ayah - 1]
 
-    if (line !== ayah) console.log("error ayahid: ", ayahMeta, line)
-    if (verse !== ayahMeta.ayah) console.log("error ayahno: ", ayahMeta, verse)
-    if (maqra !== ayahMeta.rubAlHizbId) console.warn("error ayah maqra: ", ayahMeta, maqra)
-    if (ayahMeta.juz !== juz) console.warn("error ayah juz: ", ayahMeta, juz)
-    if (ayahMeta.ruku !== ruku) console.warn("error ayah ruku: ", ayahMeta, ruku)
-    if (ayahMeta.juz !== juz) console.warn("error ayah juz: ", ayahMeta, juz)
-    if (ayahMeta.isSajdahAyah !== !!sajda) console.warn("error ayah isSajada : ", ayahMeta, sajda)
-    if (pageNo !== page) console.warn("error page: ", ayahMeta, pageNo, page)
+    if (line !== ayah) {
+      console.log("error ayahid: ", ayahMeta, line)
+    }
+    if (verse !== ayahMeta.ayah) {
+      console.log("error ayahno: ", ayahMeta, verse)
+    }
+    if (maqra !== ayahMeta.rubAlHizbId) {
+      console.warn("error ayah maqra: ", ayahMeta, maqra)
+    }
+    if (ayahMeta.juz !== juz) {
+      console.warn("error ayah juz: ", ayahMeta, juz)
+    }
+    if (ayahMeta.ruku !== ruku) {
+      console.warn("error ayah ruku: ", ayahMeta, ruku)
+    }
+    if (ayahMeta.juz !== juz) {
+      console.warn("error ayah juz: ", ayahMeta, juz)
+    }
+    if (ayahMeta.isSajdahAyah !== Boolean(sajda)) {
+      console.warn("error ayah isSajada : ", ayahMeta, sajda)
+    }
+    if (pageNo !== page) {
+      console.warn("error page: ", ayahMeta, pageNo, page)
+    }
   }
 
   for (let surahNo: Surah = 1; surahNo <= meta.numSurahs; surahNo++) {
@@ -58,9 +74,15 @@ export function checkQuranApi() {
       verses
     } = quranApi.chapters[surahNo - 1]
 
-    if (surahNo !== chapter) console.warn("error QuranApi surah: ", surahNo, chapter)
-    if (firstAyahId !== verses[0].line) console.warn("error QuranApi surah: ", firstAyahId, verses[0].line)
-    if (ayahCount !== verses.length) console.warn("error QuranApi surah: ", ayahCount, verses.length)
+    if (surahNo !== chapter) {
+      console.warn("error QuranApi surah: ", surahNo, chapter)
+    }
+    if (firstAyahId !== verses[0].line) {
+      console.warn("error QuranApi surah: ", firstAyahId, verses[0].line)
+    }
+    if (ayahCount !== verses.length) {
+      console.warn("error QuranApi surah: ", ayahCount, verses.length)
+    }
   }
 
   for (let juzNo: Juz = 1; juzNo <= meta.numJuzs; juzNo++) {
@@ -71,27 +93,41 @@ export function checkQuranApi() {
       end: { chapter: Surah; verse: AyahNo }
     }
 
-    if (juzNo !== juz) console.warn("error QuranApi juz: ", juzNo, juz)
-    if (juzNo !== quran.findJuz(start.chapter, start.verse)) console.warn("error QuranApi juz: ", ayahId, start)
-    if (ayahId !== quran.findAyahIdBySurah(start.chapter, start.verse))
+    if (juzNo !== juz) {
+      console.warn("error QuranApi juz: ", juzNo, juz)
+    }
+    if (juzNo !== quran.findJuz(start.chapter, start.verse)) {
       console.warn("error QuranApi juz: ", ayahId, start)
+    }
+    if (ayahId !== quran.findAyahIdBySurah(start.chapter, start.verse)) {
+      console.warn("error QuranApi juz: ", ayahId, start)
+    }
 
     const { juzNum, firstAyahId: _firstAyahId, lastAyahId: _lastAyahId, first, last } = quran.getJuzMeta(juzNo)
-    if (juzNum !== juz) console.warn("error QuranApi juz: ", juzNo, juz)
-    if (start.chapter !== first[0] || start.verse !== first[1])
+    if (juzNum !== juz) {
+      console.warn("error QuranApi juz: ", juzNo, juz)
+    }
+    if (start.chapter !== first[0] || start.verse !== first[1]) {
       console.warn("error QuranApi juz start.chapter: ", juzNo, juz)
-    if (end.chapter !== last[0] || end.verse !== last[1]) console.warn("error QuranApi juz start.chapter: ", juzNo, juz)
+    }
+    if (end.chapter !== last[0] || end.verse !== last[1]) {
+      console.warn("error QuranApi juz start.chapter: ", juzNo, juz)
+    }
   }
 
   for (let rubHizb: RubAlHizbId = 1; rubHizb <= meta.numRubAlHizbs; rubHizb++) {
     const ayahId = HizbQuarterList[rubHizb]
     const { maqra, start, end } = quranApi.maqras.references[rubHizb - 1]
 
-    if (maqra !== rubHizb) console.warn("error QuranApi rubAlHizb: ", maqra, rubHizb)
-    if (rubHizb !== quran.findRubAlHizb(start.chapter as Surah, start.verse as AyahNo))
+    if (maqra !== rubHizb) {
+      console.warn("error QuranApi rubAlHizb: ", maqra, rubHizb)
+    }
+    if (rubHizb !== quran.findRubAlHizb(start.chapter as Surah, start.verse as AyahNo)) {
       console.warn("error QuranApi rubAlHizb: ", ayahId, start)
-    if (ayahId !== quran.findAyahIdBySurah(start.chapter as Surah, start.verse as AyahNo))
+    }
+    if (ayahId !== quran.findAyahIdBySurah(start.chapter as Surah, start.verse as AyahNo)) {
       console.warn("error QuranApi rubAlHizb: ", ayahId, start)
+    }
 
     const {
       firstAyahId: _firstAyahId,
@@ -104,11 +140,15 @@ export function checkQuranApi() {
       rubAlHizbId
     } = quran.getRubAlHizbMeta(rubHizb)
 
-    if (rubAlHizbId !== maqra) console.warn("error QuranApi juz: ", rubAlHizbId, maqra)
-    if (start.chapter !== first[0] || start.verse !== first[1])
+    if (rubAlHizbId !== maqra) {
+      console.warn("error QuranApi juz: ", rubAlHizbId, maqra)
+    }
+    if (start.chapter !== first[0] || start.verse !== first[1]) {
       console.warn("error QuranApi juz start.chapter: ", rubAlHizbId, maqra)
-    if (end.chapter !== last[0] || end.verse !== last[1])
+    }
+    if (end.chapter !== last[0] || end.verse !== last[1]) {
       console.warn("error QuranApi juz start.chapter: ", rubAlHizbId, maqra)
+    }
   }
 
   for (let manzilNo: Manzil = 1; manzilNo <= meta.numManzils; manzilNo++) {
@@ -119,17 +159,24 @@ export function checkQuranApi() {
       end: { chapter: Surah; verse: AyahNo }
     }
 
-    if (manzil !== manzilNo) console.warn("error QuranApi manzil: ", manzilNo, manzil)
-    if (ayahId !== quran.findAyahIdBySurah(start.chapter, start.verse))
+    if (manzil !== manzilNo) {
+      console.warn("error QuranApi manzil: ", manzilNo, manzil)
+    }
+    if (ayahId !== quran.findAyahIdBySurah(start.chapter, start.verse)) {
       console.warn("error QuranApi manzil: ", ayahId, start)
+    }
 
     const { firstAyahId: _firstAyahId, lastAyahId: _lastAyahId, first, last, manzilNum } = quran.getManzilMeta(manzilNo)
 
-    if (manzilNum !== manzilNo) console.warn("error QuranApi manzil: ", manzilNum, manzilNo)
-    if (start.chapter !== first[0] || start.verse !== first[1])
+    if (manzilNum !== manzilNo) {
+      console.warn("error QuranApi manzil: ", manzilNum, manzilNo)
+    }
+    if (start.chapter !== first[0] || start.verse !== first[1]) {
       console.warn("error QuranApi manzil start.chapter: ", manzilNum, manzilNo)
-    if (end.chapter !== last[0] || end.verse !== last[1])
+    }
+    if (end.chapter !== last[0] || end.verse !== last[1]) {
       console.warn("error QuranApi manzil start.chapter: ", manzilNum, manzilNo)
+    }
   }
 
   for (let rukuNo: Ruku = 1; rukuNo <= meta.numRukus; rukuNo++) {
@@ -140,17 +187,24 @@ export function checkQuranApi() {
       end: { chapter: Surah; verse: AyahNo }
     }
 
-    if (ruku !== rukuNo) console.warn("error QuranApi ruku: ", rukuNo, ruku)
-    if (ayahId !== quran.findAyahIdBySurah(start.chapter, start.verse))
+    if (ruku !== rukuNo) {
+      console.warn("error QuranApi ruku: ", rukuNo, ruku)
+    }
+    if (ayahId !== quran.findAyahIdBySurah(start.chapter, start.verse)) {
       console.warn("error QuranApi ruku ", ayahId, start)
+    }
 
     const { firstAyahId: _firstAyahId, lastAyahId: _lastAyahId, first, last, rukuNum } = quran.getRukuMeta(rukuNo)
 
-    if (rukuNum !== rukuNo) console.warn("error QuranApi Ruku: ", rukuNum, rukuNo)
-    if (start.chapter !== first[0] || start.verse !== first[1])
+    if (rukuNum !== rukuNo) {
+      console.warn("error QuranApi Ruku: ", rukuNum, rukuNo)
+    }
+    if (start.chapter !== first[0] || start.verse !== first[1]) {
       console.warn("error QuranApi Ruku start.chapter: ", rukuNum, rukuNo)
-    if (end.chapter !== last[0] || end.verse !== last[1])
+    }
+    if (end.chapter !== last[0] || end.verse !== last[1]) {
       console.warn("error QuranApi Ruku start.chapter: ", rukuNum, rukuNo)
+    }
   }
 
   for (let pageNo: Page = 1; pageNo <= meta.numPages; pageNo++) {
@@ -160,17 +214,24 @@ export function checkQuranApi() {
       start: { chapter: Surah; verse: AyahNo }
       end: { chapter: Surah; verse: AyahNo }
     }
-    if (page !== pageNo) console.warn("error QuranApi page: ", pageNo, page)
-    if (ayahId !== quran.findAyahIdBySurah(start.chapter, start.verse))
+    if (page !== pageNo) {
+      console.warn("error QuranApi page: ", pageNo, page)
+    }
+    if (ayahId !== quran.findAyahIdBySurah(start.chapter, start.verse)) {
       console.warn("error QuranApi page: ", ayahId, start)
+    }
 
     const { firstAyahId: _firstAyahId, lastAyahId: _lastAyahId, first, last, pageNum } = quran.getPageMeta(pageNo)
 
-    if (pageNum !== pageNo) console.warn("error QuranApi page: ", pageNum, pageNo)
-    if (start.chapter !== first[0] || start.verse !== first[1])
+    if (pageNum !== pageNo) {
+      console.warn("error QuranApi page: ", pageNum, pageNo)
+    }
+    if (start.chapter !== first[0] || start.verse !== first[1]) {
       console.warn("error QuranApi page start.chapter: ", pageNum, pageNo)
-    if (end.chapter !== last[0] || end.verse !== last[1])
+    }
+    if (end.chapter !== last[0] || end.verse !== last[1]) {
       console.warn("error QuranApi page start.chapter: ", pageNum, pageNo)
+    }
   }
 
   for (let sajdaId = 0; sajdaId < meta.numSajdas; sajdaId++) {
@@ -189,9 +250,10 @@ export function checkQuranApi() {
       obligatory: boolean
     }
 
-    if (ayahId !== quran.findAyahIdBySurah(chapter, verse))
+    if (ayahId !== quran.findAyahIdBySurah(chapter, verse)) {
       console.warn("error QuranApi sajda: ", ayahId, chapter, verse)
-    /*         if (isRecommended && "recommended" !== recommended) console.warn("error QuranApi sajda: ", isRecommended, recommended)
+    }
+    /*         If (isRecommended && "recommended" !== recommended) console.warn("error QuranApi sajda: ", isRecommended, recommended)
 
         if (isObligatory && "obligatory" !== recommended) console.warn("error QuranApi sajda: ", isObligatory, recommended) */
   }

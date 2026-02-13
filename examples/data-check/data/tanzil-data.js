@@ -2,7 +2,7 @@
 // Copyright (C) 2008-2009 Tanzil.info
 // License: Creative Commons Attribution 3.0
 
-let QuranData = {}
+const QuranData = {}
 
 // ------------------ Sura Data ---------------------
 

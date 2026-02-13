@@ -1,7 +1,7 @@
 /**
  * This script checks data in this library against other sources
  */
-// pnpx jiti data-check
+// Pnpx jiti data-check
 
 import { checkKFQCWarsh } from "./checkKFQC-Warsh"
 

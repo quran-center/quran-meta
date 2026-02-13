@@ -1,7 +1,7 @@
 import { findRukuByAyahId } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("findRukuByAyahId", () => {
+describe(findRukuByAyahId, () => {
   it("should find correct ruku for valid ayah IDs", () => {
     expect(findRukuByAyahId(1, HafsLists)).toBe(1)
     expect(findRukuByAyahId(2, HafsLists)).toBe(1)

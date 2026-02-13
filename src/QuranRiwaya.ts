@@ -1,4 +1,4 @@
-import type { RiwayaName, PartType, Riwayas } from "./lists/types"
+import type { PartType, RiwayaName, Riwayas } from "./lists/types"
 import type {
   AyahId,
   AyahMeta,
@@ -10,6 +10,7 @@ import type {
   ManzilMeta,
   Page,
   PageMeta,
+  QuranMeta,
   RangeMode,
   RubAlHizb,
   RubAlHizbId,
@@ -18,14 +19,13 @@ import type {
   RukuMeta,
   Surah,
   SurahAyah,
+  SurahAyahSegment,
+  SurahInfo,
   SurahJuzMeta,
   SurahMeta,
-  QuranMeta,
-  SurahInfo,
+  ThumunAlHizb,
   ThumunAlHizbId,
-  ThumunAlHizbMeta,
-  SurahAyahSegment,
-  ThumunAlHizb
+  ThumunAlHizbMeta
 } from "./types"
 import { ayahStringSplitter, string2NumberSplitter } from "./ayahStringSplitter"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
@@ -46,7 +46,7 @@ import { findSurahByAyahId } from "./findSurahByAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
 import { findThumunAlHizb } from "./findThumunAlHizb"
-import { getList, getListNormalised, generatePartBlocks } from "./lists/getList"
+import { generatePartBlocks, getList, getListNormalised } from "./lists/getList"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import { getAyahMeta } from "./getAyahMeta"
 import { getAyahMetasForSurah } from "./getAyahMetasForSurah"
@@ -471,8 +471,8 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return isValidSurah(x, this.#meta)
   }
 
-  //   isValidAyahNo(x: unknown): x is AyahNo {
-  //     return isValidAyahNo(x, this.#meta)
+  //   IsValidAyahNo(x: unknown): x is AyahNo {
+  //     Return isValidAyahNo(x, this.#meta)
   //   }
 
   isValidJuz(x: unknown): x is Juz {

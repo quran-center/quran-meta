@@ -12,11 +12,11 @@ import { checkValidAyahId } from "./validation"
  */
 export function findThumunAlHizbByAyahId(ayahId: AyahId, data: RiwayahsWith<"HizbEighthList">): ThumunAlHizbId {
   checkValidAyahId(ayahId, data.meta)
-  const HizbEighthList = data.HizbEighthList
+  const { HizbEighthList } = data
   if (!HizbEighthList) {
     throw new Error(`Riwaya ${data.meta.riwayaName} does not have Hizb Eighth List data.`)
   }
-  // return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId
+  // Return HizbQuarterList.findIndex(x => x > ayahId) - 1 as RubAlHizbId
   const jj = binarySearch(HizbEighthList, ayahId)
   const thumun = jj < 0 ? -jj - 2 : jj
   return thumun as ThumunAlHizbId

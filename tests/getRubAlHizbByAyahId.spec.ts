@@ -1,13 +1,13 @@
 import type { RubAlHizbId } from "../src"
-import { getRubAlHizb, findJuzByAyahId, getRubAlHizbByAyahId } from "../src"
+import { findJuzByAyahId, getRubAlHizb, getRubAlHizbByAyahId } from "../src"
 import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
 import * as module from "../src/validation"
 
-const JuzList = HafsLists.JuzList
-const HizbQuarterList = HafsLists.HizbQuarterList
+const { JuzList } = HafsLists
+const { HizbQuarterList } = HafsLists
 
-describe("getRubAlHizbByAyahId", () => {
+describe(getRubAlHizbByAyahId, () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })
@@ -45,9 +45,9 @@ describe("getRubAlHizbByAyahId", () => {
     })
     expect(getRubAlHizbByAyahId(HafsMeta.numAyahs, HafsLists)).toEqual({
       hizbId: 60,
+      juz: 30,
       juzPart: 8,
-      rubAlHizbId: 240,
-      juz: 30
+      rubAlHizbId: 240
     })
   })
 
@@ -65,9 +65,9 @@ describe("getRubAlHizbByAyahId", () => {
     const result = getRubAlHizbByAyahId(6236, HafsLists)
     expect(result).toEqual({
       hizbId: 60,
+      juz: 30,
       juzPart: 8,
-      rubAlHizbId: 240,
-      juz: 30
+      rubAlHizbId: 240
     })
   })
 
@@ -75,9 +75,9 @@ describe("getRubAlHizbByAyahId", () => {
     const result = getRubAlHizbByAyahId(3000, HafsLists)
     expect(result).toEqual({
       hizbId: 37,
+      juz: 19,
       juzPart: 4,
-      rubAlHizbId: 148,
-      juz: 19
+      rubAlHizbId: 148
     })
   })
 
@@ -87,7 +87,7 @@ describe("getRubAlHizbByAyahId", () => {
       const rubulHizbAyahId = HizbQuarterList[rubAlHizbId]
       const rubMeta = getRubAlHizbByAyahId(rubulHizbAyahId, HafsLists)
       const hizbAyahId = HizbQuarterList[Math.ceil(rubAlHizbId / 4) * 4 - 3]
-      // console.log("Maqra:", rubAlHizbId, "Maqra Ayah:", rubulHizbAyahId, findSurahByAyahId(rubulHizbAyahId), "hizb Ayah id", hizbAyahId, `Juz Ayah:`, juzAyahId, rubMeta)
+      // Console.log("Maqra:", rubAlHizbId, "Maqra Ayah:", rubulHizbAyahId, findSurahByAyahId(rubulHizbAyahId), "hizb Ayah id", hizbAyahId, `Juz Ayah:`, juzAyahId, rubMeta)
       expect(rubMeta.juz).toEqual(findJuzByAyahId(juzAyahId, HafsLists))
       expect(rubAlHizbId).toEqual(rubMeta.rubAlHizbId)
       expect(getRubAlHizb(rubAlHizbId)).toEqual(rubMeta)
@@ -116,9 +116,9 @@ describe("getRubAlHizbByAyahId", () => {
     const result = getRubAlHizbByAyahId(148, HafsLists)
     expect(result).toEqual({
       hizbId: 2,
+      juz: 1,
       juzPart: 8,
-      rubAlHizbId: 8,
-      juz: 1
+      rubAlHizbId: 8
     })
   })
 })

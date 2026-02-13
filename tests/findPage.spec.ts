@@ -3,7 +3,7 @@ import { HafsLists } from "../src/lists/HafsLists"
 import * as ayahIdModule from "../src/findAyahIdBySurah"
 import * as module from "../src/validation"
 
-describe("findPage", () => {
+describe(findPage, () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })

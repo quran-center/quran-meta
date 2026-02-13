@@ -1,7 +1,7 @@
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import type { RiwayaData } from "./lists/types"
 import { getRubAlHizb } from "./getRubAlHizb"
-import type { RubAlHizbMeta, RubAlHizbId, AyahId } from "./types"
+import type { AyahId, RubAlHizbId, RubAlHizbMeta } from "./types"
 
 /**
  * Retrieves the metadata for a specific quarter (rub' al-hizb) of the Quran.
@@ -12,7 +12,7 @@ import type { RubAlHizbMeta, RubAlHizbId, AyahId } from "./types"
  */
 export function getRubAlHizbMeta(quarterIndex: RubAlHizbId, data: RiwayaData): RubAlHizbMeta {
   const res = getRubAlHizb(quarterIndex)
-  const HizbQuarterList = data.HizbQuarterList
+  const { HizbQuarterList } = data
   const [firstAyahId, nextJuzAyahId]: [AyahId, AyahId] = [
     HizbQuarterList[quarterIndex],
     HizbQuarterList[quarterIndex + 1]
@@ -20,10 +20,10 @@ export function getRubAlHizbMeta(quarterIndex: RubAlHizbId, data: RiwayaData): R
   const lastAyahId = nextJuzAyahId - 1
 
   return {
-    firstAyahId,
-    lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId, data),
+    firstAyahId,
     last: findSurahAyahByAyahId(lastAyahId, data),
+    lastAyahId,
     ...res
   }
 }

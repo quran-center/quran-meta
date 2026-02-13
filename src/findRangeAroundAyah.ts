@@ -19,10 +19,10 @@ import type { AyahId, AyahRange, Juz, Page, RangeMode, Ruku, Surah } from "./typ
  * @returns An array of two numbers representing the start and end ayah IDs of the range [startAyahId, endAyahId]
  */
 export function findRangeAroundAyah(ayahId: AyahId, mode: RangeMode, data: RiwayaData): AyahRange {
-  const JuzList = data.JuzList
-  const SurahList = data.SurahList
-  const PageList = data.PageList
-  const RukuList = data.RukuList
+  const { JuzList } = data
+  const { SurahList } = data
+  const { PageList } = data
+  const { RukuList } = data
   switch (mode) {
     case "juz": {
       const juz: Juz = findJuzByAyahId(ayahId, data)
@@ -49,7 +49,8 @@ export function findRangeAroundAyah(ayahId: AyahId, mode: RangeMode, data: Riway
     }
 
     case "all":
-    default:
+    default: {
       return [1, data.meta.numAyahs]
+    }
   }
 }

@@ -19,7 +19,7 @@ import { checkValidAyahId } from "./validation"
  */
 export function findRukuByAyahId(ayahId: AyahId, data: RiwayaData): Ruku {
   checkValidAyahId(ayahId, data.meta)
-  const RukuList = data.RukuList
+  const { RukuList } = data
 
   const jj = binarySearch(RukuList, ayahId)
   const juz = jj < 0 ? -jj - 2 : jj

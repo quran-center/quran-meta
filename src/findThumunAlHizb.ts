@@ -1,7 +1,7 @@
 import type { RiwayahsWith } from "./lists/types"
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
 import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
-import type { AyahId, AyahNo, ThumunAlHizbId, Surah } from "./types"
+import type { AyahId, AyahNo, Surah, ThumunAlHizbId } from "./types"
 import { checkValidSurah } from "./validation"
 
 /**

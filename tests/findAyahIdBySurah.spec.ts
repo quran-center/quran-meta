@@ -1,7 +1,7 @@
 import { findAyahIdBySurah } from "../src"
-import { HafsMeta, HafsLists } from "../src/lists/HafsLists"
+import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 
-describe("findAyahIdBySurah", () => {
+describe(findAyahIdBySurah, () => {
   it("should return correct AyahId for first ayah of first surah", () => {
     expect(findAyahIdBySurah(1, 1, HafsLists)).toEqual(1)
   })

@@ -1,20 +1,20 @@
 import { checkValidSurahAyah, isValidSurahAyah } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("checkValidSurahAyah", () => {
+describe(checkValidSurahAyah, () => {
   it("should return true for valid surah and ayah", () => {
     expect(checkValidSurahAyah(1, 1, HafsLists)).toBeUndefined()
     expect(checkValidSurahAyah(114, 6, HafsLists)).toBeUndefined()
   })
 
   it("should return false for invalid surah", () => {
-    expect(isValidSurahAyah([0, 1], HafsLists)).toBe(false)
-    expect(isValidSurahAyah([115, 1], HafsLists)).toBe(false)
+    expect(isValidSurahAyah([0, 1], HafsLists)).toBeFalsy()
+    expect(isValidSurahAyah([115, 1], HafsLists)).toBeFalsy()
   })
 
   it("should return false for invalid ayah when checkOnly is true", () => {
-    expect(isValidSurahAyah([1, 0], HafsLists)).toBe(false)
-    expect(isValidSurahAyah([1, 8], HafsLists)).toBe(false)
+    expect(isValidSurahAyah([1, 0], HafsLists)).toBeFalsy()
+    expect(isValidSurahAyah([1, 8], HafsLists)).toBeFalsy()
   })
 
   it("should throw RangeError for invalid ayah when checkOnly is false", () => {

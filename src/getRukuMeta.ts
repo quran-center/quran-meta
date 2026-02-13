@@ -17,14 +17,14 @@ import { checkValidRuku } from "./validation"
  */
 export function getRukuMeta(rukuNum: number, data: RiwayaData): RukuMeta {
   checkValidRuku(rukuNum, data.meta)
-  const RukuList = data.RukuList
+  const { RukuList } = data
   const [firstAyahId, nextRukuAyahId]: [AyahId, AyahId] = [RukuList[rukuNum], RukuList[rukuNum + 1]]
   const lastAyahId = nextRukuAyahId - 1
   return {
-    rukuNum,
-    firstAyahId,
-    lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId, data),
-    last: findSurahAyahByAyahId(lastAyahId, data)
+    firstAyahId,
+    last: findSurahAyahByAyahId(lastAyahId, data),
+    lastAyahId,
+    rukuNum
   }
 }

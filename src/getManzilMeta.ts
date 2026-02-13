@@ -18,14 +18,14 @@ import { checkValidManzil } from "./validation"
  */
 export function getManzilMeta(manzilNum: number, data: RiwayaData): ManzilMeta {
   checkValidManzil(manzilNum, data.meta)
-  const ManzilList = data.ManzilList
+  const { ManzilList } = data
   const [firstAyahId, nextManzilAyahId]: [AyahId, AyahId] = [ManzilList[manzilNum], ManzilList[manzilNum + 1]]
   const lastAyahId = nextManzilAyahId - 1
   return {
-    manzilNum,
-    firstAyahId,
-    lastAyahId,
     first: findSurahAyahByAyahId(firstAyahId, data),
-    last: findSurahAyahByAyahId(lastAyahId, data)
+    firstAyahId,
+    last: findSurahAyahByAyahId(lastAyahId, data),
+    lastAyahId,
+    manzilNum
   }
 }

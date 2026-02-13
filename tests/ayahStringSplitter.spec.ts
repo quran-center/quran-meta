@@ -6,7 +6,7 @@ describe("ayaStringSplitter", () => {
     expect(ayahStringSplitter("1:1", true, data)).toEqual([1, 1])
     expect(ayahStringSplitter("1:1-5", true, data)).toEqual([1, [1, 5]])
     expect(ayahStringSplitter("114:1", true, data)).toEqual([114, 1])
-    // expect(ayaStringSplitter("115:1")).toEqual([115,1])
+    // Expect(ayaStringSplitter("115:1")).toEqual([115,1])
   })
 
   it("error checks", () => {
@@ -69,30 +69,30 @@ describe("ayaStringSplitter", () => {
 describe("stringNumberSplitter", () => {
   it("parses simple surah:ayah format", () => {
     expect(string2NumberSplitter("2:255")).toEqual({
-      surahOrAyah: 2,
       ayah: 255,
-      ayahTo: 0
+      ayahTo: 0,
+      surahOrAyah: 2
     })
   })
 
   it("parses surah:ayah-ayahTo format", () => {
     expect(string2NumberSplitter("2:255-260")).toEqual({
-      surahOrAyah: 2,
       ayah: 255,
-      ayahTo: 260
+      ayahTo: 260,
+      surahOrAyah: 2
     })
   })
 
   it("handles different delimiters", () => {
     expect(string2NumberSplitter("2 255")).toEqual({
-      surahOrAyah: 2,
       ayah: 255,
-      ayahTo: 0
+      ayahTo: 0,
+      surahOrAyah: 2
     })
     expect(string2NumberSplitter("2-255")).toEqual({
-      surahOrAyah: 2,
       ayah: 255,
-      ayahTo: 0
+      ayahTo: 0,
+      surahOrAyah: 2
     })
   })
 
@@ -104,17 +104,17 @@ describe("stringNumberSplitter", () => {
 
   it("handles surah numbers only", () => {
     expect(string2NumberSplitter("2")).toEqual({
-      surahOrAyah: 2,
       ayah: 0,
-      ayahTo: 0
+      ayahTo: 0,
+      surahOrAyah: 2
     })
   })
 
   it("handles whitespace", () => {
     expect(string2NumberSplitter(" 2:255 ")).toEqual({
-      surahOrAyah: 2,
       ayah: 255,
-      ayahTo: 0
+      ayahTo: 0,
+      surahOrAyah: 2
     })
   })
 
@@ -136,20 +136,20 @@ describe("stringNumberSplitter", () => {
   })
 })
 
-describe("string2NumberSplitterStrict", () => {
+describe(string2NumberSplitterStrict, () => {
   it("parses simple surah:ayah format", () => {
     expect(string2NumberSplitterStrict("2:255")).toEqual({
-      surahOrAyah: 2,
       ayah: 255,
-      ayahTo: NaN
+      ayahTo: Number.NaN,
+      surahOrAyah: 2
     })
   })
 
   it("parses surah:ayah-ayahTo format", () => {
     expect(string2NumberSplitterStrict("2:255-260")).toEqual({
-      surahOrAyah: 2,
       ayah: 255,
-      ayahTo: 260
+      ayahTo: 260,
+      surahOrAyah: 2
     })
   })
 
@@ -171,9 +171,9 @@ describe("string2NumberSplitterStrict", () => {
 
   it("handles whitespace", () => {
     expect(string2NumberSplitterStrict(" 2:255 ")).toEqual({
-      surahOrAyah: 2,
       ayah: 255,
-      ayahTo: NaN
+      ayahTo: Number.NaN,
+      surahOrAyah: 2
     })
   })
 })

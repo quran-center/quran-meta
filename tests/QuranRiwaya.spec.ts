@@ -2,7 +2,7 @@ import { QuranRiwaya } from "../src/QuranRiwaya"
 import { HafsLists } from "../src/lists/HafsLists"
 import { QalunLists } from "../src/lists/QalunLists"
 
-describe("QuranRiwaya", () => {
+describe(QuranRiwaya, () => {
   describe("Factory methods", () => {
     it("should create Hafs instance with create() factory", () => {
       const hafs = QuranRiwaya.create(HafsLists)
@@ -23,14 +23,14 @@ describe("QuranRiwaya", () => {
       expect(meta.surahNum).toBe(1)
       expect(meta.ayahCount).toBe(7)
       expect(meta.name).toBe("الفَاتِحة")
-      expect(meta.isMeccan).toBe(true)
+      expect(meta.isMeccan).toBeTruthy()
     })
 
     it("should get surah info", () => {
       const info = hafs.getSurahInfo(1)
-      expect(info[0]).toBe(1) // firstAyahId
-      expect(info[1]).toBe(7) // ayahCount
-      expect(info[4]).toBe("الفَاتِحة") // name (0-indexed, so index 4)
+      expect(info[0]).toBe(1) // FirstAyahId
+      expect(info[1]).toBe(7) // AyahCount
+      expect(info[4]).toBe("الفَاتِحة") // Name (0-indexed, so index 4)
     })
 
     it("should get ayah count in surah", () => {
@@ -71,7 +71,7 @@ describe("QuranRiwaya", () => {
 
     it("should get metadata", () => {
       const hafs = QuranRiwaya.create(HafsLists)
-      const meta = hafs.meta
+      const { meta } = hafs
       expect(meta.numAyahs).toBe(6236)
       expect(meta.numSurahs).toBe(114)
 

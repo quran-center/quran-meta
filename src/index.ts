@@ -121,4 +121,4 @@ export {
 // ------------------ Sura i18 Data ---------------------
 
 export * from "./i18n"
-// export { getSurahNamesAsync } from "./i18n/getSurahNamesAsync"
+// Export { getSurahNamesAsync } from "./i18n/getSurahNamesAsync"

@@ -31,7 +31,7 @@ export function getAyahMeta(ayahId: AyahId, data: RiwayaData): AyahMeta {
   const [surah, ayah] = findSurahAyahByAyahId(ayahId, data)
   const page: Page = findPagebyAyahId(ayahId, data)
 
-  // const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
+  // Const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
   const isSajdahAyah = binarySearch(SajdaList, ayahId, (a, b) => a - b) >= 0
 
   const rk = binarySearch(RukuList, ayahId)
@@ -51,20 +51,20 @@ export function getAyahMeta(ayahId: AyahId, data: RiwayaData): AyahMeta {
   return {
     ...quarterData,
     ...getThumunData(),
-    surah,
     ayah,
-    page,
-    isStartOfQuarter,
-    isEndOfQuarter,
-    isSajdahAyah,
-    isStartOfPage,
-    isEndOfPage,
-    ruku,
-    isStartOfJuz,
     isEndOfJuz,
-    isStartOfSurah,
+    isEndOfPage,
+    isEndOfQuarter,
+    isEndOfRuku,
     isEndOfSurah,
+    isSajdahAyah,
+    isStartOfJuz,
+    isStartOfPage,
+    isStartOfQuarter,
     isStartOfRuku,
-    isEndOfRuku
+    isStartOfSurah,
+    page,
+    ruku,
+    surah
   }
 }

@@ -10,13 +10,6 @@ const banner = `/*!
 
 export default defineBuildConfig({
   declaration: true,
-  rollup: {
-    emitCJS: true,
-    output: {
-      banner: banner
-    }
-  },
-
   entries: [
     "./src/index",
     {
@@ -32,26 +25,33 @@ export default defineBuildConfig({
       ext: "cjs",
       declaration: false
     }
-  ]
-  // hooks: {
+  ],
+
+  rollup: {
+    emitCJS: true,
+    output: {
+      banner: banner
+    }
+  }
+  // Hooks: {
   //   "rollup:options": (ctx, option) => {
-  //     option.output?.push(
+  //     Option.output?.push(
   //       {
-  //         entryFileNames: "quran-meta.js",
-  //         name: "quranMeta",
-  //         dir: "dist",
-  //         format: "umd",
-  //         banner: banner,
-  //         sourcemap: true
+  //         EntryFileNames: "quran-meta.js",
+  //         Name: "quranMeta",
+  //         Dir: "dist",
+  //         Format: "umd",
+  //         Banner: banner,
+  //         Sourcemap: true
   //       },
   //       {
-  //         entryFileNames: "quran-meta.min.js",
-  //         name: "quranMeta",
-  //         inlineDynamicImports: true,
-  //         dir: "dist",
-  //         format: "umd",
-  //         banner: banner,
-  //         compact: true
+  //         EntryFileNames: "quran-meta.min.js",
+  //         Name: "quranMeta",
+  //         InlineDynamicImports: true,
+  //         Dir: "dist",
+  //         Format: "umd",
+  //         Banner: banner,
+  //         Compact: true
   //       }
   //     )
   //   }

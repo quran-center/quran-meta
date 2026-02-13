@@ -1,14 +1,14 @@
 import { isSurahAyahJuzFirst } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 
-describe("isSurahAyahJuzFirst", () => {
+describe(isSurahAyahJuzFirst, () => {
   it("basic", () => {
     expect(isSurahAyahJuzFirst(1, 1, HafsLists)).toEqual(1)
     expect(isSurahAyahJuzFirst(2, 142, HafsLists)).toEqual(2)
 
     expect(isSurahAyahJuzFirst(2, 1, HafsLists)).toEqual(-3)
     expect(isSurahAyahJuzFirst(114, 1, HafsLists)).toEqual(-32)
-    // expect(isSurahAyahJuzFirst(1, 114, HafsLists)).toEqual(-3)
+    // Expect(isSurahAyahJuzFirst(1, 114, HafsLists)).toEqual(-3)
   })
 
   it("should return correct Juz for the first ayah of a Juz", () => {

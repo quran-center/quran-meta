@@ -1,34 +1,34 @@
 import { defineConfig } from "tsdown/config"
 
-const exports = { hafs: "hafs", qalun: "qalun", warsh: "warsh", base: "index" }
+const exports = { base: "index", hafs: "hafs", qalun: "qalun", warsh: "warsh" }
 
 export default defineConfig([
   ...Object.entries(exports).map(([name, entry]) => ({
     entry: `src/${entry}.ts`,
-    platform: "neutral" as const,
+    exports: false,
     name,
-    exports: false
+    platform: "neutral" as const
   })),
   ...Object.entries(exports).map(([name, entry]) => ({
     entry: `src/${entry}.ts`,
-    platform: "neutral" as const,
-    name,
-    minify: true,
     exports: false,
-    outExtensions: () => ({ js: ".min.js" })
+    minify: true,
+    name,
+    outExtensions: () => ({ js: ".min.js" }),
+    platform: "neutral" as const
   })),
   {
     entry: "src/i18n/index.ts",
-    platform: "neutral",
     exports: false,
     name: "i18n",
-    outDir: "dist/i18n"
+    outDir: "dist/i18n",
+    platform: "neutral"
   },
   {
     entry: "src/index.ts",
+    exports: false,
     format: "iife",
     name: "iife",
-    exports: false,
     outputOptions: {
       name: "quranMeta"
     }
@@ -37,16 +37,16 @@ export default defineConfig([
     entry: "src/index.ts",
     format: "esm",
     name: "esm",
-    platform: "node",
     outDir: "lib_es",
+    platform: "node",
     unbundle: true
   },
   {
     entry: "src/index.ts",
-    platform: "node",
     format: "commonjs",
     name: "cjs",
     outDir: "lib_cjs",
+    platform: "node",
     unbundle: true
   }
 ])

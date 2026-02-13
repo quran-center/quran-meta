@@ -2,28 +2,39 @@ import type { Lang, SurahNames } from "./types"
 
 export async function getSurahNamesAsync(lang: Lang): Promise<SurahNames> {
   switch (lang) {
-    case "ru":
+    case "ru": {
       return (await import("./surah.ru")).surahNamesRu
-    case "uz":
+    }
+    case "uz": {
       return (await import("./surah.uz")).surahNamesUz
-    case "tr":
+    }
+    case "tr": {
       return (await import("./surah.tr")).surahNamesTr
-    case "az":
+    }
+    case "az": {
       return (await import("./surah.az")).surahNamesAz
-    case "kk":
+    }
+    case "kk": {
       return (await import("./surah.kk")).surahNamesKk
-    case "fr":
+    }
+    case "fr": {
       return (await import("./surah.fr")).surahNamesFr
-    case "lt":
+    }
+    case "lt": {
       return (await import("./surah.lt")).surahNamesLt
-    case "tg":
+    }
+    case "tg": {
       return (await import("./surah.tg")).surahNamesTg
-    case "ky":
+    }
+    case "ky": {
       return (await import("./surah.ky")).surahNamesKy
-    case "bs":
+    }
+    case "bs": {
       return (await import("./surah.bs")).surahNamesBs
+    }
     case "en":
-    default:
-      return (await import("./surah.en")).surahNamesEn // fallback to English
+    default: {
+      return (await import("./surah.en")).surahNamesEn
+    } // Fallback to English
   }
 }

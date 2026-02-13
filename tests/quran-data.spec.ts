@@ -12,7 +12,7 @@ import { getSurahInfo } from "../src/getSurahInfo"
 import { HafsLists } from "../src/lists/HafsLists"
 import type { AyahId, AyahNo, Surah } from "../src/types"
 
-const JuzList = HafsLists.JuzList
+const { JuzList } = HafsLists
 
 console.log("STARING")
 console.log(1, findSurahByAyahId(1, HafsLists))
@@ -21,7 +21,7 @@ console.log("findSurahByAyahId 6216", findSurahByAyahId(6216, HafsLists))
 console.log("findSurahByAyahId 6217", findSurahByAyahId(6217, HafsLists))
 console.log("findSurahByAyahId 6226", findSurahByAyahId(6226, HafsLists))
 console.log(HafsMeta.numAyahs, findSurahByAyahId(HafsMeta.numAyahs, HafsLists))
-// console.log(6237, findSurahByAyahId(6237, HafsLists))
+// Console.log(6237, findSurahByAyahId(6237, HafsLists))
 console.log("findSurahByAyahId 1", findSurahByAyahId(1, HafsLists))
 console.log("findSurahByAyahId 147", findSurahByAyahId(149, HafsLists))
 console.log("isAyahJuzFirst 1", isAyahJuzFirst(findAyahIdBySurah(1, 1, HafsLists), HafsLists))
@@ -41,9 +41,9 @@ console.log("findPage 604", findPage(114, 1, HafsLists))
 console.log("SurahInfo 1", getSurahInfo(1, HafsLists))
 console.log("SurahInfo 114", getSurahInfo(114, HafsLists))
 console.log("pageMeta 604", getPageMeta(604, HafsLists))
-// console.log("pmeta", pageMetaOld(604))
+// Console.log("pmeta", pageMetaOld(604))
 console.log("pmeta", getPageMeta(1, HafsLists))
-// console.log("pmeta", pageMetaOld(1))
+// Console.log("pmeta", pageMetaOld(1))
 
 const f = (i: AyahId) => expect(findAyahIdBySurah(...findSurahAyahByAyahId(i, HafsLists), HafsLists)).toEqual(i)
 const xf = (i: Surah, j: AyahNo) =>

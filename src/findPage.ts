@@ -15,8 +15,8 @@ import { checkValidSurah } from "./validation"
 export function findPage(surah: Surah, ayah: AyahNo | AyahId = 1, data: RiwayaData): Page {
   checkValidSurah(surah, data.meta)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah as AyahNo, data)
-  const PageList = data.PageList
-  // return PageList.findIndex(x => x > ayahId) - 1 as Page
+  const { PageList } = data
+  // Return PageList.findIndex(x => x > ayahId) - 1 as Page
   const jj = binarySearch(PageList, ayahId)
   const page = jj < 0 ? -jj - 2 : jj
   return page as Page

@@ -1,7 +1,7 @@
 import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
 
-export type RiwayaFullData = {
+export interface RiwayaFullData {
   HizbEighthList?: AyahId[]
   HizbQuarterList: AyahId[]
   JuzList: AyahId[]
@@ -16,7 +16,7 @@ type RiwayasNames = ["Hafs", "Qalun", "Warsh"]
 export type RiwayaName = RiwayasNames[number]
 export type AllListsNames = keyof Omit<RiwayaFullData, "meta">
 
-type MissingListsPerRiwaya = {
+interface MissingListsPerRiwaya {
   Hafs: ["HizbEighthList"]
   Qalun: []
   Warsh: []
@@ -43,11 +43,11 @@ export const partNames = ["surah", "juz", "rubAlHizb", "thumunAlHizb", "page", "
 export type PartType = (typeof partNames)[number]
 
 export const parts = {
-  surah: "SurahList",
   juz: "JuzList",
-  rubAlHizb: "HizbQuarterList",
-  thumunAlHizb: "HizbEighthList",
-  page: "PageList",
   manzil: "ManzilList",
-  ruku: "RukuList"
+  page: "PageList",
+  rubAlHizb: "HizbQuarterList",
+  ruku: "RukuList",
+  surah: "SurahList",
+  thumunAlHizb: "HizbEighthList"
 } as const satisfies Record<PartType, AllListsNames>

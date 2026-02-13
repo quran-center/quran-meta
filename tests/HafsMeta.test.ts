@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest"
+import { describe, expect, it } from "vitest"
 import { HafsLists, HafsMeta } from "../src/lists/HafsLists"
 import type { Riwayas } from "../src/lists/types"
 

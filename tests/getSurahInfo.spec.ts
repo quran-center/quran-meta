@@ -1,9 +1,9 @@
 import { getSurahInfo } from "../src/getSurahInfo"
 import { HafsLists } from "../src/lists/HafsLists"
 
-const SurahList = HafsLists.SurahList
+const { SurahList } = HafsLists
 
-describe("getSurahInfo", () => {
+describe(getSurahInfo, () => {
   it("should return correct metadata for first surah", () => {
     const result = getSurahInfo(1, HafsLists)
     expect(result).toEqual(SurahList[1])
