@@ -123,7 +123,7 @@ Also modern browsers allow
 
 ```html
 <script type="module">
-import quranMeta from "quran-meta.esm.js"
+  import quranMeta from "quran-meta.esm.js"
 </script>
 ```
 
@@ -241,7 +241,6 @@ var quranMeta = require("quran-meta")
 
 console.log(" Assalam Aleykum! ") // => 'Assalam Aleykum!'
 console.log(`There are ${quranMeta.meta.numSurahs} suras in the Holy Quran`) // => 'There are 114 suras in the Holy Quran'
-
 ```
 
 In the browser/ES:
@@ -261,7 +260,7 @@ console.log(`There are ${meta.numSurahs} suras in the Holy Quran`)
 
 for (let surah: Surah = 1; surah <= meta.numSurahs; surah++) {
   const ayaCount = getAyahCountinSurah(surah)
-  console.log(surah, ': ',ayaCount)
+  console.log(surah, ": ", ayaCount)
 }
 ```
 

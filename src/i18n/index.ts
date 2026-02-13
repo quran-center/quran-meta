@@ -23,7 +23,7 @@ export {
   surahNamesLt,
   surahNamesTg,
   surahNamesKy,
-  surahNamesBs,
+  surahNamesBs
 }
 
 export const surahNames: SurahNamesI18n = {
@@ -37,8 +37,7 @@ export const surahNames: SurahNamesI18n = {
   lt: surahNamesLt,
   tg: surahNamesTg,
   ky: surahNamesKy,
-  bs: surahNamesBs,
-
+  bs: surahNamesBs
 }
 
 export { getSurahNames } from "./getSurahNames"

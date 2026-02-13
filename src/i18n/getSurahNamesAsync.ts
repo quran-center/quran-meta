@@ -3,7 +3,7 @@ import type { Lang, SurahNames } from "./types"
 export async function getSurahNamesAsync(lang: Lang): Promise<SurahNames> {
   switch (lang) {
     case "ru":
-      return (await import("./surah.ru")).surahNamesRu    
+      return (await import("./surah.ru")).surahNamesRu
     case "uz":
       return (await import("./surah.uz")).surahNamesUz
     case "tr":
@@ -21,7 +21,7 @@ export async function getSurahNamesAsync(lang: Lang): Promise<SurahNames> {
     case "ky":
       return (await import("./surah.ky")).surahNamesKy
     case "bs":
-      return (await import("./surah.bs")).surahNamesBs     
+      return (await import("./surah.bs")).surahNamesBs
     case "en":
     default:
       return (await import("./surah.en")).surahNamesEn // fallback to English
