@@ -18,5 +18,5 @@ export function surahStringParser(str: string, isStrict: boolean = false, meta: 
     throw new Error("Error in surah number " + str)
   }
 
-  return surahX as Surah
+  return surahX
 }
