@@ -2,7 +2,7 @@ import { findPagebyAyahId } from "./findPagebyAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
 import type { RiwayaData } from "./lists/types"
-import type { AyahId, AyahMeta, Page, ThumunAlHizbId } from "./types"
+import type { AyahId, AyahMeta, Page, Ruku, ThumunAlHizbId } from "./types"
 import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
 
@@ -36,7 +36,7 @@ export function getAyahMeta(ayahId: AyahId, data: RiwayaData): AyahMeta {
 
   const rk = binarySearch(RukuList, ayahId)
   const isStartOfRuku = rk > 0
-  const ruku = isStartOfRuku ? rk : -rk - 2
+  const ruku = (isStartOfRuku ? rk : -rk - 2) as Ruku
 
   const isStartOfSurah = SurahList[surah][0] === ayahId
   const isStartOfPage = PageList[page] === ayahId

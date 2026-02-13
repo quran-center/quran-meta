@@ -277,16 +277,19 @@ export interface SurahJuzMeta {
 
 export type RangeMode = "juz" | "surah" | "ayah" | "page" | "ruku" | "all"
 
-export interface AyahMeta {
+export interface SurahAyahPos {
+  surah: Surah
+  ayah: AyahNo
+}
+
+export interface AyahMeta extends SurahAyahPos {
   juz: Juz
   juzPart: JuzPart // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   hizbId: HizbId
   rubAlHizbId: RubAlHizbId
   thumunAlHizbId?: ThumunAlHizbId
   page: Page
-  ruku: number
-  surah: Surah
-  ayah: AyahNo
+  ruku: Ruku
   isStartOfQuarter: boolean
   isEndOfQuarter: boolean
   isSajdahAyah: boolean

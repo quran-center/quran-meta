@@ -57,6 +57,16 @@ export function isValidSurahAyah(x: [unknown, unknown], data: RiwayaData): x is 
 }
 
 /**
+ * Type guard that checks if two values represent a valid Surah and Ayah combination
+ * @param x - The first value to check (potentially a Surah number)
+ * @param y - The second value to check (potentially an Ayah number)
+ *
+ */
+export function isValidSurahAndAyah(x: unknown, y: unknown, data: RiwayaData): x is SurahAyah {
+  return isValidSurahAyah([x, y], data)
+}
+
+/**
  * Type guard that checks if a number is a valid Juz number
  * @param x - The number to check
  * @returns True if the number is an integer between 1 and the total number of Juzs (inclusive)

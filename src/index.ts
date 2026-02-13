@@ -27,6 +27,7 @@ export type {
   Surah,
   SurahAyah,
   SurahAyahSegment,
+  SurahAyahPos,
   SurahInfo,
   SurahName,
   ManzilMeta
