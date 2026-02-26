@@ -5,7 +5,7 @@
  * Run with: pnpx jiti generate-riwayah.ts
  */
 
-const name = "Warsh" // For output file naming
+const riwayahName = "Warsh" // For output file naming
 import data from "./data/WarshData_v2-1.json"
 // Import data from "../data/WarshData_v2-0.json"
 // Import data from "../data/DouriData_v2-0.json"
@@ -150,24 +150,24 @@ ${surahList.map((s) => "  [" + s[0] + ", " + s[1] + ", " + s[2] + ", " + s[3] + 
 ] as const
 
 /**
- * ${name} riwaya metadata
+ * ${riwayahName} riwaya metadata
  */
-export const ${name}Meta = {
-  riwayah: ${name},
+export const ${riwayahName}Meta = {
+  riwayah: ${riwayahName},
   numAyahs: ${data.length},
   numSurahs: 114,
   numPages: ${pageList.length - 2},
   numJuzs: ${juzList.length - 2},
   numHizbs: 60,
   numRubAlHizbs: ${hizbQuarterList.length - 2},
-  numThumunAlHizbs: 0, // ${name} doesn't have Thumun al-Hizb
+  numThumunAlHizbs: 0, // ${riwayahName} doesn't have Thumun al-Hizb
   numRubsInJuz: 8,
   numSajdas: ${sajdaList.length}, // Placeholder - needs verification
   numRukus:0, // ${rukuList.length - 2}, // Placeholder - needs verification
   numManzils: ${manzilList.length - 2}
 } as const
 
-export const ${name}Lists = {
+export const ${riwayahName}Lists = {
   HizbQuarterList,
   JuzList,
   ManzilList,
