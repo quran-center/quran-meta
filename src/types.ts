@@ -137,6 +137,7 @@ export type AyahNo = NumericRange<1, typeof maxAyahsInSurah>
  * @remarks
  * - Hafs: 0 ThumunAlHizbs (not supported)
  * - Qalun: 480 ThumunAlHizbs
+ * - Warsh: 0 ThumunAlHizbs (no verified source data)
  */
 export type ThumunAlHizbId = NumericRange<1, 480>
 /**

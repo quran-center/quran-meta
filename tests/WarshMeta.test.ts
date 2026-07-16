@@ -1,6 +1,5 @@
 import { describe, expect, test } from "vitest"
 import {
-  HizbEighthList,
   HizbQuarterList,
   JuzList,
   ManzilList,
@@ -64,9 +63,7 @@ describe("WarshMeta Validation", () => {
     expect(WarshMeta.numRukus).toBe(calculated)
   })
 
-  test("numThumunAlHizbs should be 0 for Warsh", () => {
-    const calculated = HizbEighthList.length - 2
-    expect(WarshMeta.numThumunAlHizbs).toBe(calculated)
-    expect(WarshMeta.numThumunAlHizbs).toBe(480)
+  test("numThumunAlHizbs should be 0 for Warsh (no thumun al-hizb data)", () => {
+    expect(WarshMeta.numThumunAlHizbs).toBe(0)
   })
 })

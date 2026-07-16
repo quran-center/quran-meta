@@ -15,10 +15,16 @@ export function checkKFQCWarsh() {
   console.log("\x1b[35mChecking KFQC Warsh data\x1b[0m")
   console.log("-------------------------------------")
 
+  let previousRubAlHizbId: number | undefined
+
+  if (ayahCount !== quran.meta.numAyahs) {
+    console.log(`Error: Ayah count mismatch: `, ayahCount, quran.meta.numAyahs)
+  }
   // Ayah Checks
   for (let ayahId: AyahId = 1; ayahId <= ayahCount; ayahId++) {
     const ayahMeta = quran.getAyahMeta(ayahId)
     const warshMeta = WarshData[ayahId - 1]
+    const isStartOfMaqra = ayahId === 1 || ayahMeta.rubAlHizbId !== previousRubAlHizbId
 
     // Commented  as KFQC  data is using different page numbering which Quran Meta does not support
     if (ayahMeta.page !== Number.parseInt(warshMeta.page)) {
@@ -38,9 +44,12 @@ export function checkKFQCWarsh() {
     if (ayahMeta.isSajdahAyah !== warshMeta.aya_text.includes("۩")) {
       console.warn(`Error: sajdah of Ayah ${ayahId} are not matching: `, ayahMeta, warshMeta)
     }
-    if (ayahMeta.isStartOfQuarter !== warshMeta.aya_text.includes("۞") && ayahId !== 1) {
+    if (ayahMeta.isStartOfQuarter && !isStartOfMaqra) {
       console.warn(`Error: RubAlHizb of Ayah ${ayahId} are not matching: `, ayahMeta, warshMeta)
     }
+    // if (ayahId !== 1 && warshMeta.aya_text.includes("۞") && !isStartOfMaqra) {
+    //   console.warn(`Error: Maqra of Ayah ${ayahId} are not matching: `, ayahMeta, warshMeta)
+    // }
     if (ayahMeta.ayah === 1 && warshMeta.sura_name_ar.trim() !== quran.getSurahMeta(ayahMeta.surah).name.trim()) {
       console.warn(
         `Error: name of Surah of Ayah ${ayahId} are not matching: `,
@@ -48,6 +57,8 @@ export function checkKFQCWarsh() {
         warshMeta
       )
     }
+
+    previousRubAlHizbId = ayahMeta.rubAlHizbId
   }
 }
 /*

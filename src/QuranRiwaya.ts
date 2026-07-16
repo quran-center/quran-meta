@@ -366,21 +366,21 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   // ==================== ThumunAlHizb Methods ====================
 
   /**
-   * Finds the ThumunAlHizb ID for a given ayah ID (Qalun/Warsh only)
+   * Finds the ThumunAlHizb ID for a given ayah ID (Qalun only)
    */
   findThumunAlHizbByAyahId(ayahId: AyahId): ThumunAlHizbId | null {
     return findThumunAlHizbByAyahId(ayahId, this.#data)
   }
 
   /**
-   * Finds the ThumunAlHizb ID for a given ayah ID (Qalun/Warsh only)
+   * Finds the ThumunAlHizb ID for a given ayah ID (Qalun only)
    */
   findThumunAlHizb(surah: Surah, ayah: AyahNo = 1): ThumunAlHizbId | null {
     return findThumunAlHizb(surah, ayah, this.#data)
   }
 
   /**
-   * Gets metadata for a specific ThumunAlHizb (Qalun/Warsh only)
+   * Gets metadata for a specific ThumunAlHizb (Qalun only)
    */
   getThumunAlHizbMeta(eighthIndex: ThumunAlHizbId): ThumunAlHizbMeta | null {
     return getThumunAlHizbMeta(eighthIndex, this.#data)

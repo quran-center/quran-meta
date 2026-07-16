@@ -19,7 +19,7 @@ export type AllListsNames = keyof Omit<RiwayaFullData, "meta">
 interface MissingListsPerRiwaya {
   Hafs: ["HizbEighthList"]
   Qalun: []
-  Warsh: []
+  Warsh: ["HizbEighthList"]
 }
 export type Riwayas = {
   [k in RiwayaName]: Omit<RiwayaFullData, MissingListsPerRiwaya[k][number]> & { meta: QuranMeta }
