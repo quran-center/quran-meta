@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v6.1.1-2
+
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-0...v6.1.1-2)
+
+### 🏡 Chore
+
+- **release:** V6.1.1-0 ([321e5de](https://github.com/quran-center/quran-meta/commit/321e5de))
+- **release:** V6.1.1-1 ([b3bf5c4](https://github.com/quran-center/quran-meta/commit/b3bf5c4))
+
+### ❤️ Contributors
+
+- HG <husayt@gmail.com>
+
 ## v6.1.1-1
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-0...v6.1.1-1)
