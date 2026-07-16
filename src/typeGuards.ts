@@ -1,6 +1,6 @@
 import { maxAyahsInSurah } from "./types"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
-import type { AyahId, AyahNo, HizbId, Juz, Manzil, QuranMeta, RubAlHizbId, Ruku, Surah, SurahAyah } from "./types"
+import type { AyahId, AyahNo, HizbId, Juz, Manzil, Page, QuranMeta, RubAlHizbId, Ruku, Surah, SurahAyah } from "./types"
 import type { RiwayaData } from "./lists/types"
 
 /**
@@ -98,7 +98,7 @@ export function isValidRubAlHizb(x: unknown, lists: RiwayaData): x is RubAlHizbI
  * @param x - The number to check
  * @returns True if the number is an integer between 1 and the total number of pages (inclusive)
  */
-export function isValidPage(x: unknown, meta: QuranMeta): x is Juz {
+export function isValidPage(x: unknown, meta: QuranMeta): x is Page {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= meta.numPages
 }
 

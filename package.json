@@ -26,7 +26,11 @@
   "unpkg": "./dist/index.js",
   "jsdelivr": "./dist/index.js",
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./lib_cjs/index.cjs"
+    },
     "./package.json": "./package.json",
     "./i18n": {
       "types": "./dist/i18n/index.d.ts",
@@ -68,9 +72,7 @@
     "up": "pnpm update -i -L",
     "verify": "pnpx jiti examples/data-check/"
   },
-  "dependencies": {
-    "oxfmt": "^0.59.0"
-  },
+  "sideEffects": false,
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/node": "26.1.1",
@@ -78,6 +80,7 @@
     "changelogen": "^0.6.2",
     "eslint": "10.7.0",
     "eslint-plugin-tsdoc": "^0.5.2",
+    "oxfmt": "^0.59.0",
     "oxlint": "^1.74.0",
     "oxlint-tsgolint": "^0.24.0",
     "rimraf": "^6.1.3",

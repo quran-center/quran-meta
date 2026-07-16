@@ -30,7 +30,7 @@ This project is to help with Quran related meta queries.
 
 Answering Questions like:
 
-- How many ayahs in given surah of Hafs Riwaya or Warsh or Qalun (`getAyahCountinSurah`)
+- How many ayahs in given surah of Hafs Riwaya or Warsh or Qalun (`getAyahCountInSurah`)
 - What is the juz of given ayah (`getAyahMeta`)?
 - What is the next ayah after given ayah (`nextAyah`)?
 - Is given ayah
@@ -53,7 +53,7 @@ Answering Questions like:
 - Validates ayah/surah id (`checkValidAyahId`,`checkValidSurah`, `checkValidSurahAyah`, etc)
 - Typescript type guards (`isValidAyahId`, `isValidAyahNo`, `isValidSurah`, `isValidSurahAyah`, `isValidJuz`, `isValidHizb`, `isValidRubAlHizb`, `isValidPage`)
 - converts `[surah, ayah]` to `ayahId` and vice-verse ( `findSurahByAyahId` and `findAyahIdBySurah`)
-- Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range (`ayaStringSplitter`).
+- Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range (`ayahStringSplitter`).
 - Checks and parses strings of type "x" to Surah (`surahStringParser`).
 
 ### Features
@@ -232,7 +232,7 @@ const custom = QuranRiwaya.create("Hafs")
 
 **Legacy Functional API**
 
-The original functional API is still available for backward compatibility:
+The original functional API is still available for backward compatibility. The root `quran-meta` entry point exports `meta` (Hafs by default) plus the raw, riwaya-agnostic functions - these take an explicit `lists`/`data` argument (e.g. `getAyahCountInSurah(surah, data)`). For the pre-bound, single-argument versions shown below, import from `quran-meta/hafs` (or `/qalun`, `/warsh`) as described above.
 
 In Node.js see example [here](/examples/hello.cjs):
 
@@ -254,12 +254,12 @@ console.log(`There are ${meta.numSurahs} suras in the Holy Quran`) // => 'There 
 In TypeScript:
 
 ```ts
-import { meta, getAyahCountinSurah, AyahNo, Surah } from "quran-meta"
+import { meta, getAyahCountInSurah, AyahNo, Surah } from "quran-meta/hafs"
 
 console.log(`There are ${meta.numSurahs} suras in the Holy Quran`)
 
 for (let surah: Surah = 1; surah <= meta.numSurahs; surah++) {
-  const ayaCount = getAyahCountinSurah(surah)
+  const ayaCount = getAyahCountInSurah(surah)
   console.log(surah, ": ", ayaCount)
 }
 ```
@@ -268,7 +268,7 @@ Here's a paragraph describing this major feature:
 
 ## Custom Riwaya Support - Build Your Own!
 
-**quran-meta** now supports **custom riwaya instances**, allowing you to use the library with your own Quranic data sources. Whether you're working with a different recitation style (riwaya) not yet included in the library, using an alternative pagination system (like different mushaf layouts with 13, 15, or 16 lines per page), or integrating region-specific Quranic metadata, you can now create your own `QuranRiwaya` instance with your custom data. Simply prepare your data in the required format (Lists structure with SurahList, JuzList, PageList, etc.) and instantiate the library with `QuranRiwaya.create(riwayaName, customMeta, customLists)`.
+**quran-meta** now supports **custom riwaya instances**, allowing you to use the library with your own Quranic data sources. Whether you're working with a different recitation style (riwaya) not yet included in the library, using an alternative pagination system (like different mushaf layouts with 13, 15, or 16 lines per page), or integrating region-specific Quranic metadata, you can now create your own `QuranRiwaya` instance with your custom data. Simply prepare your data in the required format (Lists structure with SurahList, JuzList, PageList, meta, etc.) and instantiate the library with `QuranRiwaya.create(customLists)`.
 
 All 40+ methods will work seamlessly with your data—including navigation (`nextAyah`, `prevAyah`), metadata queries (`getAyahMeta`, `getSurahInfo`), and advanced features (juz/page/ruku lookups). This opens up possibilities for researchers, developers working with regional mushaf standards, digital Quran applications targeting specific communities, and anyone needing Quranic metadata for specialized use cases.
 
@@ -289,7 +289,7 @@ We are commited to expanding support for more riwayas and pagination systems in 
 - _Manzil_: For the convenience of those who read the Quran in a week the text may be divided into seven portions. Each portion is called a Manzil. There are 7 Manzil in Quran. Read more [here](https://en.wikipedia.org/wiki/Manzil)
 - _Page_: A section of the Quran that contains 15 lines (Madina mushaf)(depends on the mushaf).
 - _Saajdah_: Special ayahs that require reader to prostrate. There are 15 of them in Quran.
-- _Ruku_: (paragraph) is a group of related verses in a Surah. The end of a Ruku’ is marked by the Arabic letter **ﻉ** in superscript. There are 558 Rukus in the Quran. These are logical sections according to similar theme/objective or meaning. The bigger Surahs have been split into a number of Rukus, so that we would recognize when to do Ruku' (bowing) in Salat without interrupting a proceeding subject of the Quran. Additionally, on the margins of the Quran, usually three figures are written with **ﻉ**. The top figure shows the number of Rukus completed in that Surah. The middle figure shows the number of Ayats in the Ruku just completed. The bottom figure shows the number of Rukus completed in that Juz.
+- _Ruku_: (paragraph) is a group of related verses in a Surah. The end of a Ruku’ is marked by the Arabic letter **ﻉ** in superscript. There are 556 Rukus in the Quran (Hafs riwaya). These are logical sections according to similar theme/objective or meaning. The bigger Surahs have been split into a number of Rukus, so that we would recognize when to do Ruku' (bowing) in Salat without interrupting a proceeding subject of the Quran. Additionally, on the margins of the Quran, usually three figures are written with **ﻉ**. The top figure shows the number of Rukus completed in that Surah. The middle figure shows the number of Ayats in the Ruku just completed. The bottom figure shows the number of Rukus completed in that Juz.
 - _Qira'at (Recitations) and Riwayat (Narrations)_: The Quran has been transmitted through different authentic modes of recitation, known as Qira'at.
   There are ten recognized Qira'at, each named after a prominent reciter (Qari).
   Within each Qira'at, there are multiple Riwayat (narrations) - the chains of transmission through which these recitations were preserved.

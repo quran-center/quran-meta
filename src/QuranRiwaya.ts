@@ -109,11 +109,14 @@ import {
  *
  * @example
  * **Creating a custom instance**
+ *
+ * `QuranRiwaya.create()` takes a Lists object (SurahList, JuzList, PageList, etc.
+ * plus meta) shaped like the built-in Hafs/Qalun/Warsh data - see the
+ * implementations in `src/lists/` as a reference for the required structure.
  * ```typescript
  * import { QuranRiwaya } from 'quran-meta'
- * import { WarshMeta, WarshLists } from 'quran-meta/lists/WarshLists'
  *
- * const warsh = QuranRiwaya.create(WarshLists)
+ * const custom = QuranRiwaya.create(myCustomLists)
  * ```
  */
 export class QuranRiwaya<R extends RiwayaName = "Hafs"> {

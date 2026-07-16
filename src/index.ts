@@ -60,6 +60,12 @@ export const createWarsh = () => QuranRiwaya.create(WarshLists)
  */
 export const quran = createHafs()
 
+/**
+ * Default Quran metadata (Hafs riwaya).
+ * For other riwayas, use `quran-meta/qalun` or `quran-meta/warsh`.
+ */
+export const { meta } = HafsLists
+
 export { QuranRiwaya } from "./QuranRiwaya"
 export { getList, generatePartBlocks, getListNormalised } from "./lists/getList"
 export { getListsOfRiwaya, getListOfRiwaya } from "./lists"
@@ -104,8 +110,10 @@ export {
   isValidRuku,
   isValidAyahId,
   isValidAyahNo,
+  isValidHizb,
   isValidJuz,
   isValidPage,
+  isValidRubAlHizb,
   isValidSurah,
   isValidSurahAyah
 } from "./typeGuards"
