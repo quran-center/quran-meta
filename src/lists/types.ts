@@ -12,11 +12,11 @@ export interface RiwayaFullData {
   SurahList: FixedArray<SurahInfo, 116>
   meta: QuranMeta
 }
-type RiwayasNames = ["Bazzi", "Douri", "Hafs", "Qalun", "Qunbul", "Shuba", "Sousi", "Warsh"]
+export type RiwayasNames = ["Bazzi", "Douri", "Hafs", "Qalun", "Qunbul", "Shuba", "Sousi", "Warsh"]
 export type RiwayaName = RiwayasNames[number]
 export type AllListsNames = keyof Omit<RiwayaFullData, "meta">
 
-interface MissingListsPerRiwaya {
+export interface MissingListsPerRiwaya {
   Bazzi: ["HizbEighthList"]
   Douri: ["HizbEighthList"]
   Hafs: ["HizbEighthList"]

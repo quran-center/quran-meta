@@ -78,8 +78,8 @@ export function checkValidAyahId(ayahId: unknown | number, meta: QuranMeta): ass
 /**
  * Checks if a value is a valid Page number.
  * @param x - The value to check
- * @throws {@link TypeError} When the value is not an integer
- * @throws {@link RangeError} When the value is not within valid page range (1 to numPages)
+ * @throws {TypeError} When the value is not an integer
+ * @throws {RangeError} When the value is not within valid page range (1 to numPages)
  * @remarks This is a type assertion function that ensures a value is a valid Page number
  */
 export function checkValidPage(x: unknown | number | Page, meta: QuranMeta): asserts x is Page {
@@ -97,8 +97,8 @@ export function checkValidPage(x: unknown | number | Page, meta: QuranMeta): ass
  * Throws RangeError if value is outside valid Juz range.
  *
  * @param x - Value to check
- * @throws {@link TypeError} If value is not an integer
- * @throws {@link RangeError} If value is not between 1 and the total number of Juz
+ * @throws {TypeError} If value is not an integer
+ * @throws {RangeError} If value is not between 1 and the total number of Juz
  */
 export function checkValidJuz(x: unknown | number | Juz, meta: QuranMeta): asserts x is Juz {
   if (typeof x !== "number" || !Number.isInteger(x)) {
@@ -112,8 +112,8 @@ export function checkValidJuz(x: unknown | number | Juz, meta: QuranMeta): asser
 /**
  * Type guard that checks if a value is a valid Ruku number.
  * @param x - The value to check
- * @throws {@link TypeError} If the value is not an integer number
- * @throws {@link RangeError} If the number is not within valid Ruku range
+ * @throws {TypeError} If the value is not an integer number
+ * @throws {RangeError} If the number is not within valid Ruku range
  * @example
  * ```ts
  * checkValidRuku(5); // OK
@@ -133,8 +133,8 @@ export function checkValidRuku(x: unknown | number | Ruku, meta: QuranMeta): ass
 /**
  * Type guard that checks if a value is a valid Manzil number.
  * @param x - The value to check
- * @throws {@link TypeError} If the value is not an integer
- * @throws {@link RangeError} If the value is not within valid Manzil range (1 to max manzils)
+ * @throws {TypeError} If the value is not an integer
+ * @throws {RangeError} If the value is not within valid Manzil range (1 to max manzils)
  * @remarks This is an assertion function that ensures the input is a valid Manzil type
  */
 export function checkValidManzil(x: unknown | number | Manzil, meta: QuranMeta): asserts x is Manzil {
