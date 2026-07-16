@@ -12,22 +12,57 @@ export interface PartBlock {
   startAyahId: AyahId
   ayahCount: AyahId | AyahNo
 }
-type PartBlocker = (...any: unknown[]) => PartBlock
+type PartBlocker = (value: AyahId | SurahInfo, index: number) => PartBlock
+
+function isSurahInfo(value: unknown): value is SurahInfo {
+  return Array.isArray(value) && value.length >= 2 && typeof value[0] === "number" && typeof value[1] === "number"
+}
+
+function isAyahList(list: AyahId[] | SurahInfo[]): list is AyahId[] {
+  return list.every((entry) => typeof entry === "number")
+}
+
+function isSurahList(list: AyahId[] | SurahInfo[]): list is SurahInfo[] {
+  return list.every((entry) => isSurahInfo(entry))
+}
 
 function toPartFormatter(type: PartType, list: AyahId[] | SurahInfo[]): PartBlocker {
-  return type === "surah"
-    ? ([startAyahId, ayahCount]: SurahInfo) => ({
+  if (type === "surah") {
+    if (!isSurahList(list)) {
+      throw new TypeError("Expected a surah list when formatting surah blocks")
+    }
+
+    return (value: AyahId | SurahInfo) => {
+      if (!isSurahInfo(value)) {
+        throw new TypeError("Expected a surah info tuple")
+      }
+
+      const [startAyahId, ayahCount] = value
+      return {
         ayahCount,
         startAyahId
-      })
-    : (ayahId: AyahId, index: number) => {
-        // Console.log(ayahId,index,parts[type][index+2] )
-        const ayahCount = (list as AyahId[])[index + 2] - ayahId
-        return {
-          ayahCount,
-          startAyahId: ayahId
-        }
       }
+    }
+  }
+
+  if (!isAyahList(list)) {
+    throw new TypeError("Expected an ayah-id list when formatting part blocks")
+  }
+
+  return (value: AyahId | SurahInfo, index: number) => {
+    if (isSurahInfo(value)) {
+      throw new TypeError("Expected an ayah id value")
+    }
+
+    const ayahId = value
+    const nextAyahId = list[index + 2]
+    const ayahCount = nextAyahId - ayahId
+
+    return {
+      ayahCount,
+      startAyahId: ayahId
+    }
+  }
 }
 
 /**
