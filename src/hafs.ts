@@ -150,8 +150,7 @@ export const getSurahInfo = (surah: Surah) => _getSurahInfo(surah, riwayaLists)
 export const getAyahCountInSurah = (surah: Surah) => _getAyahCountInSurah(surah, riwayaLists)
 
 // Ayah methods
-export const findAyahIdBySurah = (surah: Surah, ayah: AyahNo = 1) =>
-  _findAyahIdBySurah(surah, ayah, riwayaLists)
+export const findAyahIdBySurah = (surah: Surah, ayah: AyahNo = 1) => _findAyahIdBySurah(surah, ayah, riwayaLists)
 
 export const findSurahByAyahId = (ayahId: AyahId) => _findSurahByAyahId(ayahId, riwayaLists)
 
@@ -168,8 +167,7 @@ export const findJuzByAyahId = (ayahId: AyahId) => _findJuzByAyahId(ayahId, riwa
 
 export const getJuzMeta = (juz: Juz) => _getJuzMeta(juz, riwayaLists)
 
-export const findJuzMetaBySurah = (surah: Surah, ayah: AyahNo = 1) =>
-  _findJuzMetaBySurah(surah, ayah, riwayaLists)
+export const findJuzMetaBySurah = (surah: Surah, ayah: AyahNo = 1) => _findJuzMetaBySurah(surah, ayah, riwayaLists)
 
 export const findJuzAndShift = (surah: Surah, ayah: AyahNo = 1) => _findJuzAndShift(surah, ayah, riwayaLists)
 

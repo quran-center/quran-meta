@@ -33,8 +33,13 @@ export type {
   ManzilMeta
 } from "./types"
 
+import { BazziLists } from "./lists/BazziLists"
+import { DouriLists } from "./lists/DouriLists"
 import { HafsLists } from "./lists/HafsLists"
 import { QalunLists } from "./lists/QalunLists"
+import { QunbulLists } from "./lists/QunbulLists"
+import { ShubaLists } from "./lists/ShubaLists"
+import { SousiLists } from "./lists/SousiLists"
 import { WarshLists } from "./lists/WarshLists"
 
 // ==================== New Class-Based API ====================
@@ -54,6 +59,31 @@ export const createQalun = () => QuranRiwaya.create(QalunLists)
  * Create a QuranRiwaya instance with Warsh riwaya
  */
 export const createWarsh = () => QuranRiwaya.create(WarshLists)
+
+/**
+ * Create a QuranRiwaya instance with Bazzi riwaya
+ */
+export const createBazzi = () => QuranRiwaya.create(BazziLists)
+
+/**
+ * Create a QuranRiwaya instance with Douri riwaya
+ */
+export const createDouri = () => QuranRiwaya.create(DouriLists)
+
+/**
+ * Create a QuranRiwaya instance with Qunbul riwaya
+ */
+export const createQunbul = () => QuranRiwaya.create(QunbulLists)
+
+/**
+ * Create a QuranRiwaya instance with Shuba riwaya
+ */
+export const createShuba = () => QuranRiwaya.create(ShubaLists)
+
+/**
+ * Create a QuranRiwaya instance with Sousi riwaya
+ */
+export const createSousi = () => QuranRiwaya.create(SousiLists)
 
 /**
  * Pre-initialized QuranRiwaya instance for Hafs (for convenience)

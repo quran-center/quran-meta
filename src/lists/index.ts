@@ -1,11 +1,21 @@
 import type { Riwayas } from "./types"
+import { BazziLists } from "./BazziLists"
+import { DouriLists } from "./DouriLists"
 import { HafsLists } from "./HafsLists"
 import { QalunLists } from "./QalunLists"
+import { QunbulLists } from "./QunbulLists"
+import { ShubaLists } from "./ShubaLists"
+import { SousiLists } from "./SousiLists"
 import { WarshLists } from "./WarshLists"
 
 // Export Meta objects for direct use
+export { BazziMeta } from "./BazziLists"
+export { DouriMeta } from "./DouriLists"
 export { HafsMeta } from "./HafsLists"
 export { QalunMeta } from "./QalunLists"
+export { QunbulMeta } from "./QunbulLists"
+export { ShubaMeta } from "./ShubaLists"
+export { SousiMeta } from "./SousiLists"
 export { WarshMeta } from "./WarshLists"
 
 /**
@@ -19,11 +29,26 @@ export { WarshMeta } from "./WarshLists"
  */
 export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R] {
   switch (riwaya) {
+    case "Bazzi": {
+      return BazziLists
+    }
+    case "Douri": {
+      return DouriLists
+    }
     case "Hafs": {
       return HafsLists
     }
     case "Qalun": {
       return QalunLists
+    }
+    case "Qunbul": {
+      return QunbulLists
+    }
+    case "Shuba": {
+      return ShubaLists
+    }
+    case "Sousi": {
+      return SousiLists
     }
     case "Warsh": {
       return WarshLists

@@ -1,24 +1,33 @@
+import { checkDouri } from "./Douri"
 import { checkHafs } from "./Hafs"
 import { checkQalun } from "./Qalun"
+import { checkShuba } from "./Shuba"
+import { checkSousi } from "./Sousi"
 import { checkWarsh } from "./Warsh"
 
 /***
  * run with `pnpm verify`
  */
 
-// Uncomment the check you want to run
+// Comment out the checks you don't want to run
 
-// console.log("checking Hafs data...")
-// checkHafs()
+console.log("checking Hafs data...")
+checkHafs()
 
-// console.log("checking Qalun data...")
-// checkQalun()
+console.log("checking Qalun data...")
+checkQalun()
 
 console.log("checking Warsh data...")
 checkWarsh()
-// Todo  when we have more data sources, we can add more checks
 
-// Import DouriData from "./data/DouriData_v2-0.json"
-// Import QalounData from "./data/QalounData_v2-1.json"
-// Import sousiData from "./data/SousiData_v2-0.json"
-// Import warshData from "./data/warshData_v2-1.json"
+console.log("checking Douri data...")
+checkDouri()
+
+console.log("checking Sousi data...")
+checkSousi()
+
+console.log("checking Shuba data...")
+checkShuba()
+
+// To cross-check all riwaya lists against the quranpedia data dumps
+// (or generate missing ones), run `pnpm verify:lists` - see generate-riwayah-lists.ts

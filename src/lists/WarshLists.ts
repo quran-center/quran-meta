@@ -1,7 +1,7 @@
 import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
 
-// Lists generated from examples/data-check/data/warsh-data.json by examples/data-check/generate-warsh-lists.mjs
+// Lists generated from examples/data-check/data/quranpedia/warsh-data.json by examples/data-check/generate-riwayah-lists.ts
 // Note: Warsh has no HizbEighthList (thumun al-hizb) - no verified source data is available for it.
 
 // ------------------ Hizb Quarter (Rub-ul-Hizb) Data ---------------------
@@ -191,6 +191,7 @@ export const SurahList: FixedArray<SurahInfo, 116> = [
   [6215, 1, 1, 1, "", false]
 ] as const
 
+// ------------------ Ruku Data ---------------------
 export const RukuList: AyahId[] = [
   0, 1, 8, 15, 28, 37, 47, 54, 67, 69, 79, 90, 94, 104, 111, 120, 129, 137, 149, 155, 160, 171, 175, 184, 190, 196, 204,
   218, 224, 229, 236, 239, 243, 250, 256, 261, 265, 268, 274, 281, 289, 291, 293, 302, 313, 323, 334, 347, 356, 364,

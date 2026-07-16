@@ -58,7 +58,7 @@ Answering Questions like:
 
 ### Features
 
-- Supports multiple riwayas (Hafs, Qalun, Warsh are ready. Douri, Shuba, Sousi are on the way) with riwaya-specific data and features.
+- Supports multiple riwayas (Hafs, Qalun, Warsh, Douri, Sousi, Shuba, Bazzi and Qunbul) with riwaya-specific data and features - see [Supported Riwayat](#supported-riwayat).
 - Type-safe riwaya-specific methods (e.g., Qalun's Thumun al-Hizb).
 - Custom riwaya instances for advanced use cases. If you want to use quran-meta library with your own data (e.g another riwaya or different pagination than we support) just create your own instance of QuranRiwaya with your data.
 - Fully documented with examples.
@@ -137,6 +137,26 @@ The library is available from various CDNs
 ```
 $ npm i --save quran-meta
 ```
+
+### Supported Riwayat
+
+Every implemented riwaya ships with its full set of lists (surahs, pages, juzs, hizb quarters, rukus, manzils, sajdas) and has its own tree-shakeable entry point:
+
+| Riwaya | Narrated from (Qari) | Entry point         | Ayahs | Sajdas |
+| ------ | -------------------- | ------------------- | ----- | ------ |
+| Hafs   | 'Asim                | `quran-meta/hafs`   | 6236  | 15     |
+| Shuba  | 'Asim                | `quran-meta/shuba`  | 6236  | 15     |
+| Warsh  | Nafi'                | `quran-meta/warsh`  | 6214  | 14     |
+| Qalun  | Nafi'                | `quran-meta/qalun`  | 6214  | 12     |
+| Douri  | Abu 'Amr             | `quran-meta/douri`  | 6217  | 15     |
+| Sousi  | Abu 'Amr             | `quran-meta/sousi`  | 6217  | 15     |
+| Bazzi  | Ibn Kathir           | `quran-meta/bazzi`  | 6221  | 15     |
+| Qunbul | Ibn Kathir           | `quran-meta/qunbul` | 6221  | 15     |
+
+
+All riwayas are also available from the main entry point via `createHafs()`, `createWarsh()`, `createQalun()`, `createDouri()`, `createSousi()`, `createShuba()`, `createBazzi()`, `createQunbul()` or `getListsOfRiwaya("Warsh")`.
+
+List of riwayas can be seen at [VisualQuran](https://visualquran.com/riwayas)
 
 ### Usage
 
@@ -232,7 +252,7 @@ const custom = QuranRiwaya.create("Hafs")
 
 **Legacy Functional API**
 
-The original functional API is still available for backward compatibility. The root `quran-meta` entry point exports `meta` (Hafs by default) plus the raw, riwaya-agnostic functions - these take an explicit `lists`/`data` argument (e.g. `getAyahCountInSurah(surah, data)`). For the pre-bound, single-argument versions shown below, import from `quran-meta/hafs` (or `/qalun`, `/warsh`) as described above.
+The original functional API is still available for backward compatibility. The root `quran-meta` entry point exports `meta` (Hafs by default) plus the raw, riwaya-agnostic functions - these take an explicit `lists`/`data` argument (e.g. `getAyahCountInSurah(surah, data)`). For the pre-bound, single-argument versions shown below, import from `quran-meta/hafs` (or `/qalun`, `/warsh`, `/douri`, `/sousi`, `/shuba`, `/bazzi`, `/qunbul`) as described above.
 
 In Node.js see example [here](/examples/hello.cjs):
 
@@ -333,6 +353,7 @@ One can run `pnpx jiti examples/data-check` to run suite of validation tests aga
 - `QalounData_v2-1.json` - [Data coming with KFGQPC Qaloun Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicQaloun_v2-1.zip)
 - `shubaData_v2-0.json` - [Data coming with KFGQPC Shuba Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicShuba_v2-0.zip)
 - `warshData_v2-1.json` - [Data coming with KFGQPC Warsh Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicWarsh_v2-1.zip)
+- `data/quranpedia/*.json` - [quranpedia.net](https://quranpedia.net) data dumps for Hafs, Shuba, Warsh, Qalun, Douri, Sousi, Bazzi and Qunbul. These are the source for the generated riwaya lists (`pnpm verify:lists` cross-checks the lists in `src/lists/` against them, and `examples/data-check/generate-riwayah-lists.ts` regenerates them).
 
 There are some differences with KFQC data in page numbering, due to variations between different mushafs. We plan to address these differences in future updates by supporting multiple page numbering systems of different mushafs (15 line, 16 line and etc).
 

@@ -1,6 +1,16 @@
 import { defineConfig } from "tsdown/config"
 
-const exports = { base: "index", hafs: "hafs", qalun: "qalun", warsh: "warsh" }
+const exports = {
+  base: "index",
+  bazzi: "bazzi",
+  douri: "douri",
+  hafs: "hafs",
+  qalun: "qalun",
+  qunbul: "qunbul",
+  shuba: "shuba",
+  sousi: "sousi",
+  warsh: "warsh"
+}
 
 export default defineConfig([
   ...Object.entries(exports).map(([name, entry]) => ({

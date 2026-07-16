@@ -249,7 +249,7 @@ export const SurahList: FixedArray<SurahInfo, 116> = [
   [6200, 4, 22, 1, "الإخلَاص", true],
   [6204, 5, 20, 1, "الفَلَق", true],
   [6209, 6, 21, 1, "النَّاس", true],
-  [6216, 1, 1, 1, "", false]
+  [6215, 1, 1, 1, "", false]
 ] as const
 
 /**
