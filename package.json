@@ -1,6 +1,6 @@
 {
   "name": "quran-meta",
-  "version": "6.1.1-3",
+  "version": "6.1.1-4",
   "description": "Library with meta data and functionality related to Holy Quran",
   "keywords": [
     "juz",
@@ -12,7 +12,10 @@
   "homepage": "https://quran-center.github.io/quran-meta/",
   "license": "MIT",
   "author": "Huseyn Guliyev",
-  "repository": "quran-center/quran-meta",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quran-center/quran-meta.git"
+  },
   "files": [
     "dist/",
     "lib_cjs/",
