@@ -7,7 +7,7 @@ import { checkValidAyahId } from "./validation"
  * Finds the Maqra/Rub-al-Hizb  of the Quran that contains the given Ayah (verse) ID.
  *
  * @param ayahId - The ID of the Ayah (verse) to find the Juz for.
- * @param lists - The Lists object for the riwaya.
+ * @param data - The data for the riwaya.
  * @returns The Maqra of the Quran that contains the given Ayah ID.
  */
 export function findRubAlHizbByAyahId(ayahId: AyahId, data: RiwayaData): RubAlHizbId {

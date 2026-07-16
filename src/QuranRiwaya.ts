@@ -132,8 +132,6 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
 
   /**
    * Create a QuranRiwaya instance with the specified riwaya, metadata, and lists
-   * @param riwaya - The riwaya name ("Hafs", "Qalun", or "Warsh")
-   * @param meta - The metadata for this riwaya
    * @param rData - The Lists object for this riwaya
    */
   static create<R extends RiwayaName>(rData: Riwayas[R]): QuranRiwaya<R> {

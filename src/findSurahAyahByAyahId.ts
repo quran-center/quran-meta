@@ -7,7 +7,7 @@ import { checkValidAyahId } from "./validation"
  * Finds the Surah (chapter) and Ayah (verse) numbers that the given Ayah ID belongs to.
  *
  * @param ayahId - The Ayah ID to find the Surah and Ayah numbers for.
- * @param lists - The Lists object containing SurahList.
+ * @param data - The data for the riwaya.
  * @returns An array containing the Surah number and the Ayah number within that Surah.
  */
 

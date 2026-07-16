@@ -37,7 +37,7 @@ export function isValidSurah(x: unknown, meta: QuranMeta): x is Surah {
  * Type guard function that checks if a tuple of two numbers represents a valid Surah and Ayah combination.
  *
  * @param x - A tuple containing [surahNumber, ayahNumber]
- * @param lists - The Lists object for the riwaya
+ * @param data - The data for the riwaya
  * @returns True if the tuple represents a valid Surah-Ayah combination, false otherwise
  *
  * @example
