@@ -1,6 +1,6 @@
 {
   "name": "quran-meta",
-  "version": "6.0.17",
+  "version": "6.1.1-0",
   "description": "Library with meta data and functionality related to Holy Quran",
   "keywords": [
     "juz",
@@ -21,6 +21,7 @@
     "types/"
   ],
   "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "unpkg": "./dist/index.js",
@@ -47,6 +48,26 @@
     "./qalun": {
       "types": "./dist/qalun.d.ts",
       "import": "./dist/qalun.js"
+    },
+    "./bazzi": {
+      "types": "./dist/bazzi.d.ts",
+      "import": "./dist/bazzi.js"
+    },
+    "./douri": {
+      "types": "./dist/douri.d.ts",
+      "import": "./dist/douri.js"
+    },
+    "./qunbul": {
+      "types": "./dist/qunbul.d.ts",
+      "import": "./dist/qunbul.js"
+    },
+    "./shuba": {
+      "types": "./dist/shuba.d.ts",
+      "import": "./dist/shuba.js"
+    },
+    "./sousi": {
+      "types": "./dist/sousi.d.ts",
+      "import": "./dist/sousi.js"
     }
   },
   "scripts": {
@@ -70,9 +91,9 @@
     "test:types": "tsc --noEmit",
     "tsdoc": "rimraf docs&&typedoc --hideGenerator --plugin typedoc-github-theme",
     "up": "pnpm update -i -L",
-    "verify": "pnpx jiti examples/data-check/"
+    "verify": "pnpx jiti examples/data-check/",
+    "verify:lists": "pnpx jiti examples/data-check/generate-riwayah-lists.ts all --check"
   },
-  "sideEffects": false,
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/node": "26.1.1",
@@ -92,12 +113,17 @@
     "vitest": "^4.1.10"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc",
+  "bazzi": "./dist/bazzi.js",
+  "douri": "./dist/douri.js",
   "hafs": "./dist/hafs.js",
   "i18n": "./dist/i18n/index.js",
   "iife": "./dist/index.iife.js",
   "qalun": "./dist/qalun.js",
+  "qunbul": "./dist/qunbul.js",
+  "shuba": "./dist/shuba.js",
+  "sousi": "./dist/sousi.js",
   "warsh": "./dist/warsh.js"
 }
