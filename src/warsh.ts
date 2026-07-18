@@ -116,11 +116,11 @@ export const surahStringParser = (str: string, isStrict: boolean = false) => _su
 
 // Validation methods
 
-export const checkValidSurahAyah = (surah: Surah | number | unknown, ayah: number | AyahNo | unknown) => {
+export const checkValidSurahAyah = (surah: unknown, ayah: unknown) => {
   _checkValidSurahAyah(surah, ayah, riwayaLists)
 }
 
-export const checkValidSurah = (surah: Surah | number | unknown) => {
+export const checkValidSurah = (surah: unknown) => {
   _checkValidSurah(surah, meta)
 }
 export const checkValidSurahAyahPair = (pair: [unknown, unknown]) => {

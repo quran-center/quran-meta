@@ -1,7 +1,7 @@
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import type { RiwayaData } from "./lists/types"
 import { isValidAyahId, isValidJuz, isValidManzil, isValidPage, isValidRuku, isValidSurah } from "./typeGuards"
-import type { AyahId, AyahNo, Juz, Manzil, Page, QuranMeta, Ruku, Surah, SurahAyah } from "./types"
+import type { AyahId, Juz, Manzil, Page, QuranMeta, Ruku, Surah, SurahAyah } from "./types"
 
 /**
  * Validates if the provided value is a valid Surah number.
@@ -11,9 +11,9 @@ import type { AyahId, AyahNo, Juz, Manzil, Page, QuranMeta, Ruku, Surah, SurahAy
  * @throws RangeError When the provided surah number is outside the valid range (1 to total number of surahs)
  * @remarks This is a type assertion function that ensures the input is a valid Surah
  */
-export function checkValidSurah(surah: Surah | number | unknown, meta: QuranMeta): asserts surah is Surah {
+export function checkValidSurah(surah: unknown, meta: QuranMeta): asserts surah is Surah {
   if (typeof surah !== "number" || !Number.isInteger(surah)) {
-    throw new TypeError("Ayah ID must be an integer")
+    throw new TypeError("Surah number must be an integer")
   }
 
   if (!isValidSurah(surah, meta)) {
@@ -27,11 +27,7 @@ export function checkValidSurah(surah: Surah | number | unknown, meta: QuranMeta
  * @param ayah - The ayah number or AyahNo object to validate
  * @throws Error If the surah-ayah combination is invalid
  */
-export function checkValidSurahAyah(
-  surah: Surah | number | unknown,
-  ayah: number | AyahNo | unknown,
-  data: RiwayaData
-) {
+export function checkValidSurahAyah(surah: unknown, ayah: unknown, data: RiwayaData) {
   checkValidSurahAyahPair([surah, ayah], data)
 }
 
@@ -47,7 +43,7 @@ export function checkValidSurahAyah(
  * ```
  */
 export function checkValidSurahAyahPair(
-  surahAyah: [Surah | number | unknown, AyahNo | number | unknown],
+  surahAyah: [unknown, unknown],
   data: RiwayaData
 ): asserts surahAyah is SurahAyah {
   const [surah, ayah] = surahAyah
@@ -66,7 +62,7 @@ export function checkValidSurahAyahPair(
  * @throws TypeError If the value is not an integer
  * @throws RangeError If the value is not within valid Ayah ID range
  */
-export function checkValidAyahId(ayahId: unknown | number, meta: QuranMeta): asserts ayahId is AyahId {
+export function checkValidAyahId(ayahId: unknown, meta: QuranMeta): asserts ayahId is AyahId {
   if (typeof ayahId !== "number" || !Number.isInteger(ayahId)) {
     throw new TypeError("Ayah ID must be an integer")
   }
@@ -82,7 +78,7 @@ export function checkValidAyahId(ayahId: unknown | number, meta: QuranMeta): ass
  * @throws {RangeError} When the value is not within valid page range (1 to numPages)
  * @remarks This is a type assertion function that ensures a value is a valid Page number
  */
-export function checkValidPage(x: unknown | number | Page, meta: QuranMeta): asserts x is Page {
+export function checkValidPage(x: unknown, meta: QuranMeta): asserts x is Page {
   if (typeof x !== "number" || !Number.isInteger(x)) {
     throw new TypeError("Page must be an integer")
   }
@@ -100,7 +96,7 @@ export function checkValidPage(x: unknown | number | Page, meta: QuranMeta): ass
  * @throws {TypeError} If value is not an integer
  * @throws {RangeError} If value is not between 1 and the total number of Juz
  */
-export function checkValidJuz(x: unknown | number | Juz, meta: QuranMeta): asserts x is Juz {
+export function checkValidJuz(x: unknown, meta: QuranMeta): asserts x is Juz {
   if (typeof x !== "number" || !Number.isInteger(x)) {
     throw new TypeError("Juz must be an integer")
   }
@@ -121,7 +117,7 @@ export function checkValidJuz(x: unknown | number | Juz, meta: QuranMeta): asser
  * checkValidRuku(999); // Throws RangeError
  * ```
  */
-export function checkValidRuku(x: unknown | number | Ruku, meta: QuranMeta): asserts x is Ruku {
+export function checkValidRuku(x: unknown, meta: QuranMeta): asserts x is Ruku {
   if (typeof x !== "number" || !Number.isInteger(x)) {
     throw new TypeError("Ruku must be an integer")
   }
@@ -137,7 +133,7 @@ export function checkValidRuku(x: unknown | number | Ruku, meta: QuranMeta): ass
  * @throws {RangeError} If the value is not within valid Manzil range (1 to max manzils)
  * @remarks This is an assertion function that ensures the input is a valid Manzil type
  */
-export function checkValidManzil(x: unknown | number | Manzil, meta: QuranMeta): asserts x is Manzil {
+export function checkValidManzil(x: unknown, meta: QuranMeta): asserts x is Manzil {
   if (typeof x !== "number" || !Number.isInteger(x)) {
     throw new TypeError("Manzil must be an integer")
   }

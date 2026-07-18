@@ -153,7 +153,6 @@ Every implemented riwaya ships with its full set of lists (surahs, pages, juzs, 
 | Bazzi  | Ibn Kathir           | `quran-meta/bazzi`  | 6221  | 15     |
 | Qunbul | Ibn Kathir           | `quran-meta/qunbul` | 6221  | 15     |
 
-
 All riwayas are also available from the main entry point via `createHafs()`, `createWarsh()`, `createQalun()`, `createDouri()`, `createSousi()`, `createShuba()`, `createBazzi()`, `createQunbul()` or `getListsOfRiwaya("Warsh")`.
 
 List of riwayas can be seen at [VisualQuran](https://visualquran.com/riwayas)
@@ -379,6 +378,7 @@ Here you can find the following
 - [Quran.com Js Api](https://github.com/quran/api-js), [Quran.com API](https://api-docs.quran.com/),
 - [AlQuran Cloud](https://alquran.cloud/api)
 - [KFQC Data](https://qurancomplex.gov.sa/en/techquran/dev/)
+- [Quranpedia](https://quranpedia.net)
 
 ### License
 

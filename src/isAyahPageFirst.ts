@@ -1,5 +1,5 @@
 import type { RiwayaData } from "./lists/types"
-import type { AyahId, Page } from "./types"
+import type { AyahId } from "./types"
 import { binarySearch } from "./utils"
 import { checkValidAyahId } from "./validation"
 
@@ -10,7 +10,7 @@ import { checkValidAyahId } from "./validation"
  * @param data - The Lists object for the riwaya.
  * @returns The page number if the ayah is the first ayah of the page, otherwise -1.
  */
-export function isAyahPageFirst(ayahId: AyahId, data: RiwayaData): Page | number {
+export function isAyahPageFirst(ayahId: AyahId, data: RiwayaData): number {
   const { PageList, meta } = data
   checkValidAyahId(ayahId, meta)
   return binarySearch(PageList, ayahId)

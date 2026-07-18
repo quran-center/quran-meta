@@ -25,7 +25,7 @@ describe("getListOfRiwaya", () => {
 
   it("sum of ayahCount should be 6236", () => {
     partNames
-      .filter((partNames) => partNames !== "thumunAlHizb")
+      .filter((partName) => partName !== "thumunAlHizb")
       .forEach((partName: PartType) => {
         //   Const partList = parts[partName]
         const list = generatePartBlocks(partName, HafsLists)
@@ -57,6 +57,7 @@ describe("getListOfRiwaya", () => {
 
         const list = generatePartBlocks(partName, HafsLists)
 
+        // oxlint-disable-next-line vitest/valid-expect -- Vitest's expect() supports an optional message arg; the rule doesn't know about it
         expect(list?.length, "check " + partName).toEqual(partLengths[partName])
       })
   })

@@ -186,15 +186,15 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return findAyahIdBySurah(surah, ayah, this.#data)
   }
 
-  generatePartBlocks<P extends PartType>(type: P) {
+  generatePartBlocks(type: PartType) {
     return generatePartBlocks(type, this.#data)
   }
 
-  getList<P extends PartType>(type: P) {
+  getList(type: PartType) {
     return getList(type, this.#data)
   }
 
-  getListNormalised<P extends PartType>(type: P) {
+  getListNormalised(type: PartType) {
     return getListNormalised(type, this.#data)
   }
 
@@ -435,28 +435,28 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   /**
    * Checks if an ayah is the first ayah of a juz
    */
-  isAyahJuzFirst(ayahId: AyahId): Juz | number {
+  isAyahJuzFirst(ayahId: AyahId): number {
     return isAyahJuzFirst(ayahId, this.#data)
   }
 
   /**
    * Checks if an ayah is the first ayah of a page
    */
-  isAyahPageFirst(ayahId: AyahId): Page | number {
+  isAyahPageFirst(ayahId: AyahId): number {
     return isAyahPageFirst(ayahId, this.#data)
   }
 
   /**
    * Checks if a surah-ayah combination is the first ayah of a juz
    */
-  isSurahAyahJuzFirst(surah: Surah, ayah: AyahNo): Juz | number {
+  isSurahAyahJuzFirst(surah: Surah, ayah: AyahNo): number {
     return isSurahAyahJuzFirst(surah, ayah, this.#data)
   }
 
   /**
    * Checks if a surah-ayah combination is the first ayah of a page
    */
-  isSurahAyahPageFirst(surah: Surah, ayah: AyahNo): Page | number {
+  isSurahAyahPageFirst(surah: Surah, ayah: AyahNo): number {
     return isSurahAyahPageFirst(surah, ayah, this.#data)
   }
 
@@ -494,7 +494,7 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
 
   // ==================== Utility Methods ====================
 
-  surahStringParser(str: string, isStrict = false): Page | number {
+  surahStringParser(str: string, isStrict = false): Surah {
     return surahStringParser(str, isStrict, this.#meta)
   }
 

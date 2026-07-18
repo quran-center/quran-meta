@@ -39,7 +39,16 @@ export type {
 export { maxAyahsInSurah, numRubsInJuz, numSurahs } from "./types"
 export type { ArrayOfSameLength, FixedArray, GrowToSize, LessThan } from "./ts-utils"
 export { partNames } from "./lists/types"
-export type { RiwayaData, RiwayaFullData, RiwayaName, Riwayas, PartType, AllListsNames, RiwayasNames, MissingListsPerRiwaya } from "./lists/types"
+export type {
+  RiwayaData,
+  RiwayaFullData,
+  RiwayaName,
+  Riwayas,
+  PartType,
+  AllListsNames,
+  RiwayasNames,
+  MissingListsPerRiwaya
+} from "./lists/types"
 export type { PartBlock } from "./lists/getList"
 
 import { BazziLists } from "./lists/BazziLists"

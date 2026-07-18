@@ -4,13 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v6.1.1-5
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-2...v6.1.1-5)
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-4...v6.1.1-5)
 
-### 🏡 Chore
+### 📚 Documentation
 
-- **release:** V6.1.1-2 ([23dc740](https://github.com/quran-center/quran-meta/commit/23dc740))
-- **release:** V6.1.1-3 ([e7877ce](https://github.com/quran-center/quran-meta/commit/e7877ce))
-- **release:** V6.1.1-4 ([f9a418b](https://github.com/quran-center/quran-meta/commit/f9a418b))
+- Typedoc fixes and regenerated API docs ([7d9aa6e](https://github.com/quran-center/quran-meta/commit/7d9aa6e))
 
 ### ❤️ Contributors
 
@@ -24,30 +22,71 @@ All notable changes to this project will be documented in this file. See [standa
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-2...v6.1.1-3)
 
-## v6.1.1-2
+### 📚 Documentation
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-0...v6.1.1-2)
-
-### 🏡 Chore
-
-- **release:** V6.1.1-0 ([321e5de](https://github.com/quran-center/quran-meta/commit/321e5de))
-- **release:** V6.1.1-1 ([b3bf5c4](https://github.com/quran-center/quran-meta/commit/b3bf5c4))
+- Typedoc fixes ([c453601](https://github.com/quran-center/quran-meta/commit/c453601))
 
 ### ❤️ Contributors
 
-- HG <husayt@gmail.com>
+- HG ([@husayt](https://github.com/husayt))
+
+## v6.1.1-2
+
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-1...v6.1.1-2)
+
+### 🩹 Fixes
+
+- Fix types for new riwayat entry points ([c1cd926](https://github.com/quran-center/quran-meta/commit/c1cd926))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
 
 ## v6.1.1-1
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-0...v6.1.1-1)
 
+### 🎉 Major New Features
+
+**5 New Riwayat — 8 riwayat supported in total** ([a06bd59](https://github.com/quran-center/quran-meta/commit/a06bd59))
+
+- Added support for 5 more riwayat, alongside the existing Hafs, Qalun and Warsh:
+  - **Shuba** (from 'Asim) — 6236 ayahs
+  - **Douri** (from Abu 'Amr) — 6217 ayahs
+  - **Sousi** (from Abu 'Amr) — 6217 ayahs
+  - **Bazzi** (from Ibn Kathir) — 6221 ayahs
+  - **Qunbul** (from Ibn Kathir) — 6221 ayahs
+- Each new riwaya ships with its full set of lists (surahs, pages, juzs, hizb quarters, rukus, manzils, sajdas)
+- New tree-shakeable entry points: `quran-meta/shuba`, `quran-meta/douri`, `quran-meta/sousi`, `quran-meta/bazzi`, `quran-meta/qunbul`
+- New Lists exports: `ShubaLists`, `DouriLists`, `SousiLists`, `BazziLists`, `QunbulLists`
+- New factory functions from the main entry: `createShuba()`, `createDouri()`, `createSousi()`, `createBazzi()`, `createQunbul()`
+
+### 🚀 Enhancements
+
+- Unified riwayah list generator (`examples/data-check/generate-riwayah-lists.ts`) built on quranpedia and KFQC data sources
+- Per-riwayah KFQC data checks for the new riwayat (Douri, Sousi, Shuba)
+- Added entry-point tests and cross-riwayah Lists consistency tests
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v6.1.1-0
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.17...v6.1.1-0)
 
+### 🚀 Enhancements
+
+- Groundwork for the new riwayat: unified data-check tooling, removed legacy Warsh generator scripts ([cb9a653](https://github.com/quran-center/quran-meta/commit/cb9a653))
+
+### 🩹 Fixes
+
+- Regenerated and corrected `WarshLists` data ([dff1b13](https://github.com/quran-center/quran-meta/commit/dff1b13))
+- Fixed riwayat exports, type guards and package metadata; added CI workflow ([4468def](https://github.com/quran-center/quran-meta/commit/4468def))
+
 ### 🏡 Chore
 
-- Update deps ([e5192a9](https://github.com/quran-center/quran-meta/commit/e5192a9))
+- Update deps ([e5192a9](https://github.com/quran-center/quran-meta/commit/e5192a9), [f2bf746](https://github.com/quran-center/quran-meta/commit/f2bf746), [a8620d6](https://github.com/quran-center/quran-meta/commit/a8620d6))
 
 ### ❤️ Contributors
 
@@ -69,17 +108,54 @@ All notable changes to this project will be documented in this file. See [standa
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.13...v6.0.14)
 
+### 📚 Documentation
+
+- Update docs ([3bbeb11](https://github.com/quran-center/quran-meta/commit/3bbeb11))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v6.0.13
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.12...v6.0.13)
+
+### 🚀 Enhancements
+
+- Improve typing ([58dc856](https://github.com/quran-center/quran-meta/commit/58dc856))
+
+### 🏡 Chore
+
+- Formatting fixes ([4e7b7be](https://github.com/quran-center/quran-meta/commit/4e7b7be), [f9b7a30](https://github.com/quran-center/quran-meta/commit/f9b7a30))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
 
 ## v6.0.12
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.11...v6.0.12)
 
+### 🚀 Enhancements
+
+- Add French, Kazakh and Lithuanian surah names ([11f34db](https://github.com/quran-center/quran-meta/commit/11f34db))
+- Add Tajik, Bosnian and Kyrgyz surah names ([b5535b3](https://github.com/quran-center/quran-meta/commit/b5535b3))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v6.0.11
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.10...v6.0.11)
+
+### 🚀 Enhancements
+
+- Add Uzbek surah names ([fed450a](https://github.com/quran-center/quran-meta/commit/fed450a))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
 
 ## v6.0.10
 
@@ -89,9 +165,39 @@ All notable changes to this project will be documented in this file. See [standa
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.8...v6.0.9)
 
+### 🩹 Fixes
+
+- Fix riwayat exports ([e040eef](https://github.com/quran-center/quran-meta/commit/e040eef))
+
+### 📚 Documentation
+
+- Add more terminology to docs ([30219a2](https://github.com/quran-center/quran-meta/commit/30219a2))
+- Add VisualQuran to the riwayat list, readme updates ([acb41ec](https://github.com/quran-center/quran-meta/commit/acb41ec), [3711e9e](https://github.com/quran-center/quran-meta/commit/3711e9e))
+
+### 🏡 Chore
+
+- Adopt oxfmt formatter, remove eslint stylistic ([8b444af](https://github.com/quran-center/quran-meta/commit/8b444af), [2ffccc2](https://github.com/quran-center/quran-meta/commit/2ffccc2))
+- Update deps ([fc9aeff](https://github.com/quran-center/quran-meta/commit/fc9aeff))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v6.0.8
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.7...v6.0.8)
+
+### 🚀 Enhancements
+
+- Add per-riwayah data checks ([4d34be2](https://github.com/quran-center/quran-meta/commit/4d34be2))
+
+### 🩹 Fixes
+
+- Add missing export ([8dac892](https://github.com/quran-center/quran-meta/commit/8dac892))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
 
 ## v6.0.7
 

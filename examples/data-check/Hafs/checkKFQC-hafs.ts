@@ -19,7 +19,7 @@ export function checkKFQCHafs() {
   for (let ayahId: AyahId = 1; ayahId <= meta.numAyahs; ayahId++) {
     const ayahMeta = quran.getAyahMeta(ayahId)
     const hfMeta = hafsData[ayahId - 1]
-    const _page = quran.findPagebyAyahId(ayahId)
+    quran.findPagebyAyahId(ayahId)
     const rub = quran.getRubAlHizbMetaByAyahId(ayahId)
 
     // Commented  as KFQC  data is using different page numbering which Quran Meta does not support

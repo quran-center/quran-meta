@@ -129,5 +129,5 @@ export function string2NumberSplitterStrict(
     ayahs = [ayahX, Number.NaN]
   }
 
-  return { ayah: +ayahs[0], ayahTo: +ayahs[1], surahOrAyah: +surahX }
+  return { ayah: ayahs[0], ayahTo: ayahs[1], surahOrAyah: surahX }
 }

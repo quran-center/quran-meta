@@ -417,8 +417,8 @@ function diffNumberList(label: string, generated: readonly number[], existing: r
 
 async function checkAgainstExisting(config: RiwayahConfig, generated: Generated): Promise<number> {
   const moduleName = `${config.name}Lists`
-  const module_ = (await import(`../../src/lists/${moduleName}`)) as Record<string, unknown>
-  const existing = module_[moduleName] as ExistingLists | undefined
+  const mod = (await import(`../../src/lists/${moduleName}`)) as Record<string, unknown>
+  const existing = mod[moduleName] as ExistingLists | undefined
   if (!existing) {
     console.error(`  ${moduleName} export not found in src/lists/${moduleName}.ts`)
     return 1
@@ -533,6 +533,7 @@ async function main(): Promise<void> {
         failures++
         continue
       }
+      // oxlint-disable-next-line eslint/no-await-in-loop -- sequential by design, so per-riwayah console output stays in order
       const mismatches = await checkAgainstExisting(config, generated)
       if (mismatches > 0) {
         console.error(`✗ ${config.name}: ${mismatches} mismatches against src/lists/${config.name}Lists.ts`)

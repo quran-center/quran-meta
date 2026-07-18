@@ -1,5 +1,5 @@
 import { findAyahIdBySurah } from "./findAyahIdBySurah"
-import type { AyahId, AyahNo, Juz, Surah } from "./types"
+import type { AyahId, AyahNo, Surah } from "./types"
 import type { RiwayaData } from "./lists/types"
 import { binarySearch } from "./utils"
 import { checkValidSurah } from "./validation"
@@ -19,7 +19,7 @@ import { checkValidSurah } from "./validation"
  * isSurahAyahJuzFirst(2, 143, HafsLists) // Returns -1
  * ```
  */
-export function isSurahAyahJuzFirst(surah: Surah, ayah: AyahNo, data: RiwayaData): Juz | number {
+export function isSurahAyahJuzFirst(surah: Surah, ayah: AyahNo, data: RiwayaData): number {
   const { JuzList, meta } = data
   checkValidSurah(surah, meta)
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)

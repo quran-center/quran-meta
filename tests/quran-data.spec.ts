@@ -50,6 +50,7 @@ const xf = (i: Surah, j: AyahNo) =>
   expect(findSurahAyahByAyahId(findAyahIdBySurah(i, j, HafsLists), HafsLists)).toEqual([i, j])
 
 describe("crossTest", () => {
+  // oxlint-disable-next-line vitest/expect-expect -- assertions happen inside the f()/xf() helpers above
   it("ayahId of surah of Ayah", () => {
     for (let i = 1; i <= HafsMeta.numAyahs; i++) {
       f(i)
