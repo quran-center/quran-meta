@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v6.1.1-6
+
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-5...v6.1.1-6)
+
+### 🏡 Chore
+
+- **release:** V6.1.1-5 ([682fa9d](https://github.com/quran-center/quran-meta/commit/682fa9d))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
+## Unreleased
+
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-5...master)
+
+### 🏡 Chore
+
+- Lint fixes across src, tests and examples; simplified oxlint config ([cbfb46b](https://github.com/quran-center/quran-meta/commit/cbfb46b))
+
+### 📚 Documentation
+
+- Filled in changelog entries for v6.0.8 – v6.1.1-5 ([cbfb46b](https://github.com/quran-center/quran-meta/commit/cbfb46b))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
 ## v6.1.1-5
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-4...v6.1.1-5)
