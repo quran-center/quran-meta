@@ -17,13 +17,13 @@ const dist = join(dirname(fileURLToPath(import.meta.url)), "../dist")
  * above the current sizes. Raise them deliberately, not by accident.
  */
 const budgets: Record<string, number> = {
-  "index.js": 92,
+  "index.js": 73,
   "hafs.js": 25,
   "warsh.js": 25,
-  "qalun.js": 27,
+  "qalun.js": 29,
   "i18n/index.js": 23,
   "i18n/async.js": 1,
-  "quran-meta.iife.js": 50
+  "quran-meta.iife.js": 42
 }
 
 const importRe = /(?:^|\n)\s*(?:import|export)\s[^;]*?from\s*["'](\.[^"']+)["']|(?:^|\n)\s*import\s*["'](\.[^"']+)["']/g
