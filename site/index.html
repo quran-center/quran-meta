@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>quran-meta</title>
+    <meta
+      name="description"
+      content="Quran metadata for 8 riwayas: surahs, ayahs, juz, hizb, pages, rukus, manzils and sajdas, with conversion between riwaya numberings."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f6f7f4;
+        --surface: #ffffff;
+        --ink: #17211f;
+        --muted: #5b6a66;
+        --line: #dde3df;
+        --accent: #0c6b5d;
+        --accent-soft: #e2f0ec;
+        --mark: #9a6b12;
+        --mark-soft: #f6ecd8;
+        --code-bg: #eef2ef;
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #101715;
+          --surface: #17201e;
+          --ink: #e7eeeb;
+          --muted: #9aaba6;
+          --line: #2a3633;
+          --accent: #5cc4ae;
+          --accent-soft: #1c332e;
+          --mark: #e0b25a;
+          --mark-soft: #3a2f1a;
+          --code-bg: #1d2826;
+          color-scheme: dark;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.6 "IBM Plex Sans", system-ui, sans-serif;
+      }
+      a {
+        color: var(--accent);
+      }
+      code,
+      pre,
+      input,
+      select {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding-inline: 20px;
+      }
+      header {
+        padding-block: 56px 32px;
+        display: grid;
+        gap: 16px;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        letter-spacing: -0.02em;
+        font-weight: 600;
+      }
+      h1 .ar {
+        font-family: Amiri, serif;
+        font-weight: 400;
+        color: var(--accent);
+        margin-inline-start: 12px;
+        white-space: nowrap;
+      }
+      .lead {
+        margin: 0;
+        max-width: 62ch;
+        color: var(--muted);
+        font-size: 1.1rem;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+      .install {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--code-bg);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.95rem;
+      }
+      .install button {
+        font: inherit;
+        font-size: 0.8rem;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        border-radius: 4px;
+        padding: 2px 8px;
+        cursor: pointer;
+      }
+      .links a {
+        margin-inline-end: 16px;
+        font-weight: 500;
+      }
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      section.demo {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+      }
+      @media (max-width: 520px) {
+        section.demo {
+          padding: 16px;
+        }
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: end;
+      }
+      label {
+        display: grid;
+        gap: 4px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+      input,
+      select {
+        font-size: 1rem;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--bg);
+        color: var(--ink);
+        min-width: 0;
+      }
+      input:focus-visible,
+      select:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      #ref {
+        width: 9ch;
+      }
+      .step {
+        display: flex;
+        gap: 6px;
+      }
+      .step button {
+        font: inherit;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .error {
+        color: #b3261e;
+        font-size: 0.9rem;
+        min-height: 1.4em;
+        margin: 0;
+      }
+      .surah {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px 24px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 16px;
+      }
+      .surah .name {
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+      .surah .translation {
+        color: var(--muted);
+      }
+      .surah .arabic {
+        font-family: Amiri, serif;
+        font-size: 2rem;
+        line-height: 1.2;
+        direction: rtl;
+      }
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+        gap: 12px;
+        margin: 0;
+      }
+      .facts div {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 12px;
+      }
+      .facts dt {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+      .facts dd {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+      .flags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .flag {
+        font-size: 0.8rem;
+        padding: 2px 10px;
+        border-radius: 99px;
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .flag.sajdah {
+        background: var(--mark-soft);
+        color: var(--mark);
+      }
+      h2 {
+        font-size: 1rem;
+        margin: 0 0 8px;
+      }
+      .table-wrap {
+        overflow-x: auto;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-variant-numeric: tabular-nums;
+      }
+      th,
+      td {
+        text-align: start;
+        padding: 6px 10px;
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+      }
+      th {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      tr.current td {
+        background: var(--accent-soft);
+      }
+      td.differs {
+        color: var(--mark);
+        font-weight: 600;
+      }
+      pre {
+        margin: 0;
+        background: var(--code-bg);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px 16px;
+        overflow-x: auto;
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+        padding-block: 40px;
+      }
+      .features h3 {
+        margin: 0 0 4px;
+        font-size: 1rem;
+      }
+      .features p {
+        margin: 0;
+        color: var(--muted);
+      }
+      footer {
+        padding-block: 24px 48px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--line);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>quran-meta <span class="ar" lang="ar">فهرس القرآن</span></h1>
+        <p class="lead">
+          Quran metadata for JavaScript and TypeScript: surahs, ayahs, juz, hizb, pages, rukus, manzils and sajdas for
+          eight riwayas, with conversion between their ayah numberings. Zero dependencies, fully typed, tree-shakeable.
+        </p>
+        <div class="actions">
+          <span class="install"><span id="install-cmd">npm i quran-meta</span><button type="button" id="copy">Copy</button></span>
+          <span class="links">
+            <a href="docs/">API reference</a>
+            <a href="https://github.com/quran-center/quran-meta">GitHub</a>
+            <a href="https://www.npmjs.com/package/quran-meta">npm</a>
+          </span>
+        </div>
+        <div class="badges">
+          <img alt="npm version" src="https://img.shields.io/npm/v/quran-meta" />
+          <img alt="npm downloads" src="https://img.shields.io/npm/dm/quran-meta" />
+          <img alt="bundle size" src="https://img.shields.io/bundlephobia/minzip/quran-meta" />
+          <img alt="license" src="https://img.shields.io/github/license/quran-center/quran-meta" />
+        </div>
+      </header>
+
+      <section class="demo" aria-labelledby="demo-title">
+        <h2 id="demo-title" hidden>Live demo</h2>
+        <form class="controls" id="controls">
+          <label for="ref">Ayah<input id="ref" value="2:255" autocomplete="off" spellcheck="false" /></label>
+          <label for="riwaya"
+            >Riwaya
+            <select id="riwaya"></select>
+          </label>
+          <label for="lang"
+            >Names in
+            <select id="lang"></select>
+          </label>
+          <div class="step">
+            <button type="button" id="prev" aria-label="Previous ayah">&larr; Prev</button>
+            <button type="button" id="next" aria-label="Next ayah">Next &rarr;</button>
+          </div>
+        </form>
+        <p class="error" id="error" role="status"></p>
+
+        <div class="surah">
+          <div>
+            <div class="name" id="surah-name"></div>
+            <div class="translation" id="surah-translation"></div>
+          </div>
+          <div class="arabic" id="surah-arabic" lang="ar"></div>
+        </div>
+
+        <dl class="facts" id="facts"></dl>
+        <div class="flags" id="flags"></div>
+
+        <div>
+          <h2>The same text in every riwaya</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Riwaya</th>
+                  <th>Ayah</th>
+                  <th>Ayahs in surah</th>
+                  <th>Page</th>
+                  <th>Juz</th>
+                </tr>
+              </thead>
+              <tbody id="convert"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h2>The code behind this</h2>
+          <pre><code id="code"></code></pre>
+        </div>
+      </section>
+
+      <section class="features">
+        <div>
+          <h3>Eight riwayas</h3>
+          <p>Hafs, Shuba, Warsh, Qalun, Douri, Sousi, Bazzi and Qunbul, each with its own tree-shakeable entry point.</p>
+        </div>
+        <div>
+          <h3>Riwaya conversion</h3>
+          <p>Map an ayah between the numbering of any two riwayas, derived by aligning the KFQC and quranpedia texts.</p>
+        </div>
+        <div>
+          <h3>Every division</h3>
+          <p>Juz, hizb, rub' al-hizb, thumun al-hizb, mushaf pages, rukus, manzils and sajdas, with iterators over each.</p>
+        </div>
+        <div>
+          <h3>Typed to the range</h3>
+          <p>Surah is 1 to 114 and Juz is 1 to 30 at the type level, with type guards and assertion functions.</p>
+        </div>
+        <div>
+          <h3>Your own layout</h3>
+          <p>Swap in a different page list (Indo-Pak, Madinah 1405) with <code>customizeRiwaya</code>.</p>
+        </div>
+        <div>
+          <h3>Surah names in 12 languages</h3>
+          <p>Arabic, English, French, Russian, Turkish, Azerbaijani and more, loadable one language at a time.</p>
+        </div>
+      </section>
+
+      <footer>MIT licensed. Data verified against the King Fahd Quran Complex and quranpedia.net datasets.</footer>
+    </div>
+
+    <script type="module">
+      import * as qm from "./lib/index.js"
+      import { getSurahNamesAsync } from "./lib/i18n/async.js"
+
+      const riwayas = ["Hafs", "Shuba", "Warsh", "Qalun", "Douri", "Sousi", "Bazzi", "Qunbul"]
+      const langNames = {
+        en: "English",
+        ar: "Arabic",
+        az: "Azerbaijani",
+        bs: "Bosnian",
+        fr: "French",
+        kk: "Kazakh",
+        ky: "Kyrgyz",
+        lt: "Lithuanian",
+        ru: "Russian",
+        tg: "Tajik",
+        tr: "Turkish",
+        uz: "Uzbek"
+      }
+      const $ = (id) => document.getElementById(id)
+      const el = (tag, props = {}, text = "") => Object.assign(document.createElement(tag), props, { textContent: text })
+
+      for (const r of riwayas) $("riwaya").append(el("option", { value: r }, r))
+      for (const l of qm.languages) $("lang").append(el("option", { value: l }, langNames[l] ?? l))
+
+      const instances = Object.fromEntries(riwayas.map((r) => [r, qm.QuranRiwaya.create(qm.getListsOfRiwaya(r))]))
+
+      async function render() {
+        const riwaya = $("riwaya").value
+        const quran = instances[riwaya]
+        let surah, ayah
+        try {
+          ;[surah, ayah] = quran.ayahStringSplitter($("ref").value.trim())
+          if (Array.isArray(ayah)) ayah = ayah[0]
+          $("error").textContent = ""
+        } catch {
+          $("error").textContent = `Enter a reference like 2:255 that exists in ${riwaya}.`
+          return
+        }
+
+        const names = await getSurahNamesAsync($("lang").value)
+        const [name, translation] = names[surah]
+        $("surah-name").textContent = `${surah}. ${name}`
+        $("surah-translation").textContent = $("lang").value === "ar" ? "" : translation
+        $("surah-arabic").textContent = quran.getSurahInfo(surah)[4]
+
+        const ayahId = quran.findAyahIdBySurah(surah, ayah)
+        const m = quran.getAyahMeta(ayahId)
+        const facts = [
+          ["Ayah id", ayahId],
+          ["Juz", m.juz],
+          ["Hizb", m.hizbId],
+          ["Rub' al-hizb", m.rubAlHizbId],
+          ...(m.thumunAlHizbId ? [["Thumun", m.thumunAlHizbId]] : []),
+          ["Page", m.page],
+          ["Ruku", m.ruku],
+          ["Manzil", quran.findManzilByAyahId(ayahId)]
+        ]
+        $("facts").replaceChildren(
+          ...facts.map(([k, v]) => {
+            const d = el("div")
+            d.append(el("dt", {}, k), el("dd", {}, String(v)))
+            return d
+          })
+        )
+
+        const flags = [
+          [m.isSajdahAyah, "Sajdah", "sajdah"],
+          [m.isStartOfSurah, "Starts the surah"],
+          [m.isStartOfJuz, "Starts a juz"],
+          [m.isStartOfQuarter, "Starts a rub' al-hizb"],
+          [m.isStartOfPage, "Starts a page"],
+          [m.isStartOfRuku, "Starts a ruku"],
+          [m.isEndOfSurah, "Ends the surah"],
+          [m.isEndOfPage, "Ends a page"]
+        ].filter(([on]) => on)
+        $("flags").replaceChildren(...flags.map(([, label, cls]) => el("span", { className: `flag ${cls ?? ""}` }, label)))
+
+        $("convert").replaceChildren(
+          ...riwayas.map((to) => {
+            const seg = qm.convertAyahSpan(surah, ayah, riwaya, to)
+            const first = Array.isArray(seg[1]) ? seg[1][0] : seg[1]
+            const target = instances[to]
+            const tr = el("tr", { className: to === riwaya ? "current" : "" })
+            const differs = first !== ayah || Array.isArray(seg[1])
+            tr.append(
+              el("td", {}, to),
+              el("td", { className: differs ? "differs" : "" }, qm.formatSurahAyah(seg)),
+              el("td", {}, String(target.getAyahCountInSurah(surah))),
+              el("td", {}, String(target.findPage(surah, first))),
+              el("td", {}, String(target.findJuz(surah, first)))
+            )
+            return tr
+          })
+        )
+
+        const lower = riwaya.toLowerCase()
+        $("code").textContent = `import { quran, convertAyahSpanTo, formatAyahId } from "quran-meta/${lower}"
+import { getSurahName } from "quran-meta"
+
+quran.getAyahMeta(quran.findAyahIdBySurah(${surah}, ${ayah}))
+// { juz: ${m.juz}, page: ${m.page}, hizbId: ${m.hizbId}, rubAlHizbId: ${m.rubAlHizbId}, ruku: ${m.ruku}, isSajdahAyah: ${m.isSajdahAyah}, ... }
+
+getSurahName(${surah}, "${$("lang").value}")      // ${JSON.stringify(names[surah])}
+convertAyahSpanTo(${surah}, ${ayah}, "${riwaya === "Warsh" ? "Hafs" : "Warsh"}")    // ${JSON.stringify(qm.convertAyahSpan(surah, ayah, riwaya, riwaya === "Warsh" ? "Hafs" : "Warsh"))}
+quran.nextAyah(${surah}, ${ayah}, { wrap: false }) // ${JSON.stringify(quran.nextAyah(surah, ayah, { wrap: false }) ?? null)}`
+      }
+
+      function step(dir) {
+        const quran = instances[$("riwaya").value]
+        try {
+          let [surah, ayah] = quran.ayahStringSplitter($("ref").value.trim())
+          if (Array.isArray(ayah)) ayah = ayah[0]
+          const next = dir > 0 ? quran.nextAyah(surah, ayah) : quran.prevAyah(surah, ayah)
+          $("ref").value = qm.formatSurahAyah(next)
+          render()
+        } catch {
+          /* the input is invalid, render() shows the message */
+        }
+      }
+
+      $("riwaya").addEventListener("change", (e) => {
+        // Keep pointing at the same text when switching riwaya
+        const prev = e.target.dataset.prev ?? "Hafs"
+        try {
+          let [surah, ayah] = instances[prev].ayahStringSplitter($("ref").value.trim())
+          if (Array.isArray(ayah)) ayah = ayah[0]
+          $("ref").value = qm.formatSurahAyah(qm.convertAyah(surah, ayah, prev, e.target.value))
+        } catch {
+          /* leave the input as it is */
+        }
+        e.target.dataset.prev = e.target.value
+        render()
+      })
+      $("lang").addEventListener("change", render)
+      $("ref").addEventListener("input", render)
+      $("controls").addEventListener("submit", (e) => e.preventDefault())
+      $("prev").addEventListener("click", () => step(-1))
+      $("next").addEventListener("click", () => step(1))
+      $("copy").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText($("install-cmd").textContent)
+          $("copy").textContent = "Copied"
+        } catch {
+          getSelection().selectAllChildren($("install-cmd"))
+        }
+      })
+
+      render()
+    </script>
+  </body>
+</html>
