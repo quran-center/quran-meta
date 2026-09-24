@@ -1,10 +1,12 @@
-import type { PartType, RiwayaName, Riwayas } from "./lists/types"
+import type { PartType, RiwayaName, Riwayas, ThumunRiwayaName } from "./lists/types"
 import type {
   AyahId,
   AyahMeta,
   AyahNo,
   AyahRange,
+  HizbId,
   Juz,
+  JuzAndShift,
   JuzMeta,
   Manzil,
   ManzilMeta,
@@ -22,6 +24,7 @@ import type {
   SurahAyahSegment,
   SurahInfo,
   SurahJuzMeta,
+  SurahListType,
   SurahMeta,
   ThumunAlHizb,
   ThumunAlHizbId,
@@ -47,6 +50,7 @@ import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
 import { findThumunAlHizb } from "./findThumunAlHizb"
 import { generatePartBlocks, getList, getListNormalised } from "./lists/getList"
+import type { PartBlock } from "./lists/getList"
 import { getAyahCountInSurah } from "./getAyahCountInSurah"
 import { getAyahMeta } from "./getAyahMeta"
 import { getAyahMetasForSurah } from "./getAyahMetasForSurah"
@@ -74,19 +78,25 @@ import { surahStringParser } from "./surahStringParser"
 import {
   isValidAyahId,
   isValidAyahNo,
+  isValidHizb,
   isValidJuz,
+  isValidManzil,
   isValidPage,
+  isValidRubAlHizb,
   isValidRuku,
   isValidSurah,
   isValidSurahAyah
 } from "./typeGuards"
+import { ayahsInJuz, ayahsInPage, ayahsInPart, getPartRange } from "./ayahsInPart"
+import { formatAyahId } from "./formatSurahAyah"
+import type { AyahStepOptions } from "./nextAyah"
 
 /**
  * QuranRiwaya class provides a clean API for Quran metadata operations
  * with a specific riwaya (recitation tradition) context.
  *
- * Currently provides basic Surah and Ayah operations. For advanced features
- * like Juz, Page, Manzil, RubAlHizb, etc., use the functional API directly.
+ * It covers the whole functional API (surahs, ayahs, juz, pages, manzils, rukus,
+ * rub' al-hizb and thumun al-hizb, validation and parsing) bound to one riwaya's data.
  *
  * @example
  * **Basic Usage with Hafs**
@@ -111,13 +121,15 @@ import {
  * **Creating a custom instance**
  *
  * `QuranRiwaya.create()` takes a Lists object (SurahList, JuzList, PageList, etc.
- * plus meta) shaped like the built-in Hafs/Qalun/Warsh data - see the
- * implementations in `src/lists/` as a reference for the required structure.
+ * plus meta) shaped like the built-in data. The easiest way to build one is
+ * `customizeRiwaya`, which starts from a built-in riwaya and replaces some lists:
  * ```typescript
- * import { QuranRiwaya } from 'quran-meta'
+ * import { QuranRiwaya, customizeRiwaya, getListsOfRiwaya } from 'quran-meta'
  *
- * const custom = QuranRiwaya.create(myCustomLists)
+ * const custom = QuranRiwaya.create(customizeRiwaya(getListsOfRiwaya("Hafs"), { PageList: myPages }))
  * ```
+ *
+ * @category Class API
  */
 export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   readonly #riwaya: R
@@ -186,30 +198,82 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return findAyahIdBySurah(surah, ayah, this.#data)
   }
 
-  generatePartBlocks(type: PartType) {
+  /**
+   * Returns the parts of a kind as `{ startAyahId, ayahCount }` blocks, or `null` when the riwaya has no such data
+   */
+  generatePartBlocks(type: PartType): PartBlock[] | null {
     return generatePartBlocks(type, this.#data)
   }
 
-  getList(type: PartType) {
+  /**
+   * Returns the raw boundary list for a kind of part
+   */
+  getList(type: PartType): AyahId[] | SurahListType {
     return getList(type, this.#data)
   }
 
-  getListNormalised(type: PartType) {
+  /**
+   * Returns the parts of a kind as `{ startAyahId, ayahCount }` blocks
+   */
+  getListNormalised(type: PartType): PartBlock[] {
     return getListNormalised(type, this.#data)
   }
 
   /**
-   * Gets the next ayah after the given surah and ayah
+   * Gets the next ayah after the given surah and ayah.
+   * Wraps from the last ayah to 1:1 unless `{ wrap: false }` is passed, in which case it returns `undefined`.
    */
-  nextAyah(surah: Surah, ayah: AyahNo): SurahAyah {
-    return nextAyah(surah, ayah, this.#data)
+  nextAyah(surah: Surah, ayah: AyahNo, options?: { wrap?: true }): SurahAyah
+  nextAyah(surah: Surah, ayah: AyahNo, options: AyahStepOptions): SurahAyah | undefined
+  nextAyah(surah: Surah, ayah: AyahNo, options: AyahStepOptions = {}): SurahAyah | undefined {
+    return nextAyah(surah, ayah, this.#data, options)
   }
 
   /**
-   * Gets the previous ayah before the given surah and ayah
+   * Gets the previous ayah before the given surah and ayah.
+   * Wraps from 1:1 to the last ayah unless `{ wrap: false }` is passed, in which case it returns `undefined`.
    */
-  prevAyah(surah: Surah, ayah: AyahNo): SurahAyah {
-    return prevAyah(surah, ayah, this.#data)
+  prevAyah(surah: Surah, ayah: AyahNo, options?: { wrap?: true }): SurahAyah
+  prevAyah(surah: Surah, ayah: AyahNo, options: AyahStepOptions): SurahAyah | undefined
+  prevAyah(surah: Surah, ayah: AyahNo, options: AyahStepOptions = {}): SurahAyah | undefined {
+    return prevAyah(surah, ayah, this.#data, options)
+  }
+
+  /**
+   * Formats an ayah id as a `"surah:ayah"` reference
+   */
+  formatAyahId(ayahId: AyahId): string {
+    return formatAyahId(ayahId, this.#data)
+  }
+
+  // ==================== Iteration ====================
+
+  /**
+   * Returns `[firstAyahId, lastAyahId]` of a surah, juz, page, manzil, ruku, rub' al-hizb or thumun al-hizb
+   */
+  getPartRange(type: PartType, num: number): AyahRange {
+    return getPartRange(type, num, this.#data)
+  }
+
+  /**
+   * Iterates over every `[surah, ayah]` in a part of the Quran
+   */
+  ayahsInPart(type: PartType, num: number): Generator<SurahAyah, void, undefined> {
+    return ayahsInPart(type, num, this.#data)
+  }
+
+  /**
+   * Iterates over every `[surah, ayah]` on a page
+   */
+  ayahsInPage(page: Page): Generator<SurahAyah, void, undefined> {
+    return ayahsInPage(page, this.#data)
+  }
+
+  /**
+   * Iterates over every `[surah, ayah]` in a juz
+   */
+  ayahsInJuz(juz: Juz): Generator<SurahAyah, void, undefined> {
+    return ayahsInJuz(juz, this.#data)
   }
 
   // ==================== Juz Methods ====================
@@ -309,14 +373,14 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   /**
    * Finds juz and calculates shift between juz start and surah start
    */
-  findJuzAndShift(surah: Surah, ayah: AyahNo) {
+  findJuzAndShift(surah: Surah, ayah: AyahNo): JuzAndShift {
     return findJuzAndShift(surah, ayah, this.#data)
   }
 
   /**
    * Finds juz and shift for a given ayah ID
    */
-  findJuzAndShiftByAyahId(ayahId: AyahId) {
+  findJuzAndShiftByAyahId(ayahId: AyahId): JuzAndShift {
     return findJuzAndShiftByAyahId(ayahId, this.#data)
   }
 
@@ -365,39 +429,51 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   }
 
   // ==================== ThumunAlHizb Methods ====================
+  // Only riwayas with thumun al-hizb data (Qalun) have these methods; calling them on
+  // another riwaya is a type error.
 
   /**
-   * Finds the ThumunAlHizb ID for a given ayah ID (Qalun only)
+   * Finds the ThumunAlHizb ID for a given ayah ID
    */
-  findThumunAlHizbByAyahId(ayahId: AyahId): ThumunAlHizbId | null {
+  findThumunAlHizbByAyahId(this: QuranRiwaya<ThumunRiwayaName>, ayahId: AyahId): ThumunAlHizbId {
     return findThumunAlHizbByAyahId(ayahId, this.#data)
   }
 
   /**
-   * Finds the ThumunAlHizb ID for a given ayah ID (Qalun only)
+   * Finds the ThumunAlHizb ID for a given surah and ayah
    */
-  findThumunAlHizb(surah: Surah, ayah: AyahNo = 1): ThumunAlHizbId | null {
+  findThumunAlHizb(this: QuranRiwaya<ThumunRiwayaName>, surah: Surah, ayah: AyahNo = 1): ThumunAlHizbId {
     return findThumunAlHizb(surah, ayah, this.#data)
   }
 
   /**
-   * Gets metadata for a specific ThumunAlHizb (Qalun only)
+   * Gets metadata for a specific ThumunAlHizb
    */
-  getThumunAlHizbMeta(eighthIndex: ThumunAlHizbId): ThumunAlHizbMeta | null {
+  getThumunAlHizbMeta(this: QuranRiwaya<ThumunRiwayaName>, eighthIndex: ThumunAlHizbId): ThumunAlHizbMeta {
     return getThumunAlHizbMeta(eighthIndex, this.#data)
   }
 
-  getThumunAlHizbByAyahId(ayahId: AyahId): ThumunAlHizb | null {
+  /**
+   * Gets juz, hizb, quarter and eighth numbers for a given ayah ID
+   */
+  getThumunAlHizbByAyahId(this: QuranRiwaya<ThumunRiwayaName>, ayahId: AyahId): ThumunAlHizb {
     return getThumunAlHizbByAyahId(ayahId, this.#data)
   }
 
-  getThumunAlHizbMetaByAyahId(ayahId: AyahId): ThumunAlHizb | null {
+  /**
+   * Gets the ThumunAlHizb containing an ayah ID, with its first and last ayah
+   */
+  getThumunAlHizbMetaByAyahId(this: QuranRiwaya<ThumunRiwayaName>, ayahId: AyahId): ThumunAlHizbMeta {
     return getThumunAlHizbMetaByAyahId(ayahId, this.#data)
   }
 
-  getThumunAlHizb(eighthIndex: ThumunAlHizbId): ThumunAlHizb | null {
+  /**
+   * Gets juz, hizb, quarter and eighth numbers for a ThumunAlHizb ID
+   */
+  getThumunAlHizb(eighthIndex: ThumunAlHizbId): ThumunAlHizb {
     return getThumunAlHizb(eighthIndex)
   }
+
   // ==================== Ayah Metadata ====================
 
   /**
@@ -472,10 +548,6 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
     return isValidSurah(x, this.#meta)
   }
 
-  //   IsValidAyahNo(x: unknown): x is AyahNo {
-  //     Return isValidAyahNo(x, this.#meta)
-  //   }
-
   isValidJuz(x: unknown): x is Juz {
     return isValidJuz(x, this.#meta)
   }
@@ -486,6 +558,18 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
 
   isValidSurahAyah(x: [unknown, unknown]): x is SurahAyah {
     return isValidSurahAyah(x, this.#data)
+  }
+
+  isValidManzil(x: unknown): x is Manzil {
+    return isValidManzil(x, this.#meta)
+  }
+
+  isValidHizb(x: unknown): x is HizbId {
+    return isValidHizb(x, this.#meta)
+  }
+
+  isValidRubAlHizb(x: unknown): x is RubAlHizbId {
+    return isValidRubAlHizb(x, this.#data)
   }
 
   static isValidAyahNo(x: unknown): x is AyahNo {
@@ -517,7 +601,7 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   }
 
   /**
-   * Gets the metadata for this riwaya
+   * Gets the raw lists (SurahList, JuzList, PageList, ...) for this riwaya
    */
   get lists(): Riwayas[R] {
     return this.#data

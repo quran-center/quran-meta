@@ -13,14 +13,14 @@ describe(findJuz, () => {
   })
 
   it("should return correct juz for first ayah of first surah", () => {
-    expect(findJuzByAyahId(1, HafsLists, HafsLists)).toEqual(1)
-    expect(findJuzByAyahId(6236, HafsLists, HafsLists)).toEqual(30)
+    expect(findJuzByAyahId(1, HafsLists)).toEqual(1)
+    expect(findJuzByAyahId(6236, HafsLists)).toEqual(30)
   })
 
   it("should return correct juz for first ayah of first surah", () => {
-    expect(findJuzByAyahId(5672, HafsLists, HafsLists)).toEqual(29)
-    expect(findJuzByAyahId(5673, HafsLists, HafsLists)).toEqual(30)
-    expect(findJuzByAyahId(6236, HafsLists, HafsLists)).toEqual(30)
+    expect(findJuzByAyahId(5672, HafsLists)).toEqual(29)
+    expect(findJuzByAyahId(5673, HafsLists)).toEqual(30)
+    expect(findJuzByAyahId(6236, HafsLists)).toEqual(30)
   })
 
   it("should return correct juz for last surah", () => {
@@ -45,6 +45,7 @@ describe(findJuz, () => {
   })
 
   it("should handle invalid surah numbers", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => findJuz(115, 1, HafsLists)).toThrow()
 
     expect(() => findJuzByAyahId(6237, HafsLists)).toThrow()

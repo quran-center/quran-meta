@@ -10,6 +10,8 @@ import { checkValidAyahId } from "./validation"
  * @param ayahId - The Ayah ID to find the Juz, Hizb, and Hizb ID for.
  * @param data - The Lists object for the riwaya.
  * @returns An object containing the Juz, Hizb, and Hizb ID for the given Ayah ID.
+ *
+ * @category Hizb
  */
 export function getRubAlHizbByAyahId(ayahId: AyahId, data: RiwayaData): RubAlHizb {
   checkValidAyahId(ayahId, data.meta)

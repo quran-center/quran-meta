@@ -33,7 +33,9 @@ describe(findRubAlHizb, () => {
   })
 
   it("should throw an error for invalid surah number", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => findRubAlHizb(0, 1, HafsLists)).toThrow()
+    // @ts-expect-error out-of-range value on purpose
     expect(() => findRubAlHizb(115, 1, HafsLists)).toThrow()
   })
 

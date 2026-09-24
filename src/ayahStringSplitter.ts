@@ -1,22 +1,24 @@
 import type { RiwayaData } from "./lists/types"
 import { isValidAyahNo, isValidSurah } from "./typeGuards"
 import type { AyahNo, Surah, SurahAyahSegment } from "./types"
-import { checkValidAyahId, checkValidSurahAyah } from "./validation"
+import { checkValidSurahAyah } from "./validation"
 
 /**
  * Splits a string representation of Quran reference into surah and ayah components
  * @param str - The string to parse, expected format: "surah:ayah" or "surah:ayahStart-ayahEnd"
  * @param isStrict - If true, enforces strict format checking. Defaults to true. If false, allows for additional characters in the string
  * @returns A tuple containing surah number and either a single ayah number or a range [start, end]
- * @throws {Error} If the string format is invalid
- * @throws {Error} If surah number is invalid
- * @throws {Error} If ayah number(s) are invalid
- * @throws {Error} If ayah range is invalid (start should be less than end)
+ * @throws Error If the string format is invalid
+ * @throws Error If surah number is invalid
+ * @throws Error If ayah number(s) are invalid
+ * @throws Error If ayah range is invalid (start should be less than end)
  * @example
  * ```ts
  * ayahStringSplitter("2:255") // returns [2, 255]
  * ayahStringSplitter("1:1-7") // returns [1, [1, 7]]
  * ```
+ *
+ * @category Parsing & Formatting
  */
 export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaData): SurahAyahSegment {
   const result = isStrict ? string2NumberSplitterStrict(str) : string2NumberSplitter(str)
@@ -28,18 +30,18 @@ export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaDat
   const { meta } = data
 
   if (!isValidSurah(surahX, meta)) {
-    throw new Error("Invalid ayah number: " + str)
+    throw new Error("Invalid surah number: " + str)
   }
   const surah: Surah = surahX
 
   let ayahs: AyahNo | [AyahNo, AyahNo]
   if (ayahTo) {
-    checkValidAyahId(ayah, meta)
-    checkValidAyahId(ayahTo, meta)
+    checkValidSurahAyah(surah, ayah, data)
+    checkValidSurahAyah(surah, ayahTo, data)
     if (ayah > ayahTo) {
       throw new Error("Invalid ayah range: " + str)
     }
-    ayahs = [ayah, ayahTo] as [AyahNo, AyahNo]
+    ayahs = [ayah, ayahTo]
   } else {
     if (!isValidAyahNo(ayah)) {
       throw new Error("Error in data " + str)
@@ -63,6 +65,8 @@ export function ayahStringSplitter(str: string, isStrict = true, data: RiwayaDat
  * stringNumberSplitter("2:255") // returns \{ ayah: 255, ayahTo: 0, surahOrAyah: 2 \}
  * stringNumberSplitter("2:255-260") // returns \{ ayah: 255, ayahTo: 260, surahOrAyah: 2 \}
  * stringNumberSplitter("invalid") // returns null
+ *
+ * @category Parsing & Formatting
  */
 export function string2NumberSplitter(str: string): { ayah?: number; ayahTo?: number; surahOrAyah?: number } | null {
   const sr = /(?<surah>\d{1,3})\D*(?<ayah>\d{0,3})\D*(?<ayahTo>\d{0,3})/.exec(str)
@@ -91,16 +95,21 @@ export function string2NumberSplitter(str: string): { ayah?: number; ayahTo?: nu
  *          - surahOrAyah: The surah number
  *          - ayah: The first or only ayah number
  *          - ayahTo: The ending ayah number (if range specified)
- * @throws {Error} When the input string format is invalid or contains non-numeric values
+ * @throws Error When the input string format is invalid or contains non-numeric values
  *
  * @example
  * string2NumberSplitterStrict("2:255")    // returns \{ surahOrAyah: 2, ayah: 255, ayahTo: NaN \}
  * string2NumberSplitterStrict("2:255-260") // returns \{ surahOrAyah: 2, ayah: 255, ayahTo: 260 \}
+ *
+ * @category Parsing & Formatting
  */
 export function string2NumberSplitterStrict(
   str: string
 ): { ayah?: number; ayahTo?: number; surahOrAyah?: number } | null {
   let [surahStr, ayahsStr] = str.trim().split(":")
+  if (ayahsStr === undefined) {
+    throw new Error("Expected surah:ayah format: " + str)
+  }
   surahStr = surahStr.trim()
   const surahX = Number.parseInt(surahStr.trim(), 10)
 

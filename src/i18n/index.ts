@@ -1,4 +1,5 @@
 import { surahNamesEn } from "./surah.en"
+import { surahNamesAr } from "./surah.ar"
 import { surahNamesAz } from "./surah.az"
 import { surahNamesRu } from "./surah.ru"
 import { surahNamesTr } from "./surah.tr"
@@ -14,6 +15,7 @@ import type { Lang, SurahNames, SurahNamesI18n } from "./types"
 
 export {
   surahNamesEn,
+  surahNamesAr,
   surahNamesAz,
   surahNamesTr,
   surahNamesRu,
@@ -27,6 +29,7 @@ export {
 }
 
 export const surahNames: SurahNamesI18n = {
+  ar: surahNamesAr,
   az: surahNamesAz,
   bs: surahNamesBs,
   en: surahNamesEn,
@@ -40,7 +43,7 @@ export const surahNames: SurahNamesI18n = {
   uz: surahNamesUz
 }
 
-export { getSurahNames } from "./getSurahNames"
+export { getSurahNames, getSurahName } from "./getSurahNames"
 export { languages } from "./types"
 
 export type { Lang, SurahNames, SurahNamesI18n }

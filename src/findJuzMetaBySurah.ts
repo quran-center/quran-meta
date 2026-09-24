@@ -10,8 +10,10 @@ import type { AyahNo, Juz, Surah, SurahJuzMeta } from "./types"
  * @param ayah - The Ayah (verse) number.
  * @param data - The Lists object for the riwaya.
  * @returns The SurahJuzMeta object containing the left juz, ayahs between juz and surah, right juz, ayah ID of first ayah in left juz, and last ayah ID of right juz .
+ *
+ * @category Juz
  */
-export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo = 1, data: RiwayaData): SurahJuzMeta {
+export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo, data: RiwayaData): SurahJuzMeta {
   const { juz: leftjuz, ayahsBetweenJuzSurah, leftAyahId } = findJuzAndShift(surah, ayah, data)
   const { JuzList } = data
   let rightJuz: Juz = leftjuz

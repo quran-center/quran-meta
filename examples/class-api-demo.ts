@@ -1,6 +1,6 @@
 /**
  * Demo of the new QuranRiwaya class-based API
- * Run with: pnpx jiti examples/class-api-demo.ts
+ * Run with: pnpm jiti examples/class-api-demo.ts
  */
 
 import { createQalun, quran as hafs } from "../src"
@@ -65,17 +65,8 @@ try {
   console.log("Thumun al-Hizb methods only available in Qalun")
 }
 
-// Compare: Old API vs New API
+// Functional API vs class API
 console.log("\n\n=== API Comparison ===")
-console.log("Old API: getSurahMeta(2, 'Hafs')")
-console.log("New API: QuranRiwaya.hafs().getSurahMeta(2)")
-console.log("\nOld API: isAyahJuzFirst(149, 'Hafs')")
-console.log("New API: hafs.isAyahJuzFirst(149)")
-console.log("\nBenefits:")
-console.log("  ✓ No repetitive riwaya parameter")
-console.log("  ✓ Clear context with instance")
-console.log("  ✓ Chainable and fluent API")
-console.log("  ✓ Better IDE autocomplete")
-console.log("  ✓ Type-safe riwaya handling")
-
-console.log("\n=== Demo Complete ===")
+console.log('Functional: getSurahMeta(2) from "quran-meta/hafs"')
+console.log('Class:      quran.getSurahMeta(2) from "quran-meta/hafs"')
+console.log('Root API:   getSurahMeta(2, getListsOfRiwaya("Hafs")) from "quran-meta"')

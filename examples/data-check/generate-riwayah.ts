@@ -6,8 +6,8 @@
  */
 
 const riwayahName = "Warsh" // For output file naming
-import data from "./data/WarshData_v2-1.json"
-// Import data from "../data/WarshData_v2-0.json"
+import data from "./data/warshData_v2-1.json"
+// Import data from "./data/warshData_v2-0.json"
 // Import data from "../data/DouriData_v2-0.json"
 // Import data from "../data/SousiData_v2-0.json"
 // Import data from "../data/shubaData_v2-0.json"

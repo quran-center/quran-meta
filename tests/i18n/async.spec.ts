@@ -1,4 +1,4 @@
-import { getSurahNamesAsync } from "../../src/i18n/getSurahNamesAsync"
+import { getSurahNamesAsync } from "../../src/i18n/async"
 import type { Lang } from "../../src"
 import { meta } from "../../src/hafs"
 

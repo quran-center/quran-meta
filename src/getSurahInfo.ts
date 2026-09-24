@@ -8,6 +8,8 @@ import { checkValidSurah } from "./validation"
  * @param surah - The Surah to get the metadata for.
  * @param data - The Lists object containing SurahList.
  * @returns The metadata for the specified Surah.
+ *
+ * @category Surah & Ayah
  */
 export function getSurahInfo(surah: Surah, data: RiwayaData): SurahInfo {
   checkValidSurah(surah, data.meta)

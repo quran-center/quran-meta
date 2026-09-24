@@ -11,6 +11,8 @@ import type { AyahId, Surah } from "./types"
  *
  * @example
  * const surah = findSurahByAyahId(1234, data);
+ *
+ * @category Surah & Ayah
  */
 export function findSurahByAyahId(ayaId: AyahId, data: RiwayaData): Surah {
   return findSurahAyahByAyahId(ayaId, data)[0]

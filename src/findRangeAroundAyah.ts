@@ -17,6 +17,8 @@ import type { AyahId, AyahRange, Juz, Page, RangeMode, Ruku, Surah } from "./typ
  *   - "all": Returns range covering all ayahs (1 to total number of ayahs)
  * @param data - The Lists object for the riwaya.
  * @returns An array of two numbers representing the start and end ayah IDs of the range [startAyahId, endAyahId]
+ *
+ * @category Ranges & Iteration
  */
 export function findRangeAroundAyah(ayahId: AyahId, mode: RangeMode, data: RiwayaData): AyahRange {
   const { JuzList } = data

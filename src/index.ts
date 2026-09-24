@@ -32,6 +32,7 @@ export type {
   SurahName,
   ManzilMeta,
   NumericRange,
+  JuzAndShift,
   ThumunAlHizb,
   ThumunAlHizbMeta,
   ThumunAlHizbId
@@ -47,9 +48,13 @@ export type {
   PartType,
   AllListsNames,
   RiwayasNames,
-  MissingListsPerRiwaya
+  MissingListsPerRiwaya,
+  ThumunRiwayaName,
+  PartListNames
 } from "./lists/types"
 export type { PartBlock } from "./lists/getList"
+export type { AyahStepOptions } from "./nextAyah"
+export type { RiwayaListOverrides } from "./customizeRiwaya"
 
 import { BazziLists } from "./lists/BazziLists"
 import { DouriLists } from "./lists/DouriLists"
@@ -59,64 +64,89 @@ import { QunbulLists } from "./lists/QunbulLists"
 import { ShubaLists } from "./lists/ShubaLists"
 import { SousiLists } from "./lists/SousiLists"
 import { WarshLists } from "./lists/WarshLists"
-
-// ==================== New Class-Based API ====================
 import { QuranRiwaya } from "./QuranRiwaya"
+import type { QuranMeta } from "./types"
+
+// ==================== Class-Based API ====================
 
 /**
  * Create a QuranRiwaya instance with Hafs riwaya (default)
+ *
+ * @category Class API
  */
-export const createHafs = () => QuranRiwaya.create(HafsLists)
+export const createHafs = (): QuranRiwaya<"Hafs"> => QuranRiwaya.create<"Hafs">(HafsLists)
 
 /**
  * Create a QuranRiwaya instance with Qalun riwaya
+ *
+ * @category Class API
  */
-export const createQalun = () => QuranRiwaya.create(QalunLists)
+export const createQalun = (): QuranRiwaya<"Qalun"> => QuranRiwaya.create<"Qalun">(QalunLists)
 
 /**
  * Create a QuranRiwaya instance with Warsh riwaya
+ *
+ * @category Class API
  */
-export const createWarsh = () => QuranRiwaya.create(WarshLists)
+export const createWarsh = (): QuranRiwaya<"Warsh"> => QuranRiwaya.create<"Warsh">(WarshLists)
 
 /**
  * Create a QuranRiwaya instance with Bazzi riwaya
+ *
+ * @category Class API
  */
-export const createBazzi = () => QuranRiwaya.create(BazziLists)
+export const createBazzi = (): QuranRiwaya<"Bazzi"> => QuranRiwaya.create<"Bazzi">(BazziLists)
 
 /**
  * Create a QuranRiwaya instance with Douri riwaya
+ *
+ * @category Class API
  */
-export const createDouri = () => QuranRiwaya.create(DouriLists)
+export const createDouri = (): QuranRiwaya<"Douri"> => QuranRiwaya.create<"Douri">(DouriLists)
 
 /**
  * Create a QuranRiwaya instance with Qunbul riwaya
+ *
+ * @category Class API
  */
-export const createQunbul = () => QuranRiwaya.create(QunbulLists)
+export const createQunbul = (): QuranRiwaya<"Qunbul"> => QuranRiwaya.create<"Qunbul">(QunbulLists)
 
 /**
  * Create a QuranRiwaya instance with Shuba riwaya
+ *
+ * @category Class API
  */
-export const createShuba = () => QuranRiwaya.create(ShubaLists)
+export const createShuba = (): QuranRiwaya<"Shuba"> => QuranRiwaya.create<"Shuba">(ShubaLists)
 
 /**
  * Create a QuranRiwaya instance with Sousi riwaya
+ *
+ * @category Class API
  */
-export const createSousi = () => QuranRiwaya.create(SousiLists)
+export const createSousi = (): QuranRiwaya<"Sousi"> => QuranRiwaya.create<"Sousi">(SousiLists)
 
 /**
  * Pre-initialized QuranRiwaya instance for Hafs (for convenience)
+ *
+ * @category Class API
  */
-export const quran = createHafs()
+export const quran: QuranRiwaya<"Hafs"> = /* @__PURE__ */ createHafs()
 
 /**
  * Default Quran metadata (Hafs riwaya).
- * For other riwayas, use `quran-meta/qalun` or `quran-meta/warsh`.
+ * For other riwayas, use `quran-meta/qalun`, `quran-meta/warsh`, etc.
+ *
+ * @category Riwaya Data
  */
-export const { meta } = HafsLists
+export const meta: QuranMeta = HafsLists.meta
 
 export { QuranRiwaya } from "./QuranRiwaya"
 export { getList, generatePartBlocks, getListNormalised } from "./lists/getList"
 export { getListsOfRiwaya, getListOfRiwaya } from "./lists"
+export { customizeRiwaya, validateRiwayaData } from "./customizeRiwaya"
+export { convertAyah, convertAyahSpan } from "./convert/convertAyah"
+export { ayahsInJuz, ayahsInPage, ayahsInPart, getPartRange } from "./ayahsInPart"
+export { formatAyahId, formatSurahAyah } from "./formatSurahAyah"
 export { ayahStringSplitter, string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { surahStringParser } from "./surahStringParser"
 export { findAyahIdBySurah } from "./findAyahIdBySurah"
@@ -136,6 +166,7 @@ export { findRukuByAyahId } from "./findRukuByAyahId"
 export { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 export { findSurahByAyahId } from "./findSurahByAyahId"
 export { getAyahCountInSurah } from "./getAyahCountInSurah"
+export { getSurahInfo } from "./getSurahInfo"
 export { getAyahMeta } from "./getAyahMeta"
 export { getAyahMetasForSurah } from "./getAyahMetasForSurah"
 export { getJuzMeta } from "./getJuzMeta"
@@ -146,6 +177,12 @@ export { getRubAlHizb } from "./getRubAlHizb"
 export { getRubAlHizbMeta } from "./getRubAlHizbMeta"
 export { getRubAlHizbMetaByAyahId } from "./getRubAlHizbMetaByAyahId"
 export { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
+export { findThumunAlHizb } from "./findThumunAlHizb"
+export { findThumunAlHizbByAyahId } from "./findThumunAlHizbByAyahId"
+export { getThumunAlHizb } from "./getThumunAlHizb"
+export { getThumunAlHizbByAyahId } from "./getThumunAlHizbByAyahId"
+export { getThumunAlHizbMeta } from "./getThumunAlHizbMeta"
+export { getThumunAlHizbMetaByAyahId } from "./getThumunAlHizbMetaByAyahId"
 export { getSurahMeta } from "./getSurahMeta"
 export { isAyahJuzFirst } from "./isAyahJuzFirst"
 export { isAyahPageFirst } from "./isAyahPageFirst"
@@ -172,10 +209,10 @@ export {
   checkValidJuz,
   checkValidPage,
   checkValidSurah,
-  checkValidSurahAyah
+  checkValidSurahAyah,
+  checkValidSurahAyahPair
 } from "./validation"
 
-// ------------------ Sura i18 Data ---------------------
+// ==================== Surah names (i18n) ====================
 
 export * from "./i18n"
-// Export { getSurahNamesAsync } from "./i18n/getSurahNamesAsync"

@@ -5,7 +5,7 @@
 
 import { createWarsh } from "../../../src/warsh"
 import type { AyahId } from "../../../src/types"
-import WarshData from "../data/WarshData_v2-1.json"
+import WarshData from "../data/warshData_v2-1.json"
 
 const quran = createWarsh()
 const ayahCount = WarshData.length

@@ -8,6 +8,8 @@ import type { RiwayaData } from "./lists/types"
  *
  * @param x - The value to check.
  * @returns True if the value is a valid AyahId, otherwise false.
+ *
+ * @category Validation
  */
 export function isValidAyahId(x: unknown, meta: QuranMeta): x is AyahId {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= meta.numAyahs
@@ -18,6 +20,8 @@ export function isValidAyahId(x: unknown, meta: QuranMeta): x is AyahId {
  *
  * @param x - The value to check.
  * @returns True if the value is a valid Ayah number, otherwise false.
+ *
+ * @category Validation
  */
 export function isValidAyahNo(x: unknown): x is AyahNo {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= maxAyahsInSurah
@@ -28,6 +32,8 @@ export function isValidAyahNo(x: unknown): x is AyahNo {
  *
  * @param x - The value to check.
  * @returns `true` if the value is a valid Surah number, otherwise `false`.
+ *
+ * @category Validation
  */
 export function isValidSurah(x: unknown, meta: QuranMeta): x is Surah {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= meta.numSurahs
@@ -46,6 +52,8 @@ export function isValidSurah(x: unknown, meta: QuranMeta): x is Surah {
  * isValidSurahAyah([1, 8], HafsLists) // false - Al-Fatiha only has 7 ayahs
  * isValidSurahAyah([115, 1], HafsLists) // false - there are only 114 surahs
  * ```
+ *
+ * @category Validation
  */
 export function isValidSurahAyah(x: [unknown, unknown], data: RiwayaData): x is SurahAyah {
   const [surah, ayah] = x
@@ -61,6 +69,8 @@ export function isValidSurahAyah(x: [unknown, unknown], data: RiwayaData): x is 
  * @param x - The first value to check (potentially a Surah number)
  * @param y - The second value to check (potentially an Ayah number)
  *
+ *
+ * @category Validation
  */
 export function isValidSurahAndAyah(x: unknown, y: unknown, data: RiwayaData): x is SurahAyah {
   return isValidSurahAyah([x, y], data)
@@ -70,6 +80,8 @@ export function isValidSurahAndAyah(x: unknown, y: unknown, data: RiwayaData): x
  * Type guard that checks if a number is a valid Juz number
  * @param x - The number to check
  * @returns True if the number is an integer between 1 and the total number of Juzs (inclusive)
+ *
+ * @category Validation
  */
 export function isValidJuz(x: unknown, meta: QuranMeta): x is Juz {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= meta.numJuzs
@@ -79,6 +91,8 @@ export function isValidJuz(x: unknown, meta: QuranMeta): x is Juz {
  * Type guard to check if a number is a valid Hizb number
  * @param x - The number to check
  * @returns True if the number is an integer between 1 and the total number of Hizbs (inclusive)
+ *
+ * @category Validation
  */
 export function isValidHizb(x: unknown, meta: QuranMeta): x is HizbId {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= meta.numHizbs
@@ -88,6 +102,8 @@ export function isValidHizb(x: unknown, meta: QuranMeta): x is HizbId {
  * Type guard to check if a number is a valid RubAlHizb number
  * @param x - The number to check
  * @returns True if the number is an integer between 1 and the total number of RubAlHizbs (inclusive)
+ *
+ * @category Validation
  */
 export function isValidRubAlHizb(x: unknown, lists: RiwayaData): x is RubAlHizbId {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= lists.meta.numRubAlHizbs
@@ -97,6 +113,8 @@ export function isValidRubAlHizb(x: unknown, lists: RiwayaData): x is RubAlHizbI
  * Type guard to check if a number is a valid Quran page number
  * @param x - The number to check
  * @returns True if the number is an integer between 1 and the total number of pages (inclusive)
+ *
+ * @category Validation
  */
 export function isValidPage(x: unknown, meta: QuranMeta): x is Page {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= meta.numPages
@@ -112,6 +130,8 @@ export function isValidPage(x: unknown, meta: QuranMeta): x is Page {
  *   // 5 is a valid Ruku number
  * }
  * ```
+ *
+ * @category Validation
  */
 export function isValidRuku(x: unknown, meta: QuranMeta): x is Ruku {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= meta.numRukus
@@ -129,6 +149,8 @@ export function isValidRuku(x: unknown, meta: QuranMeta): x is Ruku {
  *   // value is a valid Manzil number
  * }
  * ```
+ *
+ * @category Validation
  */
 export function isValidManzil(x: unknown, meta: QuranMeta): x is Manzil {
   return Number.isInteger(x) && (x as number) >= 1 && (x as number) <= meta.numManzils

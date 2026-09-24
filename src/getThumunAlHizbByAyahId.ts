@@ -10,6 +10,8 @@ import { checkValidAyahId } from "./validation"
  * @param ayahId - The Ayah ID to find the Juz, Hizb, and Hizb ID for.
  * @param data - The riwaya. Defaults to "Qalun" if not provided.
  * @returns An object containing the Juz, Hizb, Hizb ID and thuumun-el-Hizb id for the given Ayah ID.
+ *
+ * @category Hizb
  */
 export function getThumunAlHizbByAyahId(ayahId: AyahId, data: RiwayahsWith<"HizbEighthList">): ThumunAlHizb {
   checkValidAyahId(ayahId, data.meta)

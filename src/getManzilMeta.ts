@@ -15,6 +15,8 @@ import { checkValidManzil } from "./validation"
  *  - first: Surah and ayah details of the first ayah
  *  - last: Surah and ayah details of the last ayah
  * @throws Will throw an error if manzilNum is invalid
+ *
+ * @category Manzil & Ruku
  */
 export function getManzilMeta(manzilNum: number, data: RiwayaData): ManzilMeta {
   checkValidManzil(manzilNum, data.meta)

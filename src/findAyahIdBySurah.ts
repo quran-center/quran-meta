@@ -8,6 +8,8 @@ import { checkValidSurahAyah } from "./validation"
  * @param ayah - The ayah number within the surah.
  * @param data - The Lists object containing SurahList.
  * @returns The ayah ID for the given surah and ayah number.
+ *
+ * @category Surah & Ayah
  */
 export function findAyahIdBySurah(surah: Surah, ayah: AyahNo, data: RiwayaData): AyahId {
   checkValidSurahAyah(surah, ayah, data)

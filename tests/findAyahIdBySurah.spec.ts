@@ -35,6 +35,7 @@ describe(findAyahIdBySurah, () => {
   })
 
   it("should throw error for invalid surah", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => findAyahIdBySurah(115, 1, HafsLists)).toThrow()
   })
 

@@ -1,5 +1,6 @@
 import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
+import type { Riwayas } from "./types"
 
 // Lists generated from examples/data-check/data/quranpedia/bazzi-data.json by examples/data-check/generate-riwayah-lists.ts
 // Note: Bazzi has no HizbEighthList (thumun al-hizb) - no verified source data is available for it.
@@ -241,7 +242,7 @@ export const BazziMeta: QuranMeta = {
   numManzils: 7
 } as const
 
-export const BazziLists = {
+export const BazziLists: Riwayas["Bazzi"] = {
   HizbQuarterList,
   JuzList,
   ManzilList,

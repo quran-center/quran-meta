@@ -25,10 +25,12 @@ describe("pageMeta", () => {
   })
 
   it("should throw RangeError for page number below 1", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => getPageMeta(0, HafsLists)).toThrow(RangeError)
   })
 
   it("should throw RangeError for page number above numPages", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => getPageMeta(HafsMeta.numPages + 1, HafsLists)).toThrow(RangeError)
   })
 })

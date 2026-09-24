@@ -13,6 +13,8 @@ import { checkValidAyahId } from "./validation"
  * @param data - The Lists object for the riwaya.
  * @returns An object containing the ayah related meta, including information about the surah, juz, and quarter the ayah is in.
  * @throws RangeError If the ayahId number is not between 1 and 6236
+ *
+ * @category Surah & Ayah
  */
 export function getAyahMeta(ayahId: AyahId, data: RiwayaData): AyahMeta {
   checkValidAyahId(ayahId, data.meta)

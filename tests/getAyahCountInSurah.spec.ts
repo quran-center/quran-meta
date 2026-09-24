@@ -23,7 +23,9 @@ describe(getAyahCountInSurah, () => {
   })
 
   it("should throw an error for invalid surah number", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => getAyahCountInSurah(0, HafsLists)).toThrow()
+    // @ts-expect-error out-of-range value on purpose
     expect(() => getAyahCountInSurah(115, HafsLists)).toThrow()
   })
 })

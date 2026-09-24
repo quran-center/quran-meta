@@ -4,7 +4,7 @@
  * Generates a lists module (HizbQuarterList, JuzList, ManzilList, PageList,
  * SajdaList, SurahList, RukuList + `<Name>Meta` / `<Name>Lists`) for
  * src/lists/<Name>Lists.ts from the surahs/ayahs JSON structure used by the
- * quranpedia.net data dumps (data/quranpedia/*.json and data/warsh-data.json).
+ * quranpedia.net data dumps (data/quranpedia/*.json).
  *
  * Each ayah entry provides: number, surah, page_number, juz,
  * hizb (1..240 = rub-al-hizb quarter), ruku, manzil, text (۩ marks sajda).
@@ -309,6 +309,7 @@ function renderModule(config: RiwayahConfig, { lists, meta }: Generated): string
 
   return `import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
+import type { Riwayas } from "./types"
 
 // Lists generated from examples/data-check/${config.dataFile} by ${scriptRef}
 // Note: ${name} has no HizbEighthList (thumun al-hizb) - no verified source data is available for it.
@@ -366,7 +367,7 @@ export const ${name}Meta: QuranMeta = {
   numManzils: ${meta.numManzils}
 } as const
 
-export const ${name}Lists = {
+export const ${name}Lists: Riwayas["${name}"] = {
   HizbQuarterList,
   JuzList,
   ManzilList,

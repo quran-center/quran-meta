@@ -2,7 +2,7 @@ import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
 
 export interface RiwayaFullData {
-  HizbEighthList?: AyahId[]
+  HizbEighthList: AyahId[]
   HizbQuarterList: AyahId[]
   JuzList: AyahId[]
   ManzilList: AyahId[]
@@ -30,6 +30,11 @@ export type Riwayas = {
   [k in RiwayaName]: Omit<RiwayaFullData, MissingListsPerRiwaya[k][number]> & { meta: QuranMeta }
 }
 export type RiwayaData = Riwayas[RiwayaName]
+
+/** Riwayas that have thumun al-hizb (HizbEighthList) data */
+export type ThumunRiwayaName = {
+  [R in RiwayaName]: MissingListsPerRiwaya[R] extends [] ? R : never
+}[RiwayaName]
 /* // Get all list keys available in a specific riwaya
 
 export type ListsInRiwaya<R extends keyof Riwayas> = keyof Riwayas[R] */
@@ -47,7 +52,18 @@ export type RiwayahsWithAll<L extends AllListsNames[]> = {
 export const partNames = ["surah", "juz", "rubAlHizb", "thumunAlHizb", "page", "manzil", "ruku"] as const
 export type PartType = (typeof partNames)[number]
 
-export const parts = {
+/** Maps each {@link PartType} to the name of the list that holds its boundaries */
+export interface PartListNames {
+  readonly juz: "JuzList"
+  readonly manzil: "ManzilList"
+  readonly page: "PageList"
+  readonly rubAlHizb: "HizbQuarterList"
+  readonly ruku: "RukuList"
+  readonly surah: "SurahList"
+  readonly thumunAlHizb: "HizbEighthList"
+}
+
+export const parts: PartListNames = {
   juz: "JuzList",
   manzil: "ManzilList",
   page: "PageList",
