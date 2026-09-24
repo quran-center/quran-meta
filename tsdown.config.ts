@@ -1,62 +1,34 @@
 import { defineConfig } from "tsdown/config"
 
-const exports = {
-  base: "index",
-  bazzi: "bazzi",
-  douri: "douri",
-  hafs: "hafs",
-  qalun: "qalun",
-  qunbul: "qunbul",
-  shuba: "shuba",
-  sousi: "sousi",
-  warsh: "warsh"
-}
+const riwayas = ["bazzi", "douri", "hafs", "qalun", "qunbul", "shuba", "sousi", "warsh"]
 
 export default defineConfig([
-  ...Object.entries(exports).map(([name, entry]) => ({
-    entry: `src/${entry}.ts`,
-    exports: false,
-    name,
-    platform: "neutral" as const
-  })),
-  ...Object.entries(exports).map(([name, entry]) => ({
-    entry: `src/${entry}.ts`,
-    exports: false,
-    minify: true,
-    name,
-    outExtensions: () => ({ js: ".min.js" }),
-    platform: "neutral" as const
-  })),
   {
-    entry: "src/i18n/index.ts",
-    exports: false,
-    name: "i18n",
-    outDir: "dist/i18n",
-    platform: "neutral"
-  },
-  {
-    entry: "src/index.ts",
-    exports: false,
-    format: "iife",
-    name: "iife",
-    outputOptions: {
-      name: "quranMeta"
-    }
-  },
-  {
-    entry: "src/index.ts",
+    // ESM for bundlers, Node and <script type="module">. Entries share chunks, so
+    // importing two riwayas does not ship the functional API twice.
+    entry: {
+      index: "src/index.ts",
+      "i18n/index": "src/i18n/index.ts",
+      "i18n/async": "src/i18n/async.ts",
+      ...Object.fromEntries(riwayas.map((r) => [r, `src/${r}.ts`]))
+    },
     format: "esm",
-    name: "esm",
-    outDir: "lib_es",
-    platform: "node",
-    unbundle: true
+    platform: "neutral",
+    target: "es2022",
+    dts: true,
+    clean: true,
+    name: "esm"
   },
   {
-    entry: "src/index.ts",
-    format: "commonjs",
-    name: "cjs",
-    outDir: "lib_cjs",
-    platform: "node",
-    unbundle: true
+    // Minified IIFE for a plain <script> tag, exposes `window.quranMeta`
+    entry: { "quran-meta": "src/index.ts" },
+    format: "iife",
+    platform: "browser",
+    target: "es2022",
+    minify: true,
+    dts: false,
+    clean: false,
+    name: "iife",
+    outputOptions: { name: "quranMeta" }
   }
 ])
