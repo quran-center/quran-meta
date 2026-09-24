@@ -1,5 +1,5 @@
 {
-  // oxfmt configuration for Vue/Nuxt project
+  // oxfmt configuration
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   // Formatting options
   "useTabs": false,
@@ -9,7 +9,7 @@
   "trailingComma": "none",
   "semi": false,
   "arrowParens": "always",
-  "endOfLine": "crlf",
+  "endOfLine": "lf",
   "objectWrap": "preserve",
   // "experimentalSortImports": {
   //   "enabled": true,
@@ -21,10 +21,8 @@
     "**/dist",
     "**/lib_cjs",
     "**/lib_es",
-    "**/.nuxt",
-    "**/.output",
     "**/coverage",
     "**/docs",
-    "**/coverage"
+    "**/site"
   ]
 }

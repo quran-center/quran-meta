@@ -1,18 +1,17 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "jsdoc", "node", "promise", "vitest"],
+  "jsPlugins": ["eslint-plugin-tsdoc"],
   "categories": {
     "correctness": "error",
-    // "nursery": "warn",
-    // "pedantic": "warn"
     "perf": "warn",
-    // "restriction": "warn",
     "style": "allow",
     "suspicious": "warn"
   },
   "env": {
     "builtin": true,
-    "browser": true
+    "browser": true,
+    "node": true
   },
   "options": {
     "typeAware": true
@@ -25,55 +24,46 @@
     "no-redeclare": "error",
     "no-regex-spaces": "error",
     "no-unexpected-multiline": "error",
-    "@typescript-eslint/ban-ts-comment": "error",
     "no-array-constructor": "error",
-    "@typescript-eslint/no-empty-object-type": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-namespace": "error",
-    "@typescript-eslint/no-require-imports": "error",
-    "@typescript-eslint/no-unnecessary-type-constraint": "error",
-    "@typescript-eslint/no-unsafe-function-type": "error",
+    "no-unused-vars": "error",
+    "typescript/ban-ts-comment": ["error", { "ts-expect-error": "allow-with-description" }],
     "typescript/consistent-type-imports": "error",
+    "typescript/no-empty-object-type": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/no-namespace": "error",
+    "typescript/no-require-imports": "error",
+    "typescript/no-unnecessary-type-constraint": "error",
+    "typescript/no-unsafe-function-type": "error",
     "typescript/no-unsafe-type-assertion": "off",
+    "typescript/no-unnecessary-type-arguments": "off",
+    "import/no-duplicates": "error",
     "jsdoc/check-tag-names": "off",
     "vitest/require-to-throw-message": "off",
-    "vitest/valid-title": "off",
-    "import/no-duplicates": "error",
-    "react/jsx-curly-brace-presence": "off",
-    "react/self-closing-comp": "off"
+    "vitest/valid-title": "off"
   },
-  "ignorePatterns": ["**/node_modules/", "**/coverage/", "**/dist/", "**/docs/", "**/lib_cjs/", "**/lib_es/"],
+  "ignorePatterns": ["**/node_modules/", "**/coverage/", "**/dist/", "**/docs/", "**/_site/"],
   "overrides": [
     {
-      "files": ["src/**.{js,ts,mjs,cjs,ts,mts,jsx,tsx}"],
-      "env": {
-        "browser": true,
-        "commonjs": true,
-        "node": true,
-        "shared-node-browser": true
-      }
-    },
-    {
-      "files": ["examples/**.{js,ts,mjs,cjs,ts,mts,jsx,tsx}"],
-      "env": {
-        "browser": true,
-        "commonjs": true,
-        "node": true,
-        "shared-node-browser": true
-      }
-    },
-    {
-      "files": ["tests/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
+      "files": ["src/**/*.ts"],
       "rules": {
-        "@typescript-eslint/no-explicit-any": "off"
+        "tsdoc/syntax": "error",
+        "unicorn/no-array-sort": "off"
+      }
+    },
+    {
+      "files": ["tests/**/*.ts"],
+      "rules": {
+        "typescript/no-explicit-any": "off"
       },
       "env": {
-        "browser": true,
-        "commonjs": true,
-        "jest": true,
-        "mocha": true,
-        "node": true,
-        "shared-node-browser": true
+        "vitest": true
+      }
+    },
+    {
+      "files": ["examples/**/*.{ts,mts,js,mjs}"],
+      "rules": {
+        "no-unused-vars": "off",
+        "no-console": "off"
       }
     },
     {
