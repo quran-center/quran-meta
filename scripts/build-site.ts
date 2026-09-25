@@ -2,7 +2,7 @@
  * Assembles the GitHub Pages site in _site/:
  *   _site/index.html  landing page with a live demo (from site/)
  *   _site/lib/        the built library (from dist/), imported by the demo
- *   _site/docs/       API reference, written by `pnpm docs` (TypeDoc)
+ *   _site/docs/       API reference, written by `pnpm docs:api` (TypeDoc)
  *
  * Usage: pnpm build && pnpm docs:site
  */

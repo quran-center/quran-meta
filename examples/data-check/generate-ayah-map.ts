@@ -17,8 +17,8 @@
  * The result is validated against the surah ayah counts in src/lists.
  *
  * Usage:
- *   node examples/data-check/generate-ayah-map.ts           # write src/convert/ayahMapData.ts
- *   node examples/data-check/generate-ayah-map.ts --check   # fail if the file is out of date
+ *   pnpm jiti examples/data-check/generate-ayah-map.ts           # write src/convert/ayahMapData.ts
+ *   pnpm jiti examples/data-check/generate-ayah-map.ts --check   # fail if the file is out of date
  */
 
 import { execFileSync } from "node:child_process"
