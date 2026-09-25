@@ -44,5 +44,5 @@ export function getSurahName(surah: Surah, lang: Lang = "en"): SurahName {
     throw new RangeError("Surah must be between 1 and 114")
   }
   const name = surahNames[lang]?.[surah]
-  return name && name.length === 2 ? name : (surahNames.en[surah] as SurahName)
+  return name?.length === 2 ? name : (surahNames.en[surah] as SurahName)
 }
