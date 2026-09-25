@@ -9,6 +9,8 @@ import { checkValidAyahId } from "./validation"
  * @param ayahId - The Ayah ID to find the Surah and Ayah numbers for.
  * @param data - The data for the riwaya.
  * @returns An array containing the Surah number and the Ayah number within that Surah.
+ *
+ * @category Surah & Ayah
  */
 
 export function findSurahAyahByAyahId(ayahId: AyahId, data: RiwayaData): SurahAyah {

@@ -9,6 +9,8 @@ import { checkValidAyahId } from "./validation"
  * @param ayahId - The ayah id .
  * @param data - The Lists object for the riwaya.
  * @returns The page number if the ayah is the first ayah of the page, otherwise -1.
+ *
+ * @category Page
  */
 export function isAyahPageFirst(ayahId: AyahId, data: RiwayaData): number {
   const { PageList, meta } = data

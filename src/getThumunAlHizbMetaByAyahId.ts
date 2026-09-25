@@ -3,12 +3,15 @@ import { getThumunAlHizbMeta } from "./getThumunAlHizbMeta"
 import type { AyahId, ThumunAlHizbMeta } from "./types"
 import { checkValidAyahId } from "./validation"
 import type { RiwayahsWith } from "./lists/types"
+
 /**
- * Finds the Juz, Hizb, and Rub-el-Hizb id for the given Ayah ID.
+ * Returns the thumun al-hizb containing the given ayah id, with its first and last ayah.
  *
- * @param ayahId - The Ayah ID to find the Juz, Hizb, and Hizb ID for.
- * @param riwaya - The riwaya. Defaults to "Qalun" if not provided.
- * @returns An object containing the Juz, Hizb, thumunAlHizb ID, and Hizb ID for the given Ayah ID.
+ * @param ayahId - The ayah id.
+ * @param data - The Lists object of a riwaya that has thumun al-hizb data (Qalun).
+ * @returns Juz, hizb, rub' al-hizb and thumun al-hizb numbers plus the range of the thumun.
+ *
+ * @category Hizb
  */
 export function getThumunAlHizbMetaByAyahId(ayahId: AyahId, data: RiwayahsWith<"HizbEighthList">): ThumunAlHizbMeta {
   checkValidAyahId(ayahId, data.meta)

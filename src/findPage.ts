@@ -11,10 +11,12 @@ import { checkValidSurah } from "./validation"
  * @param ayah - The Ayah number to find the page for.
  * @param data - The Lists object for the riwaya.
  * @returns The page number for the given Surah and Ayah.
+ *
+ * @category Page
  */
-export function findPage(surah: Surah, ayah: AyahId = 1, data: RiwayaData): Page {
+export function findPage(surah: Surah, ayah: AyahNo, data: RiwayaData): Page {
   checkValidSurah(surah, data.meta)
-  const ayahId: AyahId = findAyahIdBySurah(surah, ayah as AyahNo, data)
+  const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
   const { PageList } = data
   // Return PageList.findIndex(x => x > ayahId) - 1 as Page
   const jj = binarySearch(PageList, ayahId)

@@ -11,6 +11,8 @@ import { checkValidSurah } from "./validation"
  * @param data - The data for the riwaya.
  * @returns The page number if the ayah is first on its page, -1 otherwise
  * @throws Error If surah number is invalid
+ *
+ * @category Page
  */
 export function isSurahAyahPageFirst(surah: Surah, ayah: AyahNo, data: RiwayaData): number {
   const { PageList, meta } = data

@@ -1,20 +1,21 @@
-import { createRequire } from "node:module"
+import { readFileSync } from "node:fs"
 
-const require = createRequire(import.meta.url)
-const pkg = require("./package.json")
+const pkg = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"))
 
+/** @type {import("typedoc").TypeDocOptions} */
 export default {
-  // Comments are supported, like tsconfig.json
-  entryPoints: ["./src/index.ts"],
-  out: "docs",
-  customFooterHtml: `v. ${pkg.version}`,
+  name: "quran-meta",
+  entryPoints: ["./src/index.ts", "./src/i18n/async.ts"],
+  out: "_site/docs",
+  plugin: ["typedoc-github-theme"],
+  readme: "./README.md",
+  hideGenerator: true,
+  customFooterHtml: `quran-meta v${pkg.version}`,
   navigationLinks: {
-    API: "/modules",
+    Home: "https://quran-center.github.io/quran-meta/",
     GitHub: "https://github.com/quran-center/quran-meta",
-    "Koran.center": "https://koran.center"
+    npm: "https://www.npmjs.com/package/quran-meta"
   },
-  // SidebarLinks: {
-  // },
   navigation: {
     compactFolders: false,
     excludeReferences: false,
@@ -22,5 +23,24 @@ export default {
     includeFolders: true,
     includeGroups: true
   },
-  categorizeByGroup: true
+  categorizeByGroup: true,
+  defaultCategory: "Other",
+  categoryOrder: [
+    "Class API",
+    "Surah & Ayah",
+    "Navigation",
+    "Juz",
+    "Page",
+    "Hizb",
+    "Manzil & Ruku",
+    "Ranges & Iteration",
+    "Parsing & Formatting",
+    "Validation",
+    "Riwaya Conversion",
+    "Riwaya Data",
+    "Surah Names",
+    "*"
+  ],
+  sort: ["kind", "instance-first", "alphabetical-ignoring-documents"],
+  treatWarningsAsErrors: false
 }

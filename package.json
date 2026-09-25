@@ -1,13 +1,21 @@
 {
   "name": "quran-meta",
   "version": "6.1.1-6",
-  "description": "Library with meta data and functionality related to Holy Quran",
+  "description": "Quran metadata for 8 riwayas: surahs, ayahs, juz, hizb, pages, rukus, manzils and sajdas, with conversion between riwaya numberings",
   "keywords": [
+    "ayah",
+    "hafs",
+    "hizb",
+    "islam",
     "juz",
     "koran",
-    "metadata",
+    "mushaf",
+    "qiraat",
     "quran",
-    "surah"
+    "quran-metadata",
+    "riwaya",
+    "surah",
+    "warsh"
   ],
   "homepage": "https://quran-center.github.io/quran-meta/",
   "license": "MIT",
@@ -17,116 +25,110 @@
     "url": "git+https://github.com/quran-center/quran-meta.git"
   },
   "files": [
-    "dist/",
-    "lib_cjs/",
-    "lib_es/",
-    "src/",
-    "types/"
+    "dist/"
   ],
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "unpkg": "./dist/index.js",
-  "jsdelivr": "./dist/index.js",
+  "unpkg": "./dist/quran-meta.iife.js",
+  "jsdelivr": "./dist/quran-meta.iife.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./lib_cjs/index.cjs"
-    },
-    "./package.json": "./package.json",
-    "./i18n": {
-      "types": "./dist/i18n/index.d.ts",
-      "import": "./dist/i18n/index.js"
+      "default": "./dist/index.js"
     },
     "./hafs": {
       "types": "./dist/hafs.d.ts",
-      "import": "./dist/hafs.js"
+      "default": "./dist/hafs.js"
     },
     "./warsh": {
       "types": "./dist/warsh.d.ts",
-      "import": "./dist/warsh.js"
+      "default": "./dist/warsh.js"
     },
     "./qalun": {
       "types": "./dist/qalun.d.ts",
-      "import": "./dist/qalun.js"
+      "default": "./dist/qalun.js"
     },
     "./bazzi": {
       "types": "./dist/bazzi.d.ts",
-      "import": "./dist/bazzi.js"
+      "default": "./dist/bazzi.js"
     },
     "./douri": {
       "types": "./dist/douri.d.ts",
-      "import": "./dist/douri.js"
+      "default": "./dist/douri.js"
     },
     "./qunbul": {
       "types": "./dist/qunbul.d.ts",
-      "import": "./dist/qunbul.js"
+      "default": "./dist/qunbul.js"
     },
     "./shuba": {
       "types": "./dist/shuba.d.ts",
-      "import": "./dist/shuba.js"
+      "default": "./dist/shuba.js"
     },
     "./sousi": {
       "types": "./dist/sousi.d.ts",
-      "import": "./dist/sousi.js"
-    }
+      "default": "./dist/sousi.js"
+    },
+    "./i18n": {
+      "types": "./dist/i18n/index.d.ts",
+      "default": "./dist/i18n/index.js"
+    },
+    "./i18n/async": {
+      "types": "./dist/i18n/async.d.ts",
+      "default": "./dist/i18n/async.js"
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "dev": "vitest",
-    "fmt": "oxfmt .",
-    "lint": "oxlint --type-aware --fix .",
-    "lint:es": "eslint --fix .",
-    "coverage": "vitest run --coverage",
-    "docs:local": "pnpx http-server docs",
     "build": "tsdown",
-    "unbuild": "pnpx unbuild --config unbuild.config.ts",
-    "obuild": "pnpx obuild",
-    "precommit": "pnpm lint&&pnpm build&& vitest --run",
-    "prepack": "pnpm build && pnpm test:full&&pnpm tsdoc",
-    "release:rc": "changelogen --release --prerelease --publish --publishTag rc",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "lint": "oxlint --type-aware --deny-warnings",
+    "lint:fix": "oxlint --type-aware --fix",
+    "fmt": "oxfmt .",
+    "fmt:check": "oxfmt --check .",
+    "typecheck": "tsc && tsc -p tests",
+    "generate": "node scripts/generate-entries.ts && jiti examples/data-check/generate-ayah-map.ts",
+    "generate:check": "node scripts/generate-entries.ts --check && jiti examples/data-check/generate-ayah-map.ts --check",
+    "check": "pnpm fmt:check && pnpm lint && pnpm typecheck && pnpm generate:check && pnpm test",
+    "check:package": "publint --strict && attw --pack . --profile esm-only",
+    "size": "node scripts/check-size.ts",
+    "docs:api": "typedoc",
+    "docs:site": "pnpm docs:api && node scripts/build-site.ts",
+    "prepare": "simple-git-hooks",
+    "prepack": "pnpm build",
     "release": "changelogen --release --push --publish",
+    "release:rc": "changelogen --release --prerelease --publish --publishTag rc",
     "release:gh": "changelogen gh release",
-    "test": "vitest --run",
-    "test:dev": "vitest",
-    "test:full": "pnpm lint && pnpm test:types && pnpm coverage",
-    "test:types": "tsc --noEmit",
-    "tsdoc": "rimraf docs&&typedoc --hideGenerator --plugin typedoc-github-theme",
     "up": "pnpm update -i -L",
-    "verify": "pnpx jiti examples/data-check/",
-    "verify:lists": "pnpx jiti examples/data-check/generate-riwayah-lists.ts all --check"
+    "verify": "jiti examples/data-check/index.ts",
+    "verify:lists": "jiti examples/data-check/generate-riwayah-lists.ts all --check"
   },
   "devDependencies": {
-    "@eslint/js": "10.0.1",
-    "@types/node": "26.4.0",
-    "@vitest/coverage-v8": "4.1.11",
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@types/node": "26.6.2",
+    "@vitest/coverage-v8": "5.0.1",
     "changelogen": "^0.6.2",
-    "eslint": "10.9.1",
-    "eslint-plugin-tsdoc": "^0.5.2",
-    "oxfmt": "^0.65.0",
-    "oxlint": "^1.80.0",
-    "oxlint-tsgolint": "^7.0.2001",
-    "rimraf": "^6.1.3",
-    "tsdown": "0.22.14",
+    "eslint-plugin-tsdoc": "^0.5.3",
+    "jiti": "^2.7.0",
+    "oxfmt": "^0.70.0",
+    "oxlint": "^1.85.0",
+    "oxlint-tsgolint": "^7.0.2003",
+    "publint": "^0.3.24",
+    "simple-git-hooks": "^2.14.0",
+    "tsdown": "0.23.0",
     "typedoc": "^0.28.20",
     "typedoc-github-theme": "^0.4.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.68.0",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm fmt:check && pnpm lint && pnpm typecheck && pnpm test"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22"
   },
-  "packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc",
-  "bazzi": "./dist/bazzi.js",
-  "douri": "./dist/douri.js",
-  "hafs": "./dist/hafs.js",
-  "i18n": "./dist/i18n/index.js",
-  "iife": "./dist/index.iife.js",
-  "qalun": "./dist/qalun.js",
-  "qunbul": "./dist/qunbul.js",
-  "shuba": "./dist/shuba.js",
-  "sousi": "./dist/sousi.js",
-  "warsh": "./dist/warsh.js"
+  "packageManager": "pnpm@10.34.5+sha512.a4ee05f2f73658255bd6a89859c065a45c28a57daefae2c893a168ee2b73168c37b91e83e57ea67654ad03f03031746430e8bce38e362e042605fb8abc80192e"
 }

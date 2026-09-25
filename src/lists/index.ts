@@ -26,32 +26,34 @@ export { WarshMeta } from "./WarshLists"
  * ```typescript
  * const hafsLists = getListsOfRiwaya('Hafs');
  * ```
+ *
+ * @category Riwaya Data
  */
 export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R] {
   switch (riwaya) {
     case "Bazzi": {
-      return BazziLists
+      return BazziLists as Riwayas[R]
     }
     case "Douri": {
-      return DouriLists
+      return DouriLists as Riwayas[R]
     }
     case "Hafs": {
-      return HafsLists
+      return HafsLists as Riwayas[R]
     }
     case "Qalun": {
       return QalunLists
     }
     case "Qunbul": {
-      return QunbulLists
+      return QunbulLists as Riwayas[R]
     }
     case "Shuba": {
-      return ShubaLists
+      return ShubaLists as Riwayas[R]
     }
     case "Sousi": {
-      return SousiLists
+      return SousiLists as Riwayas[R]
     }
     case "Warsh": {
-      return WarshLists
+      return WarshLists as Riwayas[R]
     }
     default: {
       throw new Error(`Unknown riwaya: ${riwaya}`)
@@ -59,6 +61,16 @@ export function getListsOfRiwaya<R extends keyof Riwayas>(riwaya: R): Riwayas[R]
   }
 }
 
+/**
+ * Returns one list (e.g. `"PageList"`) of a riwaya, Hafs by default.
+ *
+ * @example
+ * ```typescript
+ * const warshPages = getListOfRiwaya("PageList", "Warsh")
+ * ```
+ *
+ * @category Riwaya Data
+ */
 export const getListOfRiwaya = <R extends keyof Riwayas, L extends keyof Riwayas[R]>(
   listName: L,
   riwaya?: R

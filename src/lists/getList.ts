@@ -1,7 +1,7 @@
-import type { PartType, RiwayaData, Riwayas } from "./types"
+import type { AllListsNames, PartType, RiwayaData } from "./types"
 import { parts } from "./types"
 
-import type { AyahId, SurahInfo } from "../types"
+import type { AyahId, SurahInfo, SurahListType } from "../types"
 
 /**
  * Represents a block or section of the Quran with its starting ayah and length
@@ -70,6 +70,8 @@ function toPartFormatter(type: PartType, list: AyahId[] | SurahInfo[]): PartBloc
  * @param name - The type of parts to retrieve (e.g., juz, hizb, rub)
  * @param data - The Lists object for the riwaya.
  * @returns An array of formatted part blocks, excluding the first and last elements
+ *
+ * @category Riwaya Data
  */
 export function generatePartBlocks(name: PartType, data: RiwayaData): PartBlock[] | null {
   if (!parts[name]) {
@@ -90,22 +92,39 @@ export function generatePartBlocks(name: PartType, data: RiwayaData): PartBlock[
   return list.slice(1, -1).map(toPartFormatter(name, list))
 }
 
-export const getList = <M extends Riwayas, R extends keyof M>(
-  name: PartType,
-  lists: RiwayaData
-): M[R][keyof Omit<M[R], "meta">] => {
+/**
+ * Returns the raw boundary list for a kind of part, e.g. the PageList for `"page"`.
+ *
+ * @param name - The kind of part
+ * @param lists - The Lists object for the riwaya
+ * @returns The list: ayah ids of each part's first ayah, or SurahInfo tuples for `"surah"`
+ * @throws Error If the part type is unknown or the riwaya has no data for it
+ *
+ * @category Riwaya Data
+ */
+export function getList(name: PartType, lists: RiwayaData): AyahId[] | SurahListType {
   if (!parts[name]) {
     throw new Error(`Invalid list name: ${name}`)
   }
 
-  const listName = parts[name] as keyof Omit<RiwayaData, "meta">
-  if (listName in lists) {
-    return lists[listName] as M[R][keyof Omit<M[R], "meta">]
+  const listName = parts[name]
+  const list = (lists as Partial<Record<AllListsNames, AyahId[] | SurahListType>>)[listName]
+  if (list) {
+    return list
   }
 
   throw new Error(`List ${listName} not found in ${lists.meta.riwayaName} riwaya`)
 }
 
+/**
+ * Returns the parts of a kind as `{ startAyahId, ayahCount }` blocks.
+ *
+ * @param name - The kind of part
+ * @param lists - The Lists object for the riwaya
+ * @returns One block per part
+ *
+ * @category Riwaya Data
+ */
 export function getListNormalised(name: PartType, lists: RiwayaData): PartBlock[] {
   const list = getList(name, lists)
   return list.slice(1, -1).map(toPartFormatter(name, list))

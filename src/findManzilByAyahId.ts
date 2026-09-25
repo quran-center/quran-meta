@@ -10,12 +10,14 @@ import { checkValidAyahId } from "./validation"
  * @param ayahId - The ID of the Ayah to find the Manzil for
  * @param data - The Lists object for the riwaya.
  * @returns The Manzil number (1-7) containing the specified Ayah
- * @throws {Error} If the provided Ayah ID is invalid
+ * @throws Error If the provided Ayah ID is invalid
  *
  * @example
  * ```typescript
  * const manzil = findManzilByAyahId(2345, HafsLists); // Returns the Manzil containing Ayah 2345
  * ```
+ *
+ * @category Manzil & Ruku
  */
 export function findManzilByAyahId(ayahId: AyahId, data: RiwayaData): Manzil {
   checkValidAyahId(ayahId, data.meta)

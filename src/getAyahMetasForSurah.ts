@@ -10,6 +10,8 @@ import { checkValidSurah } from "./validation"
  * @param data - The Lists object for the riwaya.
  * @returns Array of AyahMeta objects for each ayah in the surah
  * @throws RangeError If the surah number is not between 1 and 114
+ *
+ * @category Surah & Ayah
  */
 export function getAyahMetasForSurah(surahNumber: Surah, data: RiwayaData): AyahMeta[] {
   checkValidSurah(surahNumber, data.meta)

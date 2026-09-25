@@ -25,6 +25,7 @@ describe(isSurahAyahPageFirst, () => {
   })
 
   it("should throw error for invalid surah in non-ayah mode", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => isSurahAyahPageFirst(115, 1, HafsLists)).toThrow()
   })
 

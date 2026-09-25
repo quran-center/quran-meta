@@ -7,6 +7,8 @@ import type { RiwayaData } from "./lists/types"
  * @param surahNum - The Surah to get the metadata for.
  * @param data - The Lists object containing SurahList.
  * @returns The metadata for the specified Surah.
+ *
+ * @category Surah & Ayah
  */
 export function getSurahMeta(surahNum: Surah, data: RiwayaData): SurahMeta {
   const [firstAyahId, ayahCount, surahOrder, rukuCount, name, isMeccan] = getSurahInfo(surahNum, data)

@@ -9,6 +9,8 @@ import type { AyahId, ThumunAlHizbId, ThumunAlHizbMeta } from "./types"
  * @param eighthIndex - The index of the Eighth (thumun' al-hizb) to retrieve metadata for, where 1 is the first quarter.
  * @param data - The Lists object for the riwaya.
  * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
+ *
+ * @category Hizb
  */
 export function getThumunAlHizbMeta(
   eighthIndex: ThumunAlHizbId,

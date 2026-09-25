@@ -1,148 +1,92 @@
 # Quran Meta
 
-[![Static Badge](https://img.shields.io/badge/Quran-Meta-brightgreen)](https://github.com/quran-center/quran-meta)
-[![Static Badge](https://img.shields.io/badge/Documentation-blue)](https://quran-center.github.io/quran-meta/docs/)
+Quran metadata for JavaScript and TypeScript: surahs, ayahs, juz, hizb, rub' al-hizb, thumun al-hizb, mushaf pages, rukus, manzils and sajdas for eight riwayas, with conversion between their ayah numberings.
 
-[![GitHub License](https://img.shields.io/github/license/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/blob/master/LICENSE)
-[![GitHub Repo stars](https://img.shields.io/github/stars/quran-center/quran-meta)](https://github.com/quran-center/quran-meta)
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/blob/master/package.json)
+|                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Project**       | [![Static Badge](https://img.shields.io/badge/Quran-Meta-brightgreen)](https://github.com/quran-center/quran-meta) [![Documentation](https://img.shields.io/badge/Documentation-blue)](https://quran-center.github.io/quran-meta/docs/) [![Live demo](https://img.shields.io/badge/Live-demo-0c6b5d)](https://quran-center.github.io/quran-meta/) [![GitHub License](https://img.shields.io/github/license/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/blob/master/LICENSE) [![GitHub top language](https://img.shields.io/github/languages/top/quran-center/quran-meta)](https://github.com/quran-center/quran-meta)                                     |
+| **Package**       | [![NPM Version](https://img.shields.io/npm/v/quran-meta)](https://www.npmjs.com/package/quran-meta) [![GitHub package.json version](https://img.shields.io/github/package-json/v/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/blob/master/package.json) [![NPM Type Definitions](https://img.shields.io/npm/types/quran-meta)](https://npmpackage.info/package/quran-meta) [![Node version](https://img.shields.io/node/v/quran-meta)](https://www.npmjs.com/package/quran-meta) [![Module type](https://img.shields.io/badge/module-ESM%20only-informational)](https://www.npmjs.com/package/quran-meta)                                                  |
+| **Build & tests** | [![CI](https://github.com/quran-center/quran-meta/actions/workflows/ci.yml/badge.svg)](https://github.com/quran-center/quran-meta/actions/workflows/ci.yml) [![Docs site](https://github.com/quran-center/quran-meta/actions/workflows/pages.yml/badge.svg)](https://github.com/quran-center/quran-meta/actions/workflows/pages.yml) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=quran-center_quran-meta&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=quran-center_quran-meta) [![Snyk Security Score](https://img.shields.io/badge/Snyk%20Security%20Score-A-green)](https://snyk.io/test/github/quran-center/quran-meta) |
+| **Usage**         | [![NPM Downloads](https://img.shields.io/npm/dy/quran-meta)](https://npm.chart.dev/quran-meta) [![jsDelivr hits](https://img.shields.io/jsdelivr/npm/hm/quran-meta)](https://www.jsdelivr.com/package/npm/quran-meta) [![GitHub Repo stars](https://img.shields.io/github/stars/quran-center/quran-meta)](https://github.com/quran-center/quran-meta) [![npms.io popularity](https://img.shields.io/npms-io/popularity-score/quran-meta)](https://npmpackage.info/package/quran-meta)                                                                                                                                                                                              |
+| **Scores**        | [![npms.io final](https://img.shields.io/npms-io/final-score/quran-meta)](https://npmpackage.info/package/quran-meta) [![npms.io quality](https://img.shields.io/npms-io/quality-score/quran-meta)](https://npmpackage.info/package/quran-meta) [![npms.io maintenance](https://img.shields.io/npms-io/maintenance-score/quran-meta)](https://npmpackage.info/package/quran-meta) [![GitHub last commit](https://img.shields.io/github/last-commit/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/commits/master) [![GitHub issues](https://img.shields.io/github/issues/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/issues)        |
+| **Size**          | [![npm bundle size](https://img.shields.io/bundlephobia/min/quran-meta)](https://bundlephobia.com/package/quran-meta) [![npm bundle size (gzip)](https://img.shields.io/bundlephobia/minzip/quran-meta)](https://bundlephobia.com/package/quran-meta) [![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)](https://github.com/quran-center/quran-meta) [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)](https://github.com/quran-center/quran-meta)                                                                                                                                     |
 
-[![NPM Version](https://img.shields.io/npm/v/quran-meta)](https://www.npmjs.com/package/quran-meta)
-[![npms.io](https://img.shields.io/npms-io/final-score/quran-meta)](https://npmpackage.info/package/quran-meta)
-[![npms.io](https://img.shields.io/npms-io/maintenance-score/quran-meta)](https://npmpackage.info/package/quran-meta)
-[![npms.io](https://img.shields.io/npms-io/popularity-score/quran-meta)](https://npmpackage.info/package/quran-meta)
-[![npms.io](https://img.shields.io/npms-io/quality-score/quran-meta)](https://npmpackage.info/package/quran-meta)
-[![NPM Downloads](https://img.shields.io/npm/dy/quran-meta)](https://npm.chart.dev/quran-meta)
+**[Live demo](https://quran-center.github.io/quran-meta/)** · **[API reference](https://quran-center.github.io/quran-meta/docs/)** · **[Changelog](./CHANGELOG.md)**
 
-[![NPM Type Definitions](https://img.shields.io/npm/types/quran-meta)](https://npmpackage.info/package/quran-meta)
-[![GitHub top language](https://img.shields.io/github/languages/top/quran-center/quran-meta)](https://npmpackage.info/package/quran-meta)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=quran-center_quran-meta&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=quran-center_quran-meta)
-[![Static Badge](https://img.shields.io/badge/Snyk%20Security%20Score-A-green)](https://snyk.io/test/github/quran-center/quran-meta)
+## Features
 
-[![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)](https://npmpackage.info/package/quran-meta)
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)](https://npmpackage.info/package/quran-meta)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/quran-meta)](https://bundlephobia.com/package/quran-meta)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/quran-meta)](https://bundlephobia.com/package/quran-meta)
+- **Eight riwayas**: Hafs, Shuba, Warsh, Qalun, Douri, Sousi, Bazzi and Qunbul, each with its own tree-shakeable entry point.
+- **Every division of the mushaf**: juz, hizb, rub' al-hizb, thumun al-hizb (Qalun), pages, rukus, manzils and sajdas.
+- **Riwaya conversion**: find the ayah in Warsh that holds the text of Hafs 2:255, and the other way round.
+- **Iteration**: walk every ayah of a page, juz, ruku or any other part.
+- **Parsing and formatting**: `"2:255"` and `"1:1-7"` to tuples and back.
+- **Your own data**: swap in a different page layout (Indo-Pak, 13/15/16 line mushafs) with `customizeRiwaya`.
+- **Surah names in 12 languages**, including Arabic, loadable one language at a time.
+- **Typed to the range**: `Surah` is `1 | 2 | ... | 114`, `Juz` is `1 ... 30`, with type guards and assertion functions.
+- **Zero dependencies**, ESM, works in browsers, Node, Deno and Bun.
 
-## Welcome to Quran Meta Project - the most comprehensive Quran metadata library!
+## Install
 
-This project is to help with Quran related meta queries.
-
-Answering Questions like:
-
-- How many ayahs in given surah of Hafs Riwaya or Warsh or Qalun (`getAyahCountInSurah`)
-- What is the juz of given ayah (`getAyahMeta`)?
-- What is the next ayah after given ayah (`nextAyah`)?
-- Is given ayah
-  - a sajdah ayah (`getAyahMeta`)?
-  - beginnning of a page (`isAyahPageFirst`)?
-  - beginnning of a juz (`isAyahJuzFirst`)?
-- Find
-  - next or previous ayah (`nextAyah`/`prevAyah`)
-  - juz `findJuz` and `findJuzByAyahId`
-  - maqra/rub-el-hizb `findRubAlHizb`, `getRubAlHizbMetaByAyahId`
-  - page `findPage` by surah/ayah
-  - AyahId of a given surah/ayah (`findAyahIdBySurah`)
-  - find range around ayah (`findRangeAroundAyah`)
-- Get meta data for
-  - ayah (`getAyahMeta`)
-  - surah (`getSurahInfo`, `getSurahInfo`)
-  - page (`getPageMeta`)
-  - juz (`findJuzMetaBySurah`)
-  - maqra/rub-el-hizb (`getRubAlHizbMeta`, `getRubAlHizbMetaByAyahId`)
-- Validates ayah/surah id (`checkValidAyahId`,`checkValidSurah`, `checkValidSurahAyah`, etc)
-- Typescript type guards (`isValidAyahId`, `isValidAyahNo`, `isValidSurah`, `isValidSurahAyah`, `isValidJuz`, `isValidHizb`, `isValidRubAlHizb`, `isValidPage`)
-- converts `[surah, ayah]` to `ayahId` and vice-verse ( `findSurahByAyahId` and `findAyahIdBySurah`)
-- Checks and turns strings of type "x:y" or "x:y1-y2" to surah/ayah range (`ayahStringSplitter`).
-- Checks and parses strings of type "x" to Surah (`surahStringParser`).
-
-### Features
-
-- Supports multiple riwayas (Hafs, Qalun, Warsh, Douri, Sousi, Shuba, Bazzi and Qunbul) with riwaya-specific data and features - see [Supported Riwayat](#supported-riwayat).
-- Type-safe riwaya-specific methods (e.g., Qalun's Thumun al-Hizb).
-- Custom riwaya instances for advanced use cases. If you want to use quran-meta library with your own data (e.g another riwaya or different pagination than we support) just create your own instance of QuranRiwaya with your data.
-- Fully documented with examples.
-- 100% unit test covered with data correctness validation against multiple data sources.
-- Fully typed with Typescript types and type guards.
-- Zero dependencies, lightweight and fast.
-- Works in both browser and Node.js environments.
-- Compatible with modern JavaScript and TypeScript projects.
-- Supports modern module systems (ESM, CommonJS, IIFE).
-- Open source and community driven.
-- Easy to use API with both functional and class-based approaches.
-- Tree-shakeable riwaya-specific imports for optimal bundle size.
-- Supports various build systems and bundlers.
-- Comprehensive error handling and input validation.
-- Suitable for a wide range of Quran-related applications.
-- Modular and extensible architecture.
-- Clear and consistent naming conventions.
-- Rich set of utility functions for Quranic metadata.
-- Easy integration with other Quranic libraries and tools.
-- Actively maintained and updated.
-- Actively seeks community feedback and contributions.
-
-### Upcoming Features
-
-- Supports multiple mushaf page numbering systems (planned for future updates).
-- More riwayas and recitations (planned for future updates).
-- Enhanced performance optimizations (planned for future updates).
-- Additional utility functions (planned for future updates).
-- Community contributions and plugins (Submissions welcome).
-- Support for additional languages and locales .
-- Improved documentation and tutorials.
-- Interactive online tools and demos (please, submit in issues).
-- More data sources for cross-validation (please, suggest in discussions).
-
-### Future Roadmap
-
-- Integration with Quran text rendering libraries.
-- Collaboration with Quranic studies platforms.
-- Integration with Quranic search engines.
-- Advanced analytics and reporting features.
-- Community-driven feature requests and voting.
-
-### APi Reference Documentation
-
-See [here](https://quran-center.github.io/quran-meta/docs/) for API documentation
-
-### Playground
-
-See in action and try it without installing anything:
-
-- [![Static Badge](https://img.shields.io/badge/Try-Playground-darkgreen)](https://play.vuejs.org/#eNrdVs1u4zYQfhVCKGAbsKRsXKStobib3S7QLOA03W170mFpiZIZU5RKUt44hp6gvfbcV+wjdDiUFCnNegv01ostzs83Mx+HQx69q6oK9jXzll6kE8UrQwSV+WXsGR17q1jyoiqVIbG3NabSyzBMUhnc6ZQJvleBZCaUVRG+rGWZaB2qWhpesNjrHY9EsWxOkrKoasNS0pBMlQWZQMzJwKhghs5JxmV6S3M2Jzkz72tFt2uUJ1uW7H6hgqcovDrQrTO2X9fpqwOKneht/dAH+RXE0rfY/pZmGgL2Ic2hYhC3dXRBHdqcAIRb3JRzZ2HTeAYVAKPQ0QZUwaKlUDNTV0+IjGVSSg06i0cuLS0RYq+mi1mnpBC01bn4q+k5KGMpmCEVJAnKjsrIJr2aTmfkctUzN0X4YE9FDQVZOPc9AxSLgWqsZgDUl9ihDdkfIloUh2ORr9MhiCNvmM9ocz6X2B1s2wANtmAIBctTAA6CKVWqtc4HOC3EMZaEGHVwH+S5fvokvPVoSEJNsiVTNusgFGyxkoSh2v60Amh9aP4G3MadYVhRCWoYrAiJti9WP9ouIrgVt4IeclXWMo1C0DiLc7JMBNUaOqgv7FsyMeze+IqlE7JsFxvIcgIthqWQ47HtsKYhPjaxFWFfNQ3Anzt4QTdMkC7ARpTJjiCaLsILkpXSQIOnvC6cNFf04H9zdtaFcRxEXALLZO8XJcwDwMHIsYeHC5ayLjZMWT6sNdA+CkewYpb6RUo2pUqZ8s9gl4bhiN7StPwISRHFZe6/cH9cwgFzn2i5AMusTGq9RNn5cOFsR4KU56V/YdGLZV8zZB06akLk5r/SZJn/BEt2M/43JOEq5Xuoj2eDXgXTrpKuZYEVaMW+mW07gqPDcwhMaDZ2yxVj0v8Kc+/JxnmK1G4XFrIfaoGkBbOdPx1JLeGvgUdjVbDQs3l/TtCA6zVLEjiOcMD++vOP39Zst6MSjxgsf1/TlEo+cQdo0RYN0WvXJfgt+MrO36UFxkFtjUE4NMDTeJ2iTTtAn7GCWYcWdiKO1FHYB4x4kZOlVgnw9GF4M1OBt1OQiLJOQ0sXDXkB+YRfHLHeBj5s7OZDu5luO91GtJNn9bNmWS3IYER9Rw1tp0dr9pgLJHiDTUzKjKypfOBCYwX2igygv1vZk2pGbjhVxl5OdMrJ8jn2QckpF7tHYxeUnHKB/Rh7WMEph+/5w2bsgZJTLu/qDbkSzhO6buAKmivxL/x39T8crWjg07ZPFA6uIm/uufeQX9AKnnWlhIcg3nBxq4DHC8C6mLH35EFldZ95GT56vLwIzoKvodO0Ca0z2LqpB9dnA4kYDW+gjOdP0rBXORdM/VAZDm+kUTpUiPLjW5QZBfd2J8f7/Rn5nb53Kd8qppnaw0O11xmq4Nnj1G/e38DwGShhdNcCrE8o3zFditrm6MxewdyGtAd2mO01sgoz9if95t4wqbuibKLIBtrHHjyQX58o/THdRfBlz2LzN9BY/io=) - interactive playground for Quran-Meta
-
-### Installation
-
-#### In a browser:
-
-```html
-<script src="quran-meta.js"></script>
+```sh
+npm i quran-meta     # or: pnpm add quran-meta / yarn add quran-meta / bun add quran-meta
 ```
 
-Also modern browsers allow
+The package is ESM-only and needs Node 22 or newer. On Node 22.12+ `require("quran-meta")` also works, since Node can `require()` ES modules.
+
+In the browser without a bundler:
 
 ```html
+<!-- ES module -->
 <script type="module">
-  import quranMeta from "quran-meta.esm.js"
+  import { quran } from "https://cdn.jsdelivr.net/npm/quran-meta/+esm"
+  console.log(quran.getSurahMeta(2).ayahCount) // 286
+</script>
+
+<!-- Classic script, exposes window.quranMeta -->
+<script src="https://cdn.jsdelivr.net/npm/quran-meta"></script>
+<script>
+  console.log(quranMeta.meta.numAyahs) // 6236
 </script>
 ```
 
-The library is available from various CDNs
+## Quick start
 
-- [JSDelivr](https://cdn.jsdelivr.net/npm/quran-meta/dist/)
-- [UnPKG](https://unpkg.com/browse/quran-meta/dist/)
+Import from the entry point of the riwaya you need. Functions come with that riwaya's data already bound, and only that riwaya ends up in your bundle.
 
-#### Using npm:
+```ts
+import { findJuz, findPage, getAyahMeta, getSurahMeta, meta, nextAyah, quran } from "quran-meta/hafs"
 
+meta.numAyahs // 6236
+findJuz(2, 142) // 2
+findPage(2, 255) // 42
+getSurahMeta(2).ayahCount // 286
+getAyahMeta(262) // { surah: 2, ayah: 255, juz: 3, page: 42, hizbId: 5, rubAlHizbId: 17, ruku: 35, isSajdahAyah: false, ... }
+
+nextAyah(1, 7) // [2, 1]
+nextAyah(114, 6) // [1, 1], wraps around by default
+nextAyah(114, 6, { wrap: false }) // undefined
+
+// The same API as a class
+quran.getSurahMeta(2).name // "البَقَرَة"
 ```
-$ npm i --save quran-meta
+
+The entry points are `quran-meta/hafs`, `/shuba`, `/warsh`, `/qalun`, `/douri`, `/sousi`, `/bazzi` and `/qunbul`. Each exports `meta`, the raw lists (`PageList`, `JuzList`, ...), all functions, `create<Riwaya>()` and a ready-made `quran` instance.
+
+The root `quran-meta` entry has the riwaya-agnostic functions, which take the riwaya data as their last argument. Use it when you work with several riwayas at once:
+
+```ts
+import { QuranRiwaya, findJuz, getListsOfRiwaya } from "quran-meta"
+
+const warsh = getListsOfRiwaya("Warsh")
+findJuz(2, 142, warsh)
+
+const qalun = QuranRiwaya.create(getListsOfRiwaya("Qalun"))
+qalun.findThumunAlHizb(2, 1) // thumun al-hizb is Qalun-only, other riwayas get a type error
 ```
 
-### Supported Riwayat
+## Supported riwayas
 
-Every implemented riwaya ships with its full set of lists (surahs, pages, juzs, hizb quarters, rukus, manzils, sajdas) and has its own tree-shakeable entry point:
-
-| Riwaya | Narrated from (Qari) | Entry point         | Ayahs | Sajdas |
+| Riwaya | Narrated from (qari) | Entry point         | Ayahs | Sajdas |
 | ------ | -------------------- | ------------------- | ----- | ------ |
 | Hafs   | 'Asim                | `quran-meta/hafs`   | 6236  | 15     |
 | Shuba  | 'Asim                | `quran-meta/shuba`  | 6236  | 15     |
@@ -153,233 +97,189 @@ Every implemented riwaya ships with its full set of lists (surahs, pages, juzs, 
 | Bazzi  | Ibn Kathir           | `quran-meta/bazzi`  | 6221  | 15     |
 | Qunbul | Ibn Kathir           | `quran-meta/qunbul` | 6221  | 15     |
 
-All riwayas are also available from the main entry point via `createHafs()`, `createWarsh()`, `createQalun()`, `createDouri()`, `createSousi()`, `createShuba()`, `createBazzi()`, `createQunbul()` or `getListsOfRiwaya("Warsh")`.
+All riwayas have surah, juz, hizb, rub' al-hizb, page, ruku, manzil and sajda data. Qalun also has thumun al-hizb (480 eighths). See [VisualQuran](https://visualquran.com/riwayas) for background on the riwayas.
 
-List of riwayas can be seen at [VisualQuran](https://visualquran.com/riwayas)
+## Guide
 
-### Usage
+### Converting between riwayas
 
-**Tree-Shakeable Riwaya-Specific Imports (Recommended)**
-
-For optimal bundle size, import from riwaya-specific entry points. This ensures only the data you need is bundled:
-
-```typescript
-// Hafs-specific import (only Hafs data bundled, ~50% smaller)
-import { getAyahMeta, findJuz, meta, quran } from "quran-meta/hafs"
-
-console.log(`Total ayahs: ${meta.numAyahs}`) // 6236
-
-// Using functional API (Hafs is default)
-const ayahMeta = getAyahMeta(1)
-console.log(ayahMeta.juz) // => 1
-
-// Using class API
-const next = quran.nextAyah(1, 7)
-console.log(next) // => [2, 1]
-```
-
-```typescript
-// Qalun-specific import (only Qalun data bundled)
-import { getAyahMeta, findThumunAlHizb, meta, quran } from "quran-meta/qalun"
-
-console.log(`Total ayahs: ${meta.numAyahs}`) // 6214
-console.log(`Thumun al-Hizbs: ${meta.numThumunAlHizbs}`) // 480
-
-// Qalun-specific features available
-const thumun = findThumunAlHizb(1, 1)
-console.log(thumun) // => 1
-
-const ayahMeta = getAyahMeta(1)
-console.log(ayahMeta.thumunAlHizbId) // Available in Qalun!
-```
-
-**Benefits of riwaya-specific imports:**
-
-- ✅ **50% smaller bundle** - only loads the riwaya you need
-- ✅ **Zero configuration** - works immediately, no initialization required
-- ✅ **Tree-shakeable** - unused riwayas are eliminated by bundlers
-- ✅ **Type-safe** - full TypeScript support with correct types per riwaya
-- ✅ **Future-proof** - easily add new riwayas without breaking changes
-
-**Class-Based API**
-
-For generic code that works with multiple riwayas, use the class-based API:
-
-```typescript
-import { QuranRiwaya } from "quran-meta"
-
-// Create a Hafs instance
-const hafs = QuranRiwaya.hafs()
-
-// Get surah metadata
-const surahMeta = hafs.getSurahMeta(2)
-console.log(surahMeta.name) // => 'البَقَرَة'
-console.log(surahMeta.ayahCount) // => 286
-
-// Find juz information
-const juz = hafs.findJuz(2, 1)
-console.log(juz) // => 1
-
-// Check if ayah is first in juz
-const isFirst = hafs.isAyahJuzFirst(149)
-console.log(isFirst) // => 2
-
-// Get ayah metadata
-const ayahMeta = hafs.getAyahMeta(1)
-console.log(ayahMeta) // => { surah: 1, ayah: 1, juz: 1, page: 1, ... }
-
-// Navigation
-const next = hafs.nextAyah(1, 7)
-console.log(next) // => [2, 1]
-
-// Use Qalun riwaya for Thumun al-Hizb support
-const qalun = QuranRiwaya.qalun()
-const thumun = qalun.findThumunAlHizb(1, 1)
-console.log(thumun) // => 1
-
-// Create custom riwaya instance
-const custom = QuranRiwaya.create("Hafs")
-```
-
-**Benefits of the class-based API:**
-
-- ✓ No repetitive riwaya parameter in every function call
-- ✓ Clear context with a dedicated instance
-- ✓ Better IDE autocomplete and type safety
-- ✓ Chainable and fluent API
-- ✓ Riwaya-specific methods (e.g., Qalun's Thumun al-Hizb)
-
-**Legacy Functional API**
-
-The original functional API is still available for backward compatibility. The root `quran-meta` entry point exports `meta` (Hafs by default) plus the raw, riwaya-agnostic functions - these take an explicit `lists`/`data` argument (e.g. `getAyahCountInSurah(surah, data)`). For the pre-bound, single-argument versions shown below, import from `quran-meta/hafs` (or `/qalun`, `/warsh`, `/douri`, `/sousi`, `/shuba`, `/bazzi`, `/qunbul`) as described above.
-
-In Node.js see example [here](/examples/hello.cjs):
-
-```js
-var quranMeta = require("quran-meta")
-
-console.log(" Assalam Aleykum! ") // => 'Assalam Aleykum!'
-console.log(`There are ${quranMeta.meta.numSurahs} suras in the Holy Quran`) // => 'There are 114 suras in the Holy Quran'
-```
-
-In the browser/ES:
-
-```js
-import { meta } from "quran-meta"
-console.log("Assalam Aleykum!")
-console.log(`There are ${meta.numSurahs} suras in the Holy Quran`) // => 'There are 114 suras in the Holy Quran'
-```
-
-In TypeScript:
+Riwayas follow different ayah counting traditions, so the same text can have different numbers. In Hafs `الم` is ayah 2:1 on its own; in Warsh it opens 2:1 together with what Hafs numbers 2:2. Ayat al-Kursi (Hafs 2:255) is two ayahs in Warsh.
 
 ```ts
-import { meta, getAyahCountInSurah, AyahNo, Surah } from "quran-meta/hafs"
+import { convertAyah, convertAyahSpan } from "quran-meta"
 
-console.log(`There are ${meta.numSurahs} suras in the Holy Quran`)
+convertAyah(2, 255, "Hafs", "Warsh") // [2, 253], the Warsh ayah where Hafs 2:255 starts
+convertAyahSpan(2, 255, "Hafs", "Warsh") // [2, [253, 254]], every Warsh ayah sharing its text
+convertAyah(1, 1, "Warsh", "Hafs") // [1, 2], Warsh does not count the basmala
 
-for (let surah: Surah = 1; surah <= meta.numSurahs; surah++) {
-  const ayaCount = getAyahCountInSurah(surah)
-  console.log(surah, ": ", ayaCount)
-}
+// From a riwaya entry point the source riwaya is implied
+import { convertAyahTo } from "quran-meta/warsh"
+convertAyahTo(2, 253, "Hafs") // [2, 255]
 ```
 
-Here's a paragraph describing this major feature:
+The conversion table is generated by aligning the text of each riwaya with the Hafs text (KFQC data, quranpedia for Bazzi and Qunbul) and is checked against the ayah counts of every riwaya. Riwayas from the same qari (Warsh/Qalun, Douri/Sousi, Bazzi/Qunbul, Hafs/Shuba) come out identical, which is a useful cross-check since Warsh and Qalun come from separate source files.
 
-## Custom Riwaya Support - Build Your Own!
+### Iterating over a part
 
-**quran-meta** now supports **custom riwaya instances**, allowing you to use the library with your own Quranic data sources. Whether you're working with a different recitation style (riwaya) not yet included in the library, using an alternative pagination system (like different mushaf layouts with 13, 15, or 16 lines per page), or integrating region-specific Quranic metadata, you can now create your own `QuranRiwaya` instance with your custom data. Simply prepare your data in the required format (Lists structure with SurahList, JuzList, PageList, meta, etc.) and instantiate the library with `QuranRiwaya.create(customLists)`.
+```ts
+import { ayahsInPage, ayahsInPart, getPartRange } from "quran-meta/hafs"
 
-All 40+ methods will work seamlessly with your data—including navigation (`nextAyah`, `prevAyah`), metadata queries (`getAyahMeta`, `getSurahInfo`), and advanced features (juz/page/ruku lookups). This opens up possibilities for researchers, developers working with regional mushaf standards, digital Quran applications targeting specific communities, and anyone needing Quranic metadata for specialized use cases.
+for (const [surah, ayah] of ayahsInPage(604)) {
+  // 112:1 ... 114:6
+}
+const juzAmma = [...ayahsInPart("juz", 30)] // 564 [surah, ayah] pairs
+getPartRange("ruku", 1) // [1, 7], first and last ayah id
+```
 
-The library's architecture is designed to be data-agnostic—just plug in your data and everything works! For guidance on data structure requirements, see the [API documentation](https://quran-center.github.io/quran-meta/docs/) or examine the existing riwaya implementations (Hafs, Qalun, Warsh) as reference examples.
+Part types are `"surah"`, `"juz"`, `"rubAlHizb"`, `"thumunAlHizb"`, `"page"`, `"manzil"` and `"ruku"`.
 
-We are commited to expanding support for more riwayas and pagination systems in future releases. Meanwhile, we welcome contributions from the community to help build a richer ecosystem of Quranic metadata.
+### Parsing and formatting references
 
-### Terminology
+```ts
+import { ayahStringSplitter, formatSurahAyah, formatAyahId, surahStringParser } from "quran-meta/hafs"
 
-- Surah: A chapter of the Quran. There are 114 chapters in Quran, each of different length.
-- Ayah: A verse number in the particular surah (chapter) of Quran. it is relative to the surah.
-- AyahId: Unique identifier for a verse in the Quran. It is a number that is the concatenation of the of sum ayahs of previous chapters of Quran and the verse number of particular Ayah. There are 6236 ayahs in Quran. AyahId is absolute, positive and is not relative to any surah.
+ayahStringSplitter("2:255") // [2, 255]
+ayahStringSplitter("18:1-10") // [18, [1, 10]]
+ayahStringSplitter("2:280-290") // throws RangeError, Al-Baqarah has 286 ayahs
+formatSurahAyah([18, [1, 10]]) // "18:1-10"
+formatAyahId(262) // "2:255"
+surahStringParser("36") // 36
+```
 
-- _Juz_: A section of the Quran. There are 30 Juz (ajza) in Quran of roughly equal length. Most Juz' are named after the first word of the first verse of the Juz'. Read more [here](https://en.wikipedia.org/wiki/Juz%27)
-- _Hizb_: Each Juz' is divided into two Hizb (lit. "two groups", plural: Aḥzāb). Therefore, there are 60 Hizbs (ahzab) in the Quran.
-- _Rub-el-Hizb/Maqra_: Each Hizb is subdivided into four quarters called Maqra (lit. "reading"), making eight quarters per Juz. In Arabic, `rub` means 'one-fourth' or 'quarter', while `ḥizb` (plural aḥzāb) translates to 'a group'. There are 240 Maqras in the Quran. In most mushafs it is noted by symbol in the shape of an octagram, represented as two overlapping squares **۞**. Read more [here](https://en.wikipedia.org/wiki/Rub_el_Hizb)
-- _Thumun al-Hizb_: Specific to Qalun riwaya, each Hizb is further divided into eight equal parts called Thumun al-Hizb (lit. "one-eighth of a Hizb"). This results in a total of 480 Thumun al-Hizbs in the Quran. This subdivision allows for more granular reading and recitation segments, facilitating easier memorization and study. Read more [here](https://en.wikipedia.org/wiki/Thumun_al-Hizb)
-- _Manzil_: For the convenience of those who read the Quran in a week the text may be divided into seven portions. Each portion is called a Manzil. There are 7 Manzil in Quran. Read more [here](https://en.wikipedia.org/wiki/Manzil)
-- _Page_: A section of the Quran that contains 15 lines (Madina mushaf)(depends on the mushaf).
-- _Saajdah_: Special ayahs that require reader to prostrate. There are 15 of them in Quran.
-- _Ruku_: (paragraph) is a group of related verses in a Surah. The end of a Ruku’ is marked by the Arabic letter **ﻉ** in superscript. There are 556 Rukus in the Quran (Hafs riwaya). These are logical sections according to similar theme/objective or meaning. The bigger Surahs have been split into a number of Rukus, so that we would recognize when to do Ruku' (bowing) in Salat without interrupting a proceeding subject of the Quran. Additionally, on the margins of the Quran, usually three figures are written with **ﻉ**. The top figure shows the number of Rukus completed in that Surah. The middle figure shows the number of Ayats in the Ruku just completed. The bottom figure shows the number of Rukus completed in that Juz.
-- _Qira'at (Recitations) and Riwayat (Narrations)_: The Quran has been transmitted through different authentic modes of recitation, known as Qira'at.
-  There are ten recognized Qira'at, each named after a prominent reciter (Qari).
-  Within each Qira'at, there are multiple Riwayat (narrations) - the chains of transmission through which these recitations were preserved.
-  The most widely used today is the _Hafs from 'Asim_ narration, which is used throughout most of the Muslim world and forms the basis for all visualizations on this website.
-  Other well-known narrations include _Warsh from Nafi'_ (common in North and West Africa) and _Qalun from Nafi'_ (used in parts of Africa).
-  While the variations between these narrations are minor (mostly involving pronunciation, elongation, or slight differences in word forms),
-  they can occasionally affect verse counts and word statistics. Read more [here](https://en.wikipedia.org/wiki/Qira%27at)
+### Surah names
 
-### Examples
+```ts
+import { getSurahName, getSurahNames, languages } from "quran-meta/i18n"
 
-You can find some examples [here](https://quran-center.github.io/quran-meta/examples/) and souce code for them [here](https://github.com/quran-center/quran-meta/tree/master/examples)
+getSurahName(2) // ["Al-Baqara", "The Cow"]
+getSurahName(2, "ar") // ["البَقَرَة", "البقرة"], with and without tashkeel
+getSurahNames("fr")[1] // ["Al Fâtiha", "L'ouverture"]
+languages // ["en", "ar", "az", "ru", "tr", "uz", "kk", "fr", "lt", "tg", "ky", "bs"]
+```
 
-### Projects using Quran-meta
+To ship only the language you need, load it on demand. Each language is its own chunk:
 
-- [Koran-Center](https://koran.center) - Powerful and feature rich web application for reading and studying the Holy Quran.
-- [Visual Quran](https://visual.koran.center/) - Interactive platform with visualizations and insights into Quran's structure.
+```ts
+import { getSurahNamesAsync } from "quran-meta/i18n/async"
 
-### Demo
+const names = await getSurahNamesAsync("ru")
+```
 
-- [Quran Meta Visualiser ESM Alpine3](https://codesandbox.io/p/sandbox/quran-visualiser-esm-alpine-3-q89frt) - demo app showcasing number of methods from Quran-meta to build interactive visualisations of Quran structure using Alpine.js 3 & Chart.js 4 in ESM format.
+### Validation and types
 
-- [Quran Meta Visualiser ES module version](https://codesandbox.io/s/quran-visualiser-es-module-f0sq0) - Alpine.js 2& ChartJs.2 version of the previous demo
+Every number type is a union of its valid values, so `Surah` is `1 | 2 | ... | 114`. Type guards narrow `unknown` input and assertion functions throw on bad input:
 
-- [Quran Meta Visualiser CJS](https://codesandbox.io/s/quran-visualiser-p3zjd) - CommonJS version of the previous demo
+```ts
+import { checkValidSurahAyah, getAyahCountInSurah, isValidSurah } from "quran-meta/hafs"
 
-![Demo image](https://quran-center.github.io/quran-meta/examples/demo-quran-visualiser.jpg)
+function handle(input: unknown) {
+  if (isValidSurah(input)) {
+    getAyahCountInSurah(input) // input is Surah here
+  }
+}
 
-### Data correctness and validity testing
+const ayah: unknown = 255
+checkValidSurahAyah(2, ayah) // throws RangeError unless 2:ayah exists; afterwards ayah is AyahNo
+```
 
-Quran-Meta is 100% unit test covered and moreover data is cross checked with other apis to guarantee absolute correctness.
+### Custom data and page layouts
 
-One can run `pnpx jiti examples/data-check` to run suite of validation tests against the following data sources
+`customizeRiwaya` starts from a built-in riwaya, replaces some lists and recalculates the counts in `meta`. Use it for a different mushaf page layout or your own juz or ruku divisions:
 
-- `qcloud-meta.json` - [AlQuran Cloud Api metadata](https://api.alquran.cloud/v1/meta)
-- `tanzil-data.js` - [Tanzil.net metadata](https://tanzil.net/res/text/metadata/quran-data.js)
-- `quran-api.json` - [Quran Api metadata](https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api/info.json)
-- `hafsData_v2-0.json` - [Data coming with KFGQPC Hafs Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
-- `hafs_smart_v8.json` - [Data coming with KFGQPC Smart device UthmanicHafs font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
-- `SousiData_v2-0.json` - [Data coming with KFGQPC Sousi Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicSousi_v2-0.zip)
-- `DouriData_v2-0.json` - [Data coming with KFGQPC Douri Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicDouri_v2-0.zip)
-- `QalounData_v2-1.json` - [Data coming with KFGQPC Qaloun Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicQaloun_v2-1.zip)
-- `shubaData_v2-0.json` - [Data coming with KFGQPC Shuba Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicShuba_v2-0.zip)
-- `warshData_v2-1.json` - [Data coming with KFGQPC Warsh Uthmanic font](https://download.qurancomplex.gov.sa/resources_dev/UthmanicWarsh_v2-1.zip)
-- `data/quranpedia/*.json` - [quranpedia.net](https://quranpedia.net) data dumps for Hafs, Shuba, Warsh, Qalun, Douri, Sousi, Bazzi and Qunbul. These are the source for the generated riwaya lists (`pnpm verify:lists` cross-checks the lists in `src/lists/` against them, and `examples/data-check/generate-riwayah-lists.ts` regenerates them).
+```ts
+import { QuranRiwaya, customizeRiwaya, getListsOfRiwaya } from "quran-meta"
 
-There are some differences with KFQC data in page numbering, due to variations between different mushafs. We plan to address these differences in future updates by supporting multiple page numbering systems of different mushafs (15 line, 16 line and etc).
+// Boundary lists hold the first ayah id of each part: [0, part1, part2, ..., numAyahs + 1]
+const indoPak = customizeRiwaya(getListsOfRiwaya("Hafs"), { PageList: myIndoPakPageList })
+const quran = QuranRiwaya.create(indoPak)
+quran.meta.numPages // the length of your page list
+quran.findPage(2, 255)
+```
 
-Any suggestion to further improve this are welcome.
+The result is checked with `validateRiwayaData`, which you can also call yourself; it reports lists that are out of order, do not start at ayah 1 or do not end after the last ayah.
 
-### Distributions and Downloads
+## API reference
 
-Here you can find the following
+The full reference is at **[quran-center.github.io/quran-meta/docs](https://quran-center.github.io/quran-meta/docs/)**, grouped by topic: class API, surah and ayah, navigation, juz, page, hizb, manzil and ruku, ranges and iteration, parsing and formatting, validation, riwaya conversion, riwaya data and surah names.
 
-|                                                                                                                                                                                           |              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [Source code](https://github.com/quran-center/quran-meta/tree/master/src) in typescript                                                                                                   | TS           |
-| [Javascript code](https://cdn.jsdelivr.net/npm/quran-meta/lib_es/) autotranspiled from TS as ES Next                                                                                      | ESNext       |
-| [Javascript code](https://cdn.jsdelivr.net/npm/quran-meta/lib_cjs/) autotranspiled from TS as CJS                                                                                         | ES5+CommonJS |
-|                                                                                                                                                                                           |              |
-| **[Distributions](https://cdn.jsdelivr.net/npm/quran-meta/dist/) of library as**                                                                                                          |              |
-| [ESM](https://cdn.jsdelivr.net/npm/quran-meta/dist/index.js) for use with modern bundlers like webpack 2 or Rollup and for direct imports in modern browsers via `<script type="module">` | ES5+ESM      |
-| [IIFE](https://cdn.jsdelivr.net/npm/quran-meta/dist/index.iife.js) for use with classic browsers via `<script>`                                                                           | IIFE         |
+## Upgrading from v6
 
-### References:
+- The package is **ESM-only**. `lib_cjs/` and `lib_es/` are gone. On Node 22.12+ `require("quran-meta")` still works. The IIFE bundle is now `dist/quran-meta.iife.js` and is minified; the separate `.min.js` builds are gone (jsDelivr serves minified files on request).
+- Node 22 or newer is required.
+- `getSurahNamesAsync` moved to `quran-meta/i18n/async` so that it can load languages lazily.
+- In the root functional API, `ayah` is now a required argument of `findJuz`, `findJuzMetaBySurah`, `findManzil`, `findPage`, `findRubAlHizb` and `findThumunAlHizb` (it used to default to 1 before the `lists` argument). Riwaya entry points and the class keep the default.
+- The Qalun entry exports `QalunLists` instead of `riwayaLists`, like every other entry.
+- `QuranRiwaya` thumun al-hizb methods exist only on Qalun instances at the type level and no longer claim to return `null`.
+- `ayahStringSplitter` now checks both ends of a range against the surah (`"2:280-290"` used to pass).
+- `languages` includes `"ar"`, so code that builds a `SurahNamesI18n` object needs an Arabic entry.
+
+## Terminology
+
+- **Surah**: a chapter of the Quran. There are 114.
+- **Ayah**: a verse, numbered within its surah.
+- **AyahId**: the position of an ayah counted from the start of the Quran (1 to 6236 in Hafs), independent of the surah.
+- **Juz**: one of 30 parts of roughly equal length. [More](https://en.wikipedia.org/wiki/Juz%27)
+- **Hizb**: half a juz, 60 in total.
+- **Rub' al-hizb (maqra)**: a quarter of a hizb, 240 in total, marked in most mushafs with **۞**. [More](https://en.wikipedia.org/wiki/Rub_el_Hizb)
+- **Thumun al-hizb**: an eighth of a hizb, 480 in total, used in North African mushafs. Qalun is the riwaya with this data here.
+- **Manzil**: one of 7 portions for reading the Quran in a week. [More](https://en.wikipedia.org/wiki/Manzil)
+- **Page**: a page of the mushaf. The built-in data follows the 604-page Madinah mushaf for each riwaya.
+- **Sajdah**: an ayah of prostration. Hafs has 15.
+- **Ruku**: a thematic section of a surah, marked with **ع**. Hafs has 556.
+- **Qira'at and riwayat**: the ten recognised readings are each named after a qari, and each is transmitted through riwayat (narrations). Hafs from 'Asim is the most widely used; Warsh and Qalun from Nafi' are common in North and West Africa. The differences are mostly pronunciation and a few word forms, but they also change how ayahs are counted. [More](https://en.wikipedia.org/wiki/Qira%27at)
+
+## Data sources and verification
+
+`pnpm verify` checks the lists against these sources, and `pnpm verify:lists` cross-checks them against the quranpedia dumps they were generated from:
+
+- `qcloud-meta.json`: [AlQuran Cloud API metadata](https://api.alquran.cloud/v1/meta)
+- `tanzil-data.js`: [Tanzil.net metadata](https://tanzil.net/res/text/metadata/quran-data.js)
+- `quran-api.json`: [Quran API metadata](https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api/info.json)
+- `hafsData_v2-0.json`, `hafs_smart_v8.json`: [KFGQPC Hafs font data](https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip)
+- `SousiData_v2-0.json`: [KFGQPC Sousi font data](https://download.qurancomplex.gov.sa/resources_dev/UthmanicSousi_v2-0.zip)
+- `DouriData_v2-0.json`: [KFGQPC Douri font data](https://download.qurancomplex.gov.sa/resources_dev/UthmanicDouri_v2-0.zip)
+- `QalounData_v2-1.json`: [KFGQPC Qaloun font data](https://download.qurancomplex.gov.sa/resources_dev/UthmanicQaloun_v2-1.zip)
+- `shubaData_v2-0.json`: [KFGQPC Shuba font data](https://download.qurancomplex.gov.sa/resources_dev/UthmanicShuba_v2-0.zip)
+- `warshData_v2-1.json`: [KFGQPC Warsh font data](https://download.qurancomplex.gov.sa/resources_dev/UthmanicWarsh_v2-1.zip)
+- `data/quranpedia/*.json`: [quranpedia.net](https://quranpedia.net) dumps for all eight riwayas, the source of the generated lists in `src/lists/`
+
+KFQC publishes no data for Bazzi and Qunbul, so their lists are checked against each other (both are from Ibn Kathir and must match). Known differences with the KFQC data (a few juz boundaries in Douri and Sousi, some page breaks) are listed in the check scripts under `examples/data-check/`.
+
+## Development
+
+```sh
+pnpm install
+pnpm check          # format, lint, types, generated files and tests, the same as CI
+pnpm dev            # tests in watch mode
+pnpm build          # dist/ via tsdown
+pnpm generate       # regenerate the riwaya entry points and the conversion table
+pnpm docs:site      # build the landing page and API reference into _site/
+pnpm verify         # check the data against external sources
+```
+
+Riwaya entry points (`src/hafs.ts`, ...) are generated by `scripts/generate-entries.ts` and the conversion table by `examples/data-check/generate-ayah-map.ts`; CI fails if either is out of date. A pre-commit hook (installed by `pnpm install`) runs formatting, lint, type and test checks.
+
+## Projects using quran-meta
+
+- [Koran Center](https://koran.center): a web application for reading and studying the Quran.
+- [Visual Quran](https://visual.koran.center/): interactive visualisations of the structure of the Quran.
+
+## Demos
+
+- [Live demo](https://quran-center.github.io/quran-meta/): look up any ayah in any riwaya and see it converted to the others.
+- [Quran Meta Visualiser ESM Alpine 3](https://codesandbox.io/p/sandbox/quran-visualiser-esm-alpine-3-q89frt): interactive charts of the Quran's structure with Alpine.js 3 and Chart.js 4.
+- [Quran Meta Visualiser ES module version](https://codesandbox.io/s/quran-visualiser-es-module-f0sq0): the Alpine.js 2 and Chart.js 2 version.
+
+![Demo image](https://raw.githubusercontent.com/quran-center/quran-meta/master/examples/demo-quran-visualiser.jpg)
+
+## References
 
 - [Tanzil.net](https://tanzil.net)
-- [Quran.com Js Api](https://github.com/quran/api-js), [Quran.com API](https://api-docs.quran.com/),
+- [Quran.com JS API](https://github.com/quran/api-js), [Quran.com API](https://api-docs.quran.com/)
 - [AlQuran Cloud](https://alquran.cloud/api)
-- [KFQC Data](https://qurancomplex.gov.sa/en/techquran/dev/)
+- [KFQC data](https://qurancomplex.gov.sa/en/techquran/dev/)
 - [Quranpedia](https://quranpedia.net)
 
-### License
+## License
 
-This software is distributed under MIT license.
+MIT

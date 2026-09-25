@@ -9,6 +9,8 @@ import { checkValidAyahId } from "./validation"
  * @param ayahId - The ID of the Ayah (verse) to find the Juz for.
  * @param data - The Lists object containing JuzList.
  * @returns The Juz (part) of the Quran that contains the given Ayah ID.
+ *
+ * @category Juz
  */
 export function findJuzByAyahId(ayahId: AyahId, data: RiwayaData): Juz {
   checkValidAyahId(ayahId, data.meta)

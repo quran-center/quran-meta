@@ -95,6 +95,7 @@ describe(findJuzAndShift, () => {
   })
 
   it("should throw RangeError for invalid surah in surah mode", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => findJuzAndShift(115, 1, HafsLists)).toThrow(RangeError)
   })
 

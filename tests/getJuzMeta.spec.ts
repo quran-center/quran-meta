@@ -16,7 +16,9 @@ describe(getJuzMeta, () => {
   })
 
   it("should throw RangeError for an invalid Juz number", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => getJuzMeta(0, HafsLists)).toThrow(RangeError)
+    // @ts-expect-error out-of-range value on purpose
     expect(() => getJuzMeta(31, HafsLists)).toThrow(RangeError)
   })
 })

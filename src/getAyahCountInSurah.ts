@@ -7,6 +7,8 @@ import type { AyahNo, Surah } from "./types"
  * @param surah - The surah number.
  * @param data - The Lists object containing SurahList.
  * @returns The number of ayahs in the specified surah.
+ *
+ * @category Surah & Ayah
  */
 export function getAyahCountInSurah(surah: Surah, data: RiwayaData): AyahNo {
   return getSurahInfo(surah, data)[1]

@@ -10,6 +10,8 @@ import { checkValidJuz } from "./validation"
  * @param data - The Lists object for the riwaya.
  * @returns An object containing the Juz number, first ayah, and last ayah in the Juz
  * @throws RangeError If the Juz number is not between 1 and 30
+ *
+ * @category Juz
  */
 export function getJuzMeta(juzNum: Juz, data: RiwayaData): JuzMeta {
   checkValidJuz(juzNum, data.meta)

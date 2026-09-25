@@ -20,10 +20,12 @@ describe(getSurahInfo, () => {
   })
 
   it("should throw an error for surah number 0", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => getSurahInfo(0, HafsLists)).toThrow()
   })
 
   it("should throw an error for surah number 115", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => getSurahInfo(115, HafsLists)).toThrow()
   })
 })

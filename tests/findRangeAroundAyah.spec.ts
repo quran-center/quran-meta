@@ -31,6 +31,7 @@ describe(findRangeAroundSurahAyah, () => {
   })
 
   it("should throw error for invalid surah in non-ayahMode", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => findRangeAroundSurahAyah(115, 1, "surah", HafsLists)).toThrow()
   })
 

@@ -9,8 +9,10 @@ import type { AyahId, AyahNo, Manzil, Surah } from "./types"
  * @param ayah - Optional Ayah number (defaults to 1)
  * @param data - The Lists object for the riwaya.
  * @returns The Manzil number (1-7) containing the specified Ayah
+ *
+ * @category Manzil & Ruku
  */
-export function findManzil(surah: Surah, ayah: AyahNo = 1, data: RiwayaData): Manzil {
+export function findManzil(surah: Surah, ayah: AyahNo, data: RiwayaData): Manzil {
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, data)
 
   return findManzilByAyahId(ayahId, data)

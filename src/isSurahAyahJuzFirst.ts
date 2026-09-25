@@ -18,6 +18,8 @@ import { checkValidSurah } from "./validation"
  * isSurahAyahJuzFirst(2, 142, HafsLists) // Returns 2
  * isSurahAyahJuzFirst(2, 143, HafsLists) // Returns -1
  * ```
+ *
+ * @category Juz
  */
 export function isSurahAyahJuzFirst(surah: Surah, ayah: AyahNo, data: RiwayaData): number {
   const { JuzList, meta } = data

@@ -14,6 +14,8 @@ import { checkValidRuku } from "./validation"
  *  - first: The Surah and Ayah numbers for the first verse
  *  - last: The Surah and Ayah numbers for the last verse
  * @throws Will throw an error if the provided Ruku number is invalid
+ *
+ * @category Manzil & Ruku
  */
 export function getRukuMeta(rukuNum: number, data: RiwayaData): RukuMeta {
   checkValidRuku(rukuNum, data.meta)

@@ -24,11 +24,14 @@ describe(isSurahAyahJuzFirst, () => {
   })
 
   it("should throw an error for invalid surah", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => isSurahAyahJuzFirst(0, 1, HafsLists)).toThrow()
+    // @ts-expect-error out-of-range value on purpose
     expect(() => isSurahAyahJuzFirst(115, 1, HafsLists)).toThrow()
   })
 
   it("should throw an error for invalid ayah", () => {
+    // @ts-expect-error out-of-range value on purpose
     expect(() => isSurahAyahJuzFirst(1, 0, HafsLists)).toThrow()
     expect(() => isSurahAyahJuzFirst(1, 8, HafsLists)).toThrow()
   })

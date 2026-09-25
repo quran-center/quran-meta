@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "rootDir": "./src",
-    // "allowJs": false,
-    // "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "removeComments": false,
-    "noImplicitAny": true,
-    "sourceMap": false,
-    "strictNullChecks": true
-    // "lib": ["es2015", "es2016", "es2017", "es2018", "esnext"]
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "isolatedDeclarations": true,
+    "declaration": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "skipLibCheck": true,
+    "noEmit": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "lib_cjs", "lib_es", "examples"],
-  "compileOnSave": false
+  "include": ["src"]
 }

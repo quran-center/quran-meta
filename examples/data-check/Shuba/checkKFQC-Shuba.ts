@@ -5,7 +5,7 @@
 
 import { createShuba } from "../../../src/shuba"
 import { checkKFQCData } from "../checkKFQC"
-import ShubaData from "../data/ShubaData_v2-0.json"
+import ShubaData from "../data/shubaData_v2-0.json"
 
 export function checkKFQCShuba() {
   checkKFQCData("Shuba", createShuba(), ShubaData)

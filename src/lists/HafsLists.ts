@@ -1,5 +1,6 @@
 import type { AyahId, QuranMeta, SurahInfo } from "../types"
 import type { FixedArray } from "../ts-utils"
+import type { Riwayas } from "./types"
 
 // ------------------ Hizb Quarter (Rub-ul-Hizb) Data ---------------------
 export const HizbQuarterList: AyahId[] = [
@@ -235,7 +236,7 @@ export const HafsMeta: QuranMeta = {
   numManzils: 7
 } as const
 
-export const HafsLists = {
+export const HafsLists: Riwayas["Hafs"] = {
   HizbQuarterList,
   JuzList,
   ManzilList,

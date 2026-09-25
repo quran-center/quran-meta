@@ -10,6 +10,8 @@ import { checkValidAyahId } from "./validation"
  * @param ayahId - The Ayah Id (verse) number.
  * @param data - The Lists object for the riwaya.
  * @returns The Juz (part) number that the given Ayah belongs to. Returns Positive number if ayah is first ayah of juz, number is juz number
+ *
+ * @category Juz
  */
 export function isAyahJuzFirst(ayahId: AyahId, data: RiwayaData): number {
   const { JuzList, meta } = data

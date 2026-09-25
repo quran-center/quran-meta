@@ -15,6 +15,8 @@ import { checkValidAyahId } from "./validation"
  * ```ts
  * const page = findPagebyAyahId(142, HafsLists); // Returns the page number containing ayah 142
  * ```
+ *
+ * @category Page
  */
 
 export function findPagebyAyahId(ayahId: AyahId, data: RiwayaData): Page {

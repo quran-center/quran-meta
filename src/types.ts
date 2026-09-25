@@ -276,6 +276,17 @@ export interface SurahJuzMeta {
   rightAyahId: AyahId
 }
 
+/**
+ * The juz an ayah belongs to and how far the start of its surah is from the start of that juz
+ */
+export interface JuzAndShift {
+  juz: Juz
+  /** First ayah id of the juz */
+  leftAyahId: AyahId
+  /** Ayahs between the start of the juz and the start of the surah */
+  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
+}
+
 export type RangeMode = "juz" | "surah" | "ayah" | "page" | "ruku" | "all"
 
 export interface SurahAyahPos {

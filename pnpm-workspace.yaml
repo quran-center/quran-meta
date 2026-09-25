@@ -1,2 +1,6 @@
 onlyBuiltDependencies:
   - esbuild
+
+# simple-git-hooks is installed by the `prepare` script instead
+ignoredBuiltDependencies:
+  - simple-git-hooks

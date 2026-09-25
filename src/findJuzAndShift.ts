@@ -3,7 +3,7 @@ import { findJuzByAyahId } from "./findJuzByAyahId"
 import { findSurahByAyahId } from "./findSurahByAyahId"
 
 import type { RiwayaData } from "./lists/types"
-import type { AyahCountBetweenJuzSurah, AyahId, AyahNo, Juz, Surah } from "./types"
+import type { AyahCountBetweenJuzSurah, AyahId, AyahNo, JuzAndShift, Surah } from "./types"
 import { checkValidAyahId } from "./validation"
 
 /**
@@ -16,16 +16,10 @@ import { checkValidAyahId } from "./validation"
  *   - `juz`: The juz (section) that contains the ayah.
  *   - `leftAyahId`: The ayah ID of the first ayah in the juz.
  *   - `ayahsBetweenJuzSurah`: The number of ayahs between the start of the juz and the start of the surah (positive if the surah starts is in the juz, negative if the surah starts before the juz).
+ *
+ * @category Juz
  */
-export function findJuzAndShift(
-  surah: Surah,
-  ayah: AyahNo,
-  lists: RiwayaData
-): {
-  juz: Juz
-  leftAyahId: AyahId
-  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
-} {
+export function findJuzAndShift(surah: Surah, ayah: AyahNo, lists: RiwayaData): JuzAndShift {
   const ayahId: AyahId = findAyahIdBySurah(surah, ayah, lists)
   const { JuzList } = lists
   const { SurahList } = lists
@@ -50,15 +44,10 @@ export function findJuzAndShift(
  * - ayahsBetweenJuzSurah: The number of Ayahs between the Juz start and the Surah start
  *
  * @throws Error If the provided Ayah ID is invalid
+ *
+ * @category Juz
  */
-export function findJuzAndShiftByAyahId(
-  ayahId: AyahId,
-  data: RiwayaData
-): {
-  juz: Juz
-  leftAyahId: AyahId
-  ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
-} {
+export function findJuzAndShiftByAyahId(ayahId: AyahId, data: RiwayaData): JuzAndShift {
   checkValidAyahId(ayahId, data.meta)
   const { JuzList } = data
   const { SurahList } = data

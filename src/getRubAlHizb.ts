@@ -5,6 +5,8 @@ import type { HizbId, Juz, JuzPart, RubAlHizb, RubAlHizbId } from "./types"
  *
  * @param quarterIndex - The index of the quarter (rub' al-hizb) to retrieve metadata for, where 1 is the first quarter.
  * @returns An object containing the metadata for the specified quarter, including the juz' (part), hizb (section), and the quarter (rub' al-hizb) index.
+ *
+ * @category Hizb
  */
 export function getRubAlHizb(quarterIndex: RubAlHizbId): RubAlHizb {
   // Return HizbQuarterList[maqra]
