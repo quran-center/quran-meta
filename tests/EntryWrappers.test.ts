@@ -57,6 +57,7 @@ const samples: Record<string, [args: unknown[], bind: "lists" | "meta"]> = {
   findJuzAndShift: [[9, 93], "lists"],
   findJuzAndShiftByAyahId: [[1300], "lists"],
   findPage: [[36, 1], "lists"],
+  findPageByAyahId: [[3706], "lists"],
   findPagebyAyahId: [[3706], "lists"],
   getPageMeta: [[300], "lists"],
   findManzil: [[17, 1], "lists"],
@@ -115,6 +116,7 @@ describe.each(Object.entries(entries))("%s entry point wrappers", (name, entry) 
     "prevAyah",
     // Re-exported unchanged, they take no riwaya data
     "getRubAlHizb",
+    "getThumunAlHizb",
     "isValidAyahNo",
     "string2NumberSplitter",
     "string2NumberSplitterStrict",
@@ -162,5 +164,10 @@ describe.each(Object.entries(entries))("%s entry point wrappers", (name, entry) 
     expect(exported.PageList).toBe(data.PageList)
     expect(exported.SurahList).toBe(data.SurahList)
     expect(exported[`${name}Lists`]).toBe(data)
+  })
+
+  test("getThumunAlHizb is re-exported exactly where there is thumun al-hizb data", () => {
+    const hasThumun = data.meta.numThumunAlHizbs > 0
+    expect(exported.getThumunAlHizb).toBe(hasThumun ? core.getThumunAlHizb : undefined)
   })
 })

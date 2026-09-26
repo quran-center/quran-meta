@@ -15,7 +15,7 @@ export function checkKFQCSmart() {
   for (let ayahId: AyahId = 1; ayahId <= meta.numAyahs; ayahId++) {
     const ayahMeta = quran.getAyahMeta(ayahId)
     const hfMeta = hafsSmartData[ayahId - 1]
-    quran.findPagebyAyahId(ayahId)
+    quran.findPageByAyahId(ayahId)
     // Const rub = getRubAlHizbMetaByAyahId(ayahId)
 
     // Commented  as KFQC Smart data is using different page numbering which Quran Meta does not support

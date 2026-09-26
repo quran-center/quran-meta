@@ -18,7 +18,7 @@ export function checkQuranApi() {
 
   for (let ayah: AyahId = 1; ayah <= meta.numAyahs; ayah++) {
     const ayahMeta = quran.getAyahMeta(ayah)
-    const pageNo = quran.findPagebyAyahId(ayah)
+    const pageNo = quran.findPageByAyahId(ayah)
     const {
       verse,
       line,

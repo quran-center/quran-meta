@@ -1,5 +1,5 @@
 import { findJuzByAyahId } from "./findJuzByAyahId"
-import { findPagebyAyahId } from "./findPagebyAyahId"
+import { findPageByAyahId } from "./findPagebyAyahId"
 import { findRukuByAyahId } from "./findRukuByAyahId"
 import { findSurahByAyahId } from "./findSurahByAyahId"
 import type { RiwayaData } from "./lists/types"
@@ -41,7 +41,7 @@ export function findRangeAroundAyah(ayahId: AyahId, mode: RangeMode, data: Riway
     }
 
     case "page": {
-      const page: Page = findPagebyAyahId(ayahId, data)
+      const page: Page = findPageByAyahId(ayahId, data)
       return [PageList[page], PageList[page + 1] - 1]
     }
 

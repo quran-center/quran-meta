@@ -4,17 +4,17 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## v7.0.0
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/d7b6eb5...master)
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1...v7.0.0)
 
 Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df](https://github.com/quran-center/quran-meta/commit/777a9df)). See "Upgrading from v6" in the README.
 
 ### ⚠️ Breaking Changes
 
-- The package is ESM-only and ships `dist/` only: `lib_cjs/`, `lib_es/`, `src/` and `types/` are no longer published and the `require` export condition is gone. On Node 22.12+ `require("quran-meta")` still works through Node's `require(esm)`. For CommonJS on older Node versions, stay on [`6.1.1-5`](https://www.npmjs.com/package/quran-meta/v/6.1.1-5), the only v6 release with a CommonJS build (main entry only).
+- The package is ESM-only and ships `dist/` only: `lib_cjs/`, `lib_es/`, `src/` and `types/` are no longer published and the `require` export condition is gone. On Node 22.12+ `require("quran-meta")` still works through Node's `require(esm)`. For CommonJS on older Node versions, stay on [`quran-meta@6`](https://www.npmjs.com/package/quran-meta/v/6.1.1) (6.1.1), which has a CommonJS build of its main entry.
 - Node 22 or newer is required (was 20).
 - The IIFE bundle is now `dist/quran-meta.iife.js` (minified, exposes `window.quranMeta`) and is what unpkg and jsDelivr serve. The separate per-entry minified builds are gone.
 - In the root functional API, `ayah` is now a required argument of `findJuz`, `findJuzMetaBySurah`, `findManzil`, `findPage`, `findRubAlHizb` and `findThumunAlHizb`. It used to default to 1 before the `lists` argument. Riwaya entry points and `QuranRiwaya` keep the default.
-- `quran-meta/qalun` exports `QalunLists` instead of `riwayaLists`, like every other entry now does. It no longer exports `getThumunAlHizb`, which is still exported from the root entry.
+- `quran-meta/qalun` exports `QalunLists` instead of `riwayaLists`, like every other entry now does.
 - `QuranRiwaya` thumun al-hizb methods exist only on Qalun instances at the type level and no longer include `null` in their return types.
 - `ayahStringSplitter` checks both ends of a range against the surah: `"2:280-290"` now throws a `RangeError`. The range end used to be validated as a global ayah id.
 - `languages` (and the `Lang` type) gained Arabic and ten more languages, so code that builds a `SurahNamesI18n` object needs entries for them.
@@ -34,6 +34,7 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 - The root entry also exports `getSurahInfo`, `checkValidSurahAyahPair` and the thumun al-hizb functions (`findThumunAlHizb`, `getThumunAlHizbMeta`, ...).
 - `QuranRiwaya` gains ayah iterators, `formatAyahId` and the validators it was missing.
 - Every `package.json` subpath export declares `types` and `default`.
+- `findPageByAyahId` and `SurahJuzMeta.leftJuz` are spelled like the rest of the API. The old `findPagebyAyahId` and `leftjuz` still work and are marked deprecated.
 
 ### 🔥 Performance
 
@@ -48,6 +49,7 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 - Stale docs: `quran` export examples, the `'quran-meta/Qalun'` import path, the class description and thumun al-hizb doc comments.
 - data-check: JSON imports with the wrong case (Shuba, Warsh) failed on Linux. Added Bazzi/Qunbul sibling checks.
 - Trailing spaces in 99 Azerbaijani surah name translations and one Turkish one (`"Kadr "`).
+- `findJuzMetaBySurah` documented `rightAyahId` as the last ayah of `rightJuz`. It is the first ayah after it, and every `SurahJuzMeta` field is now documented.
 
 ### 📚 Documentation
 
@@ -60,6 +62,20 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 - Lint with oxlint only (ESLint and typescript-eslint removed), oxfmt with LF line endings, strict TypeScript with `isolatedDeclarations`, and type-checked tests.
 - CI checks formatting, lint, types and generated files, runs tests on Node 22 and 24, and builds with size budgets, publint and attw. Actions are pinned to commit SHAs.
 - Update dev dependencies. TypeScript stays on 6.x ([a5dd4a4](https://github.com/quran-center/quran-meta/commit/a5dd4a4), [777a9df](https://github.com/quran-center/quran-meta/commit/777a9df))
+
+### ❤️ Contributors
+
+- HG ([@husayt](https://github.com/husayt))
+
+## v6.1.1
+
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.17...v6.1.1)
+
+Stable release of the 6.1.1-0 to 6.1.1-6 prereleases below, published from the `v6` branch. It is the last release with a CommonJS build (`require("quran-meta")`, main entry only) and what `npm i quran-meta@6` installs.
+
+### 🏡 Chore
+
+- Pin TypeScript to 6.x so TypeDoc builds, and sync the lockfile ([b5776f1](https://github.com/quran-center/quran-meta/commit/b5776f1))
 
 ### ❤️ Contributors
 
@@ -203,7 +219,7 @@ _Not published to npm._
 
 [compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.16...v6.0.17)
 
-No changes. This is the `latest` release on npm and includes everything up to v6.0.14.
+No changes. It includes everything up to v6.0.14 and was the `latest` release on npm until v6.1.1.
 
 ## v6.0.16
 

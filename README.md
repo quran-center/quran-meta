@@ -33,7 +33,7 @@ npm i quran-meta     # or: pnpm add quran-meta / yarn add quran-meta / bun add q
 
 The package is ESM-only and needs Node 22 or newer. On Node 22.12+ `require("quran-meta")` also works, since Node can `require()` ES modules.
 
-For CommonJS on older Node versions, stay on v6: [`quran-meta@6.1.1-5`](https://www.npmjs.com/package/quran-meta/v/6.1.1-5) has a CommonJS build of its main entry, so `const { quran, createWarsh } = require("quran-meta")` works there. Pin that exact version: the 6.0.x releases that `npm i quran-meta@6` installs are ESM-only, and so are the v6 riwaya subpaths (`quran-meta/hafs`, ...).
+For CommonJS on older Node versions, stay on v6: `npm i quran-meta@6` installs [6.1.1](https://www.npmjs.com/package/quran-meta/v/6.1.1), which has a CommonJS build of its main entry, so `const { quran, createWarsh } = require("quran-meta")` works there. Its riwaya subpaths (`quran-meta/hafs`, ...) are ESM-only, so use `createWarsh()` and friends from the main entry instead.
 
 In the browser without a bundler:
 
@@ -220,13 +220,14 @@ The full reference is at **[quran-center.github.io/quran-meta/docs](https://qura
 
 ## Upgrading from v6
 
-- The package is **ESM-only**. `lib_cjs/` and `lib_es/` are gone. On Node 22.12+ `require("quran-meta")` still works; for CommonJS on older Node versions, stay on [`quran-meta@6.1.1-5`](https://www.npmjs.com/package/quran-meta/v/6.1.1-5) (see [Install](#install)). The IIFE bundle is now `dist/quran-meta.iife.js` and is minified; the separate `.min.js` builds are gone (jsDelivr serves minified files on request).
+- The package is **ESM-only**. `lib_cjs/` and `lib_es/` are gone. On Node 22.12+ `require("quran-meta")` still works; for CommonJS on older Node versions, stay on [`quran-meta@6`](https://www.npmjs.com/package/quran-meta/v/6.1.1) (see [Install](#install)). The IIFE bundle is now `dist/quran-meta.iife.js` and is minified; the separate `.min.js` builds are gone (jsDelivr serves minified files on request).
 - Node 22 or newer is required.
 - In the root functional API, `ayah` is now a required argument of `findJuz`, `findJuzMetaBySurah`, `findManzil`, `findPage`, `findRubAlHizb` and `findThumunAlHizb` (it used to default to 1 before the `lists` argument). Riwaya entry points and the class keep the default.
 - The Qalun entry exports `QalunLists` instead of `riwayaLists`, like every other entry.
 - `QuranRiwaya` thumun al-hizb methods exist only on Qalun instances at the type level and no longer claim to return `null`.
 - `ayahStringSplitter` now checks both ends of a range against the surah (`"2:280-290"` used to pass).
 - `languages` (and the `Lang` type) gained Arabic and ten more languages, so code that builds a `SurahNamesI18n` object needs entries for them.
+- Deprecated, still working until the next major: `findPagebyAyahId` is now `findPageByAyahId`, and `SurahJuzMeta.leftjuz` is now `leftJuz`.
 - Surah names other than English and Arabic, `surahNames`, `getSurahNames`, `languages` and the `Lang` and `SurahNamesI18n` types moved from `quran-meta` to `quran-meta/i18n` (`languages` is also in `quran-meta/i18n/async`), so the main entry no longer carries every language. For a classic `<script>`, they are in `dist/quran-meta-i18n.iife.js`, which exposes `window.quranMetaI18n`.
 
 ## Terminology

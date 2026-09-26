@@ -9,14 +9,15 @@ import type { AyahNo, Juz, Surah, SurahJuzMeta } from "./types"
  * @param surah - The Surah (chapter) number.
  * @param ayah - The Ayah (verse) number.
  * @param data - The Lists object for the riwaya.
- * @returns The SurahJuzMeta object containing the left juz, ayahs between juz and surah, right juz, ayah ID of first ayah in left juz, and last ayah ID of right juz .
+ * @returns The juz containing the ayah (`leftJuz`) and its first ayah id, the juz the surah ends in
+ *   (`rightJuz`) and the first ayah id after it, and the ayahs between the juz start and the surah start.
  *
  * @category Juz
  */
 export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo, data: RiwayaData): SurahJuzMeta {
-  const { juz: leftjuz, ayahsBetweenJuzSurah, leftAyahId } = findJuzAndShift(surah, ayah, data)
+  const { juz: leftJuz, ayahsBetweenJuzSurah, leftAyahId } = findJuzAndShift(surah, ayah, data)
   const { JuzList } = data
-  let rightJuz: Juz = leftjuz
+  let rightJuz: Juz = leftJuz
   while (rightJuz < data.meta.numJuzs && findSurahByAyahId(JuzList[rightJuz + 1], data) === surah) {
     rightJuz++
   }
@@ -24,8 +25,9 @@ export function findJuzMetaBySurah(surah: Surah, ayah: AyahNo, data: RiwayaData)
   return {
     ayahsBetweenJuzSurah,
     leftAyahId,
-    leftjuz,
+    leftJuz,
+    leftjuz: leftJuz,
     rightAyahId: JuzList[rightJuz + 1],
-    rightJuz // Todo check if this is correct or should be -1
+    rightJuz
   }
 }

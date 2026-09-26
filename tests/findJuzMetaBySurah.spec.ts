@@ -12,6 +12,7 @@ describe(findJuzMetaBySurah, () => {
     expect(result).toEqual({
       ayahsBetweenJuzSurah: 0,
       leftAyahId: 1,
+      leftJuz: 1,
       leftjuz: 1,
       rightAyahId: 149,
       rightJuz: 1
@@ -23,6 +24,7 @@ describe(findJuzMetaBySurah, () => {
     expect(result).toEqual({
       ayahsBetweenJuzSurah: 7,
       leftAyahId: 1,
+      leftJuz: 1,
       leftjuz: 1,
       rightAyahId: 386,
       rightJuz: 3
@@ -34,6 +36,7 @@ describe(findJuzMetaBySurah, () => {
     expect(result).toEqual({
       ayahsBetweenJuzSurah: 558,
       leftAyahId: 5673,
+      leftJuz: 30,
       leftjuz: 30,
       rightAyahId: 6237,
       rightJuz: 30
@@ -45,6 +48,7 @@ describe(findJuzMetaBySurah, () => {
     expect(result).toEqual({
       ayahsBetweenJuzSurah: -141,
       leftAyahId: 149,
+      leftJuz: 2,
       leftjuz: 2,
       rightAyahId: 386,
       rightJuz: 3
@@ -56,6 +60,7 @@ describe(findJuzMetaBySurah, () => {
     expect(result).toEqual({
       ayahsBetweenJuzSurah: 7,
       leftAyahId: 1,
+      leftJuz: 1,
       leftjuz: 1,
       rightAyahId: 386,
       rightJuz: 3

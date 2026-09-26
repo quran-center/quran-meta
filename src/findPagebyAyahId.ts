@@ -13,13 +13,12 @@ import { checkValidAyahId } from "./validation"
  *
  * @example
  * ```ts
- * const page = findPagebyAyahId(142, HafsLists); // Returns the page number containing ayah 142
+ * const page = findPageByAyahId(142, HafsLists); // Returns the page number containing ayah 142
  * ```
  *
  * @category Page
  */
-
-export function findPagebyAyahId(ayahId: AyahId, data: RiwayaData): Page {
+export function findPageByAyahId(ayahId: AyahId, data: RiwayaData): Page {
   checkValidAyahId(ayahId, data.meta)
   const { PageList } = data
   // Return PageList.findIndex(x => x > ayahId) - 1 as Page
@@ -27,3 +26,12 @@ export function findPagebyAyahId(ayahId: AyahId, data: RiwayaData): Page {
   const page = jj < 0 ? -jj - 2 : jj
   return page as Page
 }
+
+/**
+ * Old spelling of {@link findPageByAyahId}.
+ *
+ * @deprecated Use {@link findPageByAyahId}, which matches `findJuzByAyahId` and the other `By` functions.
+ *
+ * @category Page
+ */
+export const findPagebyAyahId: typeof findPageByAyahId = findPageByAyahId

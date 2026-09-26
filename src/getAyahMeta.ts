@@ -1,4 +1,4 @@
-import { findPagebyAyahId } from "./findPagebyAyahId"
+import { findPageByAyahId } from "./findPagebyAyahId"
 import { findSurahAyahByAyahId } from "./findSurahAyahByAyahId"
 import { getRubAlHizbByAyahId } from "./getRubAlHizbByAyahId"
 import type { RiwayaData } from "./lists/types"
@@ -31,7 +31,7 @@ export function getAyahMeta(ayahId: AyahId, data: RiwayaData): AyahMeta {
 
   const quarterData = getRubAlHizbByAyahId(ayahId, data)
   const [surah, ayah] = findSurahAyahByAyahId(ayahId, data)
-  const page: Page = findPagebyAyahId(ayahId, data)
+  const page: Page = findPageByAyahId(ayahId, data)
 
   // Const isSajdahAyah = SajdaList.some(([sajdaAyahId]) => sajdaAyahId === ayahId)
   const isSajdahAyah = binarySearch(SajdaList, ayahId, (a, b) => a - b) >= 0

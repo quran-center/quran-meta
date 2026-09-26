@@ -39,7 +39,7 @@ import { findJuzByAyahId } from "./findJuzByAyahId"
 import { findManzil } from "./findManzil"
 import { findManzilByAyahId } from "./findManzilByAyahId"
 import { findPage } from "./findPage"
-import { findPagebyAyahId } from "./findPagebyAyahId"
+import { findPageByAyahId } from "./findPagebyAyahId"
 import { findRangeAroundAyah } from "./findRangeAroundAyah"
 import { findRangeAroundSurahAyah } from "./findRangeAroundSurahAyah"
 import { findRubAlHizb } from "./findRubAlHizb"
@@ -304,8 +304,17 @@ export class QuranRiwaya<R extends RiwayaName = "Hafs"> {
   /**
    * Finds the page number for a given ayah ID
    */
+  findPageByAyahId(ayahId: AyahId): Page {
+    return findPageByAyahId(ayahId, this.#data)
+  }
+
+  /**
+   * Old spelling of {@link QuranRiwaya.findPageByAyahId}.
+   *
+   * @deprecated Use {@link QuranRiwaya.findPageByAyahId}.
+   */
   findPagebyAyahId(ayahId: AyahId): Page {
-    return findPagebyAyahId(ayahId, this.#data)
+    return findPageByAyahId(ayahId, this.#data)
   }
 
   /**

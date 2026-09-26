@@ -265,14 +265,27 @@ export type RukuMeta = {
   rukuNum: Ruku
 } & RangeMeta
 
-// [leftjuz, ayahsFromStartOfJuz, rightJuz, ayahsinJuz]
 export type AyahCountBetweenJuzSurah = NumericRange<0, typeof maxAyahsInSurah>
+
+/**
+ * The juz span of a surah, as returned by `findJuzMetaBySurah`
+ */
 export interface SurahJuzMeta {
+  /** The juz containing the given ayah */
+  leftJuz: Juz
+  /**
+   * Old spelling of `leftJuz`.
+   *
+   * @deprecated Use `leftJuz`.
+   */
   leftjuz: Juz
+  /** Ayahs from the start of `leftJuz` to the start of the surah */
   ayahsBetweenJuzSurah: AyahCountBetweenJuzSurah
+  /** The juz the surah ends in */
   rightJuz: Juz
-  // ayahCount: number,
+  /** The first ayah id of `leftJuz` */
   leftAyahId: AyahId
+  /** The first ayah id after `rightJuz`, i.e. `numAyahs + 1` when `rightJuz` is the last juz */
   rightAyahId: AyahId
 }
 

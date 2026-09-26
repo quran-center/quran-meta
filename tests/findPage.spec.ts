@@ -1,4 +1,4 @@
-import { findPage, findPagebyAyahId } from "../src"
+import { findPage, findPageByAyahId, findPagebyAyahId, quran } from "../src"
 import { HafsLists } from "../src/lists/HafsLists"
 import * as ayahIdModule from "../src/findAyahIdBySurah"
 import * as module from "../src/validation"
@@ -32,7 +32,7 @@ describe(findPage, () => {
 
   it("should handle ayahMode correctly", () => {
     const spy = vi.spyOn(module, "checkValidAyahId")
-    const result = findPagebyAyahId(100, HafsLists)
+    const result = findPageByAyahId(100, HafsLists)
     expect(spy).toHaveBeenCalledWith(100, HafsLists.meta)
     expect(result).toBe(14)
   })
@@ -49,5 +49,12 @@ describe(findPage, () => {
   it("should handle edge case when ayahId is at page boundary", () => {
     const result = findPage(2, 141, HafsLists)
     expect(result).toBe(21)
+  })
+})
+
+describe(findPageByAyahId, () => {
+  it("keeps the old findPagebyAyahId spelling as an alias", () => {
+    expect(findPagebyAyahId).toBe(findPageByAyahId)
+    expect(quran.findPagebyAyahId(3706)).toBe(quran.findPageByAyahId(3706))
   })
 })

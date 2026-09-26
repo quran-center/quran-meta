@@ -52,6 +52,8 @@ interface Fn {
   bind: "lists" | "meta"
   /** module in src/ that exports the core function (defaults to `name`) */
   from?: string
+  /** core function to call (defaults to `name`), for wrappers kept under an old name */
+  calls?: string
   thumun?: boolean
 }
 
@@ -278,7 +280,11 @@ const groups: [string, Fn[]][] = [
     "Page",
     [
       fn("findPage", SA, "Page", "Returns the mushaf page of `surah:ayah`"),
-      fn("findPagebyAyahId", ID, "Page", "Returns the mushaf page of an ayah id"),
+      fn("findPageByAyahId", ID, "Page", "Returns the mushaf page of an ayah id", { from: "findPagebyAyahId" }),
+      fn("findPagebyAyahId", ID, "Page", "@deprecated Use {@link findPageByAyahId}, the same function", {
+        calls: "findPageByAyahId",
+        from: "findPagebyAyahId"
+      }),
       fn("getPageMeta", "page: Page", "PageMeta", "Returns the first and last ayah of a page")
     ]
   ],
@@ -420,8 +426,9 @@ const groups: [string, Fn[]][] = [
 ]
 
 /** Functions that do not depend on riwaya data are re-exported as they are */
-const reExports: [string, string[]][] = [
+const reExports: [from: string, names: string[], thumun?: boolean][] = [
   ["getRubAlHizb", ["getRubAlHizb"]],
+  ["getThumunAlHizb", ["getThumunAlHizb"], true],
   ["typeGuards", ["isValidAyahNo"]],
   ["ayahStringSplitter", ["string2NumberSplitter", "string2NumberSplitterStrict"]],
   ["formatSurahAyah", ["formatSurahAyah"]]
@@ -467,7 +474,7 @@ function render(r: Riwaya): string {
   for (const [, list] of fns) {
     for (const f of list) {
       const from = f.from ?? f.name
-      bySource.set(from, [...(bySource.get(from) ?? []), f.name])
+      bySource.set(from, [...new Set([...(bySource.get(from) ?? []), f.calls ?? f.name])])
     }
   }
   const imports = [...bySource]
@@ -482,7 +489,7 @@ function render(r: Riwaya): string {
       const fnsCode = list.map((f) => {
         const data = f.bind === "lists" ? lists : "meta"
         const args = f.args ? `${f.args}, ${data}` : data
-        const call = `_${f.name}(${args})`
+        const call = `_${f.calls ?? f.name}(${args})`
         const statement = f.returns.startsWith("asserts") ? call : `return ${call}`
         return `/** ${f.doc} */\nexport function ${f.name}(${f.params}): ${f.returns} {\n  ${statement}\n}`
       })
@@ -537,7 +544,10 @@ export type * from "./types"
 export type { AyahStepOptions } from "./nextAyah"
 export type { PartBlock } from "./lists/getList"
 export type { PartType, RiwayaName } from "./lists/types"
-${reExports.map(([from, names]) => `export { ${names.join(", ")} } from "./${from}"`).join("\n")}
+${reExports
+  .filter(([, , thumun]) => !thumun || r.thumun)
+  .map(([from, names]) => `export { ${names.join(", ")} } from "./${from}"`)
+  .join("\n")}
 export { ${lists} } from "./lists/${lists}"
 
 /** ${r.name} metadata: number of ayahs, pages, juzs, ... */

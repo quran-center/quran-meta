@@ -76,7 +76,7 @@ import { findJuzMetaBySurah as _findJuzMetaBySurah } from "./findJuzMetaBySurah"
 import { findManzil as _findManzil } from "./findManzil"
 import { findManzilByAyahId as _findManzilByAyahId } from "./findManzilByAyahId"
 import { findPage as _findPage } from "./findPage"
-import { findPagebyAyahId as _findPagebyAyahId } from "./findPagebyAyahId"
+import { findPageByAyahId as _findPageByAyahId } from "./findPagebyAyahId"
 import { findRangeAroundAyah as _findRangeAroundAyah } from "./findRangeAroundAyah"
 import { findRangeAroundSurahAyah as _findRangeAroundSurahAyah } from "./findRangeAroundSurahAyah"
 import { findRubAlHizb as _findRubAlHizb } from "./findRubAlHizb"
@@ -139,6 +139,7 @@ export type { AyahStepOptions } from "./nextAyah"
 export type { PartBlock } from "./lists/getList"
 export type { PartType, RiwayaName } from "./lists/types"
 export { getRubAlHizb } from "./getRubAlHizb"
+export { getThumunAlHizb } from "./getThumunAlHizb"
 export { isValidAyahNo } from "./typeGuards"
 export { string2NumberSplitter, string2NumberSplitterStrict } from "./ayahStringSplitter"
 export { formatSurahAyah } from "./formatSurahAyah"
@@ -357,8 +358,13 @@ export function findPage(surah: Surah, ayah: AyahNo = 1): Page {
 }
 
 /** Returns the mushaf page of an ayah id */
+export function findPageByAyahId(ayahId: AyahId): Page {
+  return _findPageByAyahId(ayahId, QalunLists)
+}
+
+/** @deprecated Use {@link findPageByAyahId}, the same function */
 export function findPagebyAyahId(ayahId: AyahId): Page {
-  return _findPagebyAyahId(ayahId, QalunLists)
+  return _findPageByAyahId(ayahId, QalunLists)
 }
 
 /** Returns the first and last ayah of a page */
