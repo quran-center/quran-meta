@@ -2,21 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## v6.1.1-6
+## v6.1.1
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-5...v6.1.1-6)
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.0.17...v6.1.1)
+
+Stable release of the 6.1.1-0 … 6.1.1-6 prereleases.
+
+### 🎉 Major New Features
+
+**5 New Riwayat — 8 riwayat supported in total** ([a06bd59](https://github.com/quran-center/quran-meta/commit/a06bd59))
+
+- Added **Shuba**, **Douri**, **Sousi**, **Bazzi** and **Qunbul** alongside Hafs, Qalun and Warsh, each with its full set of lists (surahs, pages, juzs, hizb quarters, rukus, manzils, sajdas)
+- New tree-shakeable entry points: `quran-meta/shuba`, `quran-meta/douri`, `quran-meta/sousi`, `quran-meta/bazzi`, `quran-meta/qunbul`
+- New Lists exports: `ShubaLists`, `DouriLists`, `SousiLists`, `BazziLists`, `QunbulLists`
+- New factory functions from the main entry: `createShuba()`, `createDouri()`, `createSousi()`, `createBazzi()`, `createQunbul()`
+
+### 🚀 Enhancements
+
+- Unified riwayah list generator built on quranpedia and KFQC data sources, with per-riwayah data checks ([cb9a653](https://github.com/quran-center/quran-meta/commit/cb9a653), [a06bd59](https://github.com/quran-center/quran-meta/commit/a06bd59))
+- Added entry-point tests and cross-riwayah Lists consistency tests ([a06bd59](https://github.com/quran-center/quran-meta/commit/a06bd59))
+
+### 🩹 Fixes
+
+- Regenerated and corrected `WarshLists` data ([dff1b13](https://github.com/quran-center/quran-meta/commit/dff1b13))
+- Fixed riwayat exports, type guards and package metadata ([4468def](https://github.com/quran-center/quran-meta/commit/4468def))
+- Fixed types for the new riwayat entry points ([c1cd926](https://github.com/quran-center/quran-meta/commit/c1cd926))
+
+### 📚 Documentation
+
+- Typedoc fixes and regenerated API docs ([c453601](https://github.com/quran-center/quran-meta/commit/c453601), [7d9aa6e](https://github.com/quran-center/quran-meta/commit/7d9aa6e))
 
 ### 🏡 Chore
 
-- **release:** V6.1.1-5 ([682fa9d](https://github.com/quran-center/quran-meta/commit/682fa9d))
+- Lint fixes across src, tests and examples; simplified oxlint config ([cbfb46b](https://github.com/quran-center/quran-meta/commit/cbfb46b))
+- Pinned TypeScript 6 so typedoc can build the API docs ([b5776f1](https://github.com/quran-center/quran-meta/commit/b5776f1))
+- Update deps ([e5192a9](https://github.com/quran-center/quran-meta/commit/e5192a9), [f2bf746](https://github.com/quran-center/quran-meta/commit/f2bf746), [a8620d6](https://github.com/quran-center/quran-meta/commit/a8620d6), [d7b6eb5](https://github.com/quran-center/quran-meta/commit/d7b6eb5))
 
 ### ❤️ Contributors
 
 - HG ([@husayt](https://github.com/husayt))
 
-## Unreleased
+## v6.1.1-6
 
-[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-5...master)
+[compare changes](https://github.com/quran-center/quran-meta/compare/v6.1.1-5...v6.1.1-6)
 
 ### 🏡 Chore
 
