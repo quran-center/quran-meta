@@ -13,6 +13,7 @@ export default {
   customFooterHtml: `quran-meta v${pkg.version}`,
   navigationLinks: {
     Home: "https://quran-center.github.io/quran-meta/",
+    Surahs: "https://quran-center.github.io/quran-meta/surahs.html",
     GitHub: "https://github.com/quran-center/quran-meta",
     npm: "https://www.npmjs.com/package/quran-meta"
   },
