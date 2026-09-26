@@ -13,6 +13,7 @@
 
 import { execFileSync } from "node:child_process"
 import { readFileSync, writeFileSync } from "node:fs"
+import { createRequire } from "node:module"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 
@@ -604,12 +605,13 @@ export const quran: QuranRiwaya<"${r.name}"> = /* @__PURE__ */ create${r.name}()
 }
 
 const check = process.argv.includes("--check")
-const oxfmt = join(root, "node_modules/.bin/oxfmt")
+// Run oxfmt's JS entry with node: node_modules/.bin/oxfmt is a shell script that Windows cannot spawn
+const oxfmt = join(dirname(createRequire(import.meta.url).resolve("oxfmt/package.json")), "bin/oxfmt")
 let stale = 0
 
 for (const r of riwayas) {
   const file = join(root, "src", `${r.name.toLowerCase()}.ts`)
-  const formatted = execFileSync(oxfmt, ["--stdin-filepath", file], { input: render(r) }).toString()
+  const formatted = execFileSync(process.execPath, [oxfmt, "--stdin-filepath", file], { input: render(r) }).toString()
   if (check) {
     if (readFileSync(file, "utf8") !== formatted) {
       console.error(`${file} is out of date`)

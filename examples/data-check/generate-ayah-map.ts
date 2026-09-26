@@ -23,6 +23,7 @@
 
 import { execFileSync } from "node:child_process"
 import { readFileSync, writeFileSync } from "node:fs"
+import { createRequire } from "node:module"
 import { dirname, join } from "node:path"
 import { fileURLToPath, pathToFileURL } from "node:url"
 
@@ -282,7 +283,9 @@ for (const [riwaya, load] of Object.entries(sources) as [Riwaya, () => SourceTex
   console.log(`${riwaya}: ${changed} surahs split differently from Hafs`)
 }
 
-const formatted = execFileSync(join(root, "node_modules/.bin/oxfmt"), ["--stdin-filepath", outFile], {
+// Run oxfmt's JS entry with node: node_modules/.bin/oxfmt is a shell script that Windows cannot spawn
+const oxfmt = join(dirname(createRequire(import.meta.url).resolve("oxfmt/package.json")), "bin/oxfmt")
+const formatted = execFileSync(process.execPath, [oxfmt, "--stdin-filepath", outFile], {
   input: render(hafsCounts, diffs)
 }).toString()
 

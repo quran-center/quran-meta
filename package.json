@@ -1,6 +1,6 @@
 {
   "name": "quran-meta",
-  "version": "6.1.1-6",
+  "version": "7.0.0",
   "description": "Quran metadata for 8 riwayas: surahs, ayahs, juz, hizb, pages, rukus, manzils and sajdas, with conversion between riwaya numberings",
   "keywords": [
     "ayah",
