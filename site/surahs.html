@@ -208,7 +208,7 @@
 
     <script type="module">
       import * as qm from "./lib/index.js"
-      import { getSurahNamesAsync } from "./lib/i18n/async.js"
+      import { getSurahNamesAsync, languages } from "./lib/i18n/async.js"
 
       const riwayas = ["Hafs", "Shuba", "Warsh", "Qalun", "Douri", "Sousi", "Bazzi", "Qunbul"]
       const $ = (id) => document.getElementById(id)
@@ -223,14 +223,14 @@
       }
 
       const params = new URLSearchParams(location.search)
-      const browserLang = navigator.languages.map((l) => l.slice(0, 2)).find((l) => qm.languages.includes(l))
+      const browserLang = navigator.languages.map((l) => l.slice(0, 2)).find((l) => languages.includes(l))
       const pick = (value, allowed, fallback) => (allowed.includes(value) ? value : fallback)
 
       for (const r of riwayas) $("riwaya").append(el("option", { value: r }, r))
-      for (const l of [...qm.languages].sort((a, b) => inEnglish.of(a).localeCompare(inEnglish.of(b))))
+      for (const l of [...languages].sort((a, b) => inEnglish.of(a).localeCompare(inEnglish.of(b))))
         $("lang").append(el("option", { value: l }, langLabel(l)))
       $("riwaya").value = pick(params.get("riwaya"), riwayas, "Hafs")
-      $("lang").value = pick(params.get("lang"), qm.languages, browserLang ?? "en")
+      $("lang").value = pick(params.get("lang"), languages, browserLang ?? "en")
 
       // One row per surah, built from the library once per riwaya
       const span = (a, b) => (a === b ? String(a) : `${a}–${b}`)

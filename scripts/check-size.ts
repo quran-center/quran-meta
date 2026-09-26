@@ -17,13 +17,14 @@ const dist = join(dirname(fileURLToPath(import.meta.url)), "../dist")
  * above the current sizes. Raise them deliberately, not by accident.
  */
 const budgets: Record<string, number> = {
-  "index.js": 73,
+  "index.js": 55,
   "hafs.js": 25,
   "warsh.js": 25,
   "qalun.js": 29,
-  "i18n/index.js": 23,
-  "i18n/async.js": 1,
-  "quran-meta.iife.js": 42
+  "i18n/index.js": 42,
+  "i18n/async.js": 1.2,
+  "quran-meta.iife.js": 28,
+  "quran-meta-i18n.iife.js": 31
 }
 
 const importRe = /(?:^|\n)\s*(?:import|export)\s[^;]*?from\s*["'](\.[^"']+)["']|(?:^|\n)\s*import\s*["'](\.[^"']+)["']/g
@@ -47,7 +48,7 @@ for (const [entry, budget] of Object.entries(budgets)) {
   failed ||= !ok
   const chunks = [...files].map((f) => relative(dist, f)).length
   console.log(
-    `${ok ? "ok  " : "FAIL"} ${entry.padEnd(20)} ${size.toFixed(1).padStart(6)} kB gzip (budget ${budget} kB, ${chunks} files)`
+    `${ok ? "ok  " : "FAIL"} ${entry.padEnd(24)} ${size.toFixed(1).padStart(6)} kB gzip (budget ${budget} kB, ${chunks} files)`
   )
 }
 

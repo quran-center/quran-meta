@@ -11,7 +11,7 @@ Quran metadata for JavaScript and TypeScript: surahs, ayahs, juz, hizb, rub' al-
 | **Scores**        | [![npms.io final](https://img.shields.io/npms-io/final-score/quran-meta)](https://npmpackage.info/package/quran-meta) [![npms.io quality](https://img.shields.io/npms-io/quality-score/quran-meta)](https://npmpackage.info/package/quran-meta) [![npms.io maintenance](https://img.shields.io/npms-io/maintenance-score/quran-meta)](https://npmpackage.info/package/quran-meta) [![GitHub last commit](https://img.shields.io/github/last-commit/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/commits/master) [![GitHub issues](https://img.shields.io/github/issues/quran-center/quran-meta)](https://github.com/quran-center/quran-meta/issues)        |
 | **Size**          | [![npm bundle size](https://img.shields.io/bundlephobia/min/quran-meta)](https://bundlephobia.com/package/quran-meta) [![npm bundle size (gzip)](https://img.shields.io/bundlephobia/minzip/quran-meta)](https://bundlephobia.com/package/quran-meta) [![GitHub repo size](https://img.shields.io/github/repo-size/quran-center/quran-meta)](https://github.com/quran-center/quran-meta) [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quran-center/quran-meta)](https://github.com/quran-center/quran-meta)                                                                                                                                     |
 
-**[Live demo](https://quran-center.github.io/quran-meta/)** · **[API reference](https://quran-center.github.io/quran-meta/docs/)** · **[Changelog](./CHANGELOG.md)**
+**[Live demo](https://quran-center.github.io/quran-meta/)** · **[Surah table](https://quran-center.github.io/quran-meta/surahs.html)** · **[API reference](https://quran-center.github.io/quran-meta/docs/)** · **[Changelog](./CHANGELOG.md)**
 
 ## Features
 
@@ -21,7 +21,7 @@ Quran metadata for JavaScript and TypeScript: surahs, ayahs, juz, hizb, rub' al-
 - **Iteration**: walk every ayah of a page, juz, ruku or any other part.
 - **Parsing and formatting**: `"2:255"` and `"1:1-7"` to tuples and back.
 - **Your own data**: swap in a different page layout (Indo-Pak, 13/15/16 line mushafs) with `customizeRiwaya`.
-- **Surah names in 12 languages**, including Arabic, loadable one language at a time.
+- **Surah names in 22 languages**: English and Arabic in the main entry, the rest in `quran-meta/i18n`, bundled one language at a time.
 - **Typed to the range**: `Surah` is `1 | 2 | ... | 114`, `Juz` is `1 ... 30`, with type guards and assertion functions.
 - **Zero dependencies**, ESM, works in browsers, Node, Deno and Bun.
 
@@ -46,6 +46,12 @@ In the browser without a bundler:
 <script src="https://cdn.jsdelivr.net/npm/quran-meta"></script>
 <script>
   console.log(quranMeta.meta.numAyahs) // 6236
+</script>
+
+<!-- Optional: surah names in every language, exposes window.quranMetaI18n -->
+<script src="https://cdn.jsdelivr.net/npm/quran-meta/dist/quran-meta-i18n.iife.js"></script>
+<script>
+  console.log(quranMetaI18n.getSurahName(2, quranMetaI18n.surahNamesFr)) // ["Al Baqarah", "La vache"]
 </script>
 ```
 
@@ -148,22 +154,30 @@ surahStringParser("36") // 36
 
 ### Surah names
 
+The main entry has English and Arabic. The other languages are in `quran-meta/i18n`, one table per language, and your bundle gets only the tables you import:
+
 ```ts
-import { getSurahName, getSurahNames, languages } from "quran-meta/i18n"
+import { getSurahName, surahNamesAr } from "quran-meta"
+import { surahNamesFr } from "quran-meta/i18n"
 
 getSurahName(2) // ["Al-Baqara", "The Cow"]
-getSurahName(2, "ar") // ["البَقَرَة", "البقرة"], with and without tashkeel
-getSurahNames("fr")[1] // ["Al Fâtiha", "L'ouverture"]
-languages // ["en", "ar", "az", "ru", "tr", "uz", "kk", "fr", "lt", "tg", "ky", "bs"]
+getSurahName(2, surahNamesAr) // ["البَقَرَة", "البقرة"], with and without tashkeel
+getSurahName(1, surahNamesFr) // ["Al Fâtiha", "L'ouverture"]
 ```
 
-To ship only the language you need, load it on demand. Each language is its own chunk:
+Each entry is `[transliteration, translation]`. Arabic holds the name with and without tashkeel instead, and Malayalam the Latin transliteration and the name in Malayalam script.
+
+To pick the language at runtime, load it on demand. Each language is its own chunk, and only the one you ask for is downloaded:
 
 ```ts
-import { getSurahNamesAsync } from "quran-meta/i18n/async"
+import { getSurahName } from "quran-meta"
+import { getSurahNamesAsync, languages } from "quran-meta/i18n/async"
 
-const names = await getSurahNamesAsync("ru")
+languages // ["en", "ar", "az", "ru", "tr", "uz", "kk", "fr", "lt", "tg", "ky", "bs", "bn", "es", "id", "it", "ml", "ms", "nl", "sv", "ur", "zh"]
+getSurahName(2, await getSurahNamesAsync("ru")) // ["Аль-Бакара", "Корова"]
 ```
+
+`getSurahNames(lang)` and `surahNames` from `quran-meta/i18n` also take the language at runtime, but they bundle all 22.
 
 ### Validation and types
 
@@ -212,6 +226,7 @@ The full reference is at **[quran-center.github.io/quran-meta/docs](https://qura
 - `QuranRiwaya` thumun al-hizb methods exist only on Qalun instances at the type level and no longer claim to return `null`.
 - `ayahStringSplitter` now checks both ends of a range against the surah (`"2:280-290"` used to pass).
 - `languages` includes `"ar"`, so code that builds a `SurahNamesI18n` object needs an Arabic entry.
+- Surah names other than English and Arabic, `surahNames`, `getSurahNames`, `languages` and the `Lang` and `SurahNamesI18n` types moved from `quran-meta` to `quran-meta/i18n` (`languages` is also in `quran-meta/i18n/async`), so the main entry no longer carries every language. For a classic `<script>`, they are in `dist/quran-meta-i18n.iife.js`, which exposes `window.quranMetaI18n`.
 
 ## Terminology
 
@@ -245,6 +260,8 @@ The full reference is at **[quran-center.github.io/quran-meta/docs](https://qura
 
 KFQC publishes no data for Bazzi and Qunbul, so their lists are checked against each other (both are from Ibn Kathir and must match). Known differences with the KFQC data (a few juz boundaries in Douri and Sousi, some page breaks) are listed in the check scripts under `examples/data-check/`.
 
+Surah names in Bengali, Chinese, Dutch, Indonesian, Italian, Malay, Malayalam, Spanish, Swedish and Urdu come from the [Quran.com API](https://api.quran.com/api/v4/chapters?language=it) and are generated by `examples/data-check/generate-surah-names.ts`, which also compares them with the API when run with `--check`. Quran.com has no transliterations in these languages, so their first element is the Latin transliteration.
+
 ## Development
 
 ```sh
@@ -267,6 +284,7 @@ Riwaya entry points (`src/hafs.ts`, ...) are generated by `scripts/generate-entr
 ## Demos
 
 - [Live demo](https://quran-center.github.io/quran-meta/): look up any ayah in any riwaya and see it converted to the others.
+- [Surah table](https://quran-center.github.io/quran-meta/surahs.html): all 114 surahs with their metadata in any riwaya, with surah names in any of the supported languages.
 - [Quran Meta Visualiser ESM Alpine 3](https://codesandbox.io/p/sandbox/quran-visualiser-esm-alpine-3-q89frt): interactive charts of the Quran's structure with Alpine.js 3 and Chart.js 4.
 - [Quran Meta Visualiser ES module version](https://codesandbox.io/s/quran-visualiser-es-module-f0sq0): the Alpine.js 2 and Chart.js 2 version.
 
@@ -275,7 +293,7 @@ Riwaya entry points (`src/hafs.ts`, ...) are generated by `scripts/generate-entr
 ## References
 
 - [Tanzil.net](https://tanzil.net)
-- [Quran.com JS API](https://github.com/quran/api-js), [Quran.com API](https://api-docs.quran.com/)
+- [Quran.com JS API](https://github.com/quran/api-js), [Quran.com API](https://api-docs.quran.com/): source of the surah names in Bengali, Chinese, Dutch, Indonesian, Italian, Malay, Malayalam, Spanish, Swedish and Urdu
 - [AlQuran Cloud](https://alquran.cloud/api)
 - [KFQC data](https://qurancomplex.gov.sa/en/techquran/dev/)
 - [Quranpedia](https://quranpedia.net)

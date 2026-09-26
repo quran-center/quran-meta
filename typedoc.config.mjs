@@ -5,7 +5,7 @@ const pkg = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), 
 /** @type {import("typedoc").TypeDocOptions} */
 export default {
   name: "quran-meta",
-  entryPoints: ["./src/index.ts", "./src/i18n/async.ts"],
+  entryPoints: ["./src/index.ts", "./src/i18n/index.ts", "./src/i18n/async.ts"],
   out: "_site/docs",
   plugin: ["typedoc-github-theme"],
   readme: "./README.md",

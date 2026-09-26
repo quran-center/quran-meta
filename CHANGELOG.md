@@ -18,6 +18,7 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 - `QuranRiwaya` thumun al-hizb methods exist only on Qalun instances at the type level and no longer include `null` in their return types.
 - `ayahStringSplitter` checks both ends of a range against the surah: `"2:280-290"` now throws a `RangeError`. The range end used to be validated as a global ayah id.
 - `languages` includes `"ar"`, so code that builds a `SurahNamesI18n` object needs an Arabic entry.
+- The root entry exports only the English and Arabic surah names (`surahNamesEn`, `surahNamesAr`) and `getSurahName`. The other languages, `surahNames`, `getSurahNames`, `languages` and the `Lang` and `SurahNamesI18n` types moved to `quran-meta/i18n`. For a classic `<script>`, they are in the new `dist/quran-meta-i18n.iife.js`, which exposes `window.quranMetaI18n`.
 
 ### 🚀 Enhancements
 
@@ -26,8 +27,9 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 - `formatSurahAyah` and `formatAyahId`, the inverse of `ayahStringSplitter`.
 - `customizeRiwaya` replaces lists of a built-in riwaya (for example a different page layout) and recalculates `meta`. `validateRiwayaData` checks a riwaya's lists.
 - `nextAyah` and `prevAyah` accept `{ wrap: false }` to return `undefined` at the start and end of the Quran instead of wrapping around.
-- Arabic surah names (`"ar"`, `surahNamesAr`) and `getSurahName(surah, lang)`, which falls back to English.
-- New `quran-meta/i18n/async` entry with `getSurahNamesAsync`, which loads each language as its own chunk. It was not exported in v6.
+- Surah names in 22 languages. New are Arabic (`surahNamesAr`) and, from the Quran.com API, Bengali, Chinese, Dutch, Indonesian, Italian, Malay, Malayalam, Spanish, Swedish and Urdu. `examples/data-check/generate-surah-names.ts` generates the Quran.com languages and, with `--check`, compares them with the API.
+- `getSurahName(surah, names)` returns one surah's name from a names table (`surahNamesEn` by default) and falls back to English. Only the tables you import are bundled.
+- New `quran-meta/i18n/async` entry with `getSurahNamesAsync`, which loads each language as its own chunk, and `languages`. It was not exported in v6.
 - Every riwaya entry exports a ready-made `quran` instance and its Lists object (`HafsLists`, `WarshLists`, ...). The Qalun entry also exports `HizbEighthList`.
 - The root entry also exports `getSurahInfo`, `checkValidSurahAyahPair` and the thumun al-hizb functions (`findThumunAlHizb`, `getThumunAlHizbMeta`, ...).
 - `QuranRiwaya` gains ayah iterators, `formatAyahId` and the validators it was missing.
@@ -37,6 +39,7 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 
 - All entries come from one multi-entry build with shared chunks, so importing two riwayas no longer bundles the API twice.
 - Riwayas from the same qari share identical lists: Qunbul reuses Bazzi's, Sousi reuses Douri's, Shuba reuses Hafs's (all but `PageList`) and Qalun reuses Warsh's `SurahList`, `ManzilList` and `PageList`.
+- The main entry and the IIFE carry only the English and Arabic surah names, so the IIFE is 25 kB gzip. The other languages are bundled only when you import them.
 
 ### 🩹 Fixes
 
@@ -44,11 +47,13 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 - `findPage` typed `ayah` as `AyahId` instead of `AyahNo`.
 - Stale docs: `quran` export examples, the `'quran-meta/Qalun'` import path, the class description and thumun al-hizb doc comments.
 - data-check: JSON imports with the wrong case (Shuba, Warsh) failed on Linux. Added Bazzi/Qunbul sibling checks.
+- Trailing spaces in 99 Azerbaijani surah name translations and one Turkish one (`"Kadr "`).
 
 ### 📚 Documentation
 
 - Rewrote the README: quick start, a guide per feature, supported riwayas table and upgrade notes.
 - TypeDoc output is grouped by category and built, with a demo landing page, for GitHub Pages. The generated `docs/` folder is no longer committed.
+- A surah table page on the site, linked from the landing page, the README and the API reference ([28d988e](https://github.com/quran-center/quran-meta/commit/28d988e)).
 
 ### 🏡 Chore
 

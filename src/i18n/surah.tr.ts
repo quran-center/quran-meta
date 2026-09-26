@@ -98,7 +98,7 @@ export const surahNamesTr: SurahNames = [
   ["İnşirah", "Açılmak"],
   ["Tin", "İncir"],
   ["Alak", "Kan pıhtısı"],
-  ["Kadir", "Kadr "],
+  ["Kadir", "Kadr"],
   ["Beyyine", "Apaçık delil"],
   ["Zilzal", "Deprem"],
   ["Adiyat", "Hızlı koşan atlar"],

@@ -30,5 +30,17 @@ export default defineConfig([
     clean: false,
     name: "iife",
     outputOptions: { name: "quranMeta" }
+  },
+  {
+    // Surah names in every language for a plain <script> tag, exposes `window.quranMetaI18n`
+    entry: { "quran-meta-i18n": "src/i18n/index.ts" },
+    format: "iife",
+    platform: "browser",
+    target: "es2022",
+    minify: true,
+    dts: false,
+    clean: false,
+    name: "iife-i18n",
+    outputOptions: { name: "quranMetaI18n" }
   }
 ])

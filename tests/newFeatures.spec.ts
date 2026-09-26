@@ -9,11 +9,12 @@ import {
   formatSurahAyah,
   getPartRange,
   getSurahName,
-  getSurahNames,
-  languages,
   QuranRiwaya,
+  surahNamesAr,
   validateRiwayaData
 } from "../src"
+import * as root from "../src"
+import { getSurahNames, languages, surahNamesFr } from "../src/i18n"
 import { getSurahNamesAsync } from "../src/i18n/async"
 import * as hafs from "../src/hafs"
 import * as qalun from "../src/qalun"
@@ -123,15 +124,28 @@ describe(customizeRiwaya, () => {
 describe("surah names", () => {
   it("has Arabic names", () => {
     expect(languages).toContain("ar")
-    expect(getSurahName(2, "ar")).toEqual(["البَقَرَة", "البقرة"])
+    expect(getSurahName(2, surahNamesAr)).toEqual(["البَقَرَة", "البقرة"])
     // Arabic names come from the SurahList, the second form drops the tashkeel
     expect(getSurahNames("ar")[114]).toEqual([HafsLists.SurahList[114][4], "الناس"])
   })
 
   it("returns one name with English as the default", () => {
     expect(getSurahName(2)).toEqual(["Al-Baqara", "The Cow"])
+    expect(getSurahName(2, surahNamesFr)).toEqual(["Al Baqarah", "La vache"])
     // @ts-expect-error out-of-range value on purpose
     expect(() => getSurahName(115)).toThrow(RangeError)
+  })
+
+  it("falls back to English for a table without the surah", () => {
+    const partial = [...surahNamesFr] as typeof surahNamesFr
+    partial[2] = []
+    expect(getSurahName(2, partial)).toEqual(["Al-Baqara", "The Cow"])
+  })
+
+  it("exports only English and Arabic names from the main entry", () => {
+    expect(Object.keys(root).filter((key) => key.startsWith("surahNames"))).toEqual(["surahNamesAr", "surahNamesEn"])
+    expect(root).not.toHaveProperty("getSurahNames")
+    expect(root).not.toHaveProperty("languages")
   })
 
   it("has a complete list for every language", () => {

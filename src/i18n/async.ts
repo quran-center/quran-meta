@@ -1,10 +1,12 @@
 /**
  * Lazy-loading entry for Surah names: `import { getSurahNamesAsync } from "quran-meta/i18n/async"`.
+ * Also exports `languages`, so a language picker does not need the full `quran-meta/i18n`.
  *
  * @module
  */
 import type { Lang, SurahNames } from "./types"
 
+export { languages } from "./types"
 export type { Lang, SurahNames } from "./types"
 
 /**
@@ -56,6 +58,36 @@ export async function getSurahNamesAsync(lang: Lang): Promise<SurahNames> {
     }
     case "bs": {
       return (await import("./surah.bs")).surahNamesBs
+    }
+    case "bn": {
+      return (await import("./surah.bn")).surahNamesBn
+    }
+    case "es": {
+      return (await import("./surah.es")).surahNamesEs
+    }
+    case "id": {
+      return (await import("./surah.id")).surahNamesId
+    }
+    case "it": {
+      return (await import("./surah.it")).surahNamesIt
+    }
+    case "ml": {
+      return (await import("./surah.ml")).surahNamesMl
+    }
+    case "ms": {
+      return (await import("./surah.ms")).surahNamesMs
+    }
+    case "nl": {
+      return (await import("./surah.nl")).surahNamesNl
+    }
+    case "sv": {
+      return (await import("./surah.sv")).surahNamesSv
+    }
+    case "ur": {
+      return (await import("./surah.ur")).surahNamesUr
+    }
+    case "zh": {
+      return (await import("./surah.zh")).surahNamesZh
     }
     case "en":
     default: {

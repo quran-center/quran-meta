@@ -213,6 +213,10 @@ export {
   checkValidSurahAyahPair
 } from "./validation"
 
-// ==================== Surah names (i18n) ====================
+// ==================== Surah names ====================
+// English and Arabic only, the other languages are in quran-meta/i18n
 
-export * from "./i18n"
+export { getSurahName } from "./i18n/getSurahName"
+export { surahNamesAr } from "./i18n/surah.ar"
+export { surahNamesEn } from "./i18n/surah.en"
+export type { SurahNames } from "./i18n/types"
