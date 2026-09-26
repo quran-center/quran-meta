@@ -10,14 +10,14 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 
 ### ⚠️ Breaking Changes
 
-- The package is ESM-only and ships `dist/` only: `lib_cjs/`, `lib_es/`, `src/` and `types/` are no longer published and the `require` export condition is gone. On Node 22.12+ `require("quran-meta")` still works through Node's `require(esm)`.
+- The package is ESM-only and ships `dist/` only: `lib_cjs/`, `lib_es/`, `src/` and `types/` are no longer published and the `require` export condition is gone. On Node 22.12+ `require("quran-meta")` still works through Node's `require(esm)`. For CommonJS on older Node versions, stay on [`6.1.1-5`](https://www.npmjs.com/package/quran-meta/v/6.1.1-5), the only v6 release with a CommonJS build (main entry only).
 - Node 22 or newer is required (was 20).
 - The IIFE bundle is now `dist/quran-meta.iife.js` (minified, exposes `window.quranMeta`) and is what unpkg and jsDelivr serve. The separate per-entry minified builds are gone.
 - In the root functional API, `ayah` is now a required argument of `findJuz`, `findJuzMetaBySurah`, `findManzil`, `findPage`, `findRubAlHizb` and `findThumunAlHizb`. It used to default to 1 before the `lists` argument. Riwaya entry points and `QuranRiwaya` keep the default.
 - `quran-meta/qalun` exports `QalunLists` instead of `riwayaLists`, like every other entry now does. It no longer exports `getThumunAlHizb`, which is still exported from the root entry.
 - `QuranRiwaya` thumun al-hizb methods exist only on Qalun instances at the type level and no longer include `null` in their return types.
 - `ayahStringSplitter` checks both ends of a range against the surah: `"2:280-290"` now throws a `RangeError`. The range end used to be validated as a global ayah id.
-- `languages` includes `"ar"`, so code that builds a `SurahNamesI18n` object needs an Arabic entry.
+- `languages` (and the `Lang` type) gained Arabic and ten more languages, so code that builds a `SurahNamesI18n` object needs entries for them.
 - The root entry exports only the English and Arabic surah names (`surahNamesEn`, `surahNamesAr`) and `getSurahName`. The other languages, `surahNames`, `getSurahNames`, `languages` and the `Lang` and `SurahNamesI18n` types moved to `quran-meta/i18n`. For a classic `<script>`, they are in the new `dist/quran-meta-i18n.iife.js`, which exposes `window.quranMetaI18n`.
 
 ### 🚀 Enhancements
