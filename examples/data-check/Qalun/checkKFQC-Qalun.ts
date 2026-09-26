@@ -5,6 +5,7 @@
 
 import { createQalun, meta } from "../../../src/qalun"
 import type { AyahId } from "../../../src/types"
+import { sameSurahName } from "../checkKFQC"
 
 import QalunData from "../data/QalounData_v2-1.json"
 
@@ -47,7 +48,7 @@ export function checkKFQCQalun() {
       console.warn(`Error: sajdah of Ayah ${ayahId} are not matching: `, ayahMeta, qalMeta)
     }
     // If (ayahMeta.isStartOfQuarter !== qalMeta.aya_text.includes("۞")) console.warn(`Error: Juz of Ayah ${ayahId} are not matching: `, ayahMeta, qalMeta)
-    if (ayahMeta.ayah === 1 && qalMeta.sura_name_ar.trim() !== quran.getSurahMeta(ayahMeta.surah).name.trim()) {
+    if (ayahMeta.ayah === 1 && !sameSurahName(qalMeta.sura_name_ar, quran.getSurahMeta(ayahMeta.surah).name)) {
       console.warn(
         `Error: name of Surah of Ayah ${ayahId} are not matching: `,
         quran.getSurahMeta(ayahMeta.surah).name,

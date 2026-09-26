@@ -49,6 +49,7 @@ Developed in [#52](https://github.com/quran-center/quran-meta/pull/52) ([777a9df
 - Stale docs: `quran` export examples, the `'quran-meta/Qalun'` import path, the class description and thumun al-hizb doc comments.
 - data-check: JSON imports with the wrong case (Shuba, Warsh) failed on Linux. Added Bazzi/Qunbul sibling checks.
 - Trailing spaces in 99 Azerbaijani surah name translations and one Turkish one (`"Kadr "`).
+- Surah 42's Arabic name was spelled "الشُّوري" in every riwaya's `SurahList` and in `surahNamesAr`. It is now "الشُّورى", as in the mushaf, the newer KFQC data and quranpedia. The data checks accept the old spelling that the KFQC v2 dumps still use.
 - `findJuzMetaBySurah` documented `rightAyahId` as the last ayah of `rightJuz`. It is the first ayah after it, and every `SurahJuzMeta` field is now documented.
 
 ### 📚 Documentation

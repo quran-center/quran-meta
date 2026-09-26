@@ -5,6 +5,7 @@
 
 import { createWarsh } from "../../../src/warsh"
 import type { AyahId } from "../../../src/types"
+import { sameSurahName } from "../checkKFQC"
 import WarshData from "../data/warshData_v2-1.json"
 
 const quran = createWarsh()
@@ -50,7 +51,7 @@ export function checkKFQCWarsh() {
     // if (ayahId !== 1 && warshMeta.aya_text.includes("۞") && !isStartOfMaqra) {
     //   console.warn(`Error: Maqra of Ayah ${ayahId} are not matching: `, ayahMeta, warshMeta)
     // }
-    if (ayahMeta.ayah === 1 && warshMeta.sura_name_ar.trim() !== quran.getSurahMeta(ayahMeta.surah).name.trim()) {
+    if (ayahMeta.ayah === 1 && !sameSurahName(warshMeta.sura_name_ar, quran.getSurahMeta(ayahMeta.surah).name)) {
       console.warn(
         `Error: name of Surah of Ayah ${ayahId} are not matching: `,
         quran.getSurahMeta(ayahMeta.surah).name,

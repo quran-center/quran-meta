@@ -1,5 +1,6 @@
 import { createHafs, meta } from "../../../src/hafs"
 import type { AyahId } from "../../../src/types"
+import { sameSurahName } from "../checkKFQC"
 
 import hafsSmartData from "./../data/hafs_smart_v8.json"
 
@@ -36,7 +37,7 @@ export function checkKFQCSmart() {
     if (ayahMeta.ayah !== hfMeta.aya_no) {
       console.warn("Error: ayah of Ayah are not matching: ", ayahMeta, hfMeta)
     }
-    if (ayahMeta.ayah === 1 && hfMeta.sura_name_ar !== quran.getSurahMeta(ayahMeta.surah).name) {
+    if (ayahMeta.ayah === 1 && !sameSurahName(hfMeta.sura_name_ar, quran.getSurahMeta(ayahMeta.surah).name)) {
       console.warn("Error: name of Surah are not matching: ", quran.getSurahMeta(ayahMeta.surah).name, hfMeta)
     }
   }

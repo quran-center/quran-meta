@@ -13,6 +13,18 @@ import type { QuranRiwaya } from "../../src/QuranRiwaya"
 import type { RiwayaName } from "../../src/lists/types"
 import type { AyahId } from "../../src/types"
 
+/**
+ * Compares surah names ignoring surrounding spaces and the final ى / ي spelling: the KFQC v2
+ * dumps write "الشُّوري" where the newer KFQC data and the mushaf have "الشُّورى".
+ */
+export function sameSurahName(a: string, b: string): boolean {
+  return normaliseSurahName(a) === normaliseSurahName(b)
+}
+
+function normaliseSurahName(name: string): string {
+  return name.trim().replaceAll("ى", "ي")
+}
+
 export interface KFQCAyah {
   aya_no: number
   aya_text: string
@@ -73,7 +85,7 @@ export function checkKFQCData(riwaya: RiwayaName, quran: QuranRiwaya<RiwayaName>
     }
     if (ayahMeta.ayah === 1) {
       const name = quran.getSurahMeta(ayahMeta.surah).name.trim()
-      if (kfqc.sura_name_ar.trim() !== name) {
+      if (!sameSurahName(kfqc.sura_name_ar, name)) {
         report(
           "surahName",
           `name of Surah ${ayahMeta.surah} is not matching: "${name}" vs "${kfqc.sura_name_ar.trim()}"`
